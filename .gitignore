@@ -1,0 +1,24 @@
+# Ignore project files that should not be in version control
+drush/sites/
+node_modules
+public/core
+public/libraries
+public/modules/contrib
+public/themes/contrib
+public/sites/default/files
+vendor
+
+# Ignore the folder created by PhpStorm
+.idea/*
+
+# Ignore themes with own git repositories
+public/themes/custom/hdbt*
+# Ignore modules with own repositories
+public/modules/custom/helfi_*
+
+# Ignore OSX generated files
+._*
+.DS_Store
+
+!*.gitkeep
+!*.keepme

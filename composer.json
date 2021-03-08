@@ -1,0 +1,98 @@
+{
+    "name": "city-of-helsinki/drupal-helfi-platform",
+    "description": "Drupal 9 started project",
+    "type": "project",
+    "license": "MIT",
+    "homepage": "https://github.com/City-of-Helsinki/drupal-helfi-platform",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.6.7",
+        "druidfi/omen": "^0.2.0",
+        "drupal/core-composer-scaffold": "^9.1",
+        "drupal/core-recommended": "^9.1",
+        "drupal/hdbt": "^1.0",
+        "drupal/hdbt_admin": "^1.0",
+        "drupal/helfi_ahjo": "^1.0",
+        "drupal/helfi_hauki": "^1.0",
+        "drupal/helfi_platform_config": "^1.1",
+        "drupal/helfi_tpr": "^1.0",
+        "drupal/helfi_tunnistamo": "^1.0",
+        "drush/drush": "^10.4"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "drupal/coder": "^8.3",
+        "drupal/core-dev": "^9.1",
+        "phpspec/prophecy-phpunit": "^2",
+        "phpunit/phpunit": "~9.4.0"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+                "web-root": "./public"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": false
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "public/core": [
+                "type:drupal-core"
+            ],
+            "public/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "public/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "public/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "public/profiles/{$name}": [
+                "type:drupal-profile"
+            ],
+            "public/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "public/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "drush/{$name}": [
+                "type:drupal-drush"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repository.drupal.hel.ninja"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "scripts": {
+        "copy-commit-message-script": "make copy-commit-message-script",
+        "post-install-cmd": [
+            "@copy-commit-message-script"
+        ],
+        "post-update-cmd": [
+            "@copy-commit-message-script"
+        ]
+    }
+}
