@@ -1,0 +1,70 @@
+uuid: b45caebe-6ebc-419a-bbb3-65004e3ace3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.page
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: HeIFaD6AhJzNT9WOX0T8FIbGJL4YwN7ywxtHqAwqLeI
+id: node.page.field_content
+field_name: field_content
+entity_type: node
+bundle: page
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      text: text
+      image: image
+      list_of_links: list_of_links
+      columns: columns
+      gallery: gallery
+      accordion: accordion
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: 1
+      columns:
+        enabled: true
+        weight: 2
+      accordion:
+        enabled: true
+        weight: 3
+      image:
+        enabled: true
+        weight: 4
+      gallery:
+        enabled: true
+        weight: 5
+      list_of_links:
+        enabled: true
+        weight: 6
+      accordion_item:
+        weight: 7
+        enabled: false
+      gallery_slide:
+        weight: 8
+        enabled: false
+      hero:
+        weight: 9
+        enabled: false
+      list_of_links_item:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

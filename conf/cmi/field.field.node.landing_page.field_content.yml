@@ -1,0 +1,72 @@
+uuid: 733d3820-e909-4c3f-955c-76ba34cdd5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.liftup_with_image
+    - paragraphs.paragraphs_type.list_of_links
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: H32rXF-A321VXfd5ARhUqaolvPgV9QrRDFrybS8by2s
+id: node.landing_page.field_content
+field_name: field_content
+entity_type: node
+bundle: landing_page
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      columns: columns
+      banner: banner
+      list_of_links: list_of_links
+      liftup_with_image: liftup_with_image
+    target_bundles_drag_drop:
+      accordion:
+        weight: -21
+        enabled: false
+      accordion_item:
+        weight: -20
+        enabled: false
+      banner:
+        enabled: true
+        weight: -24
+      columns:
+        enabled: true
+        weight: -25
+      gallery:
+        weight: -19
+        enabled: false
+      gallery_slide:
+        weight: -18
+        enabled: false
+      hero:
+        weight: -17
+        enabled: false
+      image:
+        weight: -16
+        enabled: false
+      liftup_with_image:
+        enabled: true
+        weight: -22
+      list_of_links:
+        enabled: true
+        weight: -23
+      list_of_links_item:
+        weight: -15
+        enabled: false
+      text:
+        weight: -14
+        enabled: false
+field_type: entity_reference_revisions

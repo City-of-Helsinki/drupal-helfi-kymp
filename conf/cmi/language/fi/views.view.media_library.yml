@@ -1,0 +1,31 @@
+display:
+  default:
+    display_title: Isäntä
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      filters:
+        status:
+          group_info:
+            label: Julkaistu
+            group_items:
+              1:
+                title: Julkaistu
+              2:
+                title: Julkaisematon
+        langcode:
+          expose:
+            label: Kieli
+  page:
+    display_title: Sivu
+  widget_table:
+    display_options:
+      fields:
+        uid:
+          label: Kirjoittaja
+        changed:
+          label: Päivitetty

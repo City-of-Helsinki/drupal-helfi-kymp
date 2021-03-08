@@ -1,0 +1,21 @@
+uuid: 1dfa0769-c779-44c9-86e4-3fff97790ae7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_of_links_title
+    - paragraphs.paragraphs_type.list_of_links
+_core:
+  default_config_hash: tszkhY6WwdFFVIZwtCaaEA7_5r-8eeVZLVKOXHFtlP8
+id: paragraph.list_of_links.field_list_of_links_title
+field_name: field_list_of_links_title
+entity_type: paragraph
+bundle: list_of_links
+label: Title
+description: 'The title of the list of links paragraph.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

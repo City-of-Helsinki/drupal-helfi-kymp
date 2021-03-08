@@ -1,0 +1,26 @@
+uuid: aee2f9a2-6d6d-4166-ace9-2fb523659f45
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+    - image_style_quality
+_core:
+  default_config_hash: PGrmSZ3QDUGt6Dn67D0E5Adhpft2apDLzwzFtIXKCDQ
+name: 1_1_xs_2x
+label: '1:1 XS (2x)'
+effects:
+  e7da735e-aa35-463b-b99a-b61aba89a53f:
+    uuid: e7da735e-aa35-463b-b99a-b61aba89a53f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 1200
+      crop_type: focal_point
+  a9ed654a-a81b-4bfb-8f0e-0ca3188de581:
+    uuid: a9ed654a-a81b-4bfb-8f0e-0ca3188de581
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 65

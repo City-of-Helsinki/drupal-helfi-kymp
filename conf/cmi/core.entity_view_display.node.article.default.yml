@@ -1,0 +1,61 @@
+uuid: 490a130f-c7df-4eaf-a2aa-4d07e2bb96ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_author
+    - field.field.node.article.field_content
+    - field.field.node.article.field_keywords
+    - field.field.node.article.field_lead
+    - field.field.node.article.field_liftup_image
+    - node.type.article
+  module:
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: FYYyQKnbt3iwuxMA9vDrA5docsN-l9cy_g0J0RfBzq8
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  field_author:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_content:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_keywords:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_lead:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_liftup_image: true
+  langcode: true

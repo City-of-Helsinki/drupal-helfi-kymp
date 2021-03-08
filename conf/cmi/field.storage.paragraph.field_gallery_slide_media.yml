@@ -1,0 +1,22 @@
+uuid: aa4701fd-5b25-4107-9278-6b348bb8518c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+_core:
+  default_config_hash: L4UjS1L5rrRoKjjyQju60zNUbsA_qmBys_KBmsLMx2Q
+id: paragraph.field_gallery_slide_media
+field_name: field_gallery_slide_media
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

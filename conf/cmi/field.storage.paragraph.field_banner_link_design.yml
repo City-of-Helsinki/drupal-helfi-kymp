@@ -1,0 +1,32 @@
+uuid: 1e7e8bd8-d1b5-4d7a-9096-84ac4c3a4f41
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: q1_tqbjfT_9Ho0AM1EetOwb9c9SBZ-I5PNA12VzVNLQ
+id: paragraph.field_banner_link_design
+field_name: field_banner_link_design
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: primary
+      label: 'Full colour background'
+    -
+      value: secondary
+      label: 'Only borders'
+    -
+      value: supplementary
+      label: 'No borders or background colour'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 2e04cfa7-31a9-43e6-93db-be31c9463c8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_desc
+    - paragraphs.paragraphs_type.hero
+  module:
+    - text
+_core:
+  default_config_hash: GnZymgGfpVTqsKATa5zkIXdscsZxW3ZkKMGmL9mDy8g
+id: paragraph.hero.field_hero_desc
+field_name: field_hero_desc
+entity_type: paragraph
+bundle: hero
+label: Description
+description: 'Optional short description for hero block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

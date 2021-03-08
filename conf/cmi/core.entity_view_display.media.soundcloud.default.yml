@@ -1,0 +1,28 @@
+uuid: f32be271-2b86-41cc-af49-3c02ee5fb663
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.soundcloud.field_media_soundcloud
+    - media.type.soundcloud
+_core:
+  default_config_hash: XuZ6xIU9vR6JJsFf09GODwOHrBpAiWYR04dWrEIKNgo
+id: media.soundcloud.default
+targetEntityType: media
+bundle: soundcloud
+mode: default
+content:
+  field_media_soundcloud:
+    label: visually_hidden
+    weight: 0
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

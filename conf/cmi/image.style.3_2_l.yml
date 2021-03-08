@@ -1,0 +1,19 @@
+uuid: 420a05a0-59f4-49d9-baec-3f380328baf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: 565XQpD_8V3zXFBvecE-xoEl3b26xAQ9kWKuT-ZPEb8
+name: 3_2_l
+label: '3:2 L'
+effects:
+  e7da735e-aa35-463b-b99a-b61aba89a53f:
+    uuid: e7da735e-aa35-463b-b99a-b61aba89a53f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 960
+      crop_type: focal_point

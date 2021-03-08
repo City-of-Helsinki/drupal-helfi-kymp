@@ -1,0 +1,31 @@
+display:
+  default:
+    display_title: Huvud
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      filters:
+        status:
+          group_info:
+            label: Publicerad
+            group_items:
+              1:
+                title: Publicerad
+              2:
+                title: 'Ej publicerad'
+        langcode:
+          expose:
+            label: Språk
+  page:
+    display_title: Sida
+  widget_table:
+    display_options:
+      fields:
+        uid:
+          label: Författare
+        changed:
+          label: Uppdaterad

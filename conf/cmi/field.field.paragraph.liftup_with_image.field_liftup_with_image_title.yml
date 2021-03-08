@@ -1,0 +1,21 @@
+uuid: ec7c519b-6199-4994-9e3d-9831d945e78e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_liftup_with_image_title
+    - paragraphs.paragraphs_type.liftup_with_image
+_core:
+  default_config_hash: NwIthkssx_uV5eGOixZY6PtgBrA-R_IYFHMEZonMruo
+id: paragraph.liftup_with_image.field_liftup_with_image_title
+field_name: field_liftup_with_image_title
+entity_type: paragraph
+bundle: liftup_with_image
+label: Title
+description: 'Title for the liftup with image block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

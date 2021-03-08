@@ -1,0 +1,68 @@
+uuid: b7f68439-7465-47f7-9f0b-3d02d6614b41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.article
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: LrCcuvIk2b0trNGwW--keQYplv9vZmVa92pTujd4cbE
+id: node.article.field_content
+field_name: field_content
+entity_type: node
+bundle: article
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      text: text
+      image: image
+      columns: columns
+      list_of_links: list_of_links
+      gallery: gallery
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: 1
+      columns:
+        enabled: true
+        weight: 2
+      image:
+        enabled: true
+        weight: 3
+      gallery:
+        enabled: true
+        weight: 4
+      list_of_links:
+        enabled: true
+        weight: 5
+      accordion:
+        weight: 6
+        enabled: false
+      accordion_item:
+        weight: 7
+        enabled: false
+      gallery_slide:
+        weight: 8
+        enabled: false
+      hero:
+        weight: 9
+        enabled: false
+      list_of_links_item:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

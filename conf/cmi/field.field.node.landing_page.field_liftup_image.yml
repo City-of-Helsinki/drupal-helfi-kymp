@@ -1,0 +1,31 @@
+uuid: 9542bdf1-1f64-4c82-865f-4ed5cfae22a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liftup_image
+    - media.type.image
+    - node.type.landing_page
+_core:
+  default_config_hash: 7gvDr4xCmU5LNyQi_3iBorr2RsmHyXI-r1eo1rAs-Gw
+id: node.landing_page.field_liftup_image
+field_name: field_liftup_image
+entity_type: node
+bundle: landing_page
+label: 'Liftup image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,31 @@
+uuid: 69984c60-fb9a-42e0-8742-525c20a38223
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_image
+    - media.type.image
+    - paragraphs.paragraphs_type.hero
+_core:
+  default_config_hash: hVWSYVdDGg5GQZWTFcTMKcVW3RkcckDBZ260kRey44w
+id: paragraph.hero.field_hero_image
+field_name: field_hero_image
+entity_type: paragraph
+bundle: hero
+label: Image
+description: 'Image to be used as an illustration or as a background of the hero depending on what design you chose.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

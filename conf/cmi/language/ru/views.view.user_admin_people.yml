@@ -1,0 +1,29 @@
+display:
+  default:
+    display_title: Основной
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Фильтр
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      pager:
+        options:
+          tags:
+            previous: '‹ Предыдущий'
+            next: 'Следующий ›'
+            first: '« Первая'
+            last: 'Последняя »'
+      fields:
+        status:
+          label: Статус
+        operations:
+          label: Операции
+      filters:
+        status:
+          group_info:
+            label: Статус
+  page_1:
+    display_title: Страница

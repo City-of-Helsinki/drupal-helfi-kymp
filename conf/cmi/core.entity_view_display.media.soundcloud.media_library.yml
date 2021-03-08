@@ -1,0 +1,33 @@
+uuid: 1e645d66-a3a8-4809-be63-26cda433ce2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.soundcloud.field_media_soundcloud
+    - image.style.medium
+    - media.type.soundcloud
+  module:
+    - image
+_core:
+  default_config_hash: Jjj_ulBE97zsWBWZTn1yNz6Hs1o5i5VD9Z1eCns09SE
+id: media.soundcloud.media_library
+targetEntityType: media
+bundle: soundcloud
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_soundcloud: true
+  langcode: true
+  name: true
+  uid: true

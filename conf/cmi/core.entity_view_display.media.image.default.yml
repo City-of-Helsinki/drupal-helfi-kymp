@@ -1,0 +1,34 @@
+uuid: 946030fc-1ac8-4735-9225-e037f6cc679f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_photographer
+    - image.style.large
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: in_XCvnpxCs_Bfi1xBUEGLq1TwGghNZOnnJsyyeWqQE
+id: media.image.default
+targetEntityType: media
+bundle: image
+mode: default
+content:
+  field_media_image:
+    label: hidden
+    weight: 0
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_photographer: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

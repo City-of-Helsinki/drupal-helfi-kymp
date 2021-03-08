@@ -1,0 +1,74 @@
+uuid: 3cf9d2d8-9fa0-4194-af69-2fc478b75f85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.columns.field_columns_design
+    - field.field.paragraph.columns.field_columns_left_column
+    - field.field.paragraph.columns.field_columns_right_column
+    - field.field.paragraph.columns.field_columns_title
+    - paragraphs.paragraphs_type.columns
+  module:
+    - paragraphs
+_core:
+  default_config_hash: epEWSZ1PtLCc7zcGls3RWqhFaaCFGlehVQb8QLysEX0
+id: paragraph.columns.default
+targetEntityType: paragraph
+bundle: columns
+mode: default
+content:
+  field_columns_design:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_columns_left_column:
+    type: paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+    region: content
+  field_columns_right_column:
+    type: paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+    region: content
+  field_columns_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

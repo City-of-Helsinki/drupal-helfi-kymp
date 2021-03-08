@@ -1,0 +1,65 @@
+uuid: 1601e275-b40d-497b-80e3-e8273bfe8e90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_item_content
+    - paragraphs.paragraphs_type.accordion_item
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: bwS_FVJJmaXanJseLF9iTjvfYYHXzCvGHAaw4IQNEtc
+id: paragraph.accordion_item.field_accordion_item_content
+field_name: field_accordion_item_content
+entity_type: paragraph
+bundle: accordion_item
+label: Content
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      columns: columns
+      text: text
+    target_bundles_drag_drop:
+      accordion:
+        weight: 12
+        enabled: false
+      accordion_item:
+        weight: 13
+        enabled: false
+      columns:
+        enabled: true
+        weight: 14
+      gallery:
+        weight: 15
+        enabled: false
+      gallery_slide:
+        weight: 16
+        enabled: false
+      hero:
+        weight: 17
+        enabled: false
+      image:
+        weight: 18
+        enabled: false
+      link:
+        weight: 19
+        enabled: false
+      list_of_links:
+        weight: 20
+        enabled: false
+      list_of_links_item:
+        weight: 21
+        enabled: false
+      text:
+        enabled: true
+        weight: 22
+field_type: entity_reference_revisions

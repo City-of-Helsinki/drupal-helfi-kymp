@@ -1,0 +1,23 @@
+uuid: 9c472744-d169-4783-9351-c39570b6e51f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: YEjIsCifCqMEs4MBG8xeDLzXyN2W_RxPen88lhgBGAo
+id: media.field_media_soundcloud
+field_name: field_media_soundcloud
+entity_type: media
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

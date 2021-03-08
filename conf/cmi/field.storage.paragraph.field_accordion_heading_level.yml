@@ -1,0 +1,38 @@
+uuid: 30bcc676-04a0-4883-ba2e-5a2d2f0c9003
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: eC6tQJYsLqY--GBIgLLHOgt5S6XeFxOJiXRiNn4q_68
+id: paragraph.field_accordion_heading_level
+field_name: field_accordion_heading_level
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '2'
+      label: h2
+    -
+      value: '3'
+      label: h3
+    -
+      value: '4'
+      label: h4
+    -
+      value: '5'
+      label: h5
+    -
+      value: '6'
+      label: h6
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,32 @@
+label: Медиа-библиотека
+display:
+  default:
+    display_title: Основной
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      filters:
+        status:
+          group_info:
+            label: Опубликовано
+            group_items:
+              1:
+                title: Опубликовано
+              2:
+                title: 'Снято с публикации'
+        langcode:
+          expose:
+            label: Язык
+  page:
+    display_title: Страница
+  widget_table:
+    display_options:
+      fields:
+        uid:
+          label: Автор
+        changed:
+          label: Обновлено

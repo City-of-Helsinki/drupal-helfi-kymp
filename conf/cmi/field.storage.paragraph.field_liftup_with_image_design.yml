@@ -1,0 +1,35 @@
+uuid: b41a4879-851b-4408-a753-e668e9e0fc94
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: 8lZSaHWE7T-gq61sZA4PYTFXxMu3T5F1qPw8sCwrqXc
+id: paragraph.field_liftup_with_image_design
+field_name: field_liftup_with_image_design
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: image-on-right
+      label: 'Image on right'
+    -
+      value: image-on-left
+      label: 'Image on left'
+    -
+      value: background-text-on-right
+      label: 'Background image, text on right'
+    -
+      value: background-text-on-left
+      label: 'Background image, text on left'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,25 @@
+uuid: cf884bb2-5f47-4148-bed8-e2b607b5cbec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_design
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - options
+_core:
+  default_config_hash: C3J06vDzYUJdSIAwQhoBHO4eG5T2H--lbC1h74-KDJ4
+id: paragraph.accordion.field_accordion_design
+field_name: field_accordion_design
+entity_type: paragraph
+bundle: accordion
+label: Design
+description: 'Choose the paragraph design from the dropdown.'
+required: true
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,31 @@
+uuid: a96cfde8-25b1-438b-a29d-3e093efdfed4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_slide_media
+    - media.type.image
+    - paragraphs.paragraphs_type.gallery_slide
+_core:
+  default_config_hash: ByblKBmQd3E0yLagSUYcYzLDK108X4mN8k2jA-ZA8zs
+id: paragraph.gallery_slide.field_gallery_slide_media
+field_name: field_gallery_slide_media
+entity_type: paragraph
+bundle: gallery_slide
+label: Image
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
