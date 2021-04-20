@@ -67,6 +67,12 @@ wp-cache-flush: ## Flush cache
 	$(call step,Flush cache)
 	$(call wp,cache flush)
 
+PHONY += wp-login
+wp-login: ## Get login link
+	$(call wp,package install aaemnnosttv/wp-cli-login-command --quiet)
+	$(call wp,login install --activate --yes --quiet)
+	$(call wp,login create 1 --url-only)
+
 PHONY += wp-help
 wp-help: ## Show wp-cli help
 	$(call wp,)
