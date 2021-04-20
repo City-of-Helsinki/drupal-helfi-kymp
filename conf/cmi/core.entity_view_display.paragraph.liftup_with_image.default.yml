@@ -1,4 +1,4 @@
-uuid: 79ba5315-5c84-493f-bb50-420a6cc9d960
+uuid: 7091cd60-04c4-49ea-82f1-b4cd7d8e8d5b
 langcode: en
 status: true
 dependencies:
@@ -12,29 +12,29 @@ dependencies:
     - options
     - text
 _core:
-  default_config_hash: _4_uiqhvbMk-B5FJacrpOJ4XQH0I16G-VNfCtpamvq4
+  default_config_hash: ETMahHqS5T1Wd1HpuejBnFCFdbOLXP_U9kOS0CN6SZo
 id: paragraph.liftup_with_image.default
 targetEntityType: paragraph
 bundle: liftup_with_image
 mode: default
 content:
   field_liftup_with_image_desc:
-    weight: 3
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_liftup_with_image_design:
-    weight: 0
-    label: hidden
+    weight: 3
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_liftup_with_image_image:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       view_mode: image
@@ -42,7 +42,7 @@ content:
     third_party_settings: {  }
     region: content
   field_liftup_with_image_title:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false

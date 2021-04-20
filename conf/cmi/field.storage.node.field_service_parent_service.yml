@@ -1,0 +1,21 @@
+uuid: 25d5b312-f446-4398-b6e3-dc72e525a7f8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 6_ukRuDvyoVgeLzZxUXXT47FudwlzcKMZYTtOULQhZI
+id: node.field_service_parent_service
+field_name: field_service_parent_service
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

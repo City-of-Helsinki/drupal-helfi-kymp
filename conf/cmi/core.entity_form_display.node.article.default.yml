@@ -1,4 +1,4 @@
-uuid: b16424ab-8b06-4595-8616-e9775e606883
+uuid: d5c67663-99d1-4af8-a934-f45ca2e50e94
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,17 @@ dependencies:
     - field.field.node.article.field_keywords
     - field.field.node.article.field_lead
     - field.field.node.article.field_liftup_image
+    - field.field.node.article.field_metatags
     - node.type.article
   module:
     - media_library
+    - metatag
     - paragraphs
     - path
+    - scheduler
     - select2
 _core:
-  default_config_hash: r5gyD-q2NR4nY8PLVaflI-3WvlHP50z5ybWlBgKM-cw
+  default_config_hash: vE1ebRQw1g5wxCHlrC52xufxcAnGWkut8bOLaO37CyE
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -38,8 +41,8 @@ content:
   field_content:
     weight: 5
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Lohko
+      title_plural: Lohkot
       edit_mode: open
       closed_mode: summary
       autocollapse: none
@@ -79,6 +82,13 @@ content:
     third_party_settings: {  }
     type: media_library_widget
     region: content
+  field_metatags:
+    weight: 51
+    settings:
+      sidebar: false
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   langcode:
     type: language_select
     weight: 0
@@ -99,6 +109,17 @@ content:
     weight: 10
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -136,4 +157,15 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden: {  }

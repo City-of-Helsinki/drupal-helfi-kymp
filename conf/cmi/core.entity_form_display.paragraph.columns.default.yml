@@ -1,4 +1,4 @@
-uuid: 3cf9d2d8-9fa0-4194-af69-2fc478b75f85
+uuid: 8c85a579-3e89-4bed-b64f-627804286cdb
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,10 @@ dependencies:
     - field.field.paragraph.columns.field_columns_title
     - paragraphs.paragraphs_type.columns
   module:
+    - hdbt_admin_editorial
     - paragraphs
 _core:
-  default_config_hash: epEWSZ1PtLCc7zcGls3RWqhFaaCFGlehVQb8QLysEX0
+  default_config_hash: UdB9StYRd1ami-k28GJOyZFqzuZGdc6LZ7CHyx4rNYg
 id: paragraph.columns.default
 targetEntityType: paragraph
 bundle: columns
@@ -21,14 +22,14 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: design_field_widget
     region: content
   field_columns_left_column:
     type: paragraphs
     weight: 2
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Lohko
+      title_plural: Lohkot
       edit_mode: closed_expand_nested
       closed_mode: summary
       autocollapse: none
@@ -46,8 +47,8 @@ content:
     type: paragraphs
     weight: 3
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Lohko
+      title_plural: Lohkot
       edit_mode: closed_expand_nested
       closed_mode: summary
       autocollapse: none

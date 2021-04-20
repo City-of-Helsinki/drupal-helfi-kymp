@@ -1,0 +1,23 @@
+uuid: e59c5922-fbeb-41c8-8c4f-d46e7b5724ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.banner
+  module:
+    - select2_icon
+_core:
+  default_config_hash: YjDB77W8py1v-akIwDnWiJ7y0cijdsqaLT3hQNqOQHc
+id: paragraph.banner.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: banner
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: select2_icon

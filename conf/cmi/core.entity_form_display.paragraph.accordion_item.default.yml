@@ -1,15 +1,17 @@
-uuid: dec28f60-3210-4eb7-b676-d6fae056bad3
+uuid: f88b5155-fd14-4bb2-aa8f-4e8c3490ceb3
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.accordion_item.field_accordion_item_content
     - field.field.paragraph.accordion_item.field_accordion_item_heading
+    - field.field.paragraph.accordion_item.field_icon
     - paragraphs.paragraphs_type.accordion_item
   module:
     - paragraphs
+    - select2_icon
 _core:
-  default_config_hash: 9KnxBsuUqoD7DFeo2k8i1cZYkK2DuwHM6wyTIEtM-u0
+  default_config_hash: xQxl3DJdyXGfIMoF68zkvPXCgW-oWKdsAFKm2mhn7PM
 id: paragraph.accordion_item.default
 targetEntityType: paragraph
 bundle: accordion_item
@@ -17,10 +19,10 @@ mode: default
 content:
   field_accordion_item_content:
     type: paragraphs
-    weight: 1
+    weight: 2
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Lohko
+      title_plural: Lohkot
       edit_mode: closed_expand_nested
       closed_mode: summary
       autocollapse: none
@@ -41,6 +43,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_icon:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: select2_icon_widget
     region: content
 hidden:
   created: true

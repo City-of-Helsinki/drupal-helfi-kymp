@@ -1,0 +1,35 @@
+uuid: 95d29196-bf1d-4320-a97c-91d8bd74637c
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: 3tO_vla-W3XF5wtopm0ISG2C7-keUOFqMO8WL65z0PE
+id: paragraph.field_content_cards_design
+field_name: field_content_cards_design
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: small-cards
+      label: 'Small cards'
+    -
+      value: large-cards
+      label: 'Large cards'
+    -
+      value: small-cards-grey
+      label: 'Small cards, grey background'
+    -
+      value: large-cards-grey
+      label: 'Large cards, grey background'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

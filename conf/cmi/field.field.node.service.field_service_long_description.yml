@@ -1,0 +1,23 @@
+uuid: 9fc0acbd-652e-4f45-8f22-7cc65954fef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_long_description
+    - node.type.service
+  module:
+    - text
+_core:
+  default_config_hash: n2wWJiRI45wjQhFP5aYT-m_C7tQs35ustmJEPMdZfW8
+id: node.service.field_service_long_description
+field_name: field_service_long_description
+entity_type: node
+bundle: service
+label: 'Long description'
+description: 'Long description for the service. The default value is retrieved from TPR.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

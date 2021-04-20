@@ -1,0 +1,36 @@
+uuid: dacbbfac-444d-4a15-b7e8-55139cf26e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.3_2_xs
+    - image.style.3_2_xs_2x
+    - image.style.3_2_xxs
+    - image.style.3_2_xxs_2x
+_core:
+  default_config_hash: jH69N3z5bEnLIX9CmU78ldKAjExVvyv8h8uKto81urs
+id: content_cards
+label: 'Content cards'
+image_style_mappings:
+  -
+    breakpoint_id: hdbt.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 3_2_xs
+  -
+    breakpoint_id: hdbt.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: 3_2_xs_2x
+  -
+    breakpoint_id: hdbt.xxs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 3_2_xxs
+  -
+    breakpoint_id: hdbt.xxs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: 3_2_xxs_2x
+breakpoint_group: hdbt
+fallback_image_style: 3_2_xs
