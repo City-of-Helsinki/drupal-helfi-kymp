@@ -1,0 +1,18 @@
+uuid: d7e63c21-3d9c-40b1-82c2-886c2eb64a8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.service
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+_core:
+  default_config_hash: IRxI5FUYW97r-5lpEoWdGPxYxdlUh0qWPrChKDPUEBM
+id: node.service
+target_entity_type_id: node
+target_bundle: service
+default_langcode: fi
+language_alterable: true

@@ -1,0 +1,45 @@
+uuid: d770d1a4-ab32-4db8-aeea-29c7f774606e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_cards.field_content_cards_content
+    - field.field.paragraph.content_cards.field_content_cards_design
+    - field.field.paragraph.content_cards.field_content_cards_title
+    - paragraphs.paragraphs_type.content_cards
+  module:
+    - hdbt_admin_editorial
+_core:
+  default_config_hash: pQYRa6lxk6jv6g5WBIjqTcKCrnzv1LUeJip8dLgmViU
+id: paragraph.content_cards.default
+targetEntityType: paragraph
+bundle: content_cards
+mode: default
+content:
+  field_content_cards_content:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_content_cards_design:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: design_field_widget
+    region: content
+  field_content_cards_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

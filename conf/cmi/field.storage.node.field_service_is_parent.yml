@@ -1,0 +1,20 @@
+uuid: c7cac1a3-6325-48c6-a69b-20313dfabb08
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: EI5FxaQL_HQTewDBmz016hmPYn98kfJaOgCOP-AgnRQ
+id: node.field_service_is_parent
+field_name: field_service_is_parent
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

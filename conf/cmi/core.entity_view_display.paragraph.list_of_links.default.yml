@@ -1,4 +1,4 @@
-uuid: ca527975-fb7f-43e6-873f-35a948b5db49
+uuid: a69a0343-cde6-4f21-a46b-b33afebd3529
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - entity_reference_revisions
     - options
 _core:
-  default_config_hash: '-kv5ZkyOVZsNuXcvVE4nOW6VvlNLiM6vH5pXvMKmmoc'
+  default_config_hash: 21iLSkZhSST180f84NEmy7YGRxRDqTz50Xj5VNvSfv8
 id: paragraph.list_of_links.default
 targetEntityType: paragraph
 bundle: list_of_links
@@ -19,7 +19,7 @@ mode: default
 content:
   field_list_of_links_design:
     weight: 1
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key

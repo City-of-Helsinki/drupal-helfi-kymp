@@ -1,16 +1,16 @@
-uuid: 9062555f-6d57-41a1-92d7-44f92f962646
+uuid: 567192b3-3c57-4f47-be03-ffdaf2dc76ba
 langcode: en
 status: true
 dependencies:
   config:
-    - image.style.23_10_xs
-    - image.style.23_10_xs_2x
+    - image.style.23_10_xxs
+    - image.style.23_10_xxs_2x
     - image.style.3_2_s
     - image.style.3_2_s_2x
     - image.style.3_2_xs
     - image.style.3_2_xs_2x
 _core:
-  default_config_hash: mY5bTsCWwX9xKLt8efT_zthpmCZgUxtu4dq7QuKDtbU
+  default_config_hash: VOrWXmHCCzslJCkaWhkUoHuJ2R1VENCqsCMheMfXcvw
 id: hero__left_right
 label: 'Hero Left/Right'
 image_style_mappings:
@@ -38,11 +38,11 @@ image_style_mappings:
     breakpoint_id: hdbt.xxs
     multiplier: 1x
     image_mapping_type: image_style
-    image_mapping: 23_10_xs
+    image_mapping: 23_10_xxs
   -
     breakpoint_id: hdbt.xxs
     multiplier: 2x
     image_mapping_type: image_style
-    image_mapping: 23_10_xs_2x
+    image_mapping: 23_10_xxs_2x
 breakpoint_group: hdbt
 fallback_image_style: 3_2_s

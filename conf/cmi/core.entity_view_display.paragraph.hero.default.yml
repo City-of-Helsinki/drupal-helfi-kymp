@@ -1,4 +1,4 @@
-uuid: 44e7cd71-b11b-4c88-ac98-311c714464b9
+uuid: a3ad9a49-b00c-4480-b80e-dcdea3727a9d
 langcode: en
 status: true
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
     - options
     - text
 _core:
-  default_config_hash: GRVaUN67oC71zZ5vVDzT9UeXRL4OigipNALvmVSIGWM
+  default_config_hash: 1S-v2cW15vF64vx-PC3OHbjsxRvtChTWcgepFJ_tKAw
 id: paragraph.hero.default
 targetEntityType: paragraph
 bundle: hero
@@ -24,7 +24,7 @@ mode: default
 content:
   field_hero_bg_color:
     weight: 5
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key
@@ -38,7 +38,7 @@ content:
     region: content
   field_hero_design:
     weight: 4
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key
@@ -48,12 +48,12 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: default
+      view_mode: hero
       link: false
     third_party_settings: {  }
     region: content
   field_hero_link:
-    weight: 6
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -65,8 +65,8 @@ content:
     type: link
     region: content
   field_hero_link_design:
-    weight: 7
-    label: hidden
+    weight: 6
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key

@@ -1,4 +1,4 @@
-uuid: ea354681-31fa-458b-bafa-50bea710d3d9
+uuid: 2c88e04d-1a7b-4000-8d27-8d3bb40b0dd0
 langcode: en
 status: true
 dependencies:
@@ -9,25 +9,31 @@ dependencies:
     - field.field.node.article.field_keywords
     - field.field.node.article.field_lead
     - field.field.node.article.field_liftup_image
+    - field.field.node.article.field_metatags
     - node.type.article
   module:
     - user
 _core:
-  default_config_hash: g6YtMVH5RIWqKCUY4yfd9syTDEwyQOIR_yBjY6o792s
+  default_config_hash: lDD0tiFeM_J6S9Jh-oN7tmzE_59JPqkLYj56MMKxmE0
 id: node.article.teaser
 targetEntityType: node
 bundle: article
 mode: teaser
 content:
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+  field_liftup_image:
+    type: entity_reference_entity_view
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      view_mode: content_card
+      link: false
+    third_party_settings: {  }
 hidden:
   field_author: true
   field_content: true
   field_keywords: true
   field_lead: true
-  field_liftup_image: true
+  field_metatags: true
   langcode: true
+  links: true

@@ -1,0 +1,25 @@
+uuid: 9c10a3e3-2297-4014-b05b-200543bf8a5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unit_is_parent
+    - node.type.unit
+_core:
+  default_config_hash: qdRJtrPAvUsQQWkdBLF1jwCH_vXudmz44aYScpHx0ts
+id: node.unit.field_unit_is_parent
+field_name: field_unit_is_parent
+entity_type: node
+bundle: unit
+label: 'This is parent unit'
+description: 'Choose this field if the unit is parent unit of other units.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

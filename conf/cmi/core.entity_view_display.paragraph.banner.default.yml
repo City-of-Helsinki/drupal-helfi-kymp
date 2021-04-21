@@ -1,4 +1,4 @@
-uuid: c8afe1e4-bcb3-4402-a0bf-93b1868da7d7
+uuid: 659aa825-46ae-4c40-92d9-d209eda385f4
 langcode: en
 status: true
 dependencies:
@@ -8,34 +8,36 @@ dependencies:
     - field.field.paragraph.banner.field_banner_link
     - field.field.paragraph.banner.field_banner_link_design
     - field.field.paragraph.banner.field_banner_title
+    - field.field.paragraph.banner.field_icon
     - paragraphs.paragraphs_type.banner
   module:
     - link
     - options
+    - select2_icon
     - text
 _core:
-  default_config_hash: OdCRcV75MyH8GcyDvhFVPoFlvSgQ6-ElU8Vp3uPhlyU
+  default_config_hash: 6sXm0gwP7Lq-5wEAkZWbRYwhvZsBBQASOR_gKjINHMU
 id: paragraph.banner.default
 targetEntityType: paragraph
 bundle: banner
 mode: default
 content:
   field_banner_desc:
-    weight: 2
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_banner_design:
-    weight: 0
-    label: hidden
+    weight: 3
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_banner_link:
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       trim_length: 80
@@ -48,17 +50,24 @@ content:
     region: content
   field_banner_link_design:
     weight: 4
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_banner_title:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_icon:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: select2_icon_formatter
     region: content
 hidden: {  }

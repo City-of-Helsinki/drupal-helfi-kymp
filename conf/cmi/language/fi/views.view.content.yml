@@ -22,10 +22,12 @@ display:
           label: Otsikko
         type:
           label: Sisältötyyppi
+          separator: ', '
         name:
           label: Kirjoittaja
         langcode:
           label: Kieli
+          separator: ', '
         status:
           label: Tila
           settings:
@@ -66,4 +68,5 @@ display:
         title: Sisältö
       tab_options:
         title: Sisältö
+        description: 'Etsi ja hallitse sisältöä'
     display_title: Sivu

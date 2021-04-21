@@ -1,0 +1,21 @@
+uuid: 1a0b3d82-3319-4fb4-b8c3-ee5975b56de2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_cards_title
+    - paragraphs.paragraphs_type.content_cards
+_core:
+  default_config_hash: UjjafINB_n2850H73UyHp-FArxbKGwbRX-uLwFP8FvQ
+id: paragraph.content_cards.field_content_cards_title
+field_name: field_content_cards_title
+entity_type: paragraph
+bundle: content_cards
+label: Title
+description: 'The title of the content cards paragraph.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
