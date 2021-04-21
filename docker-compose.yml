@@ -9,12 +9,17 @@ services:
     volumes:
       - .:/app:delegated
       - ssh:/tmp/druid_ssh-agent:ro
+    build:
+      context: ./docker/local
     environment:
       APP_ENV: "${APP_ENV:-dev}"
       DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME}"
       DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}"
-      #XDEBUG_ENABLE: "true"
-      SIMPLETEST_BASE_URL: "http://app:8080"
+      XDEBUG_ENABLE: "true"
+      # DOCKERHOST: host.docker.internal
+      # Use drush server to run functional tests so we don't have to care about
+      # permission issues.
+      SIMPLETEST_BASE_URL: "http://127.0.0.1:8888"
       SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
     networks:
       - internal
