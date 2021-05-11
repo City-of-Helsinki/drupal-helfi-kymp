@@ -1,11 +1,13 @@
-uuid: b673a08c-e0b9-4e67-821e-b74ca5c1368c
+uuid: a02865dc-d801-4360-9127-25042c55bac5
 langcode: en
 status: true
 dependencies:
+  module:
+    - ctools
   theme:
     - hdbt
 _core:
-  default_config_hash: VFw6IHfxDKGCJ2sS5K2oJgmI0jUy3UxkCYwT97IW5C4
+  default_config_hash: 5_V2WQ9wdcP4x39Te28tg1RHycozD8sMNiZXudiwqYE
 id: hdbt_page_title
 theme: hdbt
 region: content
@@ -17,4 +19,12 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      unit: unit
+      service: service
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

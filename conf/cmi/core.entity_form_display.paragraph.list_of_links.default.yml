@@ -1,4 +1,4 @@
-uuid: 9122fae0-2faf-472c-802a-238902287641
+uuid: 94710559-d97a-4ddf-818a-06eee41de872
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,10 @@ dependencies:
     - field.field.paragraph.list_of_links.field_list_of_links_title
     - paragraphs.paragraphs_type.list_of_links
   module:
+    - hdbt_admin_editorial
     - paragraphs
 _core:
-  default_config_hash: gVaSt1YY1jPLkVLna6p1vW1cViRVy6ukGHmVLrva0Z4
+  default_config_hash: LBbBIE1JvrmAnOImQR0rd-u3Nc3i-SRD2WicIGCCwqU
 id: paragraph.list_of_links.default
 targetEntityType: paragraph
 bundle: list_of_links
@@ -20,7 +21,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: design_field_widget
     region: content
   field_list_of_links_links:
     type: paragraphs

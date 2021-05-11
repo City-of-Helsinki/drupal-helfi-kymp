@@ -1,0 +1,25 @@
+uuid: ac01eae4-d8c7-4110-9f44-084233f5d8d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_cards_design
+    - paragraphs.paragraphs_type.content_cards
+  module:
+    - options
+_core:
+  default_config_hash: KJhQ87wQxdu0K-hlTmjbMd2v-4MMrDv9PbL6ajqitfM
+id: paragraph.content_cards.field_content_cards_design
+field_name: field_content_cards_design
+entity_type: paragraph
+bundle: content_cards
+label: Design
+description: 'Choose the paragraph design from the dropdown.'
+required: true
+translatable: false
+default_value:
+  -
+    value: small-cards
+default_value_callback: ''
+settings: {  }
+field_type: list_string

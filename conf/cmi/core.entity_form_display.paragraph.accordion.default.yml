@@ -1,4 +1,4 @@
-uuid: 6fba74b7-5efb-40af-928b-dddcdcd72ace
+uuid: c4e8debb-7282-41da-bd48-e9c18efad0ad
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,10 @@ dependencies:
     - field.field.paragraph.accordion.field_accordion_items
     - paragraphs.paragraphs_type.accordion
   module:
+    - hdbt_admin_editorial
     - paragraphs
 _core:
-  default_config_hash: TiWwtk_I3j9njmRly3T5kpIQ7v784uV0-r36I2WRVg4
+  default_config_hash: tZ6NtHmnjneasCaF7pacBXWuaSGMMI-LdkayZNerXro
 id: paragraph.accordion.default
 targetEntityType: paragraph
 bundle: accordion
@@ -20,7 +21,7 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: design_field_widget
     region: content
   field_accordion_heading_level:
     weight: 1

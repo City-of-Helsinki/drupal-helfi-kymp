@@ -1,4 +1,4 @@
-uuid: a811a910-5f4f-4738-a3c0-706639a6408d
+uuid: dd4434c2-6cec-44ae-b481-496d4ee8030f
 langcode: en
 status: true
 dependencies:
@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.page.field_has_hero
     - field.field.node.page.field_hero
     - field.field.node.page.field_liftup_image
+    - field.field.node.page.field_metatags
     - node.type.page
   module:
     - entity_reference_revisions
+    - metatag
     - user
 _core:
-  default_config_hash: i22XraOl4gS7_CJgs4Rz9EUcPl88E0ripb7VPtyUGho
+  default_config_hash: LdH98wEwWah2p-D2t_x-i8icjsnkoRBG4kbrbTH8KYs
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -35,6 +37,13 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_metatags:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   links:
     weight: 0

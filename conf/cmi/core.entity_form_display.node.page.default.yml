@@ -1,4 +1,4 @@
-uuid: 8cab3071-e043-4cb0-a51c-8e2b9757ad5c
+uuid: 34170f46-9e86-47e0-92a1-949ae70f3fa2
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,16 @@ dependencies:
     - field.field.node.page.field_has_hero
     - field.field.node.page.field_hero
     - field.field.node.page.field_liftup_image
+    - field.field.node.page.field_metatags
     - node.type.page
   module:
     - media_library
+    - metatag
     - paragraphs
     - path
+    - scheduler
 _core:
-  default_config_hash: w5-wlvA5D1grlc1wSGRvqGnME-pEk6uFPMtDKJHvYag
+  default_config_hash: uWCKvc6Qkbv4g-yJo8d9K8_nh63x2luB4wpQk1a8eHQ
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -72,10 +75,17 @@ content:
     region: content
   field_liftup_image:
     type: media_library_widget
-    weight: 4
+    weight: 3
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_metatags:
+    weight: 51
+    settings:
+      sidebar: false
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   langcode:
     type: language_select
@@ -96,6 +106,17 @@ content:
       display_label: true
     weight: 8
     region: content
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -134,4 +155,15 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden: {  }

@@ -1,4 +1,4 @@
-uuid: b7f68439-7465-47f7-9f0b-3d02d6614b41
+uuid: 0ed77831-5ea0-4b0e-a775-46b10c37373d
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_content
     - node.type.article
     - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
@@ -13,7 +14,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: LrCcuvIk2b0trNGwW--keQYplv9vZmVa92pTujd4cbE
+  default_config_hash: sd97ognTVgckfNOfCIDuo9sB2tWzdkZFB5tNhMCesnc
 id: node.article.field_content
 field_name: field_content
 entity_type: node
@@ -30,39 +31,49 @@ settings:
     negate: 0
     target_bundles:
       text: text
-      image: image
       columns: columns
-      list_of_links: list_of_links
+      image: image
       gallery: gallery
+      list_of_links: list_of_links
+      content_cards: content_cards
     target_bundles_drag_drop:
-      text:
-        enabled: true
-        weight: 1
-      columns:
-        enabled: true
-        weight: 2
-      image:
-        enabled: true
-        weight: 3
-      gallery:
-        enabled: true
-        weight: 4
-      list_of_links:
-        enabled: true
-        weight: 5
       accordion:
-        weight: 6
+        weight: -21
         enabled: false
       accordion_item:
-        weight: 7
+        weight: -20
         enabled: false
+      banner:
+        weight: -16
+        enabled: false
+      columns:
+        enabled: true
+        weight: -26
+      content_cards:
+        enabled: true
+        weight: -22
+      gallery:
+        enabled: true
+        weight: -24
       gallery_slide:
-        weight: 8
+        weight: -19
         enabled: false
       hero:
-        weight: 9
+        weight: -18
         enabled: false
+      image:
+        enabled: true
+        weight: -25
+      liftup_with_image:
+        weight: -15
+        enabled: false
+      list_of_links:
+        enabled: true
+        weight: -23
       list_of_links_item:
-        weight: 10
+        weight: -17
         enabled: false
+      text:
+        enabled: true
+        weight: -27
 field_type: entity_reference_revisions

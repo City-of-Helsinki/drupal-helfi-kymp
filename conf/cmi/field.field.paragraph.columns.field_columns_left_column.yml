@@ -1,4 +1,4 @@
-uuid: 81992103-69e9-49b0-89eb-83bc42f4f977
+uuid: 7384ab7f-be1c-4f70-8bb8-a7184f057a52
 langcode: en
 status: true
 dependencies:
@@ -6,12 +6,11 @@ dependencies:
     - field.storage.paragraph.field_columns_left_column
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.image
-    - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: '-KkYvtkmBM-21yW2dPb3cU_tqLyXYbFFqFwqYKPoLdw'
+  default_config_hash: NLMGpf1VFdb-RxU3UFqmyu4hthGDUQBihq-HGvM9qj0
 id: paragraph.columns.field_columns_left_column
 field_name: field_columns_left_column
 entity_type: paragraph
@@ -27,12 +26,26 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      text: text
-      list_of_links: list_of_links
       image: image
+      text: text
     target_bundles_drag_drop:
+      accordion:
+        weight: 14
+        enabled: false
+      accordion_item:
+        weight: 15
+        enabled: false
+      banner:
+        weight: 16
+        enabled: false
       columns:
         weight: -14
+        enabled: false
+      gallery:
+        weight: 17
+        enabled: false
+      gallery_slide:
+        weight: 18
         enabled: false
       hero:
         weight: -13
@@ -40,12 +53,12 @@ settings:
       image:
         enabled: true
         weight: -12
-      link:
-        enabled: true
-        weight: -9
+      liftup_with_image:
+        weight: 21
+        enabled: false
       list_of_links:
-        enabled: true
         weight: -10
+        enabled: false
       list_of_links_item:
         weight: -8
         enabled: false

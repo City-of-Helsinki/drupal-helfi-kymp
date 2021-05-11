@@ -1,16 +1,30 @@
-uuid: e7e18e79-1785-4994-a64b-8c3fa28b8bf0
+uuid: 7f8707c6-0f70-40b7-bd90-01aebf392dd0
 langcode: en
 status: true
 dependencies:
   module:
     - menu_ui
+    - scheduler
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: true
+    show_message_after_update: true
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
 _core:
-  default_config_hash: 9AZLshC0aPM9jjvchyn7kEh_A4pmWjE-NJ21-CZjoRs
+  default_config_hash: ah3vIiRAXEYtaITIDXDkTMxz_d55Eu7rV-nNz1ZknEU
 name: 'Landing page'
 type: landing_page
 description: 'Content type for pages which serves as an entry point for a particular section of the site. Use landing page when you want to create a collection of links and information about a certain subject. '

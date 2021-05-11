@@ -1,15 +1,17 @@
-uuid: d7e00884-ca2a-43a2-888e-f06ede42e6d0
+uuid: d4b24c3b-00fb-4f5e-a7c4-bffeebea1c3b
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.accordion_item.field_accordion_item_content
     - field.field.paragraph.accordion_item.field_accordion_item_heading
+    - field.field.paragraph.accordion_item.field_icon
     - paragraphs.paragraphs_type.accordion_item
   module:
     - entity_reference_revisions
+    - select2_icon
 _core:
-  default_config_hash: 9Jkxnu0Y72Y5S85sgQbyt6ELp-jSstFmMgLlbQYoII4
+  default_config_hash: XybQXQQX7zzw5YLuADlWTj9gM_FVrS-YSJyNmj75N00
 id: paragraph.accordion_item.default
 targetEntityType: paragraph
 bundle: accordion_item
@@ -31,5 +33,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_icon:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: select2_icon_formatter
     region: content
 hidden: {  }
