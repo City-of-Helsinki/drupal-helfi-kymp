@@ -1,0 +1,23 @@
+uuid: 1ec38a4f-c7aa-49a3-9161-dcae12e1b12e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpr_service.field_metatags
+  module:
+    - helfi_tpr
+    - metatag
+_core:
+  default_config_hash: 5x1CWNf72cYy-JGW87JAyxyWU83DHkXlxsNzkc3by7U
+id: tpr_service.tpr_service.field_metatags
+field_name: field_metatags
+entity_type: tpr_service
+bundle: tpr_service
+label: Metatags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
