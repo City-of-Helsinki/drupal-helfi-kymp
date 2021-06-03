@@ -4,7 +4,7 @@
 
 Env | Branch | Drush alias | URL
 --- | ------ | ----------- | ---
-development | * | - | http://helfi-kymp.docker.sh/
+development | * | - | http://helfi-kymp.docker.so/
 production | main | @main | TBD
 
 ## Requirements
