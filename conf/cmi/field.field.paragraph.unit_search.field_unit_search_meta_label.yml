@@ -1,0 +1,23 @@
+uuid: 9e837bdc-d22b-4a9f-95b7-23907d89434d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_search_meta_label
+    - paragraphs.paragraphs_type.unit_search
+_core:
+  default_config_hash: 1NqtNfe1hQPTA3NGrsG2WfsBTGOi1ZBT1fphjQcYFRE
+id: paragraph.unit_search.field_unit_search_meta_label
+field_name: field_unit_search_meta_label
+entity_type: paragraph
+bundle: unit_search
+label: 'Search label'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Search for a unit'
+default_value_callback: ''
+settings: {  }
+field_type: string

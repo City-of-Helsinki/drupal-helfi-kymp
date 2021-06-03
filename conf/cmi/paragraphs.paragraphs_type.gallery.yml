@@ -1,7 +1,12 @@
 uuid: 5b1bddcb-2b4d-4303-b1cb-78cc67fa0043
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
 _core:
   default_config_hash: yo4uFFMZafb500s47mFUjuTc_RIaT_s4bOsE1sfNmm0
 id: gallery

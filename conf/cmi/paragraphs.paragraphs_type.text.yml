@@ -1,7 +1,12 @@
 uuid: fc453c92-e3ef-499c-8c7d-9c1b76379a70
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
 _core:
   default_config_hash: Nn_Zp4JFf_IEP4D-nySS6I0_Qe8-Ulyh67R4bIKx1zo
 id: text

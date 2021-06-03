@@ -1,0 +1,51 @@
+label: 'TPR units'
+display:
+  default:
+    display_title: Основной
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Применить
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      pager:
+        options:
+          tags:
+            first: '« Первая'
+            last: 'Последняя »'
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      fields:
+        tpr_unit_bulk_form:
+          label: 'Массовое обновление'
+          action_title: Действие
+        name:
+          label: Название
+        langcode:
+          label: Язык
+        content_translation_status:
+          label: Статус
+          settings:
+            format_custom_true: Опубликовано
+            format_custom_false: 'Снято с публикации'
+        changed:
+          label: Изменение
+        operations:
+          label: Операции
+      filters:
+        combine:
+          expose:
+            label: Поиск
+        langcode:
+          expose:
+            label: Язык
+      title: 'TPR units'
+      header:
+        result:
+          content: 'Отображается с @start по @end из @total'
+  page_1:
+    display_title: Страница

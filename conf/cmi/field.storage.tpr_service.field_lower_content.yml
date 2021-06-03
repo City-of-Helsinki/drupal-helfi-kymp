@@ -1,0 +1,23 @@
+uuid: 3272ebcd-7e16-45a7-80b9-2d4e2e95a11e
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - helfi_tpr
+    - paragraphs
+_core:
+  default_config_hash: r6mRwsnHJKyZ3dZJtWRhQ4JTQJvCJDwZHJdnGXD6aqE
+id: tpr_service.field_lower_content
+field_name: field_lower_content
+entity_type: tpr_service
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
