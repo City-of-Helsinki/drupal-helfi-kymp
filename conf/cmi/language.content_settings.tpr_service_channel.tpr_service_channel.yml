@@ -1,0 +1,17 @@
+uuid: d804858f-165a-4993-9ba0-43d26070c493
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_translation
+    - helfi_tpr
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: tpr_service_channel.tpr_service_channel
+target_entity_type_id: tpr_service_channel
+target_bundle: tpr_service_channel
+default_langcode: site_default
+language_alterable: true

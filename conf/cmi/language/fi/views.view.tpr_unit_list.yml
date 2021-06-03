@@ -1,0 +1,56 @@
+label: 'TPR Toimipisteet'
+display:
+  default:
+    display_title: Isäntä
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Käytä
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+      fields:
+        tpr_unit_bulk_form:
+          label: Massapäivitys
+          action_title: Toiminto
+        name:
+          label: Nimi
+        langcode:
+          label: Kieli
+        content_translation_status:
+          label: Tila
+          settings:
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
+        changed:
+          label: Muuttunut
+        operations:
+          label: Toimenpiteet
+      filters:
+        combine:
+          expose:
+            label: Etsi
+        langcode:
+          expose:
+            label: Kieli
+      title: 'TPR Toimipisteet'
+      header:
+        result:
+          content: 'Näytetään @start - @end / @total'
+      empty:
+        area:
+          content:
+            value: 'Toimipisteitä ei löytynyt.'
+  page_1:
+    display_title: Sivu
