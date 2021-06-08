@@ -1,8 +1,29 @@
-label: 'TPR Toimipisteet'
 display:
   default:
-    display_title: Isäntä
     display_options:
+      fields:
+        changed:
+          label: Muuttunut
+        tpr_unit_bulk_form:
+          label: Massapäivitys
+          action_title: Toiminto
+        id:
+          label: ID
+          separator: ', '
+        name:
+          label: Nimi
+          separator: ', '
+        langcode:
+          label: Kieli
+          separator: ', '
+        content_translation_status:
+          label: Tila
+          settings:
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
+          separator: ', '
+        operations:
+          label: Toimenpiteet
       exposed_form:
         options:
           submit_button: Käytä
@@ -20,23 +41,7 @@ display:
           expose:
             items_per_page_label: 'Merkintöjä sivua kohti'
             items_per_page_options_all_label: '- Kaikki -'
-      fields:
-        tpr_unit_bulk_form:
-          label: Massapäivitys
-          action_title: Toiminto
-        name:
-          label: Nimi
-        langcode:
-          label: Kieli
-        content_translation_status:
-          label: Tila
-          settings:
-            format_custom_true: Julkaistu
-            format_custom_false: Julkaisematon
-        changed:
-          label: Muuttunut
-        operations:
-          label: Toimenpiteet
+            offset_label: Offset
       filters:
         combine:
           expose:
@@ -51,6 +56,8 @@ display:
       empty:
         area:
           content:
-            value: 'Toimipisteitä ei löytynyt.'
+            value: 'Ei tuloksia.'
+    display_title: Isäntä
   page_1:
     display_title: Sivu
+label: 'TPR Toimipisteet'
