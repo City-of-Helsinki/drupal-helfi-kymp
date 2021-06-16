@@ -1,4 +1,4 @@
-uuid: aed91d58-159c-4758-9019-c93253d24723
+uuid: 48ec5b46-4650-4aef-be2f-59c50d047544
 langcode: en
 status: true
 dependencies:
@@ -9,16 +9,16 @@ dependencies:
   theme:
     - hdbt
 _core:
-  default_config_hash: LFpP0B7Bn5-vdFznBqRMt2cjFIbBUltjlPdqS1dqYs0
-id: mainnavigation
+  default_config_hash: zSvqGMlhIHfM1eegCM8Ac0GLT1dhK62SG6upu3PiS2c
+id: mobile_navigation
 theme: hdbt
-region: header_bottom
-weight: 0
+region: header_branding
+weight: 4
 provider: null
 plugin: 'menu_block_current_language:main'
 settings:
   id: 'menu_block_current_language:main'
-  label: 'Main navigation'
+  label: 'Mobile navigation'
   provider: menu_block_current_language
   label_display: '0'
   translation_providers:
@@ -26,6 +26,6 @@ settings:
     menu_link_content: menu_link_content
     default: '0'
   level: 1
-  depth: 2
+  depth: 0
   expand_all_items: true
 visibility: {  }
