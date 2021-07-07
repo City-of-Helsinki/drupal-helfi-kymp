@@ -20,7 +20,7 @@ display:
             offset_label: Пропустить
       fields:
         label:
-          label: Метка
+          label: Label
           separator: ', '
         type:
           label: Тип
@@ -35,7 +35,7 @@ display:
           label: ID
           separator: ', '
         count:
-          label: Использовано
+          label: Used
         changed:
           label: Изменение
           separator: ', '
@@ -44,9 +44,9 @@ display:
       filters:
         label:
           expose:
-            label: Метка
+            label: Label
           group_info:
-            label: Метка
+            label: Label
         type:
           expose:
             label: Тип
