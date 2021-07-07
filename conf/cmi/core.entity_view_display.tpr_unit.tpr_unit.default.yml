@@ -38,6 +38,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  accessibility_sentences:
+    type: tpr_accessibility_sentence
+    weight: 19
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   accessibility_www:
     type: link
     weight: 15
@@ -98,7 +105,7 @@ content:
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
-    weight: 19
+    weight: 20
     label: hidden
     settings:
       view_mode: default
@@ -192,7 +199,6 @@ content:
       target: ''
     third_party_settings: {  }
 hidden:
-  accessibility_sentences: true
   created: true
   langcode: true
   latitude: true

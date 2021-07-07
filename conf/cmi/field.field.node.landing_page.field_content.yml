@@ -12,6 +12,8 @@ dependencies:
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.remote_video
+    - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
@@ -38,6 +40,8 @@ settings:
       content_cards: content_cards
       from_library: from_library
       map: map
+      remote_video: remote_video
+      unit_search: unit_search
     target_bundles_drag_drop:
       accordion:
         weight: -22
@@ -81,7 +85,13 @@ settings:
       map:
         enabled: true
         weight: 31
+      remote_video:
+        enabled: true
+        weight: 32
       text:
         weight: -15
         enabled: false
+      unit_search:
+        enabled: true
+        weight: 34
 field_type: entity_reference_revisions
