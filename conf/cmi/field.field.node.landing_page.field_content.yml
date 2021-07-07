@@ -39,9 +39,9 @@ settings:
       liftup_with_image: liftup_with_image
       content_cards: content_cards
       from_library: from_library
-      map: map
       remote_video: remote_video
       unit_search: unit_search
+      map: map
     target_bundles_drag_drop:
       accordion:
         weight: -22
@@ -87,11 +87,11 @@ settings:
         weight: 31
       remote_video:
         enabled: true
-        weight: 32
+        weight: 27
       text:
         weight: -15
         enabled: false
       unit_search:
         enabled: true
-        weight: 34
+        weight: 28
 field_type: entity_reference_revisions
