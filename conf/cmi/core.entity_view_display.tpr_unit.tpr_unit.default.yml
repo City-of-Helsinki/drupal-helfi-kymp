@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.tpr_unit.tpr_unit.field_color_palette
     - field.field.tpr_unit.tpr_unit.field_content
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
@@ -13,6 +14,7 @@ dependencies:
     - imagecache_external
     - link
     - metatag
+    - options
     - telephone
     - text
 _core:
@@ -37,6 +39,13 @@ content:
     label: above
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+  accessibility_sentences:
+    type: tpr_accessibility_sentence
+    weight: 19
+    region: content
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
   accessibility_www:
     type: link
@@ -87,6 +96,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_color_palette:
+    weight: 21
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_content:
     type: entity_reference_revisions_entity_view
     weight: 18
@@ -98,7 +114,7 @@ content:
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
-    weight: 19
+    weight: 20
     label: hidden
     settings:
       view_mode: default
@@ -192,7 +208,6 @@ content:
       target: ''
     third_party_settings: {  }
 hidden:
-  accessibility_sentences: true
   created: true
   langcode: true
   latitude: true
