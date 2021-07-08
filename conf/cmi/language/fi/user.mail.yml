@@ -1,5 +1,4 @@
 cancel_confirm:
-  body: "[user:display-name],\n\nTilisi peruuttamista koskeva pyyntö on tehty [site:name] sivustolla.\nVoit nyt perua tilisi sivustossa [site:url-brief] napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:cancel-url]\n\nHUOM: Tilisi perumista ei voi perua. Tämä linkki vanhenee yhdessä päivässä, eikä mitään tapahdu, jos sitä ei käytetä.\r\n[site:name] ylläpito"
   subject: 'Tilin peruutuspyyntö käyttäjälle [user:display-name], [site:name] sivustolla'
 password_reset:
   body: "[user:display-name], Tilisi salasanan vaihtamista koskeva pyyntö on tehty  [site:name] sivustolla. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Linkki vanhenee yhden päivän kuluttua, eikä mitään tapahdu, jos sitä ei käytetä.\r\n[site:name] ylläpito"
