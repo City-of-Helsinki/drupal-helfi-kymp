@@ -1,4 +1,4 @@
-uuid: 5be5982d-700e-4010-9015-2cbaf3720d07
+uuid: d54944bc-52b2-4042-afc0-36b6c610ec54
 langcode: en
 status: true
 dependencies:
@@ -82,6 +82,7 @@ display:
             name: name
             langcode: langcode
             content_translation_status: content_translation_status
+            content_translation_changed: content_translation_changed
             operations: operations
           info:
             tpr_service_bulk_form:
@@ -722,7 +723,8 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/content/integrations/tpr-service
       rendering_language: '***LANGUAGE_entity_translation***'
     cache_metadata:
