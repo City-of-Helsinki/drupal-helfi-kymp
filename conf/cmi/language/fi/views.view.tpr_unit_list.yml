@@ -2,8 +2,8 @@ display:
   default:
     display_options:
       fields:
-        changed:
-          label: Muuttunut
+        content_translation_changed:
+          label: Päivitetty
         tpr_unit_bulk_form:
           label: Massapäivitys
           action_title: Toiminto
@@ -26,7 +26,7 @@ display:
           label: Toimenpiteet
       exposed_form:
         options:
-          submit_button: Käytä
+          submit_button: Suodata
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
@@ -56,7 +56,7 @@ display:
       empty:
         area:
           content:
-            value: 'Ei tuloksia.'
+            value: 'Toimipisteitä ei löytynyt.'
     display_title: Isäntä
   page_1:
     display_title: Sivu
