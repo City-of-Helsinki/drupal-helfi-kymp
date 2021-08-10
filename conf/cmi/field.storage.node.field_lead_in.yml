@@ -1,0 +1,19 @@
+uuid: be6a0f8b-961e-4b6f-b1b7-44a8d6e0329a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lead_in
+field_name: field_lead_in
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
