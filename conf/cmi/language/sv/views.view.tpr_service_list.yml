@@ -1,6 +1,25 @@
 display:
   default:
+    display_title: Huvud
     display_options:
+      exposed_form:
+        options:
+          submit_button: Filtera
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
       fields:
         content_translation_changed:
           label: Uppdaterad
@@ -24,24 +43,6 @@ display:
           separator: ', '
         operations:
           label: Funktioner
-      exposed_form:
-        options:
-          submit_button: Filtera
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« Första'
-            last: 'Sista »'
-          expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
       filters:
         combine:
           expose:
@@ -49,11 +50,8 @@ display:
         langcode:
           expose:
             label: Språk
-      title: 'TPR units'
       header:
         result:
           content: 'Visar @start - @end av @total'
-    display_title: Huvud
   page_1:
     display_title: Sida
-label: 'TPR units'
