@@ -2041,16 +2041,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.3",
+            "version": "9.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "e9c75c8e2d1395aebb19cad17d6a514945636ecf"
+                "reference": "c723626030c728ec2f9f6526e6cd5f029c9e628c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/e9c75c8e2d1395aebb19cad17d6a514945636ecf",
-                "reference": "e9c75c8e2d1395aebb19cad17d6a514945636ecf",
+                "url": "https://api.github.com/repos/drupal/core/zipball/c723626030c728ec2f9f6526e6cd5f029c9e628c",
+                "reference": "c723626030c728ec2f9f6526e6cd5f029c9e628c",
                 "shasum": ""
             },
             "require": {
@@ -2289,13 +2289,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.3"
+                "source": "https://github.com/drupal/core/tree/9.2.4"
             },
-            "time": "2021-08-03T13:14:21+00:00"
+            "time": "2021-08-12T17:48:08+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.2.3",
+            "version": "9.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2339,22 +2339,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.3"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.4"
             },
             "time": "2021-07-10T22:39:33+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.2.3",
+            "version": "9.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "20feef210c8506a8cc903bd5ef9ef90dec89e71e"
+                "reference": "b8f3420017a6e03f1402ee6058c6da16bba9b257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/20feef210c8506a8cc903bd5ef9ef90dec89e71e",
-                "reference": "20feef210c8506a8cc903bd5ef9ef90dec89e71e",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/b8f3420017a6e03f1402ee6058c6da16bba9b257",
+                "reference": "b8f3420017a6e03f1402ee6058c6da16bba9b257",
                 "shasum": ""
             },
             "require": {
@@ -2363,7 +2363,7 @@
                 "doctrine/annotations": "1.13.1",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.2.3",
+                "drupal/core": "9.2.4",
                 "egulias/email-validator": "2.1.25",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.4.1",
@@ -2426,9 +2426,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.2.3"
+                "source": "https://github.com/drupal/core-recommended/tree/9.2.4"
             },
-            "time": "2021-08-03T13:14:21+00:00"
+            "time": "2021-08-12T17:48:08+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3561,16 +3561,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.10",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "e56d080d2c11bae335756df795a65147d5323cd6"
+                "reference": "bcf7a2b605302f9b82ae7837d55d2cb362dce8b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/e56d080d2c11bae335756df795a65147d5323cd6",
-                "reference": "e56d080d2c11bae335756df795a65147d5323cd6",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/bcf7a2b605302f9b82ae7837d55d2cb362dce8b5",
+                "reference": "bcf7a2b605302f9b82ae7837d55d2cb362dce8b5",
                 "shasum": ""
             },
             "require": {
@@ -3585,23 +3585,23 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/1.3.10",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-07-09T10:22:30+00:00"
+            "time": "2021-08-10T11:55:22+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "a7a4d70f89e12365f565b1fd715d8bb0d5366969"
+                "reference": "f8fb1ba98accef3f2e17ae07be9cd19cfe1d8ef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/a7a4d70f89e12365f565b1fd715d8bb0d5366969",
-                "reference": "a7a4d70f89e12365f565b1fd715d8bb0d5366969",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/f8fb1ba98accef3f2e17ae07be9cd19cfe1d8ef7",
+                "reference": "f8fb1ba98accef3f2e17ae07be9cd19cfe1d8ef7",
                 "shasum": ""
             },
             "require": {
@@ -3617,10 +3617,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.3.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2021-07-08T12:10:51+00:00"
+            "time": "2021-07-16T12:24:23+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -3786,16 +3786,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "1.2.14",
+            "version": "1.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "6cc3388ffbe5e2023d35e60d1aae970fd15fdd71"
+                "reference": "74548597d23a3c81597625657995001d1bc77710"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/6cc3388ffbe5e2023d35e60d1aae970fd15fdd71",
-                "reference": "6cc3388ffbe5e2023d35e60d1aae970fd15fdd71",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/74548597d23a3c81597625657995001d1bc77710",
+                "reference": "74548597d23a3c81597625657995001d1bc77710",
                 "shasum": ""
             },
             "require": {
@@ -3868,10 +3868,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/1.2.14",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-07-09T12:14:12+00:00"
+            "time": "2021-08-12T14:50:33+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -5324,16 +5324,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "10.5.0",
+            "version": "10.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "3fd9f7e62ffb7f221e4be8151a738529345d22d5"
+                "reference": "a57390579f178d553decd3e9f92cdb37cbd27a07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/3fd9f7e62ffb7f221e4be8151a738529345d22d5",
-                "reference": "3fd9f7e62ffb7f221e4be8151a738529345d22d5",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/a57390579f178d553decd3e9f92cdb37cbd27a07",
+                "reference": "a57390579f178d553decd3e9f92cdb37cbd27a07",
                 "shasum": ""
             },
             "require": {
@@ -5457,7 +5457,7 @@
                 "irc": "irc://irc.freenode.org/drush",
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/10.5.0"
+                "source": "https://github.com/drush-ops/drush/tree/10.5.1"
             },
             "funding": [
                 {
@@ -5465,7 +5465,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-08T15:49:30+00:00"
+            "time": "2021-08-13T02:55:27+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -11453,7 +11453,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "9.2.3",
+            "version": "9.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -11499,7 +11499,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/9.2.3"
+                "source": "https://github.com/drupal/core-dev/tree/9.2.4"
             },
             "time": "2021-06-01T16:41:50+00:00"
         },
