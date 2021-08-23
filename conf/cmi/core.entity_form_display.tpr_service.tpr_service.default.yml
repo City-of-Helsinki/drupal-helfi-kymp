@@ -7,12 +7,13 @@ dependencies:
     - field.field.tpr_service.tpr_service.field_lower_content
     - field.field.tpr_service.tpr_service.field_metatags
   module:
+    - hdbt_admin_editorial
     - helfi_tpr
     - metatag
     - paragraphs
     - readonly_field_widget
 _core:
-  default_config_hash: c0qwpyeWW-D40NX_7qhQK7mm9DW8qoUTuzr4Y1nA_RY
+  default_config_hash: dZVMKeHuPoeYF9UOdH6d1OHUHFng_SpZEMWsg_cr_mc
 id: tpr_service.tpr_service.default
 targetEntityType: tpr_service
 bundle: tpr_service
@@ -79,7 +80,7 @@ content:
   field_metatags:
     weight: 26
     settings:
-      sidebar: true
+      sidebar: false
     third_party_settings: {  }
     type: metatag_firehose
     region: content
