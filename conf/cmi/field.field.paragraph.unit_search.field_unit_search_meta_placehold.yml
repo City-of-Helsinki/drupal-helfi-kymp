@@ -1,0 +1,23 @@
+uuid: f3c80bca-74d6-4c0e-8d3e-b44b6c835ddc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_search_meta_placehold
+    - paragraphs.paragraphs_type.unit_search
+_core:
+  default_config_hash: K6i7_W3tb5vOn1zfSi_fxqmEGAV6dhR8y6-Q2XZ_d6k
+id: paragraph.unit_search.field_unit_search_meta_placehold
+field_name: field_unit_search_meta_placehold
+entity_type: paragraph
+bundle: unit_search
+label: 'Search placeholder'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Enter name, address or postal code'
+default_value_callback: ''
+settings: {  }
+field_type: string

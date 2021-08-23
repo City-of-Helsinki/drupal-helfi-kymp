@@ -1,0 +1,22 @@
+display:
+  default:
+    display_title: Isäntä
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Offset
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+      fields:
+        id:
+          separator: ', '
+        label:
+          separator: ', '
+      filters:
+        label:
+          expose:
+            label: Otsikko
+  entity_reference:
+    display_title: Entiteettiviittaus

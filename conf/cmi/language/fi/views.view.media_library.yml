@@ -2,7 +2,7 @@ label: Mediakirjasto
 description: 'Etsi ja ylläpidä mediatiedostoja.'
 display:
   default:
-    display_title: Isäntä
+    display_title: Oletus
     display_options:
       exposed_form:
         options:
@@ -18,8 +18,8 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset_label: Offset
           tags:
-            previous: ‹‹
-            next: ››
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
       fields:
         media_bulk_form:
           action_title: Toiminto

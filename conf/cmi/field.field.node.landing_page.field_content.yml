@@ -8,8 +8,12 @@ dependencies:
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
+    - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.remote_video
+    - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
@@ -18,7 +22,7 @@ id: node.landing_page.field_content
 field_name: field_content
 entity_type: node
 bundle: landing_page
-label: Content
+label: 'Content region'
 description: ''
 required: false
 translatable: true
@@ -34,6 +38,10 @@ settings:
       list_of_links: list_of_links
       liftup_with_image: liftup_with_image
       content_cards: content_cards
+      from_library: from_library
+      remote_video: remote_video
+      unit_search: unit_search
+      map: map
     target_bundles_drag_drop:
       accordion:
         weight: -22
@@ -50,6 +58,9 @@ settings:
       content_cards:
         enabled: true
         weight: -23
+      from_library:
+        enabled: true
+        weight: 21
       gallery:
         weight: -20
         enabled: false
@@ -71,7 +82,16 @@ settings:
       list_of_links_item:
         weight: -16
         enabled: false
+      map:
+        enabled: true
+        weight: 31
+      remote_video:
+        enabled: true
+        weight: 27
       text:
         weight: -15
         enabled: false
+      unit_search:
+        enabled: true
+        weight: 28
 field_type: entity_reference_revisions

@@ -1,0 +1,23 @@
+uuid: acea4fda-aefe-435d-ab70-2f2331a8fc0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_search_description
+    - paragraphs.paragraphs_type.unit_search
+  module:
+    - text
+_core:
+  default_config_hash: 3_9J1wbeFDxBC81WAv5Z06_COJoKsb4GSq0vM7Vw5Cw
+id: paragraph.unit_search.field_unit_search_description
+field_name: field_unit_search_description
+entity_type: paragraph
+bundle: unit_search
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

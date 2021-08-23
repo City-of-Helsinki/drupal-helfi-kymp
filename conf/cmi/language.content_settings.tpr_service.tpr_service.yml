@@ -1,0 +1,19 @@
+uuid: 9ed85113-2073-4230-9d61-931b6012dcff
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_translation
+    - helfi_tpr
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+_core:
+  default_config_hash: dQhmyT07oi9pKu4BFMWDmzx6zsTfWoTO-Y8GzSKDQGo
+id: tpr_service.tpr_service
+target_entity_type_id: tpr_service
+target_bundle: tpr_service
+default_langcode: site_default
+language_alterable: true

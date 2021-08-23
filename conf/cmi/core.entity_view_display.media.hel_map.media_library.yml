@@ -1,0 +1,31 @@
+uuid: c3590833-89b1-4d43-b850-423259e9102d
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.hel_map.field_media_hel_map
+    - media.type.hel_map
+  module:
+    - helfi_media_map
+_core:
+  default_config_hash: PPY8kAB9w6Y50NI58k4CEZzyHD3iZAJo6jtujL8VG0Y
+id: media.hel_map.media_library
+targetEntityType: media
+bundle: hel_map
+mode: media_library
+content:
+  field_media_hel_map:
+    type: hel_media_map
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_title: 'Open map in new window'
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

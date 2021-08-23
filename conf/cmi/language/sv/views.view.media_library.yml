@@ -1,7 +1,7 @@
 description: 'Hitta och hantera media.'
 display:
   default:
-    display_title: Huvud
+    display_title: Förvald
     display_options:
       exposed_form:
         options:
@@ -38,9 +38,9 @@ display:
             label: Namn
         bundle:
           expose:
-            label: 'Media type'
+            label: Mediatyp
           group_info:
-            label: 'Media type'
+            label: Mediatyp
         langcode:
           expose:
             label: Språk

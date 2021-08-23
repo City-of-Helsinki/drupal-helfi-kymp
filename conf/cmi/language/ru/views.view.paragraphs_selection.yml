@@ -1,0 +1,22 @@
+display:
+  default:
+    display_title: Основной
+    display_options:
+      pager:
+        options:
+          expose:
+            offset_label: Пропустить
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        id:
+          separator: ', '
+        label:
+          separator: ', '
+      filters:
+        label:
+          expose:
+            label: Label
+  entity_reference:
+    display_title: 'Ссылка на сущность'

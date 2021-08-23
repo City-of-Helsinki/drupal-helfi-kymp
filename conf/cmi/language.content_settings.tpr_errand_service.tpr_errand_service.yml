@@ -1,0 +1,17 @@
+uuid: 39495fbe-623f-499c-9477-7eccdbd5a105
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_translation
+    - helfi_tpr
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: tpr_errand_service.tpr_errand_service
+target_entity_type_id: tpr_errand_service
+target_bundle: tpr_errand_service
+default_langcode: site_default
+language_alterable: true

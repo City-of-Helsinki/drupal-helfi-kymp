@@ -2,7 +2,7 @@ label: Arkisto
 description: 'Kaikki sisältö, kuukausittain lajiteltuna.'
 display:
   default:
-    display_title: Isäntä
+    display_title: Oletus
     display_options:
       title: Arkisto
       exposed_form:
@@ -19,8 +19,8 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset_label: Offset
           tags:
-            previous: ‹‹
-            next: ››
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
   block_1:
     display_title: Lohko
   page_1:
