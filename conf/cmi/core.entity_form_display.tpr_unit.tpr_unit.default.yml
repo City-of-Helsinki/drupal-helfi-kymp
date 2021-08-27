@@ -4,14 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.tpr_unit.tpr_unit.field_content
-    - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
+    - field.field.tpr_unit.tpr_unit.field_lower_content
   module:
     - hdbt_admin_editorial
     - helfi_tpr
     - media_library
     - metatag
     - paragraphs
+    - path
     - readonly_field_widget
 _core:
   default_config_hash: g-ZdiLH0rHr8Mv6vni5A3v5v2UQGRdwiwPxs88WA93E
