@@ -96,3 +96,21 @@ if ($env = getenv('APP_ENV')) {
   }
 }
 
+if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
+  $schemes = [
+    'azure' => [
+      'driver' => 'helfi_azure',
+      'config' => [
+        'name' => $blob_strage_name,
+        'key' => getenv('AZURE_BLOB_STORAGE_KEY'),
+        'container' => getenv('AZURE_BLOB_STORAGE_CONTAINER'),
+        'endpointSuffix' => 'core.windows.net',
+        'protocol' => 'https',
+      ],
+      'cache' => TRUE,
+    ],
+  ];
+  $config['helfi_azure_fs.settings']['use_blob_storage'] = TRUE;
+  $settings['flysystem'] = $schemes;
+}
+
