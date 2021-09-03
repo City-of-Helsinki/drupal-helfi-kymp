@@ -1,3 +1,4 @@
+uuid: f897120a-37ac-4774-a60d-1393cea1def5
 langcode: en
 status: true
 dependencies:
@@ -32,4 +33,152 @@ settings:
         direction: ASC
       auto_create: false
       auto_create_bundle: page
+  block:
+    handler: 'default:block'
+    handler_settings: {  }
+  crop:
+    handler: 'default:crop'
+    handler_settings: {  }
+  crop_type:
+    handler: 'default:crop_type'
+    handler_settings: {  }
+  editor:
+    handler: 'default:editor'
+    handler_settings: {  }
+  features_bundle:
+    handler: 'default:features_bundle'
+    handler_settings: {  }
+  field_config:
+    handler: 'default:field_config'
+    handler_settings: {  }
+  field_storage_config:
+    handler: 'default:field_storage_config'
+    handler_settings: {  }
+  file:
+    handler: 'default:file'
+    handler_settings: {  }
+  filter_format:
+    handler: 'default:filter_format'
+    handler_settings: {  }
+  ahjo_issue:
+    handler: 'default:ahjo_issue'
+    handler_settings: {  }
+  hauki_resource:
+    handler: 'default:hauki_resource'
+    handler_settings: {  }
+  tpr_service_channel:
+    handler: 'default:tpr_service_channel'
+    handler_settings: {  }
+  tpr_errand_service:
+    handler: 'default:tpr_errand_service'
+    handler_settings: {  }
+  tpr_service:
+    handler: 'default:tpr_service'
+    handler_settings:
+      target_bundles: null
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
+  tpr_unit:
+    handler: 'default:tpr_unit'
+    handler_settings:
+      target_bundles: null
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
+  image_style:
+    handler: 'default:image_style'
+    handler_settings: {  }
+  configurable_language:
+    handler: 'default:configurable_language'
+    handler_settings: {  }
+  language_content_settings:
+    handler: 'default:language_content_settings'
+    handler_settings: {  }
+  linkit_profile:
+    handler: 'default:linkit_profile'
+    handler_settings: {  }
+  media:
+    handler: 'default:media'
+    handler_settings: {  }
+  media_type:
+    handler: 'default:media_type'
+    handler_settings: {  }
+  menu_link_content:
+    handler: 'default:menu_link_content'
+    handler_settings: {  }
+  metatag_defaults:
+    handler: 'default:metatag_defaults'
+    handler_settings: {  }
+  node_type:
+    handler: 'default:node_type'
+    handler_settings: {  }
+  paragraphs_library_item:
+    handler: 'default:paragraphs_library_item'
+    handler_settings: {  }
+  path_alias:
+    handler: 'default:path_alias'
+    handler_settings: {  }
+  rdf_mapping:
+    handler: 'default:rdf_mapping'
+    handler_settings: {  }
+  redirect:
+    handler: 'default:redirect'
+    handler_settings: {  }
+  responsive_image_style:
+    handler: 'default:responsive_image_style'
+    handler_settings: {  }
+  action:
+    handler: 'default:action'
+    handler_settings: {  }
+  menu:
+    handler: 'default:menu'
+    handler_settings: {  }
+  taxonomy_term:
+    handler: 'default:taxonomy_term'
+    handler_settings: {  }
+  taxonomy_vocabulary:
+    handler: 'default:taxonomy_vocabulary'
+    handler_settings: {  }
+  user_role:
+    handler: 'default:user_role'
+    handler_settings: {  }
+  user:
+    handler: 'default:user'
+    handler_settings: {  }
+  pathauto_pattern:
+    handler: 'default:pathauto_pattern'
+    handler_settings: {  }
+  view:
+    handler: 'default:view'
+    handler_settings: {  }
+  paragraph:
+    handler: 'default:paragraph'
+    handler_settings: {  }
+  paragraphs_type:
+    handler: 'default:paragraphs_type'
+    handler_settings: {  }
+  cookie_category:
+    handler: 'default:cookie_category'
+    handler_settings: {  }
+  date_format:
+    handler: 'default:date_format'
+    handler_settings: {  }
+  entity_form_display:
+    handler: 'default:entity_form_display'
+    handler_settings: {  }
+  entity_form_mode:
+    handler: 'default:entity_form_mode'
+    handler_settings: {  }
+  entity_view_display:
+    handler: 'default:entity_view_display'
+    handler_settings: {  }
+  entity_view_mode:
+    handler: 'default:entity_view_mode'
+    handler_settings: {  }
+  base_field_override:
+    handler: 'default:base_field_override'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

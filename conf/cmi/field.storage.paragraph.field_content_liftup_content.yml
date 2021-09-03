@@ -1,3 +1,4 @@
+uuid: 756de3e9-62b3-4b58-88cb-83972578f637
 langcode: en
 status: true
 dependencies:
@@ -13,6 +14,8 @@ settings:
   exclude_entity_types: false
   entity_type_ids:
     node: node
+    tpr_service: tpr_service
+    tpr_unit: tpr_unit
 module: dynamic_entity_reference
 locked: false
 cardinality: 1
