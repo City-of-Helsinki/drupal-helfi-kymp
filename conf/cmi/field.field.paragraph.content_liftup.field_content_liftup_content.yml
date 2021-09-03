@@ -33,6 +33,22 @@ settings:
         direction: ASC
       auto_create: false
       auto_create_bundle: page
+  tpr_service:
+    handler: 'default:tpr_service'
+    handler_settings:
+      target_bundles: null
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
+  tpr_unit:
+    handler: 'default:tpr_unit'
+    handler_settings:
+      target_bundles: null
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
   block:
     handler: 'default:block'
     handler_settings: {  }
@@ -72,22 +88,6 @@ settings:
   tpr_errand_service:
     handler: 'default:tpr_errand_service'
     handler_settings: {  }
-  tpr_service:
-    handler: 'default:tpr_service'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-        direction: ASC
-      auto_create: false
-  tpr_unit:
-    handler: 'default:tpr_unit'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-        direction: ASC
-      auto_create: false
   image_style:
     handler: 'default:image_style'
     handler_settings: {  }
