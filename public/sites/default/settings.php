@@ -76,6 +76,7 @@ if ($reverse_proxy_address = getenv('DRUPAL_REVERSE_PROXY_ADDRESS')) {
   $settings['reverse_proxy'] = TRUE;
   $settings['reverse_proxy_addresses'] = $reverse_proxy_address;
   $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL;
+  $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
 }
 
 if ($env = getenv('APP_ENV')) {
