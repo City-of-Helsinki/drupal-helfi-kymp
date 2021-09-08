@@ -14,7 +14,7 @@ services:
     environment:
       APP_ENV: "${APP_ENV:-dev}"
       DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME},https://helfi-proxy.docker.so"
-      REVERSE_PROXY_ADDRESS: helfi-proxy.docker.so
+      DRUPAL_REVERSE_PROXY_ADDRESS: helfi-proxy.docker.so
       DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}"
       XDEBUG_ENABLE: "true"
       # DOCKERHOST: host.docker.internal
