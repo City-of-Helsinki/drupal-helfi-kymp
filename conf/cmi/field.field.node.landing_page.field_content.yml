@@ -1,4 +1,4 @@
-uuid: 3167b112-09d3-4f54-81d9-ab5563fcdac7
+uuid: fcda0811-1599-4d7d-8cf2-92b3311b7303
 langcode: en
 status: true
 dependencies:
@@ -14,13 +14,12 @@ dependencies:
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.remote_video
-    - paragraphs.paragraphs_type.unit_search
-    - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.service_list
     - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: VuuTI6N8J827CZsvm_RrLmPzFcwY5kjDh9oF94YecsI
+  default_config_hash: H32rXF-A321VXfd5ARhUqaolvPgV9QrRDFrybS8by2s
 id: node.landing_page.field_content
 field_name: field_content
 entity_type: node
@@ -44,21 +43,22 @@ settings:
       content_liftup: content_liftup
       from_library: from_library
       remote_video: remote_video
-      unit_search: unit_search
       map: map
+      unit_search: unit_search
+      service_list: service_list
     target_bundles_drag_drop:
       accordion:
-        weight: -22
+        weight: -31
         enabled: false
       accordion_item:
-        weight: -21
+        weight: -30
         enabled: false
       banner:
         enabled: true
-        weight: -26
+        weight: -36
       columns:
         enabled: true
-        weight: -27
+        weight: -37
       content_cards:
         enabled: true
         weight: -33
@@ -67,36 +67,39 @@ settings:
         weight: -32
       from_library:
         enabled: true
-        weight: 21
+        weight: -23
       gallery:
-        weight: -20
+        weight: -29
         enabled: false
       gallery_slide:
-        weight: -19
+        weight: -28
         enabled: false
       hero:
-        weight: -18
+        weight: -27
         enabled: false
       image:
-        weight: -17
+        weight: -26
         enabled: false
       liftup_with_image:
         enabled: true
-        weight: -24
+        weight: -34
       list_of_links:
         enabled: true
-        weight: -25
+        weight: -35
       list_of_links_item:
-        weight: -16
+        weight: -25
         enabled: false
       map:
         enabled: true
-        weight: 31
+        weight: -20
       remote_video:
         enabled: true
-        weight: 27
+        weight: -22
+      service_list:
+        enabled: true
+        weight: 36
       text:
-        weight: -15
+        weight: -24
         enabled: false
       unit_search:
         enabled: true
