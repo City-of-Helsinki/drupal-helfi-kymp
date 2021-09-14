@@ -1,24 +1,22 @@
-uuid: eb7b1102-350f-43c7-8015-0c6d704b1e0c
+uuid: 86a05e09-0ad5-4b83-8448-b586ceeec1ad
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_text
-    - paragraphs.paragraphs_type.text
+    - field.storage.paragraph.field_sidebar_text_text
+    - paragraphs.paragraphs_type.sidebar_text
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
-    minimal: '0'
+    minimal: minimal
+    full_html: '0'
     plain_text: '0'
-_core:
-  default_config_hash: 22M73w0UGCJ_JWhbQn53ycPhg4fBmMbTmjjI6qMYlD0
-id: paragraph.text.field_text
-field_name: field_text
+id: paragraph.sidebar_text.field_sidebar_text_text
+field_name: field_sidebar_text_text
 entity_type: paragraph
-bundle: text
+bundle: sidebar_text
 label: Text
 description: ''
 required: false

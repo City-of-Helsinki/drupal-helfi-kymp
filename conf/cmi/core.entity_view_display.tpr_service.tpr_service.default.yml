@@ -6,6 +6,7 @@ dependencies:
     - field.field.tpr_service.tpr_service.field_content
     - field.field.tpr_service.tpr_service.field_lower_content
     - field.field.tpr_service.tpr_service.field_metatags
+    - field.field.tpr_service.tpr_service.field_sidebar_content
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -59,6 +60,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
+  field_sidebar_content:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   links:
     type: link
