@@ -302,16 +302,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b"
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/ae03311f45dfe194412081526be2e003960df74b",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
                 "shasum": ""
             },
             "require": {
@@ -410,6 +410,7 @@
                 "modx",
                 "moodle",
                 "osclass",
+                "pantheon",
                 "phpbb",
                 "piwik",
                 "ppi",
@@ -432,7 +433,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.11.0"
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
             },
             "funding": [
                 {
@@ -448,7 +449,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-28T06:42:17+00:00"
+            "time": "2021-09-13T08:19:44+00:00"
         },
         {
             "name": "composer/semver",
@@ -1817,6 +1818,54 @@
             }
         },
         {
+            "name": "drupal/allowed_formats",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/allowed_formats.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/allowed_formats-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "4c3c036d7b41428d6e22b61f1219de0ab012feec"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1592909219",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "floretan",
+                    "homepage": "https://www.drupal.org/user/66163"
+                },
+                {
+                    "name": "nord102",
+                    "homepage": "https://www.drupal.org/user/3471419"
+                }
+            ],
+            "description": "Limit which text formats are available for each field instance.",
+            "homepage": "https://www.drupal.org/project/allowed_formats",
+            "support": {
+                "source": "https://git.drupalcode.org/project/allowed_formats"
+            }
+        },
+        {
             "name": "drupal/config_filter",
             "version": "2.2.0",
             "source": {
@@ -2741,65 +2790,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/diff",
                 "issues": "https://www.drupal.org/project/issues/diff"
-            }
-        },
-        {
-            "name": "drupal/dynamic_entity_reference",
-            "version": "2.0.0-alpha15",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dynamic_entity_reference.git",
-                "reference": "8.x-2.0-alpha15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-2.0-alpha15.zip",
-                "reference": "8.x-2.0-alpha15",
-                "shasum": "9acea1f6e893722b403672d18a1666178b466232"
-            },
-            "require": {
-                "drupal/core": "^8.7.7 || ^9"
-            },
-            "require-dev": {
-                "drupal/diff": "1.x-dev"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.0-alpha15",
-                    "datestamp": "1620309100",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Lee Rowlands",
-                    "homepage": "https://www.drupal.org/u/larowlan",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Jibran Ijaz",
-                    "homepage": "https://www.drupal.org/u/jibran",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "larowlan",
-                    "homepage": "https://www.drupal.org/user/395439"
-                }
-            ],
-            "description": "Provides a field that allows an entity-reference field to reference more than one entity type.",
-            "homepage": "http://drupal.org/project/dynamic_entity_reference",
-            "support": {
-                "source": "http://cgit.drupalcode.org/dynamic_entity_reference",
-                "issues": "http://drupal.org/project/dynamic_entity_reference",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -3743,16 +3733,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.19",
+            "version": "1.3.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "3414f52561df04ba5e65ed87069cf6d85e107209"
+                "reference": "d13254477bb7a7b4dcd14dac8275c9cc83a0001f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/3414f52561df04ba5e65ed87069cf6d85e107209",
-                "reference": "3414f52561df04ba5e65ed87069cf6d85e107209",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/d13254477bb7a7b4dcd14dac8275c9cc83a0001f",
+                "reference": "d13254477bb7a7b4dcd14dac8275c9cc83a0001f",
                 "shasum": ""
             },
             "require": {
@@ -3770,7 +3760,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-09-09T13:13:09+00:00"
+            "time": "2021-09-14T09:01:33+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -3971,27 +3961,27 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "afd672ba38298fe9a8ca2a608e1158fdd50df01f"
+                "reference": "30762b5072cebab811e00cae1d3596f664469f03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/afd672ba38298fe9a8ca2a608e1158fdd50df01f",
-                "reference": "afd672ba38298fe9a8ca2a608e1158fdd50df01f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/30762b5072cebab811e00cae1d3596f664469f03",
+                "reference": "30762b5072cebab811e00cae1d3596f664469f03",
                 "shasum": ""
             },
             "require": {
                 "drupal/admin_toolbar": "^2.4.0",
                 "drupal/aet": "^2.0@alpha",
+                "drupal/allowed_formats": "^1.3",
                 "drupal/config_ignore": "^2.3",
                 "drupal/config_replace": "^2.0",
                 "drupal/crop": "^2.1",
                 "drupal/default_content": "^2.0.0-alpha1",
                 "drupal/diff": "^1.0",
-                "drupal/dynamic_entity_reference": "^2.0@alpha",
                 "drupal/easy_breadcrumb": "^2.0",
                 "drupal/elasticsearch_connector": "^7.0@alpha",
                 "drupal/entity_browser": "^2.5",
@@ -4055,7 +4045,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-09-09T13:39:19+00:00"
+            "time": "2021-09-14T08:55:56+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4096,16 +4086,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "b04b6bce2074746cf0b5420616d0f2c4ad7354ee"
+                "reference": "0dae5488ad331ae8efb0556acf19e6c1811e33fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/b04b6bce2074746cf0b5420616d0f2c4ad7354ee",
-                "reference": "b04b6bce2074746cf0b5420616d0f2c4ad7354ee",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/0dae5488ad331ae8efb0556acf19e6c1811e33fc",
+                "reference": "0dae5488ad331ae8efb0556acf19e6c1811e33fc",
                 "shasum": ""
             },
             "require": {
@@ -4126,10 +4116,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.3.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.3.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2021-09-09T07:06:51+00:00"
+            "time": "2021-09-14T08:56:19+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -8381,12 +8371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "0114e1dc12f561675a393a5cdd30bf6ddde256cb"
+                "reference": "9f71915210b9d5e2c866ffee612ef738a9146f77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0114e1dc12f561675a393a5cdd30bf6ddde256cb",
-                "reference": "0114e1dc12f561675a393a5cdd30bf6ddde256cb",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/9f71915210b9d5e2c866ffee612ef738a9146f77",
+                "reference": "9f71915210b9d5e2c866ffee612ef738a9146f77",
                 "shasum": ""
             },
             "require": {
@@ -8442,7 +8432,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-08-26T12:02:50+00:00"
+            "time": "2021-09-10T06:45:23+00:00"
         },
         {
             "name": "stack/builder",
@@ -13140,33 +13130,33 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "be1996ed8adc35c3fd795488a653f4b518be70ea"
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/be1996ed8adc35c3fd795488a653f4b518be70ea",
-                "reference": "be1996ed8adc35c3fd795488a653f4b518be70ea",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.2",
-                "php": "^7.2 || ~8.0, <8.1",
+                "php": "^7.2 || ~8.0, <8.2",
                 "phpdocumentor/reflection-docblock": "^5.2",
                 "sebastian/comparator": "^3.0 || ^4.0",
                 "sebastian/recursion-context": "^3.0 || ^4.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "^6.0",
+                "phpspec/phpspec": "^6.0 || ^7.0",
                 "phpunit/phpunit": "^8.0 || ^9.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -13201,9 +13191,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/1.13.0"
+                "source": "https://github.com/phpspec/prophecy/tree/1.14.0"
             },
-            "time": "2021-03-17T13:42:18+00:00"
+            "time": "2021-09-10T09:02:12+00:00"
         },
         {
             "name": "phpspec/prophecy-phpunit",
