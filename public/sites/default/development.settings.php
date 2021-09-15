@@ -1,8 +1,8 @@
 <?php
 
 $config['helfi_proxy.settings']['prefixes'] = [
-  'en' => 'dev-maps-and-transport',
-  'fi' => 'dev-kartat-ja-liikenne',
-  'sv' => 'dev-kartor-och-trafik',
-  'ru' => 'dev-maps',
+  'en' => 'dev-urban-environment-and-traffic',
+  'fi' => 'dev-kaupunkiymparisto-ja-liikenne',
+  'sv' => 'dev-stadsmiljo-och-trafik',
+  'ru' => 'dev-urban-environment-and-traffic',
 ];
