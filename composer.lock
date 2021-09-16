@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e97b32cee5f71f492d3f61c283a6dcf",
+    "content-hash": "5a83482bf29b99b611938ebb354fc7ba",
     "packages": [
         {
             "name": "City-of-Helsinki/php-hauki-client",
@@ -2041,6 +2041,57 @@
             }
         },
         {
+            "name": "drupal/config_rewrite",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_rewrite.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_rewrite-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "558ae849dffef68aa304c7907f5f4ffa4a4d1a81"
+            },
+            "require": {
+                "drupal/core": "^8.6 || ^9",
+                "php": ">=7.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1611769139",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Brant Wynn (brantwynn)",
+                    "homepage": "https://www.drupal.org/u/brantwynn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "saltednut",
+                    "homepage": "https://www.drupal.org/user/252788"
+                }
+            ],
+            "description": "Rewrites existing configuration on module installation via using a 'rewrite' folder in the config directory.",
+            "homepage": "https://www.drupal.org/project/config_rewrite",
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_rewrite",
+                "issues": "https://www.drupal.org/project/issues/config_rewrite"
+            }
+        },
+        {
             "name": "drupal/config_update",
             "version": "1.7.0",
             "source": {
@@ -2090,16 +2141,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "96bb4da48ed4d5892247b8afed55ca3db9bc47f6"
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/96bb4da48ed4d5892247b8afed55ca3db9bc47f6",
-                "reference": "96bb4da48ed4d5892247b8afed55ca3db9bc47f6",
+                "url": "https://api.github.com/repos/drupal/core/zipball/c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
                 "shasum": ""
             },
             "require": {
@@ -2338,13 +2389,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.5"
+                "source": "https://github.com/drupal/core/tree/9.2.6"
             },
-            "time": "2021-09-01T21:51:44+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2388,22 +2439,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.5"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.6"
             },
             "time": "2021-08-24T12:04:07+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "a6738810628a3ee04a49265191b43b2b2de5aa60"
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/a6738810628a3ee04a49265191b43b2b2de5aa60",
-                "reference": "a6738810628a3ee04a49265191b43b2b2de5aa60",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/e9bbd6d45dddc02157ea675b557c604feb31c80d",
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d",
                 "shasum": ""
             },
             "require": {
@@ -2412,7 +2463,7 @@
                 "doctrine/annotations": "1.13.1",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.2.5",
+                "drupal/core": "9.2.6",
                 "egulias/email-validator": "2.1.25",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.4.1",
@@ -2475,9 +2526,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.2.5"
+                "source": "https://github.com/drupal/core-recommended/tree/9.2.6"
             },
-            "time": "2021-09-01T21:51:44+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3961,16 +4012,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "1.3.8",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "30762b5072cebab811e00cae1d3596f664469f03"
+                "reference": "4f64bb7ceb9ac68dc28720b359a12a0832f2dba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/30762b5072cebab811e00cae1d3596f664469f03",
-                "reference": "30762b5072cebab811e00cae1d3596f664469f03",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4f64bb7ceb9ac68dc28720b359a12a0832f2dba2",
+                "reference": "4f64bb7ceb9ac68dc28720b359a12a0832f2dba2",
                 "shasum": ""
             },
             "require": {
@@ -3979,6 +4030,7 @@
                 "drupal/allowed_formats": "^1.3",
                 "drupal/config_ignore": "^2.3",
                 "drupal/config_replace": "^2.0",
+                "drupal/config_rewrite": "^1.4",
                 "drupal/crop": "^2.1",
                 "drupal/default_content": "^2.0.0-alpha1",
                 "drupal/diff": "^1.0",
@@ -4010,7 +4062,8 @@
                 "drupal/siteimprove": "^1.11",
                 "drupal/social_media": "^1.8",
                 "drupal/token": "^1.9",
-                "drupal/token_filter": "^1.2"
+                "drupal/token_filter": "^1.2",
+                "drupal/update_helper": "^2.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -4045,7 +4098,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-09-14T08:55:56+00:00"
+            "time": "2021-09-16T09:19:36+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5554,6 +5607,77 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/update_helper",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/update_helper.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/update_helper-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "1c442d26f316f59ae790d126b1148309468e8d78"
+            },
+            "require": {
+                "chi-teck/drupal-code-generator": "^1.32.0",
+                "drupal/config_update": "^1.5",
+                "drupal/core": "^8 || ^9",
+                "symfony/console": "~3.4.0 || ^4.4"
+            },
+            "require-dev": {
+                "drupal/checklistapi": "~1.0",
+                "drush/drush": "~10.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1591777960",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mladen Todorovic",
+                    "homepage": "https://www.drupal.org/user/157725",
+                    "email": "mladen.todorovic@burda.com"
+                },
+                {
+                    "name": "Christian Fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716",
+                    "email": "christian.fritsch@burda.com"
+                },
+                {
+                    "name": "Daniel Bosen",
+                    "homepage": "https://www.drupal.org/user/404865",
+                    "email": "daniel.bosen@burda.com"
+                },
+                {
+                    "name": "Volker Killesreiter",
+                    "homepage": "https://www.drupal.org/user/3453049",
+                    "email": "killesreiter@burda.com"
+                },
+                {
+                    "name": "thunderbot",
+                    "homepage": "https://www.drupal.org/user/3511180"
+                }
+            ],
+            "description": "This module offers supporting functionalities to make configuration updates easier.",
+            "homepage": "https://www.drupal.org/project/update_helper",
+            "support": {
+                "source": "https://git.drupalcode.org/project/update_helper"
             }
         },
         {
@@ -11879,16 +12003,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.1.6",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "e5cac5f9d2354d08b67f1d21c664ae70d748c603"
+                "reference": "24d38e9686092de05214cafa187dc282a5d89497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/e5cac5f9d2354d08b67f1d21c664ae70d748c603",
-                "reference": "e5cac5f9d2354d08b67f1d21c664ae70d748c603",
+                "url": "https://api.github.com/repos/composer/composer/zipball/24d38e9686092de05214cafa187dc282a5d89497",
+                "reference": "24d38e9686092de05214cafa187dc282a5d89497",
                 "shasum": ""
             },
             "require": {
@@ -11957,7 +12081,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.1.6"
+                "source": "https://github.com/composer/composer/tree/2.1.8"
             },
             "funding": [
                 {
@@ -11973,7 +12097,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-19T15:11:08+00:00"
+            "time": "2021-09-15T11:55:15+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -12371,7 +12495,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -12417,7 +12541,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/9.2.5"
+                "source": "https://github.com/drupal/core-dev/tree/9.2.6"
             },
             "time": "2021-06-01T16:41:50+00:00"
         },
@@ -14521,7 +14645,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {

@@ -11,14 +11,13 @@ module:
   config: 0
   config_filter: 0
   config_ignore: 0
-  config_replace: 0
+  config_rewrite: 0
   config_translation: 0
   config_update: 0
   crop: 0
   ctools: 0
   datetime: 0
   dblog: 0
-  default_content: 0
   diff: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
@@ -26,8 +25,6 @@ module:
   entity: 0
   entity_reference_revisions: 0
   entity_usage: 0
-  features: 0
-  features_ui: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -48,15 +45,16 @@ module:
   helfi_azure_fs: 0
   helfi_base_config: 0
   helfi_content: 0
-  helfi_example_content: 0
   helfi_gdpr_compliance: 0
   helfi_hauki: 0
   helfi_languages: 0
   helfi_media: 0
   helfi_media_map: 0
+  helfi_media_map_config: 0
   helfi_platform_config: 0
   helfi_proxy: 0
   helfi_tpr: 0
+  helfi_tpr_config: 0
   helfi_tunnistamo: 0
   image: 0
   image_style_quality: 0
@@ -108,6 +106,7 @@ module:
   toolbar: 0
   twig_tweak: 0
   update: 0
+  update_helper: 0
   user: 0
   views_infinite_scroll: 0
   views_ui: 0
