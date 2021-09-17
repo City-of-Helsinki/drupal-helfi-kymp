@@ -7,7 +7,7 @@ dependencies:
 id: service_entity_pattern
 label: 'Service entity pattern'
 type: 'canonical_entities:tpr_service'
-pattern: '[tpr_service:label]'
+pattern: '[tpr_service:menu-link-parents]/[tpr_service:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0

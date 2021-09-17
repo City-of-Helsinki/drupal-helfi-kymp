@@ -7,7 +7,7 @@ dependencies:
 id: unit_entity_pattern
 label: 'Unit entity pattern'
 type: 'canonical_entities:tpr_unit'
-pattern: '[tpr_unit:label]'
+pattern: '[tpr_unit:menu-link-parents]/[tpr_unit:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0
