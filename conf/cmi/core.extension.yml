@@ -20,7 +20,6 @@ module:
   dblog: 0
   default_content: 0
   diff: 0
-  dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
   entity: 0
@@ -88,6 +87,11 @@ module:
   paragraphs_library: 0
   path: 0
   path_alias: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_queuer_coretags: 0
+  purge_tokens: 0
   rdf: 0
   readonly_field_widget: 0
   redirect: 0
@@ -109,6 +113,8 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  varnish_purge_tags: 0
+  varnish_purger: 0
   views_infinite_scroll: 0
   views_ui: 0
   pathauto: 1
