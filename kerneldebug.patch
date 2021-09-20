@@ -1,0 +1,13 @@
+diff --git a/core/lib/Drupal/Core/DrupalKernel.php b/core/lib/Drupal/Core/DrupalKernel.php
+index e8bbac7bc2..661a14412e 100644
+--- a/core/lib/Drupal/Core/DrupalKernel.php
++++ b/core/lib/Drupal/Core/DrupalKernel.php
+@@ -1077,7 +1077,7 @@ protected function initializeSettings(Request $request) {
+     $host_patterns = Settings::get('trusted_host_patterns', []);
+     if (PHP_SAPI !== 'cli' && !empty($host_patterns)) {
+       if (static::setupTrustedHosts($request, $host_patterns) === FALSE) {
+-        throw new BadRequestHttpException('The provided host name is not valid for this server.');
++        throw new BadRequestHttpException("The provided host name {$request->getHost()} is not valid for this server.");
+       }
+     }
+   }

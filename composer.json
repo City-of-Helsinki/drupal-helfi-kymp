@@ -43,6 +43,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/core": {
+                "host debug": "kerneldebug.patch"
+            }
+        },
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "allowed-packages": [
