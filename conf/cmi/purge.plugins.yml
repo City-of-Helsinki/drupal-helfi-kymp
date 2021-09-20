@@ -1,0 +1,22 @@
+purgers:
+  -
+    order_index: 2
+    instance_id: default
+    plugin_id: varnish
+processors:
+  -
+    plugin_id: drush_purge_queue_work
+    status: true
+  -
+    plugin_id: cron
+    status: true
+queuers:
+  -
+    plugin_id: purge_ui_block_queuer
+    status: false
+  -
+    plugin_id: drush_purge_queue_add
+    status: false
+  -
+    plugin_id: coretags
+    status: true
