@@ -459,55 +459,118 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1:
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                value: {  }
+              -
+                operator: '='
                 title: '300 Multiple Choices'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '300'
-                  min: ''
-                  max: ''
-              2:
+              -
+                operator: '='
                 title: '301 Moved Permanently'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '301'
-                  min: ''
-                  max: ''
-              3:
+              -
+                operator: '='
                 title: '302 Found'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '302'
-                  min: ''
-                  max: ''
-              4:
+              -
+                operator: '='
                 title: '303 See Other'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '303'
-                  min: ''
-                  max: ''
-              5:
+              -
+                operator: '='
                 title: '304 Not Modified'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '304'
-                  min: ''
-                  max: ''
-              6:
+              -
+                operator: '='
                 title: '305 Use Proxy'
-                operator: '='
                 value:
+                  max: ''
+                  min: ''
                   value: '305'
-                  min: ''
-                  max: ''
-              7:
-                title: '307 Temporary Redirect'
+              -
                 operator: '='
+                title: '307 Temporary Redirect'
                 value:
-                  value: '307'
-                  min: ''
                   max: ''
+                  min: ''
+                  value: '307'
+              -
+                operator: '='
+                title: '300 Multiple Choices'
+                value:
+                  max: ''
+                  min: ''
+                  value: '300'
+              -
+                operator: '='
+                title: '301 Moved Permanently'
+                value:
+                  max: ''
+                  min: ''
+                  value: '301'
+              -
+                operator: '='
+                title: '302 Found'
+                value:
+                  max: ''
+                  min: ''
+                  value: '302'
+              -
+                operator: '='
+                title: '303 See Other'
+                value:
+                  max: ''
+                  min: ''
+                  value: '303'
+              -
+                operator: '='
+                title: '304 Not Modified'
+                value:
+                  max: ''
+                  min: ''
+                  value: '304'
+              -
+                operator: '='
+                title: '305 Use Proxy'
+                value:
+                  max: ''
+                  min: ''
+                  value: '305'
+              -
+                operator: '='
+                title: '307 Temporary Redirect'
+                value:
+                  max: ''
+                  min: ''
+                  value: '307'
           entity_type: redirect
           entity_field: status_code
           plugin_id: numeric
@@ -576,9 +639,15 @@ display:
       filter_groups:
         operator: AND
         groups:
-          1: AND
+          - AND
+          - AND
     cache_metadata:
       contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
@@ -597,6 +666,11 @@ display:
       path: admin/config/search/redirect
     cache_metadata:
       contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url

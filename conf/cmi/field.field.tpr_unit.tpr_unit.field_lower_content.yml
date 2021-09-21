@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.tpr_unit.field_lower_content
     - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.from_library
@@ -38,6 +39,7 @@ settings:
       gallery: gallery
       list_of_links: list_of_links
       content_cards: content_cards
+      banner: banner
       from_library: from_library
       remote_video: remote_video
     target_bundles_drag_drop:
@@ -48,8 +50,8 @@ settings:
         weight: -22
         enabled: false
       banner:
+        enabled: true
         weight: -21
-        enabled: false
       columns:
         enabled: true
         weight: -28
@@ -79,6 +81,9 @@ settings:
         weight: -24
       list_of_links_item:
         weight: -17
+        enabled: false
+      map:
+        weight: 31
         enabled: false
       remote_video:
         enabled: true

@@ -1,0 +1,57 @@
+label: 'TPR Palvelukanavat'
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: 'Palvelukanavia ei löytynyt.'
+            format: plain_text
+      exposed_form:
+        options:
+          submit_button: Käytä
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+      fields:
+        name:
+          label: Nimi
+        langcode:
+          label: Kieli
+        content_translation_status:
+          label: Tila
+          settings:
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
+        content_translation_changed:
+          label: Päivitetty
+        operations:
+          label: Toimenpiteet
+        tpr_service_channel_bulk_form:
+          label: Massapäivitys
+          action_title: Toiminto
+      title: 'TPR Palvelukanavat'
+      header:
+        result:
+          content: 'Näytetään @start - @end / @total'
+      filters:
+        combine:
+          expose:
+            label: Etsi
+        langcode:
+          expose:
+            label: Kieli
+    display_title: Oletus
+  page_1:
+    display_title: Sivu

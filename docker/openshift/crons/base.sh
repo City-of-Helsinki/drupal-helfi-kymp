@@ -16,6 +16,9 @@ echo "Starting cron: $(date)"
 # done
 # @endcode
 
+exec "/crons/migrate-tpr.sh" &
+exec "/crons/purge-queue.sh" &
+
 while true
 do
   echo "Running cron: $(date)\n"

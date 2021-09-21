@@ -1,0 +1,11 @@
+uuid: 23b52e05-43a3-438f-91b8-6eca9140acb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+id: tpr_service_channel_unpublish_action
+label: 'Unpublish service channel'
+type: tpr_service_channel
+plugin: 'entity:unpublish_action:tpr_service_channel'
+configuration: {  }

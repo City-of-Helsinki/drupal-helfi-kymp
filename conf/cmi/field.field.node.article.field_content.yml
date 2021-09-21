@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
@@ -40,6 +41,7 @@ settings:
       content_cards: content_cards
       from_library: from_library
       remote_video: remote_video
+      unit_search: unit_search
     target_bundles_drag_drop:
       accordion:
         weight: -21
@@ -87,6 +89,6 @@ settings:
         enabled: true
         weight: -27
       unit_search:
-        weight: 30
-        enabled: false
+        weight: 28
+        enabled: true
 field_type: entity_reference_revisions
