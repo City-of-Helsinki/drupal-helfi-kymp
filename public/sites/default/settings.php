@@ -117,10 +117,10 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
   $settings['flysystem'] = $schemes;
 }
 
-if ($varnish_host = getenv('VARNISH_HOST')) {
+if ($varnish_host = getenv('DRUPAL_VARNISH_HOST')) {
   $config['varnish_purger.settings.default']['hostname'] = $varnish_host;
 }
 
-if ($varnish_port = getenv('VARNISH_PORT')) {
+if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
   $config['varnish_purger.settings.default']['port'] = $varnish_port;
 }
