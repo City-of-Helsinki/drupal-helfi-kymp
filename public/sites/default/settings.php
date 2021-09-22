@@ -124,3 +124,10 @@ if ($varnish_host = getenv('DRUPAL_VARNISH_HOST')) {
 if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
   $config['varnish_purger.settings.default']['port'] = $varnish_port;
 }
+
+if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY') && isset($config['varnish_purger.settings.default']['headers'])) {
+  $config['varnish_purger.settings.default']['headers'][] = [
+    'field' => 'X-VC-Purge-Key',
+    'value' => $varnish_purge_key,
+  ];
+}
