@@ -1,10 +1,11 @@
+label: 'TPR units'
 display:
   default:
     display_title: Основной
     display_options:
       exposed_form:
         options:
-          submit_button: Применить
+          submit_button: фильтр
           reset_button_label: Сбросить
           exposed_sorts_label: 'Сортировать по'
           sort_asc_label: 'По возрастанию'
@@ -51,6 +52,7 @@ display:
         langcode:
           expose:
             label: Язык
+      title: 'TPR units'
       header:
         result:
           content: 'Отображается с @start по @end из @total'

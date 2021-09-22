@@ -1,5 +1,7 @@
+label: 'TPR units'
 display:
   default:
+    display_title: Förvald
     display_options:
       exposed_form:
         options:
@@ -50,6 +52,7 @@ display:
         langcode:
           expose:
             label: Språk
+      title: 'TPR units'
       header:
         result:
           content: 'Visar @start - @end av @total'

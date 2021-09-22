@@ -26,14 +26,7 @@ settings:
       value: ''
       format: full_html
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      page: page
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: /node/1
+    pages: /cookie-information-and-settings
     negate: false

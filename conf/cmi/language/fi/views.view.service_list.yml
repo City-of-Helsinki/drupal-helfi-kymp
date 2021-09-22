@@ -1,0 +1,31 @@
+display:
+  default:
+    display_title: Oletus
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Käytä
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: ''
+            next: ''
+          expose:
+            items_per_page_label: ''
+            items_per_page_options_all_label: ''
+            offset_label: ''
+          views_infinite_scroll:
+            button_text: 'Lataa lisää palveluita'
+      arguments:
+        id:
+          exception:
+            title: Kaikki
+      empty:
+        area:
+          content:
+            value: "<p>Ei tuloksia</p>\r\n"
+            format: full_html
