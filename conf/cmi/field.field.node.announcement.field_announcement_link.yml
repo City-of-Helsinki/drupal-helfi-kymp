@@ -1,0 +1,25 @@
+uuid: 44bc33aa-3506-45f6-afe7-d15aeb595701
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_announcement_link
+    - node.type.announcement
+  module:
+    - link
+_core:
+  default_config_hash: S74s33VRK9MEEL7bxul4hKK8DywKnU5vfqRDPEQz7Cw
+id: node.announcement.field_announcement_link
+field_name: field_announcement_link
+entity_type: node
+bundle: announcement
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

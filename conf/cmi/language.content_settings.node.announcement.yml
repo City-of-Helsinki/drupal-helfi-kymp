@@ -1,0 +1,18 @@
+uuid: 4dff6ab5-7b6a-49d0-8eb1-efef1a075b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.announcement
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+_core:
+  default_config_hash: xzUi5sokV_KKyy_tkejxorDJN2VUjQzCtCKgXepWWxM
+id: node.announcement
+target_entity_type_id: node
+target_bundle: announcement
+default_langcode: fi
+language_alterable: true

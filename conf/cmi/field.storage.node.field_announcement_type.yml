@@ -1,0 +1,32 @@
+uuid: 602f7d87-dadb-4f70-99fb-73dc2b19ecc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: xr9VH9mT3ysZiWD_r1Fqf4vC1YN4ROd_OVdg-ALQCcg
+id: node.field_announcement_type
+field_name: field_announcement_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: notification
+      label: Notification
+    -
+      value: attention
+      label: Attention
+    -
+      value: alert
+      label: Alert
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
