@@ -1,6 +1,6 @@
 display:
   default:
-    display_title: Isäntä
+    display_title: Oletus
     display_options:
       exposed_form:
         options:
@@ -27,5 +27,8 @@ display:
         id:
           exception:
             title: Kaikki
-  service_units:
-    display_title: Lohko
+      empty:
+        area:
+          content:
+            value: "<p>Ei tuloksia</p>\r\n"
+            format: full_html
