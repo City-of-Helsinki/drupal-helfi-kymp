@@ -124,3 +124,20 @@ if ($varnish_host = getenv('DRUPAL_VARNISH_HOST')) {
 if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
   $config['varnish_purger.settings.default']['port'] = $varnish_port;
 }
+
+if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
+  // Configuration doesn't know about existing config here so we can't
+  // append to existing headers array here and have to include all headers.
+  // If you have any extra headers you must add them here as well.
+  // @todo Replace this with config override service?
+  $config['varnish_purger.settings.default']['headers'] = [
+    [
+      'field' => 'X-VC-Purge-Key',
+      'value' => $varnish_purge_key,
+    ],
+    [
+      'field' => 'Cache-Tags',
+      'value' => '[invalidation:expression]',
+    ],
+  ];
+}
