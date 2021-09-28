@@ -46,8 +46,9 @@ if (!isset($argv[2], $argv[1])) {
 }
 
 $migrations = explode(',', $argv[1]);
-
 $data = $argv[2];
+// Default to 6 hours.
+$time = $argv[3] ?? 21600;
 
 if (is_file($data)) {
   $data = file_get_contents($data);
@@ -69,7 +70,7 @@ foreach ($json as $migration) {
     $reset_status[] = $migration->id;
   }
 
-  $last_imported = unix_time($migration->last_imported) + 21600;
+  $last_imported = unix_time($migration->last_imported) + $time;
 
   // Skip migration.
   if ($last_imported && $last_imported > time()) {
