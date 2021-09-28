@@ -63,6 +63,7 @@ do
   # Reset migrate status if migrate has been running for more
   # than 12 hours.
   populate_variables 43200
+  # Never skip migrate after first time.
   SKIP_MIGRATE=
   # Sleep for 6 hours.
   sleep 21600
