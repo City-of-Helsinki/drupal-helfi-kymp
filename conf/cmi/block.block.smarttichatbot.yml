@@ -1,0 +1,20 @@
+uuid: cbfb1e61-53cd-4939-94c1-d7f14c397c25
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_platform_config
+  theme:
+    - hdbt
+id: smarttichatbot
+theme: hdbt
+region: attachments
+weight: 0
+provider: null
+plugin: smartti_chatbot
+settings:
+  id: smartti_chatbot
+  label: 'Smartti Chatbot'
+  provider: helfi_platform_config
+  label_display: '0'
+visibility: {  }
