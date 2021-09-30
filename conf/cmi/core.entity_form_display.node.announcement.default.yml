@@ -52,8 +52,8 @@ content:
     weight: 12
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      autocomplete: false
+      match_limit: 20
+      autocomplete: true
       width: 100%
     third_party_settings: {  }
     type: select2_entity_reference
@@ -70,8 +70,8 @@ content:
     weight: 14
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      autocomplete: false
+      match_limit: 20
+      autocomplete: true
       width: 100%
     third_party_settings: {  }
     type: select2_entity_reference
@@ -87,8 +87,8 @@ content:
     weight: 13
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      autocomplete: false
+      match_limit: 20
+      autocomplete: true
       width: 100%
     third_party_settings: {  }
     type: select2_entity_reference
