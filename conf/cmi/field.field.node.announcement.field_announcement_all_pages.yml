@@ -1,0 +1,25 @@
+uuid: f1e74aa6-a3d1-4c69-9886-db61dda274ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_announcement_all_pages
+    - node.type.announcement
+_core:
+  default_config_hash: RtRz18gmNe_RH0gVc6OxdCOeZAtClvLVtBzN0KECLdM
+id: node.announcement.field_announcement_all_pages
+field_name: field_announcement_all_pages
+entity_type: node
+bundle: announcement
+label: 'Show on all pages'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
