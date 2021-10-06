@@ -4088,6 +4088,39 @@
             "time": "2021-05-21T06:10:50+00:00"
         },
         {
+            "name": "drupal/helfi_media_formtool",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-formtool.git",
+                "reference": "76646a8e31a822baf76400348dc703911e99d9f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-media-formtool/zipball/76646a8e31a822baf76400348dc703911e99d9f7",
+                "reference": "76646a8e31a822baf76400348dc703911e99d9f7",
+                "shasum": ""
+            },
+            "require": {
+                "league/uri": "^6.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "drupal/coder": "^8.3",
+                "phpspec/prophecy-phpunit": "^2"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Integrates FormTool Forms with Media",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-formtool/tree/main",
+                "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-formtool/issues"
+            },
+            "time": "2021-10-01T08:08:21+00:00"
+        },
+        {
             "name": "drupal/helfi_media_map",
             "version": "1.0.0",
             "source": {
@@ -4122,16 +4155,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "4079e42682be2cf56da37ab5bd4881207c5a3196"
+                "reference": "5265f40ffe83e2db7b93cc887e9aadfc25369217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4079e42682be2cf56da37ab5bd4881207c5a3196",
-                "reference": "4079e42682be2cf56da37ab5bd4881207c5a3196",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/5265f40ffe83e2db7b93cc887e9aadfc25369217",
+                "reference": "5265f40ffe83e2db7b93cc887e9aadfc25369217",
                 "shasum": ""
             },
             "require": {
@@ -4153,6 +4186,7 @@
                 "drupal/field_group": "^3.1",
                 "drupal/focal_point": "^1.5",
                 "drupal/gin_toolbar": "^1.0@beta",
+                "drupal/helfi_media_formtool": "*",
                 "drupal/helfi_media_map": "*",
                 "drupal/image_style_quality": "^1.4",
                 "drupal/imagecache_external": "^3.0",
@@ -4211,7 +4245,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-09-30T20:19:04+00:00"
+            "time": "2021-10-05T15:44:03+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
