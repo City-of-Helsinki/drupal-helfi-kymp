@@ -2998,6 +2998,10 @@
                     "homepage": "https://www.drupal.org/node/2159059/committers"
                 },
                 {
+                    "name": "sokru",
+                    "homepage": "https://www.drupal.org/user/388235"
+                },
+                {
                     "name": "ygerasimov",
                     "homepage": "https://www.drupal.org/user/257311"
                 }
@@ -3857,16 +3861,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.24",
+            "version": "1.3.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "a2e73908f379939c292b30b6090c9ab4115b7b96"
+                "reference": "28469bb4222a29eebbcec08a040ed6a33ca11cde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/a2e73908f379939c292b30b6090c9ab4115b7b96",
-                "reference": "a2e73908f379939c292b30b6090c9ab4115b7b96",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/28469bb4222a29eebbcec08a040ed6a33ca11cde",
+                "reference": "28469bb4222a29eebbcec08a040ed6a33ca11cde",
                 "shasum": ""
             },
             "require": {
@@ -3884,20 +3888,20 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-10-07T08:42:07+00:00"
+            "time": "2021-10-07T10:58:23+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.3.10",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "dd207ed37bfb1cef5e2cea4034647a5bfd3de5df"
+                "reference": "c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/dd207ed37bfb1cef5e2cea4034647a5bfd3de5df",
-                "reference": "dd207ed37bfb1cef5e2cea4034647a5bfd3de5df",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f",
+                "reference": "c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f",
                 "shasum": ""
             },
             "require": {
@@ -3916,7 +3920,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2021-09-24T06:44:39+00:00"
+            "time": "2021-10-07T10:57:20+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -4085,16 +4089,16 @@
         },
         {
             "name": "drupal/helfi_media_map",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map.git",
-                "reference": "ccf18c89ed84f7205c0f23dbd6145fb3caca598f"
+                "reference": "ba9adff9f4e62e81804bed60a3d95834acb11f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-media-map/zipball/ccf18c89ed84f7205c0f23dbd6145fb3caca598f",
-                "reference": "ccf18c89ed84f7205c0f23dbd6145fb3caca598f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-media-map/zipball/ba9adff9f4e62e81804bed60a3d95834acb11f9d",
+                "reference": "ba9adff9f4e62e81804bed60a3d95834acb11f9d",
                 "shasum": ""
             },
             "require": {
@@ -4111,10 +4115,10 @@
             ],
             "description": "Integrates hel.fi maps with Media",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/tree/1.0.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/tree/1.0.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/issues"
             },
-            "time": "2021-06-18T06:45:43+00:00"
+            "time": "2021-10-07T18:26:31+00:00"
         },
         {
             "name": "drupal/helfi_platform_config",
@@ -4205,7 +4209,7 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.0.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
             "time": "2021-10-07T08:42:19+00:00"
@@ -16520,5 +16524,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
