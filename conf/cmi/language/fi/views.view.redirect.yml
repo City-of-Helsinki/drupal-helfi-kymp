@@ -1,9 +1,36 @@
-label: Redirect
-description: Uudelleenohjaukset
 display:
   default:
-    display_title: Oletus
     display_options:
+      filters:
+        status_code:
+          group_info:
+            group_items:
+              15:
+                title: '300 Useita valintoja'
+              16:
+                title: '301 Pysyvästi siirretty'
+              17:
+                title: '302 Löydetty'
+              18:
+                title: '303 Kts. toinen'
+              19:
+                title: '304 Muuttamaton'
+              20:
+                title: '305 Käytä proxyä'
+              7:
+                title: '300 Multiple Choices'
+            label: Tilakoodi
+          expose:
+            label: Tilakoodi
+        redirect_source__path:
+          expose:
+            label: Lähettäjä
+        redirect_redirect__uri:
+          expose:
+            label: Osoitteeseen
+        language:
+          expose:
+            label: 'Alkuperäinen kieli'
       exposed_form:
         options:
           submit_button: Suodatin
@@ -30,37 +57,12 @@ display:
           separator: ', '
         created:
           label: Luotu
-      filters:
-        redirect_source__path:
-          expose:
-            label: Lähettäjä
-        redirect_redirect__uri:
-          expose:
-            label: Osoitteeseen
-        status_code:
-          expose:
-            label: Tilakoodi
-          group_info:
-            label: Tilakoodi
-            group_items:
-              15:
-                title: '300 Useita valintoja'
-              16:
-                title: '301 Pysyvästi siirretty'
-              17:
-                title: '302 Löydetty'
-              18:
-                title: '303 Kts. toinen'
-              19:
-                title: '304 Muuttamaton'
-              20:
-                title: '305 Käytä proxyä'
-        language:
-          expose:
-            label: 'Alkuperäinen kieli'
       title: Redirect
       empty:
         area_text_custom:
           content: 'Ei ole vielä uudelleenohjaksia.'
+    display_title: Oletus
   page_1:
     display_title: Sivu
+label: Redirect
+description: Uudelleenohjaukset
