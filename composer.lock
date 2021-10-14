@@ -2998,6 +2998,10 @@
                     "homepage": "https://www.drupal.org/node/2159059/committers"
                 },
                 {
+                    "name": "sokru",
+                    "homepage": "https://www.drupal.org/user/388235"
+                },
+                {
                     "name": "ygerasimov",
                     "homepage": "https://www.drupal.org/user/257311"
                 }
@@ -3224,17 +3228,17 @@
         },
         {
             "name": "drupal/entity_usage",
-            "version": "2.0.0-beta5",
+            "version": "2.0.0-beta6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_usage.git",
-                "reference": "8.x-2.0-beta5"
+                "reference": "8.x-2.0-beta6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_usage-8.x-2.0-beta5.zip",
-                "reference": "8.x-2.0-beta5",
-                "shasum": "f4a57c41e23e92fc84053fb38dc94cc0d9fd9c43"
+                "url": "https://ftp.drupal.org/files/projects/entity_usage-8.x-2.0-beta6.zip",
+                "reference": "8.x-2.0-beta6",
+                "shasum": "b641f9549fc3edaa81f0548f0fc209ece3ed369c"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -3253,8 +3257,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-beta5",
-                    "datestamp": "1630413072",
+                    "version": "8.x-2.0-beta6",
+                    "datestamp": "1633676588",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -3292,17 +3296,17 @@
         },
         {
             "name": "drupal/eu_cookie_compliance",
-            "version": "1.18.0",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eu-cookie-compliance.git",
-                "reference": "8.x-1.18"
+                "reference": "8.x-1.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.18.zip",
-                "reference": "8.x-1.18",
-                "shasum": "dfcbd4de713313b75feeefa0878379743479204b"
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.19.zip",
+                "reference": "8.x-1.19",
+                "shasum": "5a13cd53f87a58501cebd6e560c280ad7274035c"
             },
             "require": {
                 "drupal/core": "^8.9 || ^9"
@@ -3310,8 +3314,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.18",
-                    "datestamp": "1632895785",
+                    "version": "8.x-1.19",
+                    "datestamp": "1633775773",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3341,6 +3345,10 @@
                 {
                     "name": "See other contributors",
                     "homepage": "https://www.drupal.org/node/1538032/committers"
+                },
+                {
+                    "name": "svenryen",
+                    "homepage": "https://www.drupal.org/user/667244"
                 }
             ],
             "description": "This module aims at making the website compliant with the new EU cookie regulation.",
@@ -3857,16 +3865,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.23",
+            "version": "1.3.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "9adde8a3b105f20a5cce67a0ecefc1617c7e6355"
+                "reference": "6efd631202ffbc1c0f3d648bffb56c8b36a1aeb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9adde8a3b105f20a5cce67a0ecefc1617c7e6355",
-                "reference": "9adde8a3b105f20a5cce67a0ecefc1617c7e6355",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/6efd631202ffbc1c0f3d648bffb56c8b36a1aeb9",
+                "reference": "6efd631202ffbc1c0f3d648bffb56c8b36a1aeb9",
                 "shasum": ""
             },
             "require": {
@@ -3884,20 +3892,20 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-09-30T14:51:39+00:00"
+            "time": "2021-10-13T15:29:13+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.3.10",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "dd207ed37bfb1cef5e2cea4034647a5bfd3de5df"
+                "reference": "c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/dd207ed37bfb1cef5e2cea4034647a5bfd3de5df",
-                "reference": "dd207ed37bfb1cef5e2cea4034647a5bfd3de5df",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f",
+                "reference": "c68a0d697fd9e2e7ed0c60ffd375c183ca22f31f",
                 "shasum": ""
             },
             "require": {
@@ -3916,7 +3924,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2021-09-24T06:44:39+00:00"
+            "time": "2021-10-07T10:57:20+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -3953,16 +3961,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "1.2.1",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "e6f1eecf3803170e7a4cff2e205a94c177e35799"
+                "reference": "681979d62b74d533150b4b8bc198184fa77f5568"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/e6f1eecf3803170e7a4cff2e205a94c177e35799",
-                "reference": "e6f1eecf3803170e7a4cff2e205a94c177e35799",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/681979d62b74d533150b4b8bc198184fa77f5568",
+                "reference": "681979d62b74d533150b4b8bc198184fa77f5568",
                 "shasum": ""
             },
             "require": {
@@ -3978,10 +3986,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/1.2.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/1.2.3",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2021-10-01T12:19:36+00:00"
+            "time": "2021-10-12T07:30:51+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4085,16 +4093,16 @@
         },
         {
             "name": "drupal/helfi_media_map",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map.git",
-                "reference": "ccf18c89ed84f7205c0f23dbd6145fb3caca598f"
+                "reference": "ba9adff9f4e62e81804bed60a3d95834acb11f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-media-map/zipball/ccf18c89ed84f7205c0f23dbd6145fb3caca598f",
-                "reference": "ccf18c89ed84f7205c0f23dbd6145fb3caca598f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-media-map/zipball/ba9adff9f4e62e81804bed60a3d95834acb11f9d",
+                "reference": "ba9adff9f4e62e81804bed60a3d95834acb11f9d",
                 "shasum": ""
             },
             "require": {
@@ -4111,23 +4119,23 @@
             ],
             "description": "Integrates hel.fi maps with Media",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/tree/1.0.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/tree/1.0.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/issues"
             },
-            "time": "2021-06-18T06:45:43+00:00"
+            "time": "2021-10-07T18:26:31+00:00"
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.8",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "5265f40ffe83e2db7b93cc887e9aadfc25369217"
+                "reference": "2c8f316022d9251fa796f0174e5d3b98dd1d9dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/5265f40ffe83e2db7b93cc887e9aadfc25369217",
-                "reference": "5265f40ffe83e2db7b93cc887e9aadfc25369217",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2c8f316022d9251fa796f0174e5d3b98dd1d9dff",
+                "reference": "2c8f316022d9251fa796f0174e5d3b98dd1d9dff",
                 "shasum": ""
             },
             "require": {
@@ -4184,7 +4192,7 @@
                         "https://www.drupal.org/project/default_content/issues/2698425#comment-13809863": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
                     },
                     "drupal/eu_cookie_compliance": {
-                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://gist.githubusercontent.com/khalima/29009c0d8e857a56dcc6ba5d927330f6/raw/deb17191df0328d1c8e6b324c7d9c9734d08bcbd/eu_cookie_compliance_block_8.x-1.18.patch"
+                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://gist.githubusercontent.com/khalima/25c1972340725bc57ac088b268c5736a/raw/a5dd1a39b2e3da23105c4aa5bfa9fd8c2373eb6f/eu_cookie_compliance_block_8.x-1.19.patch"
                     },
                     "drupal/features": {
                         "https://www.drupal.org/project/features/issues/2869336": "https://www.drupal.org/files/issues/features_export-config-translation-2869336-2.patch"
@@ -4208,26 +4216,27 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-10-05T15:44:03+00:00"
+            "time": "2021-10-13T15:28:57+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "3e7a1ec66104f8791fe7cc2aeffb78d1d248bcec"
+                "reference": "510536390e3f5a669823cbd8e2db11598bbae3ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/3e7a1ec66104f8791fe7cc2aeffb78d1d248bcec",
-                "reference": "3e7a1ec66104f8791fe7cc2aeffb78d1d248bcec",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/510536390e3f5a669823cbd8e2db11598bbae3ad",
+                "reference": "510536390e3f5a669823cbd8e2db11598bbae3ad",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "league/uri": "^6.0",
+                "php": "^8.0",
                 "symfony/dom-crawler": "^4.0",
                 "wa72/htmlpagedom": "dev-master"
             },
@@ -4242,23 +4251,23 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.1.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.1.6",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2021-10-06T06:38:18+00:00"
+            "time": "2021-10-13T12:48:10+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.4.3",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "7132f6a82eac85709f0affff712d98fd761839b8"
+                "reference": "57e63e7eabe0dc6ae1f07a87165050058146d6dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/7132f6a82eac85709f0affff712d98fd761839b8",
-                "reference": "7132f6a82eac85709f0affff712d98fd761839b8",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/57e63e7eabe0dc6ae1f07a87165050058146d6dd",
+                "reference": "57e63e7eabe0dc6ae1f07a87165050058146d6dd",
                 "shasum": ""
             },
             "require": {
@@ -4279,10 +4288,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.4.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.4.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2021-10-01T05:25:15+00:00"
+            "time": "2021-10-12T06:27:16+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -6899,16 +6908,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "694492c653c518456af2805f04eec445b997ed1f"
+                "reference": "ae547e455a3d8babd07b96966b17d7fd21d9c6af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/694492c653c518456af2805f04eec445b997ed1f",
-                "reference": "694492c653c518456af2805f04eec445b997ed1f",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/ae547e455a3d8babd07b96966b17d7fd21d9c6af",
+                "reference": "ae547e455a3d8babd07b96966b17d7fd21d9c6af",
                 "shasum": ""
             },
             "require": {
@@ -6952,9 +6961,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Jean85/pretty-package-versions/issues",
-                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.4"
+                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.5"
             },
-            "time": "2021-05-26T08:46:42+00:00"
+            "time": "2021-10-08T21:21:46+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -7931,16 +7940,16 @@
         },
         {
             "name": "microsoft/azure-storage-blob",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Azure/azure-storage-blob-php.git",
-                "reference": "2475330963372d519387cb8135d6a9cfd42272da"
+                "reference": "9aec3e152dab8cd9ec64fd89ed71129a0402c4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure/azure-storage-blob-php/zipball/2475330963372d519387cb8135d6a9cfd42272da",
-                "reference": "2475330963372d519387cb8135d6a9cfd42272da",
+                "url": "https://api.github.com/repos/Azure/azure-storage-blob-php/zipball/9aec3e152dab8cd9ec64fd89ed71129a0402c4be",
+                "reference": "9aec3e152dab8cd9ec64fd89ed71129a0402c4be",
                 "shasum": ""
             },
             "require": {
@@ -7973,22 +7982,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Azure/azure-storage-blob-php/issues",
-                "source": "https://github.com/Azure/azure-storage-blob-php/tree/v1.5.2"
+                "source": "https://github.com/Azure/azure-storage-blob-php/tree/v1.5.3"
             },
-            "time": "2020-12-29T02:22:11+00:00"
+            "time": "2021-10-09T03:13:46+00:00"
         },
         {
             "name": "microsoft/azure-storage-common",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Azure/azure-storage-common-php.git",
-                "reference": "e5738035891546075bd369954e8af121d65ebd6d"
+                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure/azure-storage-common-php/zipball/e5738035891546075bd369954e8af121d65ebd6d",
-                "reference": "e5738035891546075bd369954e8af121d65ebd6d",
+                "url": "https://api.github.com/repos/Azure/azure-storage-common-php/zipball/8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
+                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
                 "shasum": ""
             },
             "require": {
@@ -8021,9 +8030,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Azure/azure-storage-common-php/issues",
-                "source": "https://github.com/Azure/azure-storage-common-php/tree/v1.5.1"
+                "source": "https://github.com/Azure/azure-storage-common-php/tree/v1.5.2"
             },
-            "time": "2020-12-28T07:59:51+00:00"
+            "time": "2021-10-09T03:03:47+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -9176,16 +9185,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.10.8",
+            "version": "v0.10.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "e4573f47750dd6c92dca5aee543fa77513cbd8d3"
+                "reference": "01281336c4ae557fe4a994544f30d3a1bc204375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e4573f47750dd6c92dca5aee543fa77513cbd8d3",
-                "reference": "e4573f47750dd6c92dca5aee543fa77513cbd8d3",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/01281336c4ae557fe4a994544f30d3a1bc204375",
+                "reference": "01281336c4ae557fe4a994544f30d3a1bc204375",
                 "shasum": ""
             },
             "require": {
@@ -9245,9 +9254,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.10.8"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.10.9"
             },
-            "time": "2021-04-10T16:23:39+00:00"
+            "time": "2021-10-10T13:37:39+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -9349,12 +9358,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "0cadecb6466a626e615fc493b4625c0ea560249a"
+                "reference": "0e2cabd230d0708735636b3d78657f84351a07d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0cadecb6466a626e615fc493b4625c0ea560249a",
-                "reference": "0cadecb6466a626e615fc493b4625c0ea560249a",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0e2cabd230d0708735636b3d78657f84351a07d0",
+                "reference": "0e2cabd230d0708735636b3d78657f84351a07d0",
                 "shasum": ""
             },
             "require": {
@@ -9410,7 +9419,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-09-28T22:59:23+00:00"
+            "time": "2021-10-11T15:39:13+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -12987,26 +12996,27 @@
     "packages-dev": [
         {
             "name": "behat/mink",
-            "version": "v1.8.1",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/Mink.git",
-                "reference": "07c6a9fe3fa98c2de074b25d9ed26c22904e3887"
+                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/07c6a9fe3fa98c2de074b25d9ed26c22904e3887",
-                "reference": "07c6a9fe3fa98c2de074b25d9ed26c22904e3887",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/e35f4695de8800fc776af34ebf665ad58ebdd996",
+                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.1",
+                "php": ">=5.4",
                 "symfony/css-selector": "^2.7|^3.0|^4.0|^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20",
-                "symfony/debug": "^2.7|^3.0|^4.0",
-                "symfony/phpunit-bridge": "^3.4.38 || ^5.0.5"
+                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5 || ^9.5",
+                "symfony/debug": "^2.7|^3.0|^4.0|^5.0",
+                "symfony/phpunit-bridge": "^3.4.38 || ^4.4 || ^5.0.5",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -13018,7 +13028,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -13038,7 +13048,7 @@
                 }
             ],
             "description": "Browser controller/emulator abstraction for PHP",
-            "homepage": "http://mink.behat.org/",
+            "homepage": "https://mink.behat.org/",
             "keywords": [
                 "browser",
                 "testing",
@@ -13046,37 +13056,36 @@
             ],
             "support": {
                 "issues": "https://github.com/minkphp/Mink/issues",
-                "source": "https://github.com/minkphp/Mink/tree/v1.8.1"
+                "source": "https://github.com/minkphp/Mink/tree/v1.9.0"
             },
-            "time": "2020-03-11T15:45:53+00:00"
+            "time": "2021-10-11T11:58:47+00:00"
         },
         {
             "name": "behat/mink-goutte-driver",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/MinkGoutteDriver.git",
-                "reference": "8b9ad6d2d95bc70b840d15323365f52fcdaea6ca"
+                "reference": "8139f520f417c81bf9d2f9a171fff400f6adc9ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/8b9ad6d2d95bc70b840d15323365f52fcdaea6ca",
-                "reference": "8b9ad6d2d95bc70b840d15323365f52fcdaea6ca",
+                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/8139f520f417c81bf9d2f9a171fff400f6adc9ea",
+                "reference": "8139f520f417c81bf9d2f9a171fff400f6adc9ea",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": "~1.6@dev",
                 "behat/mink-browserkit-driver": "~1.2@dev",
                 "fabpot/goutte": "~1.0.4|~2.0|~3.1",
-                "php": ">=5.3.1"
+                "php": ">=5.4"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "mink/driver-testsuite": "dev-master"
             },
             "type": "mink-driver",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -13096,7 +13105,7 @@
                 }
             ],
             "description": "Goutte driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
+            "homepage": "https://mink.behat.org/",
             "keywords": [
                 "browser",
                 "goutte",
@@ -13105,22 +13114,22 @@
             ],
             "support": {
                 "issues": "https://github.com/minkphp/MinkGoutteDriver/issues",
-                "source": "https://github.com/minkphp/MinkGoutteDriver/tree/master"
+                "source": "https://github.com/minkphp/MinkGoutteDriver/tree/v1.3.0"
             },
-            "time": "2016-03-05T09:04:22+00:00"
+            "time": "2021-10-12T11:35:46+00:00"
         },
         {
             "name": "behat/mink-selenium2-driver",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
-                "reference": "312a967dd527f28980cce40850339cd5316da092"
+                "reference": "0dee8cceed7e198bf130b4af0fab0ffab6dab47f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/312a967dd527f28980cce40850339cd5316da092",
-                "reference": "312a967dd527f28980cce40850339cd5316da092",
+                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/0dee8cceed7e198bf130b4af0fab0ffab6dab47f",
+                "reference": "0dee8cceed7e198bf130b4af0fab0ffab6dab47f",
                 "shasum": ""
             },
             "require": {
@@ -13134,7 +13143,7 @@
             "type": "mink-driver",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -13159,7 +13168,7 @@
                 }
             ],
             "description": "Selenium2 (WebDriver) driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
+            "homepage": "https://mink.behat.org/",
             "keywords": [
                 "ajax",
                 "browser",
@@ -13170,9 +13179,9 @@
             ],
             "support": {
                 "issues": "https://github.com/minkphp/MinkSelenium2Driver/issues",
-                "source": "https://github.com/minkphp/MinkSelenium2Driver/tree/v1.4.0"
+                "source": "https://github.com/minkphp/MinkSelenium2Driver/tree/v1.5.0"
             },
-            "time": "2020-03-11T14:43:21+00:00"
+            "time": "2021-10-12T16:01:47+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -16172,16 +16181,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e",
                 "shasum": ""
             },
             "require": {
@@ -16224,7 +16233,7 @@
                 "source": "https://github.com/squizlabs/PHP_CodeSniffer",
                 "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
             },
-            "time": "2021-04-09T00:54:41+00:00"
+            "time": "2021-10-11T04:00:11+00:00"
         },
         {
             "name": "symfony/browser-kit",

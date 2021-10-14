@@ -1,5 +1,6 @@
 <?php
 
+$config['helfi_proxy.settings']['asset_path'] = 'dev-liikenne-assets';
 $config['helfi_proxy.settings']['prefixes'] = [
   'en' => 'dev-urban-environment-and-traffic',
   'fi' => 'dev-kaupunkiymparisto-ja-liikenne',
