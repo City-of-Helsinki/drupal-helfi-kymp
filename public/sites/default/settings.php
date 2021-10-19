@@ -145,9 +145,10 @@ $config['varnish_purger.settings.varnish_purge_all']['headers'] = [
 ];
 
 if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
-  // Configuration doesn't know about existing config here so we can't
-  // append to existing headers array here and have to include all headers.
-  // If you have any extra headers you must add them here as well.
+  // Configuration doesn't know about existing config yet so we can't
+  // just append new headers to an already existing headers array here.
+  // If you have configured any extra headers in your purge settings
+  // you must add them here as well.
   // @todo Replace this with config override service?
   $config['varnish_purger.settings.default']['headers'][] = [
     'field' => 'X-VC-Purge-Key',
