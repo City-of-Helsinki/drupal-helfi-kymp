@@ -4260,16 +4260,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.4.6",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "54feebeaff443a90a5abb78680d9f914d9871e65"
+                "reference": "e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/54feebeaff443a90a5abb78680d9f914d9871e65",
-                "reference": "54feebeaff443a90a5abb78680d9f914d9871e65",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef",
+                "reference": "e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef",
                 "shasum": ""
             },
             "require": {
@@ -4277,7 +4277,8 @@
                 "drupal/helfi_api_base": "*",
                 "drupal/readonly_field_widget": "^1.0",
                 "drupal/twig_tweak": "^2.0 || ^3.0",
-                "drupal/views_infinite_scroll": "^1.8"
+                "drupal/views_infinite_scroll": "^1.8",
+                "php": "^8.0"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
@@ -4290,10 +4291,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.4.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.5.0",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2021-10-14T06:56:33+00:00"
+            "time": "2021-10-18T11:40:38+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
