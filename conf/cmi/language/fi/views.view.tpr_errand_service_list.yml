@@ -1,10 +1,8 @@
+label: 'TPR Asiointipalvelut'
 display:
   default:
+    display_title: Oletus
     display_options:
-      empty:
-        area:
-          content:
-            value: 'Asiointipalveluja ei löytynyt.'
       exposed_form:
         options:
           submit_button: Käytä
@@ -58,7 +56,9 @@ display:
       header:
         result:
           content: 'Näytetään @start - @end / @total'
-    display_title: Oletus
+      empty:
+        area:
+          content:
+            value: 'Ei tuloksia.'
   page_1:
     display_title: Sivu
-label: 'TPR Asiointipalvelut'

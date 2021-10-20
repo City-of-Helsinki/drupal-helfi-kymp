@@ -1,26 +1,6 @@
 display:
   default:
     display_options:
-      filters:
-        status:
-          group_info:
-            group_items:
-              1:
-                title: Publicerad
-              2:
-                title: 'Ej publicerad'
-            label: 'Status för publicering'
-          expose:
-            label: Status
-        title:
-          expose:
-            label: Titel
-        type:
-          expose:
-            label: Innehållstyp
-        langcode:
-          expose:
-            label: Språk
       exposed_form:
         options:
           submit_button: Filtrera
@@ -61,6 +41,26 @@ display:
           separator: ', '
         operations:
           label: Funktioner
+      filters:
+        title:
+          expose:
+            label: Titel
+        type:
+          expose:
+            label: Innehållstyp
+        status:
+          expose:
+            label: Status
+          group_info:
+            label: 'Status för publicering'
+            group_items:
+              1:
+                title: Publicerad
+              2:
+                title: 'Ej publicerad'
+        langcode:
+          expose:
+            label: Språk
     display_title: Förvald
   overview:
     display_options:
@@ -78,3 +78,4 @@ display:
         uid:
           exception:
             title: Alla
+    display_title: 'User profile tab'
