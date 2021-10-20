@@ -1,0 +1,22 @@
+uuid: 42db8a1b-006c-4eb2-9774-03f52d2194db
+langcode: en
+status: true
+dependencies: {  }
+id: varnish_purge_all
+name: 'Purge all'
+invalidationtype: everything
+hostname: localhost
+port: 6081
+path: /
+request_method: BAN
+scheme: http
+verify: '0'
+headers: {  }
+body: null
+body_content_type: null
+runtime_measurement: true
+timeout: !!float 1
+connect_timeout: !!float 1
+cooldown_time: !!float 0
+max_requests: 100
+http_errors: true
