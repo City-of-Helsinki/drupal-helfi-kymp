@@ -20,6 +20,14 @@ targetEntityType: paragraph
 bundle: accordion
 mode: default
 content:
+  field_accordion_description:
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+    type: text_textarea
+    weight: 3
   field_accordion_design:
     weight: 0
     settings: {  }
@@ -51,14 +59,6 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
     region: content
-  field_accordion_description:
-    region: content
-    settings:
-      placeholder: ''
-      rows: 5
-    third_party_settings: {  }
-    type: text_textarea
-    weight: 3
   field_accordion_title:
     region: content
     settings:
