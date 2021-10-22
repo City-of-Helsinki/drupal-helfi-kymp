@@ -3865,16 +3865,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.29",
+            "version": "1.3.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "9a8365e08a4b65513179e82685075049e0bb1974"
+                "reference": "fe38a34083d0955341447563d282e3e94ce19fc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9a8365e08a4b65513179e82685075049e0bb1974",
-                "reference": "9a8365e08a4b65513179e82685075049e0bb1974",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/fe38a34083d0955341447563d282e3e94ce19fc6",
+                "reference": "fe38a34083d0955341447563d282e3e94ce19fc6",
                 "shasum": ""
             },
             "require": {
@@ -3892,7 +3892,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-10-14T14:51:13+00:00"
+            "time": "2021-10-21T10:14:45+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -3961,20 +3961,21 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "1.2.3",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "681979d62b74d533150b4b8bc198184fa77f5568"
+                "reference": "b48f07b11a774e087878d522f3302111763a3dcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/681979d62b74d533150b4b8bc198184fa77f5568",
-                "reference": "681979d62b74d533150b4b8bc198184fa77f5568",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/b48f07b11a774e087878d522f3302111763a3dcd",
+                "reference": "b48f07b11a774e087878d522f3302111763a3dcd",
                 "shasum": ""
             },
             "require": {
-                "drupal/entity": "^1.0"
+                "drupal/entity": "^1.0",
+                "php": "^8.0"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
@@ -3986,10 +3987,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/1.2.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/1.3.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2021-10-12T07:30:51+00:00"
+            "time": "2021-10-17T17:53:40+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4126,16 +4127,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.18",
+            "version": "2.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "cfdd1eb0bed0af4c64cf572543686ed139cc6e49"
+                "reference": "ef32472d9a082aac7a65fd6e51b5c60ed0c5b619"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/cfdd1eb0bed0af4c64cf572543686ed139cc6e49",
-                "reference": "cfdd1eb0bed0af4c64cf572543686ed139cc6e49",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/ef32472d9a082aac7a65fd6e51b5c60ed0c5b619",
+                "reference": "ef32472d9a082aac7a65fd6e51b5c60ed0c5b619",
                 "shasum": ""
             },
             "require": {
@@ -4218,7 +4219,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-10-18T06:01:11+00:00"
+            "time": "2021-10-21T10:16:44+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4262,16 +4263,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef"
+                "reference": "d8c81d1a37398d9024f83b9729e11f2d010719eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef",
-                "reference": "e9f6e5761c5ef3d5a2f2725b1aa2b3f33213acef",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/d8c81d1a37398d9024f83b9729e11f2d010719eb",
+                "reference": "d8c81d1a37398d9024f83b9729e11f2d010719eb",
                 "shasum": ""
             },
             "require": {
@@ -4293,10 +4294,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.5.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.5.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2021-10-18T11:40:38+00:00"
+            "time": "2021-10-21T09:43:06+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -4537,30 +4538,33 @@
         },
         {
             "name": "drupal/matomo",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/matomo.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/matomo-8.x-1.11.zip",
-                "reference": "8.x-1.11",
-                "shasum": "82be96c20ab15df03d199ab98d047cef6e67d40b"
+                "url": "https://ftp.drupal.org/files/projects/matomo-8.x-1.12.zip",
+                "reference": "8.x-1.12",
+                "shasum": "4c96688a1dad0caa9a767ee0986df8b94cc9aba2"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8.8.0 || ^9.0.0"
+            },
+            "conflict": {
+                "drupal/csp": "<1.12"
             },
             "require-dev": {
-                "drupal/php": "*",
-                "drupal/token": "*"
+                "drupal/php": "~1.1",
+                "drupal/token": "~1.9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1601651459",
+                    "version": "8.x-1.12",
+                    "datestamp": "1634559052",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4573,27 +4577,26 @@
             ],
             "authors": [
                 {
-                    "name": "Carsten Logemann",
-                    "homepage": "https://www.drupal.org/u/C_Logemann"
+                    "name": "C-Logemann",
+                    "homepage": "https://www.drupal.org/user/218368"
                 },
                 {
-                    "name": "Shelane French",
-                    "homepage": "https://www.drupal.org/u/shelane"
+                    "name": "Grimreaper",
+                    "homepage": "https://www.drupal.org/user/2388214"
                 },
                 {
-                    "name": "See other contributors",
-                    "homepage": "https://www.drupal.org/node/247808/committers"
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
                 },
                 {
                     "name": "shelane",
                     "homepage": "https://www.drupal.org/user/2674989"
                 }
             ],
-            "description": "Adds Matomo javascript tracking code to all your site's pages",
+            "description": "Adds Matomo javascript tracking code to all your site's pages.",
             "homepage": "https://www.drupal.org/project/matomo",
             "support": {
-                "source": "https://git.drupal.org/project/matomo.git",
-                "issues": "https://www.drupal.org/project/issues/matomo"
+                "source": "https://git.drupalcode.org/project/matomo"
             }
         },
         {
@@ -5593,17 +5596,17 @@
         },
         {
             "name": "drupal/simple_sitemap",
-            "version": "3.10.0",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_sitemap.git",
-                "reference": "8.x-3.10"
+                "reference": "8.x-3.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.10.zip",
-                "reference": "8.x-3.10",
-                "shasum": "4836e5d5bae0b4348406c832f81eabfaf16483e3"
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.11.zip",
+                "reference": "8.x-3.11",
+                "shasum": "5fdd4ed5af5e37e3c707e401d094a179f52e7711"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -5612,8 +5615,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.10",
-                    "datestamp": "1617840662",
+                    "version": "8.x-3.11",
+                    "datestamp": "1634343986",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5631,9 +5634,9 @@
             ],
             "authors": [
                 {
-                    "name": "Pawel Ginalski (gbyte.co)",
-                    "homepage": "https://www.drupal.org/u/gbyte.co",
-                    "email": "contact@gbyte.co",
+                    "name": "Pawel Ginalski (gbyte)",
+                    "homepage": "https://www.drupal.org/u/gbyte",
+                    "email": "contact@gbyte.dev",
                     "role": "Maintainer"
                 },
                 {
@@ -9477,12 +9480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "0e2cabd230d0708735636b3d78657f84351a07d0"
+                "reference": "a97ede932024d26bdca8bb05eb3abe3c7942ddbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0e2cabd230d0708735636b3d78657f84351a07d0",
-                "reference": "0e2cabd230d0708735636b3d78657f84351a07d0",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/a97ede932024d26bdca8bb05eb3abe3c7942ddbc",
+                "reference": "a97ede932024d26bdca8bb05eb3abe3c7942ddbc",
                 "shasum": ""
             },
             "require": {
@@ -9538,7 +9541,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-10-11T15:39:13+00:00"
+            "time": "2021-10-20T08:32:03+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -14526,16 +14529,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.2.2",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556"
+                "reference": "622548b623e81ca6d78b721c5e029f4ce664f170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/069a785b2141f5bcf49f3e353548dc1cce6df556",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/622548b623e81ca6d78b721c5e029f4ce664f170",
+                "reference": "622548b623e81ca6d78b721c5e029f4ce664f170",
                 "shasum": ""
             },
             "require": {
@@ -14546,7 +14549,8 @@
                 "webmozart/assert": "^1.9.1"
             },
             "require-dev": {
-                "mockery/mockery": "~1.3.2"
+                "mockery/mockery": "~1.3.2",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -14576,9 +14580,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.3.0"
             },
-            "time": "2020-09-03T19:13:55+00:00"
+            "time": "2021-10-19T17:43:47+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -16023,6 +16027,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
