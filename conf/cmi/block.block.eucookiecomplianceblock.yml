@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - ctools
     - eu_cookie_compliance
     - system
   theme:
@@ -13,7 +12,7 @@ _core:
 id: eucookiecomplianceblock
 theme: hdbt
 region: after_content
-weight: -7
+weight: -10
 provider: null
 plugin: eu_cookie_compliance_block
 settings:
