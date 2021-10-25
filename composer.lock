@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a01e719b0fbe58996f7270bc1f7c1b0e",
+    "content-hash": "c99db53e086fcb8828f55ae7b0c12df6",
     "packages": [
         {
             "name": "City-of-Helsinki/php-hauki-client",
@@ -5847,6 +5847,50 @@
             "homepage": "https://www.drupal.org/project/token_filter",
             "support": {
                 "source": "https://git.drupalcode.org/project/token_filter"
+            }
+        },
+        {
+            "name": "drupal/translatable_menu_link_uri",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/translatable_menu_link_uri.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/translatable_menu_link_uri-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "6960a485565d886cf35ee6dd56310de47e04e430"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1597491393",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jsobiecki",
+                    "homepage": "https://www.drupal.org/user/112744"
+                }
+            ],
+            "description": "This module enables support for translation of link field in menu_link_content entity.",
+            "homepage": "https://www.drupal.org/project/translatable_menu_link_uri",
+            "support": {
+                "source": "https://git.drupalcode.org/project/translatable_menu_link_uri"
             }
         },
         {
