@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c99db53e086fcb8828f55ae7b0c12df6",
+    "content-hash": "83329019a6dc77f5c687974bf490f639",
     "packages": [
         {
             "name": "City-of-Helsinki/php-hauki-client",
@@ -1598,20 +1598,21 @@
         },
         {
             "name": "druidfi/omen",
-            "version": "0.3.2",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/druidfi/omen.git",
-                "reference": "3b20fa04a46ea3d08339f85ca13f0231604cd482"
+                "reference": "f415d99cae865831df6f1958e22a5a36a2d391c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/druidfi/omen/zipball/3b20fa04a46ea3d08339f85ca13f0231604cd482",
-                "reference": "3b20fa04a46ea3d08339f85ca13f0231604cd482",
+                "url": "https://api.github.com/repos/druidfi/omen/zipball/f415d99cae865831df6f1958e22a5a36a2d391c1",
+                "reference": "f415d99cae865831df6f1958e22a5a36a2d391c1",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "drupal/core-recommended": "^8.9 || ^9.0",
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.17.0",
@@ -1635,9 +1636,9 @@
             ],
             "support": {
                 "issues": "https://github.com/druidfi/omen/issues",
-                "source": "https://github.com/druidfi/omen/tree/0.3.2"
+                "source": "https://github.com/druidfi/omen/tree/0.4.0"
             },
-            "time": "2021-06-28T12:12:47+00:00"
+            "time": "2021-10-21T14:05:40+00:00"
         },
         {
             "name": "drupal/address",
