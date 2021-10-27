@@ -1,4 +1,5 @@
-FROM ghcr.io/city-of-helsinki/drupal-docker-base:8.0-dev
+ARG DRUPAL_DOCKER_TAG
+FROM ghcr.io/city-of-helsinki/drupal-docker-base:${DRUPAL_DOCKER_TAG}
 
 COPY / /var/www/html/
 WORKDIR /var/www/html
