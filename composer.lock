@@ -3866,16 +3866,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "1.3.33",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "15ad8b05ca34605f32ae8edcfa2cc5ca24d258f6"
+                "reference": "6880736efe64b683a21fa43b5ae6ad2b60f40f62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/15ad8b05ca34605f32ae8edcfa2cc5ca24d258f6",
-                "reference": "15ad8b05ca34605f32ae8edcfa2cc5ca24d258f6",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/6880736efe64b683a21fa43b5ae6ad2b60f40f62",
+                "reference": "6880736efe64b683a21fa43b5ae6ad2b60f40f62",
                 "shasum": ""
             },
             "require": {
@@ -3893,7 +3893,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-10-26T09:42:28+00:00"
+            "time": "2021-10-28T12:09:35+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -3922,7 +3922,7 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/latest",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.3.13",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
             "time": "2021-10-19T06:47:33+00:00"
@@ -4082,6 +4082,7 @@
                 "drupal/coder": "^8.3",
                 "phpspec/prophecy-phpunit": "^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
@@ -4128,16 +4129,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.24",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "4854da21e38b619375edf5369c5b7465fa781d89"
+                "reference": "7306c70deb9bc97817d6e877104943ef8457ef61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4854da21e38b619375edf5369c5b7465fa781d89",
-                "reference": "4854da21e38b619375edf5369c5b7465fa781d89",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/7306c70deb9bc97817d6e877104943ef8457ef61",
+                "reference": "7306c70deb9bc97817d6e877104943ef8457ef61",
                 "shasum": ""
             },
             "require": {
@@ -4164,6 +4165,8 @@
                 "drupal/image_style_quality": "^1.4",
                 "drupal/imagecache_external": "^3.0",
                 "drupal/linkit": "^6.0@beta",
+                "drupal/matomo": "^1.11",
+                "drupal/matomo_reports": "^1.1",
                 "drupal/media_entity_soundcloud": "^3.0.0",
                 "drupal/menu_block_current_language": "^1.5",
                 "drupal/menu_link_attributes": "^1.2",
@@ -4207,9 +4210,6 @@
                     },
                     "drupal/linkit": {
                         "[#UHF-1872] Linkit support for link field": "https://www.drupal.org/files/issues/2021-08-20/avoid-linkit-CI-issue.patch"
-                    },
-                    "drupal/matomo": {
-                        "https://www.drupal.org/project/matomo/issues/3244555#comment-14261524": "https://www.drupal.org/files/issues/2021-10-19/3244555_matomo_strict.patch"
                     }
                 }
             },
@@ -4221,20 +4221,20 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-10-26T09:42:38+00:00"
+            "time": "2021-10-28T06:59:45+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "1.2.3",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "c99a62c791f2820b52dd3ba6bd966b4a48b388c9"
+                "reference": "9adaa15083238a3d5865834bf10af0746aab1b18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/c99a62c791f2820b52dd3ba6bd966b4a48b388c9",
-                "reference": "c99a62c791f2820b52dd3ba6bd966b4a48b388c9",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/9adaa15083238a3d5865834bf10af0746aab1b18",
+                "reference": "9adaa15083238a3d5865834bf10af0746aab1b18",
                 "shasum": ""
             },
             "require": {
@@ -4258,10 +4258,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2021-10-20T07:31:03+00:00"
+            "time": "2021-10-28T12:36:50+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -4536,6 +4536,123 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/linkit",
                 "issues": "http://drupal.org/project/linkit"
+            }
+        },
+        {
+            "name": "drupal/matomo",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/matomo.git",
+                "reference": "8.x-1.13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/matomo-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "a3abacb383a349aeb9bfa271dd9294182ef16036"
+            },
+            "require": {
+                "drupal/core": "^8.8.0 || ^9.0.0"
+            },
+            "conflict": {
+                "drupal/csp": "<1.12"
+            },
+            "require-dev": {
+                "drupal/csp": "~1.12",
+                "drupal/php": "~1.1",
+                "drupal/token": "~1.9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.13",
+                    "datestamp": "1635192471",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "C-Logemann",
+                    "homepage": "https://www.drupal.org/user/218368"
+                },
+                {
+                    "name": "Grimreaper",
+                    "homepage": "https://www.drupal.org/user/2388214"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                },
+                {
+                    "name": "shelane",
+                    "homepage": "https://www.drupal.org/user/2674989"
+                }
+            ],
+            "description": "Adds Matomo javascript tracking code to all your site's pages.",
+            "homepage": "https://www.drupal.org/project/matomo",
+            "support": {
+                "source": "https://git.drupalcode.org/project/matomo"
+            }
+        },
+        {
+            "name": "drupal/matomo_reports",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/matomo_reports.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/matomo_reports-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "390bbf04f94ef1c668415f50b6e1e21de1d26ad9"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1626815767",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Shelane French (shelane)",
+                    "homepage": "https://www.drupal.org/u/shelane",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "xlyz",
+                    "homepage": "https://www.drupal.org/user/310584"
+                }
+            ],
+            "description": "Display analytics reports from Matomo server.",
+            "homepage": "https://www.drupal.org/project/matomo_reports",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/matomo_reports",
+                "issues": "https://www.drupal.org/project/issues/matomo_reports"
             }
         },
         {
@@ -5849,17 +5966,17 @@
         },
         {
             "name": "drupal/twig_tweak",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/twig_tweak.git",
-                "reference": "3.1.2"
+                "reference": "3.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.1.2.zip",
-                "reference": "3.1.2",
-                "shasum": "b0482fd5414a51d6f93b1c4fc181cdb28ec42677"
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.1.3.zip",
+                "reference": "3.1.3",
+                "shasum": "9f2f6813bf6d40faded73b0fd36e6c669565c7f7"
             },
             "require": {
                 "drupal/core": "^9.0",
@@ -5874,8 +5991,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.2",
-                    "datestamp": "1625377167",
+                    "version": "3.1.3",
+                    "datestamp": "1635338145",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9410,12 +9527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "732ccf3874c4b77861c88ce0f1e92bc40cf4e119"
+                "reference": "fa230a7a1549388f2ca9f25357609000eab28bca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/732ccf3874c4b77861c88ce0f1e92bc40cf4e119",
-                "reference": "732ccf3874c4b77861c88ce0f1e92bc40cf4e119",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/fa230a7a1549388f2ca9f25357609000eab28bca",
+                "reference": "fa230a7a1549388f2ca9f25357609000eab28bca",
                 "shasum": ""
             },
             "require": {
@@ -9471,7 +9588,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-10-25T14:16:19+00:00"
+            "time": "2021-10-27T08:00:50+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -12859,6 +12976,7 @@
             "suggest": {
                 "wa72/html-pretty-min": "Minify or indent HTML documents"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -13237,16 +13355,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.11",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "0b072d51c5a9c6f3412f7ea3ab043d6603cb2582"
+                "reference": "679333688725c7dd043ff35c547100ccf512f051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/0b072d51c5a9c6f3412f7ea3ab043d6603cb2582",
-                "reference": "0b072d51c5a9c6f3412f7ea3ab043d6603cb2582",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/679333688725c7dd043ff35c547100ccf512f051",
+                "reference": "679333688725c7dd043ff35c547100ccf512f051",
                 "shasum": ""
             },
             "require": {
@@ -13293,7 +13411,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.2.11"
+                "source": "https://github.com/composer/ca-bundle/tree/1.3.0"
             },
             "funding": [
                 {
@@ -13309,7 +13427,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-25T20:32:43+00:00"
+            "time": "2021-10-27T07:42:23+00:00"
         },
         {
             "name": "composer/composer",
