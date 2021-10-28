@@ -4082,6 +4082,7 @@
                 "drupal/coder": "^8.3",
                 "phpspec/prophecy-phpunit": "^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
@@ -4224,16 +4225,16 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "1.2.3",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "c99a62c791f2820b52dd3ba6bd966b4a48b388c9"
+                "reference": "9adaa15083238a3d5865834bf10af0746aab1b18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/c99a62c791f2820b52dd3ba6bd966b4a48b388c9",
-                "reference": "c99a62c791f2820b52dd3ba6bd966b4a48b388c9",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/9adaa15083238a3d5865834bf10af0746aab1b18",
+                "reference": "9adaa15083238a3d5865834bf10af0746aab1b18",
                 "shasum": ""
             },
             "require": {
@@ -4257,10 +4258,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2021-10-20T07:31:03+00:00"
+            "time": "2021-10-28T12:36:50+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -12975,6 +12976,7 @@
             "suggest": {
                 "wa72/html-pretty-min": "Minify or indent HTML documents"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
