@@ -3897,16 +3897,16 @@
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.3.14",
+            "version": "1.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "0571233f7fcfd8ea94d70a7c6f42776535f7fbad"
+                "reference": "62b2cc5608c18e8f3277c4f26de66851000a43b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/0571233f7fcfd8ea94d70a7c6f42776535f7fbad",
-                "reference": "0571233f7fcfd8ea94d70a7c6f42776535f7fbad",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/62b2cc5608c18e8f3277c4f26de66851000a43b8",
+                "reference": "62b2cc5608c18e8f3277c4f26de66851000a43b8",
                 "shasum": ""
             },
             "require": {
@@ -3922,10 +3922,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/latest",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.3.16",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2021-10-29T07:32:17+00:00"
+            "time": "2021-11-02T06:26:29+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -4129,16 +4129,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.28",
+            "version": "2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "47fee7b499453eb92bed8095003ee0f0b5c4903e"
+                "reference": "e6a351919e717388dacd66ef4c521a3bf5da4b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/47fee7b499453eb92bed8095003ee0f0b5c4903e",
-                "reference": "47fee7b499453eb92bed8095003ee0f0b5c4903e",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e6a351919e717388dacd66ef4c521a3bf5da4b5c",
+                "reference": "e6a351919e717388dacd66ef4c521a3bf5da4b5c",
                 "shasum": ""
             },
             "require": {
@@ -4183,7 +4183,9 @@
                 "drupal/social_media": "^1.8",
                 "drupal/token": "^1.9",
                 "drupal/token_filter": "^1.2",
-                "drupal/update_helper": "^2.0"
+                "drupal/translatable_menu_link_uri": "^2.0",
+                "drupal/update_helper": "^2.0",
+                "drupal/view_unpublished": "^1.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -4221,7 +4223,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-01T11:45:26+00:00"
+            "time": "2021-11-02T13:12:33+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -6149,6 +6151,63 @@
             "homepage": "https://www.drupal.org/project/varnish_purge",
             "support": {
                 "source": "https://git.drupalcode.org/project/varnish_purge"
+            }
+        },
+        {
+            "name": "drupal/view_unpublished",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/view_unpublished.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/view_unpublished-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "74ebdf1b4f6963f7bb63192bc314014c0132d03c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1597688978",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Agnes Chisholm",
+                    "homepage": "https://www.drupal.org/user/66428",
+                    "email": "amaria@chisholmtech.com"
+                },
+                {
+                    "name": "beeradb",
+                    "homepage": "https://www.drupal.org/user/120651"
+                },
+                {
+                    "name": "elevins",
+                    "homepage": "https://www.drupal.org/user/781882"
+                },
+                {
+                    "name": "entendu",
+                    "homepage": "https://www.drupal.org/user/173461"
+                }
+            ],
+            "description": "Select which roles should be able to see unpublished nodes.",
+            "homepage": "https://www.drupal.org/project/view_unpublished",
+            "support": {
+                "source": "https://git.drupalcode.org/project/view_unpublished"
             }
         },
         {
