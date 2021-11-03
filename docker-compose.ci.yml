@@ -4,4 +4,4 @@ services:
   app:
     build:
       context: docker/local
-      dockerfile: docker/local/Dockerfile.ci
+      dockerfile: Dockerfile.ci
