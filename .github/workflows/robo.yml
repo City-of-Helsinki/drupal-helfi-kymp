@@ -17,7 +17,7 @@ jobs:
       - name: Build project
         run: |
           chmod 777 -R .
-          docker compose -f docker-compose.ci.yml up -d
-          docker compose -f docker-compose.ci.yml ps
-          docker compose -f docker-compose.ci.yml exec app composer install
-          docker compose -f docker-compose.ci.yml exec app drush si --existing-config -y
+          docker compose -f docker-compose.ci.yml -f docker-compose.yml up -d
+          docker compose -f docker-compose.ci.yml -f docker-compose.yml ps
+          docker compose -f docker-compose.ci.yml -f docker-compose.yml exec app composer install
+          docker compose -f docker-compose.ci.yml -f docker-compose.yml exec app drush si --existing-config -y
