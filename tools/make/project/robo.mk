@@ -8,7 +8,7 @@ $(DOCKER_PROXY_PATH)/.git:
 
 PHONY += start-proxy
 start-proxy: $(DOCKER_PROXY_PATH)/.git
-	./start.sh ${PROXY_PROJECT_NAME} &
+	cd $(DOCKER_PROXY_PATH) &&./start.sh ${PROXY_PROJECT_NAME} &
 
 $(STONEHENGE_PATH)/.git:
 	git clone -b 3.x https://github.com/druidfi/stonehenge.git $(STONEHENGE_PATH)
