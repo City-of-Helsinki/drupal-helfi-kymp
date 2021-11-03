@@ -1,0 +1,16 @@
+on: [push]
+name: CI
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      # @todo build proxy as well.
+      - name: Build project
+        run: |
+          docker compose up -d
+          docker compose exec app ls -la
+          docker compose exec app "drush si --existing-config -y"
