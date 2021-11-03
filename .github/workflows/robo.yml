@@ -16,6 +16,7 @@ jobs:
       # @todo build proxy as well.
       - name: Build project
         run: |
+          chmod 777 -R .
           docker compose up -d
           docker compose ps
           docker compose exec app composer install
