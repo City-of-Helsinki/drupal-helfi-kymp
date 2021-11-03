@@ -3,4 +3,5 @@ version: '3.7'
 services:
   app:
     build:
-      dockerfile: Dockerfile.ci
+      context: docker/local
+      dockerfile: docker/local/Dockerfile.ci
