@@ -1,12 +1,17 @@
 on: [push]
 name: CI
 jobs:
-  tests:
+  integration-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+
+      - name: Setup stonehenge
+        run: |
+          git clone -b 3.x https://github.com/druidfi/stonehenge.git > $HOME/stonehenge
+          cd $HOME/stonehenge && make up
 
       # @todo build proxy as well.
       - name: Build project

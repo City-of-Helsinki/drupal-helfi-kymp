@@ -5,7 +5,7 @@ env:
   SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
   SYMFONY_DEPRECATIONS_HELPER: disabled
 jobs:
-  tests:
+  drupal-tests:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/city-of-helsinki/drupal-php-docker:8.0
