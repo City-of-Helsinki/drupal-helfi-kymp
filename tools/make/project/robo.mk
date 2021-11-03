@@ -23,8 +23,8 @@ $(PROJECT_DIR)/vendor:
 PHONY += install-drupal
 install-drupal:
 	$(call docker_run_ci,drush si --existing-config -y)
-	$(call docker_run_ci,drush cim -y)
 	$(call docker_run_ci,drush cr)
+	$(call docker_run_ci,drush cim -y)
 
 PHONY += start-project
 start-project: $(STONEHENGE_PATH)/.git
