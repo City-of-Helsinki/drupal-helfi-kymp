@@ -17,5 +17,6 @@ jobs:
       - name: Build project
         run: |
           docker compose up -d
+          docker compose ps
           docker compose exec app "/usr/local/bin/composer install"
           docker compose exec app "/app/vendor/bin/drush si --existing-config -y"
