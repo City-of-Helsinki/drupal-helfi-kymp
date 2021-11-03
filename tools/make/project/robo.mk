@@ -29,4 +29,4 @@ define docker_run_ci
 endef
 
 PHONY += setup-ci
-setup-ci: set-permissions $(STONEHENGE_PATH)/.git start-stonehenge $(PROJECT_DIR)/vendor start-project install-drupal
+setup-ci: set-permissions $(STONEHENGE_PATH)/.git start-stonehenge start-project $(PROJECT_DIR)/vendor install-drupal
