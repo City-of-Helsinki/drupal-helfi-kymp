@@ -10,7 +10,7 @@ jobs:
 
       - name: Setup stonehenge
         run: |
-          git clone -b 3.x https://github.com/druidfi/stonehenge.git > $HOME/stonehenge
+          git clone -b 3.x https://github.com/druidfi/stonehenge.git $HOME/stonehenge
           cd $HOME/stonehenge && make up
 
       # @todo build proxy as well.
