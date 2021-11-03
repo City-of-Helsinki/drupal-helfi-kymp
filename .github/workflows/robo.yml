@@ -10,6 +10,8 @@ jobs:
         with:
           fetch-depth: 1
 
-      # @todo build proxy as well.
       - name: Build project
         run: make setup-ci
+
+      - name: Run tests
+        run: curl https://helfi-proxy.docker.so/fi/kartat-ja-liikenne
