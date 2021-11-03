@@ -14,7 +14,7 @@ $(STONEHENGE_PATH)/.git:
 	git clone -b 3.x https://github.com/druidfi/stonehenge.git $(STONEHENGE_PATH)
 
 PHONY += start-stonehenge
-start-stonehenge:
+start-stonehenge: $(STONEHENGE_PATH)./git
 	cd $(STONEHENGE_PATH) && make up
 
 $(PROJECT_DIR)/vendor:
