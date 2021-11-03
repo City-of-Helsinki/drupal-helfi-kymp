@@ -10,11 +10,11 @@ start-stonehenge:
 	cd $(STONEHENGE_PATH) && make up
 
 $(PROJECT_DIR)/vendor:
-	$(call docker_run_ci, 'composer install')
+	$(call docker_run_ci, composer install)
 
 PHONY += install-drupal
 install-drupal:
-	$(call docker_run_ci, 'drush si --existing-config -y')
+	$(call docker_run_ci, drush si --existing-config -y)
 
 PHONY += start-project
 start-project:
