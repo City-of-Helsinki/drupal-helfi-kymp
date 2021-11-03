@@ -8,16 +8,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup stonehenge
-        run: |
-          git clone -b 3.x https://github.com/druidfi/stonehenge.git $HOME/stonehenge
-          cd $HOME/stonehenge && make up
-
       # @todo build proxy as well.
       - name: Build project
         run: |
-          chmod 777 -R .
-          docker compose -f docker-compose.ci.yml -f docker-compose.yml up -d
-          docker compose -f docker-compose.ci.yml -f docker-compose.yml ps
-          docker compose -f docker-compose.ci.yml -f docker-compose.yml exec app composer install
-          docker compose -f docker-compose.ci.yml -f docker-compose.yml exec app drush si --existing-config -y
+          make setup-ci
