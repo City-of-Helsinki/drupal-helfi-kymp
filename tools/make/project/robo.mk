@@ -7,7 +7,7 @@ $(DOCKER_PROXY_PATH)/.git:
 	git clone https://github.com/City-of-Helsinki/drupal-helfi-local-proxy.git $(DOCKER_PROXY_PATH)
 
 PHONY += start-proxy
-start-proxy: $(DOCKER_PROXY_PATH)
+start-proxy: $(DOCKER_PROXY_PATH)/.git
 	./start.sh ${PROXY_PROJECT_NAME} &
 
 $(STONEHENGE_PATH)/.git:
@@ -18,11 +18,11 @@ start-stonehenge: $(STONEHENGE_PATH)/.git
 	cd $(STONEHENGE_PATH) && make up
 
 $(PROJECT_DIR)/vendor:
-	$(call docker_run_ci, composer install)
+	$(call docker_run_ci,composer install)
 
 PHONY += install-drupal
 install-drupal:
-	$(call docker_run_ci, drush si --existing-config -y)
+	$(call docker_run_ci,drush si --existing-config -y)
 
 PHONY += start-project
 start-project: $(STONEHENGE_PATH)/.git
