@@ -3052,6 +3052,10 @@
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                },
+                {
                     "name": "bojanz",
                     "homepage": "https://www.drupal.org/user/86106"
                 },
@@ -4129,16 +4133,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.29",
+            "version": "2.0.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "e6a351919e717388dacd66ef4c521a3bf5da4b5c"
+                "reference": "2a4655bb39c63965715e70714d1700b0bd7edf10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e6a351919e717388dacd66ef4c521a3bf5da4b5c",
-                "reference": "e6a351919e717388dacd66ef4c521a3bf5da4b5c",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2a4655bb39c63965715e70714d1700b0bd7edf10",
+                "reference": "2a4655bb39c63965715e70714d1700b0bd7edf10",
                 "shasum": ""
             },
             "require": {
@@ -4193,7 +4197,8 @@
                     "drupal/core": {
                         "[#UHF-181] Hide untranslated menu links": "https://www.drupal.org/files/issues/2021-03-05/3091246-allow-menu-tree-manipulators-alter-12-1.patch",
                         "[#UHF-920] Token for base URL (https://www.drupal.org/project/drupal/issues/1088112).": "https://www.drupal.org/files/issues/2020-10-06/1088112-63.patch",
-                        "[#UHF-949] Drupal.views.ajaxView is not initializing pagers in nested views (https://www.drupal.org/project/drupal/issues/2858890).": "https://www.drupal.org/files/issues/2020-11-29/2858890-58.patch"
+                        "[#UHF-949] Drupal.views.ajaxView is not initializing pagers in nested views (https://www.drupal.org/project/drupal/issues/2858890).": "https://www.drupal.org/files/issues/2020-11-29/2858890-58.patch",
+                        "[#UHF-3087] Non-published menu links as parent (https://www.drupal.org/project/drupal/issues/2807629)": "https://www.drupal.org/files/issues/2021-07-09/2807629-45.patch"
                     },
                     "drupal/default_content": {
                         "https://www.drupal.org/project/default_content/issues/2698425#comment-13809863": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
@@ -4223,7 +4228,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-02T13:12:33+00:00"
+            "time": "2021-11-03T10:43:33+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5234,30 +5239,31 @@
         },
         {
             "name": "drupal/raven",
-            "version": "3.2.6",
+            "version": "3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/raven.git",
-                "reference": "3.2.6"
+                "reference": "3.2.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/raven-3.2.6.zip",
-                "reference": "3.2.6",
-                "shasum": "48376d5454a56f4eae000455cd559104eb6270e7"
+                "url": "https://ftp.drupal.org/files/projects/raven-3.2.8.zip",
+                "reference": "3.2.8",
+                "shasum": "8b11fc0e1eb63204c128955a558258a5980625c2"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
                 "sentry/sdk": "^3"
             },
             "require-dev": {
-                "drupal/csp": "^1.13"
+                "drupal/csp": "^1.13",
+                "drupal/seckit": "^2.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.2.6",
-                    "datestamp": "1633372747",
+                    "version": "3.2.8",
+                    "datestamp": "1635970160",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5466,17 +5472,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.20"
+                "reference": "8.x-1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.20.zip",
-                "reference": "8.x-1.20",
-                "shasum": "4bed60ac7b502ccc1d4a01411aa35d2cb7f496c7"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.21.zip",
+                "reference": "8.x-1.21",
+                "shasum": "0f3b7187f4a04b98bacd046697699cd1e863188e"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -5497,8 +5503,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.20",
-                    "datestamp": "1626684847",
+                    "version": "8.x-1.21",
+                    "datestamp": "1636024667",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9586,12 +9592,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "fa230a7a1549388f2ca9f25357609000eab28bca"
+                "reference": "220c4c22b2a45decd547fcd5c9e6984451434a56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/fa230a7a1549388f2ca9f25357609000eab28bca",
-                "reference": "fa230a7a1549388f2ca9f25357609000eab28bca",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/220c4c22b2a45decd547fcd5c9e6984451434a56",
+                "reference": "220c4c22b2a45decd547fcd5c9e6984451434a56",
                 "shasum": ""
             },
             "require": {
@@ -9647,7 +9653,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-10-27T08:00:50+00:00"
+            "time": "2021-11-01T08:57:47+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -10734,16 +10740,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v5.3.8",
+            "version": "v5.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "c6370fe2c0a445aedc08f592a6a3149da1fea4c7"
+                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/c6370fe2c0a445aedc08f592a6a3149da1fea4c7",
-                "reference": "c6370fe2c0a445aedc08f592a6a3149da1fea4c7",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
+                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
                 "shasum": ""
             },
             "require": {
@@ -10801,7 +10807,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v5.3.8"
+                "source": "https://github.com/symfony/http-client/tree/v5.3.10"
             },
             "funding": [
                 {
@@ -10817,7 +10823,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-07T10:45:28+00:00"
+            "time": "2021-10-19T08:32:53+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
