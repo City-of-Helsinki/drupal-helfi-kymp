@@ -1,14 +1,6 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
 DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
-DOCKER_PROXY_PATH ?= ${HOME}/proxy
-
-$(DOCKER_PROXY_PATH)/.git:
-	git clone https://github.com/City-of-Helsinki/drupal-helfi-local-proxy.git $(DOCKER_PROXY_PATH)
-
-PHONY += start-proxy
-start-proxy: $(DOCKER_PROXY_PATH)/.git
-	cd $(DOCKER_PROXY_PATH) &&./start.sh ${PROXY_PROJECT_NAME}
 
 $(STONEHENGE_PATH)/.git:
 	git clone -b 3.x https://github.com/druidfi/stonehenge.git $(STONEHENGE_PATH)
@@ -18,14 +10,14 @@ start-stonehenge: $(STONEHENGE_PATH)/.git
 	cd $(STONEHENGE_PATH) && make up
 
 $(PROJECT_DIR)/vendor:
-	$(call docker_run_ci,composer install)
+	$(call docker_run_ci,app,composer install)
 
 PHONY += install-drupal
 install-drupal:
-	$(call docker_run_ci,drush si -y)
-	$(call docker_run_ci,drush cr)
-	$(call docker_run_ci,drush si --existing-config -y)
-	$(call docker_run_ci,drush cim -y)
+	$(call docker_run_ci,app,drush si -y)
+	$(call docker_run_ci,app,drush cr)
+	$(call docker_run_ci,app,drush si --existing-config -y)
+	$(call docker_run_ci,app,drush cim -y)
 
 PHONY += start-project
 start-project: $(STONEHENGE_PATH)/.git
@@ -36,8 +28,12 @@ set-permissions:
 	chmod 777 -R $(PROJECT_DIR)
 
 define docker_run_ci
-	docker compose $(DOCKER_COMPOSE_FILES) exec app bash -c "$(1)"
+	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
 endef
 
 PHONY += setup-ci
-setup-ci: set-permissions start-stonehenge start-project $(PROJECT_DIR)/vendor install-drupal start-proxy
+setup-ci: set-permissions start-stonehenge start-project $(PROJECT_DIR)/vendor install-drupal
+
+PHONY += run-tests
+run-tests:
+	$(call docker_run_ci,robo,curl curl http://helfi-${PROJECT_NAME}-varnish:6081)
