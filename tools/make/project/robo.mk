@@ -3,9 +3,9 @@ PROJECT_DIR ?= ${GITHUB_WORKSPACE}
 DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project $(PROJECT_DIR)/vendor update-automation install-drupal
+	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project composer-install update-automation install-drupal
 else
-	SETUP_ROBO_TARGETS := start-project $(PROJECT_DIR)/vendor update-automation install-drupal
+	SETUP_ROBO_TARGETS := start-project composer-install update-automation install-drupal
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -17,7 +17,7 @@ PHONY += start-stonehenge
 start-stonehenge:
 	cd $(STONEHENGE_PATH) && make up
 
-$(PROJECT_DIR)/vendor:
+composer-install:
 	$(call docker_run_ci,app,composer install)
 
 $(PROJECT_DIR)/helfi-test-automation-python/.git:
