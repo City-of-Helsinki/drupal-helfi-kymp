@@ -3,9 +3,9 @@ PROJECT_DIR ?= ${GITHUB_WORKSPACE}
 DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project $(PROJECT_DIR)/vendor install-drupal
+	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project $(PROJECT_DIR)/vendor update-automation install-drupal
 else
-	SETUP_ROBO_TARGETS := start-project $(PROJECT_DIR)/vendor install-drupal
+	SETUP_ROBO_TARGETS := start-project $(PROJECT_DIR)/vendor update-automation install-drupal
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -19,6 +19,13 @@ start-stonehenge:
 
 $(PROJECT_DIR)/vendor:
 	$(call docker_run_ci,app,composer install)
+
+$(PROJECT_DIR)/helfi-test-automation-python/.git:
+	git clone https://github.com/City-of-Helsinki/helfi-test-automation-python.git $(PROJECT_DIR)/helfi-test-automation-python
+
+PHONY += update-automation
+update-automation: $(PROJECT_DIR)/helfi-test-automation-python/.git
+	git pull
 
 PHONY += install-drupal
 install-drupal:
@@ -44,4 +51,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,curl http://${COMPOSE_PROJECT_NAME}-varnish:6081)
+	$(call docker_run_ci,robo,robot -i DEMO -A /app/helfi-test-automation-python/environments/local.args -d /app/helfi-test-automation-python/robotframework-reports /app/helfi-test-automation-python)
