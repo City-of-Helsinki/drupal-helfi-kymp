@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.remote_video
   module:
@@ -42,6 +43,7 @@ settings:
       banner: banner
       from_library: from_library
       remote_video: remote_video
+      liftup_with_image: liftup_with_image
     target_bundles_drag_drop:
       accordion:
         enabled: true
@@ -75,7 +77,7 @@ settings:
         weight: -26
       liftup_with_image:
         weight: -18
-        enabled: false
+        enabled: true
       list_of_links:
         enabled: true
         weight: -24
