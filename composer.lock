@@ -3870,16 +3870,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "f52049d76dde7fc3b3d64ebff94751295664378f"
+                "reference": "bd6bbd1350c7077a025f5e744401004b04025c50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/f52049d76dde7fc3b3d64ebff94751295664378f",
-                "reference": "f52049d76dde7fc3b3d64ebff94751295664378f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/bd6bbd1350c7077a025f5e744401004b04025c50",
+                "reference": "bd6bbd1350c7077a025f5e744401004b04025c50",
                 "shasum": ""
             },
             "require": {
@@ -3894,10 +3894,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.0.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.0.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-11-04T13:48:11+00:00"
+            "time": "2021-11-08T15:41:22+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4133,16 +4133,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.31",
+            "version": "2.0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "45eec487ee6b6e7fe4ece6594e1a1dfa1b6c91e8"
+                "reference": "7f08f64ad8f60eb56d80784f5d9f21c099e4ce50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/45eec487ee6b6e7fe4ece6594e1a1dfa1b6c91e8",
-                "reference": "45eec487ee6b6e7fe4ece6594e1a1dfa1b6c91e8",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/7f08f64ad8f60eb56d80784f5d9f21c099e4ce50",
+                "reference": "7f08f64ad8f60eb56d80784f5d9f21c099e4ce50",
                 "shasum": ""
             },
             "require": {
@@ -4228,7 +4228,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-08T12:12:42+00:00"
+            "time": "2021-11-08T15:18:09+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -9713,16 +9713,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "9a7b6d84ac8fa370397336028e760c71accac1dc"
+                "reference": "ecbd09ea5d053a202cf773cb24ab28af820831bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/9a7b6d84ac8fa370397336028e760c71accac1dc",
-                "reference": "9a7b6d84ac8fa370397336028e760c71accac1dc",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/ecbd09ea5d053a202cf773cb24ab28af820831bd",
+                "reference": "ecbd09ea5d053a202cf773cb24ab28af820831bd",
                 "shasum": ""
             },
             "require": {
@@ -9740,7 +9740,7 @@
                 "psr/http-factory": "^1.0",
                 "psr/http-message-implementation": "^1.0",
                 "psr/log": "^1.0|^2.0|^3.0",
-                "symfony/options-resolver": "^3.4.43|^4.4.11|^5.0.11",
+                "symfony/options-resolver": "^3.4.43|^4.4.30|^5.0.11|^6.0",
                 "symfony/polyfill-php80": "^1.17",
                 "symfony/polyfill-uuid": "^1.13.1"
             },
@@ -9757,8 +9757,8 @@
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^8.5.13|^9.4",
-                "symfony/phpunit-bridge": "^5.2",
+                "phpunit/phpunit": "^8.5.14|^9.4",
+                "symfony/phpunit-bridge": "^5.2|^6.0",
                 "vimeo/psalm": "^4.2"
             },
             "suggest": {
@@ -9801,7 +9801,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/3.3.3"
+                "source": "https://github.com/getsentry/sentry-php/tree/3.3.4"
             },
             "funding": [
                 {
@@ -9813,7 +9813,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-10-04T11:20:34+00:00"
+            "time": "2021-11-08T08:44:00+00:00"
         },
         {
             "name": "stack/builder",
@@ -16766,5 +16766,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
