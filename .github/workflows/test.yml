@@ -25,7 +25,9 @@ jobs:
         run: composer install
 
       - name: Run PHPCS
-        run: vendor/bin/phpcs public/modules/custom/ --standard=Drupal
+        run: |
+          composer lint-php public/modules/custom/
+          composer lint-php public/themes/custom/
 
       - name: Install Drupal
         run: php -d sendmail_path=$(which true); drush --yes -v site-install --existing-config --db-url="$SIMPLETEST_DB"
@@ -34,4 +36,4 @@ jobs:
         run: |
           drush runserver $SIMPLETEST_BASE_URL > /dev/null 2>&1 &
           chromedriver --port=4444 > /dev/null 2>&1 &
-          vendor/bin/phpunit -c $GITHUB_WORKSPACE/phpunit.xml.dist --verbose
+          composer test-php public/modules/custom
