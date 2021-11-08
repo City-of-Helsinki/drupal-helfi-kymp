@@ -42,6 +42,6 @@ endef
 PHONY += setup-robo
 setup-robo: $(SETUP_ROBO_TARGETS)
 
-PHONY += run-tests
-run-tests:
-	$(call docker_run_ci,robo,curl curl http://${COMPOSE_PROJECT_NAME}-varnish:6081)
+PHONY += run-robo-tests
+run-robo-tests:
+	$(call docker_run_ci,robo,curl http://${COMPOSE_PROJECT_NAME}-varnish:6081)
