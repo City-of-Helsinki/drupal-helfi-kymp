@@ -1,5 +1,5 @@
 on: [push]
-name: CI
+name: Robot
 env:
   COMPOSE_PROJECT_NAME: kymp
 jobs:
@@ -13,6 +13,8 @@ jobs:
       - name: Build project
         run: |
           make setup-robo
+          pip install --no-cache-dir numpy
+          pip install --no-cache-dir robotframework-doctestlibrary
           pip install --upgrade robotframework-seleniumlibrary
 
       - name: Run tests

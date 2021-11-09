@@ -13,7 +13,7 @@ jobs:
       - name: Build project
         run: |
           make setup-robo
-          docker compose exec app drush sql-dump --result-file=/app/latest.sql
+          make save-dump
 
       - name: Save latest database dump for robo tests
         uses: actions/upload-artifact@v2

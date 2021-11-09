@@ -39,12 +39,16 @@ install-drupal:
 	$(call docker_run_ci,app,drush cim -y)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 
+PHONY += save-dump
+save-dump:
+	$(call docker_run_ci,app,drush sql-dump --result-file=/app/latest.sql)
+
 PHONY += set-permissions
 set-permissions:
 	chmod 777 -R $(PROJECT_DIR)
 
 define docker_run_ci
-	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
+	docker compose exec $(1) bash -c "$(2)"
 endef
 
 PHONY += setup-robo
