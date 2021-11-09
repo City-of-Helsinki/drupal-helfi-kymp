@@ -16,6 +16,8 @@ services:
       - .:/app:delegated
     build:
       context: ./docker/local
+    depends_on:
+      - db
     environment:
       APP_ENV: "${APP_ENV:-dev}"
       DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME},https://helfi-proxy.docker.so,http://${COMPOSE_PROJECT_NAME}-varnish"

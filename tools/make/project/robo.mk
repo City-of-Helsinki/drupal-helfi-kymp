@@ -1,11 +1,11 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
+#DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project robo-composer-install update-automation install-drupal
+	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge robo-composer-install update-automation install-drupal
 else
-	SETUP_ROBO_TARGETS := start-project robo-composer-install update-automation install-drupal
+	SETUP_ROBO_TARGETS := robo-composer-install update-automation install-drupal
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -35,10 +35,6 @@ install-drupal:
 	$(call docker_run_ci,app,drush cim -y)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 
-PHONY += start-project
-start-project:
-	docker compose $(DOCKER_COMPOSE_FILES) up -d
-
 PHONY += set-permissions
 set-permissions:
 	chmod 777 -R $(PROJECT_DIR)
@@ -47,13 +43,9 @@ define docker_run_ci
 	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
 endef
 
-PHONY += robo-shell
-robo-shell:
-	@docker compose $(DOCKER_COMPOSE_FILES) exec robo bash
-
 PHONY += setup-robo
 setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,robot -i DEMO -A /app/helfi-test-automation-python/environments/local.args -d /app/helfi-test-automation-python/robotframework-reports /app/helfi-test-automation-python)
+	robot -i DEMO -A ${GITHUB_WORKSPACE}/helfi-test-automation-python/environments/local.args -d ${GITHUB_WORKSPACE}/helfi-test-automation-python/robotframework-reports ${GITHUB_WORKSPACE}/helfi-test-automation-python)

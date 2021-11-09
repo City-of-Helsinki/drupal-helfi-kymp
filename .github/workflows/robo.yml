@@ -11,7 +11,9 @@ jobs:
           fetch-depth: 1
 
       - name: Build project
-        run: make setup-robo
+        run: |
+          make setup-robo
+          pip install --upgrade robotframework-seleniumlibrary
 
       - name: Run tests
         run: make run-robo-tests
