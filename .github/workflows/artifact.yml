@@ -4,6 +4,7 @@ on:
 name: Build artifacts
 env:
   COMPOSE_PROJECT_NAME: kymp
+  DRUPAL_BUILD_FROM_SCRATCH: true
 jobs:
   build:
     runs-on: ubuntu-latest

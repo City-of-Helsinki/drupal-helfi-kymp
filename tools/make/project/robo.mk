@@ -1,11 +1,10 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-#DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
 
-ifeq ($(CI),true)
+ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
 	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project robo-composer-install update-automation install-drupal
 else
-	SETUP_ROBO_TARGETS := start-project robo-composer-install update-automation install-drupal
+	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project robo-composer-install update-automation install-drupal-from-dump
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -38,6 +37,11 @@ install-drupal:
 	$(call docker_run_ci,app,drush si --existing-config -y)
 	$(call docker_run_ci,app,drush cim -y)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
+
+PHONY += install-drupal-from-dump
+install-drupal-from-dump:
+	$(call docker_run_ci,app,\$(drush sql-connect) < latest.sql)
+	$(call docker_run_ci,app,drush cim -y)
 
 PHONY += save-dump
 save-dump:

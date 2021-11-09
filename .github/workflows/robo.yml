@@ -10,6 +10,11 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Download latest dump
+        uses: actions/download-artifact@v2
+        with:
+          name: latest.sql
+
       - name: Build project
         run: |
           make setup-robo
