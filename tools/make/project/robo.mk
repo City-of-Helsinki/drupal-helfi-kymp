@@ -57,6 +57,14 @@ PHONY += save-dump
 save-dump:
 	$(call docker_run_ci,app,drush sql-dump --result-file=/app/latest.sql)
 
+PHONY += robo-stop
+robo-stop:
+	@docker compose $(DOCKER_COMPOSE_FILES) stop
+
+PHONY += robo-down
+robo-down:
+	@docker compose $(DOCKER_COMPOSE_FILES) down
+
 PHONY += robo-shell
 robo-shell:
 	@docker compose $(DOCKER_COMPOSE_FILES) exec robo bash
