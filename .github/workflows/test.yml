@@ -29,8 +29,14 @@ jobs:
           composer lint-php public/modules/custom/
           composer lint-php public/themes/custom/
 
+      - name: Download latest dump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run download -n latest.sql
+
       - name: Install Drupal
-        run: php -d sendmail_path=$(which true); drush --yes -v site-install --existing-config --db-url="$SIMPLETEST_DB"
+        run: mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql
 
       - name: Run PHPUnit tests
         run: |
