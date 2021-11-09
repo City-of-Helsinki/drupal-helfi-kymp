@@ -9,7 +9,9 @@ jobs:
           fetch-depth: 1
 
       - name: Download latest dump
-        run: gh run download -n latest.sql
+        run: |
+          gh auth login
+          gh run download -n latest.sql
 
       - name: Build project
         run: |
