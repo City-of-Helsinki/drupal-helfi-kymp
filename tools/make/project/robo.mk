@@ -1,10 +1,19 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
+DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
+
+SETUP_ROBO_TARGETS :=
+
+ifeq ($(CI),true)
+	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge set-permissions
+endif
+
+SETUP_ROBO_TARGETS += start-project robo-composer-install update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
-	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project robo-composer-install update-automation install-drupal
+	SETUP_ROBO_TARGETS += install-drupal
 else
-	SETUP_ROBO_TARGETS := set-permissions install-stonehenge start-stonehenge start-project robo-composer-install update-automation install-drupal-from-dump
+	SETUP_ROBO_TARGETS += install-drupal-from-dump
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -28,7 +37,7 @@ update-automation: $(PROJECT_DIR)/helfi-test-automation-python/.git
 
 PHONY += start-project
 start-project:
-	docker compose up -d
+	docker compose $(DOCKER_COMPOSE_FILES) up -d
 
 PHONY += install-drupal
 install-drupal:
@@ -40,19 +49,24 @@ install-drupal:
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
-	$(call docker_run_ci,app,\$(drush sql-connect) < latest.sql)
+	$(call docker_run_ci,app,drush sql-drop -y)
+	$(call docker_run_ci,app,mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql)
 	$(call docker_run_ci,app,drush cim -y)
 
 PHONY += save-dump
 save-dump:
 	$(call docker_run_ci,app,drush sql-dump --result-file=/app/latest.sql)
 
+PHONY += robo-shell
+robo-shell:
+	@docker compose $(DOCKER_COMPOSE_FILES) exec robo bash
+
 PHONY += set-permissions
 set-permissions:
 	chmod 777 -R $(PROJECT_DIR)
 
 define docker_run_ci
-	docker compose exec $(1) bash -c "$(2)"
+	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
 endef
 
 PHONY += setup-robo
@@ -60,4 +74,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	robot -i DEMO -A ${GITHUB_WORKSPACE}/helfi-test-automation-python/environments/local.args -d ${GITHUB_WORKSPACE}/helfi-test-automation-python/robotframework-reports ${GITHUB_WORKSPACE}/helfi-test-automation-python
+	$(call docker_run_ci,robo,robot -i DEMO -A /app/helfi-test-automation-python/environments/local.args -d /app/helfi-test-automation-python/robotframework-reports /app/helfi-test-automation-python)

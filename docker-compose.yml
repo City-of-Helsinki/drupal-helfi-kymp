@@ -33,6 +33,7 @@ services:
       DRUPAL_VARNISH_PORT: 6081
     extra_hosts:
       - "host.docker.internal:host-gateway"
+      - "${DRUPAL_HOSTNAME}:host-gateway"
     networks:
       - internal
       - stonehenge-network

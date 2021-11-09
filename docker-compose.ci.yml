@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  robo:
+    image: ghcr.io/city-of-helsinki/drupal-robo:latest
+    tty: true
+    volumes:
+      - .:/app:delegated
+    networks:
+      - internal
+      - stonehenge-network
+    depends_on:
+      - app
+    extra_hosts:
+      - "${DRUPAL_HOSTNAME}:host-gateway"
+  app:
+    build:
+      context: docker/local
+      dockerfile: Dockerfile.ci
