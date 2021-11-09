@@ -13,6 +13,7 @@ services:
       - app
     extra_hosts:
       - "${DRUPAL_HOSTNAME}:host-gateway"
+      - "varnish-${DRUPAL_HOSTNAME}:host-gateway"
   app:
     build:
       context: docker/local
