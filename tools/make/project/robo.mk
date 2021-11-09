@@ -28,7 +28,8 @@ update-automation: $(PROJECT_DIR)/helfi-test-automation-python/.git
 	git pull
 
 PHONY += start-project
-	docker compose up -d
+start-project:
+	make up
 
 PHONY += install-drupal
 install-drupal:
