@@ -15,11 +15,7 @@ jobs:
           gh run download -n latest.sql
 
       - name: Build project
-        run: |
-          make setup-robo
-          pip install --no-cache-dir numpy
-          pip install --no-cache-dir robotframework-doctestlibrary
-          pip install --upgrade robotframework-seleniumlibrary
+        run: make setup-robo
 
       - name: Run tests
         run: make run-robo-tests
