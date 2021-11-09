@@ -52,4 +52,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	robot -i DEMO -A ${GITHUB_WORKSPACE}/helfi-test-automation-python/environments/local.args -d ${GITHUB_WORKSPACE}/helfi-test-automation-python/robotframework-reports ${GITHUB_WORKSPACE}/helfi-test-automation-python)
+	robot -i DEMO -A ${GITHUB_WORKSPACE}/helfi-test-automation-python/environments/local.args -d ${GITHUB_WORKSPACE}/helfi-test-automation-python/robotframework-reports ${GITHUB_WORKSPACE}/helfi-test-automation-python
