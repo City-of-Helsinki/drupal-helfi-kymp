@@ -1,0 +1,32 @@
+on:
+  repository_dispatch:
+    types: [config_change]
+name: Update config
+jobs:
+  update-config:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/city-of-helsinki/drupal-php-docker:8.0
+
+    services:
+      db:
+        image: druidfi/db:mysql5.7-drupal
+        ports:
+          - 3306:3306
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Download latest dump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run download -n latest.sql
+
+      - name: Build project
+        run: |
+          composer install
+          drush si -y && drush cr && drush si --existing-config -y && drush cim -y
+          composer update drupal/helfi_platform_config
