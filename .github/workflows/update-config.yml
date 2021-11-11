@@ -1,7 +1,6 @@
 on:
   repository_dispatch:
-    types:
-      - update-config
+    types: [config_change]
 name: Update config
 jobs:
   update-config:
