@@ -20,6 +20,13 @@ targetEntityType: paragraph
 bundle: accordion
 mode: default
 content:
+  field_accordion_description:
+    label: hidden
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    weight: 3
   field_accordion_design:
     weight: 0
     label: hidden
@@ -43,13 +50,6 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_accordion_description:
-    label: hidden
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    weight: 3
   field_accordion_title:
     label: hidden
     region: content
