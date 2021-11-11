@@ -4,7 +4,7 @@ on:
       - update-config
 name: Update config
 jobs:
-  integration-tests:
+  update-config:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/city-of-helsinki/drupal-php-docker:8.0
