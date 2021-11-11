@@ -3870,16 +3870,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "f52049d76dde7fc3b3d64ebff94751295664378f"
+                "reference": "bd6bbd1350c7077a025f5e744401004b04025c50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/f52049d76dde7fc3b3d64ebff94751295664378f",
-                "reference": "f52049d76dde7fc3b3d64ebff94751295664378f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/bd6bbd1350c7077a025f5e744401004b04025c50",
+                "reference": "bd6bbd1350c7077a025f5e744401004b04025c50",
                 "shasum": ""
             },
             "require": {
@@ -3894,10 +3894,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.0.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.0.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2021-11-04T13:48:11+00:00"
+            "time": "2021-11-08T15:41:22+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4133,16 +4133,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.0.30",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "2a4655bb39c63965715e70714d1700b0bd7edf10"
+                "reference": "9dce3e9601eb7cb9daaa3e40623a1f4dd16b2c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2a4655bb39c63965715e70714d1700b0bd7edf10",
-                "reference": "2a4655bb39c63965715e70714d1700b0bd7edf10",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/9dce3e9601eb7cb9daaa3e40623a1f4dd16b2c85",
+                "reference": "9dce3e9601eb7cb9daaa3e40623a1f4dd16b2c85",
                 "shasum": ""
             },
             "require": {
@@ -4204,7 +4204,8 @@
                         "https://www.drupal.org/project/default_content/issues/2698425#comment-13809863": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
                     },
                     "drupal/eu_cookie_compliance": {
-                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://gist.githubusercontent.com/khalima/25c1972340725bc57ac088b268c5736a/raw/a5dd1a39b2e3da23105c4aa5bfa9fd8c2373eb6f/eu_cookie_compliance_block_8.x-1.19.patch"
+                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/d1a6866b2138f7d3597df79f395a5c1a9e19ee2e/patches/eu_cookie_compliance_block_8.x-1.19.patch",
+                        "[#UHF-2956] Fix JavaScript error at cookie preference page": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/97683d32e57808a4c9a4f6a2d20757af7a0b8c37/patches/eu_cookie_compliance_js_error_8.x-1.19-patched.patch"
                     },
                     "drupal/features": {
                         "https://www.drupal.org/project/features/issues/2869336": "https://www.drupal.org/files/issues/features_export-config-translation-2869336-2.patch"
@@ -4225,10 +4226,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/latest",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.1.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-03T10:43:33+00:00"
+            "time": "2021-11-10T13:56:02+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4272,16 +4273,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.5.3",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "6c31f9d5af00ec22dd79deb9c260937f18af5864"
+                "reference": "7de84c7e19acd47541c774eb5be30435c404205c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/6c31f9d5af00ec22dd79deb9c260937f18af5864",
-                "reference": "6c31f9d5af00ec22dd79deb9c260937f18af5864",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/7de84c7e19acd47541c774eb5be30435c404205c",
+                "reference": "7de84c7e19acd47541c774eb5be30435c404205c",
                 "shasum": ""
             },
             "require": {
@@ -4303,10 +4304,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.5.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.5.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2021-10-29T07:19:32+00:00"
+            "time": "2021-11-10T11:23:09+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -9713,16 +9714,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "9a7b6d84ac8fa370397336028e760c71accac1dc"
+                "reference": "ecbd09ea5d053a202cf773cb24ab28af820831bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/9a7b6d84ac8fa370397336028e760c71accac1dc",
-                "reference": "9a7b6d84ac8fa370397336028e760c71accac1dc",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/ecbd09ea5d053a202cf773cb24ab28af820831bd",
+                "reference": "ecbd09ea5d053a202cf773cb24ab28af820831bd",
                 "shasum": ""
             },
             "require": {
@@ -9740,7 +9741,7 @@
                 "psr/http-factory": "^1.0",
                 "psr/http-message-implementation": "^1.0",
                 "psr/log": "^1.0|^2.0|^3.0",
-                "symfony/options-resolver": "^3.4.43|^4.4.11|^5.0.11",
+                "symfony/options-resolver": "^3.4.43|^4.4.30|^5.0.11|^6.0",
                 "symfony/polyfill-php80": "^1.17",
                 "symfony/polyfill-uuid": "^1.13.1"
             },
@@ -9757,8 +9758,8 @@
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^8.5.13|^9.4",
-                "symfony/phpunit-bridge": "^5.2",
+                "phpunit/phpunit": "^8.5.14|^9.4",
+                "symfony/phpunit-bridge": "^5.2|^6.0",
                 "vimeo/psalm": "^4.2"
             },
             "suggest": {
@@ -9801,7 +9802,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/3.3.3"
+                "source": "https://github.com/getsentry/sentry-php/tree/3.3.4"
             },
             "funding": [
                 {
@@ -9813,7 +9814,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-10-04T11:20:34+00:00"
+            "time": "2021-11-08T08:44:00+00:00"
         },
         {
             "name": "stack/builder",
@@ -16766,5 +16767,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
