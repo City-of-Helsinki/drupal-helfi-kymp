@@ -50,7 +50,7 @@ install-drupal:
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
-	$(call docker_run_ci,app,drush en helfi_tpr_config helfi_announcements helfi_example_content -y)
+	$(call docker_run_ci,app,drush en helfi_example_content -y)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
