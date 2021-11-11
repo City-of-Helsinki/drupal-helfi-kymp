@@ -21,3 +21,10 @@ jobs:
 
       - name: Run tests
         run: make run-robo-tests
+
+      - name: Create an artifact from test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: helfi-test-automation-python/robotframework-reports/
+          retention-days: 2

@@ -89,4 +89,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot -i $(ROBOT_TAGS) -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -d robotframework-reports .)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot --exitonfailure -i $(ROBOT_TAGS) -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -d robotframework-reports .)
