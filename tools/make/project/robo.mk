@@ -1,6 +1,8 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
 DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
+ROBOT_TAGS ?= CRITICAL
+SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
 
@@ -87,4 +89,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,robot -i DEMO -A /app/helfi-test-automation-python/environments/local.args -d /app/helfi-test-automation-python/robotframework-reports /app/helfi-test-automation-python)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot -i $(ROBOT_TAGS) -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -d robotframework-reports .)
