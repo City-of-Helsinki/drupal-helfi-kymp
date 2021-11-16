@@ -18,8 +18,6 @@ dependencies:
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.unit_search
-    - paragraphs.paragraphs_type.map
-    - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
@@ -44,8 +42,9 @@ settings:
       accordion: accordion
       image: image
       gallery: gallery
-      list_of_links: list_of_links
       content_liftup: content_liftup
+      list_of_links: list_of_links
+      content_cards: content_cards
       banner: banner
       from_library: from_library
       remote_video: remote_video
@@ -100,6 +99,12 @@ settings:
       remote_video:
         enabled: true
         weight: 27
+      service_list:
+        weight: 37
+        enabled: false
+      sidebar_text:
+        weight: 38
+        enabled: false
       text:
         enabled: true
         weight: -27
