@@ -1,4 +1,6 @@
 on:
+  repository_dispatch:
+    types: [ build_artifact ]
   schedule:
     - cron:  '0 0 * * 0'
 name: Build artifacts
