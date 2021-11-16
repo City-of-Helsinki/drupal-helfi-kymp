@@ -1,11 +1,12 @@
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [ build_artifact ]
   schedule:
     - cron:  '0 0 * * 0'
 name: Build artifacts
 env:
-  COMPOSE_PROJECT_NAME: kymp
+  COMPOSE_PROJECT_NAME: helfi-kymp
   DRUPAL_BUILD_FROM_SCRATCH: true
 jobs:
   build:
