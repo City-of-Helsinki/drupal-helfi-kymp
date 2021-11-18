@@ -16,7 +16,7 @@ drush-enable-modules: ## Enable modules and base configurations.
 PHONY += drush-locale-update
 drush-locale-update: ## Update translations.
 	$(call step,Update translations...)
-	$(call drush_on_docker,state:set locale.translation_last_checked 0)
+	$(call drush_on_docker,locale:check)
 	$(call drush_on_docker,locale:update)
 	$(call drush_on_docker,cr)
 	$(call step,Import custom translations...)
