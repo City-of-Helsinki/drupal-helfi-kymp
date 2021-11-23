@@ -1,0 +1,45 @@
+on: [push]
+name: Robot
+env:
+  SITE_PREFIX: "/kaupunkiymparisto-ja-liikenne"
+  XDEBUG_MODE: off
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Download latest dump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run download -n latest.sql
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Build project
+        run: |
+          make setup-robo
+
+      - name: Run tests
+        run: make run-robo-tests
+
+      - name: Create an artifact from test report
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: results
+          path: helfi-test-automation-python/robotframework-reports/
+          retention-days: 2
