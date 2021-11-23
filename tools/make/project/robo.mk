@@ -85,7 +85,7 @@ robo-shell:
 
 PHONY += set-permissions
 set-permissions:
-	chmod 777 -R $(PROJECT_DIR)
+	chmod 777 -R $(PROJECT_DIR)/public/sites/default/files
 
 define docker_run_ci
 	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
