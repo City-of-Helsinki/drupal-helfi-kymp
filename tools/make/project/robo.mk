@@ -5,9 +5,11 @@ ROBOT_TAGS ?= CRITICAL
 SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
+CI_POST_INSTALL_TARGETS :=
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge set-folders
+	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge set-permissions
+	CI_POST_INSTALL_TARGETS += fix-files-permission
 endif
 
 SETUP_ROBO_TARGETS += start-project robo-composer-install update-automation
@@ -17,6 +19,8 @@ ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
 else
 	SETUP_ROBO_TARGETS += install-drupal-from-dump
 endif
+
+SETUP_ROBO_TARGETS += $(CI_POST_INSTALL_TARGETS)
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
 
@@ -83,9 +87,13 @@ PHONY += robo-shell
 robo-shell:
 	@docker compose $(DOCKER_COMPOSE_FILES) exec robo bash
 
-PHONY += set-folders
-set-folders:
-	mkdir vendor/ && chmod 777 vendor/
+PHONY += set-permissions
+set-permissions:
+	chmod 777 -R $(PROJECT_DIR)
+
+PHONY += fix-files-permission
+fix-files-permission:
+	chmod 777 -R $(PROJECT_DIR)/public/sites/default/files
 
 define docker_run_ci
 	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
