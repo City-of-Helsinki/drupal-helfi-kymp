@@ -7,7 +7,7 @@ SITE_PREFIX ?= /
 SETUP_ROBO_TARGETS :=
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge set-permissions
+	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge
 endif
 
 SETUP_ROBO_TARGETS += start-project robo-composer-install update-automation
