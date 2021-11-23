@@ -3,6 +3,7 @@ version: '3.7'
 services:
   robo:
     image: ghcr.io/city-of-helsinki/drupal-robo:latest
+    shm_size: '2gb'
     tty: true
     volumes:
       - .:/app:delegated
