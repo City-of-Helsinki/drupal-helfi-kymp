@@ -1,5 +1,4 @@
 version: '3.7'
-
 services:
   robo:
     image: ghcr.io/city-of-helsinki/drupal-robo:latest
@@ -26,6 +25,7 @@ services:
       - ./docker/local/entrypoints/30-chromedriver.sh:/entrypoints/30-chromedriver.sh:cached
       - ./docker/local/entrypoints/30-drush-server.sh:/entrypoints/30-drush-server.sh:cached
       - .:/app:delegated
+      - /home/runner/.composer/cache/files:/home/druid/.composer/cache/files:cached
     depends_on:
       - db
     environment:
