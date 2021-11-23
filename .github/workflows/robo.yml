@@ -2,6 +2,7 @@ on: [push]
 name: Robot
 env:
   SITE_PREFIX: "/kaupunkiymparisto-ja-liikenne"
+  XDEBUG_MODE: off
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
