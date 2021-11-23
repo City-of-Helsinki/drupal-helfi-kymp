@@ -1,7 +1,7 @@
 CLI_SERVICE := cli
 CLI_SHELL := sh
 CLI_USER := root
-DOCKER_COMPOSE := docker compose
+DOCKER_COMPOSE := docker-compose
 DOCKER_COMPOSE_EXEC ?= $(DOCKER_COMPOSE) exec
 DOCKER_PROJECT_ROOT ?= /app
 DOCKER_WARNING_INSIDE := You are inside the Docker container!

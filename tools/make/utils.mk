@@ -38,3 +38,7 @@ define copy
 	$(call output,Copy $(1) >> $(2))
 	@cp $(1) $(2)
 endef
+
+define run
+	@${1} && printf "${2}\n" || printf "${RED}${3}${NO_COLOR}\n"
+endef

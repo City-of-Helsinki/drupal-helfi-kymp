@@ -62,3 +62,14 @@ PHONY += sync
 sync: ## Sync data from other environments
 	$(call group_step,Sync:$(NO_COLOR) $(SYNC_TARGETS))
 	@$(MAKE) $(SYNC_TARGETS) ENV=$(ENV)
+
+PHONY += gh-download-dump
+gh-download-dump: GH_FLAGS += $(if $(GH_ARTIFACT),-n $(GH_ARTIFACT),-n latest-dump)
+gh-download-dump: GH_FLAGS += $(if $(GH_REPO),-R $(GH_REPO),)
+gh-download-dump: ## Download database dump from repository artifacts
+	$(call step,Download database dump from repository artifacts\n)
+ifeq ($(DUMP_SQL_EXISTS),no)
+	$(call run,gh run download $(strip $(GH_FLAGS)),Downloaded dump.sql,Failed)
+else
+	@echo "There is already dump.sql"
+endif

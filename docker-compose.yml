@@ -18,6 +18,7 @@ services:
     depends_on:
       - db
     environment:
+      STAGE_FILE_PROXY_ORIGIN: "https://helfiliikenne.blob.core.windows.net"
       APP_ENV: "${APP_ENV:-dev}"
       DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME},https://helfi-proxy.docker.so,http://${COMPOSE_PROJECT_NAME}-varnish"
       DRUPAL_REVERSE_PROXY_ADDRESS: helfi-proxy.docker.so

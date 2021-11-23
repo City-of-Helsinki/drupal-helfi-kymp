@@ -27,6 +27,10 @@ LINT_PATHS_PHP += -v $(CURDIR)/$(WEBROOT)/themes/custom:/app/$(WEBROOT)/themes/c
 LINT_PHP_TARGETS += lint-drupal
 FIX_TARGETS += fix-drupal
 
+ifeq ($(GH_DUMP_ARTIFACT),yes)
+	DRUPAL_FRESH_TARGETS := gh-download-dump $(DRUPAL_FRESH_TARGETS)
+endif
+
 PHONY += drupal-update
 drupal-update: ## Update Drupal core with Composer
 	$(call step,Update Drupal core with Composer...\n)

@@ -167,3 +167,10 @@ if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
     'value' => $varnish_purge_key,
   ];
 }
+
+if ($stage_file_proxy_origin = getenv('STAGE_FILE_PROXY_ORIGIN')) {
+  $config['stage_file_proxy.settings']['origin'] = $stage_file_proxy_origin;
+  $config['stage_file_proxy.settings']['origin_dir'] = 'test';
+  $config['stage_file_proxy.settings']['hotlink'] = FALSE;
+  $config['stage_file_proxy.settings']['use_imagecache_root'] = FALSE;
+}

@@ -5,9 +5,12 @@ WP_DELETE_PLUGINS := akismet hello
 WP_DELETE_THEMES := twentynineteen twentyseventeen
 WP_SQL_READY := yes
 WP_POST_INSTALL_TARGETS := prepare
-DUMP_SQL_FILENAME := wordpress.sql
 DUMP_SQL_EXISTS := $(shell test -f $(DUMP_SQL_FILENAME) && echo yes || echo no)
 SYNC_TARGETS += wp-sync-db wp-sync-files
+
+ifeq ($(GH_DUMP_ARTIFACT),yes)
+	WP_FRESH_TARGETS := gh-download-dump $(WP_FRESH_TARGETS)
+endif
 
 PHONY += fresh
 fresh: ## Build fresh development environment
