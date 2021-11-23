@@ -12,7 +12,7 @@ ifeq ($(CI),true)
 	CI_POST_INSTALL_TARGETS += fix-files-permission
 endif
 
-SETUP_ROBO_TARGETS += start-project robo-composer-install $(CI_POST_INSTALL_TARGETS )update-automation
+SETUP_ROBO_TARGETS += start-project robo-composer-install $(CI_POST_INSTALL_TARGETS) update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
 	SETUP_ROBO_TARGETS += install-drupal
