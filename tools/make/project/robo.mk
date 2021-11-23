@@ -88,6 +88,7 @@ robo-shell:
 
 PHONY += set-permissions
 set-permissions:
+	chmod 777 /home/runner/.cache/composer -R
 	chmod 777 -R $(PROJECT_DIR)
 
 PHONY += fix-files-permission
