@@ -30,7 +30,9 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Build project
-        run: make setup-robo
+        run: |
+          ls -la /home/runner/.cache/composer
+          make setup-robo
 
       #- name: Run tests
       #  run: make run-robo-tests
