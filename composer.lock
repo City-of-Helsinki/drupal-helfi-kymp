@@ -3901,16 +3901,16 @@
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.3.16",
+            "version": "1.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "62b2cc5608c18e8f3277c4f26de66851000a43b8"
+                "reference": "1fcfe6bab330bca43675bba0555f498d8e3e8049"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/62b2cc5608c18e8f3277c4f26de66851000a43b8",
-                "reference": "62b2cc5608c18e8f3277c4f26de66851000a43b8",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/1fcfe6bab330bca43675bba0555f498d8e3e8049",
+                "reference": "1fcfe6bab330bca43675bba0555f498d8e3e8049",
                 "shasum": ""
             },
             "require": {
@@ -3926,10 +3926,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.3.16",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.3.17",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2021-11-02T06:26:29+00:00"
+            "time": "2021-11-22T08:21:57+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -4233,16 +4233,16 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "1.2.6",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "1bdfdd35286283a48f04a9b8fd66c4463e4069cf"
+                "reference": "8428b389b9e9fc374b550cc427739a6c645504a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/1bdfdd35286283a48f04a9b8fd66c4463e4069cf",
-                "reference": "1bdfdd35286283a48f04a9b8fd66c4463e4069cf",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/8428b389b9e9fc374b550cc427739a6c645504a0",
+                "reference": "8428b389b9e9fc374b550cc427739a6c645504a0",
                 "shasum": ""
             },
             "require": {
@@ -4266,10 +4266,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2021-10-29T07:25:12+00:00"
+            "time": "2021-11-22T13:05:41+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -6674,16 +6674,16 @@
         },
         {
             "name": "ezimuel/ringphp",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezimuel/ringphp.git",
-                "reference": "0b78f89d8e0bb9e380046c31adfa40347e9f663b"
+                "reference": "92b8161404ab1ad84059ebed41d9f757e897ce74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezimuel/ringphp/zipball/0b78f89d8e0bb9e380046c31adfa40347e9f663b",
-                "reference": "0b78f89d8e0bb9e380046c31adfa40347e9f663b",
+                "url": "https://api.github.com/repos/ezimuel/ringphp/zipball/92b8161404ab1ad84059ebed41d9f757e897ce74",
+                "reference": "92b8161404ab1ad84059ebed41d9f757e897ce74",
                 "shasum": ""
             },
             "require": {
@@ -6691,9 +6691,12 @@
                 "php": ">=5.4.0",
                 "react/promise": "~2.0"
             },
+            "replace": {
+                "guzzlehttp/ringphp": "self.version"
+            },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~9.0"
             },
             "suggest": {
                 "ext-curl": "Guzzle will use specific adapters if cURL is present"
@@ -6722,9 +6725,9 @@
             ],
             "description": "Fork of guzzle/RingPHP (abandoned) to be used with elasticsearch-php",
             "support": {
-                "source": "https://github.com/ezimuel/ringphp/tree/1.1.2"
+                "source": "https://github.com/ezimuel/ringphp/tree/1.2.0"
             },
-            "time": "2020-02-14T23:51:21+00:00"
+            "time": "2021-11-16T11:51:30+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -8059,20 +8062,22 @@
         },
         {
             "name": "makinacorpus/php-lucene",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/makinacorpus/php-lucene-query.git",
-                "reference": "31ecc79dd750a1f82c0aacacd79117ee94d2bfb0"
+                "reference": "85493f5b43d00a56c20e56b2098849f6e6dbe127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/makinacorpus/php-lucene-query/zipball/31ecc79dd750a1f82c0aacacd79117ee94d2bfb0",
-                "reference": "31ecc79dd750a1f82c0aacacd79117ee94d2bfb0",
+                "url": "https://api.github.com/repos/makinacorpus/php-lucene-query/zipball/85493f5b43d00a56c20e56b2098849f6e6dbe127",
+                "reference": "85493f5b43d00a56c20e56b2098849f6e6dbe127",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.1"
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -8085,7 +8090,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -8101,9 +8106,9 @@
             "homepage": "http://github.com/makinacorpus/php-lucene",
             "support": {
                 "issues": "https://github.com/makinacorpus/php-lucene-query/issues",
-                "source": "https://github.com/makinacorpus/php-lucene-query/tree/master"
+                "source": "https://github.com/makinacorpus/php-lucene-query/tree/1.0.4"
             },
-            "time": "2017-09-26T16:37:27+00:00"
+            "time": "2021-11-16T10:58:32+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -8425,16 +8430,16 @@
         },
         {
             "name": "nyholm/dsn",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/dsn.git",
-                "reference": "b3a54081dd6bc2e94ab1f6304f47d7b83250cb71"
+                "reference": "9445621b426bac8c0ca161db8cd700da00a4e618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/dsn/zipball/b3a54081dd6bc2e94ab1f6304f47d7b83250cb71",
-                "reference": "b3a54081dd6bc2e94ab1f6304f47d7b83250cb71",
+                "url": "https://api.github.com/repos/Nyholm/dsn/zipball/9445621b426bac8c0ca161db8cd700da00a4e618",
+                "reference": "9445621b426bac8c0ca161db8cd700da00a4e618",
                 "shasum": ""
             },
             "require": {
@@ -8474,7 +8479,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Nyholm/dsn/issues",
-                "source": "https://github.com/Nyholm/dsn/tree/2.0.0"
+                "source": "https://github.com/Nyholm/dsn/tree/2.0.1"
             },
             "funding": [
                 {
@@ -8482,7 +8487,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-16T13:43:06+00:00"
+            "time": "2021-11-18T09:23:29+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -9594,12 +9599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "220c4c22b2a45decd547fcd5c9e6984451434a56"
+                "reference": "40fac0836da9da62ef0b448109dadb37f859e4d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/220c4c22b2a45decd547fcd5c9e6984451434a56",
-                "reference": "220c4c22b2a45decd547fcd5c9e6984451434a56",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/40fac0836da9da62ef0b448109dadb37f859e4d3",
+                "reference": "40fac0836da9da62ef0b448109dadb37f859e4d3",
                 "shasum": ""
             },
             "require": {
@@ -9655,7 +9660,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-11-01T08:57:47+00:00"
+            "time": "2021-11-19T08:25:11+00:00"
         },
         {
             "name": "sentry/sdk",
