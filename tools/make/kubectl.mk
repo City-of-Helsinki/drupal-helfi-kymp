@@ -1,4 +1,4 @@
-KUBECTL_BIN := $(shell which kubectl || echo no)
+KUBECTL_BIN := $(shell command -v kubectl || echo no)
 KUBECTL_NAMESPACE ?= foobar-namespace
 KUBECTL_SHELL ?= sh
 KUBECTL_EXEC_FLAGS ?= -n $(KUBECTL_NAMESPACE) -c $(KUBECTL_CONTAINER)
@@ -9,15 +9,11 @@ PHONY += kubectl-sync-db
 kubectl-sync-db: ## Sync database from Kubernetes
 ifeq ($(DUMP_SQL_EXISTS),no)
 	$(eval POD := $(call kubectl_get_pod))
-	$(call step,Create database dump on remote...)
-	$(call kubectl_exec,$(POD),drush sql-dump --structure-tables-key=common --result-file=../$(DUMP_SQL_FILENAME))
-	$(call step,Download database dump...)
-	$(call kubectl_cp,$(POD):$(DUMP_SQL_FILENAME),$(DUMP_SQL_FILENAME))
-	$(call step,Remove database dump on remote...)
-	$(call kubectl_exec,$(POD),rm $(DUMP_SQL_FILENAME))
+	$(call step,Get database dump from $(POD)...)
+	$(call kubectl_exec_to_file,$(POD),drush sql-dump --structure-tables-key=common --extra-dump=--no-tablespaces,$(DUMP_SQL_FILENAME))
 endif
 	$(call step,Import local SQL dump...)
-	$(call drush_on_${RUN_ON},sql-query --file=${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
+	$(call drush,sql-query --file=${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
 
 PHONY += kubectl-sync-files-tar
 kubectl-sync-files-tar: ## Sync files from Kubernetes using tar
@@ -41,6 +37,10 @@ kubectl-shell: ## Open shell to Pod in Kubernetes
 
 define kubectl_exec
 	$(KUBECTL_BIN) exec $(KUBECTL_EXEC_FLAGS) $(1) -- $(KUBECTL_SHELL) -c '$(2)'
+endef
+
+define kubectl_exec_to_file
+	$(KUBECTL_BIN) exec $(KUBECTL_EXEC_FLAGS) $(1) -- $(KUBECTL_SHELL) -c '$(2)' > $(3)
 endef
 
 define kubectl_cp

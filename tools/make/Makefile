@@ -2,17 +2,17 @@
 
 BUILD_TARGETS :=
 CLEAN_FOLDERS :=
-COMPOSER_BIN := $(shell which composer || echo no)
-COMPOSER_JSON_EXISTS := $(shell test -f composer.json && echo yes || echo no)
-DOCKER_COMPOSE_BIN := $(shell which docker-compose > /dev/null 2>&1 && which docker-compose || echo no)
+COMPOSER_BIN := $(shell command -v composer || echo no)
+COMPOSER_JSON_PATH ?= .
+DOCKER_BIN := $(shell command -v docker > /dev/null 2>&1 && command -v docker || echo no)
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f docker-compose.yml && echo yes || echo no)
 DRUIDFI_TOOLS_MAKE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 ENV := dev
-PACKAGE_JSON_EXISTS := $(shell test -f package.json && echo yes || echo no)
-PHP_BIN := $(shell which php)
+PACKAGE_JSON_PATH ?= .
+PHP_BIN := $(shell command -v php)
 UNAME_S := $(shell uname -s)
-# Shorten with https://git.io/ : https://raw.githubusercontent.com/druidfi/tools/master/update.sh
-UPDATE_SCRIPT_URL := https://git.io/fh771
+# Shorten with https://git.io/ : https://raw.githubusercontent.com/druidfi/tools/main/update.sh
+UPDATE_SCRIPT_URL := https://git.io/JP10q
 WEBROOT ?= public
 
 # Detect app
@@ -34,12 +34,12 @@ endif
 
 # If docker-compose.yml exists
 ifeq ($(DOCKER_COMPOSE_YML_EXISTS),yes)
-# If docker-compose does not exist (e.g. inside Docker container)
-ifeq ($(DOCKER_COMPOSE_BIN),no)
-	RUN_ON := host
-else
-	RUN_ON := docker
-endif
+		# If docker binary does not exist (e.g. inside Docker container)
+		ifeq ($(DOCKER_BIN),no)
+			RUN_ON := host
+		else
+			RUN_ON := docker
+		endif
 else
 	RUN_ON := host
 endif

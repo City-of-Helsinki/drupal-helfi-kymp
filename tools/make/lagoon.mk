@@ -11,7 +11,7 @@ INSTANCE_test_HOST ?= $(INSTANCE_prod_HOST)
 INSTANCE_test_OPTS ?= $(INSTANCE_prod_OPTS)
 
 ifeq ($(LAGOON_IN_LOCAL),yes)
-	DOCKER_COMPOSE := docker-compose -f docker-compose.lagoon.yml
+	DOCKER_COMPOSE := $(DOCKER_COMPOSE) -f docker-compose.lagoon.yml
 endif
 
 PHONY += lagoon-env
