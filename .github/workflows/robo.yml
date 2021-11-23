@@ -32,8 +32,8 @@ jobs:
       - name: Build project
         run: make setup-robo
 
-      - name: Run tests
-        run: make run-robo-tests
+      #- name: Run tests
+      #  run: make run-robo-tests
 
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v2
