@@ -1,6 +1,6 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml -f docker-compose.yml
+DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml
 ROBOT_TAGS ?= CRITICAL
 SITE_PREFIX ?= /
 
