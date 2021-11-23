@@ -53,7 +53,6 @@ install-drupal:
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
-	$(call docker_run_ci,app,drush cr)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -61,6 +60,12 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql)
 	$(call docker_run_ci,app,drush cr)
 	$(call docker_run_ci,app,drush cim -y)
+	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
+	$(call docker_run_ci,app,drush en helfi_example_content -y)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
 
 PHONY += save-dump
 save-dump:
