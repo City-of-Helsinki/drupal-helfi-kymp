@@ -30,7 +30,6 @@ start-stonehenge:
 	cd $(STONEHENGE_PATH) && make up
 
 robo-composer-install:
-	$(call docker_run_ci,app,ls -la /home/druid/.composer/cache)
 	$(call docker_run_ci,app,composer install)
 
 $(PROJECT_DIR)/helfi-test-automation-python/.git:

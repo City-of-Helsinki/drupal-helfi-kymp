@@ -31,7 +31,6 @@ jobs:
 
       - name: Build project
         run: |
-          ls -la /home/runner/.cache/composer
           make setup-robo
 
       #- name: Run tests
