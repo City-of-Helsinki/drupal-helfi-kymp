@@ -25,7 +25,7 @@ services:
       - ./docker/local/entrypoints/30-chromedriver.sh:/entrypoints/30-chromedriver.sh:cached
       - ./docker/local/entrypoints/30-drush-server.sh:/entrypoints/30-drush-server.sh:cached
       - .:/app:delegated
-      - /home/runner/.cache/composer:/home/druid/.composer:delegated
+      - /home/runner/.cache/composer:/home/druid/.composer/cache:delegated
     depends_on:
       - db
     environment:
