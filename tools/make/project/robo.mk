@@ -7,7 +7,7 @@ SITE_PREFIX ?= /
 SETUP_ROBO_TARGETS :=
 
 ifeq ($(CI),true)
-	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge
+	SETUP_ROBO_TARGETS += install-stonehenge start-stonehenge set-folders
 endif
 
 SETUP_ROBO_TARGETS += start-project robo-composer-install update-automation
@@ -83,9 +83,9 @@ PHONY += robo-shell
 robo-shell:
 	@docker compose $(DOCKER_COMPOSE_FILES) exec robo bash
 
-PHONY += set-permissions
-set-permissions:
-	chmod 777 -R $(PROJECT_DIR)/public/sites/default/files
+PHONY += set-folders
+set-folders:
+	mkdir vendor/ && chmod 777 vendor/
 
 define docker_run_ci
 	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
