@@ -91,7 +91,7 @@ set-permissions:
 
 PHONY += fix-files-permission
 fix-files-permission:
-	mkdir $(PROJECT_DIR)public/sites/default/files && chmod 777 -R $(PROJECT_DIR)public/sites/default/files
+	mkdir $(PROJECT_DIR)public/sites/default/files -p && chmod 777 -R $(PROJECT_DIR)public/sites/default/files
 
 define docker_run_ci
 	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
