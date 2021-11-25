@@ -19,6 +19,9 @@ services:
     hostname: "${DRUPAL_HOSTNAME}"
     container_name: "${COMPOSE_PROJECT_NAME}-app"
     image: "${DRUPAL_IMAGE}"
+    volumes:
+      - .:/app:delegated
+      - /home/runner/.cache/composer:/home/druid/.composer/cache:delegated
     depends_on:
       - db
     environment:
