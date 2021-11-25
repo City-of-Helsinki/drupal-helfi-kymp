@@ -131,6 +131,10 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
 if ($varnish_host = getenv('DRUPAL_VARNISH_HOST')) {
   $config['varnish_purger.settings.default']['hostname'] = $varnish_host;
   $config['varnish_purger.settings.varnish_purge_all']['hostname'] = $varnish_host;
+
+  if (!isset($config['system.performance']['cache']['page']['max_age'])) {
+    $config['system.performance']['cache']['page']['max_age'] = 86400;
+  }
 }
 
 if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
