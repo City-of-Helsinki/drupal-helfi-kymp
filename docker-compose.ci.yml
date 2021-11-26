@@ -15,7 +15,6 @@ services:
       - "${DRUPAL_HOSTNAME}:host-gateway"
       - "varnish-${DRUPAL_HOSTNAME}:host-gateway"
   app:
-    image: druidfi/drupal:8.0-web
     hostname: "${DRUPAL_HOSTNAME}"
     container_name: "${COMPOSE_PROJECT_NAME}-app"
     image: "${DRUPAL_IMAGE}"
