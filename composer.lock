@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2e4fa221742c4f0cc8f36034377b769",
+    "content-hash": "36db7e655af49b0b53a2a118e6f0a32d",
     "packages": [
         {
             "name": "City-of-Helsinki/php-hauki-client",
@@ -3986,6 +3986,32 @@
             "time": "2021-08-19T12:32:05+00:00"
         },
         {
+            "name": "drupal/helfi_drupal_tools",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
+                "reference": "a637c1acecb0946aa4ff381880a92fa1272579f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/a637c1acecb0946aa4ff381880a92fa1272579f7",
+                "reference": "a637c1acecb0946aa4ff381880a92fa1272579f7",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-drush",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Helfi - Drupal tools",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
+                "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
+            },
+            "time": "2021-11-26T11:28:37+00:00"
+        },
+        {
             "name": "drupal/helfi_hauki",
             "version": "1.0.5",
             "source": {
@@ -4089,16 +4115,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "1a1cd65fe095da4cf81b8511f73bf98be8adfa73"
+                "reference": "48a5bcabd6f0b43a53dd0b64d27f68e388abab98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/1a1cd65fe095da4cf81b8511f73bf98be8adfa73",
-                "reference": "1a1cd65fe095da4cf81b8511f73bf98be8adfa73",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/48a5bcabd6f0b43a53dd0b64d27f68e388abab98",
+                "reference": "48a5bcabd6f0b43a53dd0b64d27f68e388abab98",
                 "shasum": ""
             },
             "require": {
@@ -4182,10 +4208,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.1.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.1.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-22T12:33:50+00:00"
+            "time": "2021-11-25T13:38:57+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -7683,16 +7709,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "627be7fcde84c71aa0f15097fcf48fd5f2be5287"
+                "reference": "3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/627be7fcde84c71aa0f15097fcf48fd5f2be5287",
-                "reference": "627be7fcde84c71aa0f15097fcf48fd5f2be5287",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d",
+                "reference": "3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d",
                 "shasum": ""
             },
             "require": {
@@ -7765,7 +7791,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/1.1.6"
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.7"
             },
             "funding": [
                 {
@@ -7773,7 +7799,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-11-21T11:04:36+00:00"
+            "time": "2021-11-25T19:40:58+00:00"
         },
         {
             "name": "league/flysystem-azure-blob-storage",
@@ -14478,9 +14504,6 @@
             "require": {
                 "php": "^7.1 || ^8.0"
             },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
-            },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
@@ -16800,7 +16823,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/helfi_drupal_tools": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
