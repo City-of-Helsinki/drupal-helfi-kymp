@@ -23,6 +23,8 @@ $databases['default']['default'] = [
   'port' => getenv('DRUPAL_DB_PORT') ?: 3306,
   'namespace' => 'Drupal\Core\Database\Driver\mysql',
   'driver' => 'mysql',
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_swedish_ci',
 ];
 
 $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT') ?: '000';
@@ -174,7 +176,7 @@ if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
 
 if ($stage_file_proxy_origin = getenv('STAGE_FILE_PROXY_ORIGIN')) {
   $config['stage_file_proxy.settings']['origin'] = $stage_file_proxy_origin;
-  $config['stage_file_proxy.settings']['origin_dir'] = 'test';
+  $config['stage_file_proxy.settings']['origin_dir'] = getenv('STAGE_FILE_PROXY_ORIGIN_DIR') ?: 'test';
   $config['stage_file_proxy.settings']['hotlink'] = FALSE;
   $config['stage_file_proxy.settings']['use_imagecache_root'] = FALSE;
 }
