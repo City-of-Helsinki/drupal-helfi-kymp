@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2e4fa221742c4f0cc8f36034377b769",
+    "content-hash": "36db7e655af49b0b53a2a118e6f0a32d",
     "packages": [
         {
             "name": "City-of-Helsinki/php-hauki-client",
@@ -2119,16 +2119,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.9",
+            "version": "9.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "2e2f015e881abccc32efcd264128e8a8444b2ec1"
+                "reference": "61248f85f78c02e7e0afde2b8a5113d3914bb50f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/2e2f015e881abccc32efcd264128e8a8444b2ec1",
-                "reference": "2e2f015e881abccc32efcd264128e8a8444b2ec1",
+                "url": "https://api.github.com/repos/drupal/core/zipball/61248f85f78c02e7e0afde2b8a5113d3914bb50f",
+                "reference": "61248f85f78c02e7e0afde2b8a5113d3914bb50f",
                 "shasum": ""
             },
             "require": {
@@ -2367,13 +2367,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.9"
+                "source": "https://github.com/drupal/core/tree/9.2.10"
             },
-            "time": "2021-11-17T21:05:58+00:00"
+            "time": "2021-11-24T14:27:27+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.2.9",
+            "version": "9.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2417,22 +2417,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.9"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.10"
             },
             "time": "2021-08-24T12:04:07+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.2.9",
+            "version": "9.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "a052e6f47864bb6597e6f449b9cfdb1aa4eea400"
+                "reference": "9beef737bbfd1db4f84ab3c19e5e7ae0b534383b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/a052e6f47864bb6597e6f449b9cfdb1aa4eea400",
-                "reference": "a052e6f47864bb6597e6f449b9cfdb1aa4eea400",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/9beef737bbfd1db4f84ab3c19e5e7ae0b534383b",
+                "reference": "9beef737bbfd1db4f84ab3c19e5e7ae0b534383b",
                 "shasum": ""
             },
             "require": {
@@ -2441,7 +2441,7 @@
                 "doctrine/annotations": "1.13.1",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.2.9",
+                "drupal/core": "9.2.10",
                 "egulias/email-validator": "2.1.25",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.4.1",
@@ -2484,7 +2484,7 @@
                 "symfony/process": "v4.4.25",
                 "symfony/psr-http-message-bridge": "v2.1.0",
                 "symfony/routing": "v4.4.25",
-                "symfony/serializer": "v4.4.25",
+                "symfony/serializer": "v4.4.35",
                 "symfony/service-contracts": "v2.4.0",
                 "symfony/translation": "v4.4.25",
                 "symfony/translation-contracts": "v2.4.0",
@@ -2504,9 +2504,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.2.9"
+                "source": "https://github.com/drupal/core-recommended/tree/9.2.10"
             },
-            "time": "2021-11-17T21:05:58+00:00"
+            "time": "2021-11-24T14:27:27+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3986,6 +3986,32 @@
             "time": "2021-08-19T12:32:05+00:00"
         },
         {
+            "name": "drupal/helfi_drupal_tools",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
+                "reference": "a3c886d7d161843f963b2868048fcef3b21331f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/a3c886d7d161843f963b2868048fcef3b21331f5",
+                "reference": "a3c886d7d161843f963b2868048fcef3b21331f5",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-drush",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Helfi - Drupal tools",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
+                "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
+            },
+            "time": "2021-11-26T13:38:13+00:00"
+        },
+        {
             "name": "drupal/helfi_hauki",
             "version": "1.0.5",
             "source": {
@@ -4089,16 +4115,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.1.6",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "1a1cd65fe095da4cf81b8511f73bf98be8adfa73"
+                "reference": "9d18e756e4bfed9528c19fb84209476f8a9a3fab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/1a1cd65fe095da4cf81b8511f73bf98be8adfa73",
-                "reference": "1a1cd65fe095da4cf81b8511f73bf98be8adfa73",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/9d18e756e4bfed9528c19fb84209476f8a9a3fab",
+                "reference": "9d18e756e4bfed9528c19fb84209476f8a9a3fab",
                 "shasum": ""
             },
             "require": {
@@ -4182,23 +4208,23 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.1.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.1.8",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2021-11-22T12:33:50+00:00"
+            "time": "2021-11-26T14:07:36+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "1.2.9",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "e4d3af0cc7562388e9c87d14410aefd500e69c63"
+                "reference": "39429cb5bcc67af1222819160647ff78a230c211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/e4d3af0cc7562388e9c87d14410aefd500e69c63",
-                "reference": "e4d3af0cc7562388e9c87d14410aefd500e69c63",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/39429cb5bcc67af1222819160647ff78a230c211",
+                "reference": "39429cb5bcc67af1222819160647ff78a230c211",
                 "shasum": ""
             },
             "require": {
@@ -4222,10 +4248,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.2.9",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/1.3.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2021-11-24T11:01:11+00:00"
+            "time": "2021-11-25T11:54:41+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -9632,12 +9658,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "cb28c9d60c6fd8e15912d8f3859da2992efd6d31"
+                "reference": "10fd6386c1ffc0c63e1d75bb80b4c1c1dbee3cba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/cb28c9d60c6fd8e15912d8f3859da2992efd6d31",
-                "reference": "cb28c9d60c6fd8e15912d8f3859da2992efd6d31",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/10fd6386c1ffc0c63e1d75bb80b4c1c1dbee3cba",
+                "reference": "10fd6386c1ffc0c63e1d75bb80b4c1c1dbee3cba",
                 "shasum": ""
             },
             "require": {
@@ -9693,7 +9719,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2021-11-24T10:26:38+00:00"
+            "time": "2021-11-25T11:45:45+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -12233,21 +12259,22 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v4.4.25",
+            "version": "v4.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "6db3eb4f1bb437cd3730f52353ba4b568acaddf5"
+                "reference": "1b2ae02cb1b923987947e013688c51954a80b751"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/6db3eb4f1bb437cd3730f52353ba4b568acaddf5",
-                "reference": "6db3eb4f1bb437cd3730f52353ba4b568acaddf5",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/1b2ae02cb1b923987947e013688c51954a80b751",
+                "reference": "1b2ae02cb1b923987947e013688c51954a80b751",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.3",
-                "symfony/polyfill-ctype": "~1.8"
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-php80": "^1.16"
             },
             "conflict": {
                 "phpdocumentor/reflection-docblock": "<3.0|>=3.2.0,<3.2.2",
@@ -12306,7 +12333,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v4.4.25"
+                "source": "https://github.com/symfony/serializer/tree/v4.4.35"
             },
             "funding": [
                 {
@@ -12322,7 +12349,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-26T11:20:16+00:00"
+            "time": "2021-11-24T08:12:42+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -14030,7 +14057,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "9.2.9",
+            "version": "9.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -14076,7 +14103,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/9.2.9"
+                "source": "https://github.com/drupal/core-dev/tree/9.2.10"
             },
             "time": "2021-06-01T16:41:50+00:00"
         },
@@ -16182,7 +16209,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -16800,7 +16826,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/helfi_drupal_tools": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
