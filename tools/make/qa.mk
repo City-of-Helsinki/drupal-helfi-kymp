@@ -31,7 +31,7 @@ lint-php: ## Check code style for PHP files
 
 PHONY += test
 test: ## Run tests
-	$(call step,Run tests:\n- Following test targets will be run: $(TEST_TARGETS))
+	$(call group_step,Run test targets:${NO_COLOR} $(TEST_TARGETS)\n)
 	@$(MAKE) $(TEST_TARGETS)
 	$(call step,Tests completed.)
 
