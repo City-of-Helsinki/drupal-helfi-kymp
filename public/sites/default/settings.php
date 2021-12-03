@@ -60,10 +60,6 @@ $config['siteimprove.settings']['api_key'] = getenv('SITEIMPROVE_API_KEY');
 $settings['matomo_site_id'] = getenv('MATOMO_SITE_ID');
 $settings['siteimprove_id'] = getenv('SITEIMPROVE_ID');
 
-if ($hotjar_id = getenv('HOTJAR_ID')) {
-  $config['helfi_hotjar.settings']['hjid'] = $hotjar_id;
-}
-
 // Drupal route(s).
 $routes = (getenv('DRUPAL_ROUTES')) ? explode(',', getenv('DRUPAL_ROUTES')) : [];
 
@@ -95,6 +91,10 @@ if ($reverse_proxy_address = getenv('DRUPAL_REVERSE_PROXY_ADDRESS')) {
   $settings['reverse_proxy_addresses'] = $reverse_proxy_address;
   $settings['reverse_proxy_trusted_headers'] = Request::HEADER_X_FORWARDED_ALL;
   $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
+}
+
+if (file_exists(__DIR__ . '/all.settings.php')) {
+  include __DIR__ . '/all.settings.php';
 }
 
 if ($env = getenv('APP_ENV')) {
