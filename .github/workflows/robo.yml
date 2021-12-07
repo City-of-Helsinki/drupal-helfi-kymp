@@ -31,6 +31,7 @@ jobs:
 
       - name: Build project
         run: |
+          sudo apt-get update
           make setup-robo
 
       - name: Run tests
