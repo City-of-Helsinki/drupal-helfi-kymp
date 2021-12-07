@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.accordion.field_accordion_description
     - field.field.paragraph.accordion.field_accordion_design
     - field.field.paragraph.accordion.field_accordion_heading_level
     - field.field.paragraph.accordion.field_accordion_items
+    - field.field.paragraph.accordion.field_accordion_title
+    - field.field.paragraph.accordion.field_accordion_title_level
     - paragraphs.paragraphs_type.accordion
   module:
     - entity_reference_revisions
@@ -17,27 +20,52 @@ targetEntityType: paragraph
 bundle: accordion
 mode: default
 content:
+  field_accordion_description:
+    label: hidden
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    weight: 3
   field_accordion_design:
     weight: 0
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_accordion_heading_level:
-    weight: 1
-    label: inline
+    weight: 4
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_accordion_items:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 5
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+  field_accordion_title:
+    label: hidden
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    weight: 2
+  field_accordion_title_level:
+    label: hidden
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    weight: 1
+hidden:
+  field_accordion_description: true
+  field_accordion_title: true
+  field_accordion_title_level: true

@@ -1,0 +1,83 @@
+version: '3.7'
+services:
+  robo:
+    image: ghcr.io/city-of-helsinki/drupal-robo:latest
+    shm_size: '2gb'
+    tty: true
+    volumes:
+      - .:/app:delegated
+    networks:
+      - internal
+      - stonehenge-network
+    depends_on:
+      - app
+    extra_hosts:
+      - "${DRUPAL_HOSTNAME}:host-gateway"
+      - "varnish-${DRUPAL_HOSTNAME}:host-gateway"
+  app:
+    hostname: "${DRUPAL_HOSTNAME}"
+    container_name: "${COMPOSE_PROJECT_NAME}-app"
+    image: "${DRUPAL_IMAGE}"
+    volumes:
+      - .:/app:delegated
+      - /home/runner/.cache/composer:/home/druid/.composer/cache:delegated
+    depends_on:
+      - db
+    environment:
+      APP_ENV: "${APP_ENV:-dev}"
+      DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME},https://helfi-proxy.docker.so,http://${COMPOSE_PROJECT_NAME}-varnish"
+      DRUPAL_REVERSE_PROXY_ADDRESS: helfi-proxy.docker.so
+      DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}"
+      SIMPLETEST_BASE_URL: "http://127.0.0.1:8888"
+      SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
+      DRUPAL_VARNISH_HOST: "${COMPOSE_PROJECT_NAME}-varnish"
+      DRUPAL_VARNISH_PORT: 6081
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "${DRUPAL_HOSTNAME}:host-gateway"
+    networks:
+      - internal
+      - stonehenge-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.entrypoints=https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.rule=Host(`${DRUPAL_HOSTNAME}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.tls=true"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-app.loadbalancer.server.port=8080"
+      - "traefik.docker.network=stonehenge-network"
+  db:
+    container_name: "${COMPOSE_PROJECT_NAME}-db"
+    image: druidfi/db:mysql5.7-drupal
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - 3306
+    networks:
+      - internal
+
+  varnish:
+    container_name: "${COMPOSE_PROJECT_NAME}-varnish"
+    image: druidfi/varnish:6-drupal
+    environment:
+      VARNISH_BACKEND_HOST: "${COMPOSE_PROJECT_NAME}-app"
+    depends_on:
+      - app
+    networks:
+      - internal
+      - stonehenge-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.entrypoints=https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.rule=Host(`varnish-${DRUPAL_HOSTNAME}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.tls=true"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-varnish.loadbalancer.server.port=6081"
+      - "traefik.docker.network=stonehenge-network"
+
+networks:
+  internal:
+    external: false
+  stonehenge-network:
+    external: true
+
+volumes:
+  db_data:

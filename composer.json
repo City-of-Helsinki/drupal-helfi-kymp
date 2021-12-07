@@ -11,14 +11,14 @@
         "ext-libxml": "*",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
-        "druidfi/omen": "^0.3.2",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
-        "drupal/hdbt": "^1.0",
+        "drupal/hdbt": "^2.0",
         "drupal/hdbt_admin": "^1.0",
         "drupal/helfi_ahjo": "^1.0",
         "drupal/helfi_api_base": "^1.0",
         "drupal/helfi_azure_fs": "^1.0",
+        "drupal/helfi_drupal_tools": "dev-main",
         "drupal/helfi_hauki": "^1.0",
         "drupal/helfi_media_map": "^1.0",
         "drupal/helfi_platform_config": "^2.0",
@@ -28,6 +28,8 @@
         "drupal/menu_link_attributes": "^1.2",
         "drupal/purge": "~3.2.0",
         "drupal/raven": "^3.2",
+        "drupal/stage_file_proxy": "^1.2",
+        "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/varnish_purge": "^2.1",
         "drush/drush": "^10.4"
     },
@@ -81,7 +83,7 @@
             "public/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ],
-            "drush/{$name}": [
+            "drush/Commands/{$name}": [
                 "type:drupal-drush"
             ]
         }
@@ -97,6 +99,12 @@
         }
     ],
     "scripts": {
+        "test": [
+          "@lint-php",
+          "@test-php"
+        ],
+        "test-php": "vendor/bin/phpunit -c phpunit.xml.dist",
+        "lint-php": "vendor/bin/phpcs --standard=Drupal",
         "copy-commit-message-script": "make copy-commit-message-script",
         "post-install-cmd": [
             "@copy-commit-message-script"

@@ -1,5 +1,6 @@
 # Ignore project files that should not be in version control
 drush/sites/
+drush/Commands/*
 node_modules
 public/core
 public/libraries
@@ -7,15 +8,14 @@ public/modules/contrib
 public/themes/contrib
 public/sites/default/files
 vendor
+helfi-test-automation-python/
 
 # Ignore the folder created by PhpStorm
 .idea/*
+public/sites/default/local.settings.php
 
-# Ignore themes with own git repositories
-public/themes/custom/hdbt*
-# Ignore modules with own repositories
-public/modules/custom/helfi_*
-local.settings.php
+*.sql
+*.env.local
 
 # Ignore OSX generated files
 ._*

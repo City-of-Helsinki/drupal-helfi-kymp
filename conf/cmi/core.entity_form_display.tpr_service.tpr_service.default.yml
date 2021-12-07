@@ -24,7 +24,7 @@ content:
   description:
     type: readonly_field_widget
     region: content
-    weight: 4
+    weight: 6
     settings:
       label: above
       formatter_type: null
@@ -34,7 +34,7 @@ content:
   errand_services:
     type: readonly_field_widget
     region: content
-    weight: 5
+    weight: 7
     settings:
       label: above
       formatter_type: null
@@ -146,8 +146,23 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  translation:
+  toc_enabled:
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     weight: 3
+  toc_title:
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+    type: string_textfield
+    weight: 4
+  translation:
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

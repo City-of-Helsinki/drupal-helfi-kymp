@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+
 if (PHP_SAPI === 'cli') {
   ini_set('memory_limit', '512M');
 }
@@ -21,6 +23,8 @@ $databases['default']['default'] = [
   'port' => getenv('DRUPAL_DB_PORT') ?: 3306,
   'namespace' => 'Drupal\Core\Database\Driver\mysql',
   'driver' => 'mysql',
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_swedish_ci',
 ];
 
 $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT') ?: '000';
@@ -48,6 +52,14 @@ if (isset($_SERVER['WODBY_APP_NAME'])) {
 
 $config['openid_connect.client.tunnistamo']['settings']['client_id'] = getenv('TUNNISTAMO_CLIENT_ID');
 $config['openid_connect.client.tunnistamo']['settings']['client_secret'] = getenv('TUNNISTAMO_CLIENT_SECRET');
+
+$config['siteimprove.settings']['prepublish_enabled'] = TRUE;
+$config['siteimprove.settings']['api_username'] = getenv('SITEIMPROVE_API_USERNAME');
+$config['siteimprove.settings']['api_key'] = getenv('SITEIMPROVE_API_KEY');
+
+$settings['matomo_site_id'] = getenv('MATOMO_SITE_ID');
+$settings['siteimprove_id'] = getenv('SITEIMPROVE_ID');
+
 // Drupal route(s).
 $routes = (getenv('DRUPAL_ROUTES')) ? explode(',', getenv('DRUPAL_ROUTES')) : [];
 
@@ -77,8 +89,12 @@ if ($reverse_proxy_address = getenv('DRUPAL_REVERSE_PROXY_ADDRESS')) {
   }
   $settings['reverse_proxy'] = TRUE;
   $settings['reverse_proxy_addresses'] = $reverse_proxy_address;
-  $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL;
+  $settings['reverse_proxy_trusted_headers'] = Request::HEADER_X_FORWARDED_ALL;
   $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
+}
+
+if (file_exists(__DIR__ . '/all.settings.php')) {
+  include __DIR__ . '/all.settings.php';
 }
 
 if ($env = getenv('APP_ENV')) {
@@ -117,27 +133,54 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
   $settings['flysystem'] = $schemes;
 }
 
+
 if ($varnish_host = getenv('DRUPAL_VARNISH_HOST')) {
   $config['varnish_purger.settings.default']['hostname'] = $varnish_host;
+  $config['varnish_purger.settings.varnish_purge_all']['hostname'] = $varnish_host;
+
+  if (!isset($config['system.performance']['cache']['page']['max_age'])) {
+    $config['system.performance']['cache']['page']['max_age'] = 86400;
+  }
 }
 
 if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
   $config['varnish_purger.settings.default']['port'] = $varnish_port;
+  $config['varnish_purger.settings.varnish_purge_all']['port'] = $varnish_port;
 }
 
+$config['varnish_purger.settings.default']['headers'] = [
+  [
+    'field' => 'Cache-Tags',
+    'value' => '[invalidation:expression]',
+  ],
+];
+
+$config['varnish_purger.settings.varnish_purge_all']['headers'] = [
+  [
+    'field' => 'X-VC-Purge-Method',
+    'value' => 'regex',
+  ],
+];
+
 if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
-  // Configuration doesn't know about existing config here so we can't
-  // append to existing headers array here and have to include all headers.
-  // If you have any extra headers you must add them here as well.
+  // Configuration doesn't know about existing config yet so we can't
+  // just append new headers to an already existing headers array here.
+  // If you have configured any extra headers in your purge settings
+  // you must add them here as well.
   // @todo Replace this with config override service?
-  $config['varnish_purger.settings.default']['headers'] = [
-    [
-      'field' => 'X-VC-Purge-Key',
-      'value' => $varnish_purge_key,
-    ],
-    [
-      'field' => 'Cache-Tags',
-      'value' => '[invalidation:expression]',
-    ],
+  $config['varnish_purger.settings.default']['headers'][] = [
+    'field' => 'X-VC-Purge-Key',
+    'value' => $varnish_purge_key,
   ];
+  $config['varnish_purger.settings.varnish_purge_all']['headers'][] = [
+    'field' => 'X-VC-Purge-Key',
+    'value' => $varnish_purge_key,
+  ];
+}
+
+if ($stage_file_proxy_origin = getenv('STAGE_FILE_PROXY_ORIGIN')) {
+  $config['stage_file_proxy.settings']['origin'] = $stage_file_proxy_origin;
+  $config['stage_file_proxy.settings']['origin_dir'] = getenv('STAGE_FILE_PROXY_ORIGIN_DIR') ?: 'test';
+  $config['stage_file_proxy.settings']['hotlink'] = FALSE;
+  $config['stage_file_proxy.settings']['use_imagecache_root'] = FALSE;
 }

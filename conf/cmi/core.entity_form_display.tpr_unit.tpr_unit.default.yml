@@ -224,6 +224,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  provided_languages:
+    type: readonly_field_widget
+    region: content
+    weight: 29
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
+    third_party_settings: {  }
   service_map_embed:
     type: readonly_field_widget
     region: content

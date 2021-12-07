@@ -1,11 +1,8 @@
+label: 'TPR Palvelukanavat'
 display:
   default:
+    display_title: Oletus
     display_options:
-      empty:
-        area:
-          content:
-            value: 'Palvelukanavia ei löytynyt.'
-            format: plain_text
       exposed_form:
         options:
           submit_button: Käytä
@@ -59,7 +56,9 @@ display:
       header:
         result:
           content: 'Näytetään @start - @end / @total'
-    display_title: Oletus
+      empty:
+        area:
+          content:
+            value: 'Ei tuloksia.'
   page_1:
     display_title: Sivu
-label: 'TPR Palvelukanavat'
