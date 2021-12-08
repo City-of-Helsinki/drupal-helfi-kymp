@@ -2,7 +2,9 @@ on: [push]
 name: Robot
 env:
   COMPOSE_PROFILES: testing
+  COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
   XDEBUG_MODE: off
+  RUN_ON: docker
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
