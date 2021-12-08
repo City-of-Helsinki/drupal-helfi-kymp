@@ -34,6 +34,7 @@ jobs:
       - name: Build project
         run: |
           sudo apt-get update
+          make debug
           make setup-robo RUN_ON=docker
 
       - name: Run tests
