@@ -2,7 +2,6 @@ STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
 ROBOT_TAGS ?= CRITICAL
 SITE_PREFIX ?= /
-COMPOSE_PROFILES=testing
 
 SETUP_ROBO_TARGETS :=
 CI_POST_INSTALL_TARGETS :=
@@ -12,7 +11,7 @@ ifeq ($(CI),true)
 	CI_POST_INSTALL_TARGETS += fix-files-permission
 endif
 
-SETUP_ROBO_TARGETS += up robo-composer-install $(CI_POST_INSTALL_TARGETS) update-automation
+SETUP_ROBO_TARGETS += up composer-install $(CI_POST_INSTALL_TARGETS) update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
 	SETUP_ROBO_TARGETS += install-drupal
@@ -29,19 +28,12 @@ PHONY += start-stonehenge
 start-stonehenge:
 	cd $(STONEHENGE_PATH) && make up
 
-robo-composer-install:
-	$(call docker_run_ci,app,composer install)
-
 $(PROJECT_DIR)/helfi-test-automation-python/.git:
 	git clone https://github.com/City-of-Helsinki/helfi-test-automation-python.git $(PROJECT_DIR)/helfi-test-automation-python
 
 PHONY += update-automation
 update-automation: $(PROJECT_DIR)/helfi-test-automation-python/.git
 	git pull
-
-PHONY += start-project
-start-project:
-	docker compose $(DOCKER_COMPOSE_FILES) up -d
 
 PHONY += install-drupal
 install-drupal:
@@ -87,7 +79,7 @@ fix-files-permission:
 	mkdir $(PROJECT_DIR)public/sites/default/files -p && chmod 777 -R $(PROJECT_DIR)public/sites/default/files
 
 define docker_run_ci
-	docker compose $(DOCKER_COMPOSE_FILES) exec $(1) bash -c "$(2)"
+	docker compose exec $(1) bash -c "$(2)"
 endef
 
 PHONY += setup-robo

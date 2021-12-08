@@ -1,7 +1,7 @@
 on: [push]
 name: Robot
 env:
-  SITE_PREFIX: "/kaupunkiymparisto-ja-liikenne"
+  COMPOSE_PROFILES: testing
   XDEBUG_MODE: off
 jobs:
   integration-tests:
