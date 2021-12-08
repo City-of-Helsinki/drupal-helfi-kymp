@@ -34,10 +34,10 @@ jobs:
       - name: Build project
         run: |
           sudo apt-get update
-          make setup-robo
+          make setup-robo RUN_ON=docker
 
       - name: Run tests
-        run: make run-robo-tests
+        run: make run-robo-tests RUN_ON=docker
 
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v2
