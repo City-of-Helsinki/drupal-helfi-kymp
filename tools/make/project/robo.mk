@@ -1,8 +1,8 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-DOCKER_COMPOSE_FILES = -f docker-compose.ci.yml
 ROBOT_TAGS ?= CRITICAL
 SITE_PREFIX ?= /
+COMPOSE_PROFILES=testing
 
 SETUP_ROBO_TARGETS :=
 CI_POST_INSTALL_TARGETS :=
@@ -12,7 +12,7 @@ ifeq ($(CI),true)
 	CI_POST_INSTALL_TARGETS += fix-files-permission
 endif
 
-SETUP_ROBO_TARGETS += start-project robo-composer-install $(CI_POST_INSTALL_TARGETS) update-automation
+SETUP_ROBO_TARGETS += up robo-composer-install $(CI_POST_INSTALL_TARGETS) update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
 	SETUP_ROBO_TARGETS += install-drupal
@@ -72,14 +72,6 @@ install-drupal-from-dump:
 PHONY += save-dump
 save-dump:
 	$(call docker_run_ci,app,drush sql-dump --result-file=/app/latest.sql)
-
-PHONY += robo-stop
-robo-stop:
-	@docker compose $(DOCKER_COMPOSE_FILES) stop
-
-PHONY += robo-down
-robo-down:
-	@docker compose $(DOCKER_COMPOSE_FILES) down
 
 PHONY += robo-shell
 robo-shell:
