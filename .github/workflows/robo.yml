@@ -2,7 +2,6 @@ on: [push]
 name: Robot
 env:
   COMPOSE_PROFILES: testing
-  COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
   XDEBUG_MODE: off
   RUN_ON: docker
 jobs:
@@ -32,11 +31,15 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Build project
+        env:
+          COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
         run: |
           sudo apt-get update
           make setup-robo
 
       - name: Run tests
+        env:
+          COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
         run: make run-robo-tests
 
       - name: Create an artifact from test report
