@@ -1,4 +1,4 @@
-uuid: cbfb1e61-53cd-4939-94c1-d7f14c397c25
+uuid: c579911b-f2d5-4fba-9279-d038250ba3f8
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - language
   theme:
     - hdbt
-id: smarttichatbot
+id: genesyschat
 theme: hdbt
 region: attachments
-weight: -11
+weight: -10
 provider: null
-plugin: smartti_chatbot
+plugin: genesys_chat
 settings:
-  id: smartti_chatbot
-  label: 'Smartti Chatbot'
+  id: genesys_chat
+  label: 'Genesys Chat'
   provider: helfi_platform_config
   label_display: '0'
 visibility:
