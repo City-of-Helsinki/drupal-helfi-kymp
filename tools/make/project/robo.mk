@@ -26,7 +26,7 @@ $(STONEHENGE_PATH)/.git:
 
 PHONY += start-stonehenge
 start-stonehenge:
-	cd $(STONEHENGE_PATH) && make up
+	cd $(STONEHENGE_PATH) && touch docker-compose.ci.yml && make up
 
 $(PROJECT_DIR)/helfi-test-automation-python/.git:
 	git clone https://github.com/City-of-Helsinki/helfi-test-automation-python.git $(PROJECT_DIR)/helfi-test-automation-python
