@@ -44,9 +44,9 @@ else
 	RUN_ON := host
 endif
 
-ifeq ($(CI),true)
-	RUN_ON := host
-endif
+#ifeq ($(CI),true)
+#	RUN_ON := host
+#endif
 
 PHONY += debug
 debug: ## Show debug information
