@@ -1,8 +1,10 @@
 on: [push]
 name: Robot
 env:
-  SITE_PREFIX: "/kaupunkiymparisto-ja-liikenne"
+  COMPOSE_PROFILES: testing
+  COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
   XDEBUG_MODE: off
+  RUN_ON: docker
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
@@ -32,6 +34,7 @@ jobs:
       - name: Build project
         run: |
           sudo apt-get update
+          make debug
           make setup-robo
 
       - name: Run tests

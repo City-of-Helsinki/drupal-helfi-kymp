@@ -40,7 +40,7 @@ ssh-check: ## Check SSH keys on CLI container
 
 ifeq ($(RUN_ON),docker)
 define docker_run_cmd
-	@${DOCKER_COMPOSE_EXEC} -u ${CLI_USER} ${CLI_SERVICE} ${CLI_SHELL} -c "$(1) && echo $(2)"
+	@${DOCKER_COMPOSE_EXEC} -u ${CLI_USER} -T ${CLI_SERVICE} ${CLI_SHELL} -c "$(1) && echo $(2)"
 endef
 else
 define docker_run_cmd
