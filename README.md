@@ -47,4 +47,4 @@ Start your containers with `COMPOSE_PROFILES=testing make up` or add
 COMPOSE_PROFILES=testing
 ```
 
-to your `.env` file and restart the containers.
+to your `.env` file and restart all containers (`make stop && make up`).
