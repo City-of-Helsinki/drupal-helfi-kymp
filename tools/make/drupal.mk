@@ -2,14 +2,16 @@ DRUPAL_CONF_EXISTS := $(shell test -f conf/cmi/core.extension.yml && echo yes ||
 DRUPAL_FRESH_TARGETS := up build sync post-install
 DRUPAL_NEW_TARGETS := up build drush-si drush-uli
 ifeq ($(DRUPAL_VERSION),7)
-DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-cr drush-uli
+DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-cr
+DRUPAL_ENABLE_MODULES ?= no
 else
-DRUPAL_POST_INSTALL_TARGETS := drush-deploy drush-uli
+DRUPAL_POST_INSTALL_TARGETS := drush-deploy
 CLEAN_FOLDERS += ${WEBROOT}/core
 CLEAN_FOLDERS += ${WEBROOT}/libraries
 CLEAN_FOLDERS += ${WEBROOT}/modules/contrib
-CLEAN_FOLDERS += ${WEBROOT}/profiles
+CLEAN_FOLDERS += ${WEBROOT}/profiles/contrib
 CLEAN_FOLDERS += ${WEBROOT}/themes/contrib
+DRUPAL_ENABLE_MODULES ?= no
 endif
 DRUPAL_PROFILE ?= minimal
 DRUPAL_SYNC_FILES ?= yes
@@ -29,6 +31,10 @@ FIX_TARGETS += fix-drupal
 
 ifeq ($(GH_DUMP_ARTIFACT),yes)
 	DRUPAL_FRESH_TARGETS := gh-download-dump $(DRUPAL_FRESH_TARGETS)
+endif
+
+ifneq ($(DRUPAL_ENABLE_MODULES),no)
+	DRUPAL_POST_INSTALL_TARGETS += drush-enable-modules
 endif
 
 PHONY += drupal-update
@@ -108,7 +114,16 @@ new: ## Create a new empty Drupal installation from configuration
 
 PHONY += post-install
 post-install: ## Run post-install Drush actions
-	@$(MAKE) $(DRUPAL_POST_INSTALL_TARGETS)
+	@$(MAKE) $(DRUPAL_POST_INSTALL_TARGETS) drush-uli
+
+PHONY += drush-enable-modules
+drush-enable-modules: ## Enable Drupal modules
+	$(call step,Enable Drupal modules...)
+ifneq ($(DRUPAL_ENABLE_MODULES),no)
+	$(call drush,en -y $(subst ",,$(DRUPAL_ENABLE_MODULES)))
+else
+	$(call sub_step,No modules to enable)
+endif
 
 PHONY += drush-sync
 drush-sync: drush-sync-db drush-sync-files ## Sync database and files
