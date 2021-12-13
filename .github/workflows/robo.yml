@@ -33,7 +33,6 @@ jobs:
       - name: Build project
         run: |
           sudo apt-get update
-          make debug
           make setup-robo
 
       - name: Run tests
