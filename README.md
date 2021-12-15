@@ -38,3 +38,13 @@ This will log you inside the app container:
 ```
 $ make shell
 ```
+
+## Testing
+
+Start your containers with `COMPOSE_PROFILES=testing make up` or add
+
+```
+COMPOSE_PROFILES=testing
+```
+
+to your `.env` file and restart all containers (`make stop && make up`).

@@ -5,7 +5,7 @@ INSTALLED_NODE_VERSION := $(shell command -v node > /dev/null && node --version 
 NODE_BIN := $(shell command -v node || echo no)
 NPM_BIN := $(shell command -v npm || echo no)
 YARN_BIN := $(shell command -v yarn || echo no)
-NODE_VERSION ?= 14
+NODE_VERSION ?= 16
 NODE_IMG := druidfi/node:$(NODE_VERSION)
 
 PHONY += node-check
@@ -39,6 +39,7 @@ endef
 else
 define node_run
 	$(call sub_step,Using $(NODE_IMG) Docker image...)
-	@docker run --rm -v $(PACKAGE_JSON_PATH):/app $(NODE_IMG) /bin/bash -c "$(JS_PACKAGE_MANAGER) --cwd $(PACKAGE_JSON_PATH) $(1)"
+	@docker run --rm -v ${CURDIR}/$(PACKAGE_JSON_PATH):/app $(NODE_IMG) \
+		/bin/bash -c "$(JS_PACKAGE_MANAGER) --cwd $(PACKAGE_JSON_PATH) $(1)"
 endef
 endif

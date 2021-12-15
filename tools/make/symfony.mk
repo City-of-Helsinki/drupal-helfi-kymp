@@ -60,10 +60,10 @@ lint-symfony: ## Lint Symfony code style
 
 ifeq ($(RUN_ON),docker)
 define sf_console
-	$(call docker_run_cmd,bin/console $(1))
+	$(call docker_run_cmd,bin/console --ansi $(1))
 endef
 else
 define sf_console
-	@bin/console
+	@bin/console --ansi $(1)
 endef
 endif
