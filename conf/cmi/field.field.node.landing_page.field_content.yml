@@ -33,7 +33,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       columns: columns
       banner: banner
@@ -46,6 +45,7 @@ settings:
       map: map
       unit_search: unit_search
       service_list: service_list
+    negate: 0
     target_bundles_drag_drop:
       accordion:
         weight: -31
@@ -54,20 +54,20 @@ settings:
         weight: -30
         enabled: false
       banner:
-        enabled: true
         weight: -36
+        enabled: true
       columns:
-        enabled: true
         weight: -37
+        enabled: true
       content_cards:
-        enabled: true
         weight: -33
+        enabled: true
       content_liftup:
-        enabled: true
         weight: -32
-      from_library:
         enabled: true
+      from_library:
         weight: -23
+        enabled: true
       gallery:
         weight: -29
         enabled: false
@@ -81,27 +81,27 @@ settings:
         weight: -26
         enabled: false
       liftup_with_image:
-        enabled: true
         weight: -34
-      list_of_links:
         enabled: true
+      list_of_links:
         weight: -35
+        enabled: true
       list_of_links_item:
         weight: -25
         enabled: false
       map:
-        enabled: true
         weight: -20
+        enabled: true
       remote_video:
-        enabled: true
         weight: -22
-      service_list:
         enabled: true
+      service_list:
         weight: 36
+        enabled: true
       text:
         weight: -24
         enabled: false
       unit_search:
-        enabled: true
         weight: 28
+        enabled: true
 field_type: entity_reference_revisions

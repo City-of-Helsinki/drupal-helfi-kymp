@@ -21,45 +21,45 @@ mode: teaser_with_image
 content:
   address:
     type: address_plain
-    weight: 3
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
   name:
     type: string
-    weight: 2
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   phone:
     type: telephone_link
-    weight: 4
-    region: content
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
+    weight: 4
+    region: content
   picture_url:
     type: imagecache_external_responsive_image
-    weight: 0
-    region: content
     label: hidden
     settings:
       imagecache_external_responsive_style: image__3_2
       imagecache_external_link: ''
     third_party_settings: {  }
+    weight: 0
+    region: content
   picture_url_override:
     type: entity_reference_entity_view
-    weight: 1
-    region: content
     label: hidden
     settings:
       view_mode: image
       link: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   accessibility_email: true
   accessibility_phone: true

@@ -1,7 +1,30 @@
 uuid: 6058143f-a769-426d-a044-4021c3289a4c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - media.type.file
+    - media.type.image
+    - media.type.remote_video
+    - media.type.soundcloud
+    - node.type.announcement
+    - node.type.landing_page
+    - node.type.page
+    - taxonomy.vocabulary.keywords
+  module:
+    - content_translation
+    - file
+    - helfi_api_base
+    - helfi_tpr
+    - media
+    - node
+    - paragraphs
+    - scheduler
+    - siteimprove
+    - system
+    - taxonomy
+    - toolbar
+    - view_unpublished
 _core:
   default_config_hash: XhNzDGDspXeMyW4TAki8MB6z-vzBwmtP_efemgX6-HI
 id: content_producer
@@ -51,9 +74,13 @@ permissions:
   - 'schedule publishing of nodes'
   - 'translate editable entities'
   - 'update media'
+  - 'use siteimprove'
+  - 'use siteimprove prepublish'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view announcement revisions'
+  - 'view any unpublished landing_page content'
+  - 'view any unpublished page content'
   - 'view landing_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
@@ -62,5 +89,7 @@ permissions:
   - 'view scheduled content'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
-  - 'use siteimprove'
-  - 'use siteimprove prepublish'
+  - 'view unpublished tpr_errand_service'
+  - 'view unpublished tpr_service'
+  - 'view unpublished tpr_service_channel'
+  - 'view unpublished tpr_unit'

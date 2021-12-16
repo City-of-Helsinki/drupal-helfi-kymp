@@ -18,22 +18,24 @@ bundle: list_of_links_item
 mode: default
 content:
   field_list_of_links_desc:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_list_of_links_image:
+    type: media_library_widget
     weight: 0
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    type: media_library_widget
-    region: content
   field_list_of_links_link:
+    type: link_target_field_widget
     weight: 1
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -41,8 +43,6 @@ content:
       linkit_auto_link_text: 0
       linkit_profile: tpr_content
     third_party_settings: {  }
-    type: link_target_field_widget
-    region: content
 hidden:
   created: true
   status: true

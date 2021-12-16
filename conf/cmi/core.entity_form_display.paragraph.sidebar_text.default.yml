@@ -15,7 +15,9 @@ bundle: sidebar_text
 mode: default
 content:
   field_sidebar_text_text:
+    type: text_textarea
     weight: 1
+    region: content
     settings:
       rows: 3
       placeholder: ''
@@ -23,16 +25,14 @@ content:
       allowed_formats:
         hide_help: '0'
         hide_guidelines: '0'
-    type: text_textarea
-    region: content
   field_sidebar_text_title:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
 hidden:
   created: true
   status: true

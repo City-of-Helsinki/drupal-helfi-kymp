@@ -4,6 +4,7 @@ display:
   default:
     display_title: Основной
     display_options:
+      title: 'Сейчас на сайте'
       exposed_form:
         options:
           submit_button: фильтр
@@ -11,20 +12,19 @@ display:
           exposed_sorts_label: 'Сортировать по'
           sort_asc_label: 'По возрастанию'
           sort_desc_label: 'По убыванию'
+      empty:
+        area_text_custom:
+          content: 'Сейчас 0 пользователей онлайн.'
       filters:
         access:
           expose:
             label: 'Последнее посещение'
             description: 'Пользователь считается находящимся на сайте в течение этого периода, начиная со времени последнего просмотра им страницы.'
-      title: 'Сейчас на сайте'
       header:
         result:
           content: 'В данный момент пользователей онлайн: @total.'
-      empty:
-        area_text_custom:
-          content: 'Сейчас 0 пользователей онлайн.'
   who_s_online_block:
     display_title: 'Сейчас на сайте'
     display_options:
-      block_description: 'Сейчас на сайте'
       display_description: 'Список пользователей, авторизированных в данный момент.'
+      block_description: 'Сейчас на сайте'
