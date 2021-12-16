@@ -17,17 +17,17 @@ plugin: genesys_chat
 settings:
   id: genesys_chat
   label: 'Genesys Chat'
-  provider: helfi_platform_config
   label_display: '0'
+  provider: helfi_platform_config
 visibility:
   language:
     id: language
-    langcodes:
-      fi: fi
     negate: false
     context_mapping:
       language: '@language.current_language_context:language_content'
+    langcodes:
+      fi: fi
   request_path:
     id: request_path
-    pages: "/pysakointi\r\n/pysakointi/*"
     negate: false
+    pages: "/pysakointi\r\n/pysakointi/*"

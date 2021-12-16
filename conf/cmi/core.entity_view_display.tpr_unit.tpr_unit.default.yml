@@ -24,31 +24,29 @@ mode: default
 content:
   accessibility_email:
     type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 14
     region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   accessibility_phone:
     type: string
-    weight: 13
-    region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 13
+    region: content
   accessibility_sentences:
     type: tpr_accessibility_sentence
-    weight: 19
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 19
+    region: content
   accessibility_www:
     type: link
-    weight: 15
-    region: content
     label: above
     settings:
       trim_length: 80
@@ -57,139 +55,139 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 15
+    region: content
   address:
     type: address_plain
-    weight: 5
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: content
   address_postal:
     type: string
-    weight: 9
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 9
+    region: content
   call_charge_info:
     type: text_default
-    weight: 11
-    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 11
+    region: content
   description:
     type: text_default
-    weight: 2
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   email:
     type: string
-    weight: 8
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 8
+    region: content
   field_content:
     type: entity_reference_revisions_entity_view
-    weight: 18
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 18
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
-    weight: 20
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 20
     region: content
   field_metatags:
-    weight: 17
+    type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: metatag_empty_formatter
+    weight: 17
     region: content
   name:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   name_override:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   opening_hours:
     type: tpr_connection
-    weight: 7
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 7
+    region: content
   phone:
     type: telephone_link
-    weight: 6
-    region: content
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
+    weight: 6
+    region: content
   picture_url:
     type: imagecache_external_responsive_image
-    weight: 3
-    region: content
     label: hidden
     settings:
       imagecache_external_responsive_style: image__3_2
       imagecache_external_link: ''
     third_party_settings: {  }
+    weight: 3
+    region: content
   picture_url_override:
     type: entity_reference_entity_view
-    weight: 4
-    region: content
     label: hidden
     settings:
       view_mode: image
       link: false
     third_party_settings: {  }
-  service_map_embed:
-    label: hidden
-    type: service_map_embed
-    weight: 10
+    weight: 4
     region: content
+  service_map_embed:
+    type: service_map_embed
+    label: hidden
     settings:
       iframe_title: 'Location on map'
       link_title: 'Open the map in a new window'
       target: true
     third_party_settings: {  }
+    weight: 10
+    region: content
   services:
     type: entity_reference_label
-    weight: 16
-    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
+    weight: 16
+    region: content
   www:
     type: link
-    weight: 12
-    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -198,6 +196,8 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 12
+    region: content
 hidden:
   created: true
   langcode: true
