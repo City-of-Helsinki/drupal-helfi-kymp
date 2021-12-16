@@ -1,26 +1,6 @@
 display:
   default:
     display_options:
-      filters:
-        status:
-          group_info:
-            group_items:
-              1:
-                title: Опубликовано
-              2:
-                title: 'Снято с публикации'
-            label: 'Статус публикации'
-          expose:
-            label: Статус
-        title:
-          expose:
-            label: Заголовок
-        type:
-          expose:
-            label: 'Тип материала'
-        langcode:
-          expose:
-            label: Язык
       exposed_form:
         options:
           submit_button: Фильтр
@@ -61,6 +41,26 @@ display:
           separator: ', '
         operations:
           label: Операции
+      filters:
+        title:
+          expose:
+            label: Заголовок
+        type:
+          expose:
+            label: 'Тип материала'
+        status:
+          expose:
+            label: Статус
+          group_info:
+            label: 'Статус публикации'
+            group_items:
+              1:
+                title: Опубликовано
+              2:
+                title: 'Снято с публикации'
+        langcode:
+          expose:
+            label: Язык
     display_title: Основной
   overview:
     display_options:

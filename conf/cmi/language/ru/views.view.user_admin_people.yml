@@ -4,24 +4,7 @@ display:
   default:
     display_title: Основной
     display_options:
-      exposed_form:
-        options:
-          submit_button: Фильтр
-          reset_button_label: Сбросить
-          exposed_sorts_label: 'Сортировать по'
-          sort_asc_label: 'По возрастанию'
-          sort_desc_label: 'По убыванию'
-      pager:
-        options:
-          tags:
-            previous: '‹ Предыдущий'
-            next: 'Следующий ›'
-            first: '« Первая'
-            last: 'Последняя »'
-          expose:
-            items_per_page_label: 'Элементов на страницу'
-            items_per_page_options_all_label: '- Все -'
-            offset_label: Пропустить
+      title: Пользователи
       fields:
         user_bulk_form:
           label: 'Массовое обновление'
@@ -30,8 +13,8 @@ display:
         status:
           label: Статус
           settings:
-            format_custom_true: Активно
             format_custom_false: Заблокировано
+            format_custom_true: Активно
         roles_target_id:
           label: Роли
         created:
@@ -42,6 +25,27 @@ display:
           label: Операции
         mail:
           separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: '« Первая'
+            last: 'Последняя »'
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: Фильтр
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      empty:
+        area_text_custom:
+          content: 'Нет доступных людей.'
       filters:
         combine:
           expose:
@@ -60,10 +64,6 @@ display:
         permission:
           expose:
             label: 'Право доступа'
-      title: Пользователи
-      empty:
-        area_text_custom:
-          content: 'Нет доступных людей.'
       use_more_text: ещё
   page_1:
     display_title: Страница

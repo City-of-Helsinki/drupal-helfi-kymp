@@ -4,24 +4,7 @@ display:
   default:
     display_title: Основной
     display_options:
-      exposed_form:
-        options:
-          submit_button: Фильтр
-          reset_button_label: Сбросить
-          exposed_sorts_label: 'Сортировать по'
-          sort_asc_label: 'По возрастанию'
-          sort_desc_label: 'По убыванию'
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Элементов на страницу'
-            items_per_page_options_all_label: '- Все -'
-            offset_label: Пропустить
-          tags:
-            previous: '‹ Предыдущий'
-            next: 'Следующий ›'
-            first: '« Первая'
-            last: 'Последняя »'
+      title: Мультимедиа
       fields:
         media_bulk_form:
           action_title: Действие
@@ -32,7 +15,7 @@ display:
           label: 'Название медиа'
           separator: ', '
         bundle:
-          label: Тип
+          label: Type
           separator: ', '
         uid:
           label: Автор
@@ -40,21 +23,42 @@ display:
         status:
           label: Статус
           settings:
-            format_custom_true: Опубликовано
             format_custom_false: 'Снято с публикации'
+            format_custom_true: Опубликовано
           separator: ', '
         changed:
           label: Обновлено
           separator: ', '
         operations:
           label: Операции
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: '« Первая'
+            last: 'Последняя »'
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: Фильтр
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      empty:
+        area_text_custom:
+          content: 'Мультимедийных файлов не найдено.'
       filters:
         name:
           expose:
             label: 'Название медиа'
         bundle:
           expose:
-            label: Тип
+            label: Type
         status:
           expose:
             label: Истина
@@ -68,10 +72,6 @@ display:
         langcode:
           expose:
             label: Язык
-      title: Мультимедиа
-      empty:
-        area_text_custom:
-          content: 'Мультимедийных файлов не найдено.'
   media_page_list:
     display_title: Мультимедиа
     display_options:
