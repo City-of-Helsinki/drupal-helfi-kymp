@@ -4,6 +4,7 @@ display:
   default:
     display_title: Oletus
     display_options:
+      title: 'Paikalla olevat käyttäjät'
       exposed_form:
         options:
           submit_button: Käytä
@@ -11,20 +12,19 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
+      empty:
+        area_text_custom:
+          content: 'Tällä hetkellä 0 käyttäjää on online.'
       filters:
         access:
           expose:
             label: 'Viimeksi paikalla'
             description: 'Sen jäkeen kun käyttäjä viimeksi latasi sivun, hänen katsotaan olevan paikalla vielä näin kauan'
-      title: 'Paikalla olevat käyttäjät'
       header:
         result:
           content: 'Tällä hetkellä @total käyttäjää on online.'
-      empty:
-        area_text_custom:
-          content: 'Tällä hetkellä 0 käyttäjää on online.'
   who_s_online_block:
     display_title: 'Paikalla olevat käyttäjät'
     display_options:
-      block_description: 'Paikalla olevat käyttäjät'
       display_description: 'Lista käyttäjistä jotka ovat online.'
+      block_description: 'Paikalla olevat käyttäjät'

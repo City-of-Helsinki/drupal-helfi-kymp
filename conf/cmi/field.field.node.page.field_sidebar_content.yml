@@ -22,10 +22,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       sidebar_text: sidebar_text
       from_library: from_library
+    negate: 0
     target_bundles_drag_drop:
       accordion:
         weight: -39
@@ -46,8 +46,8 @@ settings:
         weight: -34
         enabled: false
       from_library:
-        enabled: true
         weight: -32
+        enabled: true
       gallery:
         weight: -31
         enabled: false
@@ -76,8 +76,8 @@ settings:
         weight: -23
         enabled: false
       sidebar_text:
-        enabled: true
         weight: -33
+        enabled: true
       text:
         weight: -22
         enabled: false

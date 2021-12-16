@@ -4,24 +4,7 @@ display:
   default:
     display_title: Oletus
     display_options:
-      exposed_form:
-        options:
-          submit_button: Suodata
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
-      pager:
-        options:
-          tags:
-            previous: '‹ Edellinen'
-            next: 'Seuraava ›'
-            first: '« Ensimmäinen'
-            last: 'Viimeinen »'
-          expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
+      title: Käyttäjät
       fields:
         user_bulk_form:
           label: Massapäivitys
@@ -30,8 +13,8 @@ display:
         status:
           label: Tila
           settings:
-            format_custom_true: Aktiivinen
             format_custom_false: Suljettu
+            format_custom_true: Aktiivinen
         roles_target_id:
           label: Käyttäjäroolit
         created:
@@ -42,6 +25,27 @@ display:
           label: Toimenpiteet
         mail:
           separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      empty:
+        area_text_custom:
+          content: 'Ei saatavilla olevia ihmisiä.'
       filters:
         combine:
           expose:
@@ -60,10 +64,6 @@ display:
         permission:
           expose:
             label: Käyttöoikeus
-      title: Käyttäjät
-      empty:
-        area_text_custom:
-          content: 'Ei saatavilla olevia ihmisiä.'
       use_more_text: lisää
   page_1:
     display_title: Sivu

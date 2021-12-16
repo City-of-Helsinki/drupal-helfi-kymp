@@ -17,57 +17,57 @@ third_party_settings:
     group_service_list_meta:
       children:
         - field_service_list_meta_load_mor
+      label: 'Meta information'
+      region: content
       parent_name: ''
       weight: 3
       format_type: details
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         open: false
+        description: ''
         required_fields: true
-      label: 'Meta information'
 id: paragraph.service_list.default
 targetEntityType: paragraph
 bundle: service_list
 mode: default
 content:
   field_service_list_description:
+    type: text_textarea
     weight: 2
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_service_list_meta_load_mor:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_service_list_services:
+    type: select2_entity_reference
     weight: 1
+    region: content
     settings:
+      width: 100%
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      autocomplete: false
-      width: 100%
     third_party_settings: {  }
-    type: select2_entity_reference
-    region: content
   field_service_list_title:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
 hidden:
   created: true
   status: true

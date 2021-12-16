@@ -32,7 +32,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       columns: columns
       accordion: accordion
@@ -44,28 +43,29 @@ settings:
       from_library: from_library
       remote_video: remote_video
       liftup_with_image: liftup_with_image
+    negate: 0
     target_bundles_drag_drop:
       accordion:
-        enabled: true
         weight: -27
+        enabled: true
       accordion_item:
         weight: -22
         enabled: false
       banner:
-        enabled: true
         weight: -21
+        enabled: true
       columns:
-        enabled: true
         weight: -28
+        enabled: true
       content_cards:
-        enabled: true
         weight: -23
+        enabled: true
       from_library:
-        enabled: true
         weight: 21
-      gallery:
         enabled: true
+      gallery:
         weight: -25
+        enabled: true
       gallery_slide:
         weight: -20
         enabled: false
@@ -73,14 +73,14 @@ settings:
         weight: -19
         enabled: false
       image:
-        enabled: true
         weight: -26
+        enabled: true
       liftup_with_image:
         weight: -18
         enabled: true
       list_of_links:
-        enabled: true
         weight: -24
+        enabled: true
       list_of_links_item:
         weight: -17
         enabled: false
@@ -88,8 +88,8 @@ settings:
         weight: 31
         enabled: false
       remote_video:
-        enabled: true
         weight: 32
+        enabled: true
       text:
         weight: -29
         enabled: false

@@ -20,6 +20,7 @@ content:
   field_accordion_item_content:
     type: paragraphs
     weight: 2
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -35,21 +36,20 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-    region: content
   field_accordion_item_heading:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_icon:
+    type: select2_icon_widget
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: select2_icon_widget
-    region: content
 hidden:
   created: true
   status: true

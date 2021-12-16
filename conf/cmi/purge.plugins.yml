@@ -1,12 +1,12 @@
 purgers:
   -
-    order_index: 2
     instance_id: default
     plugin_id: varnish
+    order_index: 2
   -
-    order_index: 3
     instance_id: varnish_purge_all
     plugin_id: varnish
+    order_index: 3
 processors:
   -
     plugin_id: drush_purge_queue_work
