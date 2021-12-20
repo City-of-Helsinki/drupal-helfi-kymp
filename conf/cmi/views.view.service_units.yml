@@ -2,6 +2,8 @@ uuid: 5d118ca0-179e-4ba6-988f-a981c3f3bf0f
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.tpr_unit.teaser_with_image
   module:
     - helfi_tpr
     - user
@@ -295,7 +297,7 @@ display:
         type: 'entity:tpr_unit'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: teaser_with_image
       query:
         type: views_query
         options:
