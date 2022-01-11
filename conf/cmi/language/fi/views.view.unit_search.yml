@@ -1,13 +1,6 @@
 display:
   default:
     display_options:
-      filters:
-        combine:
-          group_info:
-            description: ''
-            label: 'Combine fields filter'
-          expose:
-            label: Search
       empty:
         area:
           content:
@@ -33,13 +26,19 @@ display:
           separator: ', '
         address__address_line2:
           separator: ', '
+      filters:
+        combine:
+          expose:
+            label: Search
+          group_info:
+            label: 'Combine fields filter'
       arguments:
         id:
           exception:
             title: All
-    display_title: Default
+    display_title: Oletus
   block:
-    display_title: Block
+    display_title: Lohko
   entity_reference:
     display_title: Entiteettiviittaus
     display_options:

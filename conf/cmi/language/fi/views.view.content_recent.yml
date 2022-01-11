@@ -4,6 +4,10 @@ display:
   default:
     display_title: Oletus
     display_options:
+      title: 'Uusin sisältö'
+      fields:
+        changed:
+          separator: ', '
       exposed_form:
         options:
           submit_button: Käytä
@@ -11,10 +15,6 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      fields:
-        changed:
-          separator: ', '
-      title: 'Uusin sisältö'
       empty:
         area_text_custom:
           content: 'Ei sisältöä.'

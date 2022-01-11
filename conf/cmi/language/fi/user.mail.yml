@@ -1,20 +1,20 @@
 cancel_confirm:
   subject: 'Tilin peruutuspyyntö käyttäjälle [user:display-name], [site:name] sivustolla'
 password_reset:
-  body: "[user:display-name], Tilisi salasanan vaihtamista koskeva pyyntö on tehty  [site:name] sivustolla. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Linkki vanhenee yhden päivän kuluttua, eikä mitään tapahdu, jos sitä ei käytetä.\r\n[site:name] ylläpito"
   subject: 'Korvaavat kirjautumistiedot [user:display-name] käyttäjälle [site:name] sivustolla'
+  body: "[user:display-name], Tilisi salasanan vaihtamista koskeva pyyntö on tehty  [site:name] sivustolla. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Linkki vanhenee yhden päivän kuluttua, eikä mitään tapahdu, jos sitä ei käytetä.\r\n[site:name] ylläpito"
 register_admin_created:
-  body: "[user:display-name], sinulle on luotu tili [site:name] sivustolle. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Kun olet asettanut salasanan, voit kirjautua sen avulla osoitteessa [site:login-url]. \r\nKäyttäjätunnuksesi: [user:name]\r\n[site:name] ylläpito"
   subject: 'Ylläpitäjä loi sinulle tilin sivustolla [site:name]'
+  body: "[user:display-name], sinulle on luotu tili [site:name] sivustolle. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Kun olet asettanut salasanan, voit kirjautua sen avulla osoitteessa [site:login-url]. \r\nKäyttäjätunnuksesi: [user:name]\r\n[site:name] ylläpito"
 register_no_approval_required:
-  body: "[user:display-name], olet rekisteröitynyt [site:name] sivustolle.  Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Kun olet asettanut salasanan, voit kirjautua sen avulla osoitteessa [site:login-url]. \r\nKäyttäjätunnuksesi: [user:name]\r\n[site:name] ylläpito"
   subject: '[user:display-name] käyttäjätilin tiedot [site:name] sivustolla'
+  body: "[user:display-name], olet rekisteröitynyt [site:name] sivustolle.  Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Kun olet asettanut salasanan, voit kirjautua sen avulla osoitteessa [site:login-url]. \r\nKäyttäjätunnuksesi: [user:name]\r\n[site:name] ylläpito"
 register_pending_approval:
+  subject: "\r\n[user:display-name] käyttäjätilin tiedot [site:name] sivustolla (odottaa hyväksyntää)"
   body: "[user:display-name], olet rekisteröitynyt [site:name] sivustolle. Tunnuksesi odottaa parhaillaan hyväksyntää. Kun se on hyväksytty, saat uuden sähköpostin, joka sisältää tietoja kirjautumisesta, salasanan asettamisesta ja muista yksityiskohdista.\r\n[site:name] ylläpito"
-  subject: "\r\n[user:display-name] käyttäjätilin tiedot [site:name] sivustolla (odottaa hyväksyntää)"
 register_pending_approval_admin:
-  body: '[user:display-name] on rekisteröinyt käyttäjätunnuksen. [user:edit-url]'
   subject: "\r\n[user:display-name] käyttäjätilin tiedot [site:name] sivustolla (odottaa hyväksyntää)"
+  body: '[user:display-name] on rekisteröinyt käyttäjätunnuksen. [user:edit-url]'
 status_activated:
   subject: 'Käyttäjän [user:display-name] tilitiedot [site:name] sivustolla (hyväksytty)'
 status_blocked:

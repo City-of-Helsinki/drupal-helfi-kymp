@@ -4,6 +4,19 @@ display:
   default:
     display_title: Oletus
     display_options:
+      title: Media
+      fields:
+        media_bulk_form:
+          action_title: Toiminto
+      pager:
+        options:
+          tags:
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
       exposed_form:
         options:
           submit_button: 'Suodata tuloksia'
@@ -11,18 +24,19 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      pager:
-        options:
+      empty:
+        area_text_custom:
+          content: 'Ei mediatiedostoja saatavilla.'
+      sorts:
+        created:
           expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
-          tags:
-            previous: '‹ Edellinen'
-            next: 'Seuraava ›'
-      fields:
-        media_bulk_form:
-          action_title: Toiminto
+            label: 'Uusin ensin'
+        name:
+          expose:
+            label: 'Nimi (A-Z)'
+        name_1:
+          expose:
+            label: 'Nimi (Z-A)'
       filters:
         status:
           expose:
@@ -45,20 +59,6 @@ display:
         langcode:
           expose:
             label: Kieli
-      sorts:
-        created:
-          expose:
-            label: 'Uusin ensin'
-        name:
-          expose:
-            label: 'Nimi (A-Z)'
-        name_1:
-          expose:
-            label: 'Nimi (Z-A)'
-      title: Media
-      empty:
-        area_text_custom:
-          content: 'Ei mediatiedostoja saatavilla.'
   page:
     display_title: Sivu
     display_options:
@@ -80,14 +80,14 @@ display:
   widget:
     display_title: Widgetti
     display_options:
+      arguments:
+        bundle:
+          exception:
+            title: All
       filters:
         name:
           expose:
             label: Nimi
-      arguments:
-        bundle:
-          exception:
-            title: Kaikki
       header:
         display_link_grid:
           label: Ruudukko
@@ -105,14 +105,14 @@ display:
           label: Kirjoittaja
         changed:
           label: Päivitetty
+      arguments:
+        bundle:
+          exception:
+            title: All
       filters:
         name:
           expose:
             label: Nimi
-      arguments:
-        bundle:
-          exception:
-            title: Kaikki
       header:
         display_link_grid:
           label: Ruudukko

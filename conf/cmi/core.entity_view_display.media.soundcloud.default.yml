@@ -13,12 +13,12 @@ bundle: soundcloud
 mode: default
 content:
   field_media_soundcloud:
+    type: string
     label: visually_hidden
-    weight: 0
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
 hidden:
   created: true

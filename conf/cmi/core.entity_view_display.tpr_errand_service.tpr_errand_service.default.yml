@@ -13,54 +13,52 @@ mode: default
 content:
   channels:
     type: entity_reference_entity_view
-    weight: 2
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   costs:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 12
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   description:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   expiration_time:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 10
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   information:
     type: text_default
-    weight: 11
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 11
+    region: content
   langcode:
     type: language
-    weight: 3
-    region: content
     label: hidden
     settings:
       link_to_entity: false
       native_language: false
     third_party_settings: {  }
+    weight: 3
+    region: content
   links:
     type: link
-    weight: 7
-    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -69,50 +67,52 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 7
+    region: content
   name:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   name_override:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 4
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   name_synonyms:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 6
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   process_description:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 8
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   processing_time:
     type: text_default
-    weight: 9
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 9
+    region: content
   type:
     type: string
-    weight: 5
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 5
+    region: content
 hidden: {  }
