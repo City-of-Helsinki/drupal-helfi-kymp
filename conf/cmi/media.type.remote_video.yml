@@ -2,6 +2,9 @@ uuid: a9099716-2b48-4aad-9918-470816d99319
 langcode: en
 status: true
 dependencies: {  }
+third_party_settings:
+  crop:
+    image_field: null
 _core:
   default_config_hash: Oa2agR_t9WunrVJl4JGuv32as0WLOmEEgaGYehqOInE
 id: remote_video
@@ -15,4 +18,5 @@ source_configuration:
   thumbnails_directory: 'public://oembed_thumbnails'
   providers:
     - YouTube
+    - 'Icareus Suite'
 field_map: {  }

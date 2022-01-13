@@ -4120,16 +4120,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.3.7",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "f5226b90209889c94b8ac3a4dbd2b9a09fb8b75a"
+                "reference": "d97ad5c9398ce4943fd601dbb74f7dfe2520f7d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f5226b90209889c94b8ac3a4dbd2b9a09fb8b75a",
-                "reference": "f5226b90209889c94b8ac3a4dbd2b9a09fb8b75a",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/d97ad5c9398ce4943fd601dbb74f7dfe2520f7d9",
+                "reference": "d97ad5c9398ce4943fd601dbb74f7dfe2520f7d9",
                 "shasum": ""
             },
             "require": {
@@ -4163,6 +4163,7 @@
                 "drupal/menu_block_current_language": "^1.5",
                 "drupal/menu_link_attributes": "^1.2",
                 "drupal/metatag": "^1.16",
+                "drupal/oembed_providers": "^2.0",
                 "drupal/paragraphs": "^1.12",
                 "drupal/paragraphs_asymmetric_translation_widgets": "^1.0-beta4",
                 "drupal/pathauto": "^1.8",
@@ -4218,10 +4219,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.3.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.3.8",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-01-12T08:40:32+00:00"
+            "time": "2022-01-13T09:38:38+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4885,6 +4886,57 @@
                 "source": "https://git.drupalcode.org/project/metatag",
                 "issues": "https://www.drupal.org/project/issues/metatag",
                 "docs": "https://www.drupal.org/docs/8/modules/metatag"
+            }
+        },
+        {
+            "name": "drupal/oembed_providers",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/oembed_providers.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/oembed_providers-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "39bb3e54044a98fea63d1cccdf0670cfeb57b76c"
+            },
+            "require": {
+                "drupal/core": "^9.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1630522621",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Burge",
+                    "homepage": "https://www.drupal.org/u/chris-burge",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Allows site builders and developers to manage oEmbed providers.",
+            "homepage": "https://drupal.org/project/oembed_providers",
+            "keywords": [
+                "Drupal",
+                "Media",
+                "oEmbed"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/oembed_providers",
+                "issues": "https://www.drupal.org/project/issues/oembed_providers"
             }
         },
         {
