@@ -4116,16 +4116,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.3.11",
+            "version": "2.3.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "68cf9733b0954334c241171239672c8e8f2b9615"
+                "reference": "4cf85aed15ecf9f1cc201e0c892a7f0b9927453b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/68cf9733b0954334c241171239672c8e8f2b9615",
-                "reference": "68cf9733b0954334c241171239672c8e8f2b9615",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4cf85aed15ecf9f1cc201e0c892a7f0b9927453b",
+                "reference": "4cf85aed15ecf9f1cc201e0c892a7f0b9927453b",
                 "shasum": ""
             },
             "require": {
@@ -4183,7 +4183,7 @@
                     "drupal/core": {
                         "[#UHF-181] Hide untranslated menu links": "https://www.drupal.org/files/issues/2021-03-05/3091246-allow-menu-tree-manipulators-alter-12-1.patch",
                         "[#UHF-920] Token for base URL (https://www.drupal.org/project/drupal/issues/1088112).": "https://www.drupal.org/files/issues/2020-10-06/1088112-63.patch",
-                        "[#UHF-3812] Drupal.views.ajaxView is not initializing pagers in nested views (https://www.drupal.org/project/drupal/issues/2858890).": "https://www.drupal.org/files/issues/2021-12-29/2858890-75.patch",
+                        "[#UHF-3812] Ajax exposed filters not working for multiple instances of the same Views block placed on one page (https://www.drupal.org/project/drupal/issues/3163299).": "https://www.drupal.org/files/issues/2022-01-03/3163299-49.patch",
                         "[#UHF-3087] Non-published menu links as parent (https://www.drupal.org/project/drupal/issues/2807629)": "https://www.drupal.org/files/issues/2021-07-09/2807629-45.patch"
                     },
                     "drupal/default_content": {
@@ -4215,10 +4215,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.3.11",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.3.12",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-01-25T07:05:53+00:00"
+            "time": "2022-01-27T08:38:25+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -16918,5 +16918,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
