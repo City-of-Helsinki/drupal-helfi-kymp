@@ -1635,6 +1635,10 @@
             ],
             "authors": [
                 {
+                    "name": "Centarro",
+                    "homepage": "https://www.drupal.org/user/3661446"
+                },
+                {
                     "name": "bojanz",
                     "homepage": "https://www.drupal.org/user/86106"
                 },
@@ -3827,16 +3831,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "515b22757a17d34cbb0f85ab5395c8fafa88f871"
+                "reference": "ae4ac99c6226c4cdf75bc41ab9a1a96587c39ad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/515b22757a17d34cbb0f85ab5395c8fafa88f871",
-                "reference": "515b22757a17d34cbb0f85ab5395c8fafa88f871",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/ae4ac99c6226c4cdf75bc41ab9a1a96587c39ad5",
+                "reference": "ae4ac99c6226c4cdf75bc41ab9a1a96587c39ad5",
                 "shasum": ""
             },
             "require": {
@@ -3851,10 +3855,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.2.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.2.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2022-01-25T11:42:04+00:00"
+            "time": "2022-01-27T07:33:54+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4262,16 +4266,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "1.6.8",
+            "version": "1.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "ca891f5d0081d0b90b98a561dee5f2b571617ccf"
+                "reference": "0d89563a386f32604a7156e1a25d5c4d3a1b4677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/ca891f5d0081d0b90b98a561dee5f2b571617ccf",
-                "reference": "ca891f5d0081d0b90b98a561dee5f2b571617ccf",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/0d89563a386f32604a7156e1a25d5c4d3a1b4677",
+                "reference": "0d89563a386f32604a7156e1a25d5c4d3a1b4677",
                 "shasum": ""
             },
             "require": {
@@ -4279,7 +4283,7 @@
                 "drupal/helfi_api_base": "*",
                 "drupal/readonly_field_widget": "^1.0",
                 "drupal/twig_tweak": "^2.0 || ^3.0",
-                "drupal/views_infinite_scroll": "^1.8",
+                "drupal/views_infinite_scroll": "^2.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -4293,10 +4297,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.6.8",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/1.6.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2022-01-25T08:30:24+00:00"
+            "time": "2022-01-27T08:27:00+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -6403,26 +6407,26 @@
         },
         {
             "name": "drupal/views_infinite_scroll",
-            "version": "1.9.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_infinite_scroll.git",
-                "reference": "8.x-1.9"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_infinite_scroll-8.x-1.9.zip",
-                "reference": "8.x-1.9",
-                "shasum": "875d58d317d48036ed1d9ef538bc8a76bc3dcb5b"
+                "url": "https://ftp.drupal.org/files/projects/views_infinite_scroll-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "9e1bc62131c8577609f2b2c520d749ac0a9b4142"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^9.2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.9",
-                    "datestamp": "1632421809",
+                    "version": "2.0.0",
+                    "datestamp": "1641878440",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9776,12 +9780,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "4380afd33102db3cdc30abb30862305ad80f8c06"
+                "reference": "96043fa2417b37563e760d3a85e9863efe4d62b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/4380afd33102db3cdc30abb30862305ad80f8c06",
-                "reference": "4380afd33102db3cdc30abb30862305ad80f8c06",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/96043fa2417b37563e760d3a85e9863efe4d62b5",
+                "reference": "96043fa2417b37563e760d3a85e9863efe4d62b5",
                 "shasum": ""
             },
             "require": {
@@ -9837,7 +9841,7 @@
                 "issues": "https://github.com/ruflin/Elastica/issues",
                 "source": "https://github.com/ruflin/Elastica/tree/master"
             },
-            "time": "2022-01-18T14:53:15+00:00"
+            "time": "2022-01-25T11:53:47+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -16918,5 +16922,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
