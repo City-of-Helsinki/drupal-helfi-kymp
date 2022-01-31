@@ -10,9 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    minimal: minimal
-    full_html: '0'
-    plain_text: '0'
+    allowed_formats:
+      - minimal
 _core:
   default_config_hash: q4uWcoLupyOdIrak0dZP0imY7sTyklrRHVmrN8I4Xyg
 id: node.announcement.body
