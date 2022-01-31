@@ -10,9 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
-    minimal: '0'
-    plain_text: '0'
+    allowed_formats:
+      - full_html
 _core:
   default_config_hash: 22M73w0UGCJ_JWhbQn53ycPhg4fBmMbTmjjI6qMYlD0
 id: paragraph.text.field_text
