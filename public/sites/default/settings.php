@@ -155,19 +155,6 @@ $config['varnish_purger.settings.default']['headers'] = [
   ],
 ];
 
-if (
-  ($redis_host = getenv('REDIS_HOST')) &&
-  file_exists('modules/contrib/redis/example.services.yml')
-) {
-  $redis_port = getenv('REDIS_PORT') ?: 6379;
-
-  $settings['redis.connection']['interface'] = 'Predis';
-  $settings['redis.connection']['host'] = $redis_host;
-  $settings['redis.connection']['port'] = getenv('REDIS_PORT') ?: 6379;
-  $settings['cache']['default'] = 'cache.backend.redis';
-  $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
-}
-
 $config['varnish_purger.settings.varnish_purge_all']['headers'] = [
   [
     'field' => 'X-VC-Purge-Method',
