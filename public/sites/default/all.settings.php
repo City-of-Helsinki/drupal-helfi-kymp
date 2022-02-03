@@ -21,4 +21,5 @@ if (
   $settings['redis.connection']['port'] = getenv('REDIS_PORT') ?: 6379;
   $settings['cache']['default'] = 'cache.backend.redis';
   $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
+  $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 }
