@@ -191,7 +191,8 @@ if (
   extension_loaded('redis')
 ) {
   // Redis namespace is not available until redis module is enabled, so
-  // we have to manually include it.
+  // we have to manually register it in order to enable the module and have
+  // this configuration when the module is installed, but not yet enabled.
   $class_loader->addPsr4('Drupal\\redis\\', 'modules/contrib/redis/src');
   $redis_port = getenv('REDIS_PORT') ?: 6379;
 
@@ -212,5 +213,7 @@ if (
   $settings['redis.connection']['port'] = $redis_port;
   $settings['cache']['default'] = 'cache.backend.redis';
   $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
+  // Register redis services to make sure we don't get a non-existent service
+  // error while trying to enable the module.
   $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 }
