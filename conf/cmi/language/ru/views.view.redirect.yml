@@ -1,36 +1,8 @@
+label: Переадресация
 display:
   default:
+    display_title: Основной
     display_options:
-      filters:
-        status_code:
-          group_info:
-            group_items:
-              15:
-                title: '300 Множество Выборов'
-              16:
-                title: '301 Перемещёно Окончательно'
-              17:
-                title: '302 Найдено'
-              18:
-                title: '303 Смотреть Другое'
-              19:
-                title: '304 Не Изменялось'
-              20:
-                title: '305 Использовать Прокси'
-              7:
-                title: '300 Multiple Choices'
-            label: 'Код состояния'
-          expose:
-            label: 'Код состояния'
-        redirect_source__path:
-          expose:
-            label: От
-        redirect_redirect__uri:
-          expose:
-            label: Кому
-        language:
-          expose:
-            label: 'Язык оригинала'
       exposed_form:
         options:
           submit_button: Фильтр
@@ -57,11 +29,27 @@ display:
           separator: ', '
         created:
           label: Создано
+      filters:
+        redirect_source__path:
+          expose:
+            label: От
+        redirect_redirect__uri:
+          expose:
+            label: Кому
+        status_code:
+          expose:
+            label: 'Код состояния'
+          group_info:
+            label: 'Код состояния'
+            group_items:
+              7:
+                title: '300 Multiple Choices'
+        language:
+          expose:
+            label: 'Язык оригинала'
       title: Переадресация
       empty:
         area_text_custom:
           content: 'Перенаправлений пока нет.'
-    display_title: Основной
   page_1:
     display_title: Страница
-label: Переадресация

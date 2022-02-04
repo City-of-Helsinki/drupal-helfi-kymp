@@ -1,19 +1,6 @@
 cancel_confirm:
   subject: 'Запрос на удаление учётной записи [user:display-name] на сайте «[site:name]»'
-  body: |-
-    [user:display-name],
-
-    A request to cancel your account has been made at [site:name].
-
-    You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
-
-    [user:cancel-url]
-
-    NOTE: The cancellation of your account is not reversible.
-
-    This link expires in one day and nothing will happen if it is not used.
-
-    --  [site:name] team
+  body: "[user:display-name]\r\n\r\nЗапрос на удаление вашей учётной записи был сделан на [site: name].\r\n\r\nТеперь вы можете удалить свою учётную запись на [site:url-brief], щёлкнув эту ссылку или скопировав и вставив её в свой браузер:\r\n\r\n[user:cancel-url]\r\n\r\nПРИМЕЧАНИЕ. Удаление вашей учётной записи необратимо.\r\n\r\nЭта ссылка истекает через один день, и ничего не произойдет, если она не будет использована.\r\n\r\n- [site:name] команда"
 password_reset:
   subject: 'Изменение данных для входа пользователя [user:display-name] на сайте «[site:name]»'
   body: "[user:display-name],\r\n\r\nНа сайте «[site:name]» поступил запрос на сброс пароля для Вашей учётной записи.\r\n\r\nВы можете войти на сайт, щёлкнув по следующей ссылке, или скопировав её в адресную строку браузера:\r\n\r\n[user:one-time-login-url] \r\n\r\nЭта одноразовая ссылка для входа на сайт ведёт на страницу задания нового пароля. Она действительна в течение суток, и, если по ней не пройти, то ничего не случится.\r\n\r\n-- Команда сайта «[site:name]»"

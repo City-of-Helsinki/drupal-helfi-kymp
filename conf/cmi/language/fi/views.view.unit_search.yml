@@ -1,11 +1,8 @@
+label: Toimipistehaku
 display:
   default:
+    display_title: Oletus
     display_options:
-      empty:
-        area:
-          content:
-            format: full_html
-            value: "<p>Ei tuloksia</p>\r\n"
       pager:
         options:
           tags:
@@ -29,14 +26,17 @@ display:
       filters:
         combine:
           expose:
-            label: Search
+            label: Etsi
           group_info:
-            label: 'Combine fields filter'
+            label: 'Kentät yhdistävä suodatin'
+      empty:
+        area:
+          content:
+            value: "<p>Ei tuloksia</p>\r\n"
       arguments:
         id:
           exception:
-            title: All
-    display_title: Oletus
+            title: Kaikki
   block:
     display_title: Lohko
   entity_reference:
@@ -49,4 +49,3 @@ display:
           separator: ', '
         name:
           separator: ', '
-label: Toimipistehaku

@@ -74,7 +74,6 @@ display:
         title: Ajastettu
       tab_options:
         title: Sisältö
-        description: 'Etsi ja ylläpidä ajastettua sisältöä.'
       display_description: 'Yleiskatsaus koko ajoitetusta sisällöstä.'
     display_title: Sisältö
   user_page:
@@ -83,12 +82,10 @@ display:
         title: Ajastettu
       tab_options:
         title: Sisältö
-        description: 'Etsi ja ylläpidä ajastettua sisältöä.'
-      display_description: 'Yleiskatsaus koko ajoitetusta sisällöstä.'
       arguments:
         uid:
           exception:
-            title: All
+            title: Kaikki
       empty:
         area_text_custom:
           content: '{{ arguments.uid }} käyttäjä ei ole ajastanut sisältöä.'
