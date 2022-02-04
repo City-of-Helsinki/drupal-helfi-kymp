@@ -52,7 +52,6 @@ services:
       - 3306
     networks:
       - internal
-
   varnish:
     container_name: "${COMPOSE_PROJECT_NAME}-varnish"
     image: druidfi/varnish:6-drupal
