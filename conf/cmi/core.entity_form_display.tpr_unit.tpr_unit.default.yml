@@ -279,6 +279,13 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  show_www:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
 hidden:
   created: true
   hide_description: true
