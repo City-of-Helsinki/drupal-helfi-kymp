@@ -4134,16 +4134,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.4.7",
+            "version": "2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "8d69dd7eed993f29aa6406de512945dfe21a92df"
+                "reference": "a153d9c612541a082c13c39edacc210cec9ed217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/8d69dd7eed993f29aa6406de512945dfe21a92df",
-                "reference": "8d69dd7eed993f29aa6406de512945dfe21a92df",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/a153d9c612541a082c13c39edacc210cec9ed217",
+                "reference": "a153d9c612541a082c13c39edacc210cec9ed217",
                 "shasum": ""
             },
             "require": {
@@ -4226,6 +4226,9 @@
                     },
                     "drupal/field_group": {
                         "[#UHF-3268] Support for field group translations": "https://www.drupal.org/files/issues/2021-11-22/field_group_fix-translations_label_description-3111107-31.patch"
+                    },
+                    "drupal/publication_date": {
+                        "Patch to fix Bubbleable metadata deprecation notice. (https://www.drupal.org/node/3220692)": "https://www.drupal.org/files/issues/2021-11-04/publication_date-3220692.patch"
                     }
                 }
             },
@@ -4234,10 +4237,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.4.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.4.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-02-09T07:31:08+00:00"
+            "time": "2022-02-14T15:02:36+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -17097,5 +17100,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
