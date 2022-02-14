@@ -9,7 +9,7 @@ dependencies:
     - view_unpublished
 id: read_only
 label: 'Read only'
-weight: 4
+weight: 2
 is_admin: null
 permissions:
   - 'access toolbar'
@@ -20,3 +20,4 @@ permissions:
   - 'view unpublished tpr_service'
   - 'view unpublished tpr_service_channel'
   - 'view unpublished tpr_unit'
+  - 'view any unpublished announcement content'
