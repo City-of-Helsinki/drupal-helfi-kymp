@@ -45,6 +45,7 @@ settings:
       map: map
       unit_search: unit_search
       service_list: service_list
+      chart: chart
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -55,6 +56,9 @@ settings:
         enabled: false
       banner:
         weight: -36
+        enabled: true
+      chart:
+        weight: 25
         enabled: true
       columns:
         weight: -37

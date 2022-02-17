@@ -254,6 +254,13 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  show_www:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   streetview_entrance_url:
     type: readonly_field_widget
     weight: 19

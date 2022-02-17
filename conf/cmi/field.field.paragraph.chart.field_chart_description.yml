@@ -1,0 +1,23 @@
+uuid: 027cef63-7dc4-4ea9-9a06-13e82c869fc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_chart_description
+    - paragraphs.paragraphs_type.chart
+  module:
+    - text
+_core:
+  default_config_hash: PXnqhbLHQJ6PHAymiCOs_AYjh648zX8C9mcKa_wultw
+id: paragraph.chart.field_chart_description
+field_name: field_chart_description
+entity_type: paragraph
+bundle: chart
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

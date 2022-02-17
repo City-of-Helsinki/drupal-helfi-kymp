@@ -1,0 +1,21 @@
+uuid: fac46b83-951e-4a3c-8eca-c11e915d9fbc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - text
+_core:
+  default_config_hash: uqaIgIT9IhvV9B6Q2Lv7oC-6c3Tdc6DKqKrL5tenzWE
+id: media.field_helfi_chart_transcript
+field_name: field_helfi_chart_transcript
+entity_type: media
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

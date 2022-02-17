@@ -37,11 +37,12 @@ dependencies:
     - taxonomy
     - toolbar
     - view_unpublished
+    - content_lock
 _core:
   default_config_hash: wJWcExCcstsjfohW4IUVRm742x2vKz6nOlZpa3OG7yQ
 id: admin
-label: Admin
-weight: 2
+label: Administrator
+weight: 5
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -170,7 +171,6 @@ permissions:
   - 'view all tpr_unit revisions'
   - 'view announcement revisions'
   - 'view any unpublished content'
-  - 'view any unpublished content'
   - 'view landing_page revisions'
   - 'view media'
   - 'view own unpublished content'
@@ -186,3 +186,21 @@ permissions:
   - 'view unpublished tpr_service'
   - 'view unpublished tpr_service_channel'
   - 'view unpublished tpr_unit'
+  - 'assign admin role'
+  - 'assign content_producer role'
+  - 'assign read_only role'
+  - 'assign editor role'
+  - 'set landing_page published on date'
+  - 'set page published on date'
+  - 'use menu link attributes'
+  - 'use text format full_html'
+  - 'use text format minimal'
+  - 'update tpr_service'
+  - 'update tpr_unit'
+  - 'set announcement published on date'
+  - 'create helfi_chart media'
+  - 'delete any helfi_chart media'
+  - 'delete own helfi_chart media'
+  - 'edit any helfi_chart media'
+  - 'edit own helfi_chart media'
+  - 'break content lock'
