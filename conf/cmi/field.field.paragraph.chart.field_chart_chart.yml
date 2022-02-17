@@ -1,0 +1,31 @@
+uuid: 1b4377fd-e68f-4705-b982-4a9abd29bfd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_chart_chart
+    - media.type.helfi_chart
+    - paragraphs.paragraphs_type.chart
+_core:
+  default_config_hash: Bgpy9qMeAyk_ExogswE1IH_q2_H7q__aGfrIHsquc0s
+id: paragraph.chart.field_chart_chart
+field_name: field_chart_chart
+entity_type: paragraph
+bundle: chart
+label: Chart
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      helfi_chart: helfi_chart
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

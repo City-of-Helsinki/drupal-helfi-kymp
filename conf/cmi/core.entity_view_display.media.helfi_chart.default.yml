@@ -1,0 +1,47 @@
+uuid: 7cccbc7b-f51a-484f-8e3d-71d0abd83518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.helfi_chart.field_helfi_chart_title
+    - field.field.media.helfi_chart.field_helfi_chart_transcript
+    - field.field.media.helfi_chart.field_helfi_chart_url
+    - media.type.helfi_chart
+  module:
+    - helfi_charts
+    - text
+_core:
+  default_config_hash: xx0aqm6h76bx9PHQY1M3j_2w_pxsZEzniyrq-zmJ9Qc
+id: media.helfi_chart.default
+targetEntityType: media
+bundle: helfi_chart
+mode: default
+content:
+  field_helfi_chart_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_helfi_chart_transcript:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_helfi_chart_url:
+    type: helfi_chart
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
