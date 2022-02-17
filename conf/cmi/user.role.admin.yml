@@ -37,6 +37,7 @@ dependencies:
     - taxonomy
     - toolbar
     - view_unpublished
+    - content_lock
 _core:
   default_config_hash: wJWcExCcstsjfohW4IUVRm742x2vKz6nOlZpa3OG7yQ
 id: admin
@@ -202,3 +203,4 @@ permissions:
   - 'delete own helfi_chart media'
   - 'edit any helfi_chart media'
   - 'edit own helfi_chart media'
+  - 'break content lock'
