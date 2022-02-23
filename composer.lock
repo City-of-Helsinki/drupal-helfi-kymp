@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7482fc6821202d8ad678b7a62b5e4047",
+    "content-hash": "370e4e24377448cb9a7aae93476562c9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4063,6 +4063,35 @@
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
             "time": "2022-02-01T08:29:04+00:00"
+        },
+        {
+            "name": "drupal/helfi_debug",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-debug.git",
+                "reference": "4bfdaaa1eeed2397109bd05e41489bfbd4284c62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-debug/zipball/4bfdaaa1eeed2397109bd05e41489bfbd4284c62",
+                "reference": "4bfdaaa1eeed2397109bd05e41489bfbd4284c62",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "t4web/composer-lock-parser": "^1.1"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Helfi - Debug",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-debug/tree/1.0.0",
+                "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-debug/issues"
+            },
+            "time": "2022-02-10T12:05:20+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -13061,6 +13090,54 @@
                 }
             ],
             "time": "2021-11-18T18:49:23+00:00"
+        },
+        {
+            "name": "t4web/composer-lock-parser",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/t4web/ComposerLockParser.git",
+                "reference": "e0b6c19871b635bc673ff5859747d70c115f996a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/t4web/ComposerLockParser/zipball/e0b6c19871b635bc673ff5859747d70c115f996a",
+                "reference": "e0b6c19871b635bc673ff5859747d70c115f996a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "<2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ComposerLockParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Max Gulturyan",
+                    "email": "gulturyan@gmail.com",
+                    "homepage": "http://about.me/maxgu"
+                }
+            ],
+            "description": "OOP reader of composer.lock file.",
+            "homepage": "https://github.com/t4web/ComposerLockParser",
+            "keywords": [
+                "composer.lock reader"
+            ],
+            "support": {
+                "issues": "https://github.com/t4web/ComposerLockParser/issues",
+                "source": "https://github.com/t4web/ComposerLockParser/tree/master"
+            },
+            "time": "2018-10-30T07:47:04+00:00"
         },
         {
             "name": "twig/twig",
