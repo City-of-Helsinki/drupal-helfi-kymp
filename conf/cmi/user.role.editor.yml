@@ -1,7 +1,41 @@
 uuid: 1d851ce5-f0f9-43bb-a69e-45e6facda2ff
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.minimal
+    - media.type.file
+    - media.type.hel_map
+    - media.type.helfi_chart
+    - media.type.image
+    - media.type.remote_video
+    - media.type.soundcloud
+    - node.type.announcement
+    - node.type.landing_page
+    - node.type.page
+    - taxonomy.vocabulary.keywords
+  module:
+    - content_translation
+    - file
+    - filter
+    - helfi_api_base
+    - helfi_tpr
+    - locale
+    - media
+    - menu_link_attributes
+    - menu_link_content
+    - node
+    - paragraphs
+    - paragraphs_library
+    - path
+    - redirect
+    - scheduler
+    - siteimprove
+    - system
+    - taxonomy
+    - toolbar
+    - view_unpublished
 id: editor
 label: Editor
 weight: 4
@@ -15,6 +49,8 @@ permissions:
   - 'access site in maintenance mode'
   - 'access taxonomy overview'
   - 'access toolbar'
+  - 'access tpr_service overview'
+  - 'access tpr_unit overview'
   - 'access user profiles'
   - 'administer menu'
   - 'administer nodes'
@@ -23,8 +59,11 @@ permissions:
   - 'administer url aliases'
   - 'cancel account'
   - 'change own username'
+  - 'create announcement content'
   - 'create content translations'
   - 'create file media'
+  - 'create hel_map media'
+  - 'create helfi_chart media'
   - 'create image media'
   - 'create landing_page content'
   - 'create media'
@@ -35,7 +74,11 @@ permissions:
   - 'create soundcloud media'
   - 'create terms in keywords'
   - 'create url aliases'
+  - 'delete announcement revisions'
+  - 'delete any announcement content'
   - 'delete any file media'
+  - 'delete any hel_map media'
+  - 'delete any helfi_chart media'
   - 'delete any image media'
   - 'delete any landing_page content'
   - 'delete any media'
@@ -45,7 +88,10 @@ permissions:
   - 'delete content translations'
   - 'delete landing_page revisions'
   - 'delete media'
+  - 'delete own announcement content'
   - 'delete own file media'
+  - 'delete own hel_map media'
+  - 'delete own helfi_chart media'
   - 'delete own image media'
   - 'delete own landing_page content'
   - 'delete own page content'
@@ -54,13 +100,19 @@ permissions:
   - 'delete page revisions'
   - 'delete remote entities'
   - 'delete terms in keywords'
+  - 'edit any announcement content'
   - 'edit any file media'
+  - 'edit any hel_map media'
+  - 'edit any helfi_chart media'
   - 'edit any image media'
   - 'edit any landing_page content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit any soundcloud media'
+  - 'edit own announcement content'
   - 'edit own file media'
+  - 'edit own hel_map media'
+  - 'edit own helfi_chart media'
   - 'edit own image media'
   - 'edit own landing_page content'
   - 'edit own page content'
@@ -69,11 +121,16 @@ permissions:
   - 'edit paragraph library item'
   - 'edit remote entities'
   - 'edit terms in keywords'
+  - 'revert all tpr_service revisions'
+  - 'revert all tpr_unit revisions'
+  - 'revert announcement revisions'
   - 'revert landing_page revisions'
   - 'revert page revisions'
   - 'schedule publishing of nodes'
+  - 'set announcement published on date'
   - 'set landing_page published on date'
   - 'set page published on date'
+  - 'translate announcement node'
   - 'translate any entity'
   - 'translate editable entities'
   - 'translate file media'
@@ -85,14 +142,27 @@ permissions:
   - 'translate page node'
   - 'translate remote_video media'
   - 'translate soundcloud media'
+  - 'translate tpr_errand_service'
+  - 'translate tpr_service'
+  - 'translate tpr_service_channel'
+  - 'translate tpr_unit'
   - 'update any media'
+  - 'update any tpr_service'
+  - 'update any tpr_unit'
   - 'update content translations'
   - 'update media'
+  - 'update own tpr_service'
+  - 'update own tpr_unit'
   - 'use menu link attributes'
+  - 'use siteimprove'
+  - 'use siteimprove prepublish'
   - 'use text format full_html'
   - 'use text format minimal'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view all tpr_service revisions'
+  - 'view all tpr_unit revisions'
+  - 'view announcement revisions'
   - 'view any unpublished content'
   - 'view landing_page revisions'
   - 'view own unpublished content'
@@ -101,43 +171,7 @@ permissions:
   - 'view scheduled content'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
-  - 'access tpr_service overview'
-  - 'access tpr_unit overview'
-  - 'revert all tpr_service revisions'
-  - 'revert all tpr_unit revisions'
-  - 'translate tpr_errand_service'
-  - 'translate tpr_service'
-  - 'translate tpr_service_channel'
-  - 'translate tpr_unit'
-  - 'update any tpr_service'
-  - 'update any tpr_unit'
-  - 'update own tpr_service'
-  - 'update own tpr_unit'
-  - 'view all tpr_service revisions'
-  - 'view all tpr_unit revisions'
   - 'view unpublished tpr_errand_service'
   - 'view unpublished tpr_service'
   - 'view unpublished tpr_service_channel'
   - 'view unpublished tpr_unit'
-  - 'use siteimprove'
-  - 'use siteimprove prepublish'
-  - 'create hel_map media'
-  - 'delete any hel_map media'
-  - 'delete own hel_map media'
-  - 'edit any hel_map media'
-  - 'edit own hel_map media'
-  - 'create announcement content'
-  - 'delete announcement revisions'
-  - 'delete any announcement content'
-  - 'delete own announcement content'
-  - 'edit any announcement content'
-  - 'edit own announcement content'
-  - 'revert announcement revisions'
-  - 'set announcement published on date'
-  - 'translate announcement node'
-  - 'view announcement revisions'
-  - 'create helfi_chart media'
-  - 'delete any helfi_chart media'
-  - 'delete own helfi_chart media'
-  - 'edit any helfi_chart media'
-  - 'edit own helfi_chart media'

@@ -2,16 +2,13 @@ uuid: f3591290-abd6-4f5d-bcfa-71a324b376ae
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.full_html
-    - filter.format.minimal
   module:
     - eu_cookie_compliance
-    - filter
     - helfi_api_base
     - helfi_tpr
     - media
     - system
+    - toolbar
 _core:
   default_config_hash: 83Nuup-6oYkkdAsvg3nrR2pBOgtTXEV1JrzpCCLkYLM
 id: authenticated
@@ -20,9 +17,9 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'access toolbar'
   - 'display eu cookie compliance popup'
   - 'view media'
   - 'view remote entities'
   - 'view tpr_service'
   - 'view tpr_unit'
-  - 'access toolbar'
