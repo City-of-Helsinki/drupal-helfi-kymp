@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7482fc6821202d8ad678b7a62b5e4047",
+    "content-hash": "6fdbd2b22283612606e7f9426f9ea75b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4001,22 +4001,22 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "a5faaa6f8d191cd8283dda467303be285049c544"
+                "reference": "b8d4a4f06eeb380271f2d400e37dbdad50a07036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/a5faaa6f8d191cd8283dda467303be285049c544",
-                "reference": "a5faaa6f8d191cd8283dda467303be285049c544",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/b8d4a4f06eeb380271f2d400e37dbdad50a07036",
+                "reference": "b8d4a4f06eeb380271f2d400e37dbdad50a07036",
                 "shasum": ""
             },
             "require": {
                 "drupal/entity": "^1.0",
                 "php": "^8.0",
-                "t4web/composer-lock-parser": "dev-master#fe21200b0814c3a487866de5b3e0384449f043a0"
+                "t4web/composer-lock-parser": "^1.0"
             },
             "conflict": {
                 "drupal/helfi_debug": "*"
@@ -4031,10 +4031,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.1.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.1.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2022-02-23T14:53:51+00:00"
+            "time": "2022-02-25T07:39:43+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -7355,12 +7355,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11518,12 +11518,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -13068,16 +13068,16 @@
         },
         {
             "name": "t4web/composer-lock-parser",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/City-of-Helsinki/ComposerLockParser.git",
-                "reference": "fe21200b0814c3a487866de5b3e0384449f043a0"
+                "url": "https://github.com/t4web/ComposerLockParser.git",
+                "reference": "b2e19cc128dbc97830d4a58e2428304a1d88c591"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/ComposerLockParser/zipball/fe21200b0814c3a487866de5b3e0384449f043a0",
-                "reference": "fe21200b0814c3a487866de5b3e0384449f043a0",
+                "url": "https://api.github.com/repos/t4web/ComposerLockParser/zipball/b2e19cc128dbc97830d4a58e2428304a1d88c591",
+                "reference": "b2e19cc128dbc97830d4a58e2428304a1d88c591",
                 "shasum": ""
             },
             "require": {
@@ -13086,13 +13086,13 @@
             "require-dev": {
                 "codeception/codeception": "<2"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-0": {
                     "ComposerLockParser\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -13109,9 +13109,10 @@
                 "composer.lock reader"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/ComposerLockParser/tree/master"
+                "issues": "https://github.com/t4web/ComposerLockParser/issues",
+                "source": "https://github.com/t4web/ComposerLockParser/tree/1.2.0"
             },
-            "time": "2022-02-23T13:27:22+00:00"
+            "time": "2022-02-23T14:59:32+00:00"
         },
         {
             "name": "twig/twig",
@@ -14759,16 +14760,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a"
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/15a90844ad40f127afd244c0cad228de2a80052a",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "shasum": ""
             },
             "require": {
@@ -14804,9 +14805,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.1"
+                "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
-            "time": "2022-02-07T21:56:48+00:00"
+            "time": "2022-02-21T01:04:05+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -15138,16 +15139,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.10",
+            "version": "9.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687"
+                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d5850aaf931743067f4bfc1ae4cbd06468400687",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/deac8540cb7bd40b2b8cfa679b76202834fd04e8",
+                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8",
                 "shasum": ""
             },
             "require": {
@@ -15203,7 +15204,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.13"
             },
             "funding": [
                 {
@@ -15211,7 +15212,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-05T09:12:13+00:00"
+            "time": "2022-02-23T17:02:38+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -15456,16 +15457,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.13",
+            "version": "9.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
+                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
-                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
+                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
                 "shasum": ""
             },
             "require": {
@@ -15481,7 +15482,7 @@
                 "phar-io/version": "^3.0.2",
                 "php": ">=7.3",
                 "phpspec/prophecy": "^1.12.1",
-                "phpunit/php-code-coverage": "^9.2.7",
+                "phpunit/php-code-coverage": "^9.2.13",
                 "phpunit/php-file-iterator": "^3.0.5",
                 "phpunit/php-invoker": "^3.1.1",
                 "phpunit/php-text-template": "^2.0.3",
@@ -15543,7 +15544,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.16"
             },
             "funding": [
                 {
@@ -15555,7 +15556,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-24T07:33:35+00:00"
+            "time": "2022-02-23T17:10:58+00:00"
         },
         {
             "name": "sebastian/cli-parser",
