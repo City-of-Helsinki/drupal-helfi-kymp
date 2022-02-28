@@ -37,10 +37,10 @@ update-automation: $(PROJECT_DIR)/helfi-test-automation-python/.git
 
 PHONY += install-drupal
 install-drupal:
-	$(call docker_run_ci,app,drush si -y)
+	$(call docker_run_ci,app,drush si minimal -y)
 	$(call docker_run_ci,app,drush cr)
-	$(call docker_run_ci,app,drush si --existing-config -y)
-	$(call docker_run_ci,app,drush cim -y)
+	$(call docker_run_ci,app,drush si minimal --existing-config -y)
+	$(call docker_run_ci,app,drush deploy)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content -y)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
