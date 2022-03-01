@@ -79,7 +79,7 @@ fix-files-permission:
 	mkdir $(PROJECT_DIR)public/sites/default/files -p && chmod 777 -R $(PROJECT_DIR)public/sites/default/files
 
 define docker_run_ci
-	docker compose exec $(1) sh -c "$(2)"
+	docker compose exec $(1) -T sh -c "$(2)"
 endef
 
 PHONY += setup-robo
