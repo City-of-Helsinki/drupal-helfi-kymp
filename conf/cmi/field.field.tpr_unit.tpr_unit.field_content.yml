@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.remote_video
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -41,6 +42,7 @@ settings:
       content_cards: content_cards
       banner: banner
       from_library: from_library
+      remote_video: remote_video
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -86,8 +88,8 @@ settings:
         weight: 31
         enabled: false
       remote_video:
-        weight: 32
-        enabled: false
+        weight: 41
+        enabled: true
       text:
         weight: -29
         enabled: true
