@@ -1,0 +1,14 @@
+uuid: a76f0334-215e-45ae-bc52-e8256164259c
+langcode: en
+status: true
+dependencies: {  }
+id: helfi_debug_data
+plugin_id: helfi_debug_data
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

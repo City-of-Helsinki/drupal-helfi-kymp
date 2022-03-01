@@ -1,45 +1,24 @@
-label: 'Scheduled content'
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          submit_button: Filtrera
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          tags:
-            previous: '‹ föregående'
-            next: 'nästa ›'
-            first: '« första'
-            last: 'sista »'
       fields:
         node_bulk_form:
           action_title: Åtgärd
         title:
           label: Titel
-          separator: ', '
         type:
           label: Innehållstyp
-          separator: ', '
         name:
           label: Författare
-          separator: ', '
         status:
           label: Status
           settings:
             format_custom_true: Publicerad
             format_custom_false: 'Ej publicerad'
-          separator: ', '
         publish_on:
           label: 'Publicera den'
-          separator: ', '
         unpublish_on:
           label: 'Avpublicera den'
-          separator: ', '
         operations:
           label: Funktioner
       filters:
@@ -62,7 +41,6 @@ display:
         langcode:
           expose:
             label: Språk
-      title: 'Scheduled Content'
     display_title: Förvald
   overview:
     display_options:
@@ -70,7 +48,6 @@ display:
         title: Schemalagd
       tab_options:
         title: Innehåll
-    display_title: 'Content Overview'
   user_page:
     display_options:
       menu:
@@ -81,4 +58,3 @@ display:
         uid:
           exception:
             title: Alla
-    display_title: Förvald

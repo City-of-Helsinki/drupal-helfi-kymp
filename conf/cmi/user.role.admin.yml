@@ -3,26 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
+    - filter.format.minimal
     - media.type.file
     - media.type.hel_map
+    - media.type.helfi_chart
     - media.type.image
     - media.type.remote_video
     - media.type.soundcloud
     - node.type.announcement
     - node.type.landing_page
     - node.type.page
+    - rest.resource.helfi_debug_data
     - taxonomy.vocabulary.keywords
   module:
     - block
     - config_translation
+    - content_lock
     - content_translation
     - eu_cookie_compliance
     - file
+    - filter
     - helfi_api_base
     - helfi_hotjar
     - helfi_tpr
     - locale
     - media
+    - menu_link_attributes
     - menu_link_content
     - node
     - paragraphs
@@ -30,6 +37,8 @@ dependencies:
     - path
     - pathauto
     - redirect
+    - rest
+    - role_delegation
     - scheduler
     - simple_sitemap
     - siteimprove
@@ -37,7 +46,6 @@ dependencies:
     - taxonomy
     - toolbar
     - view_unpublished
-    - content_lock
 _core:
   default_config_hash: wJWcExCcstsjfohW4IUVRm742x2vKz6nOlZpa3OG7yQ
 id: admin
@@ -72,12 +80,18 @@ permissions:
   - 'administer tpr_unit'
   - 'administer url aliases'
   - 'administer users'
+  - 'assign admin role'
+  - 'assign content_producer role'
+  - 'assign editor role'
+  - 'assign read_only role'
+  - 'break content lock'
   - 'cancel account'
   - 'change own username'
   - 'create announcement content'
   - 'create content translations'
   - 'create file media'
   - 'create hel_map media'
+  - 'create helfi_chart media'
   - 'create image media'
   - 'create landing_page content'
   - 'create media'
@@ -93,6 +107,7 @@ permissions:
   - 'delete any announcement content'
   - 'delete any file media'
   - 'delete any hel_map media'
+  - 'delete any helfi_chart media'
   - 'delete any image media'
   - 'delete any landing_page content'
   - 'delete any media'
@@ -105,6 +120,7 @@ permissions:
   - 'delete own announcement content'
   - 'delete own file media'
   - 'delete own hel_map media'
+  - 'delete own helfi_chart media'
   - 'delete own image media'
   - 'delete own landing_page content'
   - 'delete own page content'
@@ -116,6 +132,7 @@ permissions:
   - 'edit any announcement content'
   - 'edit any file media'
   - 'edit any hel_map media'
+  - 'edit any helfi_chart media'
   - 'edit any image media'
   - 'edit any landing_page content'
   - 'edit any page content'
@@ -124,6 +141,7 @@ permissions:
   - 'edit own announcement content'
   - 'edit own file media'
   - 'edit own hel_map media'
+  - 'edit own helfi_chart media'
   - 'edit own image media'
   - 'edit own landing_page content'
   - 'edit own page content'
@@ -132,6 +150,7 @@ permissions:
   - 'edit paragraph library item'
   - 'edit remote entities'
   - 'edit terms in keywords'
+  - 'restful get helfi_debug_data'
   - 'revert all revisions'
   - 'revert all tpr_service revisions'
   - 'revert all tpr_unit revisions'
@@ -139,6 +158,9 @@ permissions:
   - 'revert landing_page revisions'
   - 'revert page revisions'
   - 'schedule publishing of nodes'
+  - 'set announcement published on date'
+  - 'set landing_page published on date'
+  - 'set page published on date'
   - 'translate announcement node'
   - 'translate any entity'
   - 'translate configuration'
@@ -163,8 +185,13 @@ permissions:
   - 'update media'
   - 'update own tpr_service'
   - 'update own tpr_unit'
+  - 'update tpr_service'
+  - 'update tpr_unit'
+  - 'use menu link attributes'
   - 'use siteimprove'
   - 'use siteimprove prepublish'
+  - 'use text format full_html'
+  - 'use text format minimal'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view all tpr_service revisions'
@@ -186,21 +213,3 @@ permissions:
   - 'view unpublished tpr_service'
   - 'view unpublished tpr_service_channel'
   - 'view unpublished tpr_unit'
-  - 'assign admin role'
-  - 'assign content_producer role'
-  - 'assign read_only role'
-  - 'assign editor role'
-  - 'set landing_page published on date'
-  - 'set page published on date'
-  - 'use menu link attributes'
-  - 'use text format full_html'
-  - 'use text format minimal'
-  - 'update tpr_service'
-  - 'update tpr_unit'
-  - 'set announcement published on date'
-  - 'create helfi_chart media'
-  - 'delete any helfi_chart media'
-  - 'delete own helfi_chart media'
-  - 'edit any helfi_chart media'
-  - 'edit own helfi_chart media'
-  - 'break content lock'
