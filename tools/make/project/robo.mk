@@ -1,6 +1,6 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-ROBOT_TAGS ?= CRITICAL
+ROBOT_EXTRA_ARGS ?=
 SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
@@ -87,4 +87,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot -i $(ROBOT_TAGS) --exitonfailure -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:False -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports  .)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot $(ROBOT_EXTRA_ARGS) --exitonfailure -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:False -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports  .)
