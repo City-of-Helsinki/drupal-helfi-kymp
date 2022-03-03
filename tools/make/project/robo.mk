@@ -43,12 +43,10 @@ install-drupal:
 	$(call docker_run_ci,app,drush deploy)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
-	$(call publish_tpr_entity,tpr_unit)
-	$(call publish_tpr_entity,tpr_service)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -58,12 +56,10 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,drush cim -y)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
-	$(call publish_tpr_entity,tpr_unit)
-	$(call publish_tpr_entity,tpr_service)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += save-dump
 save-dump:
@@ -84,10 +80,6 @@ fix-files-permission:
 
 define docker_run_ci
 	docker compose exec -T $(1) sh -c "$(2)"
-endef
-
-define publish_tpr_entity
-	$(call,docker_run_ci,app,drush php-eval "array_map(function (\$entity) { \$entity->setPublished()->save(); }, \Drupal::entityTypeManager()->getStorage('$(1)')->loadMultiple());")
 endef
 
 PHONY += setup-robo
