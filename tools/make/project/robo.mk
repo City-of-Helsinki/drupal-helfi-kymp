@@ -47,6 +47,8 @@ install-drupal:
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
+	$(call publish_tpr_entity,tpr_unit)
+	$(call publish_tpr_entity,tpr_service)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -60,6 +62,8 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
+	$(call publish_tpr_entity,tpr_unit)
+	$(call publish_tpr_entity,tpr_service)
 
 PHONY += save-dump
 save-dump:
@@ -80,6 +84,10 @@ fix-files-permission:
 
 define docker_run_ci
 	docker compose exec -T $(1) sh -c "$(2)"
+endef
+
+define publish_tpr_entity
+	$(call,docker_run_ci,app,drush php-eval "array_map(function (\$entity) { \$entity->setPublished()->save(); }, \Drupal::entityTypeManager()->getStorage('$(1)')->loadMultiple());")
 endef
 
 PHONY += setup-robo
