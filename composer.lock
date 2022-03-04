@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fdbd2b22283612606e7f9426f9ea75b",
+    "content-hash": "0f1daf3863f4b471f23b4c6477b36d20",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3053,26 +3053,26 @@
         },
         {
             "name": "drupal/entity",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity.git",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "7e7cb12ea65d9f986b59935eda316387cf511079"
+                "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "9515e28a70448d369adf4199d08a01a5ab75792d"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^8.8.2 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1606399149",
+                    "version": "8.x-1.3",
+                    "datestamp": "1646324539",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3114,9 +3114,10 @@
                 }
             ],
             "description": "Provides expanded entity APIs, which will be moved to Drupal core one day.",
-            "homepage": "http://drupal.org/project/entity",
+            "homepage": "https://www.drupal.org/project/entity",
             "support": {
-                "source": "https://git.drupalcode.org/project/entity"
+                "source": "https://git.drupalcode.org/project/entity",
+                "issues": "https://www.drupal.org/project/issues/entity"
             }
         },
         {
@@ -3905,16 +3906,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "2.2.10",
+            "version": "2.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "41da2be596fc3cb319a201553ce4b3143d90845f"
+                "reference": "00fdffdcf4313948fd8502a7f2ec67362ff78dec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/41da2be596fc3cb319a201553ce4b3143d90845f",
-                "reference": "41da2be596fc3cb319a201553ce4b3143d90845f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/00fdffdcf4313948fd8502a7f2ec67362ff78dec",
+                "reference": "00fdffdcf4313948fd8502a7f2ec67362ff78dec",
                 "shasum": ""
             },
             "require": {
@@ -3929,10 +3930,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.2.10",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.2.11",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2022-02-25T12:39:41+00:00"
+            "time": "2022-03-04T08:16:13+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4198,16 +4199,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.5.9",
+            "version": "2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "6bfab757e1c5bbc21434c6a5d938d89a70c16dc8"
+                "reference": "e2e1c24069931b11395abe2dcf5403570f390baa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/6bfab757e1c5bbc21434c6a5d938d89a70c16dc8",
-                "reference": "6bfab757e1c5bbc21434c6a5d938d89a70c16dc8",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e2e1c24069931b11395abe2dcf5403570f390baa",
+                "reference": "e2e1c24069931b11395abe2dcf5403570f390baa",
                 "shasum": ""
             },
             "require": {
@@ -4301,23 +4302,23 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.5.9",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.5.10",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-03-03T09:57:53+00:00"
+            "time": "2022-03-04T08:26:58+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.1.0",
+            "version": "dev-UHF-3861",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "c28e56dc3224e840cd4a6cda6545576ba91a5d25"
+                "reference": "21ba7560125def6f84c2799c99f404b54dc8aa55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/c28e56dc3224e840cd4a6cda6545576ba91a5d25",
-                "reference": "c28e56dc3224e840cd4a6cda6545576ba91a5d25",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/21ba7560125def6f84c2799c99f404b54dc8aa55",
+                "reference": "21ba7560125def6f84c2799c99f404b54dc8aa55",
                 "shasum": ""
             },
             "require": {
@@ -4339,10 +4340,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.1.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/UHF-3861",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-02-21T05:37:54+00:00"
+            "time": "2022-03-04T05:08:03+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -14638,16 +14639,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.10.3",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "c6a951b75d684fd43fbbd69617488e1e2e8924ba"
+                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/c6a951b75d684fd43fbbd69617488e1e2e8924ba",
-                "reference": "c6a951b75d684fd43fbbd69617488e1e2e8924ba",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/14daed4296fae74d9e3201d2c4925d1acb7aa614",
+                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614",
                 "shasum": ""
             },
             "require": {
@@ -14685,7 +14686,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.10.3"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.11.0"
             },
             "funding": [
                 {
@@ -14693,7 +14694,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-02T14:16:47+00:00"
+            "time": "2022-03-03T13:19:32+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -17227,7 +17228,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/helfi_drupal_tools": 20
+        "drupal/helfi_drupal_tools": 20,
+        "drupal/helfi_proxy": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
