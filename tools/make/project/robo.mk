@@ -1,6 +1,6 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-ROBOT_TAGS ?= CRITICAL
+ROBOT_EXTRA_ARGS ?=
 SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
@@ -43,10 +43,10 @@ install-drupal:
 	$(call docker_run_ci,app,drush deploy)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -56,10 +56,10 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,drush cim -y)
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
+	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += save-dump
 save-dump:
@@ -87,4 +87,4 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && robot -i $(ROBOT_TAGS) --exitonfailure -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:False -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports  .)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && pabot --testlevelsplit --ordering ./environments/helfi_pabot_order_ci --processes 9 $(ROBOT_EXTRA_ARGS) -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:False -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports  .)
