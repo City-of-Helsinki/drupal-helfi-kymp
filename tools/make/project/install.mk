@@ -1,11 +1,9 @@
-ifeq ($(DRUPAL_VERSION),8)
-	ifeq ($(DRUPAL_CONF_EXISTS),yes)
-	    DRUPAL_NEW_TARGETS := up build drush-si drush-cr drush-locale-update drush-uli
-	else
-	    DRUPAL_NEW_TARGETS := up build drush-si drush-enable-modules drush-locale-update drush-uli
-	endif
-    DRUPAL_POST_INSTALL_TARGETS := drush-deploy drush-locale-update drush-uli
+ifeq ($(DRUPAL_CONF_EXISTS),yes)
+	DRUPAL_NEW_TARGETS := up build drush-si drush-cr drush-locale-update drush-uli
+else
+	DRUPAL_NEW_TARGETS := up build drush-si helfi-drush-enable-modules drush-locale-update drush-uli
 endif
+DRUPAL_POST_INSTALL_TARGETS := drush-deploy drush-locale-update drush-uli
 
 OC_LOGIN_TOKEN ?= $(shell bash -c 'read -s -p "You must obtain an API token by visiting https://oauth-openshift.apps.arodevtest.hel.fi/oauth/token/request (Token):" token; echo $$token')
 SYNC_TARGETS := oc-login oc-sync
@@ -23,8 +21,8 @@ oc-sync:
 	$(call drush,cim -y)
 	$(call drush,cr)
 
-PHONY += drush-enable-modules
-drush-enable-modules: ## Enable modules and base configurations.
+PHONY += helfi-drush-enable-modules
+helfi-drush-enable-modules: ## Enable modules and base configurations.
 	$(call step,Install base configurations...)
 	$(call drush,cr)
 	$(call drush,en -y helfi_platform_config helfi_base_config)

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+    - helfi_api_base
+id: tpr_errand_service_update_action
+label: Update
+type: tpr_errand_service
+plugin: 'remote_entity:migration_update:tpr_errand_service'
+configuration: {  }
