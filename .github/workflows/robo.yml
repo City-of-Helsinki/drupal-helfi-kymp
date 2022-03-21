@@ -46,7 +46,13 @@ jobs:
         if: always()
         with:
           name: results
-          path: |
-            helfi-test-automation-python/robotframework-reports/
-            logs.txt
+          path: helfi-test-automation-python/robotframework-reports/
+          retention-days: 2
+
+      - name: Create an artifact from logs
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: logs
+          path: logs.txt
           retention-days: 2
