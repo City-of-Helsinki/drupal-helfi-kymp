@@ -39,7 +39,7 @@ jobs:
         run: make run-robo-tests
 
       - name: Export app logs
-        run: docker compose logs app > $HOME/logs.txt
+        run: docker compose logs app > $GITHUB_WORKSPACE/logs.txt
 
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v2
@@ -54,5 +54,5 @@ jobs:
         if: always()
         with:
           name: logs
-          path: ${{ env.HOME }}/logs.txt
+          path: ${{ env.GITHUB_WORKSPACE }}/logs.txt
           retention-days: 2
