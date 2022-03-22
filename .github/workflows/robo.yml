@@ -39,20 +39,14 @@ jobs:
         run: make run-robo-tests
 
       - name: Export app logs
-        run: docker compose logs app > $GITHUB_WORKSPACE/logs.txt
+        run: docker compose logs app > logs.txt
 
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: results
-          path: helfi-test-automation-python/robotframework-reports/
-          retention-days: 2
-
-      - name: Create an artifact from logs
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: logs
-          path: ${{ env.GITHUB_WORKSPACE }}/logs.txt
+          path: |
+            logs.txt
+            helfi-test-automation-python/robotframework-reports/
           retention-days: 2
