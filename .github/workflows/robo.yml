@@ -46,7 +46,7 @@ jobs:
         run: docker compose logs app > logs.txt
 
       - name: Create an artifact from logs report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: logs
@@ -54,7 +54,7 @@ jobs:
           retention-days: 2
 
       - name: Create an artifact from test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: results
