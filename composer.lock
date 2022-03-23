@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fdbd2b22283612606e7f9426f9ea75b",
+    "content-hash": "09890294efe2adcc1d2d8514de85290a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4315,21 +4315,22 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.1.2",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "8033d630ddf4446aef570da8cd34c95512141552"
+                "reference": "8a19bc5c51e92058b38bcb1bef69ff5d57f399b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/8033d630ddf4446aef570da8cd34c95512141552",
-                "reference": "8033d630ddf4446aef570da8cd34c95512141552",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/8a19bc5c51e92058b38bcb1bef69ff5d57f399b2",
+                "reference": "8a19bc5c51e92058b38bcb1bef69ff5d57f399b2",
                 "shasum": ""
             },
             "require": {
                 "drupal/helfi_api_base": "*",
                 "drupal/purge": "^3.0",
+                "drupal/redirect": "^1.0",
                 "drupal/varnish_purge": "^2.1",
                 "ext-dom": "*",
                 "ext-libxml": "*",
@@ -4340,16 +4341,17 @@
                 "drupal/coder": "^8.3",
                 "phpspec/prophecy-phpunit": "^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.1.2",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-03-16T11:39:34+00:00"
+            "time": "2022-03-21T07:42:37+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -17233,7 +17235,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/helfi_drupal_tools": 20
+        "drupal/helfi_drupal_tools": 20,
+        "drupal/helfi_proxy": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
