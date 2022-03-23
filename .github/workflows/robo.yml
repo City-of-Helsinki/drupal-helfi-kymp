@@ -38,10 +38,15 @@ jobs:
       - name: Run tests
         run: make run-robo-tests
 
+      - name: Export app logs
+        run: docker compose logs app > logs.txt
+
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: results
-          path: helfi-test-automation-python/robotframework-reports/
+          path: |
+            logs.txt
+            helfi-test-automation-python/robotframework-reports/
           retention-days: 2
