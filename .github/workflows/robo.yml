@@ -42,6 +42,7 @@ jobs:
         run: make run-robo-tests
 
       - name: Export app logs
+        if: always()
         run: docker compose logs app > logs.txt
 
       - name: Create an artifact from test report
