@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - dev
 name: Robot
 env:
   COMPOSE_PROFILES: testing
