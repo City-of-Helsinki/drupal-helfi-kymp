@@ -4200,16 +4200,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.6.4",
+            "version": "2.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "e5e69b8d074109ff96eccf93620bac11cd0624b8"
+                "reference": "f5ec4bff4e1932433db2ff38d7805abdf2e15aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e5e69b8d074109ff96eccf93620bac11cd0624b8",
-                "reference": "e5e69b8d074109ff96eccf93620bac11cd0624b8",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f5ec4bff4e1932433db2ff38d7805abdf2e15aa5",
+                "reference": "f5ec4bff4e1932433db2ff38d7805abdf2e15aa5",
                 "shasum": ""
             },
             "require": {
@@ -4300,6 +4300,9 @@
                     },
                     "drupal/field_group": {
                         "[#UHF-3268] Support for field group translations": "https://www.drupal.org/files/issues/2021-11-22/field_group_fix-translations_label_description-3111107-31.patch"
+                    },
+                    "drupal/easy_breadcrumb": {
+                        "[#UHF-3631] Breadcrumb allow dashes and underscores": "https://www.drupal.org/files/issues/2020-07-23/easy_breadcrumb-allow_hyphens_underscores-3161100-2.patch"
                     }
                 }
             },
@@ -4308,23 +4311,23 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.6.4",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.6.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-03-25T08:59:25+00:00"
+            "time": "2022-03-28T07:03:10+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "8a19bc5c51e92058b38bcb1bef69ff5d57f399b2"
+                "reference": "98ade0595538a7ceac06656e47abb7835f4d5f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/8a19bc5c51e92058b38bcb1bef69ff5d57f399b2",
-                "reference": "8a19bc5c51e92058b38bcb1bef69ff5d57f399b2",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/98ade0595538a7ceac06656e47abb7835f4d5f9d",
+                "reference": "98ade0595538a7ceac06656e47abb7835f4d5f9d",
                 "shasum": ""
             },
             "require": {
@@ -4347,10 +4350,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-03-21T07:42:37+00:00"
+            "time": "2022-03-29T04:27:27+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -13492,31 +13495,29 @@
     "packages-dev": [
         {
             "name": "behat/mink",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/Mink.git",
-                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996"
+                "reference": "19e58905632e7cfdc5b2bafb9b950a3521af32c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/e35f4695de8800fc776af34ebf665ad58ebdd996",
-                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/19e58905632e7cfdc5b2bafb9b950a3521af32c5",
+                "reference": "19e58905632e7cfdc5b2bafb9b950a3521af32c5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4",
-                "symfony/css-selector": "^2.7|^3.0|^4.0|^5.0"
+                "php": ">=7.2",
+                "symfony/css-selector": "^4.4 || ^5.0 || ^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5 || ^9.5",
-                "symfony/debug": "^2.7|^3.0|^4.0|^5.0",
-                "symfony/phpunit-bridge": "^3.4.38 || ^4.4 || ^5.0.5",
-                "yoast/phpunit-polyfills": "^1.0"
+                "phpunit/phpunit": "^8.5.22 || ^9.5.11",
+                "symfony/error-handler": "^4.4 || ^5.0 || ^6.0",
+                "symfony/phpunit-bridge": "^5.4 || ^6.0"
             },
             "suggest": {
-                "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
-                "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
+                "behat/mink-browserkit-driver": "fast headless driver for any app without JS emulation",
                 "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
                 "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)",
                 "dmore/chrome-mink-driver": "fast and JS-enabled driver for any app (requires chromium or google chrome)"
@@ -13552,9 +13553,9 @@
             ],
             "support": {
                 "issues": "https://github.com/minkphp/Mink/issues",
-                "source": "https://github.com/minkphp/Mink/tree/v1.9.0"
+                "source": "https://github.com/minkphp/Mink/tree/v1.10.0"
             },
-            "time": "2021-10-11T11:58:47+00:00"
+            "time": "2022-03-28T14:22:43+00:00"
         },
         {
             "name": "behat/mink-selenium2-driver",
