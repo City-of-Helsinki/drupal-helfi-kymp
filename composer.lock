@@ -1803,17 +1803,17 @@
         },
         {
             "name": "drupal/allowed_formats",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/allowed_formats.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/allowed_formats-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "6c73fd69781e8a7c3ebc394ce74f981b6da50eae"
+                "url": "https://ftp.drupal.org/files/projects/allowed_formats-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "dbf61bee7aec87beaa2cf307c1d0d9d5b896328c"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -1821,8 +1821,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1643490593",
+                    "version": "8.x-1.5",
+                    "datestamp": "1648060331",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2198,16 +2198,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.3.7",
+            "version": "9.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "a768174b00fa088027d460a80a13550e624b9bf8"
+                "reference": "86b0c4496e20ae7f945e9a7f0404fafe191ab774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/a768174b00fa088027d460a80a13550e624b9bf8",
-                "reference": "a768174b00fa088027d460a80a13550e624b9bf8",
+                "url": "https://api.github.com/repos/drupal/core/zipball/86b0c4496e20ae7f945e9a7f0404fafe191ab774",
+                "reference": "86b0c4496e20ae7f945e9a7f0404fafe191ab774",
                 "shasum": ""
             },
             "require": {
@@ -2449,9 +2449,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.3.7"
+                "source": "https://github.com/drupal/core/tree/9.3.9"
             },
-            "time": "2022-03-03T09:23:53+00:00"
+            "time": "2022-03-21T21:21:58+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -2505,16 +2505,16 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.3.7",
+            "version": "9.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "29f6f29672861a5719701a59aae26aafbb4c9495"
+                "reference": "3ce3f2b6145de56178e006fb2ef94089d32cf411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/29f6f29672861a5719701a59aae26aafbb4c9495",
-                "reference": "29f6f29672861a5719701a59aae26aafbb4c9495",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/3ce3f2b6145de56178e006fb2ef94089d32cf411",
+                "reference": "3ce3f2b6145de56178e006fb2ef94089d32cf411",
                 "shasum": ""
             },
             "require": {
@@ -2523,11 +2523,11 @@
                 "doctrine/annotations": "1.13.2",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.3.7",
+                "drupal/core": "9.3.9",
                 "egulias/email-validator": "3.1.2",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.5.1",
-                "guzzlehttp/psr7": "1.8.3",
+                "guzzlehttp/psr7": "1.8.5",
                 "laminas/laminas-diactoros": "2.8.0",
                 "laminas/laminas-escaper": "2.9.0",
                 "laminas/laminas-feed": "2.15.0",
@@ -2585,9 +2585,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.3.7"
+                "source": "https://github.com/drupal/core-recommended/tree/9.3.9"
             },
-            "time": "2022-03-03T09:23:53+00:00"
+            "time": "2022-03-21T21:21:58+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3906,16 +3906,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "2.2.11",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "00fdffdcf4313948fd8502a7f2ec67362ff78dec"
+                "reference": "dbaeab4e2f94e84e9cb587ca0d039353137ef087"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/00fdffdcf4313948fd8502a7f2ec67362ff78dec",
-                "reference": "00fdffdcf4313948fd8502a7f2ec67362ff78dec",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/dbaeab4e2f94e84e9cb587ca0d039353137ef087",
+                "reference": "dbaeab4e2f94e84e9cb587ca0d039353137ef087",
                 "shasum": ""
             },
             "require": {
@@ -3930,28 +3930,28 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.2.11",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/2.3.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2022-03-04T08:16:13+00:00"
+            "time": "2022-03-22T12:11:11+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "1.4.7",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "eff7b7e3772f99e63a1d6d9243ca574eee97a718"
+                "reference": "26afa2b83c86853cf2ea11f97e1d36192f632258"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/eff7b7e3772f99e63a1d6d9243ca574eee97a718",
-                "reference": "eff7b7e3772f99e63a1d6d9243ca574eee97a718",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/26afa2b83c86853cf2ea11f97e1d36192f632258",
+                "reference": "26afa2b83c86853cf2ea11f97e1d36192f632258",
                 "shasum": ""
             },
             "require": {
                 "drupal/admin_toolbar": "^2.3",
-                "drupal/gin": "^3.0"
+                "drupal/gin": "3.0.0-alpha37"
             },
             "type": "drupal-theme",
             "license": [
@@ -3962,10 +3962,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.4.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/1.5.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2022-02-23T09:38:59+00:00"
+            "time": "2022-03-25T11:23:09+00:00"
         },
         {
             "name": "drupal/helfi_ahjo",
@@ -4002,16 +4002,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.1.5",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "4c5fcb736525a0b652761633e797f9230d29e341"
+                "reference": "67a2de221018e8e987b7205966b7878003f9033a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/4c5fcb736525a0b652761633e797f9230d29e341",
-                "reference": "4c5fcb736525a0b652761633e797f9230d29e341",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/67a2de221018e8e987b7205966b7878003f9033a",
+                "reference": "67a2de221018e8e987b7205966b7878003f9033a",
                 "shasum": ""
             },
             "require": {
@@ -4024,6 +4024,7 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "donatj/mock-webserver": "dev-master",
                 "drupal/coder": "^8.3"
             },
             "type": "drupal-module",
@@ -4032,10 +4033,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.1.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.1.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2022-03-03T11:15:30+00:00"
+            "time": "2022-03-22T07:56:10+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4075,12 +4076,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "c2a1d0d02d85648987036ed0ec46d67963211325"
+                "reference": "b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/c2a1d0d02d85648987036ed0ec46d67963211325",
-                "reference": "c2a1d0d02d85648987036ed0ec46d67963211325",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a",
+                "reference": "b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4093,7 +4094,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2022-03-04T11:38:29+00:00"
+            "time": "2022-03-09T10:47:55+00:00"
         },
         {
             "name": "drupal/helfi_hauki",
@@ -4199,16 +4200,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.5.10",
+            "version": "2.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "e2e1c24069931b11395abe2dcf5403570f390baa"
+                "reference": "f5ec4bff4e1932433db2ff38d7805abdf2e15aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e2e1c24069931b11395abe2dcf5403570f390baa",
-                "reference": "e2e1c24069931b11395abe2dcf5403570f390baa",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f5ec4bff4e1932433db2ff38d7805abdf2e15aa5",
+                "reference": "f5ec4bff4e1932433db2ff38d7805abdf2e15aa5",
                 "shasum": ""
             },
             "require": {
@@ -4231,10 +4232,11 @@
                 "drupal/features": "^3.12",
                 "drupal/field_group": "^3.1",
                 "drupal/focal_point": "^1.5",
-                "drupal/gin_toolbar": "^1.0@beta",
+                "drupal/gin_toolbar": "1.0-beta20",
+                "drupal/helfi_api_base": "*",
                 "drupal/helfi_media_formtool": "*",
                 "drupal/helfi_media_map": "*",
-                "drupal/helfi_tpr": "^2.0",
+                "drupal/helfi_tpr": "*",
                 "drupal/image_style_quality": "^1.4",
                 "drupal/imagecache_external": "^3.0",
                 "drupal/linkit": "^6.0@beta",
@@ -4254,7 +4256,7 @@
                 "drupal/scheduler": "^1.3",
                 "drupal/search_api": "^1.0",
                 "drupal/select2": "^1.12",
-                "drupal/simple_sitemap": "^3.0",
+                "drupal/simple_sitemap": "^4.1",
                 "drupal/siteimprove": "^1.11",
                 "drupal/social_media": "^1.8",
                 "drupal/token": "^1.9",
@@ -4266,11 +4268,15 @@
             "type": "drupal-module",
             "extra": {
                 "patches": {
+                    "drupal/content_lock": {
+                        "[#UHF-4553] Fix unlock content button redirect": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/82081691e4a6d05b3716052d5fff46a04027bdc3/patches/content-lock-uhf-4553.patch"
+                    },
                     "drupal/core": {
                         "[#UHF-181] Hide untranslated menu links": "https://www.drupal.org/files/issues/2021-03-05/3091246-allow-menu-tree-manipulators-alter-12-1.patch",
                         "[#UHF-920] Token for base URL (https://www.drupal.org/project/drupal/issues/1088112).": "https://www.drupal.org/files/issues/2020-10-06/1088112-63.patch",
                         "[#UHF-3812] Ajax exposed filters not working for multiple instances of the same Views block placed on one page (https://www.drupal.org/project/drupal/issues/3163299).": "https://www.drupal.org/files/issues/2022-01-03/3163299-49.patch",
-                        "[#UHF-3087] Non-published menu links as parent (https://www.drupal.org/project/drupal/issues/2807629)": "https://www.drupal.org/files/issues/2021-07-09/2807629-45.patch"
+                        "[#UHF-3087] Non-published menu links as parent (https://www.drupal.org/project/drupal/issues/2807629)": "https://www.drupal.org/files/issues/2021-07-09/2807629-45.patch",
+                        "[#UHF-4325] Strip whitespaces from twig debug comments": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/f7c0e380e2deb9a1b46bdf779fb27a945b466575/patches/drupal_core_strip_debug_mode_whitespaces_9.3.x.patch"
                     },
                     "drupal/default_content": {
                         "https://www.drupal.org/project/default_content/issues/2698425#comment-13809863": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
@@ -4294,6 +4300,9 @@
                     },
                     "drupal/field_group": {
                         "[#UHF-3268] Support for field group translations": "https://www.drupal.org/files/issues/2021-11-22/field_group_fix-translations_label_description-3111107-31.patch"
+                    },
+                    "drupal/easy_breadcrumb": {
+                        "[#UHF-3631] Breadcrumb allow dashes and underscores": "https://www.drupal.org/files/issues/2020-07-23/easy_breadcrumb-allow_hyphens_underscores-3161100-2.patch"
                     }
                 }
             },
@@ -4302,28 +4311,29 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.5.10",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.6.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-03-04T08:26:58+00:00"
+            "time": "2022-03-28T07:03:10+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.1.1",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "68189cc5c7ceba643707f8baa1df06f9a0e05735"
+                "reference": "98ade0595538a7ceac06656e47abb7835f4d5f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/68189cc5c7ceba643707f8baa1df06f9a0e05735",
-                "reference": "68189cc5c7ceba643707f8baa1df06f9a0e05735",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/98ade0595538a7ceac06656e47abb7835f4d5f9d",
+                "reference": "98ade0595538a7ceac06656e47abb7835f4d5f9d",
                 "shasum": ""
             },
             "require": {
                 "drupal/helfi_api_base": "*",
                 "drupal/purge": "^3.0",
+                "drupal/redirect": "^1.0",
                 "drupal/varnish_purge": "^2.1",
                 "ext-dom": "*",
                 "ext-libxml": "*",
@@ -4340,23 +4350,23 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.1.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-03-08T05:55:43+00:00"
+            "time": "2022-03-29T04:27:27+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "2.0.3",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "d09a5e24046034af5d2941fbf047dbc6f58e2c12"
+                "reference": "bf6d435b5b0d887d263078ad70cc5fdfd3563b61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/d09a5e24046034af5d2941fbf047dbc6f58e2c12",
-                "reference": "d09a5e24046034af5d2941fbf047dbc6f58e2c12",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/bf6d435b5b0d887d263078ad70cc5fdfd3563b61",
+                "reference": "bf6d435b5b0d887d263078ad70cc5fdfd3563b61",
                 "shasum": ""
             },
             "require": {
@@ -4378,10 +4388,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.0.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.0.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2022-02-28T09:00:16+00:00"
+            "time": "2022-03-18T10:46:31+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -4622,17 +4632,17 @@
         },
         {
             "name": "drupal/matomo",
-            "version": "1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/matomo.git",
-                "reference": "8.x-1.16"
+                "reference": "8.x-1.17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/matomo-8.x-1.16.zip",
-                "reference": "8.x-1.16",
-                "shasum": "0b9fa0bb01afca0821d0233d99b710c004b45039"
+                "url": "https://ftp.drupal.org/files/projects/matomo-8.x-1.17.zip",
+                "reference": "8.x-1.17",
+                "shasum": "091f946ec7a09d6b4463e5d75adca9cdcdff2918"
             },
             "require": {
                 "drupal/core": "^8.8.0 || ^9.0.0"
@@ -4648,8 +4658,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.16",
-                    "datestamp": "1646049531",
+                    "version": "8.x-1.17",
+                    "datestamp": "1647206848",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5669,7 +5679,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.2",
-                    "datestamp": "1644486753",
+                    "datestamp": "1644487627",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5898,27 +5908,27 @@
         },
         {
             "name": "drupal/simple_sitemap",
-            "version": "3.11.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_sitemap.git",
-                "reference": "8.x-3.11"
+                "reference": "4.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.11.zip",
-                "reference": "8.x-3.11",
-                "shasum": "5fdd4ed5af5e37e3c707e401d094a179f52e7711"
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-4.1.1.zip",
+                "reference": "4.1.1",
+                "shasum": "ac23939364505d2e6b9d8c741b306c1b84059dfc"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.7.7 || ^9",
                 "ext-xmlwriter": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.11",
-                    "datestamp": "1634344305",
+                    "version": "4.1.1",
+                    "datestamp": "1645003699",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5950,8 +5960,7 @@
             "homepage": "https://drupal.org/project/simple_sitemap",
             "support": {
                 "source": "https://cgit.drupalcode.org/simple_sitemap",
-                "issues": "https://drupal.org/project/issues/simple_sitemap",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
+                "issues": "https://drupal.org/project/issues/simple_sitemap"
             }
         },
         {
@@ -7407,16 +7416,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.8.3",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "1afdd860a2566ed3c2b0b4a3de6e23434a79ec85"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/1afdd860a2566ed3c2b0b4a3de6e23434a79ec85",
-                "reference": "1afdd860a2566ed3c2b0b4a3de6e23434a79ec85",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
@@ -7497,7 +7506,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/1.8.3"
+                "source": "https://github.com/guzzle/psr7/tree/1.8.5"
             },
             "funding": [
                 {
@@ -7513,7 +7522,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-05T13:56:00+00:00"
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
@@ -10870,16 +10879,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.4.37",
+            "version": "v4.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "c59f37705c3e513ae55b2735f128f4ce363c82ec"
+                "reference": "72a5b35fecaa670b13954e6eaf414acbe2a67b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/c59f37705c3e513ae55b2735f128f4ce363c82ec",
-                "reference": "c59f37705c3e513ae55b2735f128f4ce363c82ec",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/72a5b35fecaa670b13954e6eaf414acbe2a67b35",
+                "reference": "72a5b35fecaa670b13954e6eaf414acbe2a67b35",
                 "shasum": ""
             },
             "require": {
@@ -10913,7 +10922,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v4.4.37"
+                "source": "https://github.com/symfony/filesystem/tree/v4.4.39"
             },
             "funding": [
                 {
@@ -10929,7 +10938,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:41:36+00:00"
+            "time": "2022-02-25T10:38:15+00:00"
         },
         {
             "name": "symfony/finder",
@@ -13486,31 +13495,29 @@
     "packages-dev": [
         {
             "name": "behat/mink",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/Mink.git",
-                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996"
+                "reference": "19e58905632e7cfdc5b2bafb9b950a3521af32c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/e35f4695de8800fc776af34ebf665ad58ebdd996",
-                "reference": "e35f4695de8800fc776af34ebf665ad58ebdd996",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/19e58905632e7cfdc5b2bafb9b950a3521af32c5",
+                "reference": "19e58905632e7cfdc5b2bafb9b950a3521af32c5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4",
-                "symfony/css-selector": "^2.7|^3.0|^4.0|^5.0"
+                "php": ">=7.2",
+                "symfony/css-selector": "^4.4 || ^5.0 || ^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5 || ^9.5",
-                "symfony/debug": "^2.7|^3.0|^4.0|^5.0",
-                "symfony/phpunit-bridge": "^3.4.38 || ^4.4 || ^5.0.5",
-                "yoast/phpunit-polyfills": "^1.0"
+                "phpunit/phpunit": "^8.5.22 || ^9.5.11",
+                "symfony/error-handler": "^4.4 || ^5.0 || ^6.0",
+                "symfony/phpunit-bridge": "^5.4 || ^6.0"
             },
             "suggest": {
-                "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
-                "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
+                "behat/mink-browserkit-driver": "fast headless driver for any app without JS emulation",
                 "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
                 "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)",
                 "dmore/chrome-mink-driver": "fast and JS-enabled driver for any app (requires chromium or google chrome)"
@@ -13546,9 +13553,9 @@
             ],
             "support": {
                 "issues": "https://github.com/minkphp/Mink/issues",
-                "source": "https://github.com/minkphp/Mink/tree/v1.9.0"
+                "source": "https://github.com/minkphp/Mink/tree/v1.10.0"
             },
-            "time": "2021-10-11T11:58:47+00:00"
+            "time": "2022-03-28T14:22:43+00:00"
         },
         {
             "name": "behat/mink-selenium2-driver",
@@ -15137,16 +15144,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.14",
+            "version": "9.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9f4d60b6afe5546421462b76cd4e633ebc364ab4"
+                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9f4d60b6afe5546421462b76cd4e633ebc364ab4",
-                "reference": "9f4d60b6afe5546421462b76cd4e633ebc364ab4",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
+                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
                 "shasum": ""
             },
             "require": {
@@ -15202,7 +15209,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.14"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.15"
             },
             "funding": [
                 {
@@ -15210,7 +15217,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-28T12:38:02+00:00"
+            "time": "2022-03-07T09:28:20+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -15455,16 +15462,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.16",
+            "version": "9.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc"
+                "reference": "35ea4b7f3acabb26f4bb640f8c30866c401da807"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
-                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/35ea4b7f3acabb26f4bb640f8c30866c401da807",
+                "reference": "35ea4b7f3acabb26f4bb640f8c30866c401da807",
                 "shasum": ""
             },
             "require": {
@@ -15494,7 +15501,7 @@
                 "sebastian/global-state": "^5.0.1",
                 "sebastian/object-enumerator": "^4.0.3",
                 "sebastian/resource-operations": "^3.0.3",
-                "sebastian/type": "^2.3.4",
+                "sebastian/type": "^3.0",
                 "sebastian/version": "^3.0.2"
             },
             "require-dev": {
@@ -15542,7 +15549,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.16"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.19"
             },
             "funding": [
                 {
@@ -15554,7 +15561,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-23T17:10:58+00:00"
+            "time": "2022-03-15T09:57:31+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -16413,28 +16420,28 @@
         },
         {
             "name": "sebastian/type",
-            "version": "2.3.4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/type.git",
-                "reference": "b8cd8a1c753c90bc1a0f5372170e3e489136f914"
+                "reference": "b233b84bc4465aff7b57cf1c4bc75c86d00d6dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/b8cd8a1c753c90bc1a0f5372170e3e489136f914",
-                "reference": "b8cd8a1c753c90bc1a0f5372170e3e489136f914",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/b233b84bc4465aff7b57cf1c4bc75c86d00d6dad",
+                "reference": "b233b84bc4465aff7b57cf1c4bc75c86d00d6dad",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.3"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -16457,7 +16464,7 @@
             "homepage": "https://github.com/sebastianbergmann/type",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/type/issues",
-                "source": "https://github.com/sebastianbergmann/type/tree/2.3.4"
+                "source": "https://github.com/sebastianbergmann/type/tree/3.0.0"
             },
             "funding": [
                 {
@@ -16465,7 +16472,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-15T12:49:02+00:00"
+            "time": "2022-03-15T09:54:48+00:00"
         },
         {
             "name": "sebastian/version",
@@ -16941,16 +16948,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.4.38",
+            "version": "v4.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "46e7bd2ff6da01e7ddf40e2d78930e7a621bcb4e"
+                "reference": "4e9215a8b533802ba84a3cc5bd3c43103e7a6dc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/46e7bd2ff6da01e7ddf40e2d78930e7a621bcb4e",
-                "reference": "46e7bd2ff6da01e7ddf40e2d78930e7a621bcb4e",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/4e9215a8b533802ba84a3cc5bd3c43103e7a6dc3",
+                "reference": "4e9215a8b533802ba84a3cc5bd3c43103e7a6dc3",
                 "shasum": ""
             },
             "require": {
@@ -16995,7 +17002,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v4.4.38"
+                "source": "https://github.com/symfony/dom-crawler/tree/v4.4.39"
             },
             "funding": [
                 {
@@ -17011,7 +17018,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-31T14:01:05+00:00"
+            "time": "2022-02-25T10:38:15+00:00"
         },
         {
             "name": "symfony/lock",
