@@ -1,0 +1,11 @@
+uuid: be83368a-e64d-4a45-b1be-ac8cde7c90e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+id: tpr_unit_publish_action
+label: 'Publish unit'
+type: tpr_unit
+plugin: 'entity:publish_action:tpr_unit'
+configuration: {  }
