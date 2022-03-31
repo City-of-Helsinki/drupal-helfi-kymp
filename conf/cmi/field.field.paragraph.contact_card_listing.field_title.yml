@@ -1,0 +1,21 @@
+uuid: 273d4f84-11ab-497e-abda-c4d226bcd558
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.contact_card_listing
+_core:
+  default_config_hash: wVwE7xrXuQ3BymCdqpyrTEoV_pKubFHD709zQ7JDZW4
+id: paragraph.contact_card_listing.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: contact_card_listing
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
