@@ -190,6 +190,7 @@ if (
   $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 }
 
+$config['filelog.settings']['rotation']['schedule'] = 'never';
 $config['filelog.settings']['location'] = '/tmp';
 
 // Environment specific overrides.
