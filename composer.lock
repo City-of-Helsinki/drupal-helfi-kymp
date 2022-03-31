@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fdbd2b22283612606e7f9426f9ea75b",
+    "content-hash": "419f6508a4a556809523753d776dde7a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3615,6 +3615,58 @@
             }
         },
         {
+            "name": "drupal/filelog",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filelog.git",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filelog-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "989d9d9913c0a3da9b0575aa42e6611f877a690f"
+            },
+            "require": {
+                "drupal/core": "^9",
+                "ext-zlib": "*",
+                "php": "^8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0",
+                    "datestamp": "1639679025",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Burschka",
+                    "homepage": "https://github.com/cburschka",
+                    "email": "christoph@burschka.de",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Logs system events to a file.",
+            "homepage": "https://www.drupal.org/project/filelog",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/filelog",
+                "issues": "https://www.drupal.org/project/issues/filelog"
+            }
+        },
+        {
             "name": "drupal/flysystem",
             "version": "2.0.0-beta1",
             "source": {
@@ -4076,12 +4128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a"
+                "reference": "1020e93f33dcb57bacd5b5ebaf6d125ab2173f85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a",
-                "reference": "b4ac99b58379a30b414aa0f8f3d64cd0b9461c6a",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/1020e93f33dcb57bacd5b5ebaf6d125ab2173f85",
+                "reference": "1020e93f33dcb57bacd5b5ebaf6d125ab2173f85",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4094,7 +4146,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2022-03-09T10:47:55+00:00"
+            "time": "2022-03-31T05:58:22+00:00"
         },
         {
             "name": "drupal/helfi_hauki",
