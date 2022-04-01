@@ -8,28 +8,33 @@ DOCKER_WARNING_INSIDE := You are inside the Docker container!
 
 PHONY += config
 config: ## Show docker-compose config
-	$(call docker_compose,config,Show docker-compose config...)
+	$(call step,Show docker-compose config...\n)
+	$(call docker_compose,config)
 
 PHONY += down
 down: ## Tear down the environment
-	$(call docker_compose,down -v --remove-orphans --rmi local,Tear down the environment...)
+	$(call step,Tear down the environment...\n)
+	$(call docker_compose,down -v --remove-orphans --rmi local)
 
 PHONY += ps
 ps: ## Show docker-compose ps
-	$(call docker_compose,ps,Show docker-compose ps...)
+	$(call step,Show docker-compose ps...\n)
+	$(call docker_compose,ps)
 
 PHONY += stop
 stop: ## Stop the environment
-	$(call docker_compose,stop,Stop the container(s)...)
+	$(call step,Stop the container(s)...\n)
+	$(call docker_compose,stop)
 
 PHONY += up
 up: ## Launch the environment
-	$(call docker_compose,up -d --remove-orphans --quiet-pull,Start up the container(s)...)
+	$(call step,Start up the container(s)...\n)
+	$(call docker_compose,up -d --remove-orphans)
 
 PHONY += shell
 shell: ## Login to CLI container
 ifeq ($(RUN_ON),docker)
-	@$(DOCKER_COMPOSE) exec -u ${CLI_USER} ${CLI_SERVICE} ${CLI_SHELL}
+	@$(DOCKER_COMPOSE) exec -u $(CLI_USER) $(CLI_SERVICE) $(CLI_SHELL)
 else
 	$(call warn,$(DOCKER_WARNING_INSIDE))
 endif
@@ -40,7 +45,8 @@ ssh-check: ## Check SSH keys on CLI container
 
 ifeq ($(RUN_ON),docker)
 define docker_run_cmd
-	@${DOCKER_COMPOSE_EXEC} -u ${CLI_USER} -T ${CLI_SERVICE} ${CLI_SHELL} -c "$(1) && echo $(2)"
+	@$(DOCKER_COMPOSE_EXEC) -u $(CLI_USER) -T $(CLI_SERVICE) $(CLI_SHELL) -c "$(1)"
+	$(if $(2),@echo "$(2)",)
 endef
 else
 define docker_run_cmd
@@ -50,7 +56,6 @@ endif
 
 ifeq ($(RUN_ON),docker)
 define docker_compose
-	$(call step,$(2)\n)
 	@$(DOCKER_COMPOSE) $(1)
 endef
 else

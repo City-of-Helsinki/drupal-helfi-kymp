@@ -1,6 +1,7 @@
 TEST_TARGETS += test-phpunit
 FIX_TARGETS :=
 LINT_PHP_TARGETS :=
+CS_INSTALLED := $(shell test -f $(COMPOSER_JSON_PATH)/vendor/bin/phpcs && echo yes || echo no)
 
 PHONY += fix
 fix: ## Fix code style
@@ -12,7 +13,7 @@ PHONY += lint
 lint: lint-php lint-js ## Check code style
 
 PHONY += lint-js
-lint-js: DOCKER_NODE_IMG ?= node:8.16.0-alpine
+lint-js: DOCKER_NODE_IMG ?= node:$(NODE_VERSION)-alpine
 lint-js: WD := /app
 lint-js: ## Check code style for JS files
 	$(call step,Install linters...)
@@ -56,3 +57,14 @@ test-phpunit-locally:
 define test_result
 	@echo "\n${YELLOW}${1}:${NO_COLOR} ${GREEN}${2}${NO_COLOR}"
 endef
+
+ifeq ($(CS_INSTALLED),yes)
+define cs
+$(call docker_run_cmd,vendor/bin/$(1) --config-set installed_paths $(CS_STANDARD_PATHS))
+$(call docker_run_cmd,vendor/bin/$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
+endef
+else
+define cs
+$(call warn,CodeSniffer is not installed!)
+endef
+endif

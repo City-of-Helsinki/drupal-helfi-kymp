@@ -29,18 +29,18 @@ set-files:
 
 PHONY += prepare
 prepare:
-	$(call step,Delete inactivated plugins)
+	$(call step,Delete inactivated plugins\n)
 	$(call wp,plugin delete $(WP_DELETE_PLUGINS))
-	$(call step,Delete inactivated themes)
+	$(call step,Delete inactivated themes\n)
 	$(call wp,theme delete $(WP_DELETE_THEMES))
-	$(call step,Replace $(WP_SYNC_SOURCE) domain with local domain)
+	$(call step,Replace $(WP_SYNC_SOURCE) domain with local domain\n)
 	$(call wp,search-replace $(WP_SYNC_SOURCE_DOMAIN) $(WP_HOSTNAME))
 	$(call step,Check your site: https://$(WP_HOSTNAME))
 
 PHONY += wp-sync-db
 wp-sync-db: ## Sync database
 ifeq ($(DUMP_SQL_EXISTS),yes)
-	$(call step,Import local SQL dump...)
+	$(call step,Import local SQL dump...\n)
 	$(call wp,db import $(DUMP_SQL_FILENAME))
 else
 	$(call step,Create database dump in $(WP_SYNC_SOURCE)...)
@@ -59,7 +59,7 @@ endif
 PHONY += wp-sync-files
 wp-sync-files: UPLOADS := wp-content/uploads
 wp-sync-files: ## Sync files
-	$(call step,Sync files from $(WP_SYNC_SOURCE)...)
+	$(call step,Sync files from $(WP_SYNC_SOURCE)...\n)
 	$(eval HOST := INSTANCE_$(WP_SYNC_SOURCE)_HOST)
 	$(eval USER := INSTANCE_$(WP_SYNC_SOURCE)_USER)
 	$(eval OPTS := INSTANCE_$(WP_SYNC_SOURCE)_OPTS)
