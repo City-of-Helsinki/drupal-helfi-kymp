@@ -1,9 +1,8 @@
-uuid: 16228e04-40b3-4388-a4ac-60cb74ac59be
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.tpr_unit.teaser_with_image
+    - core.entity_view_mode.tpr_unit.minimal
     - field.field.tpr_unit.tpr_unit.field_content
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
@@ -11,21 +10,17 @@ dependencies:
   module:
     - address
     - helfi_tpr
-    - imagecache_external
-    - telephone
-_core:
-  default_config_hash: 9seJXDTSgRhpxOuoOCXPTrbvXiwREpzz0CrsfDsgBk8
-id: tpr_unit.tpr_unit.teaser_with_image
+id: tpr_unit.tpr_unit.minimal
 targetEntityType: tpr_unit
 bundle: tpr_unit
-mode: teaser_with_image
+mode: minimal
 content:
   address:
     type: address_plain
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   name:
     type: string
@@ -33,31 +28,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
-    region: content
-  phone:
-    type: telephone_link
-    label: hidden
-    settings:
-      title: ''
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  picture_url:
-    type: imagecache_external_responsive_image
-    label: hidden
-    settings:
-      imagecache_external_responsive_style: image__3_2
-      imagecache_external_link: ''
-    third_party_settings: {  }
     weight: 0
     region: content
-  picture_url_override:
-    type: entity_reference_entity_view
+  name_override:
+    type: string
     label: hidden
     settings:
-      view_mode: image
-      link: false
+      link_to_entity: false
     third_party_settings: {  }
     weight: 1
     region: content
@@ -79,8 +56,10 @@ hidden:
   langcode: true
   latitude: true
   longitude: true
-  name_override: true
   opening_hours: true
+  phone: true
+  picture_url: true
+  picture_url_override: true
   provided_languages: true
   service_map_embed: true
   services: true

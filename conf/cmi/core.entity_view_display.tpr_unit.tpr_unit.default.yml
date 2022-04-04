@@ -6,6 +6,7 @@ dependencies:
     - field.field.tpr_unit.tpr_unit.field_content
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
+    - field.field.tpr_unit.tpr_unit.field_unit_type
   module:
     - address
     - entity_reference_revisions
@@ -172,8 +173,8 @@ content:
     type: service_map_embed
     label: hidden
     settings:
-      iframe_title: 'Location on map'
-      link_title: 'Open the map in a new window'
+      iframe_title: 'Sijainti kartalla'
+      link_title: 'Avaa kartta uuteen ikkunaan'
       target: true
     third_party_settings: {  }
     weight: 10
@@ -200,6 +201,7 @@ content:
     region: content
 hidden:
   created: true
+  field_unit_type: true
   hide_description: true
   langcode: true
   latitude: true
