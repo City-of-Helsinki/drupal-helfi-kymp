@@ -19,7 +19,7 @@ PHONY += artifact
 # This command can always be run on host
 artifact: RUN_ON := host
 artifact: ## Make tar.gz package from the current build
-	$(call step,Create artifact...)
+	$(call step,Create artifact...\n)
 	@$(ARTIFACT_CMD)
 
 PHONY += build
@@ -39,15 +39,13 @@ build-production:
 	@$(MAKE) build ENV=production
 
 PHONY += clean
-clean: ## Clean folders
-	$(call step,Clean folders:$(NO_COLOR)$(CLEAN_FOLDERS))
-	@rm -rf $(CLEAN_FOLDERS)
+clean: ## Cleanup
 	$(call step,Do Git clean\n)
-	@git clean -fdx -e .idea -e $(WEBROOT)/sites/default/files
+	@git clean -fdx $(foreach item,$(CLEAN_EXCLUDE),-e $(item))
 
 PHONY += self-update
 self-update: ## Self-update makefiles from druidfi/tools
-	$(call step,Update makefiles from druidfi/tools)
+	$(call step,Update makefiles from druidfi/tools\n)
 	@bash -c "$$(curl -fsSL $(UPDATE_SCRIPT_URL))"
 
 PHONY += shell-%
@@ -60,7 +58,7 @@ shell-%: ## Login to remote instance
 
 PHONY += sync
 sync: ## Sync data from other environments
-	$(call group_step,Sync:$(NO_COLOR) $(SYNC_TARGETS))
+	$(call group_step,Sync:$(NO_COLOR) $(SYNC_TARGETS)\n)
 	@$(MAKE) $(SYNC_TARGETS) ENV=$(ENV)
 
 PHONY += gh-download-dump
