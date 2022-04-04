@@ -87,7 +87,7 @@ setup-robo: $(SETUP_ROBO_TARGETS)
 
 PHONY += run-robo-reportgen
 run-robo-reportgen:
-	$(call docker_run_ci,robo, cd /app/helfi-test-automation-python && reportgen --baseline=robotframework-reports/visual_images/actual --results=robotframework-reports)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && reportgen --baseline=robotframework-reports/visual_images/actual --results=robotframework-reports)
 
 PHONY += run-robo-tests
 run-robo-tests:
