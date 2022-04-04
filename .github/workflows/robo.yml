@@ -43,7 +43,9 @@ jobs:
 
       - name: Export app logs
         if: always()
-        run: docker compose logs app > logs.txt
+        run: |
+          make run-robo-reportgen
+          docker compose logs app > logs.txt
 
       - name: Create an artifact from logs report
         uses: actions/upload-artifact@v3
