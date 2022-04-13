@@ -13,7 +13,7 @@ jobs:
 
     services:
       db:
-        image: druidfi/db:mysql5.7-drupal
+        image: druidfi/mariadb:10.6-drupal
         ports:
           - 3306:3306
 

@@ -1,0 +1,11 @@
+uuid: c8c4379b-72e8-4226-a632-08f61d43e956
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+id: tpr_unit_unpublish_action
+label: 'Unpublish unit'
+type: tpr_unit
+plugin: 'entity:unpublish_action:tpr_unit'
+configuration: {  }

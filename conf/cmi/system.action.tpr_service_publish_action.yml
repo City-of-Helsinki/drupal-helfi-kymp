@@ -1,0 +1,11 @@
+uuid: 46e26fe0-f034-4a7a-8c0e-4d8bbb831d1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+id: tpr_service_publish_action
+label: 'Publish service'
+type: tpr_service
+plugin: 'entity:publish_action:tpr_service'
+configuration: {  }

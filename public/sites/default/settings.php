@@ -29,20 +29,6 @@ $databases['default']['default'] = [
 
 $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT') ?: '000';
 
-if ($ssl_ca_path = getenv('AZURE_SQL_SSL_CA_PATH')) {
-  $databases['default']['default']['pdo'] = [
-    \PDO::MYSQL_ATTR_SSL_CA => $ssl_ca_path,
-    \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => FALSE,
-  ];
-  // Azure specific filesystem fixes.
-  $settings['php_storage']['twig']['directory'] = '/tmp';
-  $settings['php_storage']['twig']['secret'] = $settings['hash_salt'];
-  $settings['file_chmod_directory'] = 16895;
-  $settings['file_chmod_file'] = 16895;
-
-  $config['system.performance']['cache']['page']['max_age'] = 86400;
-}
-
 // Only in Wodby environment.
 // @see https://wodby.com/docs/stacks/drupal/#overriding-settings-from-wodbysettingsphp
 if (isset($_SERVER['WODBY_APP_NAME'])) {
@@ -66,9 +52,10 @@ $settings['siteimprove_id'] = getenv('SITEIMPROVE_ID');
 
 // Drupal route(s).
 $routes = (getenv('DRUPAL_ROUTES')) ? explode(',', getenv('DRUPAL_ROUTES')) : [];
+$routes[] = 'http://127.0.0.1';
 
 foreach ($routes as $route) {
-  $hosts[] = $host = parse_url($route)['host'];
+  $host = parse_url($route)['host'];
   $trusted_host = str_replace('.', '\.', $host);
   $settings['trusted_host_patterns'][] = '^' . $trusted_host . '$';
 }
@@ -95,28 +82,6 @@ if ($reverse_proxy_address = getenv('DRUPAL_REVERSE_PROXY_ADDRESS')) {
   $settings['reverse_proxy_addresses'] = $reverse_proxy_address;
   $settings['reverse_proxy_trusted_headers'] = Request::HEADER_X_FORWARDED_ALL;
   $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
-}
-
-if (file_exists(__DIR__ . '/all.settings.php')) {
-  include __DIR__ . '/all.settings.php';
-}
-
-if ($env = getenv('APP_ENV')) {
-  if (file_exists(__DIR__ . '/' . $env . '.settings.php')) {
-    include __DIR__ . '/' . $env . '.settings.php';
-  }
-
-  if (file_exists(__DIR__ . '/' . $env . '.services.yml')) {
-    $settings['container_yamls'][] = __DIR__ . '/' . $env . '.services.yml';
-  }
-
-  if (file_exists(__DIR__ . '/local.services.yml')) {
-    $settings['container_yamls'][] = __DIR__ . '/local.services.yml';
-  }
-
-  if (file_exists(__DIR__ . '/local.settings.php')) {
-    include __DIR__ . '/local.settings.php';
-  }
 }
 
 if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
@@ -167,7 +132,7 @@ $config['varnish_purger.settings.varnish_purge_all']['headers'] = [
 ];
 
 if ($varnish_purge_key = getenv('VARNISH_PURGE_KEY')) {
-  // Configuration doesn't know about existing config yet so we can't
+  // settings.php doesn't know about existing configuration yet so we can't
   // just append new headers to an already existing headers array here.
   // If you have configured any extra headers in your purge settings
   // you must add them here as well.
@@ -198,6 +163,8 @@ if ($robots_header_enabled = getenv('DRUPAL_X_ROBOTS_TAG_HEADER')) {
   $config['helfi_proxy.settings']['robots_header_enabled'] = (bool) $robots_header_enabled;
 }
 
+$config['filelog.settings']['rotation']['schedule'] = 'never';
+
 if (
   ($redis_host = getenv('REDIS_HOST')) &&
   file_exists('modules/contrib/redis/example.services.yml') &&
@@ -224,4 +191,23 @@ if (
   // Register redis services to make sure we don't get a non-existent service
   // error while trying to enable the module.
   $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
+}
+
+// Environment specific overrides.
+if (file_exists(__DIR__ . '/all.settings.php')) {
+  include __DIR__ . '/all.settings.php';
+}
+
+if ($env = getenv('APP_ENV')) {
+  if (file_exists(__DIR__ . '/' . $env . '.settings.php')) {
+    include __DIR__ . '/' . $env . '.settings.php';
+  }
+
+  if (file_exists(__DIR__ . '/' . $env . '.services.yml')) {
+    $settings['container_yamls'][] = __DIR__ . '/' . $env . '.services.yml';
+  }
+
+  if (getenv('OPENSHIFT_BUILD_NAMESPACE') && file_exists(__DIR__ . '/azure.settings.php')) {
+    include __DIR__ . '/azure.settings.php';
+  }
 }

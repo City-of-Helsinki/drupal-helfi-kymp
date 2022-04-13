@@ -15,7 +15,7 @@ jobs:
 
     services:
       db:
-        image: druidfi/db:mysql5.7-drupal
+        image: druidfi/mariadb:10.6-drupal
         ports:
           - 3306:3306
 
@@ -42,7 +42,7 @@ jobs:
           drush helfi:tools:update-platform
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           committer: GitHub <noreply@github.com>
           author: actions-bot <actions-bot@users.noreply.github.com>

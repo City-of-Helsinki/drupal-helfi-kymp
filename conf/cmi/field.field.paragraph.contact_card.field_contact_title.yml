@@ -1,0 +1,21 @@
+uuid: 97348bd8-43f5-4cf6-a1fb-e8afa030a011
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_title
+    - paragraphs.paragraphs_type.contact_card
+_core:
+  default_config_hash: 3_-eiSIFayhR_hbFNjQDMu1oq8JCPYQ1v1lpVExyWOo
+id: paragraph.contact_card.field_contact_title
+field_name: field_contact_title
+entity_type: paragraph
+bundle: contact_card
+label: 'Job title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

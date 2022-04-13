@@ -43,6 +43,7 @@ settings:
       from_library: from_library
       remote_video: remote_video
       liftup_with_image: liftup_with_image
+      contact_card_listing: contact_card_listing
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -56,6 +57,12 @@ settings:
         enabled: true
       columns:
         weight: -28
+        enabled: true
+      contact_card:
+        weight: 30
+        enabled: false
+      contact_card_listing:
+        weight: 31
         enabled: true
       content_cards:
         weight: -23
@@ -90,6 +97,9 @@ settings:
       remote_video:
         weight: 32
         enabled: true
+      social_media_link:
+        weight: 46
+        enabled: false
       text:
         weight: -29
         enabled: false

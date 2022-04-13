@@ -1,12 +1,11 @@
-uuid: e5d54b67-b2e3-4709-925e-042b99c49476
+uuid: 9dd0db44-592b-464b-a459-935e08ccfeb9
 langcode: en
 status: true
 dependencies:
   module:
     - helfi_tpr
     - user
-_core:
-  default_config_hash: sfz3UeXfVRzeywUCZw5SimduAuGRiKPzHgcu8sz3csk
+    - views_bulk_operations
 id: tpr_unit_list
 label: 'TPR unit list'
 module: views
@@ -17,22 +16,21 @@ base_field: id
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
       title: 'TPR Units'
       fields:
-        tpr_unit_bulk_form:
-          id: tpr_unit_bulk_form
-          table: tpr_unit
-          field: tpr_unit_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: tpr_unit
-          plugin_id: bulk_form
-          label: 'Bulk update'
+          plugin_id: views_bulk_operations_bulk_form
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
@@ -73,9 +71,40 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          batch: true
+          batch_size: 50
+          form_step: true
+          buttons: false
           action_title: Action
-          include_exclude: exclude
-          selected_actions: {  }
+          clear_on_exposed: true
+          force_selection_info: false
+          selected_actions:
+            0:
+              action_id: 'entity:break_lock:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Break lock'
+            1:
+              action_id: 'remote_entity:migration_update:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: Update
+            2:
+              action_id: views_bulk_edit
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Modify values'
+                get_bundles_from_results: true
+            4:
+              action_id: 'entity:unpublish_action:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Unpublish unit'
+            5:
+              action_id: 'entity:publish_action:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Publish unit'
         id:
           id: id
           table: tpr_unit_field_data
@@ -727,8 +756,7 @@ display:
     position: 1
     display_options:
       rendering_language: '***LANGUAGE_entity_translation***'
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
       path: admin/content/integrations/tpr-unit
     cache_metadata:
       max-age: 0

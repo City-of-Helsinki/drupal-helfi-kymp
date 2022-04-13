@@ -12,13 +12,34 @@ bundle: tpr_errand_service
 mode: default
 content:
   channels:
-    type: entity_reference_entity_view
+    type: tpr_service_channel_formatter
     label: hidden
     settings:
       view_mode: default
       link: false
+      sort_order:
+        ESERVICE:
+          weight: 0
+        CHAT:
+          weight: 1
+        EMAIL:
+          weight: 2
+        TELEPHONE:
+          weight: 3
+        PRINTABLE_FORM:
+          weight: 4
+        LOCAL:
+          weight: 5
+        SMS:
+          weight: 6
+        WEBPAGE:
+          weight: 7
+        MAIL:
+          weight: 8
+        TELEFAX:
+          weight: 9
     third_party_settings: {  }
-    weight: 2
+    weight: 15
     region: content
   costs:
     type: text_default
