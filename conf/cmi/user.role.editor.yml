@@ -17,6 +17,7 @@ dependencies:
     - taxonomy.vocabulary.keywords
   module:
     - content_translation
+    - editoria11y
     - file
     - filter
     - helfi_api_base
@@ -37,7 +38,7 @@ dependencies:
     - toolbar
     - view_unpublished
 id: editor
-label: Editor
+label: 'Sisällöntuottaja laaja'
 weight: 4
 is_admin: null
 permissions:
@@ -164,6 +165,7 @@ permissions:
   - 'view all tpr_unit revisions'
   - 'view announcement revisions'
   - 'view any unpublished content'
+  - 'view editoria11y checker'
   - 'view landing_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
