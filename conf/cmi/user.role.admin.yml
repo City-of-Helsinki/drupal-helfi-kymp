@@ -21,6 +21,7 @@ dependencies:
     - config_translation
     - content_lock
     - content_translation
+    - editoria11y
     - eu_cookie_compliance
     - file
     - filter
@@ -47,12 +48,10 @@ dependencies:
     - toolbar
     - view_unpublished
     - views_bulk_edit
-    - views_bulk_edit
-    - views_bulk_edit
 _core:
   default_config_hash: wJWcExCcstsjfohW4IUVRm742x2vKz6nOlZpa3OG7yQ
 id: admin
-label: Administrator
+label: Pääkäyttäjä
 weight: 5
 is_admin: null
 permissions:
@@ -195,12 +194,16 @@ permissions:
   - 'use siteimprove prepublish'
   - 'use text format full_html'
   - 'use text format minimal'
+  - 'use views bulk edit'
+  - 'use views bulk edit'
+  - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view all tpr_service revisions'
   - 'view all tpr_unit revisions'
   - 'view announcement revisions'
   - 'view any unpublished content'
+  - 'view editoria11y checker'
   - 'view landing_page revisions'
   - 'view media'
   - 'view own unpublished content'
@@ -216,6 +219,3 @@ permissions:
   - 'view unpublished tpr_service'
   - 'view unpublished tpr_service_channel'
   - 'view unpublished tpr_unit'
-  - 'use views bulk edit'
-  - 'use views bulk edit'
-  - 'use views bulk edit'
