@@ -57,7 +57,7 @@ post-install-tasks:
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
-	$(call docker_run_ci,app,drush pmu editoria11y)
+	$(call docker_run_ci,app,drush pmu editoria11y -y)
 
 PHONY += save-dump
 save-dump:
