@@ -14,9 +14,9 @@ endif
 SETUP_ROBO_TARGETS += up composer-install $(CI_POST_INSTALL_TARGETS) update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
-	SETUP_ROBO_TARGETS += install-drupal
+	SETUP_ROBO_TARGETS += install-drupal post-install-tasks
 else
-	SETUP_ROBO_TARGETS += install-drupal-from-dump
+	SETUP_ROBO_TARGETS += install-drupal-from-dump post-install-tasks
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -41,12 +41,6 @@ install-drupal:
 	$(call docker_run_ci,app,drush cr)
 	$(call docker_run_ci,app,drush si minimal --existing-config -y)
 	$(call docker_run_ci,app,drush deploy)
-	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
-	$(call docker_run_ci,app,drush en helfi_example_content syslog -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -54,12 +48,16 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql)
 	$(call docker_run_ci,app,drush cr)
 	$(call docker_run_ci,app,drush cim -y)
+
+PHONY += post-install-tasks
+post-install-tasks:
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content syslog -y)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
+	$(call docker_run_ci,app,drush pmu editoria11y)
 
 PHONY += save-dump
 save-dump:
