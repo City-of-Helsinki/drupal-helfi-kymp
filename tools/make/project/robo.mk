@@ -1,6 +1,5 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-ROBOT_EXTRA_ARGS ?= --exitonfailure --removekeywords passed
 SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
@@ -83,10 +82,6 @@ endef
 PHONY += setup-robo
 setup-robo: $(SETUP_ROBO_TARGETS)
 
-PHONY += run-robo-reportgen
-run-robo-reportgen:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && reportgen --baseline=robotframework-reports/visual_images/actual --results=robotframework-reports)
-
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && pabot --testlevelsplit --ordering ./environments/helfi_pabot_order_ci --processes 9 $(ROBOT_EXTRA_ARGS) -v useoriginalname:False -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:True -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports .)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && chmod +x run_all_tests.sh && PREFIX=$(SITE_PREFIX) BASE_URL=$(DRUPAL_HOSTNAME) ./run_all_tests.sh
