@@ -3,16 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.remote_video.field_iframe_title
     - field.field.paragraph.remote_video.field_remote_video
     - field.field.paragraph.remote_video.field_remote_video_description
     - field.field.paragraph.remote_video.field_remote_video_title
     - field.field.paragraph.remote_video.field_remote_video_video_desc
     - field.field.paragraph.remote_video.field_remote_video_video_title
     - paragraphs.paragraphs_type.remote_video
-    - field.field.paragraph.remote_video.field_remote_video_description
-    - field.field.paragraph.remote_video.field_remote_video_title
-    - field.field.paragraph.remote_video.field_remote_video_video_desc
-    - field.field.paragraph.remote_video.field_remote_video_video_title
   module:
     - media_library
     - text
@@ -60,8 +57,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_iframe_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
+  field_iframe_title: true
   field_remote_video_description: true
   field_remote_video_title: true
   field_remote_video_video_desc: true

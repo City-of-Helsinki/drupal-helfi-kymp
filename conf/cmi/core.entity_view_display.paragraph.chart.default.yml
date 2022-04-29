@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.chart.field_chart_chart
     - field.field.paragraph.chart.field_chart_description
     - field.field.paragraph.chart.field_chart_title
+    - field.field.paragraph.chart.field_iframe_title
     - paragraphs.paragraphs_type.chart
   module:
     - text
@@ -40,4 +41,5 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-hidden: {  }
+hidden:
+  field_iframe_title: true

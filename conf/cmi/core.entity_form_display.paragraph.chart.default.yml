@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.chart.field_chart_chart
     - field.field.paragraph.chart.field_chart_description
     - field.field.paragraph.chart.field_chart_title
+    - field.field.paragraph.chart.field_iframe_title
     - paragraphs.paragraphs_type.chart
   module:
     - media_library
@@ -40,6 +41,15 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_iframe_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
+  field_iframe_title: true
   status: true
