@@ -1,15 +1,17 @@
 uuid: a9099716-2b48-4aad-9918-470816d99319
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - crop
 third_party_settings:
   crop:
     image_field: null
 _core:
   default_config_hash: Oa2agR_t9WunrVJl4JGuv32as0WLOmEEgaGYehqOInE
 id: remote_video
-label: 'Remote video'
-description: 'Media type for remote media from external sources.'
+label: 'Video ulkoisesta palvelusta'
+description: 'Mediatyyppi ulkoisten palveluiden, kuten YouTube tarjoamille videoille.'
 source: 'oembed:video'
 queue_thumbnail_downloads: false
 new_revision: false
