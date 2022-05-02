@@ -18,6 +18,14 @@ targetEntityType: paragraph
 bundle: map
 mode: default
 content:
+  field_iframe_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_map_description:
     type: text_textarea
     weight: 1
@@ -36,14 +44,6 @@ content:
   field_map_title:
     type: string_textfield
     weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_iframe_title:
-    type: string_textfield
-    weight: 3
     region: content
     settings:
       size: 60
