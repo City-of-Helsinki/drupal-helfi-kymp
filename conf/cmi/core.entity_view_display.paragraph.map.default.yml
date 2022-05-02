@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.map.field_iframe_title
     - field.field.paragraph.map.field_map_description
     - field.field.paragraph.map.field_map_map
     - field.field.paragraph.map.field_map_title
@@ -40,4 +41,5 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-hidden: {  }
+hidden:
+  field_iframe_title: true

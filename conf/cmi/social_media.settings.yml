@@ -16,7 +16,7 @@ social_media:
     api_event: href
     text: 'Share in Linkedin'
     default_img: 0
-    weight: 3
+    weight: '3'
     attributes: "target|_blank\r\nclass|linkedin"
     drupalSettings: ''
     library: ''
@@ -27,7 +27,7 @@ social_media:
     api_event: href
     text: 'Share in Twitter'
     default_img: 0
-    weight: 4
+    weight: 3
     attributes: "target|_blank\r\nclass|twitter"
     drupalSettings: ''
     library: ''
@@ -44,7 +44,51 @@ social_media:
     library: ''
     img: email
     enable_forward: 0
-    show_forward: 1
+    show_forward: '1'
+  facebook_msg:
+    enable: 0
+    api_url: 'FB.ui({method: ''send'',link: ''[current-page:url]''})'
+    api_event: onclick
+    drupalSettings: 'application_id|Your Application ID'
+    library: social_media/facebook
+    text: 'Facebook messenger'
+    default_img: 1
+    weight: 2
+    attributes: "target|_blank\r\nclass|facebook-msg\r\nrel|noopener noreferrer"
+    img: ''
+  pinterest:
+    enable: 0
+    api_url: 'https://www.pinterest.com/pin/create/button/?url=[current-page:url]&description=[current-page:title]'
+    api_event: href
+    text: Pinterest
+    default_img: 1
+    weight: 5
+    attributes: "target|_blank\r\nclass|pinterest\r\nrel|noopener noreferrer"
+    drupalSettings: ''
+    library: ''
+    img: ''
+  whatsapp:
+    enable: 0
+    api_url: 'https://wa.me/?text=[current-page:url]'
+    api_event: href
+    default_img: 1
+    attributes: "class|whatsapp show-for-small-only\r\ndata-action|share/whatsapp/share"
+    weight: 6
+    drupalSettings: ''
+    library: ''
+    text: ''
+    img: ''
+  print:
+    enable: 0
+    api_url: window.print()
+    api_event: onclick
+    text: Print
+    default_img: 1
+    attributes: class|print
+    weight: 8
+    drupalSettings: ''
+    library: ''
+    img: ''
 langcode: en
 _core:
   default_config_hash: AyqoIo0GS3jnXfsBkJZCiVA4WsqNkQItXRfQMmg91jI
