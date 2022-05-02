@@ -1,6 +1,5 @@
 STONEHENGE_PATH ?= ${HOME}/stonehenge
 PROJECT_DIR ?= ${GITHUB_WORKSPACE}
-ROBOT_EXTRA_ARGS ?= --exitonfailure --removekeywords passed
 SITE_PREFIX ?= /
 
 SETUP_ROBO_TARGETS :=
@@ -14,9 +13,9 @@ endif
 SETUP_ROBO_TARGETS += up composer-install $(CI_POST_INSTALL_TARGETS) update-automation
 
 ifeq ($(DRUPAL_BUILD_FROM_SCRATCH),true)
-	SETUP_ROBO_TARGETS += install-drupal
+	SETUP_ROBO_TARGETS += install-drupal post-install-tasks
 else
-	SETUP_ROBO_TARGETS += install-drupal-from-dump
+	SETUP_ROBO_TARGETS += install-drupal-from-dump post-install-tasks
 endif
 
 install-stonehenge: $(STONEHENGE_PATH)/.git
@@ -41,12 +40,6 @@ install-drupal:
 	$(call docker_run_ci,app,drush cr)
 	$(call docker_run_ci,app,drush si minimal --existing-config -y)
 	$(call docker_run_ci,app,drush deploy)
-	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
-	$(call docker_run_ci,app,drush en helfi_example_content syslog -y)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
-	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
 
 PHONY += install-drupal-from-dump
 install-drupal-from-dump:
@@ -54,12 +47,16 @@ install-drupal-from-dump:
 	$(call docker_run_ci,app,mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql)
 	$(call docker_run_ci,app,drush cr)
 	$(call docker_run_ci,app,drush cim -y)
+
+PHONY += post-install-tasks
+post-install-tasks:
 	$(call docker_run_ci,app,drush upwd helfi-admin Test_Automation)
 	$(call docker_run_ci,app,drush en helfi_example_content syslog -y)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_unit --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_errand_service --publish)
 	$(call docker_run_ci,app,drush helfi:migrate-fixture tpr_service_channel --publish)
+	$(call docker_run_ci,app,drush pmu editoria11y -y)
 
 PHONY += save-dump
 save-dump:
@@ -85,10 +82,6 @@ endef
 PHONY += setup-robo
 setup-robo: $(SETUP_ROBO_TARGETS)
 
-PHONY += run-robo-reportgen
-run-robo-reportgen:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && reportgen --baseline=robotframework-reports/visual_images/actual --results=robotframework-reports)
-
 PHONY += run-robo-tests
 run-robo-tests:
-	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && pabot --testlevelsplit --ordering ./environments/helfi_pabot_order_ci --processes 9 $(ROBOT_EXTRA_ARGS) -v useoriginalname:False -A environments/ci.args -v PREFIX:$(SITE_PREFIX) -v BASE_URL:varnish-$(DRUPAL_HOSTNAME) -v PICCOMPARE:True -v images_dir:robotframework-resources/screenshots/headlesschrome -v actual_dir:robotframework-reports -d robotframework-reports .)
+	$(call docker_run_ci,robo,cd /app/helfi-test-automation-python && chmod +x run_all_tests.sh && PREFIX=$(SITE_PREFIX) BASE_URL=$(DRUPAL_HOSTNAME) ./run_all_tests.sh)

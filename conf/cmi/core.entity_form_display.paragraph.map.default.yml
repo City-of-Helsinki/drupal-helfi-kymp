@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.map.field_iframe_title
     - field.field.paragraph.map.field_map_description
     - field.field.paragraph.map.field_map_map
     - field.field.paragraph.map.field_map_title
@@ -17,6 +18,14 @@ targetEntityType: paragraph
 bundle: map
 mode: default
 content:
+  field_iframe_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_map_description:
     type: text_textarea
     weight: 1
@@ -42,4 +51,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_iframe_title: true
   status: true

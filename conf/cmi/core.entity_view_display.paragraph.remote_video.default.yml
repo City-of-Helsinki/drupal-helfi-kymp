@@ -3,16 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.remote_video.field_iframe_title
     - field.field.paragraph.remote_video.field_remote_video
     - field.field.paragraph.remote_video.field_remote_video_description
     - field.field.paragraph.remote_video.field_remote_video_title
     - field.field.paragraph.remote_video.field_remote_video_video_desc
     - field.field.paragraph.remote_video.field_remote_video_video_title
     - paragraphs.paragraphs_type.remote_video
-    - field.field.paragraph.remote_video.field_remote_video_description
-    - field.field.paragraph.remote_video.field_remote_video_title
-    - field.field.paragraph.remote_video.field_remote_video_video_desc
-    - field.field.paragraph.remote_video.field_remote_video_video_title
   module:
     - text
 id: paragraph.remote_video.default
@@ -60,6 +57,7 @@ content:
     weight: 3
     region: content
 hidden:
+  field_iframe_title: true
   field_remote_video_description: true
   field_remote_video_title: true
   field_remote_video_video_desc: true
