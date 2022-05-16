@@ -1,0 +1,67 @@
+{% block paragraph %}
+	{% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--list-of-plans' ],
+      component_title: title,
+      component_description: description,
+      component_content_class: 'list-of-plans',
+    }
+  %}
+		{% block component_content %}
+
+      <div class="list-of-plans__count-container">
+        <span class="list-of-plans__count">{{ plan_count }}</span>
+        {{ 'plans now open for comments'|t({}, {'context': 'List of plans number of comments'}) }}
+      </div>
+
+      {% if plan_count == 0 %}
+
+        <h3>{{ 'There are no plans open for comments at the moment.'|t({}, {'context': 'List of plans no plans title'}) }}</h3>
+        <p>{{ 'New plans are coming, so please visit again later.'|t({}, {'context': 'List of plans no plans description'}) }}</p>
+
+      {% else %}
+
+        <div class="list-of-plans__list">
+
+          {% for plan in plans %}
+            <div class="plan">
+              <h3 class="plan__title">
+                {% set link_attributes = {
+                  'class': [
+                    'plan__link',
+                  ],
+                } %}
+                {{ link(plan.title, plan.link, link_attributes) }}
+              </h3>
+
+              <div class="plan__published">
+                {{ 'Published:'|t({}, {'context': 'List of plans publish date'}) }}
+                {{ plan.pub_date }}
+              </div>
+            </div>
+          {% endfor %}
+
+          {% if plan_count > 8 %}
+            <ul class="pager infinite-scroll-pager">
+              <li>
+                <a href="#" class="hds-button hds-button--primary" rel="next">
+                  <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
+                </a>
+              </li>
+            </ul>
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+
+      <div class="list-of-plans__subscribe-link">
+        {% set link_title %}
+          {{ 'Subscribe to RSS feed of plans'|t({}, {'context': 'List of plans RSS link'}) }}
+        {% endset %}
+        {{ link(link_title, rss_feed_url) }}
+      </div>
+
+		{% endblock component_content %}
+	{% endembed %}
+{% endblock paragraph %}
