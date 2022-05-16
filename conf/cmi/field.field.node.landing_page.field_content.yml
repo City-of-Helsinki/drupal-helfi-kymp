@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_content
     - node.type.landing_page
     - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.chart
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
@@ -43,9 +44,9 @@ settings:
       from_library: from_library
       remote_video: remote_video
       map: map
+      chart: chart
       unit_search: unit_search
       service_list: service_list
-      chart: chart
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -63,6 +64,12 @@ settings:
       columns:
         weight: -37
         enabled: true
+      contact_card:
+        weight: 31
+        enabled: false
+      contact_card_listing:
+        weight: 32
+        enabled: false
       content_cards:
         weight: -33
         enabled: true
@@ -93,6 +100,9 @@ settings:
       list_of_links_item:
         weight: -25
         enabled: false
+      list_of_plans:
+        weight: 43
+        enabled: false
       map:
         weight: -20
         enabled: true
@@ -102,6 +112,12 @@ settings:
       service_list:
         weight: 36
         enabled: true
+      sidebar_text:
+        weight: 47
+        enabled: false
+      social_media_link:
+        weight: 48
+        enabled: false
       text:
         weight: -24
         enabled: false
