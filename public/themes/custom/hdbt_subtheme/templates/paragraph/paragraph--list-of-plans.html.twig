@@ -24,7 +24,7 @@
         <div class="list-of-plans__list">
 
           {% for plan in plans %}
-            <div class="plan">
+            <div class="list-of-plans__plan plan">
               <h3 class="plan__title">
                 {% set link_attributes = {
                   'class': [
@@ -44,7 +44,7 @@
           {% if plan_count > 8 %}
             <ul class="pager infinite-scroll-pager">
               <li>
-                <a href="#" class="hds-button hds-button--primary" rel="next">
+                <a href="#" class="hds-button hds-button--primary pager-button" rel="next">
                   <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
                 </a>
               </li>
