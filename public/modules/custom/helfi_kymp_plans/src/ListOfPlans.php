@@ -36,10 +36,14 @@ class ListOfPlans {
    *   List of plans in an array.
    */
   public function getPlans() : array {
+    $plans = [];
+
     // Get the list of plans from the RSS feed.
     $rss = simplexml_load_file($this->getFeedUrl());
 
-    $plans = [];
+    if (!$rss) {
+      return $plans;
+    }
 
     foreach ($rss->channel->item as $item) {
       $plans[] = [
