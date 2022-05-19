@@ -78,6 +78,7 @@ else
     drush-si: DRUSH_SI := -y $(DRUPAL_PROFILE)
 endif
 drush-si: ## Site install
+	$(call step,Do Drush site:install...\n)
 	$(call drush,si ${DRUSH_SI})
 
 PHONY += drush-deploy
