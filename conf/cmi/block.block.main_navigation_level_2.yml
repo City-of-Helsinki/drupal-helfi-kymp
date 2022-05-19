@@ -14,7 +14,7 @@ _core:
 id: main_navigation_level_2
 theme: hdbt
 region: sidebar_first
-weight: 0
+weight: -12
 provider: null
 plugin: 'menu_block_current_language:main'
 settings:
@@ -29,12 +29,4 @@ settings:
     views: views
     menu_link_content: menu_link_content
     default: '0'
-visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      article: article
-      landing_page: landing_page
+visibility: {  }
