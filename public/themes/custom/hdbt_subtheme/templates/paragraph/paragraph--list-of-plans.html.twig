@@ -10,14 +10,12 @@
 		{% block component_content %}
 
       <div class="list-of-plans__count-container">
-        <span class="list-of-plans__count">{{ plan_count }}</span>
-        {{ 'plans now open for comments'|t({}, {'context': 'List of plans number of comments'}) }}
+        {{ '<span class="list-of-plans__count">@plan_count</span> plans now available for comments'|t({ '@plan_count': plan_count }, {'context': 'List of plans number of comments'}) }}
       </div>
 
       {% if plan_count == 0 %}
 
-        <h3>{{ 'There are no plans open for comments at the moment.'|t({}, {'context': 'List of plans no plans title'}) }}</h3>
-        <p>{{ 'New plans are coming, so please visit again later.'|t({}, {'context': 'List of plans no plans description'}) }}</p>
+        <p>{{ 'There are new plans coming up, so please check back later.'|t({}, {'context': 'List of plans no plans description'}) }}</p>
 
       {% else %}
 
@@ -57,7 +55,7 @@
 
       <div class="list-of-plans__subscribe-link">
         {% set link_title %}
-          {{ 'Subscribe to RSS feed of plans'|t({}, {'context': 'List of plans RSS link'}) }}
+          {{ 'Subscribe to the plans\' RSS feed'|t({}, {'context': 'List of plans RSS link'}) }}
         {% endset %}
         {{ link(link_title, rss_feed_url) }}
       </div>
