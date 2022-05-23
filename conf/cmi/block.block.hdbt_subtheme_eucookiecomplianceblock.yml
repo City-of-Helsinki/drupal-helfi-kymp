@@ -1,0 +1,31 @@
+uuid: 5873908f-9f16-4d4d-becf-7eb0e1d2ca98
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_cookie_compliance
+    - system
+  theme:
+    - hdbt_subtheme
+_core:
+  default_config_hash: Ofp5Nv8E3DryORBw9DXtbN860LdYomjt-klGkC0fCHs
+id: hdbt_subtheme_eucookiecomplianceblock
+theme: hdbt_subtheme
+region: after_content
+weight: -10
+provider: null
+plugin: eu_cookie_compliance_block
+settings:
+  id: eu_cookie_compliance_block
+  label: 'EU Cookie Compliance Block'
+  label_display: '0'
+  provider: eu_cookie_compliance
+  eu_cookie_compliance_block_settings:
+    description:
+      value: ''
+      format: full_html
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /cookie-information-and-settings

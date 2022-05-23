@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function helfi_kymp_plans_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__list_of_plans' => [
+      'template' => 'paragraph--list-of-plans'
+    ]
+  ];
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
+  // Get the title & description from the paragraph.
+  $paragraph = $variables['elements']['#paragraph'];
+
+  $title = $paragraph->get('field_list_of_plans_title')->value;
+  $description = $paragraph->get('field_list_of_plans_description')->value;
+
+  $variables['title'] = $title;
+  $variables['description'] = $description;
+
+  $service = Drupal::service('helfi_kymp_plans');
+
+  // Check if the list already exists in cache.
+  if ($cache = \Drupal::cache()->get('helfi_kymp_plans')) {
+    $plans = $cache->data;
+  }
+  else {
+    $plans = $service->getPlans();
+
+    // Cache for an hour.
+    \Drupal::cache()->set('helfi_kymp_plans', $plans, \Drupal::time()->getRequestTime() + 3600);
+  }
+
+  $variables['plans'] = $plans;
+  $variables['plan_count'] = count($plans);
+  $variables['rss_feed_url'] = $service->getFeedUrl();
+
+  // Attach the JavaScript library.
+  $variables['#attached']['library'][] = 'helfi_kymp_plans/list_of_plans';
+}

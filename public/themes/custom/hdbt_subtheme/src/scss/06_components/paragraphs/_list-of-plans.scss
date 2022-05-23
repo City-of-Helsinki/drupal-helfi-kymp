@@ -1,0 +1,95 @@
+.component--list-of-plans {
+  background-color: $color-silver-light;
+}
+
+// If the unit-search is just before footer.
+.layout-main-wrapper > *:last-child .component--list-of-plans:last-child {
+  margin-bottom: -115px; // Enough to get the block under the footer.
+  padding-bottom: 55px; // Leave enough room between the last card and footer.
+}
+
+.component--list-of-plans .component__container {
+  padding-bottom: $spacing-double;
+  padding-top: $spacing-double;
+
+  @include breakpoint($breakpoint-m) {
+    padding-bottom: $spacing-quadruple;
+    padding-top: $spacing-quadruple;
+  }
+}
+
+.list-of-plans__count-container {
+  @include font('lead');
+
+  .list-of-plans__count {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.list-of-plans__list {
+  margin-top: $spacing-and-half;
+}
+
+.list-of-plans__subscribe-link {
+  @include font('body');
+  margin-top: $spacing-double;
+}
+
+.plan {
+  background-color: $color-white;
+  margin-top: $spacing-half;
+  padding-left: $spacing-and-half;
+  padding-top: $spacing-and-half;
+  padding-right: $spacing-and-half;
+  // Card padding + icon height + spacing between the arrow and publish date.
+  padding-bottom: calc(#{$spacing-and-half} + 28px + #{$spacing-half});
+  position: relative;
+
+  @include breakpoint($breakpoint-l) {
+    padding-left: $spacing-double;
+    padding-top: $spacing-double;
+    padding-right: $spacing-double;
+    // Arbitrary value from the design to line up the icon in a pretty way.
+    padding-bottom: 60px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.plan__title {
+  @include font('h4');
+  margin-top: 0;
+}
+
+.plan__link {
+  text-decoration: none;
+
+  // Make the whole card clickable.
+  &::before {
+    content: '';
+    display: block;
+    inset: 0;
+    position: absolute;
+  }
+
+  .link__type {
+    left: $spacing-and-half;
+    bottom: $spacing-and-half;
+    position: absolute;
+
+    @include breakpoint($breakpoint-l) {
+      --line-height: 2;
+      left: auto;
+      // Arbitrary value from the design to line up the icon in a pretty way.
+      right: 20px;
+    }
+  }
+}
+
+.plan__published {
+  @include font('small');
+  color: $color-black-60;
+  margin-top: $spacing-and-half;
+}

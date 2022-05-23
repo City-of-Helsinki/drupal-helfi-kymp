@@ -1,0 +1,13 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/hdbt-subtheme-icons.css: {}
+      dist/css/styles.min.css: {}
+
+global-scripting:
+  version: 1.x
+  js:
+    dist/js/bundle.min.js: {}
+  dependencies:
+    - core/drupal
