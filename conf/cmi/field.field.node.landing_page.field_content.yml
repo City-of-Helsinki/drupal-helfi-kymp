@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.service_list
@@ -47,6 +48,7 @@ settings:
       chart: chart
       unit_search: unit_search
       service_list: service_list
+      list_of_plans: list_of_plans
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -102,7 +104,7 @@ settings:
         enabled: false
       list_of_plans:
         weight: 43
-        enabled: false
+        enabled: true
       map:
         weight: -20
         enabled: true
