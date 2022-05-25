@@ -6,7 +6,7 @@ WORKDIR /var/www/html
 RUN composer install --no-progress --profile --prefer-dist --no-interaction --no-dev --optimize-autoloader
 
 # Update all packages to latest version if configured so.
-RUN sh -c 'if [[ -n "$DRUPAL_FORCE_UPDATE_PACKAGES" ]] && [[ "$DRUPAL_FORCE_UPDATE_PACKAGES" -eq "1" ]]; then echo "123"; fi'
+RUN sh -c 'if [[ -n "$DRUPAL_FORCE_UPDATE_PACKAGES" ]] && [[ "$DRUPAL_FORCE_UPDATE_PACKAGES" -eq "1" ]]; then composer require $(drush helfi:composer:list-packages) --with-all-dependencies; fi'
 
 # Copy deploy script
 COPY docker/openshift/entrypoints/20-deploy.sh /entrypoints
