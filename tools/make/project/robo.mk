@@ -45,8 +45,7 @@ PHONY += install-drupal-from-dump
 install-drupal-from-dump:
 	$(call docker_run_ci,app,drush sql-drop -y)
 	$(call docker_run_ci,app,mysql --user=drupal --password=drupal --database=drupal --host=db --port=3306 -A < latest.sql)
-	$(call docker_run_ci,app,drush cr)
-	$(call docker_run_ci,app,drush cim -y)
+	$(call docker_run_ci,app,drush deploy)
 
 PHONY += post-install-tasks
 post-install-tasks:
