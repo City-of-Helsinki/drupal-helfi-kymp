@@ -31,6 +31,10 @@ define group_step
 	@printf "\n🌟 ${YELLOW}${1}${NO_COLOR}\n"
 endef
 
+define has
+$(shell command -v ${1} > /dev/null 2>&1 && echo yes || echo no)
+endef
+
 define step
 	@printf "\n⭐ ${YELLOW}${1}${NO_COLOR}\n"
 endef
@@ -54,6 +58,10 @@ endef
 
 SED_Darwin := sed -i ''
 SED_Linux := sed -i
+
+define get_port
+$(shell netstat -aln|awk '$$6=="LISTEN"{if($$4~"[.:][0-9]+$$"){split($$4,a,/[:.]/);p2=a[length(a)];p[p2]=1;}}END{for(i=3000;i<3999&&p[i];i++){};if(i==3999){exit 1};print i}')
+endef
 
 define replace_string
 	$(call output,Replace $(1) >> $(2) in $(3))

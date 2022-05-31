@@ -3,8 +3,15 @@ CLI_SHELL := sh
 CLI_USER := root
 DOCKER_COMPOSE := docker-compose
 DOCKER_COMPOSE_EXEC ?= $(DOCKER_COMPOSE) exec
+DOCKER_COMPOSE_YML_PATH ?= docker-compose.yml
+DOCKER_COMPOSE_YML_EXISTS := $(shell test -f $(DOCKER_COMPOSE_YML_PATH) && echo yes || echo no)
 DOCKER_PROJECT_ROOT ?= /app
 DOCKER_WARNING_INSIDE := You are inside the Docker container!
+
+# If docker-compose.yml exists
+ifeq ($(DOCKER_COMPOSE_YML_EXISTS),yes)
+	RUN_ON := docker
+endif
 
 PHONY += config
 config: ## Show docker-compose config
