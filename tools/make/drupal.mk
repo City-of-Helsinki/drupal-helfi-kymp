@@ -190,6 +190,6 @@ define drush
 endef
 else
 define drush
-	@cd $(COMPOSER_JSON_PATH)/${WEBROOT} && drush --ansi --strict=0 $(1)
+	@drush --ansi --strict=0 $(1)
 endef
 endif
