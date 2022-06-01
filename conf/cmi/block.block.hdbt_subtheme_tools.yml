@@ -1,0 +1,27 @@
+uuid: 06fb86d4-48b2-4d5c-8dbb-674dec5ae18b
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - hdbt_subtheme
+_core:
+  default_config_hash: z1s_0oxpOjcA1atdCgI_EmNSXDJj76BuQclUwezMmcw
+id: hdbt_subtheme_tools
+theme: hdbt_subtheme
+region: tools
+weight: -3
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

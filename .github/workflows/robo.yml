@@ -52,7 +52,7 @@ jobs:
         with:
           name: logs
           path: logs.txt
-          retention-days: 2
+          retention-days: 7
 
       - name: Create an artifact from test report
         uses: actions/upload-artifact@v3
@@ -60,4 +60,4 @@ jobs:
         with:
           name: results
           path: helfi-test-automation-python/robotframework-reports/
-          retention-days: 2
+          retention-days: 7

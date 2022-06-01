@@ -9,8 +9,8 @@ dependencies:
     - hdbt
 id: sidebarcontentblock
 theme: hdbt
-region: sidebar_first
-weight: 1
+region: sidebar_second
+weight: -9
 provider: null
 plugin: sidebar_content_block
 settings:
@@ -18,12 +18,4 @@ settings:
   label: 'Sidebar content block'
   label_display: '0'
   provider: hdbt_content
-visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      article: article
-      landing_page: landing_page
+visibility: {  }

@@ -78,6 +78,7 @@ else
     drush-si: DRUSH_SI := -y $(DRUPAL_PROFILE)
 endif
 drush-si: ## Site install
+	$(call step,Do Drush site:install...\n)
 	$(call drush,si ${DRUSH_SI})
 
 PHONY += drush-deploy
@@ -189,6 +190,6 @@ define drush
 endef
 else
 define drush
-	@cd $(COMPOSER_JSON_PATH)/${WEBROOT} && drush --ansi --strict=0 $(1)
+	@drush --ansi --strict=0 $(1)
 endef
 endif

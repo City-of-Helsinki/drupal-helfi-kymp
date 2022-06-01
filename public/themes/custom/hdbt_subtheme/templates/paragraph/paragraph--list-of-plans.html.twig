@@ -1,0 +1,65 @@
+{% block paragraph %}
+	{% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--list-of-plans' ],
+      component_title: title,
+      component_description: description,
+      component_content_class: 'list-of-plans',
+    }
+  %}
+		{% block component_content %}
+
+      <div class="list-of-plans__count-container">
+        {{ '<span class="list-of-plans__count">@plan_count</span> plans now available for comments'|t({ '@plan_count': plan_count }, {'context': 'List of plans number of comments'}) }}
+      </div>
+
+      {% if plan_count == 0 %}
+
+        <p>{{ 'There are new plans coming up, so please check back later.'|t({}, {'context': 'List of plans no plans description'}) }}</p>
+
+      {% else %}
+
+        <div class="list-of-plans__list">
+
+          {% for plan in plans %}
+            <div class="list-of-plans__plan plan">
+              <h3 class="plan__title">
+                {% set link_attributes = {
+                  'class': [
+                    'plan__link',
+                  ],
+                } %}
+                {{ link(plan.title, plan.link, link_attributes) }}
+              </h3>
+
+              <div class="plan__published">
+                {{ 'Published:'|t({}, {'context': 'List of plans publish date'}) }}
+                {{ plan.pub_date }}
+              </div>
+            </div>
+          {% endfor %}
+
+          {% if plan_count > 8 %}
+            <ul class="pager infinite-scroll-pager">
+              <li>
+                <a href="#" class="hds-button hds-button--primary pager-button" rel="next">
+                  <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
+                </a>
+              </li>
+            </ul>
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+
+      <div class="list-of-plans__subscribe-link">
+        {% set link_title %}
+          {{ 'Subscribe to the plans\' RSS feed'|t({}, {'context': 'List of plans RSS link'}) }}
+        {% endset %}
+        {{ link(link_title, rss_feed_url) }}
+      </div>
+
+		{% endblock component_content %}
+	{% endembed %}
+{% endblock paragraph %}

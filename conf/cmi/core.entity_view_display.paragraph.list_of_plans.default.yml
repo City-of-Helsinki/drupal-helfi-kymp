@@ -1,0 +1,29 @@
+uuid: f792f9df-b79a-4dea-ac69-31a54f0d7b78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_of_plans.field_list_of_plans_description
+    - field.field.paragraph.list_of_plans.field_list_of_plans_title
+    - paragraphs.paragraphs_type.list_of_plans
+id: paragraph.list_of_plans.default
+targetEntityType: paragraph
+bundle: list_of_plans
+mode: default
+content:
+  field_list_of_plans_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_list_of_plans_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
