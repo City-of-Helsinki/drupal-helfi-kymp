@@ -1,0 +1,54 @@
+display:
+  default:
+    display_title: Förvald
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      fields:
+        node_bulk_form:
+          action_title: Åtgärd
+        title:
+          label: Titel
+          separator: ', '
+        type:
+          label: Innehållstyp
+          separator: ', '
+        name:
+          separator: ', '
+        operations:
+          label: Funktioner
+      filters:
+        status:
+          expose:
+            label: 'Status för publicering'
+          group_info:
+            label: 'Status för publicering'
+            group_items:
+              1:
+                title: Publicerad
+        type:
+          expose:
+            label: Innehållstyp
+        title:
+          expose:
+            label: Titel
+  page_1:
+    display_title: Sida
+    display_options:
+      menu:

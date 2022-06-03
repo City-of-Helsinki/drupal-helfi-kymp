@@ -1,9 +1,25 @@
-label: 'Lukitut sisällöt'
 display:
   default:
-    display_title: Oletus
     display_options:
-      title: 'Lukitut sisällöt'
+      fields:
+        langcode_1:
+          label: 'Sisällön kieli'
+        node_bulk_form:
+          label: 'Solmujen bulkkitoimintojen lomake'
+          action_title: Toiminto
+        title:
+          label: Otsikko
+          separator: ', '
+        type:
+          label: Sisältötyyppi
+          separator: ', '
+        timestamp:
+          label: 'Lukituksen ajankohta'
+        name:
+          label: 'Lukituksen tekijä'
+          separator: ', '
+        operations:
+          label: Toimenpiteet
       exposed_form:
         options:
           submit_button: Käytä
@@ -21,22 +37,7 @@ display:
           expose:
             items_per_page_label: 'Merkintöjä sivua kohti'
             items_per_page_options_all_label: '- Kaikki -'
-      fields:
-        node_bulk_form:
-          label: 'Solmujen bulkkitoimintojen lomake'
-          action_title: Toiminto
-        title:
-          label: Otsikko
-        type:
-          label: Sisältötyyppi
-        name:
-          label: 'Lukituksen tekijä'
-        operations:
-          label: Toimenpiteet
-        timestamp:
-          label: 'Lukituksen ajankohta'
-        langcode_1:
-          label: 'Sisällön kieli'
+            offset_label: Offset
       filters:
         status:
           expose:
@@ -52,8 +53,14 @@ display:
         title:
           expose:
             label: Otsikko
+      title: 'Locked content'
       empty:
         area_text_custom:
           content: 'Lukittua sisältöä ei ole.'
+    display_title: Oletus
   page_1:
     display_title: Sivu
+    display_options:
+      menu:
+        title: 'Locked content'
+label: 'Locked content'
