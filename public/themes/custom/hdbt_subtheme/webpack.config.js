@@ -105,11 +105,11 @@ module.exports = (env, argv) => {
       extensions: ['.js', '.json'],
     },
     plugins: [
-      new SvgToSprite(
-        path.resolve(__dirname, 'src/icons/**/*.svg'),
-        'icons/hdbt-subtheme-sprite.svg',
-        'icons.json'
-      ),
+      // new SvgToSprite(
+      //   path.resolve(__dirname, 'src/icons/**/*.svg'),
+      //   'icons/hdbt-subtheme-sprite.svg',
+      //   'icons.json'
+      // ),
       new FriendlyErrorsWebpackPlugin(),
       new RemoveEmptyScriptsPlugin(),
       new MiniCssExtractPlugin({
