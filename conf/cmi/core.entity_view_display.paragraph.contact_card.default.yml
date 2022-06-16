@@ -15,6 +15,7 @@ dependencies:
     - paragraphs.paragraphs_type.contact_card
   module:
     - entity_reference_revisions
+    - helfi_content
     - image
     - telephone
 _core:
@@ -37,6 +38,8 @@ content:
     settings:
       image_link: ''
       image_style: 1_1_l
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
