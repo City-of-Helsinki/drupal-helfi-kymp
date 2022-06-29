@@ -1,0 +1,19 @@
+uuid: 9784847b-0a90-4d03-8d82-4e24efce05ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_news_list_description
+field_name: field_news_list_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

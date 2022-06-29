@@ -1,13 +1,11 @@
-uuid: db82ceb3-d309-4752-ab21-07c7f09095dd
+uuid: 7dad351b-5f11-4f1b-9ee6-f0167d30e568
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: MpnlYOvD0uvI0cm0Y2FMuo9-Qng6ZgVnJKPR-QU97hw
-id: paragraph.field_neighbourhoods
-field_name: field_neighbourhoods
+id: paragraph.field_news_list_title
+field_name: field_news_list_title
 entity_type: paragraph
 type: string
 settings:
@@ -16,7 +14,7 @@ settings:
   is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

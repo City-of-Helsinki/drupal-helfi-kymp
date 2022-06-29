@@ -1,19 +1,17 @@
-uuid: a58b9a3f-bf8e-44bd-99f3-158aaf9ce5f2
+uuid: f3ec9477-531e-4a88-8d3b-e0086db6dd71
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_tags
+    - field.storage.paragraph.field_news_list_title
     - paragraphs.paragraphs_type.news_list
-_core:
-  default_config_hash: RQ6C1t4y3tNzl6TysTnEtuhXw5esHkvQi45NaSnJznU
-id: paragraph.news_list.field_tags
-field_name: field_tags
+id: paragraph.news_list.field_news_list_title
+field_name: field_news_list_title
 entity_type: paragraph
 bundle: news_list
-label: Tags
+label: Title
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
