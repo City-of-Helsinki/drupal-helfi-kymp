@@ -1,0 +1,20 @@
+uuid: e32f28a4-60c1-4f8b-b90f-a9709e05e56c
+langcode: en
+status: true
+dependencies:
+  module:
+    - external_entities
+    - paragraphs
+id: paragraph.field_helfi_news_neighbourhoods
+field_name: field_helfi_news_neighbourhoods
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: helfi_news_neighbourhoods
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
