@@ -1,5 +1,19 @@
 cancel_confirm:
   subject: 'Tilin peruutuspyyntö käyttäjälle [user:display-name], [site:name] sivustolla'
+  body: |-
+    [user:display-name],
+
+    A request to cancel your account has been made at [site:name].
+
+    You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
+
+    [user:cancel-url]
+
+    NOTE: The cancellation of your account is not reversible.
+
+    This link expires in one day and nothing will happen if it is not used.
+
+    --  [site:name] team
 password_reset:
   subject: 'Korvaavat kirjautumistiedot [user:display-name] käyttäjälle [site:name] sivustolla'
   body: "[user:display-name], Tilisi salasanan vaihtamista koskeva pyyntö on tehty  [site:name] sivustolla. Voit nyt kirjautua sisään napsauttamalla tätä linkkiä tai kopioimalla ja liittämällä sen selaimeesi: [user:one-time-login-url] \r\nTätä linkkiä voidaan käyttää vain kerran sisäänkirjautumiseen ja se johtaa  sivulle jossa voit asettaa uuden salasanan. Linkki vanhenee yhden päivän kuluttua, eikä mitään tapahdu, jos sitä ei käytetä.\r\n[site:name] ylläpito"

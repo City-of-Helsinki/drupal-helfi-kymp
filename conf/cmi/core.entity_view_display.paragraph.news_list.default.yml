@@ -7,9 +7,9 @@ dependencies:
     - field.field.paragraph.news_list.field_helfi_news_neighbourhoods
     - field.field.paragraph.news_list.field_helfi_news_tags
     - field.field.paragraph.news_list.field_limit
+    - paragraphs.paragraphs_type.news_list
     - field.field.paragraph.news_list.field_news_list_description
     - field.field.paragraph.news_list.field_news_list_title
-    - paragraphs.paragraphs_type.news_list
   module:
     - text
 _core:
@@ -46,6 +46,11 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  news_list:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_news_list_description:
     type: text_default
     label: hidden
@@ -61,15 +66,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  news_list:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
 hidden:
-  field_groups: true
   field_limit: true
-  field_neighbourhoods: true
-  field_news_list_description: true
-  field_news_list_title: true
-  field_tags: true

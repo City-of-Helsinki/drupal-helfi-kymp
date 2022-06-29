@@ -1,3 +1,4 @@
+label: 'Locked content'
 display:
   default:
     display_title: Förvald
@@ -30,6 +31,7 @@ display:
           label: Innehållstyp
           separator: ', '
         name:
+          label: 'Lock owner'
           separator: ', '
         operations:
           label: Funktioner
@@ -48,7 +50,9 @@ display:
         title:
           expose:
             label: Titel
+      title: 'Locked content'
   page_1:
     display_title: Sida
     display_options:
-      menu: null
+      menu:
+        title: 'Locked content'
