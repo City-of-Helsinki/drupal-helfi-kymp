@@ -29,6 +29,7 @@ settings:
       columns: columns
       image: image
       text: text
+      phasing: phasing
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -75,6 +76,12 @@ settings:
         enabled: false
       map:
         weight: 35
+        enabled: false
+      phasing:
+        weight: 49
+        enabled: true
+      phasing_item:
+        weight: 50
         enabled: false
       remote_video:
         weight: 36

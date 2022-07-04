@@ -43,6 +43,7 @@ settings:
       remote_video: remote_video
       liftup_with_image: liftup_with_image
       news_list: news_list
+      phasing: phasing
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -90,6 +91,12 @@ settings:
       news_list:
         weight: 30
         enabled: true
+      phasing:
+        weight: 50
+        enabled: true
+      phasing_item:
+        weight: 30
+        enabled: false
       remote_video:
         weight: 32
         enabled: true
