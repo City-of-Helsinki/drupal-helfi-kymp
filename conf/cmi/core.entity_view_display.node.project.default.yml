@@ -1,0 +1,85 @@
+uuid: 9ddad580-6bf4-41dd-a4fa-66f2af357be5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project.field_content
+    - field.field.node.project.field_lead_in
+    - field.field.node.project.field_lower_content
+    - field.field.node.project.field_metatags
+    - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_search_metatags
+    - field.field.node.project.field_sidebar_content
+    - image.style.3_2_l
+    - node.type.project
+  module:
+    - entity_reference_revisions
+    - media
+    - metatag
+    - user
+id: node.project.default
+targetEntityType: node
+bundle: project
+mode: default
+content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lead_in:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lower_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_project_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 3_2_l
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_sidebar_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_project_search_metatags: true
+  langcode: true
+  toc_enabled: true

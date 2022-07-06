@@ -1,0 +1,19 @@
+uuid: 8f9aac21-772e-4a42-813d-59e477d42a9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_search_metatags
+    - node.type.project
+id: node.project.field_project_search_metatags
+field_name: field_project_search_metatags
+entity_type: node
+bundle: project
+label: 'Project search metatags'
+description: 'Metatags for the project that can help with the search. Insert keywords with a comma using lower case letters. i.ex. <i>apple, fruit, red</i>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

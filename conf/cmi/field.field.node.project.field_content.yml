@@ -1,0 +1,129 @@
+uuid: 403af305-4fa3-4d62-8ca4-a281462571df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.project
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.contact_card_listing
+    - paragraphs.paragraphs_type.event_list
+    - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.phasing
+    - paragraphs.paragraphs_type.remote_video
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.project.field_content
+field_name: field_content
+entity_type: node
+bundle: project
+label: 'Upper content region'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordion: accordion
+      contact_card_listing: contact_card_listing
+      event_list: event_list
+      list_of_links: list_of_links
+      map: map
+      phasing: phasing
+      remote_video: remote_video
+      text: text
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: true
+      accordion_item:
+        weight: 31
+        enabled: false
+      banner:
+        weight: 32
+        enabled: false
+      chart:
+        weight: 33
+        enabled: false
+      columns:
+        weight: 34
+        enabled: false
+      contact_card:
+        weight: 35
+        enabled: false
+      contact_card_listing:
+        weight: 36
+        enabled: true
+      content_cards:
+        weight: 37
+        enabled: false
+      content_liftup:
+        weight: 38
+        enabled: false
+      event_list:
+        weight: 39
+        enabled: true
+      from_library:
+        weight: 40
+        enabled: false
+      gallery:
+        weight: 41
+        enabled: false
+      gallery_slide:
+        weight: 42
+        enabled: false
+      hero:
+        weight: 43
+        enabled: false
+      image:
+        weight: 44
+        enabled: false
+      liftup_with_image:
+        weight: 45
+        enabled: false
+      list_of_links:
+        weight: 46
+        enabled: true
+      list_of_links_item:
+        weight: 47
+        enabled: false
+      list_of_plans:
+        weight: 48
+        enabled: false
+      map:
+        weight: 49
+        enabled: true
+      news_list:
+        weight: 50
+        enabled: false
+      phasing:
+        weight: 51
+        enabled: true
+      phasing_item:
+        weight: 52
+        enabled: false
+      remote_video:
+        weight: 53
+        enabled: true
+      service_list:
+        weight: 54
+        enabled: false
+      sidebar_text:
+        weight: 55
+        enabled: false
+      social_media_link:
+        weight: 56
+        enabled: false
+      text:
+        weight: 57
+        enabled: true
+      unit_search:
+        weight: 58
+        enabled: false
+field_type: entity_reference_revisions
