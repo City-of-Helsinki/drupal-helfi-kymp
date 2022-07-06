@@ -1,0 +1,48 @@
+uuid: 51ecd7dc-f6a3-4410-b267-161b33ac20fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.phase
+  module:
+    - path
+id: taxonomy_term.phase.default
+targetEntityType: taxonomy_term
+bundle: phase
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  translation:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true
