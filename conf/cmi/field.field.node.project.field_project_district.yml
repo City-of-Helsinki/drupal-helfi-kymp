@@ -1,0 +1,31 @@
+uuid: fd43a0fe-ec77-44d2-bd2b-315830725736
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_district
+    - node.type.project
+    - taxonomy.vocabulary.disctrict
+    - taxonomy.vocabulary.sub_district
+id: node.project.field_project_district
+field_name: field_project_district
+entity_type: node
+bundle: project
+label: 'Project district'
+description: 'Select the district/districts of the project. If needed, a subdistrict can also be selected.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      disctrict: disctrict
+      sub_district: sub_district
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: disctrict
+field_type: entity_reference

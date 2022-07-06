@@ -1,0 +1,31 @@
+uuid: 1118b8c8-902e-4b5f-a6a3-680ad20b652d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.sub_district.field_parent_district
+    - taxonomy.vocabulary.sub_district
+  module:
+    - text
+id: taxonomy_term.sub_district.default
+targetEntityType: taxonomy_term
+bundle: sub_district
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_parent_district:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

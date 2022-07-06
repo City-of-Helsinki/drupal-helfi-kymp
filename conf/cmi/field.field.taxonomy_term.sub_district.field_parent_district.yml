@@ -1,0 +1,29 @@
+uuid: 0f85ed25-4900-466d-ae09-c6a0c13b4ab9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_parent_district
+    - taxonomy.vocabulary.disctrict
+    - taxonomy.vocabulary.sub_district
+id: taxonomy_term.sub_district.field_parent_district
+field_name: field_parent_district
+entity_type: taxonomy_term
+bundle: sub_district
+label: 'Parent district'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      disctrict: disctrict
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

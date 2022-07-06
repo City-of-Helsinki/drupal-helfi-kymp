@@ -1,0 +1,21 @@
+uuid: c6d43be6-cb11-4e4e-9675-229f4272af3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_plan_schedule
+    - node.type.project
+  module:
+    - datetime_range
+id: node.project.field_project_plan_schedule
+field_name: field_project_plan_schedule
+entity_type: node
+bundle: project
+label: 'Project plan schedule'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

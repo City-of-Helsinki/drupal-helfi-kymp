@@ -1,0 +1,16 @@
+uuid: d6575e7e-7a1c-497e-9525-a72cb9ee47aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.disctrict
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.disctrict
+target_entity_type_id: taxonomy_term
+target_bundle: disctrict
+default_langcode: site_default
+language_alterable: false
