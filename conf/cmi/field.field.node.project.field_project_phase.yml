@@ -1,0 +1,29 @@
+uuid: bd92d277-1dfd-4087-8927-5fa81de070ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_phase
+    - node.type.project
+    - taxonomy.vocabulary.project_phase
+id: node.project.field_project_phase
+field_name: field_project_phase
+entity_type: node
+bundle: project
+label: 'Project phase'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      project_phase: project_phase
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

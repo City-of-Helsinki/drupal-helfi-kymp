@@ -8,8 +8,14 @@ dependencies:
     - field.field.node.project.field_lead_in
     - field.field.node.project.field_lower_content
     - field.field.node.project.field_metatags
+    - field.field.node.project.field_project_district
+    - field.field.node.project.field_project_execution_schedule
     - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_phase
+    - field.field.node.project.field_project_plan_schedule
     - field.field.node.project.field_project_search_metatags
+    - field.field.node.project.field_project_theme
+    - field.field.node.project.field_project_type
     - field.field.node.project.field_sidebar_content
     - node.type.project
   module:
@@ -29,8 +35,14 @@ hidden:
   field_lead_in: true
   field_lower_content: true
   field_metatags: true
+  field_project_district: true
+  field_project_execution_schedule: true
   field_project_image: true
+  field_project_phase: true
+  field_project_plan_schedule: true
   field_project_search_metatags: true
+  field_project_theme: true
+  field_project_type: true
   field_sidebar_content: true
   langcode: true
   toc_enabled: true

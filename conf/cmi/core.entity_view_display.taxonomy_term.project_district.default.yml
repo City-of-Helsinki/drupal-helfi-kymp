@@ -1,0 +1,22 @@
+uuid: da07c29d-2c7a-443d-b27d-3829a7366fc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.project_district
+  module:
+    - text
+id: taxonomy_term.project_district.default
+targetEntityType: taxonomy_term
+bundle: project_district
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,16 @@
+uuid: 86264116-2bba-4788-9374-1a2097faee8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.project_phase
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.project_phase
+target_entity_type_id: taxonomy_term
+target_bundle: project_phase
+default_langcode: site_default
+language_alterable: false

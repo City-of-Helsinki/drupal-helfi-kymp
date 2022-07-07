@@ -1,0 +1,21 @@
+uuid: 01d7cd3b-9e31-45fc-9f8a-ed68ade4a116
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_execution_schedule
+    - node.type.project
+  module:
+    - datetime_range
+id: node.project.field_project_execution_schedule
+field_name: field_project_execution_schedule
+entity_type: node
+bundle: project
+label: 'Project execution schedule'
+description: 'The date will be shown only as month/year on the page. Select 1. of the month if a the day isn''t known.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange
