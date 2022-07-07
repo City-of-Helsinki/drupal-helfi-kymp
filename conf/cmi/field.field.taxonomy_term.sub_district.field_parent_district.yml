@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_parent_district
-    - taxonomy.vocabulary.disctrict
-    - taxonomy.vocabulary.sub_district
-id: taxonomy_term.sub_district.field_parent_district
+    - taxonomy.vocabulary.project_district
+    - taxonomy.vocabulary.project_sub_district
+id: taxonomy_term.project_sub_district.field_parent_district
 field_name: field_parent_district
 entity_type: taxonomy_term
-bundle: sub_district
+bundle: project_sub_district
 label: 'Parent district'
 description: ''
 required: true
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      disctrict: disctrict
+      project_district: project_district
     sort:
       field: name
       direction: asc

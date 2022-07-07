@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.disctrict
+    - taxonomy.vocabulary.project_district
   module:
     - text
-id: taxonomy_term.disctrict.default
+id: taxonomy_term.project_district.default
 targetEntityType: taxonomy_term
-bundle: disctrict
+bundle: project_district
 mode: default
 content:
   description:

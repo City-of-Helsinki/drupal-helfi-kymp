@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.sub_district.field_parent_district
-    - taxonomy.vocabulary.sub_district
+    - field.field.taxonomy_term.project_sub_district.field_parent_district
+    - taxonomy.vocabulary.project_sub_district
   module:
     - path
     - select2
-id: taxonomy_term.sub_district.default
+id: taxonomy_term.project_sub_district.default
 targetEntityType: taxonomy_term
-bundle: sub_district
+bundle: project_sub_district
 mode: default
 content:
   field_parent_district:

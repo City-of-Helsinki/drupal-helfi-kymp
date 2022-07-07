@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.phase
+    - taxonomy.vocabulary.project_phase
   module:
     - path
-id: taxonomy_term.phase.default
+id: taxonomy_term.project_phase.default
 targetEntityType: taxonomy_term
-bundle: phase
+bundle: project_phase
 mode: default
 content:
   langcode:

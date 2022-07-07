@@ -5,8 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_project_district
     - node.type.project
-    - taxonomy.vocabulary.disctrict
-    - taxonomy.vocabulary.sub_district
+    - taxonomy.vocabulary.project_district
+    - taxonomy.vocabulary.project_sub_district
 id: node.project.field_project_district
 field_name: field_project_district
 entity_type: node
@@ -21,11 +21,11 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      disctrict: disctrict
-      sub_district: sub_district
+      project_district: project_district
+      project_sub_district: project_sub_district
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: disctrict
+    auto_create_bundle: project_district
 field_type: entity_reference
