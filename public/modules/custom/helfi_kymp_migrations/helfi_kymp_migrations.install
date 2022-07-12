@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains installation procedure for helfi_kymp_migrations module.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_install().
+ */
+function helfi_kymp_migrations_install() {
+  $migration = \Drupal::service('helfi_kymp_migrations.taxonomy_migration_service');
+  $errors = $migration->migrate();
+}
