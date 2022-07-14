@@ -8,9 +8,9 @@
 declare(strict_types = 1);
 
 /**
- * Implements hook_install().
+ * Installs project taxonomies.
  */
-function helfi_kymp_migrations_install() {
+function helfi_kymp_migrations_update_9001() {
   $migration = \Drupal::service('helfi_kymp_migrations.taxonomy_migration_service');
   $errors = $migration->migrate();
 }

@@ -105,7 +105,9 @@ class TaxonomyMigrationService {
         $translation->set('name', $set['sv'][1])
           ->save();
 
-        if ($term->bundle() == 'project_sub_district') {
+        if (
+          $term->bundle() == 'project_sub_district' &&
+          $term->hasField('field_parent_district')) {
           $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $row[4]]);
           if ($parent) {
             $term->field_parent_district->entity = reset($parent);
@@ -119,5 +121,4 @@ class TaxonomyMigrationService {
     }
     return $errors;
   }
-
 }
