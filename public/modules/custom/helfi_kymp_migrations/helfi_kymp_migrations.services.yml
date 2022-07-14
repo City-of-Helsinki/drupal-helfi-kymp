@@ -1,0 +1,4 @@
+services:
+  helfi_kymp_migrations.taxonomy_migration_service:
+    class: Drupal\helfi_kymp_migrations\TaxonomyMigrationService
+    arguments: ['/app/public/modules/custom/helfi_kymp_migrations/src/csv/taxonomies.csv']
