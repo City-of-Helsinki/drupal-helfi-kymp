@@ -46,7 +46,9 @@
     {% set array = array|merge([{ label: 'Project plan schedule', icon: 'calendar', content: content.field_project_plan_schedule }]) %}
     {% set array = array|merge([{ label: 'Project location', icon: 'location', content: content.field_project_district }]) %}
 
-    {% include '@hdbt/misc/metadata-wrapper.twig' with { items: array }%}
+    <div class="project__metadata-wrapper">
+      {% include '@hdbt/misc/metadata-wrapper.twig' with { items: array }%}
+    </div>
 
     {{ content.field_content}}
 

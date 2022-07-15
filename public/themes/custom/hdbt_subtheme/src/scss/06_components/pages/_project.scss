@@ -5,7 +5,19 @@
   }
 }
 
+.page-type--project.no-sidebar {
+  .project__image-container,
+  .content-tags,
+  .project__metadata-wrapper {
+    @include component-side-padding;
+  }
+}
+
+
 .node--type-project {
+  @include components-container-max-width;
+  margin: auto;
+
   .content-tags {
     margin-top: $spacing-double;
   }
