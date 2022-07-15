@@ -4,3 +4,30 @@
     height: auto;
   }
 }
+
+.node--type-project {
+  .content-tags {
+    margin-top: $spacing-double;
+  }
+
+  .lead-in {
+    margin-bottom: $spacing-double;
+  }
+
+  .lower-content .component--list-of-links {
+    background-color: $color-black-20;
+  }
+
+  .metadata__item-content .label:not(:last-of-type)::after {
+    content: ', ';
+  }
+}
+
+.page-type--project {
+  .lower-content .component--list-of-links:last-of-type {
+    background-color: $color-black-5;
+    padding-top: $spacing-sextuple;
+    padding-bottom: $spacing-sextuple;
+    margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
+  }
+}

@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - helfi_platform_config
+    - node
   theme:
     - hdbt_subtheme
 id: hdbt_subtheme_reactandshare
@@ -17,4 +18,14 @@ settings:
   label: 'React and Share'
   label_display: '0'
   provider: helfi_platform_config
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      announcement: announcement
+      article: article
+      landing_page: landing_page
+      page: page
