@@ -1,0 +1,16 @@
+uuid: 7db189d5-4fc6-4ba2-8783-5fde8732bf2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.district
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.district
+target_entity_type_id: node
+target_bundle: district
+default_langcode: fi
+language_alterable: false

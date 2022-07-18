@@ -1,0 +1,71 @@
+uuid: ba8ac91a-4c52-4ba2-a2f5-2b4cf781848c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.district.field_content
+    - field.field.node.district.field_hero
+    - field.field.node.district.field_lower_content
+    - field.field.node.district.field_metatags
+    - field.field.node.district.field_sidebar_content
+    - node.type.district
+  module:
+    - entity_reference_revisions
+    - metatag
+    - user
+id: node.district.default
+targetEntityType: node
+bundle: district
+mode: default
+content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_hero:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_lower_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_sidebar_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  toc_enabled: true

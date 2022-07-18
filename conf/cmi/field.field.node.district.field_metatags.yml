@@ -1,0 +1,21 @@
+uuid: a99544bd-424e-415a-a889-93364ab0fc29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags
+    - node.type.district
+  module:
+    - metatag
+id: node.district.field_metatags
+field_name: field_metatags
+entity_type: node
+bundle: district
+label: Metatags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
