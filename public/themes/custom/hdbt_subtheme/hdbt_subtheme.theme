@@ -13,15 +13,15 @@ function hdbt_subtheme_preprocess_block(&$variables) {
     $variables['content']['#attributes']['block_id'] = $variables['elements']['#id'];
   }
 
-  // Hides page title block from node type district
+  // Hides page title block from node type district.
   if ($variables['plugin_id'] == 'page_title_block') {
     $page_entity = hdbt_content_get_page_entity();
-      if (
+    if (
         $page_entity->hasField('field_hero') &&
         $page_entity->getType() == 'district'
       ) {
-        $variables['hide_block'] = TRUE;
-      }
+      $variables['hide_block'] = TRUE;
+    }
   }
 }
 
