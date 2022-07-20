@@ -2,6 +2,8 @@
 
 namespace Drupal\helfi_kymp_migrations;
 
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -17,11 +19,19 @@ class TaxonomyMigrationService {
   private $file;
 
   /**
+   * Absolute path to taxonomies.csv.
+   *
+   * @var string
+   */
+  protected string $projectFilePath;
+
+  /**
    * Construct.
    */
-  public function __construct(
-    private string $projectFilePath
-  ) {
+  public function __construct(protected FileSystemInterface $fileSystem, protected ModuleHandlerInterface $moduleHandler) {
+    $this->projectFilePath = $this->fileSystem->realpath(
+      $this->moduleHandler->getModule('helfi_kymp_migrations')->getPath()
+    ) . '/src/csv/taxonomies.csv';
   }
 
   /**
@@ -95,21 +105,29 @@ class TaxonomyMigrationService {
           $taxonomy_data['field_parent_district'] = NULL;
         }
 
-        $term = Term::create($taxonomy_data);
-        $term->save();
-        $translation = $term->hasTranslation('fi') ? $term->getTranslation('fi') : $term->addTranslation('fi');
-        $translation->set('name', $set['fi'][1])
-          ->save();
+        $existing_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+          ->loadByProperties(['name' => trim($row[1]), 'vid' => $row[0]]);
 
-        $translation = $term->hasTranslation('sv') ? $term->getTranslation('sv') : $term->addTranslation('sv');
-        $translation->set('name', $set['sv'][1])
-          ->save();
+        if (!$existing_term) {
+          $term = Term::create($taxonomy_data);
+          $term->save();
+          $translation = $term->hasTranslation('fi') ? $term->getTranslation('fi') : $term->addTranslation('fi');
+          $translation->set('name', $set['fi'][1])
+            ->save();
 
-        if ($term->bundle() == 'project_sub_district') {
-          $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $row[4]]);
-          if ($parent) {
-            $term->field_parent_district->entity = reset($parent);
-            $term->save();
+          $translation = $term->hasTranslation('sv') ? $term->getTranslation('sv') : $term->addTranslation('sv');
+          $translation->set('name', $set['sv'][1])
+            ->save();
+
+          if (
+            $term->bundle() == 'project_sub_district' &&
+            $term->hasField('field_parent_district')
+          ) {
+            $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $row[4]]);
+            if ($parent) {
+              $term->field_parent_district->entity = reset($parent);
+              $term->save();
+            }
           }
         }
 

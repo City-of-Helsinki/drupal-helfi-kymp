@@ -5,12 +5,14 @@
  * Contains installation procedure for helfi_kymp_migrations module.
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
- * Implements hook_install().
+ * Installs project taxonomies.
  */
-function helfi_kymp_migrations_install() {
-  $migration = \Drupal::service('helfi_kymp_migrations.taxonomy_migration_service');
-  $errors = $migration->migrate();
+function helfi_kymp_migrations_update_9001() {
+  // Run the migrations again.
+  if (!\Drupal::state()->get('helfi_kymp_migrations.parent_district_migration_complete')) {
+    _helfi_kymp_run_taxonomy_migration();
+  }
 }
