@@ -40,14 +40,15 @@
       {{ content.field_project_image }}
     </div>
 
-    {% set array = [] %}
-    {% set array = array|merge([{ label: 'Project phase', icon: 'calendar-clock', content: content.field_project_phase }]) %}
-    {% set array = array|merge([{ label: 'Project theme', icon: 'locate', content: content.field_project_theme }]) %}
-    {% set array = array|merge([{ label: 'Project plan schedule', icon: 'calendar', content: content.field_project_plan_schedule }]) %}
-    {% set array = array|merge([{ label: 'Project location', icon: 'location', content: content.field_project_district }]) %}
+    {% set metadata = [
+      { label: 'Project phase', icon: 'calendar-clock', content: content.field_project_phase },
+      { label: 'Project theme', icon: 'locate', content: content.field_project_theme },
+      { label: 'Project plan schedule', icon: 'calendar', content: content.field_project_plan_schedule },
+      { label: 'Project location', icon: 'location', content: content.field_project_district }
+    ] %}
 
     <div class="project__metadata-wrapper">
-      {% include '@hdbt/misc/metadata-wrapper.twig' with { items: array }%}
+      {% include '@hdbt/misc/metadata-wrapper.twig' with { items: metadata }%}
     </div>
 
     {{ content.field_content}}
