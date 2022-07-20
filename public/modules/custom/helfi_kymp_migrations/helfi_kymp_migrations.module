@@ -14,6 +14,7 @@ function helfi_kymp_migrations_modules_installed($modules) {
   // Run taxonomy migrations after the necessary entities have been installed.
   if (in_array('helfi_kymp_migrations', $modules)) {
     _helfi_kymp_run_taxonomy_migration();
+    \Drupal::state()->set('helfi_kymp_migrations.parent_district_migration_complete', TRUE);
   }
 }
 
