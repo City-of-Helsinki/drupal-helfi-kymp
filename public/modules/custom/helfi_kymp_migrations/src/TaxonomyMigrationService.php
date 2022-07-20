@@ -105,7 +105,8 @@ class TaxonomyMigrationService {
           $taxonomy_data['field_parent_district'] = NULL;
         }
 
-        $existing_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => trim($row[1]), 'vid' => $row[0]]);
+        $existing_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+          ->loadByProperties(['name' => trim($row[1]), 'vid' => $row[0]]);
 
         if (!$existing_term) {
           $term = Term::create($taxonomy_data);
@@ -113,11 +114,11 @@ class TaxonomyMigrationService {
           $translation = $term->hasTranslation('fi') ? $term->getTranslation('fi') : $term->addTranslation('fi');
           $translation->set('name', $set['fi'][1])
             ->save();
-  
+
           $translation = $term->hasTranslation('sv') ? $term->getTranslation('sv') : $term->addTranslation('sv');
           $translation->set('name', $set['sv'][1])
             ->save();
-  
+
           if (
             $term->bundle() == 'project_sub_district' &&
             $term->hasField('field_parent_district')
