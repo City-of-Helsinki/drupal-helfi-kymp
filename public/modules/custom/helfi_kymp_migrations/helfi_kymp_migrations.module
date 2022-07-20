@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains alterations for helfi_kymp_migrations module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_modules_installed().
+ */
+function helfi_kymp_migrations_modules_installed($modules) {
+  // Run taxonomy migrations after the necessary entities have been installed.
+  if (in_array('helfi_kymp_migrations', $modules)) {
+    _helfi_kymp_run_taxonomy_migration();
+  }
+}
+
+/**
+ * Run taxonomy migrations.
+ */
+function _helfi_kymp_run_taxonomy_migration() {
+  $logger = \Drupal::service('logger.channel.default');
+  $migration = \Drupal::service(
+    'helfi_kymp_migrations.taxonomy_migration_service'
+  );
+
+  try {
+    $migration->migrate();
+  }
+  catch (\Exception $e) {
+    return $logger->error('HELfi KYMP Migration taxonomy migration failed with error: ' . $e->getMessage());
+  }
+}
