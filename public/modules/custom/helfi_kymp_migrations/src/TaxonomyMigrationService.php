@@ -2,6 +2,8 @@
 
 namespace Drupal\helfi_kymp_migrations;
 
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -17,11 +19,19 @@ class TaxonomyMigrationService {
   private $file;
 
   /**
+   * Absolute path to taxonomies.csv.
+   *
+   * @var string
+   */
+  protected string $projectFilePath;
+
+  /**
    * Construct.
    */
-  public function __construct(
-    private string $projectFilePath
-  ) {
+  public function __construct(protected FileSystemInterface $fileSystem, protected ModuleHandlerInterface $moduleHandler) {
+    $this->projectFilePath = $this->fileSystem->realpath(
+      $this->moduleHandler->getModule('helfi_kymp_migrations')->getPath()
+    ) . '/src/csv/taxonomies.csv';
   }
 
   /**
