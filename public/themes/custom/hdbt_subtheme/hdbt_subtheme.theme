@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -69,4 +70,38 @@ function hdbt_subtheme_theme_suggestions_menu_alter(&$suggestions, $variables) {
         break;
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function hdbt_subtheme_preprocess_paragraph__project_listing(&$variables) {
+  $variables['#attached']['library'][] = 'hdbt_subtheme/project_listing';
+  $projects = [];
+  $paragraph = $variables['paragraph'];
+  $selected_district = $paragraph->get('field_district_taxonomy')->target_id;
+
+  $nids = \Drupal::entityQuery('node')->condition('type', 'project')->execute();
+  $nodes = Node::loadMultiple($nids);
+
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+
+  foreach ($nodes as $node) {
+    $node_districts = $node->get('field_project_district')->referencedEntities();
+
+    foreach ($node_districts as $district) {
+      $district_tid = $district->tid->value;
+
+      if ($district_tid == $selected_district) {
+        $build = $view_builder->view($node, 'teaser');
+        $projects[] = $build;
+      }
+    }
+  }
+
+  $variables['projects'] = $projects;
+  $variables['project_count'] = count($projects);
+
+  // @todo change to actual search page link
+  $variables['search_link'] = '/';
 }

@@ -1,0 +1,40 @@
+uuid: 23565677-3db2-41b9-80b7-6382f33e272f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.project_listing.field_district_taxonomy
+    - field.field.paragraph.project_listing.field_project_list_description
+    - field.field.paragraph.project_listing.field_project_list_title
+    - paragraphs.paragraphs_type.project_listing
+  module:
+    - text
+id: paragraph.project_listing.default
+targetEntityType: paragraph
+bundle: project_listing
+mode: default
+content:
+  field_district_taxonomy:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_project_list_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_project_list_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

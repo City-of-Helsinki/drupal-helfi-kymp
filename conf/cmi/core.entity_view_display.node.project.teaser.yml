@@ -17,28 +17,64 @@ dependencies:
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
     - field.field.node.project.field_sidebar_content
+    - image.style.1_1_s
     - node.type.project
   module:
+    - datetime_range
+    - media
     - user
 id: node.project.teaser
 targetEntityType: node
 bundle: project
 mode: teaser
 content:
+  field_project_district:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_project_execution_schedule:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: project_schedule
+      separator: '-'
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_project_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 1_1_s
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_project_phase:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   field_content: true
   field_lead_in: true
   field_lower_content: true
   field_metatags: true
-  field_project_district: true
-  field_project_execution_schedule: true
-  field_project_image: true
-  field_project_phase: true
   field_project_plan_schedule: true
   field_project_search_metatags: true
   field_project_theme: true

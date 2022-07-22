@@ -1,0 +1,33 @@
+.component--project-list {
+  background-color: var(--hdbt-color-palette--secondary);
+
+  .component__container {
+    padding: $spacing-quadruple $spacing-double;
+  }
+}
+
+.project-list_count {
+  @include font('h4');
+}
+
+.project-list_count-text {
+  @include font('body');
+}
+
+.project-list__count-container {
+  margin-bottom: $spacing-and-half;
+}
+
+.project-list__buttons {
+  list-style: none;
+  display: flex;
+  padding: 0;
+
+  li {
+    margin: 0;
+  }
+
+  .hds-button:first-of-type {
+    margin-right: $spacing;
+  }
+}

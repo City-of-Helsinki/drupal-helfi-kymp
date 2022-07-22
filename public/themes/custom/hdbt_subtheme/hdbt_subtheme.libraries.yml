@@ -10,3 +10,10 @@ global-styling:
 #    dist/js/common.min.js: {}
 #  dependencies:
 #    - core/drupal
+
+project_listing:
+  version: 1.x
+  js:
+    dist/js/project-listing.min.js: {}
+  dependencies:
+    - core/drupal
