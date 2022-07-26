@@ -5,6 +5,8 @@
  * Functions to support theming in the HDBT Subtheme.
  */
 
+use Drupal\Core\Entity\ContentEntityInterface;
+
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -17,6 +19,7 @@ function hdbt_subtheme_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'page_title_block') {
     $page_entity = hdbt_content_get_page_entity();
     if (
+      $page_entity instanceof ContentEntityInterface &&
       $page_entity->hasField('field_hero') &&
       $page_entity->getType() == 'district'
     ) {
