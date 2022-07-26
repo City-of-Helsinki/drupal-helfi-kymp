@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b735af9565efcc8f15f65d202059aa6b",
+    "content-hash": "fd74c82c39ea29bbc1892d432d1d809a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4227,16 +4227,16 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "1.0.6",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "2f3f549458448d6af04265b5d7d20eb9d2ccefc4"
+                "reference": "8fb72293cff8a9009c3a873b427fca7136da1af9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/2f3f549458448d6af04265b5d7d20eb9d2ccefc4",
-                "reference": "2f3f549458448d6af04265b5d7d20eb9d2ccefc4",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/8fb72293cff8a9009c3a873b427fca7136da1af9",
+                "reference": "8fb72293cff8a9009c3a873b427fca7136da1af9",
                 "shasum": ""
             },
             "require": {
@@ -4246,16 +4246,17 @@
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "drupal/coder": "^8.3"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/1.0.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2022-02-01T08:29:04+00:00"
+            "time": "2022-07-26T09:02:15+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -17714,6 +17715,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/helfi_azure_fs": 20,
         "drupal/helfi_drupal_tools": 20
     },
     "prefer-stable": true,
