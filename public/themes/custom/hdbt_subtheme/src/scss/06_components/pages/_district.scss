@@ -40,7 +40,7 @@ $-sidebar-width: 340px;
 
 .district__sidebar-content {
   @include breakpoint($breakpoint-l) {
-    min-width: $-sidebar-width;
+    width: $-sidebar-width;
   }
 }
 
