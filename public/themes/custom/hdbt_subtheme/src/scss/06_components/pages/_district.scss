@@ -19,8 +19,17 @@ $-sidebar-width: 340px;
   margin-bottom: $spacing-double;
 
   @include breakpoint($breakpoint-l) {
-    margin-left: $spacing-quadruple;
     margin-bottom: unset;
+  }
+
+  &.has-sidebar {
+    @include breakpoint($breakpoint-l) {
+      margin-left: $spacing-quadruple;
+    }
+
+    .table-of-contents {
+      margin: 0;
+    }
   }
 
   .table-of-contents,
