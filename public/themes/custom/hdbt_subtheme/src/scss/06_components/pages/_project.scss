@@ -101,18 +101,17 @@
   }
 }
 
-$-project-image-placeholder-ratio: 1/1;
-$-project-image-size: 180px;
+$-project-image-placeholder-ratio: 3/2;
+$-project-image-size: 240px;
 
 .project-teaser__image {
   min-width: $-project-image-size;
-  max-height: 300px;
   overflow: hidden;
   display: flex;
   align-items: center;
 
   @include breakpoint($breakpoint-m) {
-    height: $-project-image-size;
+    width: $-project-image-size;
   }
 
   img {
@@ -122,6 +121,7 @@ $-project-image-size: 180px;
 
   .image-placeholder {
     padding-bottom: aspect-ratio-padding($-project-image-placeholder-ratio);
+    height: 100%;
   }
 }
 
