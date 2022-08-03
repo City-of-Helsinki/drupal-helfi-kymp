@@ -21,11 +21,6 @@
         numberOfItems = numberOfItems + showMoreItems;
         $('.project-teaser:lt(' + numberOfItems + ')').show();
 
-        // Scroll to the bottom of the list.
-        $('html').animate({
-          scrollTop: $('.project-list__list')[0].scrollHeight
-        }, 1000);
-
         // Hide the button when all items are visible.
         if (numberOfItems >= initialPlanCount) {
           $('.pager-button').hide();

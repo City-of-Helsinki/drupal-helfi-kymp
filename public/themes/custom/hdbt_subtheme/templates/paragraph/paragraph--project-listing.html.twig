@@ -1,5 +1,5 @@
 {% block paragraph %}
-	{% embed "@hdbt/misc/component.twig" with
+  {% embed "@hdbt/misc/component.twig" with
     {
       component_classes: [ 'component--project-list' ],
       component_title: content.field_project_list_title,
@@ -7,7 +7,7 @@
       component_content_class: 'project-list',
     }
   %}
-		{% block component_content %}
+    {% block component_content %}
 
       <div class="project-list__count-container">
         <span class="project-list_count">{{ project_count }}</span>
