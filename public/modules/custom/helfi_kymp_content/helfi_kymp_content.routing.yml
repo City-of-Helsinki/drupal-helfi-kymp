@@ -1,0 +1,9 @@
+helfi_kymp_content.settings:
+  path: '/admin/config/services/kymp-content'
+  defaults:
+    _form: '\Drupal\helfi_kymp_content\Form\SettingsForm'
+    _title: 'KYMP content settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

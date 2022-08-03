@@ -33,11 +33,13 @@
                   <span class="hds-button__label">{{ 'Load more projects'|t({}, {'context': 'Project list, show more'}) }}</span>
                 </a>
               </li>
+              {% if search_link %}
               <li>
                 <a href="{{ search_link }}" class="hds-button hds-button--secondary" rel="next">
                   <span class="hds-button__label">{{ 'Refine search'|t({}, {'context': 'Project list, refine search'}) }}</span>
                 </a>
               </li>
+              {% endif %}
             </ul>
           {% endif %}
         </div>

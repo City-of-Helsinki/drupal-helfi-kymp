@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 
 /**
@@ -102,6 +103,9 @@ function hdbt_subtheme_preprocess_paragraph__project_listing(&$variables) {
   $variables['projects'] = $projects;
   $variables['project_count'] = count($projects);
 
-  // @todo change to actual search page link
-  $variables['search_link'] = '/';
+  // Set the search link for Refine search button using config.
+  $projectSearchConfig = Drupal::config('helfi_kymp_content.project_search');
+  if ($projectSearchPath = $projectSearchConfig->get('project_search_path')) {
+    $variables['search_link'] = Url::fromUserInput($projectSearchPath)->toString();
+  }
 }
