@@ -15,8 +15,8 @@ $-sidebar-width: 340px;
 }
 
 .district__content {
-  width: 100%;
   margin-bottom: $spacing-double;
+  width: 100%;
 
   @include breakpoint($breakpoint-l) {
     margin-bottom: unset;
@@ -50,7 +50,7 @@ $-sidebar-width: 340px;
 
 .page-type--district .lower-content .component--list-of-links:last-of-type {
   background-color: $color-black-5;
-  padding-top: $spacing-sextuple;
   padding-bottom: $spacing-sextuple;
+  padding-top: $spacing-sextuple;
   margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
 }

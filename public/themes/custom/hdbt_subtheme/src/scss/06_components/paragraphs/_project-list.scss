@@ -18,16 +18,12 @@
   margin-bottom: $spacing-and-half;
 }
 
+.views--project-list .infinite-scroll-pager {
+  margin: 0;
+  margin-right: $spacing;
+}
+
 .project-list__buttons {
-  list-style: none;
   display: flex;
-  padding: 0;
-
-  li {
-    margin: 0;
-  }
-
-  .hds-button:first-of-type {
-    margin-right: $spacing;
-  }
+  margin-top: $spacing-and-half;
 }

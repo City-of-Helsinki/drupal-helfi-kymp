@@ -8,44 +8,9 @@
     }
   %}
     {% block component_content %}
-
-      <div class="project-list__count-container">
-        <span class="project-list_count">{{ project_count }}</span>
-        <span class="project-list_count-text">{{ 'projects'|t({}, {'context': 'Project list, amount of projects'}) }}</span>
+      <div class="project-list__list">
+        {{ drupal_view('project_list', 'block_1', selected_district) }}
       </div>
-
-      {% if project_count == 0 %}
-
-        <p>{{ 'There are no projects in this district.'|t({}, {'context': 'Project list, no projects description'}) }}</p>
-
-      {% else %}
-
-        <div class="project-list__list">
-
-          {% for project in projects %}
-            {{ project }}
-          {% endfor %}
-
-          {% if project_count > 4 %}
-            <ul class="project-list__buttons">
-              <li>
-                <a href="#" class="hds-button hds-button--primary pager-button" rel="next">
-                  <span class="hds-button__label">{{ 'Load more projects'|t({}, {'context': 'Project list, show more'}) }}</span>
-                </a>
-              </li>
-              {% if search_link %}
-              <li>
-                <a href="{{ search_link }}" class="hds-button hds-button--secondary" rel="next">
-                  <span class="hds-button__label">{{ 'Refine search'|t({}, {'context': 'Project list, refine search'}) }}</span>
-                </a>
-              </li>
-              {% endif %}
-            </ul>
-          {% endif %}
-        </div>
-
-      {% endif %}
-
-		{% endblock component_content %}
+    {% endblock component_content %}
 	{% endembed %}
 {% endblock paragraph %}
