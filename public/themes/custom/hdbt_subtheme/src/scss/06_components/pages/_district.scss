@@ -50,7 +50,7 @@ $-sidebar-width: 340px;
 
 .page-type--district .lower-content .component--list-of-links:last-of-type {
   background-color: $color-black-5;
+  margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
   padding-bottom: $spacing-sextuple;
   padding-top: $spacing-sextuple;
-  margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
 }
