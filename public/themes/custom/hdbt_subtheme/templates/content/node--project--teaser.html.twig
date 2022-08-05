@@ -30,8 +30,17 @@
     {% endif %}
   </div>
   <div class="project-teaser__data">
-    <div>
       {{ link(link_title, node_url, link_attributes) }}
+       {% include '@hdbt/misc/metadata-item.twig' with { 
+        item_icon: 'calendar',
+        item_label: 'Project schedule'|t,
+        item_content: content.field_project_execution_schedule,
+      }%}
+      {% include '@hdbt/misc/metadata-item.twig' with { 
+        item_icon: 'location',
+        item_label: 'Project location'|t,
+        item_content: content.field_project_district,
+      }%}
       {# Tags #}
       {% if content.field_project_phase|render %}
         {% embed '@hdbt/misc/tag-list.twig'%}
@@ -46,19 +55,7 @@
           {% endblock content %}
         {% endembed %}
       {% endif %}
-    </div>
-    <div>
-      {% include '@hdbt/misc/metadata-item.twig' with { 
-        item_icon: 'calendar',
-        item_label: 'Project schedule'|t,
-        item_content: content.field_project_execution_schedule,
-      }%}
-      {% include '@hdbt/misc/metadata-item.twig' with { 
-        item_icon: 'location',
-        item_label: 'Project location'|t,
-        item_content: content.field_project_district,
-      }%}
-    </div>
+     
     {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
   </div>
 </div>

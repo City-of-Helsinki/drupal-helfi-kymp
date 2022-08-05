@@ -33,6 +33,10 @@
   .metadata__item-content .label:not(:last-of-type)::after {
     content: ', ';
   }
+
+  .project-metadata__schedule {
+    display: block;
+  }
 }
 
 .page-type--project {
@@ -54,12 +58,19 @@
     display: flex;
   }
 
+  .content-tags {
+    margin-top: 0;
+  }
+
   .hel-icon--arrow-right {
-    bottom: $spacing-double;
     height: $spacing-double;
-    position: absolute;
-    right: $spacing-and-half;
     width: $spacing-double;
+
+    @include breakpoint($breakpoint-m) {
+      bottom: $spacing-double;
+      position: absolute;
+      right: $spacing-and-half;
+    }
 
     @include hover-link-arrow-transition;
   }
@@ -71,24 +82,28 @@
 
 .project-teaser__data {
   padding: $spacing-double $spacing-and-half $spacing-double $spacing;
-
+  display: flex;
+  flex-direction: column;
+  
   @include breakpoint($breakpoint-m) {
-    display: flex;
-    width: 100%;
-
-    & > div {
-      width: 50%;
-    }
+    width: 60%;
   }
 
   .metadata__item {
     margin-bottom: $spacing;
+    margin-top: 0;
     width: 100%;
 
-    @include breakpoint($breakpoint-m) {
-      &:last-of-type {
-        margin-bottom: 0;
+    & > div {
+      @include breakpoint($breakpoint-m) {
+        display: flex;
+        flex-wrap: wrap;
       }
+    }
+
+    .metadata__item-label::after {
+      content: ':';
+      margin-right: $spacing-quarter;
     }
   }
 
@@ -102,20 +117,21 @@
 }
 
 $-project-image-placeholder-ratio: 3/2;
-$-project-image-size: 240px;
+$-project-image-size: 380px;
+$-project-image-min-size: 240px;
 
 .project-teaser__image {
-  align-items: center;
-  display: flex;
-  min-width: $-project-image-size;
+  min-width: $-project-image-min-size;
   overflow: hidden;
 
   @include breakpoint($breakpoint-m) {
-    width: $-project-image-size;
+    max-width: $-project-image-size;
+    width: 40%;
   }
 
   img {
-    height: 100%;
+    display: block;
+    height: auto;
     width: 100%;
   }
 
