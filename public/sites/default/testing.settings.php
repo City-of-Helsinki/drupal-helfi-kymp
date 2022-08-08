@@ -8,3 +8,5 @@ $config['helfi_proxy.settings']['prefixes'] = [
   'sv' => 'test-stadsmiljo-och-trafik',
   'ru' => 'test-urban-environment-and-traffic',
 ];
+
+$config['helfi_news_feed.settings']['source_environment'] = 'test';
