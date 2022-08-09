@@ -22,14 +22,15 @@
   .views-row:last-child .project-teaser {
     margin-bottom: 0;
   }
+}
+.project-list__buttons {
+  display: flex;
 
-  .infinite-scroll-pager {
+  > .infinite-scroll-pager,
+  > .hds-button {
     margin-bottom: 0;
     margin-top: $spacing-and-half;
     margin-right: $spacing;
   }
-}
-.project-list__buttons {
-  display: flex;
 }
 
