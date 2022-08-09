@@ -98,10 +98,12 @@
   {% block main_content %}
     {{ content.field_hero }}
     <div class="district__content-container">
-      <aside class="district__sidebar-content layout-sidebar-second">
-        {{ content.field_sidebar_content}}
-      </aside>
-      <div class="district__content">
+      {% if content.field_sidebar_content|render %}
+        <aside class="district__sidebar-content layout-sidebar-second">
+          {{ content.field_sidebar_content}}
+        </aside>
+      {% endif %}
+      <div class="district__content {% if content.field_sidebar_content|render %}has-sidebar{% endif %}">
         {{ content.toc_enabled }}
         {{ content.field_content }}
       </div>

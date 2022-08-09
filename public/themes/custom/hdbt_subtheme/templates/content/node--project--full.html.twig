@@ -24,6 +24,9 @@
     {% if content.field_project_type|render %}
       {% embed '@hdbt/misc/tag-list.twig'%}
         {% block content %}
+          {% include '@hdbt/misc/tag.twig' with {
+                tag: 'Project'|t({}, {'context': 'Project page tag'}),
+          }%}
           {% if content.field_project_type|render %}
             {% for key in content.field_project_type['#items']|keys %}
               {% include '@hdbt/misc/tag.twig' with {
@@ -40,10 +43,24 @@
       {{ content.field_project_image }}
     </div>
 
+    {% if content.field_project_plan_schedule|render and content.field_project_execution_schedule|render %}
+      {% set schedule_label = 'Schedule'|t %}
+      {% set schedule_content %}
+        <span class="project-metadata__schedule">{{'Plan:'|t({}, {'context': 'Plan schedule label'})}} {{ content.field_project_plan_schedule }}</span>
+        <span class="project-metadata__schedule">{{'Execution:'|t({}, {'context': 'Execution schedule label'})}} {{ content.field_project_execution_schedule }}</span>
+      {% endset %}
+    {% elseif content.field_project_plan_schedule|render and not content.field_project_execution_schedule|render %}
+      {% set schedule_label = 'Project plan schedule'|t %}
+      {% set schedule_content = content.field_project_plan_schedule %}
+    {% else %}
+      {% set schedule_label = 'Project execution schedule'|t %}
+      {% set schedule_content = content.field_project_execution_schedule %}
+    {% endif %}
+
     {% set metadata = [
       { label: 'Project phase'|t, icon: 'calendar-clock', content: content.field_project_phase },
       { label: 'Project theme'|t, icon: 'locate', content: content.field_project_theme },
-      { label: 'Project plan schedule'|t, icon: 'calendar', content: content.field_project_plan_schedule },
+      { label: schedule_label, icon: 'calendar', content: schedule_content },
       { label: 'Project location'|t, icon: 'location', content: content.field_project_district }
     ] %}
 

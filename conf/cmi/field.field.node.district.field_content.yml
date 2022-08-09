@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
+    - paragraphs.paragraphs_type.project_listing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
   module:
@@ -36,6 +37,7 @@ settings:
       map: map
       news_list: news_list
       remote_video: remote_video
+      project_listing: project_listing
       text: text
     negate: 0
     target_bundles_drag_drop:
@@ -108,6 +110,9 @@ settings:
       phasing_item:
         weight: 52
         enabled: false
+      project_listing:
+        weight: 54
+        enabled: true
       remote_video:
         weight: 53
         enabled: true

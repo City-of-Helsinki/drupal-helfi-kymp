@@ -16,12 +16,10 @@ dependencies:
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
     - field.field.node.project.field_sidebar_content
-    - image.style.3_2_l
     - node.type.project
   module:
     - datetime_range
     - entity_reference_revisions
-    - media
     - metatag
     - user
 id: node.project.default
@@ -71,7 +69,7 @@ content:
     region: content
   field_project_execution_schedule:
     type: daterange_default
-    label: visually_hidden
+    label: hidden
     settings:
       timezone_override: ''
       format_type: project_schedule
@@ -80,13 +78,11 @@ content:
     weight: 12
     region: content
   field_project_image:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: 3_2_l
-      image_loading:
-        attribute: lazy
+      view_mode: image
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content

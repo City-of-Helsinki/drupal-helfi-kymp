@@ -15,12 +15,21 @@ $-sidebar-width: 340px;
 }
 
 .district__content {
-  width: 100%;
   margin-bottom: $spacing-double;
+  width: 100%;
 
   @include breakpoint($breakpoint-l) {
-    margin-left: $spacing-quadruple;
     margin-bottom: unset;
+  }
+
+  &.has-sidebar {
+    @include breakpoint($breakpoint-l) {
+      margin-left: $spacing-quadruple;
+    }
+
+    .table-of-contents {
+      margin: 0;
+    }
   }
 
   .table-of-contents,
@@ -31,7 +40,7 @@ $-sidebar-width: 340px;
 
 .district__sidebar-content {
   @include breakpoint($breakpoint-l) {
-    min-width: $-sidebar-width;
+    width: $-sidebar-width;
   }
 }
 
@@ -41,7 +50,7 @@ $-sidebar-width: 340px;
 
 .page-type--district .lower-content .component--list-of-links:last-of-type {
   background-color: $color-black-5;
-  padding-top: $spacing-sextuple;
-  padding-bottom: $spacing-sextuple;
   margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
+  padding-bottom: $spacing-sextuple;
+  padding-top: $spacing-sextuple;
 }

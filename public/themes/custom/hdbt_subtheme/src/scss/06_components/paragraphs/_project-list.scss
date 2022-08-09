@@ -1,0 +1,36 @@
+.component--project-list {
+  background-color: $color-black-5;
+
+  .component__container {
+    padding: $spacing-quadruple $spacing-double;
+  }
+}
+
+.project-list_count {
+  @include font('h4');
+}
+
+.project-list_count-text {
+  @include font('body');
+}
+
+.project-list__count-container {
+  margin-bottom: $spacing-and-half;
+}
+
+.views--project-list {
+  .views-row:last-child .project-teaser {
+    margin-bottom: 0;
+  }
+}
+.project-list__buttons {
+  display: flex;
+
+  > .infinite-scroll-pager,
+  > .hds-button {
+    margin-bottom: 0;
+    margin-top: $spacing-and-half;
+    margin-right: $spacing;
+  }
+}
+

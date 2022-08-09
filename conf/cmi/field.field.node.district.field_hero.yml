@@ -14,7 +14,7 @@ entity_type: node
 bundle: district
 label: Hero
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -93,6 +93,9 @@ settings:
         enabled: false
       phasing_item:
         weight: 52
+        enabled: false
+      project_listing:
+        weight: 54
         enabled: false
       remote_video:
         weight: 53
