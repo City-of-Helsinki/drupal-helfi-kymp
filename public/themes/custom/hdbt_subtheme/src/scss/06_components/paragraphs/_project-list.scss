@@ -18,12 +18,18 @@
   margin-bottom: $spacing-and-half;
 }
 
-.views--project-list .infinite-scroll-pager {
-  margin: 0;
-  margin-right: $spacing;
-}
+.views--project-list {
+  .views-row:last-child .project-teaser {
+    margin-bottom: 0;
+  }
 
+  .infinite-scroll-pager {
+    margin-bottom: 0;
+    margin-top: $spacing-and-half;
+    margin-right: $spacing;
+  }
+}
 .project-list__buttons {
   display: flex;
-  margin-top: $spacing-and-half;
 }
+
