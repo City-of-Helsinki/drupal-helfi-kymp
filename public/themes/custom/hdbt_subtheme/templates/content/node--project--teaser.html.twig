@@ -30,31 +30,31 @@
     {% endif %}
   </div>
   <div class="project-teaser__data">
-      {{ link(link_title, node_url, link_attributes) }}
-       {% include '@hdbt/misc/metadata-item.twig' with { 
-        item_icon: 'calendar',
-        item_label: 'Project schedule'|t,
-        item_content: content.field_project_execution_schedule,
-      }%}
-      {% include '@hdbt/misc/metadata-item.twig' with { 
-        item_icon: 'location',
-        item_label: 'Project location'|t,
-        item_content: content.field_project_district,
-      }%}
-      {# Tags #}
-      {% if content.field_project_phase|render %}
-        {% embed '@hdbt/misc/tag-list.twig'%}
-          {% block content %}
-            {% if content.field_project_phase|render %}
-              {% for key in content.field_project_phase['#items']|keys %}
-                {% include '@hdbt/misc/tag.twig' with {
-                  tag: content.field_project_phase[key],
-                }%}
-              {% endfor %}
-            {% endif %}
-          {% endblock content %}
-        {% endembed %}
-      {% endif %}
+    {{ link(link_title, node_url, link_attributes) }}
+    {% include '@hdbt/misc/metadata-item.twig' with {
+      item_icon: 'calendar',
+      item_label: 'Project schedule'|t,
+      item_content: content.field_project_execution_schedule,
+    }%}
+    {% include '@hdbt/misc/metadata-item.twig' with {
+      item_icon: 'location',
+      item_label: 'Project location'|t,
+      item_content: content.field_project_district,
+    }%}
+    {# Tags #}
+    {% if content.field_project_phase|render %}
+      {% embed '@hdbt/misc/tag-list.twig'%}
+        {% block content %}
+          {% if content.field_project_phase|render %}
+            {% for key in content.field_project_phase['#items']|keys %}
+              {% include '@hdbt/misc/tag.twig' with {
+                tag: content.field_project_phase[key],
+              }%}
+            {% endfor %}
+          {% endif %}
+        {% endblock content %}
+      {% endembed %}
+    {% endif %}
      
     {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
   </div>
