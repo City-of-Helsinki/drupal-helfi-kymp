@@ -118,6 +118,13 @@ if ($varnish_port = getenv('DRUPAL_VARNISH_PORT')) {
   $config['varnish_purger.settings.varnish_purge_all']['port'] = $varnish_port;
 }
 
+if ($navigation_authentication_key = getenv('DRUPAL_NAVIGATION_API_KEY')) {
+  $config['helfi_navigation.api']['key'] = $navigation_authentication_key;
+}
+
+$config['helfi_api_base.environment_resolver.settings']['environment_name'] = getenv('APP_ENV');
+$config['helfi_api_base.environment_resolver.settings']['project_name'] = getenv('PROJECT_NAME');
+
 // settings.php doesn't know about existing configuration yet so we can't
 // just append new headers to an already existing headers array here.
 // If you have configured any extra headers in your purge settings
