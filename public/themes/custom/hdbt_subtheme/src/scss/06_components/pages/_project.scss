@@ -84,7 +84,7 @@
   padding: $spacing-double $spacing-and-half $spacing-double $spacing;
   display: flex;
   flex-direction: column;
-  
+
   @include breakpoint($breakpoint-m) {
     width: 60%;
   }
@@ -118,7 +118,7 @@
 
 $-project-image-placeholder-ratio: 3/2;
 $-project-image-size: 380px;
-$-project-image-min-size: 240px;
+$-project-image-min-size: 220px;
 
 .project-teaser__image {
   min-width: $-project-image-min-size;
@@ -156,5 +156,5 @@ $-project-image-min-size: 240px;
     @include font('h4');
 
     margin-top: 0;
-  }  
+  }
 }
