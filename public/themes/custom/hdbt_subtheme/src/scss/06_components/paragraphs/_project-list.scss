@@ -25,12 +25,21 @@
 }
 .project-list__buttons {
   display: flex;
+  flex-direction: column;
+
+  @include breakpoint($breakpoint-m) {
+    flex-direction: row;
+  }
 
   > .infinite-scroll-pager,
   > .hds-button {
     margin-bottom: 0;
     margin-top: $spacing-and-half;
-    margin-right: $spacing;
+    margin-right: 0;
+
+    @include breakpoint($breakpoint-m) {
+      margin-right: $spacing;
+    }
   }
 }
 

@@ -20,7 +20,7 @@
   'rel': 'bookmark',
 } %}
 
-<div{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes) }}>
 
   <div class="project-teaser__image">
     {% if content.field_project_image.0 %}
@@ -58,4 +58,4 @@
 
     {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
   </div>
-</div>
+</article>
