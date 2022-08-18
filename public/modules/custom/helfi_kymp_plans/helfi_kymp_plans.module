@@ -1,13 +1,18 @@
 <?php
 
 /**
+ * @file
+ * Contains KYMP plans related functionalities.
+ */
+
+/**
  * Implements hook_theme().
  */
 function helfi_kymp_plans_theme($existing, $type, $theme, $path) {
   return [
     'paragraph__list_of_plans' => [
-      'template' => 'paragraph--list-of-plans'
-    ]
+      'template' => 'paragraph--list-of-plans',
+    ],
   ];
 }
 

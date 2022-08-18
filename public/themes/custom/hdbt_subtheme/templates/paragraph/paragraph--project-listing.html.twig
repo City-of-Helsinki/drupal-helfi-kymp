@@ -1,0 +1,16 @@
+{% block paragraph %}
+  {% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--project-list' ],
+      component_title: content.field_project_list_title,
+      component_description: content.field_project_list_description,
+      component_content_class: 'project-list',
+    }
+  %}
+    {% block component_content %}
+      <div class="project-list__list">
+        {{ drupal_view('project_list', 'block_1', selected_district) }}
+      </div>
+    {% endblock component_content %}
+	{% endembed %}
+{% endblock paragraph %}

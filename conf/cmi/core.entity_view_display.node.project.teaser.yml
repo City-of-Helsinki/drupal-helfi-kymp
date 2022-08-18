@@ -1,0 +1,84 @@
+uuid: fb55ce87-87ac-4b4c-b5c4-9c0c38616fd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.project.field_content
+    - field.field.node.project.field_lead_in
+    - field.field.node.project.field_lower_content
+    - field.field.node.project.field_metatags
+    - field.field.node.project.field_project_district
+    - field.field.node.project.field_project_execution_schedule
+    - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_phase
+    - field.field.node.project.field_project_plan_schedule
+    - field.field.node.project.field_project_search_metatags
+    - field.field.node.project.field_project_theme
+    - field.field.node.project.field_project_type
+    - field.field.node.project.field_sidebar_content
+    - image.style.3_2_s
+    - node.type.project
+  module:
+    - datetime_range
+    - media
+    - user
+id: node.project.teaser
+targetEntityType: node
+bundle: project
+mode: teaser
+content:
+  field_project_district:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_project_execution_schedule:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: project_schedule
+      separator: '-'
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_project_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 3_2_s
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_project_phase:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_content: true
+  field_lead_in: true
+  field_lower_content: true
+  field_metatags: true
+  field_project_plan_schedule: true
+  field_project_search_metatags: true
+  field_project_theme: true
+  field_project_type: true
+  field_sidebar_content: true
+  langcode: true
+  toc_enabled: true

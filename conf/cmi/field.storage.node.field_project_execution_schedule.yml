@@ -1,0 +1,20 @@
+uuid: ad6990cf-f468-4f3b-a3c9-6c416fd2e05b
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - node
+id: node.field_project_execution_schedule
+field_name: field_project_execution_schedule
+entity_type: node
+type: daterange
+settings:
+  datetime_type: date
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+# Schema for the configuration files of the helfi_kymp_content module.
+helfi_kymp_content.project_search:
+  type: config_object
+  label: 'Project search'
+  mapping:
+    project_search_path:
+      type: path
+      label: 'Project search path'

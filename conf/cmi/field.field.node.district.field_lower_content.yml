@@ -1,0 +1,115 @@
+uuid: 81fc74e6-f7ed-4f6d-8311-61691cfc215f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lower_content
+    - node.type.district
+    - paragraphs.paragraphs_type.list_of_links
+  module:
+    - entity_reference_revisions
+id: node.district.field_lower_content
+field_name: field_lower_content
+entity_type: node
+bundle: district
+label: 'Lower content region'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      list_of_links: list_of_links
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
+      accordion_item:
+        weight: 31
+        enabled: false
+      banner:
+        weight: 32
+        enabled: false
+      chart:
+        weight: 33
+        enabled: false
+      columns:
+        weight: 34
+        enabled: false
+      contact_card:
+        weight: 35
+        enabled: false
+      contact_card_listing:
+        weight: 36
+        enabled: false
+      content_cards:
+        weight: 37
+        enabled: false
+      content_liftup:
+        weight: 38
+        enabled: false
+      event_list:
+        weight: 39
+        enabled: false
+      from_library:
+        weight: 40
+        enabled: false
+      gallery:
+        weight: 41
+        enabled: false
+      gallery_slide:
+        weight: 42
+        enabled: false
+      hero:
+        weight: 43
+        enabled: false
+      image:
+        weight: 44
+        enabled: false
+      liftup_with_image:
+        weight: 45
+        enabled: false
+      list_of_links:
+        weight: 46
+        enabled: true
+      list_of_links_item:
+        weight: 47
+        enabled: false
+      list_of_plans:
+        weight: 48
+        enabled: false
+      map:
+        weight: 49
+        enabled: false
+      news_list:
+        weight: 50
+        enabled: false
+      phasing:
+        weight: 51
+        enabled: false
+      phasing_item:
+        weight: 52
+        enabled: false
+      remote_video:
+        weight: 53
+        enabled: false
+      service_list:
+        weight: 54
+        enabled: false
+      sidebar_text:
+        weight: 55
+        enabled: false
+      social_media_link:
+        weight: 56
+        enabled: false
+      text:
+        weight: 57
+        enabled: false
+      unit_search:
+        weight: 58
+        enabled: false
+field_type: entity_reference_revisions

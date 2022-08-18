@@ -12,11 +12,13 @@ dependencies:
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
+    - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.news_list
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.unit_search
@@ -52,6 +54,8 @@ settings:
       remote_video: remote_video
       list_of_plans: list_of_plans
       event_list: event_list
+      news_list: news_list
+      phasing: phasing
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -114,6 +118,15 @@ settings:
       map:
         weight: 31
         enabled: true
+      news_list:
+        weight: 30
+        enabled: true
+      phasing:
+        weight: 50
+        enabled: true
+      phasing_item:
+        weight: 30
+        enabled: false
       remote_video:
         weight: 32
         enabled: true
