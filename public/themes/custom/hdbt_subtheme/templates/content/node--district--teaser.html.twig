@@ -1,0 +1,44 @@
+{%
+  set classes = [
+    'district-teaser',
+    'node--type-' ~ node.bundle|clean_class,
+  ]
+%}
+
+{% set link_title %}
+  {{ title_prefix }}
+  <h3 class="content-card__title">
+    {{ label }}
+  </h3>
+  {{ title_suffix }}
+{% endset %}
+
+{% set link_attributes = {
+  'class': [
+    'district-teaser__link',
+  ],
+  'rel': 'bookmark',
+} %}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <div class="district-teaser__image">
+    {% if content.field_district_image.0 %}
+      {{ content.field_district_image }}
+    {% else %}
+      {% include '@hdbt/media/image--card.html.twig' with {content: '' } %}
+    {% endif %}
+  </div>
+  <div class="district-teaser__data">
+    {{ link(link_title, node_url, link_attributes) }}
+    {% if content.field_district_districts %}
+      {% include '@hdbt/misc/metadata-item.twig' with {
+        item_icon: 'location',
+        item_label: 'Districts'|t,
+        item_content: content.field_district_districts,
+      }%}
+    {% endif %}
+
+    {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
+  </div>
+</article>

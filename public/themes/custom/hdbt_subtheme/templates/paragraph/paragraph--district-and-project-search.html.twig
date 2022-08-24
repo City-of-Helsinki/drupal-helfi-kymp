@@ -1,0 +1,16 @@
+{% block paragraph %}
+  {% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--district-and-project-search'],
+      component_title: content.field_district_project_title,
+      component_description: content.field_district_project_desc,
+      component_content_class: 'district-and-project-search',
+    }
+  %}
+    {% block component_content %}
+
+      {{ drupal_view('district_and_project_search', 'district_and_project_search') }}
+
+    {% endblock component_content %}
+  {% endembed %}
+{% endblock paragraph %}

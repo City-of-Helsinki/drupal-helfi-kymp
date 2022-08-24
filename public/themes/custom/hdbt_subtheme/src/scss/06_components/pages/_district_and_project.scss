@@ -1,0 +1,102 @@
+/* District and project shared teaser styles */
+.district-teaser,
+.project-teaser {
+  background-color: $color-white;
+  margin-bottom: $spacing;
+  position: relative;
+
+  @include breakpoint($breakpoint-m) {
+    display: flex;
+  }
+
+  .hel-icon--arrow-right {
+    height: $spacing-double;
+    width: $spacing-double;
+
+    @include breakpoint($breakpoint-m) {
+      bottom: $spacing-double;
+      position: absolute;
+      right: $spacing-and-half;
+    }
+
+    @include hover-link-arrow-transition;
+  }
+
+  &:hover .hel-icon--arrow-right {
+    transform: translateX($spacing-quarter);
+  }
+}
+
+.district-teaser__data,
+.project-teaser__data {
+  padding: $spacing-double $spacing-and-half $spacing-double $spacing;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($breakpoint-m) {
+    width: 60%;
+  }
+
+  .metadata__item {
+    margin-bottom: $spacing;
+    margin-top: 0;
+    width: 100%;
+
+    & > div {
+      @include breakpoint($breakpoint-m) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .metadata__item-label::after {
+      content: ':';
+      margin-right: $spacing-quarter;
+    }
+  }
+}
+
+$-image-placeholder-ratio: 3/2;
+$-image-size: 380px;
+$-image-min-size: 220px;
+
+.district-teaser__image,
+.project-teaser__image {
+  min-width: $-image-min-size;
+  overflow: hidden;
+
+  @include breakpoint($breakpoint-m) {
+    max-width: $-image-size;
+    width: 40%;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .image-placeholder {
+    height: 100%;
+    padding-bottom: aspect-ratio-padding($-image-placeholder-ratio);
+  }
+}
+
+.district-teaser__link,
+.project-teaser__link {
+  display: block;
+  margin-bottom: $spacing;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+  }
+
+  h3 {
+    @include font('h4');
+
+    margin-top: 0;
+  }
+}

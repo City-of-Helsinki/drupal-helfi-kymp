@@ -1,0 +1,34 @@
+uuid: d4853a3f-b0fe-451b-aea9-997292b7d58b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.district_and_project_search.field_district_project_desc
+    - field.field.paragraph.district_and_project_search.field_district_project_title
+    - paragraphs.paragraphs_type.district_and_project_search
+  module:
+    - text
+id: paragraph.district_and_project_search.default
+targetEntityType: paragraph
+bundle: district_and_project_search
+mode: default
+content:
+  field_district_project_desc:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_district_project_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
