@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.district.field_content
     - field.field.node.district.field_district_image
+    - field.field.node.district.field_district_search_metatags
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
@@ -38,6 +39,7 @@ content:
     region: content
 hidden:
   field_content: true
+  field_district_search_metatags: true
   field_hero: true
   field_lower_content: true
   field_metatags: true
