@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.district.field_content
     - field.field.node.district.field_district_image
     - field.field.node.district.field_district_search_metatags
+    - field.field.node.district.field_district_sub_districts
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
@@ -31,6 +32,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_district_sub_districts:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   links:
     settings: {  }
