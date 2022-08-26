@@ -29,12 +29,21 @@
 
 .district-teaser__data,
 .project-teaser__data {
-  padding: $spacing-double $spacing-and-half $spacing-double $spacing;
+  padding: $spacing-double $spacing-and-half $spacing-double $spacing-and-half;
   display: flex;
   flex-direction: column;
 
   @include breakpoint($breakpoint-m) {
+    padding: $spacing-and-half $spacing-double $spacing-and-half $spacing-double;
     width: 60%;
+  }
+
+  .content-tags.content-tags--content-type {
+    margin-bottom: $spacing;
+  }
+
+  .content-tags__tags__tag:last-child {
+    margin-bottom: 0;
   }
 
   .metadata__item {

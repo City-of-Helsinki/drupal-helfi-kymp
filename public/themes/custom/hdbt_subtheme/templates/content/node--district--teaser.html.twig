@@ -30,6 +30,11 @@
     {% endif %}
   </div>
   <div class="district-teaser__data">
+    <div class="content-tags content-tags--content-type">
+      <div class="content-tags__tags content-tags__tags--static">
+        <span class="content-tags__tags__tag">{{ 'District'|t }}</span>
+      </div>
+    </div>
     {{ link(link_title, node_url, link_attributes) }}
     {% if content.field_district_districts %}
       {% include '@hdbt/misc/metadata-item.twig' with {
