@@ -5,12 +5,11 @@
  * Contains alterations for content.
  */
 
+use Drupal\Core\Entity\ContentEntityInterface;
+
 /**
  * Implements hook_preprocess_HOOK().
  */
-
-use Drupal\Core\Entity\ContentEntityInterface;
-
 function helfi_kymp_content_preprocess_block(&$variables) {
   if ($variables["plugin_id"] !== 'hero_block') {
     return;
@@ -21,7 +20,6 @@ function helfi_kymp_content_preprocess_block(&$variables) {
 
   /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
   $entity = $entity_matcher['entity'];
-  $entity_version = $entity_matcher['entity_version'];
 
   // No need to continue if current entity doesn't have has_hero field.
   if (
@@ -39,8 +37,8 @@ function helfi_kymp_content_preprocess_block(&$variables) {
 
       $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
 
-      // Check if the content field first paragraph is District and project search
-      // and add classes accordingly.
+      // Check if the content field first paragraph is District and project
+      // search and add classes accordingly.
       $paragraph = $entity->get('field_content')->first()->entity;
       if (!empty($paragraph) && $paragraph->getType() === 'district_and_project_search') {
         $first_paragraph_gray = 'has-first-gray-bg-block';

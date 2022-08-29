@@ -18,6 +18,11 @@ config: ## Show docker-compose config
 	$(call step,Show docker-compose config...\n)
 	$(call docker_compose,config)
 
+PHONY += pull
+pull: ## Pull docker images
+	$(call step,Pull the latest docker images...\n)
+	$(call docker_compose,pull)
+
 PHONY += down
 down: ## Tear down the environment
 	$(call step,Tear down the environment...\n)
@@ -34,7 +39,7 @@ stop: ## Stop the environment
 	$(call docker_compose,stop)
 
 PHONY += up
-up: ## Launch the environment
+up: pull ## Launch the environment
 	$(call step,Start up the container(s)...\n)
 	$(call docker_compose,up -d --remove-orphans)
 
