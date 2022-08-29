@@ -20,7 +20,7 @@
   'rel': 'bookmark',
 } %}
 
-<div{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes) }}>
 
   <div class="project-teaser__image">
     {% if content.field_project_image.0 %}
@@ -30,6 +30,11 @@
     {% endif %}
   </div>
   <div class="project-teaser__data">
+    <div class="content-tags content-tags--content-type">
+      <div class="content-tags__tags content-tags__tags--static">
+        <span class="content-tags__tags__tag">{{ 'Project'|t }}</span>
+      </div>
+    </div>
     {{ link(link_title, node_url, link_attributes) }}
     {% include '@hdbt/misc/metadata-item.twig' with {
       item_icon: 'calendar',
@@ -58,4 +63,4 @@
 
     {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
   </div>
-</div>
+</article>

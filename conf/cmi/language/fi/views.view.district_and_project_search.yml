@@ -1,0 +1,25 @@
+label: 'Alue- ja hankehaku'
+display:
+  default:
+    display_title: Oletus
+    display_options:
+      title: 'Alue- ja hankehaku'
+      pager:
+        options:
+          tags:
+            next: Seuraava
+            previous: Edellinen
+            first: Ensimmäinen
+            last: Viimeinen
+          expose:
+            items_per_page_label: 'Tuloksia per sivu'
+            items_per_page_options_all_label: '- Kaikki -'
+      exposed_form:
+        options:
+          submit_button: Hae
+          reset_button_label: Palauta
+          exposed_sorts_label: Järjestä
+          sort_asc_label: Nouseva
+          sort_desc_label: Laskeva
+  district_and_project_search:
+    display_title: Lohko

@@ -1,0 +1,20 @@
+uuid: 86c4ad85-b413-4d74-b38e-8e3e7789a921
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_district_image
+field_name: field_district_image
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

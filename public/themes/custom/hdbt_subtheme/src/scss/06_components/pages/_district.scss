@@ -44,8 +44,14 @@ $-sidebar-width: 340px;
   }
 }
 
-.node--type-district .hero__arrow {
-  display: none;
+.node--type-district {
+  .hero__arrow {
+    display: none;
+  }
+
+  .metadata__item-content .label:not(:last-of-type)::after {
+    content: ', ';
+  }
 }
 
 .page-type--district .lower-content .component--list-of-links:last-of-type {
