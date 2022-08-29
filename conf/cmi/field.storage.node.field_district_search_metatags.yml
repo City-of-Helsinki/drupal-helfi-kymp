@@ -1,0 +1,19 @@
+uuid: c01980b5-71ee-4d5e-8197-65f3f3e63211
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_district_search_metatags
+field_name: field_district_search_metatags
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

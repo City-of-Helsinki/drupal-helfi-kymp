@@ -36,11 +36,11 @@
       </div>
     </div>
     {{ link(link_title, node_url, link_attributes) }}
-    {% if content.field_district_districts %}
+    {% if content.field_district_sub_districts|render %}
       {% include '@hdbt/misc/metadata-item.twig' with {
         item_icon: 'location',
         item_label: 'Districts'|t,
-        item_content: content.field_district_districts,
+        item_content: content.field_district_sub_districts,
       }%}
     {% endif %}
 

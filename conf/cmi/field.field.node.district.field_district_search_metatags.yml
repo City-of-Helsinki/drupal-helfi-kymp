@@ -1,0 +1,19 @@
+uuid: 6b7a1af2-82b6-4baf-a3a1-4638a8d0e020
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district_search_metatags
+    - node.type.district
+id: node.district.field_district_search_metatags
+field_name: field_district_search_metatags
+entity_type: node
+bundle: district
+label: 'District search metatags'
+description: 'Metatags for the district that can help with the search. Insert keywords with a comma using lower case letters. i.ex. <i>apple, fruit, red</i>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
