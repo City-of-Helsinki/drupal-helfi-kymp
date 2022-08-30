@@ -117,6 +117,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
+    boost: !!float 2
     dependencies:
       module:
         - node
@@ -165,9 +166,8 @@ processor_settings:
     all_fields: false
     fields:
       - field_project_search_metatags
-      - title
     spaces: ''
-    ignored: '.,_-'
+    ignored: '.,_'
     overlap_cjk: 1
     minimum_word_size: '3'
 tracker_settings:

@@ -4,13 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_image
-    - field.storage.node.field_hero
-    - field.storage.paragraph.field_hero_image
+    - field.storage.node.field_district_image
+    - field.storage.node.field_district_search_metatags
+    - field.storage.node.field_district_sub_districts
     - search_api.server.elastic_kymp
   module:
     - file
     - media
-    - paragraphs
+    - taxonomy
     - node
     - search_api
 id: districts
@@ -22,20 +23,36 @@ field_settings:
     label: 'Entiteetin tyyppi'
     property_path: search_api_entity_type
     type: string
-  hero_image_url:
-    label: 'Hero image url'
+  field_district_image_url:
+    label: 'Field district image url'
     datasource_id: 'entity:node'
-    property_path: 'field_hero:entity:field_hero_image:entity:field_media_image:entity:uri:url'
+    property_path: 'field_district_image:entity:field_media_image:entity:uri:url'
     type: string
     dependencies:
       config:
         - field.storage.media.field_media_image
-        - field.storage.node.field_hero
-        - field.storage.paragraph.field_hero_image
+        - field.storage.node.field_district_image
       module:
         - file
         - media
-        - paragraphs
+  field_district_search_metatags:
+    label: 'Field district search metatags'
+    datasource_id: 'entity:node'
+    property_path: field_district_search_metatags
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_district_search_metatags
+  field_district_sub_districts_name:
+    label: 'Field district sub districts name'
+    datasource_id: 'entity:node'
+    property_path: 'field_district_sub_districts:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_district_sub_districts
+      module:
+        - taxonomy
   nid:
     label: Nid
     datasource_id: 'entity:node'
@@ -49,6 +66,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
+    boost: !!float 2
     dependencies:
       module:
         - node
@@ -91,9 +109,9 @@ processor_settings:
       preprocess_query: -6
     all_fields: false
     fields:
-      - title
+      - field_district_search_metatags
     spaces: ''
-    ignored: ._-
+    ignored: '.,_'
     overlap_cjk: 1
     minimum_word_size: '3'
 tracker_settings:
