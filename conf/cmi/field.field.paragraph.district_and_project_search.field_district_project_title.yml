@@ -1,0 +1,19 @@
+uuid: 30b5a99e-7a33-4bfa-b234-7b5d27101437
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_district_project_title
+    - paragraphs.paragraphs_type.district_and_project_search
+id: paragraph.district_and_project_search.field_district_project_title
+field_name: field_district_project_title
+entity_type: paragraph
+bundle: district_and_project_search
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

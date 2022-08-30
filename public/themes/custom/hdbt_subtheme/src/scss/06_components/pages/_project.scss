@@ -16,7 +16,6 @@
 
 .node--type-project {
   @include components-container-max-width;
-  margin: auto;
 
   .content-tags {
     margin-top: $spacing-double;
@@ -48,113 +47,15 @@
   }
 }
 
-/* Project teaser styles */
-.project-teaser {
-  background-color: $color-white;
+/* Project teaser specific styles */
+.project-teaser .content-tags {
+  margin-top: 0;
+}
+
+.project-teaser__data .content-tags {
   margin-bottom: $spacing;
-  position: relative;
 
   @include breakpoint($breakpoint-m) {
-    display: flex;
-  }
-
-  .content-tags {
-    margin-top: 0;
-  }
-
-  .hel-icon--arrow-right {
-    height: $spacing-double;
-    width: $spacing-double;
-
-    @include breakpoint($breakpoint-m) {
-      bottom: $spacing-double;
-      position: absolute;
-      right: $spacing-and-half;
-    }
-
-    @include hover-link-arrow-transition;
-  }
-
-  &:hover .hel-icon--arrow-right {
-    transform: translateX($spacing-quarter);
-  }
-}
-
-.project-teaser__data {
-  padding: $spacing-double $spacing-and-half $spacing-double $spacing;
-  display: flex;
-  flex-direction: column;
-
-  @include breakpoint($breakpoint-m) {
-    width: 60%;
-  }
-
-  .metadata__item {
-    margin-bottom: $spacing;
-    margin-top: 0;
-    width: 100%;
-
-    & > div {
-      @include breakpoint($breakpoint-m) {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    }
-
-    .metadata__item-label::after {
-      content: ':';
-      margin-right: $spacing-quarter;
-    }
-  }
-
-  .content-tags {
-    margin-bottom: $spacing;
-
-    @include breakpoint($breakpoint-m) {
-      margin-bottom: 0;
-    }
-  }
-}
-
-$-project-image-placeholder-ratio: 3/2;
-$-project-image-size: 380px;
-$-project-image-min-size: 220px;
-
-.project-teaser__image {
-  min-width: $-project-image-min-size;
-  overflow: hidden;
-
-  @include breakpoint($breakpoint-m) {
-    max-width: $-project-image-size;
-    width: 40%;
-  }
-
-  img {
-    display: block;
-    height: auto;
-    width: 100%;
-  }
-
-  .image-placeholder {
-    height: 100%;
-    padding-bottom: aspect-ratio-padding($-project-image-placeholder-ratio);
-  }
-}
-
-.project-teaser__link {
-  display: block;
-  margin-bottom: $spacing;
-  text-decoration: none;
-
-  &::after {
-    content: '';
-    inset: 0;
-    position: absolute;
-  }
-
-  h3 {
-    @include font('h4');
-
-    margin-top: 0;
+    margin-bottom: 0;
   }
 }
