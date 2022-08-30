@@ -1,0 +1,180 @@
+uuid: 790cabf9-e0e3-457b-aa9b-b83ec4315d1a
+langcode: fi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_district
+    - field.storage.node.field_project_execution_schedule
+    - field.storage.media.field_media_image
+    - field.storage.node.field_project_image
+    - field.storage.node.field_project_phase
+    - field.storage.node.field_project_plan_schedule
+    - field.storage.node.field_project_search_metatags
+    - field.storage.node.field_project_theme
+    - field.storage.node.field_project_type
+    - search_api.server.elastic_kymp
+  module:
+    - taxonomy
+    - file
+    - media
+    - node
+    - search_api
+id: projects
+name: Projects
+description: ''
+read_only: false
+field_settings:
+  entity_type:
+    label: 'Entity type'
+    property_path: search_api_entity_type
+    type: string
+  field_project_district_name:
+    label: 'Project district name'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_district:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_district
+      module:
+        - taxonomy
+  field_project_execution_schedule:
+    label: 'Project execution schedule'
+    datasource_id: 'entity:node'
+    property_path: field_project_execution_schedule
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_project_execution_schedule
+  field_project_image_url:
+    label: 'Project image'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_image:entity:field_media_image:entity:uri:url'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_project_image
+      module:
+        - file
+        - media
+  field_project_phase_name:
+    label: 'Project phase name'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_phase:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_phase
+      module:
+        - taxonomy
+  field_project_plan_schedule:
+    label: 'Project plan schedule'
+    datasource_id: 'entity:node'
+    property_path: field_project_plan_schedule
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_project_plan_schedule
+  field_project_search_metatags:
+    label: 'Project search metatags'
+    datasource_id: 'entity:node'
+    property_path: field_project_search_metatags
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_project_search_metatags
+  field_project_theme_name:
+    label: 'Project theme name'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_theme:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_theme
+      module:
+        - taxonomy
+  field_project_type_name:
+    label: 'Project type name'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_type:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_type
+      module:
+        - taxonomy
+  nid:
+    label: Nid
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+    configuration:
+      absolute: false
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - project
+    languages:
+      default: false
+      selected:
+        - en
+        - fi
+        - sv
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  entity_type: {  }
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields:
+      - entity_type
+      - field_project_district_name
+      - field_project_phase_name
+      - field_project_search_metatags
+      - field_project_theme_name
+      - field_project_type_name
+      - title
+  language_with_fallback: {  }
+  rendered_item: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+    fields:
+      - field_project_search_metatags
+      - title
+    spaces: ''
+    ignored: '.,_-'
+    overlap_cjk: 1
+    minimum_word_size: '3'
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: false
+  track_changes_in_references: true
+server: elastic_kymp
