@@ -51,11 +51,3 @@
 .project-teaser .content-tags {
   margin-top: 0;
 }
-
-.project-teaser__data .content-tags {
-  margin-bottom: $spacing;
-
-  @include breakpoint($breakpoint-m) {
-    margin-bottom: 0;
-  }
-}

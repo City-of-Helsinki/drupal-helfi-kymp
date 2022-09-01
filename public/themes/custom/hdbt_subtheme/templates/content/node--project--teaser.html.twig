@@ -30,11 +30,17 @@
     {% endif %}
   </div>
   <div class="project-teaser__data">
-    <div class="content-tags content-tags--content-type">
-      <div class="content-tags__tags content-tags__tags--static">
-        <span class="content-tags__tags__tag">{{ 'Project'|t }}</span>
-      </div>
-    </div>
+    {% set tag_content %}
+      <span>{{ 'Project'|t }}</span>
+    {% endset %}
+    {% embed '@hdbt/misc/tag-list.twig'%}
+      {% block content %}
+        {% include '@hdbt/misc/tag.twig' with {
+          color: 'gold',
+          tag: tag_content
+        }%}
+      {% endblock content %}
+    {% endembed %}
     {{ link(link_title, node_url, link_attributes) }}
     {% include '@hdbt/misc/metadata-item.twig' with {
       item_icon: 'calendar',
