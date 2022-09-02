@@ -20,6 +20,13 @@
   'rel': 'bookmark',
 } %}
 
+{% if content.field_project_external_website|render %}
+  {% set link_url = content.field_project_external_website.0['#url'] %}
+  {% set external = true %}
+{% else %}
+  {% set link_url = node_url %}
+{% endif %}
+
 <article{{ attributes.addClass(classes) }}>
 
   <div class="project-teaser__image">
@@ -41,7 +48,7 @@
         }%}
       {% endblock content %}
     {% endembed %}
-    {{ link(link_title, node_url, link_attributes) }}
+    {{ link(link_title, link_url, link_attributes) }}
     {% include '@hdbt/misc/metadata-item.twig' with {
       item_icon: 'calendar',
       item_label: 'Project schedule'|t,
@@ -67,6 +74,10 @@
       {% endembed %}
     {% endif %}
 
-    {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
+    {% if external %}
+      {% include "@hdbt/misc/icon.twig" with {icon: 'link-external' } only %}
+    {% else %}
+      {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
+    {% endif %}
   </div>
 </article>
