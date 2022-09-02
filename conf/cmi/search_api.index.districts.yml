@@ -9,22 +9,37 @@ dependencies:
     - field.storage.node.field_district_sub_districts
     - search_api.server.elastic_kymp
   module:
-    - file
-    - media
-    - taxonomy
     - node
+    - media
+    - file
+    - taxonomy
     - search_api
 id: districts
 name: Districts
 description: ''
 read_only: false
 field_settings:
-  entity_type:
-    label: 'Entiteetin tyyppi'
-    property_path: search_api_entity_type
+  content_type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
     type: string
+    dependencies:
+      module:
+        - node
+  field_district_image_alt:
+    label: 'District image alt'
+    datasource_id: 'entity:node'
+    property_path: 'field_district_image:entity:field_media_image:alt'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_district_image
+      module:
+        - media
   field_district_image_url:
-    label: 'Field district image url'
+    label: 'District image url'
     datasource_id: 'entity:node'
     property_path: 'field_district_image:entity:field_media_image:entity:uri:url'
     type: string
@@ -36,7 +51,7 @@ field_settings:
         - file
         - media
   field_district_search_metatags:
-    label: 'Field district search metatags'
+    label: 'District search metatags'
     datasource_id: 'entity:node'
     property_path: field_district_search_metatags
     type: text
@@ -44,7 +59,7 @@ field_settings:
       config:
         - field.storage.node.field_district_search_metatags
   field_district_sub_districts_name:
-    label: 'Field district sub districts name'
+    label: 'District sub districts name'
     datasource_id: 'entity:node'
     property_path: 'field_district_sub_districts:entity:name'
     type: string
@@ -99,7 +114,6 @@ processor_settings:
       preprocess_query: -20
     all_fields: false
     fields:
-      - entity_type
       - title
   language_with_fallback: {  }
   rendered_item: {  }

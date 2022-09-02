@@ -4,30 +4,33 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_project_district
-    - field.storage.node.field_project_execution_schedule
     - field.storage.media.field_media_image
     - field.storage.node.field_project_image
     - field.storage.node.field_project_phase
-    - field.storage.node.field_project_plan_schedule
     - field.storage.node.field_project_search_metatags
     - field.storage.node.field_project_theme
     - field.storage.node.field_project_type
     - search_api.server.elastic_kymp
   module:
+    - node
     - taxonomy
     - file
     - media
-    - node
     - search_api
+    - helfi_kymp_district_project_search
 id: projects
 name: Projects
 description: ''
 read_only: false
 field_settings:
-  entity_type:
-    label: 'Entity type'
-    property_path: search_api_entity_type
+  content_type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
     type: string
+    dependencies:
+      module:
+        - node
   field_project_district_name:
     label: 'Project district name'
     datasource_id: 'entity:node'
@@ -38,14 +41,17 @@ field_settings:
         - field.storage.node.field_project_district
       module:
         - taxonomy
-  field_project_execution_schedule:
-    label: 'Project execution schedule'
+  field_project_image_alt:
+    label: 'Project image alt'
     datasource_id: 'entity:node'
-    property_path: field_project_execution_schedule
-    type: date
+    property_path: 'field_project_image:entity:field_media_image:alt'
+    type: string
     dependencies:
       config:
-        - field.storage.node.field_project_execution_schedule
+        - field.storage.media.field_media_image
+        - field.storage.node.field_project_image
+      module:
+        - media
   field_project_image_url:
     label: 'Project image'
     datasource_id: 'entity:node'
@@ -68,14 +74,6 @@ field_settings:
         - field.storage.node.field_project_phase
       module:
         - taxonomy
-  field_project_plan_schedule:
-    label: 'Project plan schedule'
-    datasource_id: 'entity:node'
-    property_path: field_project_plan_schedule
-    type: date
-    dependencies:
-      config:
-        - field.storage.node.field_project_plan_schedule
   field_project_search_metatags:
     label: 'Project search metatags'
     datasource_id: 'entity:node'
@@ -112,6 +110,16 @@ field_settings:
     dependencies:
       module:
         - node
+  project_execution_schedule:
+    label: 'Toteutuksen aikataulu'
+    datasource_id: 'entity:node'
+    property_path: project_execution_schedule
+    type: date
+  project_plan_schedule:
+    label: 'Suunnittelun aikataulu'
+    datasource_id: 'entity:node'
+    property_path: project_plan_schedule
+    type: date
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -150,7 +158,6 @@ processor_settings:
       preprocess_query: -20
     all_fields: false
     fields:
-      - entity_type
       - field_project_district_name
       - field_project_phase_name
       - field_project_search_metatags
@@ -158,6 +165,8 @@ processor_settings:
       - field_project_type_name
       - title
   language_with_fallback: {  }
+  project_execution_schedule: {  }
+  project_plan_schedule: {  }
   rendered_item: {  }
   tokenizer:
     weights:
