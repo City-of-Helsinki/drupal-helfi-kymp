@@ -9,6 +9,7 @@
     "require": {
         "ext-dom": "*",
         "ext-libxml": "*",
+        "city-of-helsinki/helfi-kymp-district-project-search": "^0.1.0",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
         "drupal/core-composer-scaffold": "~9.4.5",
@@ -103,6 +104,22 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "city-of-helsinki/helfi-kymp-district-project-search",
+                "version": "0.1.0",
+                "dist": {
+                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.1.0/helfi-kymp-district-project-search.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search",
+                    "type": "git",
+                    "reference": "0.1.0"
+                }
+            }
         }
     ],
     "scripts": {
@@ -114,9 +131,11 @@
         "lint-php": "vendor/bin/phpcs --standard=Drupal",
         "copy-commit-message-script": "make copy-commit-message-script",
         "post-install-cmd": [
+            "rm -rf public/modules/custom/helfi_kymp_district_project_search/assets && rsync -a vendor/city-of-helsinki/helfi-kymp-district-project-search/*.js public/modules/custom/helfi_kymp_district_project_search/assets/ || true",
             "@copy-commit-message-script"
         ],
         "post-update-cmd": [
+            "rm -rf public/modules/custom/helfi_kymp_district_project_search/assets && rsync -a vendor/city-of-helsinki/helfi-kymp-district-project-search/*.js public/modules/custom/helfi_kymp_district_project_search/assets/ || true",
             "@copy-commit-message-script"
         ]
     }
