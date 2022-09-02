@@ -77,8 +77,8 @@ function hdbt_subtheme_theme_suggestions_menu_alter(&$suggestions, $variables) {
  */
 function hdbt_subtheme_preprocess_paragraph__project_listing(&$variables) {
   $paragraph = $variables['paragraph'];
-  $selected_district = $paragraph->get('field_district_taxonomy')->target_id;
-  $variables['selected_district'] = $selected_district;
+  $variables['selected_district'] = $paragraph->get('field_district_taxonomy')->target_id;
+  $variables['search_parameters'] = $paragraph->get('field_search_link_parameters')->value;
 }
 
 /**
