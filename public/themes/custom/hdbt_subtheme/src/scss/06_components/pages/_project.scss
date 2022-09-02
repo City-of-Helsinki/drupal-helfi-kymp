@@ -31,7 +31,8 @@
     background-color: $color-black-20;
   }
 
-  .metadata__item-content .label:not(:last-of-type)::after {
+  .metadata__item-content .label:not(:last-of-type)::after,
+  .metadata__item--schedule--plan-schedule *:last-child::after {
     content: ', ';
   }
 

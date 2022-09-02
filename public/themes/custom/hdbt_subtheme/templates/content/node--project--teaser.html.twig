@@ -49,30 +49,36 @@
       {% endblock content %}
     {% endembed %}
     {{ link(link_title, link_url, link_attributes) }}
+
+    {% set schedule %}
+      {% if content.field_project_plan_schedule|render %}
+        <span class="metadata__item--schedule metadata__item--schedule--plan-schedule">
+          {{ 'planning'|t }}{{ content.field_project_plan_schedule }}
+        </span>
+      {% endif %}
+      {% if content.field_project_execution_schedule|render %}
+        <span class="metadata__item--schedule">
+          {{ 'execution'|t }}{{ content.field_project_execution_schedule }}
+        </span>
+      {% endif %}
+    {% endset %}
+
     {% include '@hdbt/misc/metadata-item.twig' with {
       item_icon: 'calendar',
-      item_label: 'Project schedule'|t,
-      item_content: content.field_project_execution_schedule,
+      item_label: 'Estimated schedule'|t,
+      item_content: schedule,
     }%}
     {% include '@hdbt/misc/metadata-item.twig' with {
       item_icon: 'location',
       item_label: 'Project location'|t,
       item_content: content.field_project_district,
     }%}
-    {# Tags #}
-    {% if content.field_project_phase|render %}
-      {% embed '@hdbt/misc/tag-list.twig'%}
-        {% block content %}
-          {% if content.field_project_phase|render %}
-            {% for key in content.field_project_phase['#items']|keys %}
-              {% include '@hdbt/misc/tag.twig' with {
-                tag: content.field_project_phase[key],
-              }%}
-            {% endfor %}
-          {% endif %}
-        {% endblock content %}
-      {% endembed %}
-    {% endif %}
+    {% include '@hdbt/misc/metadata-item.twig' with {
+      item_icon: 'locate',
+      item_label: 'Project theme'|t,
+      item_content: content.field_project_theme,
+    }%}
+
 
     {% if external %}
       {% include "@hdbt/misc/icon.twig" with {icon: 'link-external' } only %}
