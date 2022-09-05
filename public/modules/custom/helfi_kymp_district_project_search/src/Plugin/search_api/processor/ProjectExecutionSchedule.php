@@ -80,4 +80,5 @@ class ProjectExecutionSchedule extends ProcessorPluginBase {
       $fields['project_execution_schedule']->addValue($field_project_execution_schedule['end_value']);
     }
   }
+
 }
