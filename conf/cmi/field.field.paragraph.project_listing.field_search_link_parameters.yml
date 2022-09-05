@@ -1,0 +1,19 @@
+uuid: 8cc20c8a-76f9-403f-a252-82c1835bf4d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_search_link_parameters
+    - paragraphs.paragraphs_type.project_listing
+id: paragraph.project_listing.field_search_link_parameters
+field_name: field_search_link_parameters
+entity_type: paragraph
+bundle: project_listing
+label: 'Search link parameters'
+description: 'If you want to link the "Refined search" button to certain set of results copy the parameters from the search url here. For example <code>/?area=%5B"Kalasatama"%5D</code> '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -38,6 +38,12 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
+{% if (view.args.1) %}
+  {% set  search_parameters = view.args.1 %}
+{% else %}
+  {% set search_parameters = '' %}
+{% endif %}
+
 <div{{attributes.addClass(classes)}}>
   {{ title_prefix }}
   {{ title }}
@@ -61,10 +67,10 @@
   <div class="project-list__buttons">
     {{ pager }}
     {% if search_link %}
-      <a href="{{ search_link }}" class="hds-button hds-button--secondary" rel="next">
+      <a href="{{ search_link }}{{ search_parameters }}" class="hds-button hds-button--secondary" rel="next">
         <span class="hds-button__label">{{ 'Refine search'|t({}, {'context': 'Project list, refine search'}) }}</span>
       </a>
-    {% endif %} 
+    {% endif %}
   </div>
 
 
