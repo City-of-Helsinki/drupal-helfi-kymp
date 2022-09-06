@@ -14,6 +14,7 @@ dependencies:
     - file
     - taxonomy
     - search_api
+    - helfi_kymp_district_project_search
 id: districts
 name: Districts
 description: ''
@@ -116,6 +117,8 @@ processor_settings:
     fields:
       - title
   language_with_fallback: {  }
+  project_execution_schedule: {  }
+  project_plan_schedule: {  }
   rendered_item: {  }
   tokenizer:
     weights:
