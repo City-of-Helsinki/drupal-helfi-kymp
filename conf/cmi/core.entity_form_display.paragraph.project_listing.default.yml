@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.project_listing.field_district_taxonomy
     - field.field.paragraph.project_listing.field_project_list_description
     - field.field.paragraph.project_listing.field_project_list_title
+    - field.field.paragraph.project_listing.field_search_link_parameters
     - paragraphs.paragraphs_type.project_listing
   module:
     - select2
@@ -39,6 +40,14 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_search_link_parameters:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 120
       placeholder: ''
     third_party_settings: {  }
 hidden:

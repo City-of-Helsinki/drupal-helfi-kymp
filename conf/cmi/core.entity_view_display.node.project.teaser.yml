@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.project.field_metatags
     - field.field.node.project.field_project_district
     - field.field.node.project.field_project_execution_schedule
+    - field.field.node.project.field_project_external_website
     - field.field.node.project.field_project_image
     - field.field.node.project.field_project_phase
     - field.field.node.project.field_project_plan_schedule
@@ -21,6 +22,7 @@ dependencies:
     - node.type.project
   module:
     - datetime_range
+    - link
     - media
     - user
 id: node.project.teaser
@@ -34,7 +36,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_project_execution_schedule:
     type: daterange_default
@@ -44,7 +46,19 @@ content:
       format_type: project_schedule
       separator: '-'
     third_party_settings: {  }
-    weight: 2
+    weight: 3
+    region: content
+  field_project_external_website:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_project_image:
     type: media_thumbnail
@@ -57,13 +71,23 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_project_phase:
+  field_project_plan_schedule:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: project_schedule
+      separator: '-'
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_project_theme:
     type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   links:
     settings: {  }
@@ -75,9 +99,8 @@ hidden:
   field_lead_in: true
   field_lower_content: true
   field_metatags: true
-  field_project_plan_schedule: true
+  field_project_phase: true
   field_project_search_metatags: true
-  field_project_theme: true
   field_project_type: true
   field_sidebar_content: true
   langcode: true
