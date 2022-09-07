@@ -76,7 +76,7 @@ display:
         type: infinite_scroll
         options:
           offset: 0
-          items_per_page: 10
+          items_per_page: 4
           total_pages: null
           id: 0
           tags:
@@ -186,6 +186,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header:
         result:
           id: result
@@ -196,7 +197,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: '<span class="district-listing__count-container"><span class="district-listing__count">@total</span> districts</span>'
+          content: '<div class="district-listing__count-container"><span class="district-listing__count">@total</span><span class="district-listing__count-text"> districts</span></div>'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
