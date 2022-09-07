@@ -1,0 +1,26 @@
+label: Områdesförteckning
+display:
+  default:
+    display_title: Standard
+    display_options:
+      title: Områdesförteckning
+      pager:
+        options:
+          tags:
+            next: 'Nästa ›'
+            previous: '‹ Tidigare'
+          expose:
+            items_per_page_label: 'Objekt per sida'
+            items_per_page_options_all_label: '- Alla -'
+          views_infinite_scroll:
+            button_text: 'Visa fler områden (@remaining_items_count)'
+      exposed_form:
+        options:
+          submit_button: Använda
+          reset_button_label: Återställa
+          exposed_sorts_label: 'Sortera på'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      header:
+        result:
+          content: '<span class="district-listing__count-container"><span class="district-listing__count">@total</span> områden</span>'

@@ -1,0 +1,28 @@
+label: Aluelistaus
+display:
+  default:
+    display_title: Oletus
+    display_options:
+      title: Aluelistaus
+      pager:
+        options:
+          tags:
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
+          expose:
+            items_per_page_label: 'Kohteita per sivu'
+            items_per_page_options_all_label: '- Kaikki -'
+          views_infinite_scroll:
+            button_text: 'Lataa lisää alueita (@remaining_items_count)'
+      exposed_form:
+        options:
+          submit_button: Hae
+          reset_button_label: Palauta
+          exposed_sorts_label: Järjestä
+          sort_asc_label: Nouseva
+          sort_desc_label: Laskeva
+      header:
+        result:
+          content: '<span class="district-listing__count-container"><span class="district-listing__count">@total</span> aluetta</span>'
+  district_listing:
+    display_title: Lohko
