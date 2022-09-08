@@ -1,0 +1,25 @@
+uuid: 1245d735-6369-4b49-8661-9ef020f910bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - footer-top-navigation
+  module:
+    - helfi_navigation
+  theme:
+    - hdbt_subtheme
+id: external_footer_top_navigation
+theme: hdbt_subtheme
+region: footer_top
+weight: 1
+provider: null
+plugin: 'external_menu_block:footer-top-navigation'
+settings:
+  id: 'external_menu_block:footer-top-navigation'
+  label: 'City of Helsinki'
+  label_display: visible
+  provider: helfi_navigation
+  level: 1
+  expand_all_items: false
+  depth: 1
+visibility: {  }
