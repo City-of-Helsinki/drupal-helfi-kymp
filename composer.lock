@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6205ed2ff487ac4ded303fef61a3557a",
+    "content-hash": "ccaf0fdb729e6c9087931793da0b296c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4339,6 +4339,40 @@
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/issues"
             },
             "time": "2021-11-18T05:55:15+00:00"
+        },
+        {
+            "name": "drupal/helfi_navigation",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation.git",
+                "reference": "22e1fb1eeff3206138133ecc23c72fb4f6c05a96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-navigation/zipball/22e1fb1eeff3206138133ecc23c72fb4f6c05a96",
+                "reference": "22e1fb1eeff3206138133ecc23c72fb4f6c05a96",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/helfi_api_base": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "drupal/coder": "^8.3"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Helfi - Navigation",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation/tree/main",
+                "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation/issues"
+            },
+            "time": "2022-09-07T05:26:32+00:00"
         },
         {
             "name": "drupal/helfi_platform_config",
@@ -17672,7 +17706,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/helfi_drupal_tools": 20
+        "drupal/helfi_drupal_tools": 20,
+        "drupal/helfi_navigation": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
