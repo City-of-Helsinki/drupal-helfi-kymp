@@ -1,0 +1,26 @@
+uuid: 49503511-881e-49f8-acef-d0d131fff3f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_district_list_description
+    - paragraphs.paragraphs_type.district_listing
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - minimal
+id: paragraph.district_listing.field_district_list_description
+field_name: field_district_list_description
+entity_type: paragraph
+bundle: district_listing
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
