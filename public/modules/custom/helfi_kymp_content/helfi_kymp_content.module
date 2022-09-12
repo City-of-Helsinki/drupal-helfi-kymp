@@ -71,7 +71,7 @@ function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_s
     $execution_end = $project_execution_schedule[0]['end_value'];
 
     // Either project plan or execution schedule is required.
-    if ((is_null($plan_start) && is_null($plan_end)) && (is_null($$execution_start) && is_null($execution_end))) {
+    if ((is_null($plan_start) && is_null($plan_end)) && (is_null($execution_start) && is_null($execution_end))) {
       $error_message = t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']);
 
       $error_fields = [
