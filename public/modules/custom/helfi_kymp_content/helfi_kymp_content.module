@@ -80,13 +80,17 @@ function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_s
       $error_message = t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']);
 
       $error_fields = [
-        'field_project_plan_schedule',
-        'field_project_execution_schedule',
+        'field_project_plan_schedule][0][value][date',
+        'field_project_execution_schedule][0][value][date',
+        'field_project_plan_schedule][0][end_value][date',
+        'field_project_execution_schedule][0][end_value][date',
       ];
 
       foreach ($error_fields as $error_field_name) {
         $form_state->setErrorByName($error_field_name, $error_message);
       }
+
+      \Drupal::messenger()->addMessage(t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']), 'error');
     }
   }
 }
