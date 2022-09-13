@@ -1,9 +1,7 @@
-uuid: 006b7e48-541e-4ae1-9c0a-45798bc9aa33
+uuid: 9c69d832-ddda-4236-ac55-280a2c1c5590
 langcode: en
 status: true
 dependencies:
-  config:
-    - header-language-links
   module:
     - helfi_navigation
   theme:
@@ -17,7 +15,7 @@ plugin: 'external_menu_block:header-language-links'
 settings:
   id: 'external_menu_block:header-language-links'
   label: 'External - Header language links'
-  label_display: '0'
+  label_display: ''
   provider: helfi_navigation
   level: 1
   expand_all_items: false
