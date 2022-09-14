@@ -1,0 +1,23 @@
+uuid: 69dda139-12e8-4447-ae77-18bc40845a42
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_navigation
+  theme:
+    - hdbt_subtheme
+id: external_footer_bottom_navigation
+theme: hdbt_subtheme
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'external_menu_block:footer-bottom-navigation'
+settings:
+  id: 'external_menu_block:footer-bottom-navigation'
+  label: 'External - Footer bottom navigation'
+  label_display: ''
+  provider: helfi_navigation
+  level: 1
+  expand_all_items: false
+  depth: 1
+visibility: {  }
