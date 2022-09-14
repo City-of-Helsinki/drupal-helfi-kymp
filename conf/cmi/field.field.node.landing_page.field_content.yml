@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
+    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.liftup_with_image
@@ -53,10 +54,13 @@ settings:
       unit_search: unit_search
       event_list: event_list
       news_list: news_list
+      district_listing: district_listing
       service_list: service_list
       district_and_project_search: district_and_project_search
       list_of_plans: list_of_plans
       phasing: phasing
+      popular_services: popular_services
+      target_group_links: target_group_links
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -88,6 +92,9 @@ settings:
         enabled: true
       district_and_project_search:
         weight: 41
+        enabled: true
+      district_listing:
+        weight: 33
         enabled: true
       event_list:
         weight: 30
@@ -131,6 +138,9 @@ settings:
       phasing_item:
         weight: 30
         enabled: false
+      popular_services:
+        weight: 42
+        enabled: true
       project_listing:
         weight: 56
         enabled: false
@@ -146,6 +156,12 @@ settings:
       social_media_link:
         weight: 48
         enabled: false
+      target_group_link_item:
+        weight: 45
+        enabled: false
+      target_group_links:
+        weight: 24
+        enabled: true
       text:
         weight: -24
         enabled: false
