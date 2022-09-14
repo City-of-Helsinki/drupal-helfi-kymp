@@ -9,7 +9,8 @@
     display: flex;
   }
 
-  .hel-icon--arrow-right {
+  .hel-icon--arrow-right,
+  .hel-icon--link-external {
     height: $spacing-double;
     width: $spacing-double;
 
@@ -38,8 +39,8 @@
     width: 60%;
   }
 
-  .content-tags.content-tags--content-type {
-    margin-bottom: $spacing;
+  .content-tags {
+    margin-bottom: $spacing-half;
   }
 
   .content-tags__tags__tag:last-child {
@@ -105,7 +106,7 @@ $-image-min-size: 220px;
 
   h3 {
     @include font('h4');
-
+    display: inline-block;
     margin-top: 0;
   }
 }

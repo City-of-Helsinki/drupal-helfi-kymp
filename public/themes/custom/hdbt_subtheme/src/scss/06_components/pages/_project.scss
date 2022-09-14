@@ -9,13 +9,15 @@
   .project__image-container,
   .content-tags,
   .project__metadata-wrapper {
+    @include components-container-max-width;
     @include component-side-padding;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 
 .node--type-project {
-  @include components-container-max-width;
 
   .content-tags {
     margin-top: $spacing-double;
@@ -29,7 +31,12 @@
     background-color: $color-black-20;
   }
 
-  .metadata__item-content .label:not(:last-of-type)::after {
+  .metadata-container {
+    max-width: $content-width-max;
+  }
+
+  .metadata__item-content .label:not(:last-of-type)::after,
+  .metadata__item--schedule--plan-schedule *:last-child::after {
     content: ', ';
   }
 
@@ -50,12 +57,4 @@
 /* Project teaser specific styles */
 .project-teaser .content-tags {
   margin-top: 0;
-}
-
-.project-teaser__data .content-tags {
-  margin-bottom: $spacing;
-
-  @include breakpoint($breakpoint-m) {
-    margin-bottom: 0;
-  }
 }
