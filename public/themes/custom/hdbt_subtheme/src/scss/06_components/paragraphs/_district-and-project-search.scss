@@ -2,7 +2,7 @@
   background-color: $color-silver-light;
 }
 
-// If the distirct and project search is just before footer it needs to function the same way as unit search.
+// If the district and project search is just before footer it needs to function the same way as unit search.
 .layout-main-wrapper > *:last-child .component--district-and-project-search:last-child {
   margin-bottom: -115px; // Enough to get the block under the footer.
   padding-bottom: 55px; // Leave enough room between the last card and footer.
@@ -17,3 +17,37 @@
     padding-top: $spacing-quadruple;
   }
 }
+
+.district-and-projects-search__results_heading {
+  border-bottom: 1px solid var(--color-black-20);
+  margin-bottom: $spacing-triple;
+
+  > div:last-of-type {
+    margin-top: $spacing-and-half;
+    margin-bottom: $spacing-and-half;
+  }
+
+  .district-and-projects-search__count {
+    @include font('lead');
+
+    .district-and-projects-search__count-total {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  @include breakpoint($breakpoint-m) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > div:last-of-type {
+      margin-left: $spacing-and-half;
+    }
+  }
+}
+
+.districts-projects-search__listing {
+  margin-top: 0;
+  padding-left: 0;
+}
+
