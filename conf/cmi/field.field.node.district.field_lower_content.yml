@@ -5,24 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_lower_content
     - node.type.district
-    - paragraphs.paragraphs_type.accordion
-    - paragraphs.paragraphs_type.banner
-    - paragraphs.paragraphs_type.chart
-    - paragraphs.paragraphs_type.columns
-    - paragraphs.paragraphs_type.contact_card_listing
-    - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
-    - paragraphs.paragraphs_type.event_list
-    - paragraphs.paragraphs_type.from_library
-    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
-    - paragraphs.paragraphs_type.list_of_plans
-    - paragraphs.paragraphs_type.map
-    - paragraphs.paragraphs_type.news_list
-    - paragraphs.paragraphs_type.phasing
-    - paragraphs.paragraphs_type.remote_video
-    - paragraphs.paragraphs_type.text
-    - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 id: node.district.field_lower_content
@@ -39,53 +22,36 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      text: text
-      columns: columns
-      accordion: accordion
-      image: image
       list_of_links: list_of_links
-      content_cards: content_cards
-      content_liftup: content_liftup
-      banner: banner
-      unit_search: unit_search
-      from_library: from_library
-      chart: chart
-      event_list: event_list
-      news_list: news_list
-      contact_card_listing: contact_card_listing
-      map: map
-      remote_video: remote_video
-      list_of_plans: list_of_plans
-      phasing: phasing
     negate: 0
     target_bundles_drag_drop:
       accordion:
         weight: -71
-        enabled: true
+        enabled: false
       accordion_item:
         weight: -66
         enabled: false
       banner:
         weight: -64
-        enabled: true
+        enabled: false
       chart:
         weight: -57
-        enabled: true
+        enabled: false
       columns:
         weight: -72
-        enabled: true
+        enabled: false
       contact_card:
         weight: -56
         enabled: false
       contact_card_listing:
         weight: -52
-        enabled: true
+        enabled: false
       content_cards:
         weight: -67
-        enabled: true
+        enabled: false
       content_liftup:
         weight: -65
-        enabled: true
+        enabled: false
       district_and_project_search:
         weight: -48
         enabled: false
@@ -94,10 +60,10 @@ settings:
         enabled: false
       event_list:
         weight: -55
-        enabled: true
+        enabled: false
       from_library:
         weight: -58
-        enabled: true
+        enabled: false
       gallery:
         weight: -69
         enabled: false
@@ -109,7 +75,7 @@ settings:
         enabled: false
       image:
         weight: -70
-        enabled: true
+        enabled: false
       liftup_with_image:
         weight: -61
         enabled: false
@@ -121,16 +87,16 @@ settings:
         enabled: false
       list_of_plans:
         weight: -49
-        enabled: true
+        enabled: false
       map:
         weight: -51
-        enabled: true
+        enabled: false
       news_list:
         weight: -54
-        enabled: true
+        enabled: false
       phasing:
         weight: -43
-        enabled: true
+        enabled: false
       phasing_item:
         weight: -53
         enabled: false
@@ -145,7 +111,7 @@ settings:
         enabled: false
       remote_video:
         weight: -50
-        enabled: true
+        enabled: false
       service_list:
         weight: -47
         enabled: false
@@ -163,8 +129,8 @@ settings:
         enabled: false
       text:
         weight: -73
-        enabled: true
+        enabled: false
       unit_search:
         weight: -59
-        enabled: true
+        enabled: false
 field_type: entity_reference_revisions
