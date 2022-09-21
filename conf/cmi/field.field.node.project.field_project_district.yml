@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_project_district
     - node.type.project
     - taxonomy.vocabulary.project_district
-    - taxonomy.vocabulary.project_sub_district
 id: node.project.field_project_district
 field_name: field_project_district
 entity_type: node
@@ -22,7 +21,6 @@ settings:
   handler_settings:
     target_bundles:
       project_district: project_district
-      project_sub_district: project_sub_district
     sort:
       field: name
       direction: asc

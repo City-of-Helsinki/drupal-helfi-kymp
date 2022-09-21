@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.district.field_content
+    - field.field.node.district.field_district_district
     - field.field.node.district.field_district_image
     - field.field.node.district.field_district_search_metatags
-    - field.field.node.district.field_district_sub_districts
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
@@ -49,6 +49,16 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+  field_district_district:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_district_image:
     type: media_library_widget
     weight: 2
@@ -62,16 +72,6 @@ content:
     region: content
     settings:
       rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_district_sub_districts:
-    type: entity_reference_autocomplete
-    weight: 3
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_hero:

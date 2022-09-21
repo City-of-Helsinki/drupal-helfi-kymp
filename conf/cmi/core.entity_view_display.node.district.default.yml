@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.district.field_content
+    - field.field.node.district.field_district_district
     - field.field.node.district.field_district_image
     - field.field.node.district.field_district_search_metatags
-    - field.field.node.district.field_district_sub_districts
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
@@ -80,8 +80,8 @@ content:
     weight: 2
     region: content
 hidden:
+  field_district_district: true
   field_district_image: true
   field_district_search_metatags: true
-  field_district_sub_districts: true
   langcode: true
   search_api_excerpt: true

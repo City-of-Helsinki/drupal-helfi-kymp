@@ -5,9 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.district.field_content
+    - field.field.node.district.field_district_district
     - field.field.node.district.field_district_image
     - field.field.node.district.field_district_search_metatags
-    - field.field.node.district.field_district_sub_districts
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
@@ -33,14 +33,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_district_sub_districts:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -48,6 +40,7 @@ content:
     region: content
 hidden:
   field_content: true
+  field_district_district: true
   field_district_search_metatags: true
   field_hero: true
   field_lower_content: true

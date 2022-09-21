@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - node.type.project
     - taxonomy.vocabulary.project_district
-    - taxonomy.vocabulary.project_sub_district
   module:
     - node
     - user
@@ -171,7 +170,6 @@ display:
           validate_options:
             bundles:
               project_district: project_district
-              project_sub_district: project_sub_district
             access: false
             operation: view
             multiple: 0

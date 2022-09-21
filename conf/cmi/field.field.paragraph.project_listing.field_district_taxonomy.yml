@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.field_district_taxonomy
     - paragraphs.paragraphs_type.project_listing
     - taxonomy.vocabulary.project_district
-    - taxonomy.vocabulary.project_sub_district
 id: paragraph.project_listing.field_district_taxonomy
 field_name: field_district_taxonomy
 entity_type: paragraph
@@ -22,7 +21,6 @@ settings:
   handler_settings:
     target_bundles:
       project_district: project_district
-      project_sub_district: project_sub_district
     sort:
       field: name
       direction: asc
