@@ -126,3 +126,14 @@ function helfi_kymp_content_preprocess_node(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_sidebar_visibility_allowed_entities_alter().
+ *
+ * Adds district and project content types to the list that allows
+ * displaying sidebar (such as sub-navigation).
+ */
+function helfi_kymp_content_sidebar_visibility_allowed_entities_alter(&$entities) {
+  $entities['district'] = 'node';
+  $entities['project'] = 'node';
+}
