@@ -56,8 +56,22 @@ function helfi_kymp_content_preprocess_block(&$variables) {
 /**
  * Implements hook_form_FORM_ID_form_alter().
  */
-function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $form_state) {
+function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['#validate'][] = 'helfi_kymp_content_node_form_validate';
+
+  switch ($form_id) {
+    case 'node_district_edit_form':
+    case 'node_district_form':
+      // Control Hero paragraph visibility via checkbox states.
+      $form['field_hero']['#states'] = [
+        'visible' => [
+          ':input[name="field_has_hero[value]"]' => ['checked' => TRUE],
+        ],
+      ];
+      break;
+  }
+  // Custom submit callback.
+  $form['actions']['submit']['#submit'][] = 'hdbt_admin_editorial_node_form_submit_callback';
 }
 
 /**
