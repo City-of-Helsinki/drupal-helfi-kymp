@@ -1,0 +1,33 @@
+uuid: 7b1d33c4-1a8a-4bbe-beb4-dc91b9d60df0
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: project_content_pattern_en
+label: 'Project content pattern (EN)'
+type: 'canonical_entities:node'
+pattern: 'urban-planning-and-construction/search-plans-and-projects/[node:title]'
+selection_criteria:
+  080bb49a-c671-48f8-8a55-6459b300e241:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 080bb49a-c671-48f8-8a55-6459b300e241
+    context_mapping:
+      node: node
+    bundles:
+      project: project
+  7ffe4fb5-9c01-4f09-bf61-37310d10a833:
+    id: language
+    negate: false
+    uuid: 7ffe4fb5-9c01-4f09-bf61-37310d10a833
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

@@ -1,0 +1,33 @@
+uuid: c5b4bd4b-51e5-402f-8158-8c3d18e6d9c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: project_content_pattern_sv
+label: 'Project content pattern (SV)'
+type: 'canonical_entities:node'
+pattern: 'stadsplanering-och-byggande/sok-planer-och-projekt/[node:title]'
+selection_criteria:
+  ebdd871b-9faa-4fe6-a59b-eec4d896b879:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: ebdd871b-9faa-4fe6-a59b-eec4d896b879
+    context_mapping:
+      node: node
+    bundles:
+      project: project
+  1da9fa60-dbfc-4ac9-836f-d4ada8fbd5ab:
+    id: language
+    negate: false
+    uuid: 1da9fa60-dbfc-4ac9-836f-d4ada8fbd5ab
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
