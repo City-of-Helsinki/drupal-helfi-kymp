@@ -1,0 +1,33 @@
+uuid: 89075360-64bc-4c33-b0c7-c74d1f150fc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: district_content_pattern_fi
+label: 'District content pattern (FI)'
+type: 'canonical_entities:node'
+pattern: 'kaupunkisuunnittelu-ja-rakentaminen/uutta-helsinkia-rakentamassa/[node:title]'
+selection_criteria:
+  fd09fcf8-30ed-4f7d-9adb-a0212fa1fc0c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: fd09fcf8-30ed-4f7d-9adb-a0212fa1fc0c
+    context_mapping:
+      node: node
+    bundles:
+      district: district
+  e066591a-39e6-4915-9bb4-9d6769cce612:
+    id: language
+    negate: false
+    uuid: e066591a-39e6-4915-9bb4-9d6769cce612
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      fi: fi
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
