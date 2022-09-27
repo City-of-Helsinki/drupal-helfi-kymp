@@ -145,4 +145,11 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     ]);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags(): array {
+    return Cache::mergeTags(parent::getCacheTags(), ['node_list:district']);
+  }
+
 }
