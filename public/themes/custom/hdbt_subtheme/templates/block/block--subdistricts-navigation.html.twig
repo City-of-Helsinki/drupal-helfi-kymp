@@ -1,0 +1,22 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {% set navigation = content['#navigation'] %}
+
+    {% for parent in navigation %}
+      <ul>
+        <li>{{ link(parent.label, parent.url) }}</li>
+          <ul>
+            {% for child in parent.districts %}
+              <li>{{ link(child.label, child.url) }}</li>
+            {% endfor %}
+          </ul>
+      </ul>
+    {% endfor %}
+
+  {% endblock %}
+</div>

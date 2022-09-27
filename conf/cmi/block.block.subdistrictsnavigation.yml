@@ -1,0 +1,28 @@
+uuid: b9d76589-6cff-4db3-bf49-786faf400848
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_kymp_content
+    - node
+  theme:
+    - hdbt_subtheme
+id: subdistrictsnavigation
+theme: hdbt_subtheme
+region: sidebar_second
+weight: -12
+provider: null
+plugin: subdistricts_navigation
+settings:
+  id: subdistricts_navigation
+  label: 'Subdistricts navigation'
+  label_display: '0'
+  provider: helfi_kymp_content
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      district: district
