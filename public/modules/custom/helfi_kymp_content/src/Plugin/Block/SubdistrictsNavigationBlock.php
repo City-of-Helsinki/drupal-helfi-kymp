@@ -4,12 +4,16 @@ declare(strict_types = 1);
 
 namespace Drupal\helfi_kymp_content\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -88,6 +92,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     }
 
     $navigation = [];
+    $parent_title = '';
+    $parent_url = '';
     $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
 
     // Get node IDs for districts that have the currently viewed district as a
@@ -108,21 +114,67 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
 
     // Create the navigation structure.
     foreach ($parentDistrictIds as $parentId) {
+      // TODO: Comment all of this and add checks
+      $current_path = \Drupal::service('path.current')->getPath();
+      $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+      $path_args = explode('/', $result);
+      $parent_alias = '/' . $path_args[1] . '/' . $path_args[2];
+      $parent_path = \Drupal::service('path_alias.manager')->getPathByAlias($parent_alias);
+      if (preg_match('/node\/(\d+)/', $parent_path, $matches)) {
+        $parent_node = Node::load($matches[1]);
+        $parent_title = $parent_node->getTitle();
+      }
+      $url = \Drupal::service('path.validator')->getUrlIfValid($parent_path);
+
+      if ($parent_alias !== $parent_path) {
+        $parent_url = $url->toString();
+      }
+      // TODO: Until here!
+
+      $menu_item = 'menu_link_content:' . $parentId;
       $parent = $this->entityTypeManager->getStorage('node')->load($parentId);
-      $navigation[$parentId]['label'] = $parent->getTranslation($currentLanguageId)->label();
-      $navigation[$parentId]['url'] = $parent->getTranslation($currentLanguageId)->toUrl();
+      $navigation[$menu_item]['is_expanded'] = FALSE;
+      if ($parent->get('field_subdistricts')->referencedEntities()) {
+        $navigation[$menu_item]['is_expanded'] = TRUE;
+      }
+      $navigation[$menu_item]['is_collapsed'] = FALSE;
+      $navigation[$menu_item]['in_active_trail'] = FALSE;
       if ($node->id() == $parentId) {
-        $navigation[$parentId]['active'] = TRUE;
+        $navigation[$menu_item]['in_active_trail'] = TRUE;
+      }
+      $navigation[$menu_item]['attributes'] = new Attribute(array(
+        'class' => array([
+          'menu__item',
+          'menu__item--children',
+          'menu__item--item-below'
+        ])
+      ));
+      $navigation[$menu_item]['title'] = $parent->getTranslation($currentLanguageId)->label();
+      $navigation[$menu_item]['url'] = $parent->getTranslation($currentLanguageId)->toUrl();
+
+      // Check if url is current page where we are now.
+      $current_uri = Drupal::request()->getRequestUri();
+      if ($navigation[$menu_item]['url']->toString() == $current_uri) {
+        $navigation[$menu_item]['is_currentPage'] = TRUE;
       }
 
       // Add parent's sub-districts.
-      $navigation[$parentId]['districts'] = [];
+      $navigation[$menu_item]['below'] = [];
       $subdistricts = $parent->get('field_subdistricts')->referencedEntities();
       foreach ($subdistricts as $subdistrict) {
-        $navigation[$parentId]['districts'][$subdistrict->id()]['label'] = $subdistrict->getTranslation($currentLanguageId)->label();
-        $navigation[$parentId]['districts'][$subdistrict->id()]['url'] = $subdistrict->getTranslation($currentLanguageId)->toUrl();
+        $navigation[$menu_item]['below'][$subdistrict->id()]['is_expanded'] = FALSE;
+        $navigation[$menu_item]['below'][$subdistrict->id()]['is_collapsed'] = FALSE;
         if ($node->id() == $subdistrict->id()) {
-          $navigation[$parentId]['districts'][$subdistrict->id()]['active'] = TRUE;
+          $navigation[$menu_item]['in_active_trail'] = TRUE;
+          $navigation[$menu_item]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
+        }
+        $navigation[$menu_item]['below'][$subdistrict->id()]['attributes'] = new Attribute(array(
+          'class' => 'menu__item'
+        ));
+        $navigation[$menu_item]['below'][$subdistrict->id()]['title'] = $subdistrict->getTranslation($currentLanguageId)->label();
+        $navigation[$menu_item]['below'][$subdistrict->id()]['url'] = $subdistrict->getTranslation($currentLanguageId)->toUrl();
+        if ($navigation[$menu_item]['below'][$subdistrict->id()]['url']->toString() == $current_uri) {
+          $navigation[$menu_item]['below'][$subdistrict->id()]['is_currentPage'] = TRUE;
         }
       }
     }
@@ -130,6 +182,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     return [
       '#theme' => 'subdistricts_navigation',
       '#navigation' => $navigation,
+      'parent_title' => $parent_title,
+      'parent_url' => $parent_url
     ];
   }
 
