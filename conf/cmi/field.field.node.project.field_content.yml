@@ -6,8 +6,12 @@ dependencies:
     - field.storage.node.field_content
     - node.type.project
     - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.event_list
+    - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.phasing
@@ -29,101 +33,126 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      text: text
+      columns: columns
       accordion: accordion
-      contact_card_listing: contact_card_listing
-      event_list: event_list
+      image: image
       list_of_links: list_of_links
+      banner: banner
+      from_library: from_library
+      remote_video: remote_video
+      event_list: event_list
+      contact_card_listing: contact_card_listing
       map: map
       phasing: phasing
-      remote_video: remote_video
-      text: text
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: 30
+        weight: -71
         enabled: true
       accordion_item:
-        weight: 31
+        weight: -65
         enabled: false
       banner:
-        weight: 32
-        enabled: false
+        weight: -61
+        enabled: true
       chart:
-        weight: 33
+        weight: -58
         enabled: false
       columns:
-        weight: 34
-        enabled: false
+        weight: -72
+        enabled: true
       contact_card:
-        weight: 35
+        weight: -55
         enabled: false
       contact_card_listing:
-        weight: 36
+        weight: -51
         enabled: true
       content_cards:
-        weight: 37
+        weight: -66
         enabled: false
       content_liftup:
-        weight: 38
+        weight: -68
+        enabled: false
+      district_and_project_search:
+        weight: -48
+        enabled: false
+      district_listing:
+        weight: -45
         enabled: false
       event_list:
-        weight: 39
+        weight: -54
         enabled: true
       from_library:
-        weight: 40
-        enabled: false
+        weight: -59
+        enabled: true
       gallery:
-        weight: 41
+        weight: -69
         enabled: false
       gallery_slide:
-        weight: 42
+        weight: -64
         enabled: false
       hero:
-        weight: 43
+        weight: -63
         enabled: false
       image:
-        weight: 44
-        enabled: false
+        weight: -70
+        enabled: true
       liftup_with_image:
-        weight: 45
+        weight: -60
         enabled: false
       list_of_links:
-        weight: 46
+        weight: -67
         enabled: true
       list_of_links_item:
-        weight: 47
+        weight: -62
         enabled: false
       list_of_plans:
-        weight: 48
+        weight: -49
         enabled: false
       map:
-        weight: 49
+        weight: -50
         enabled: true
       news_list:
-        weight: 50
+        weight: -53
         enabled: false
       phasing:
-        weight: 51
+        weight: -43
         enabled: true
       phasing_item:
-        weight: 52
+        weight: -52
+        enabled: false
+      popular_service_item:
+        weight: -42
+        enabled: false
+      popular_services:
+        weight: -41
+        enabled: false
+      project_listing:
+        weight: -40
         enabled: false
       remote_video:
-        weight: 53
+        weight: -57
         enabled: true
       service_list:
-        weight: 54
+        weight: -47
         enabled: false
       sidebar_text:
-        weight: 55
+        weight: -44
         enabled: false
       social_media_link:
-        weight: 56
+        weight: -46
+        enabled: false
+      target_group_link_item:
+        weight: -39
+        enabled: false
+      target_group_links:
+        weight: -38
         enabled: false
       text:
-        weight: 57
+        weight: -73
         enabled: true
       unit_search:
-        weight: 58
+        weight: -56
         enabled: false
 field_type: entity_reference_revisions
