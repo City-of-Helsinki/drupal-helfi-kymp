@@ -4063,16 +4063,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "4.0.0-rc8",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "30f157ff5d8500975025bafadc6f7530f4fef5fb"
+                "reference": "a2bae6fc4a6f53213dda065884ef2b622e531929"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/30f157ff5d8500975025bafadc6f7530f4fef5fb",
-                "reference": "30f157ff5d8500975025bafadc6f7530f4fef5fb",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/a2bae6fc4a6f53213dda065884ef2b622e531929",
+                "reference": "a2bae6fc4a6f53213dda065884ef2b622e531929",
                 "shasum": ""
             },
             "require": {
@@ -4087,10 +4087,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.0.0-rc8",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.0.0",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2022-09-27T07:30:07+00:00"
+            "time": "2022-09-28T08:34:31+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4391,16 +4391,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.12.1",
+            "version": "2.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "b30bc508b43c96e0ec01b130b39176c54a7990cd"
+                "reference": "a7dc9b550760b1278c877273be826e2618729aa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/b30bc508b43c96e0ec01b130b39176c54a7990cd",
-                "reference": "b30bc508b43c96e0ec01b130b39176c54a7990cd",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/a7dc9b550760b1278c877273be826e2618729aa6",
+                "reference": "a7dc9b550760b1278c877273be826e2618729aa6",
                 "shasum": ""
             },
             "require": {
@@ -4504,6 +4504,7 @@
                         "[#UHF-3631] Breadcrumb allow dashes and underscores": "https://www.drupal.org/files/issues/2020-07-23/easy_breadcrumb-allow_hyphens_underscores-3161100-2.patch"
                     },
                     "drupal/views_bulk_edit": {
+                        "[#UHF-6869] https://www.drupal.org/project/views_bulk_edit/issues/3311552": "https://git.drupalcode.org/project/views_bulk_edit/-/merge_requests/12.patch",
                         "[#UHF-4528] Declaration must be compatible": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/20af0607626b4c9adaa52c1c9773850a5c8fec3d/patches/views_bulk_edit_tests_compatible_declaration_8.x-2.6.patch"
                     }
                 }
@@ -4513,23 +4514,23 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.12.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.12.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-09-27T08:00:51+00:00"
+            "time": "2022-09-27T10:31:22+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "3ca44d35bcd55b3c5d3ddb644edda85b5be2c85e"
+                "reference": "be69a56c6f4019110d3c0c68d9475827286fa6ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/3ca44d35bcd55b3c5d3ddb644edda85b5be2c85e",
-                "reference": "3ca44d35bcd55b3c5d3ddb644edda85b5be2c85e",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/be69a56c6f4019110d3c0c68d9475827286fa6ab",
+                "reference": "be69a56c6f4019110d3c0c68d9475827286fa6ab",
                 "shasum": ""
             },
             "require": {
@@ -4552,10 +4553,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-09-20T05:27:26+00:00"
+            "time": "2022-09-28T05:57:53+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -4995,26 +4996,26 @@
         },
         {
             "name": "drupal/media_entity_soundcloud",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_entity_soundcloud.git",
-                "reference": "3.0.0"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_entity_soundcloud-3.0.0.zip",
-                "reference": "3.0.0",
-                "shasum": "b1f3a1d12132d22eaa45f04eb6650b3a4974d1fc"
+                "url": "https://ftp.drupal.org/files/projects/media_entity_soundcloud-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "e67a3535c51cdae2f4dc217d5d72c66dd6484aa1"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0",
-                    "datestamp": "1603867629",
+                    "version": "3.1.0",
+                    "datestamp": "1664284259",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5044,8 +5045,12 @@
                     "homepage": "https://www.drupal.org/user/210762"
                 },
                 {
-                    "name": "jcisio",
-                    "homepage": "https://www.drupal.org/user/210762"
+                    "name": "Rajeshreeputra",
+                    "homepage": "https://www.drupal.org/user/3418561"
+                },
+                {
+                    "name": "shadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
                 }
             ],
             "description": "Soundcloud integration for the Media Entity module",
@@ -6910,20 +6915,20 @@
         },
         {
             "name": "drupal/views_bulk_operations",
-            "version": "4.1.5",
+            "version": "4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_operations.git",
-                "reference": "4.1.5"
+                "reference": "4.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.1.5.zip",
-                "reference": "4.1.5",
-                "shasum": "4a85fa401dae71d5ba8f116fac5d920a5260c631"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.1.6.zip",
+                "reference": "4.1.6",
+                "shasum": "79d7ef0260c507af066cb8c06fdbf4321b840d8a"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^8 || ^9"
             },
             "require-dev": {
                 "drush/drush": "^10"
@@ -6934,8 +6939,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.5",
-                    "datestamp": "1663950843",
+                    "version": "4.1.6",
+                    "datestamp": "1664354501",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13545,16 +13550,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.15.2",
+            "version": "v2.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3e43405a9a8b578809426339cc3780e16fba0c52"
+                "reference": "ab402673db8746cb3a4c46f3869d6253699f614a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e43405a9a8b578809426339cc3780e16fba0c52",
-                "reference": "3e43405a9a8b578809426339cc3780e16fba0c52",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ab402673db8746cb3a4c46f3869d6253699f614a",
+                "reference": "ab402673db8746cb3a4c46f3869d6253699f614a",
                 "shasum": ""
             },
             "require": {
@@ -13609,7 +13614,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.15.2"
+                "source": "https://github.com/twigphp/Twig/tree/v2.15.3"
             },
             "funding": [
                 {
@@ -13621,7 +13626,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-12T06:43:37+00:00"
+            "time": "2022-09-28T08:40:08+00:00"
         },
         {
             "name": "twistor/flysystem-stream-wrapper",
