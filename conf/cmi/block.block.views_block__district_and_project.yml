@@ -1,0 +1,29 @@
+uuid: b0852190-3b22-4643-8a89-4f5ee83594ea
+langcode: fi
+status: true
+dependencies:
+  config:
+    - views.view.district_and_project_search
+  module:
+    - system
+    - views
+  theme:
+    - hdbt_subtheme
+id: views_block__district_and_project
+theme: hdbt_subtheme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:district_and_project_search-district_and_project_search'
+settings:
+  id: 'views_block:district_and_project_search-district_and_project_search'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /fi/kaupunkiymparisto-ja-liikenne/testi-landeri

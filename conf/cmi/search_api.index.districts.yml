@@ -115,8 +115,14 @@ processor_settings:
       preprocess_query: -20
     all_fields: false
     fields:
+      - content_type
+      - field_district_sub_districts_name
       - title
   language_with_fallback: {  }
+  number_field_boost:
+    weights:
+      preprocess_index: 0
+    boosts: {  }
   project_execution_schedule: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
