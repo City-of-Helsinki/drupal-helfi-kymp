@@ -18,6 +18,37 @@
   }
 }
 
+.district-project-search-form__filters-container {
+  ul[role="listbox"] {
+    background-color: var(--color-white);
+  }
+
+  .district-project-search-form__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $spacing-and-half;
+
+    > div {
+      flex-basis: 48%;
+    }
+  }
+
+  .district-project-search-form__additional-filters {
+    border-bottom: none !important;
+
+    > div {
+      font-weight: 400;
+    }
+  }
+
+  .district-project-search-form__submit-button {
+    width: 100%;
+    max-width: 280px;
+    margin-top: $spacing-double;
+  }
+}
+
 .district-and-projects-search__results_heading {
   border-bottom: 1px solid var(--color-black-20);
   margin-bottom: $spacing-triple;
