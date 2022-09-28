@@ -30,11 +30,17 @@
     {% endif %}
   </div>
   <div class="district-teaser__data">
-    <div class="content-tags content-tags--content-type">
-      <div class="content-tags__tags content-tags__tags--static">
-        <span class="content-tags__tags__tag">{{ 'District'|t }}</span>
-      </div>
-    </div>
+    {% set tag_content %}
+      <span>{{ 'District'|t }}</span>
+    {% endset %}
+    {% embed '@hdbt/misc/tag-list.twig'%}
+      {% block content %}
+        {% include '@hdbt/misc/tag.twig' with {
+          color: 'coat-of-arms',
+          tag: tag_content
+        }%}
+      {% endblock content %}
+    {% endembed %}
     {{ link(link_title, node_url, link_attributes) }}
     {% if content.field_district_sub_districts|render %}
       {% include '@hdbt/misc/metadata-item.twig' with {

@@ -1,0 +1,39 @@
+.component--district-listing {
+  background-color: $color-silver-light;
+}
+
+// If the distirct and project search is just before footer it needs to function the same way as unit search.
+.layout-main-wrapper > *:last-child .component--district-listing:last-child {
+  margin-bottom: -115px; // Enough to get the block under the footer.
+  padding-bottom: 55px; // Leave enough room between the last card and footer.
+}
+
+.component--district-listing .component__container {
+  padding-bottom: $spacing-double;
+  padding-top: $spacing-double;
+
+  @include breakpoint($breakpoint-m) {
+    padding-bottom: $spacing-quadruple;
+    padding-top: $spacing-quadruple;
+  }
+}
+
+.district-listing .views-infinite-scroll-content-wrapper {
+  margin-top: $spacing;
+
+  @include breakpoint($breakpoint-m) {
+    margin-top: $spacing-double;
+  }
+}
+
+.district-listing__count-container {
+  @include font('lead');
+
+  .district-listing__count {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.district-listing .district-teaser .content-tags {
+  display: none; // Hide content type tags since only one type is listed.
+}

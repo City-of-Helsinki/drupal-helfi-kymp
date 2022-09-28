@@ -1,0 +1,19 @@
+uuid: 8caed881-457b-4d95-9881-1efe2a3148da
+langcode: en
+status: '1'
+dependencies: {  }
+cluster_id: kymp
+name: KYMP
+url: 'http://elastic:9200'
+options:
+  multiple_nodes_connection: false
+  use_authentication: 1
+  authentication_type: Basic
+  username: ''
+  password: ''
+  timeout: '3'
+  rewrite:
+    rewrite_index: 0
+    index:
+      prefix: ''
+      suffix: ''
