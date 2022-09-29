@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -48,6 +49,48 @@ function helfi_kymp_content_preprocess_block(&$variables) {
             break;
         }
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#validate'][] = 'helfi_kymp_content_node_form_validate';
+}
+
+/**
+ * Custom validation function for node form.
+ */
+function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+
+  if ($node->getType() == 'project') {
+    $project_plan_schedule = $form_state->getValue('field_project_plan_schedule');
+    $plan_start = $project_plan_schedule[0]['value'];
+    $plan_end = $project_plan_schedule[0]['end_value'];
+
+    $project_execution_schedule = $form_state->getValue('field_project_execution_schedule');
+    $execution_start = $project_execution_schedule[0]['value'];
+    $execution_end = $project_execution_schedule[0]['end_value'];
+
+    // Either project plan or execution schedule is required.
+    if ((is_null($plan_start) && is_null($plan_end)) && (is_null($execution_start) && is_null($execution_end))) {
+      $error_message = t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']);
+
+      $error_fields = [
+        'field_project_plan_schedule][0][value][date',
+        'field_project_execution_schedule][0][value][date',
+        'field_project_plan_schedule][0][end_value][date',
+        'field_project_execution_schedule][0][end_value][date',
+      ];
+
+      foreach ($error_fields as $error_field_name) {
+        $form_state->setErrorByName($error_field_name, $error_message);
+      }
+
+      \Drupal::messenger()->addMessage(t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']), 'error');
     }
   }
 }

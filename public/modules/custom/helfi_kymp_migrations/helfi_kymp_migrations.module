@@ -13,7 +13,7 @@ declare(strict_types=1);
 function helfi_kymp_migrations_modules_installed($modules) {
   // Run taxonomy migrations after the necessary entities have been installed.
   if (in_array('helfi_kymp_migrations', $modules)) {
-    _helfi_kymp_run_taxonomy_migration();
+    helfi_kymp_migrations__run_taxonomy_migration();
     \Drupal::state()->set('helfi_kymp_migrations.parent_district_migration_complete', TRUE);
   }
 }
@@ -21,7 +21,7 @@ function helfi_kymp_migrations_modules_installed($modules) {
 /**
  * Run taxonomy migrations.
  */
-function _helfi_kymp_run_taxonomy_migration() {
+function helfi_kymp_migrations__run_taxonomy_migration() {
   $logger = \Drupal::service('logger.channel.default');
   $migration = \Drupal::service(
     'helfi_kymp_migrations.taxonomy_migration_service'
