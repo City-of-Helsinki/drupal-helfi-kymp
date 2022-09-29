@@ -92,8 +92,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     }
 
     $navigation = [];
-    $parent_title = '';
-    $parent_url = '';
+    $parent_title = t('Home');
+    $parent_url = '/';
     $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
 
     // Get node IDs for districts that have the currently viewed district as a
@@ -114,22 +114,32 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
 
     // Create the navigation structure.
     foreach ($parentDistrictIds as $parentId) {
-      // TODO: Comment all of this and add checks
+      // The districts have path alias so that the parent content
+      // title is aliased to the path but they don't have any
+      // other real connection to the previous content.
+      // This is why we need to get the aliased path and convert
+      // it to a /node/X/ form and also get the node title.
       $current_path = \Drupal::service('path.current')->getPath();
-      $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-      $path_args = explode('/', $result);
-      $parent_alias = '/' . $path_args[1] . '/' . $path_args[2];
-      $parent_path = \Drupal::service('path_alias.manager')->getPathByAlias($parent_alias);
-      if (preg_match('/node\/(\d+)/', $parent_path, $matches)) {
-        $parent_node = Node::load($matches[1]);
-        $parent_title = $parent_node->getTitle();
+      $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+      // Break down the current alias and rebuild it back without the
+      // current node.
+      $path_args = explode('/', $current_alias);
+      // Make sure the path has the correct components.
+      if (isset($path_args[2])){
+        $parent_alias = '/' . $path_args[1] . '/' . $path_args[2];
+        $parent_path = \Drupal::service('path_alias.manager')->getPathByAlias($parent_alias);
+        // Load the node based on the parent path and get the title.
+        if (preg_match('/node\/(\d+)/', $parent_path, $matches)) {
+          $parent_node = Node::load($matches[1]);
+          $parent_title = $parent_node->getTitle();
+        }
+        $url = \Drupal::service('path.validator')->getUrlIfValid($parent_path);
+        if ($parent_alias !== $parent_path) {
+          $parent_url = $url->toString();
+        }
       }
-      $url = \Drupal::service('path.validator')->getUrlIfValid($parent_path);
 
-      if ($parent_alias !== $parent_path) {
-        $parent_url = $url->toString();
-      }
-      // TODO: Until here!
+      // TODO: Until here! Also figure out how to enable the first sidebar here!
 
       $menu_item = 'menu_link_content:' . $parentId;
       $parent = $this->entityTypeManager->getStorage('node')->load($parentId);
