@@ -158,7 +158,6 @@ function helfi_kymp_content_preprocess_page(&$variables) {
   }
 }
 
-
 /**
  * Handle sidebar visibility based on district relationships.
  *
@@ -182,7 +181,7 @@ function helfi_kymp_content_sidebar_menu_visibility(array &$variables, ContentEn
     $entity->get('field_subdistricts')->isEmpty()
   ) {
     $currentLanguageId = $entity->language()->getId();
-    
+
     // Get node IDs for districts that have the currently viewed district as a
     // sub-district.
     $parentDistrictIds = \Drupal::entityQuery('node')

@@ -91,7 +91,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     }
 
     $navigation = [];
-    $parent_title = t('Home');
+    $parent_title = $this->t('Home');
     $parent_url = '/';
     $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
 
@@ -124,7 +124,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       // current node.
       $path_args = explode('/', $current_alias);
       // Make sure the path has the correct components.
-      if (isset($path_args[2])){
+      if (isset($path_args[2])) {
         $parent_alias = '/' . $path_args[1] . '/' . $path_args[2];
         $parent_path = \Drupal::service('path_alias.manager')->getPathByAlias($parent_alias);
         // Load the node based on the parent path and get the title.
@@ -153,13 +153,13 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
         $navigation[$menu_item]['in_active_trail'] = TRUE;
       }
 
-      $navigation[$menu_item]['attributes'] = new Attribute(array(
-        'class' => array([
+      $navigation[$menu_item]['attributes'] = new Attribute([
+        'class' => [
           'menu__item',
           'menu__item--children',
-          'menu__item--item-below'
-        ])
-      ));
+          'menu__item--item-below',
+        ],
+      ]);
       $navigation[$menu_item]['title'] = $parent->getTranslation($currentLanguageId)->label();
       $navigation[$menu_item]['url'] = $parent->getTranslation($currentLanguageId)->toUrl();
 
@@ -179,9 +179,9 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
           $navigation[$menu_item]['in_active_trail'] = TRUE;
           $navigation[$menu_item]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
         }
-        $navigation[$menu_item]['below'][$subdistrict->id()]['attributes'] = new Attribute(array(
-          'class' => 'menu__item'
-        ));
+        $navigation[$menu_item]['below'][$subdistrict->id()]['attributes'] = new Attribute([
+          'class' => 'menu__item',
+        ]);
         $navigation[$menu_item]['below'][$subdistrict->id()]['title'] = $subdistrict->getTranslation($currentLanguageId)->label();
         $navigation[$menu_item]['below'][$subdistrict->id()]['url'] = $subdistrict->getTranslation($currentLanguageId)->toUrl();
         if ($navigation[$menu_item]['below'][$subdistrict->id()]['url']->toString() == $current_uri) {
@@ -194,7 +194,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       '#theme' => 'subdistricts_navigation',
       '#navigation' => $navigation,
       'parent_title' => $parent_title,
-      'parent_url' => $parent_url
+      'parent_url' => $parent_url,
     ];
   }
 
