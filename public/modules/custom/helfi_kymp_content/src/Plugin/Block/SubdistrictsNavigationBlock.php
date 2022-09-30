@@ -12,7 +12,6 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -139,19 +138,21 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
         }
       }
 
-      // TODO: Until here! Also figure out how to enable the first sidebar here!
-
       $menu_item = 'menu_link_content:' . $parentId;
       $parent = $this->entityTypeManager->getStorage('node')->load($parentId);
+
       $navigation[$menu_item]['is_expanded'] = FALSE;
       if ($parent->get('field_subdistricts')->referencedEntities()) {
         $navigation[$menu_item]['is_expanded'] = TRUE;
       }
+
       $navigation[$menu_item]['is_collapsed'] = FALSE;
+
       $navigation[$menu_item]['in_active_trail'] = FALSE;
       if ($node->id() == $parentId) {
         $navigation[$menu_item]['in_active_trail'] = TRUE;
       }
+
       $navigation[$menu_item]['attributes'] = new Attribute(array(
         'class' => array([
           'menu__item',
