@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Drupal\helfi_kymp_content\Plugin\Block;
 
-use Drupal;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -164,7 +163,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       $navigation[$menu_item]['url'] = $parent->getTranslation($currentLanguageId)->toUrl();
 
       // Check if url is current page where we are now.
-      $current_uri = Drupal::request()->getRequestUri();
+      $current_uri = \Drupal::request()->getRequestUri();
       if ($navigation[$menu_item]['url']->toString() == $current_uri) {
         $navigation[$menu_item]['is_currentPage'] = TRUE;
       }
