@@ -35,10 +35,16 @@
   }
 
   .district-project-search-form__additional-filters {
+    border-top: 1px solid var(--color-black-20);
     border-bottom: none !important;
+    margin-top: $spacing;
 
     > div {
-      font-weight: 400;
+      font-weight: 500;
+    }
+
+    > div:last-child {
+      margin-bottom: $spacing;
     }
   }
 
@@ -51,6 +57,7 @@
 
 .district-and-projects-search__results_heading {
   border-bottom: 1px solid var(--color-black-20);
+  margin-top: $spacing-quadruple;
   margin-bottom: $spacing-triple;
 
   > div:last-of-type {
@@ -80,5 +87,11 @@
 .districts-projects-search__listing {
   margin-top: 0;
   padding-left: 0;
+}
+
+.districts-projects-search__listing__no-results {
+  p {
+    @include font('lead');
+  }
 }
 
