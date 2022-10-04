@@ -5,8 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_project_district
     - field.storage.node.field_project_external_website
-    - field.storage.media.field_media_image
     - field.storage.node.field_project_image
+    - field.storage.media.field_media_image
     - field.storage.node.field_project_phase
     - field.storage.node.field_project_search_metatags
     - field.storage.node.field_project_theme
@@ -16,7 +16,6 @@ dependencies:
     - node
     - taxonomy
     - media
-    - file
     - search_api
     - helfi_kymp_district_project_search
 id: projects
@@ -50,6 +49,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_project_external_website
+  field_project_image:
+    label: 'Project image url'
+    datasource_id: 'entity:node'
+    property_path: field_project_image
+    type: image_absolute_url
+    dependencies:
+      config:
+        - field.storage.node.field_project_image
   field_project_image_alt:
     label: 'Project image alt'
     datasource_id: 'entity:node'
@@ -60,18 +67,6 @@ field_settings:
         - field.storage.media.field_media_image
         - field.storage.node.field_project_image
       module:
-        - media
-  field_project_image_url:
-    label: 'Project image'
-    datasource_id: 'entity:node'
-    property_path: 'field_project_image:entity:field_media_image:entity:uri:url'
-    type: string
-    dependencies:
-      config:
-        - field.storage.media.field_media_image
-        - field.storage.node.field_project_image
-      module:
-        - file
         - media
   field_project_phase_name:
     label: 'Project phase name'
@@ -133,7 +128,7 @@ field_settings:
     property_path: search_api_url
     type: string
     configuration:
-      absolute: false
+      absolute: true
 datasource_settings:
   'entity:node':
     bundles:
@@ -164,6 +159,7 @@ processor_settings:
       - field_project_theme_name
       - field_project_type_name
       - title
+  image_absolute_url: {  }
   language_with_fallback: {  }
   number_field_boost:
     weights:

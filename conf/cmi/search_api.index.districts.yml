@@ -11,7 +11,6 @@ dependencies:
   module:
     - node
     - media
-    - file
     - taxonomy
     - search_api
     - helfi_kymp_district_project_search
@@ -28,6 +27,14 @@ field_settings:
     dependencies:
       module:
         - node
+  field_district_image:
+    label: 'District image url'
+    datasource_id: 'entity:node'
+    property_path: field_district_image
+    type: image_absolute_url
+    dependencies:
+      config:
+        - field.storage.node.field_district_image
   field_district_image_alt:
     label: 'District image alt'
     datasource_id: 'entity:node'
@@ -38,18 +45,6 @@ field_settings:
         - field.storage.media.field_media_image
         - field.storage.node.field_district_image
       module:
-        - media
-  field_district_image_url:
-    label: 'District image url'
-    datasource_id: 'entity:node'
-    property_path: 'field_district_image:entity:field_media_image:entity:uri:url'
-    type: string
-    dependencies:
-      config:
-        - field.storage.media.field_media_image
-        - field.storage.node.field_district_image
-      module:
-        - file
         - media
   field_district_search_metatags:
     label: 'District search metatags'
@@ -91,7 +86,7 @@ field_settings:
     property_path: search_api_url
     type: string
     configuration:
-      absolute: false
+      absolute: true
 datasource_settings:
   'entity:node':
     bundles:
