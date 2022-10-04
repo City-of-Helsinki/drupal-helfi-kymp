@@ -164,7 +164,7 @@ function helfi_kymp_content_preprocess_page(&$variables) {
  *
  * @param array $variables
  *   Variables array.
- * @param NodeInterface $node
+ * @param \Drupal\node\NodeInterface $node
  *   Node entity.
  */
 function helfi_kymp_content_sidebar_menu_visibility(array &$variables, NodeInterface $node) {
