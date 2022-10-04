@@ -11,6 +11,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -96,14 +97,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
 
     // Get node IDs for districts that have the currently viewed district as a
     // sub-district.
-    $parentDistrictIds = \Drupal::entityQuery('node')
-      ->accessCheck(TRUE)
-      ->condition('type', 'district')
-      ->condition('status', NodeInterface::PUBLISHED)
-      ->condition('langcode', $currentLanguageId)
-      ->exists('field_subdistricts')
-      ->condition('field_subdistricts.entity:node.nid', $node->id())
-      ->execute();
+    $parentDistrictIds = DistrictUtility::getSubdistrictParentIds($node);
 
     // Check if the current node itself is a parent for sub-districts.
     if (!$node->get('field_subdistricts')->isEmpty()) {

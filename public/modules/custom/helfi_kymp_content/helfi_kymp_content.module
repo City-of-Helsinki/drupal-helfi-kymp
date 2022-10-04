@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
 
 /**
@@ -148,12 +149,12 @@ function helfi_kymp_content_sidebar_visibility_allowed_entities_alter(&$entities
  */
 function helfi_kymp_content_preprocess_page(&$variables) {
   // Handle sidebar visibility.
-  $entity = hdbt_content_get_page_entity();
-  if ($entity instanceof NodeInterface) {
+  $node = hdbt_content_get_page_entity();
+  if ($node instanceof NodeInterface) {
     // Handle first and second sidebar visibility for the "Standard page" (page)
     // content type.
-    if ($entity->getType() === 'district') {
-      helfi_kymp_content_sidebar_menu_visibility($variables, $entity);
+    if ($node->getType() === 'district') {
+      helfi_kymp_content_sidebar_menu_visibility($variables, $node);
     }
   }
 }
@@ -163,38 +164,20 @@ function helfi_kymp_content_preprocess_page(&$variables) {
  *
  * @param array $variables
  *   Variables array.
- * @param \Drupal\Core\Entity\ContentEntityInterface $entity
- *   Content entity, like tpr_service, tpr_unit or node.
+ * @param NodeInterface $node
+ *   Node entity.
  */
-function helfi_kymp_content_sidebar_menu_visibility(array &$variables, ContentEntityInterface $entity) {
-  // Hide the sidebar and menu if the current entity has
-  // "hide sidebar navigation" value set.
-  if (
-    $entity->hasField('field_subdistricts') &&
-    !$entity->get('field_subdistricts')->isEmpty()
-  ) {
-    $variables['has_sidebar_first'] = TRUE;
+function helfi_kymp_content_sidebar_menu_visibility(array &$variables, NodeInterface $node) {
+  if (!$node->hasField('field_subdistricts')) {
+    return;
   }
 
-  if (
-    $entity->hasField('field_subdistricts') &&
-    $entity->get('field_subdistricts')->isEmpty()
-  ) {
-    $currentLanguageId = $entity->language()->getId();
-
-    // Get node IDs for districts that have the currently viewed district as a
-    // sub-district.
-    $parentDistrictIds = \Drupal::entityQuery('node')
-      ->accessCheck(TRUE)
-      ->condition('type', 'district')
-      ->condition('status', NodeInterface::PUBLISHED)
-      ->condition('langcode', $currentLanguageId)
-      ->exists('field_subdistricts')
-      ->condition('field_subdistricts.entity:node.nid', $entity->id())
-      ->execute();
-
-    if (!empty($parentDistrictIds)) {
-      $variables['has_sidebar_first'] = TRUE;
-    }
+  // Hide the sidebar and menu if the current entity has
+  // "hide sidebar navigation" value set.
+  if (!$node->get('field_subdistricts')->isEmpty()) {
+    $variables['has_sidebar_first'] = TRUE;
+  }
+  elseif (!empty(DistrictUtility::getSubdistrictParentIds($node))) {
+    $variables['has_sidebar_first'] = TRUE;
   }
 }
