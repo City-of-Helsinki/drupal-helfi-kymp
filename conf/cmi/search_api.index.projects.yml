@@ -5,8 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_project_district
     - field.storage.node.field_project_external_website
-    - field.storage.node.field_project_image
     - field.storage.media.field_media_image
+    - field.storage.node.field_project_image
     - field.storage.node.field_project_phase
     - field.storage.node.field_project_search_metatags
     - field.storage.node.field_project_theme
@@ -49,14 +49,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_project_external_website
-  field_project_image:
-    label: 'Project image url'
-    datasource_id: 'entity:node'
-    property_path: field_project_image
-    type: image_absolute_url
-    dependencies:
-      config:
-        - field.storage.node.field_project_image
   field_project_image_alt:
     label: 'Project image alt'
     datasource_id: 'entity:node'
@@ -114,6 +106,11 @@ field_settings:
     dependencies:
       module:
         - node
+  project_image_absolute_url:
+    label: 'Project image absolute URL'
+    datasource_id: 'entity:node'
+    property_path: project_image_absolute_url
+    type: string
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -159,13 +156,13 @@ processor_settings:
       - field_project_theme_name
       - field_project_type_name
       - title
-  image_absolute_url: {  }
   language_with_fallback: {  }
   number_field_boost:
     weights:
       preprocess_index: 0
     boosts: {  }
   project_execution_schedule: {  }
+  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
   tokenizer:

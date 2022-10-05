@@ -27,14 +27,11 @@ field_settings:
     dependencies:
       module:
         - node
-  field_district_image:
-    label: 'District image url'
+  district_image_absolute_url:
+    label: 'District image absolute URL'
     datasource_id: 'entity:node'
-    property_path: field_district_image
-    type: image_absolute_url
-    dependencies:
-      config:
-        - field.storage.node.field_district_image
+    property_path: district_image_absolute_url
+    type: string
   field_district_image_alt:
     label: 'District image alt'
     datasource_id: 'entity:node'
@@ -102,6 +99,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  district_image_absolute_url: {  }
   entity_status: {  }
   entity_type: {  }
   ignorecase:
@@ -119,6 +117,7 @@ processor_settings:
       preprocess_index: 0
     boosts: {  }
   project_execution_schedule: {  }
+  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
   tokenizer:
