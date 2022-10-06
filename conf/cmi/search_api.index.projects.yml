@@ -15,7 +15,6 @@ dependencies:
   module:
     - node
     - taxonomy
-    - file
     - media
     - search_api
     - helfi_kymp_district_project_search
@@ -60,18 +59,6 @@ field_settings:
         - field.storage.media.field_media_image
         - field.storage.node.field_project_image
       module:
-        - media
-  field_project_image_url:
-    label: 'Project image'
-    datasource_id: 'entity:node'
-    property_path: 'field_project_image:entity:field_media_image:entity:uri:url'
-    type: string
-    dependencies:
-      config:
-        - field.storage.media.field_media_image
-        - field.storage.node.field_project_image
-      module:
-        - file
         - media
   field_project_phase_name:
     label: 'Project phase name'
@@ -119,16 +106,11 @@ field_settings:
     dependencies:
       module:
         - node
-  project_execution_schedule:
-    label: 'Toteutuksen aikataulu'
+  project_image_absolute_url:
+    label: 'Project image absolute URL'
     datasource_id: 'entity:node'
-    property_path: project_execution_schedule
-    type: date
-  project_plan_schedule:
-    label: 'Suunnittelun aikataulu'
-    datasource_id: 'entity:node'
-    property_path: project_plan_schedule
-    type: date
+    property_path: project_image_absolute_url
+    type: string
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -143,7 +125,7 @@ field_settings:
     property_path: search_api_url
     type: string
     configuration:
-      absolute: false
+      absolute: true
 datasource_settings:
   'entity:node':
     bundles:
@@ -167,6 +149,7 @@ processor_settings:
       preprocess_query: -20
     all_fields: false
     fields:
+      - content_type
       - field_project_district_name
       - field_project_phase_name
       - field_project_search_metatags
@@ -174,7 +157,12 @@ processor_settings:
       - field_project_type_name
       - title
   language_with_fallback: {  }
+  number_field_boost:
+    weights:
+      preprocess_index: 0
+    boosts: {  }
   project_execution_schedule: {  }
+  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
   tokenizer:
