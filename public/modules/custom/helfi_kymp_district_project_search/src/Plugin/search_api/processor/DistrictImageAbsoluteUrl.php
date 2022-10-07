@@ -24,6 +24,7 @@ use Drupal\image\Entity\ImageStyle;
  * )
  */
 class DistrictImageAbsoluteUrl extends ProcessorPluginBase {
+
   /**
    * {@inheritdoc}
    */
@@ -80,4 +81,5 @@ class DistrictImageAbsoluteUrl extends ProcessorPluginBase {
       $fields['district_image_absolute_url']->addValue($imageStyle->buildUrl($file->getFileUri()));
     }
   }
+
 }

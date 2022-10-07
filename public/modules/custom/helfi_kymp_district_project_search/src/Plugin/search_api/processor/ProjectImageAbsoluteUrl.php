@@ -24,6 +24,7 @@ use Drupal\image\Entity\ImageStyle;
  * )
  */
 class ProjectImageAbsoluteUrl extends ProcessorPluginBase {
+
   /**
    * {@inheritdoc}
    */
@@ -80,4 +81,5 @@ class ProjectImageAbsoluteUrl extends ProcessorPluginBase {
       $fields['project_image_absolute_url']->addValue($imageStyle->buildUrl($file->getFileUri()));
     }
   }
+
 }
