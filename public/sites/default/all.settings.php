@@ -17,12 +17,12 @@ if ($drush_options_uri = getenv('DRUSH_OPTIONS_URI')) {
 
 // Elasticsearch settings.
 if (getenv('ELASTICSEARCH_URL')) {
-  $config['elasticsearch_connector.cluster.news']['url'] = getenv('ELASTICSEARCH_URL');
+  $config['elasticsearch_connector.cluster.kymp']['url'] = getenv('ELASTICSEARCH_URL');
 
   if (getenv('ELASTIC_USER') && getenv('ELASTIC_PASSWORD')) {
-    $config['elasticsearch_connector.cluster.news']['options']['use_authentication'] = '1';
-    $config['elasticsearch_connector.cluster.news']['options']['authentication_type'] = 'Basic';
-    $config['elasticsearch_connector.cluster.news']['options']['username'] = getenv('ELASTIC_USER');
-    $config['elasticsearch_connector.cluster.news']['options']['password'] = getenv('ELASTIC_PASSWORD');
+    $config['elasticsearch_connector.cluster.kymp']['options']['use_authentication'] = '1';
+    $config['elasticsearch_connector.cluster.kymp']['options']['authentication_type'] = 'Basic';
+    $config['elasticsearch_connector.cluster.kymp']['options']['username'] = getenv('ELASTIC_USER');
+    $config['elasticsearch_connector.cluster.kymp']['options']['password'] = getenv('ELASTIC_PASSWORD');
   }
 }

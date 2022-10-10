@@ -1,4 +1,4 @@
-uuid: da673ab8-312a-4fe0-ade7-09146c991093
+uuid: 0118e18f-ecc0-4df2-b316-e768399b228e
 langcode: en
 status: true
 dependencies:
@@ -8,23 +8,25 @@ dependencies:
     - system
   theme:
     - hdbt_subtheme
-id: hdbt_subtheme_smarttichatbot
+id: chatleijuke
 theme: hdbt_subtheme
 region: attachments
-weight: -11
+weight: -12
 provider: null
-plugin: smartti_chatbot
+plugin: chat_leijuke
 settings:
-  id: smartti_chatbot
-  label: 'Smartti Chatbot'
+  id: chat_leijuke
+  label: 'Chat Leijuke Smartti'
   label_display: '0'
   provider: helfi_platform_config
+  chat_title: 'Ask the robot about parking'
+  chat_selection: smartti_chatbot
 visibility:
   language:
     id: language
     negate: false
     context_mapping:
-      language: '@language.current_language_context:language_content'
+      language: '@language.current_language_context:language_interface'
     langcodes:
       fi: fi
   request_path:
