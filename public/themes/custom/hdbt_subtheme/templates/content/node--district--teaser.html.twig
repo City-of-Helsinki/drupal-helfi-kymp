@@ -41,11 +41,11 @@
       {% endblock content %}
     {% endembed %}
     {{ link(link_title, node_url, link_attributes) }}
-    {% if sub_districts %}
+    {% if content.field_subdistricts.0 %}
       {% include '@hdbt/misc/metadata-item.twig' with {
         item_icon: 'location',
         item_label: 'Districts'|t,
-        item_content: sub_districts,
+        item_content: content.field_subdistricts,
       }%}
     {% endif %}
 

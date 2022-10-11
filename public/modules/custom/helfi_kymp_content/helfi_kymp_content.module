@@ -111,27 +111,6 @@ function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_s
   }
 }
 
-/**
- * Implements hook_preprocess_HOOK().
- */
-function helfi_kymp_content_preprocess_node(&$variables) {
-  // Get list of sub districts for the main district if some is set
-  // on the project_district vocabulary.
-  if ($variables['view_mode'] === 'teaser' && $variables['node']->getType() === 'district') {
-    $vid = 'project_district';
-    $district_tid = $variables['node']->get('field_district_district')->getString();
-    $depth = 1;
-    $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, $district_tid, $depth);
-
-    foreach ($child_terms as $child_term) {
-      $sub_districts[] = $child_term->name;
-    }
-
-    if (isset($sub_districts)) {
-      $variables['sub_districts'] = implode(", ", $sub_districts);
-    }
-  }
-}
 
 /**
  * Implements hook_sidebar_visibility_allowed_entities_alter().
