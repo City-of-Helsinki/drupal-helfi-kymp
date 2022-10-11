@@ -7,13 +7,14 @@ namespace Drupal\helfi_kymp_content\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\helfi_kymp_content\DistrictUtility;
-use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\path_alias\AliasManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -27,11 +28,25 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * An alias manager to find the alias for the current system path.
+   *
+   * @var \Drupal\path_alias\AliasManagerInterface
+   */
+  protected AliasManagerInterface $aliasManager;
+
+  /**
    * The current route match.
    *
    * @var \Drupal\Core\Routing\RouteMatchInterface
    */
   protected RouteMatchInterface $routeMatch;
+
+  /**
+   * The current path.
+   *
+   * @var \Drupal\Core\Path\CurrentPathStack
+   */
+  protected CurrentPathStack $currentPath;
 
   /**
    * The node storage.
@@ -58,14 +73,20 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    *   The plugin implementation definition.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
    *   The current route match.
+   * @param \Drupal\path_alias\AliasManagerInterface $alias_manager
+   *   An alias manager to find the alias for the current system path.
+   * @param \Drupal\Core\Path\CurrentPathStack $current_path
+   *   The current path.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, AliasManagerInterface $alias_manager, CurrentPathStack $current_path, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->routeMatch = $route_match;
+    $this->aliasManager = $alias_manager;
+    $this->currentPath = $current_path;
     $this->entityTypeManager = $entity_type_manager;
     $this->languageManager = $language_manager;
   }
@@ -76,6 +97,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static($configuration, $plugin_id, $plugin_definition,
       $container->get('current_route_match'),
+      $container->get('path_alias.manager'),
+      $container->get('path.current'),
       $container->get('entity_type.manager'),
       $container->get('language_manager'));
   }
@@ -91,9 +114,17 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     }
 
     $navigation = [];
-    $parent_title = $this->t('Home');
-    $parent_url = '/';
+    $parentTitle = $this->t('Home');
+    $parentUrl = '/';
     $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
+
+    // Get the sidebar navigation title from the current path structure.
+    if ($titleParent = $this->getTitleParent()) {
+      if ($titleParent->hasTranslation($currentLanguageId)) {
+        $parentTitle = $titleParent->getTranslation($currentLanguageId)->getTitle();
+        $parentUrl = $titleParent->getTranslation($currentLanguageId)->toUrl()->toString();
+      }
+    }
 
     // Get node IDs for districts that have the currently viewed district as a
     // sub-district.
@@ -106,84 +137,53 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
 
     // Create the navigation structure.
     foreach ($parentDistrictIds as $parentId) {
-      // The districts have path alias so that the parent content
-      // title is aliased to the path but they don't have any
-      // other real connection to the previous content.
-      // This is why we need to get the aliased path and convert
-      // it to a /node/X/ form and also get the node title.
-      $current_path = \Drupal::service('path.current')->getPath();
-      $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-      // Break down the current alias and rebuild it back without the
-      // current node.
-      $path_args = explode('/', $current_alias);
-      // Make sure the path has the correct components.
-      if (isset($path_args[2])) {
-        $parent_alias = '/' . $path_args[1] . '/' . $path_args[2];
-        $parent_path = \Drupal::service('path_alias.manager')->getPathByAlias($parent_alias);
-        // Load the node based on the parent path and get the title.
-        if (preg_match('/node\/(\d+)/', $parent_path, $matches)) {
-          $parent_node = Node::load($matches[1]);
-          $parent_title = $parent_node->getTitle();
-        }
-        $url = \Drupal::service('path.validator')->getUrlIfValid($parent_path);
-        if ($parent_alias !== $parent_path) {
-          $parent_url = $url->toString();
-        }
-      }
-
-      $menu_item = 'menu_link_content:' . $parentId;
+      $menuItem = 'menu_link_content:' . $parentId;
       $parent = $this->entityTypeManager->getStorage('node')->load($parentId);
+      $subdistricts = $parent->get('field_subdistricts')->referencedEntities();
+      $currentUri = \Drupal::request()->getRequestUri();
 
-      $navigation[$menu_item]['is_expanded'] = FALSE;
-      if ($parent->get('field_subdistricts')->referencedEntities()) {
-        $navigation[$menu_item]['is_expanded'] = TRUE;
-      }
-
-      $navigation[$menu_item]['is_collapsed'] = FALSE;
-
-      $navigation[$menu_item]['in_active_trail'] = FALSE;
-      if ($node->id() == $parentId) {
-        $navigation[$menu_item]['in_active_trail'] = TRUE;
-      }
-
-      $navigation[$menu_item]['attributes'] = new Attribute([
-        'class' => [
-          'menu__item',
-          'menu__item--children',
-          'menu__item--item-below',
-        ],
-      ]);
-      $navigation[$menu_item]['title'] = $parent->getTranslation($currentLanguageId)->label();
-      $navigation[$menu_item]['url'] = $parent->getTranslation($currentLanguageId)->toUrl();
-
-      // Check if url is current page where we are now.
-      $current_uri = \Drupal::request()->getRequestUri();
-      if ($navigation[$menu_item]['url']->toString() == $current_uri) {
-        $navigation[$menu_item]['is_currentPage'] = TRUE;
-      }
+      // Set menu item.
+      $navigation[$menuItem] = [
+        'title' => $parent->getTranslation($currentLanguageId)->label(),
+        'url' => $parent->getTranslation($currentLanguageId)->toUrl(),
+        'is_expanded' => (!empty($subdistricts)),
+        'is_collapsed' => FALSE,
+        'in_active_trail' => ($node->id() === $parentId),
+        'attributes' => new Attribute([
+          'class' => [
+            'menu__item',
+            'menu__item--children',
+            'menu__item--item-below',
+          ],
+        ]),
+        'is_currentPage' => ($parent->getTranslation($currentLanguageId)->toUrl()->toString() === $currentUri),
+      ];
 
       // Add parent's sub-districts.
-      $navigation[$menu_item]['below'] = [];
-      $subdistricts = $parent->get('field_subdistricts')->referencedEntities();
+      $navigation[$menuItem]['below'] = [];
       foreach ($subdistricts as $subdistrict) {
         /** @var \Drupal\node\NodeInterface $subdistrict */
         if (!$subdistrict->hasTranslation($currentLanguageId)) {
           continue;
         }
 
-        $navigation[$menu_item]['below'][$subdistrict->id()]['is_expanded'] = FALSE;
-        $navigation[$menu_item]['below'][$subdistrict->id()]['is_collapsed'] = FALSE;
-        if ($node->id() == $subdistrict->id()) {
-          $navigation[$menu_item]['in_active_trail'] = TRUE;
-          $navigation[$menu_item]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
-        }
-        $navigation[$menu_item]['below'][$subdistrict->id()]['attributes'] = new Attribute([
-          'class' => 'menu__item',
-        ]);
-        $navigation[$menu_item]['below'][$subdistrict->id()]['title'] = $subdistrict->getTranslation($currentLanguageId)->label();
-        $navigation[$menu_item]['below'][$subdistrict->id()]['url'] = $subdistrict->getTranslation($currentLanguageId)->toUrl();
-        if ($navigation[$menu_item]['below'][$subdistrict->id()]['url']->toString() == $current_uri) {
-          $navigation[$menu_item]['below'][$subdistrict->id()]['is_currentPage'] = TRUE;
+        // Set sub-district menu item.
+        $navigation[$menuItem]['below'][$subdistrict->id()] = [
+          'title' => $subdistrict->getTranslation($currentLanguageId)->label(),
+          'url' => $subdistrict->getTranslation($currentLanguageId)->toUrl(),
+          'is_expanded' => FALSE,
+          'is_collapsed' => FALSE,
+          'in_active_trail' => FALSE,
+          'attributes' => new Attribute([
+            'class' => 'menu__item',
+          ]),
+          'is_currentPage' => ($subdistrict->getTranslation($currentLanguageId)->toUrl()->toString() === $currentUri),
+        ];
+
+        // Set active trail.
+        if ($node->id() === $subdistrict->id()) {
+          $navigation[$menuItem]['in_active_trail'] = TRUE;
+          $navigation[$menuItem]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
         }
       }
     }
@@ -191,8 +191,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     return [
       '#theme' => 'subdistricts_navigation',
       '#navigation' => $navigation,
-      'parent_title' => $parent_title,
-      'parent_url' => $parent_url,
+      'parent_title' => $parentTitle,
+      'parent_url' => $parentUrl,
     ];
   }
 
@@ -213,6 +213,37 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    */
   public function getCacheTags(): array {
     return Cache::mergeTags(parent::getCacheTags(), ['node_list:district']);
+  }
+
+  /**
+   * Get parent node from current path.
+   *
+   * The parent node is determined from the current path alias so that it's
+   * the previous one.
+   *
+   * @return \Drupal\node\NodeInterface|null
+   *   Parent node.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  private function getTitleParent(): ?NodeInterface {
+    if (empty($titleParentPathAlias = dirname(
+      $this->aliasManager->getAliasByPath($this->currentPath->getPath()))
+    )) {
+      return NULL;
+    }
+
+    if ($titleParentPath = $this->aliasManager->getPathByAlias($titleParentPathAlias)) {
+      if (preg_match('/node\/(\d+)/', $titleParentPath, $matches)) {
+        if ($titleParent = $this->entityTypeManager->getStorage('node')->load($matches[1])) {
+          /** @var \Drupal\node\NodeInterface $titleParent */
+          return $titleParent;
+        }
+      }
+    }
+
+    return NULL;
   }
 
 }
