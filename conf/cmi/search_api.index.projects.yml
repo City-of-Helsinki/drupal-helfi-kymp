@@ -3,7 +3,6 @@ langcode: fi
 status: true
 dependencies:
   config:
-    - field.storage.node.field_project_district
     - field.storage.node.field_project_external_website
     - field.storage.media.field_media_image
     - field.storage.node.field_project_image
@@ -14,8 +13,8 @@ dependencies:
     - search_api.server.elastic_kymp
   module:
     - node
-    - taxonomy
     - media
+    - taxonomy
     - search_api
     - helfi_kymp_district_project_search
 id: projects
@@ -31,16 +30,6 @@ field_settings:
     dependencies:
       module:
         - node
-  field_project_district_name:
-    label: 'Project district name'
-    datasource_id: 'entity:node'
-    property_path: 'field_project_district:entity:name'
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_project_district
-      module:
-        - taxonomy
   field_project_external_website:
     label: 'Project external website'
     datasource_id: 'entity:node'
@@ -141,6 +130,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  district_image_absolute_url: {  }
   entity_status: {  }
   entity_type: {  }
   ignorecase:
@@ -150,7 +140,6 @@ processor_settings:
     all_fields: false
     fields:
       - content_type
-      - field_project_district_name
       - field_project_phase_name
       - field_project_search_metatags
       - field_project_theme_name

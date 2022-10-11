@@ -1,11 +1,11 @@
-uuid: fd43a0fe-ec77-44d2-bd2b-315830725736
+uuid: 7dc62057-440b-4a58-bb84-694847446a43
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_project_district
+    - node.type.district
     - node.type.project
-    - taxonomy.vocabulary.project_district
 id: node.project.field_project_district
 field_name: field_project_district
 entity_type: node
@@ -17,13 +17,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
-      project_district: project_district
+      district: district
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
-    auto_create_bundle: project_district
+    auto_create_bundle: ''
 field_type: entity_reference
