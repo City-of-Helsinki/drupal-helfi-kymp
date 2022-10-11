@@ -166,6 +166,11 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       $navigation[$menu_item]['below'] = [];
       $subdistricts = $parent->get('field_subdistricts')->referencedEntities();
       foreach ($subdistricts as $subdistrict) {
+        /** @var \Drupal\node\NodeInterface $subdistrict */
+        if (!$subdistrict->hasTranslation($currentLanguageId)) {
+          continue;
+        }
+
         $navigation[$menu_item]['below'][$subdistrict->id()]['is_expanded'] = FALSE;
         $navigation[$menu_item]['below'][$subdistrict->id()]['is_collapsed'] = FALSE;
         if ($node->id() == $subdistrict->id()) {
