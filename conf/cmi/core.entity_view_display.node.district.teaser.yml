@@ -34,6 +34,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_subdistricts:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -47,7 +55,6 @@ hidden:
   field_lower_content: true
   field_metatags: true
   field_sidebar_content: true
-  field_subdistricts: true
   langcode: true
   search_api_excerpt: true
   toc_enabled: true
