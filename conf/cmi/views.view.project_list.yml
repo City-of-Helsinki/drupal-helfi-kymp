@@ -162,7 +162,7 @@ display:
           specify_validation: true
           validate:
             type: 'entity:node'
-            fail: 'not found'
+            fail: empty
           validate_options:
             bundles:
               district: district
