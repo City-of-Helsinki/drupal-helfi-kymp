@@ -3,35 +3,34 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.project_listing.field_district_taxonomy
     - field.field.paragraph.project_listing.field_project_list_description
+    - field.field.paragraph.project_listing.field_project_list_district
     - field.field.paragraph.project_listing.field_project_list_title
     - field.field.paragraph.project_listing.field_search_link_parameters
     - paragraphs.paragraphs_type.project_listing
   module:
-    - select2
     - text
 id: paragraph.project_listing.default
 targetEntityType: paragraph
 bundle: project_listing
 mode: default
 content:
-  field_district_taxonomy:
-    type: select2_entity_reference
-    weight: 2
-    region: content
-    settings:
-      width: 100%
-      autocomplete: false
-      match_operator: CONTAINS
-      match_limit: 10
-    third_party_settings: {  }
   field_project_list_description:
     type: text_textarea
     weight: 1
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_list_district:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_project_list_title:

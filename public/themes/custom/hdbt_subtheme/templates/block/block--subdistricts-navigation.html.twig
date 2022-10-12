@@ -1,0 +1,11 @@
+{{ attach_library('hdbt/sidebar-menu-toggle') }}
+
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }} class="sidebar-navigation">
+  <h2{{ title_attributes.setAttribute('id', heading_id) }} class="sidebar-navigation__title">
+    {{ link(content['parent_title'], 'base:' ~ content['parent_url']) }}
+  </h2>
+  {% block content %}
+    {% set items = content['#navigation'] %}
+    {% embed "@hdbt/navigation/menu.html.twig" with {auto_open: true, allow_collabsible: true} %}{% endembed %}
+  {% endblock %}
+</nav>

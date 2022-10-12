@@ -1,15 +1,16 @@
-uuid: 09392846-3ef3-42c0-b983-bf570303d18c
+uuid: 6a1e3af6-cc15-4653-a964-2952a9aac19e
 langcode: en
 status: true
 dependencies:
   module:
-    - taxonomy
-id: taxonomy_term.field_parent_district
-field_name: field_parent_district
-entity_type: taxonomy_term
+    - node
+    - paragraphs
+id: paragraph.field_project_list_district
+field_name: field_project_list_district
+entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: node
 module: core
 locked: false
 cardinality: 1

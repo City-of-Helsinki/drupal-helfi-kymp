@@ -14,7 +14,7 @@ entity_type: node
 bundle: district
 label: Hero
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -51,6 +51,12 @@ settings:
         enabled: false
       content_liftup:
         weight: 38
+        enabled: false
+      district_and_project_search:
+        weight: 46
+        enabled: false
+      district_listing:
+        weight: 47
         enabled: false
       event_list:
         weight: 39
@@ -94,6 +100,12 @@ settings:
       phasing_item:
         weight: 52
         enabled: false
+      popular_service_item:
+        weight: 62
+        enabled: false
+      popular_services:
+        weight: 63
+        enabled: false
       project_listing:
         weight: 54
         enabled: false
@@ -108,6 +120,12 @@ settings:
         enabled: false
       social_media_link:
         weight: 56
+        enabled: false
+      target_group_link_item:
+        weight: 69
+        enabled: false
+      target_group_links:
+        weight: 70
         enabled: false
       text:
         weight: 57

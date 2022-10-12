@@ -1,25 +1,23 @@
-uuid: 1582b688-5cda-4724-ae39-e2bb7e449664
+uuid: b9d76589-6cff-4db3-bf49-786faf400848
 langcode: en
 status: true
 dependencies:
   module:
-    - hdbt_content
+    - helfi_kymp_content
     - node
   theme:
     - hdbt_subtheme
-_core:
-  default_config_hash: nH8M6u66xNnGzjplyiDZAKKeyzDR6NFyTMXNwDYzldk
-id: hdbt_subtheme_heroblock
+id: subdistrictsnavigation
 theme: hdbt_subtheme
-region: before_content
-weight: -11
+region: sidebar_first
+weight: -12
 provider: null
-plugin: hero_block
+plugin: subdistricts_navigation
 settings:
-  id: hero_block
-  label: 'Hero block'
+  id: subdistricts_navigation
+  label: 'Subdistricts navigation'
   label_display: '0'
-  provider: hdbt_content
+  provider: helfi_kymp_content
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
@@ -28,5 +26,3 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       district: district
-      landing_page: landing_page
-      page: page

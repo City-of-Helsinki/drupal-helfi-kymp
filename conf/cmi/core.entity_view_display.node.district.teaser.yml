@@ -7,11 +7,12 @@ dependencies:
     - field.field.node.district.field_content
     - field.field.node.district.field_district_image
     - field.field.node.district.field_district_search_metatags
-    - field.field.node.district.field_district_sub_districts
+    - field.field.node.district.field_has_hero
     - field.field.node.district.field_hero
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
     - field.field.node.district.field_sidebar_content
+    - field.field.node.district.field_subdistricts
     - image.style.3_2_s
     - node.type.district
   module:
@@ -33,7 +34,7 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_district_sub_districts:
+  field_subdistricts:
     type: entity_reference_label
     label: hidden
     settings:
@@ -49,6 +50,7 @@ content:
 hidden:
   field_content: true
   field_district_search_metatags: true
+  field_has_hero: true
   field_hero: true
   field_lower_content: true
   field_metatags: true
