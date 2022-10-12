@@ -9,7 +9,7 @@
     "require": {
         "ext-dom": "*",
         "ext-libxml": "*",
-        "city-of-helsinki/helfi-kymp-district-project-search": "0.4.0",
+        "city-of-helsinki/helfi-kymp-district-project-search": "0.3.0",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
         "drupal/core-composer-scaffold": "~9.4.5",
@@ -28,7 +28,7 @@
         "drupal/helfi_tpr": "^2.0",
         "drupal/helfi_tunnistamo": "^2.0",
         "drupal/menu_link_attributes": "^1.2",
-        "drupal/purge": "~3.2.0",
+        "drupal/purge": "~3.4.0",
         "drupal/raven": "^3.2",
         "drupal/redis": "^1.5",
         "drupal/stage_file_proxy": "^1.2",
@@ -110,15 +110,15 @@
             "type": "package",
             "package": {
                 "name": "city-of-helsinki/helfi-kymp-district-project-search",
-                "version": "0.4.0",
+                "version": "0.3.0",
                 "dist": {
-                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.4.0/helfi-kymp-district-project-search.zip",
+                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.3.0/helfi-kymp-district-project-search.zip",
                     "type": "zip"
                 },
                 "source": {
                     "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search",
                     "type": "git",
-                    "reference": "0.4.0"
+                    "reference": "0.3.0"
                 }
             }
         }
