@@ -5,7 +5,6 @@
  * Functions to support theming in the HDBT Subtheme.
  */
 
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Url;
 
 /**
@@ -14,18 +13,6 @@ use Drupal\Core\Url;
 function hdbt_subtheme_preprocess_block(&$variables) {
   if (isset($variables['elements']['#id'])) {
     $variables['content']['#attributes']['block_id'] = $variables['elements']['#id'];
-  }
-
-  // Hides page title block from node type district.
-  if ($variables['plugin_id'] == 'page_title_block') {
-    $page_entity = hdbt_content_get_page_entity();
-    if (
-      $page_entity instanceof ContentEntityInterface &&
-      $page_entity->hasField('field_hero') &&
-      $page_entity->getType() == 'district'
-    ) {
-      $variables['hide_block'] = TRUE;
-    }
   }
 }
 
@@ -77,7 +64,7 @@ function hdbt_subtheme_theme_suggestions_menu_alter(&$suggestions, $variables) {
  */
 function hdbt_subtheme_preprocess_paragraph__project_listing(&$variables) {
   $paragraph = $variables['paragraph'];
-  $variables['selected_district'] = $paragraph->get('field_district_taxonomy')->target_id;
+  $variables['selected_district'] = $paragraph->get('field_project_list_district')->target_id;
   $variables['search_parameters'] = $paragraph->get('field_search_link_parameters')->value;
 }
 

@@ -1,0 +1,33 @@
+uuid: 2cf18f75-23bd-4ca2-878c-303b084acc9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: district_content_pattern_sv
+label: 'District content pattern (SV)'
+type: 'canonical_entities:node'
+pattern: 'stadsplanering-och-byggande/vi-bygger-nytt-i-helsingfors/[node:title]'
+selection_criteria:
+  627ff518-2489-4722-8c87-eb06e12c8500:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 627ff518-2489-4722-8c87-eb06e12c8500
+    context_mapping:
+      node: node
+    bundles:
+      district: district
+  59d34b66-8881-45b7-bbe0-6773f98f33a9:
+    id: language
+    negate: false
+    uuid: 59d34b66-8881-45b7-bbe0-6773f98f33a9
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

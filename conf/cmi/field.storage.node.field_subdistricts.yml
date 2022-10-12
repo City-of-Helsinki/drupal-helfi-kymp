@@ -1,16 +1,15 @@
-uuid: 076b43eb-f26e-4c6f-bc31-0490fdeeac3d
+uuid: aeb8a8ba-eb94-43c0-b03e-3bbfe22f5191
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_district_sub_districts
-field_name: field_district_sub_districts
+id: node.field_subdistricts
+field_name: field_subdistricts
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: node
 module: core
 locked: false
 cardinality: -1
