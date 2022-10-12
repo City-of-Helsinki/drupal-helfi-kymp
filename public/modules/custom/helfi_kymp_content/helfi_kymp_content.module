@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -91,6 +92,66 @@ function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_s
       }
 
       \Drupal::messenger()->addMessage(t('Please fill either plan or execution schedule.', [], ['context' => 'helfi_kymp_content_project']), 'error');
+    }
+  }
+}
+
+/**
+ * Helper function to create District nodes.
+ *
+ * Helper function to create District nodes with translations
+ * from Project district taxonomy terms.
+ */
+function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms() {
+  $original_lang = 'fi';
+  $translation_languages = ['sv', 'en'];
+  $vocabulary = 'project_district';
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $term_storage = $entity_type_manager->getStorage('taxonomy_term');
+
+  $query = $term_storage->getQuery();
+  $query->condition('vid', $vocabulary);
+  $query->condition('langcode', $original_lang);
+  $tids = $query->execute();
+  $terms = $term_storage->loadMultiple($tids);
+
+  foreach ($terms as $term) {
+    $existing_project_nodes = $entity_type_manager
+      ->getStorage('node')
+      ->loadByProperties([
+        'title' => $term->getName(),
+        'langcode' => $original_lang,
+        'type' => 'district',
+      ]);
+
+    // Add new project node only if it doesn't exist.
+    if (empty($existing_project_nodes)) {
+      $node = Node::create([
+        'type' => 'district',
+        'title' => $term->getName(),
+        'uid' => 1,
+        'status' => 0,
+      ]);
+      $node->save();
+    }
+    else {
+      $node = reset($existing_project_nodes);
+    }
+
+    foreach ($translation_languages as $lang) {
+      // Add translations if those don't exist.
+      if (!$term->hasTranslation($lang)) {
+        continue;
+      }
+
+      if (!$node->hasTranslation($lang)) {
+        $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($term, $lang);
+        $node_translation = $node->addTranslation($lang);
+        $node_translation->set('title', $translated_term->getName());
+        $node_translation->set('uid', 1);
+        $node_translation->set('status', 0);
+        $node_translation->save();
+      }
     }
   }
 }

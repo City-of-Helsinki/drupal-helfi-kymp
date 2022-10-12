@@ -1,8 +1,0 @@
-services:
-  helfi_kymp_content.drush_commands:
-    class: \Drupal\helfi_kymp_content\Commands\KympContentDrushCommands
-    arguments:
-      - '@entity_type.manager'
-      - '@entity.repository'
-    tags:
-      - { name: drush.command }
