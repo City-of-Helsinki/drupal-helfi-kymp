@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /* District and project shared teaser styles */
 .district-teaser,
 .project-teaser {
@@ -30,9 +32,9 @@
 
 .district-teaser__data,
 .project-teaser__data {
-  padding: $spacing-double $spacing-and-half $spacing-double $spacing-and-half;
   display: flex;
   flex-direction: column;
+  padding: $spacing-double $spacing-and-half $spacing-double $spacing-and-half;
 
   @include breakpoint($breakpoint-m) {
     padding: $spacing-and-half $spacing-double $spacing-and-half $spacing-double;
@@ -66,7 +68,7 @@
   }
 }
 
-$-image-placeholder-ratio: 3/2;
+$-image-placeholder-ratio: math.div(3, 2);
 $-image-size: 380px;
 $-image-min-size: 220px;
 
