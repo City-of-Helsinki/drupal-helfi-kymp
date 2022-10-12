@@ -67,6 +67,7 @@ class KympContentDrushCommands extends DrushCommands {
         'type' => 'district',
         'title' => $term->getName(),
         'uid' => 1,
+        'status' => 0,
       ]);
       $node->save();
       $this->output()->writeln('District node with name: ' . $term->getName() . ' created');
@@ -79,6 +80,7 @@ class KympContentDrushCommands extends DrushCommands {
             $node_translation = $node->addTranslation($lang);
             $node_translation->set('title', $translated_term->getName());
             $node_translation->set('uid', 1);
+            $node_translation->set('status', 0);
             $node_translation->save();
             $this->output()->writeln('District node translation (' . $lang . ') with name: ' . $translated_term->getName() . ' created');
           }
