@@ -191,8 +191,8 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     return [
       '#theme' => 'subdistricts_navigation',
       '#navigation' => $navigation,
-      'parent_title' => $parentTitle,
-      'parent_url' => $parentUrl,
+      '#parent_title' => $parentTitle,
+      '#parent_url' => $parentUrl,
     ];
   }
 
@@ -201,9 +201,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    */
   public function getCacheContexts(): array {
     return Cache::mergeContexts(parent::getCacheContexts(), [
-      'user.permissions',
       'url.path',
-      'url.query_args',
       'languages:language_content',
     ]);
   }
