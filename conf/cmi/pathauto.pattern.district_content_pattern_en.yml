@@ -1,0 +1,33 @@
+uuid: 1245c754-4bf2-4a96-892e-f4c2fba2ea2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: district_content_pattern_en
+label: 'District content pattern (EN)'
+type: 'canonical_entities:node'
+pattern: 'urban-planning-and-construction/urban-development/[node:title]'
+selection_criteria:
+  1ef2b906-6d5a-4a64-8508-7d0b1553841f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 1ef2b906-6d5a-4a64-8508-7d0b1553841f
+    context_mapping:
+      node: node
+    bundles:
+      district: district
+  19371ef3-c9d1-4618-b9cb-68a069b26d3d:
+    id: language
+    negate: false
+    uuid: 19371ef3-c9d1-4618-b9cb-68a069b26d3d
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

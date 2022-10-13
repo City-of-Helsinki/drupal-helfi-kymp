@@ -94,11 +94,11 @@ content:
     third_party_settings: {  }
   field_project_district:
     type: select2_entity_reference
-    weight: 13
+    weight: 9
     region: content
     settings:
       width: 100%
-      autocomplete: true
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
     third_party_settings: {  }
@@ -125,7 +125,7 @@ content:
     third_party_settings: {  }
   field_project_phase:
     type: select2_entity_reference
-    weight: 11
+    weight: 12
     region: content
     settings:
       width: 100%
@@ -149,7 +149,7 @@ content:
     third_party_settings: {  }
   field_project_theme:
     type: select2_entity_reference
-    weight: 9
+    weight: 10
     region: content
     settings:
       width: 100%
@@ -159,7 +159,7 @@ content:
     third_party_settings: {  }
   field_project_type:
     type: select2_entity_reference
-    weight: 10
+    weight: 11
     region: content
     settings:
       width: 100%
@@ -245,7 +245,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

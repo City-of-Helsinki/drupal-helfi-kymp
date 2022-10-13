@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains installation procedure for helfi_kymp_content module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Creates District nodes from Project district taxonomy terms.
+ */
+function helfi_kymp_content_update_9001(): void {
+  _helfi_kymp_content_create_district_nodes_from_taxonomy_terms();
+}

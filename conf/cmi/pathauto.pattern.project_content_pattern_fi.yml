@@ -1,0 +1,33 @@
+uuid: 16c49c91-585b-41ef-b1ff-ea5baa9b0112
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: project_content_pattern_fi
+label: 'Project content pattern (FI)'
+type: 'canonical_entities:node'
+pattern: 'kaupunkisuunnittelu-ja-rakentaminen/hae-suunnitelmia-ja-hankkeita/[node:title]'
+selection_criteria:
+  9a633b22-53b4-4106-9806-d087740687eb:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9a633b22-53b4-4106-9806-d087740687eb
+    context_mapping:
+      node: node
+    bundles:
+      project: project
+  2cce6ebc-19ed-449d-b0e3-3fb513413f6c:
+    id: language
+    negate: false
+    uuid: 2cce6ebc-19ed-449d-b0e3-3fb513413f6c
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      fi: fi
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
