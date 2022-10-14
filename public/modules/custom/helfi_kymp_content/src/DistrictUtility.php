@@ -24,14 +24,18 @@ class DistrictUtility {
    *   The array containing the parent node IDs.
    */
   public static function getSubdistrictParentIds(NodeInterface $node): array {
-    return \Drupal::entityQuery('node')
+    $query = \Drupal::entityQuery('node')
       ->accessCheck(TRUE)
       ->condition('type', 'district')
-      ->condition('status', NodeInterface::PUBLISHED)
       ->condition('langcode', $node->language()->getId())
       ->exists('field_subdistricts')
-      ->condition('field_subdistricts.entity:node.nid', $node->id())
-      ->execute();
+      ->condition('field_subdistricts.entity:node.nid', $node->id());
+
+    if (!\Drupal::currentUser()->isAuthenticated()) {
+      $query->condition('status', NodeInterface::PUBLISHED);
+    }
+
+    return $query->execute();
   }
 
 }

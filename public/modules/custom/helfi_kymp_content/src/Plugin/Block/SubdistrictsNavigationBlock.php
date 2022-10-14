@@ -167,6 +167,11 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
           continue;
         }
 
+        // Do not show unpublished subdistrict for anonymous users.
+        if (!\Drupal::currentUser()->isAuthenticated() && !$subdistrict->getTranslation($currentLanguageId)->isPublished()) {
+          continue;
+        }
+
         // Set sub-district menu item.
         $navigation[$menuItem]['below'][$subdistrict->id()] = [
           'title' => $subdistrict->getTranslation($currentLanguageId)->label(),
@@ -186,6 +191,11 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
           $navigation[$menuItem]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
         }
       }
+
+      // Clear parent menu item if there is no sub-items.
+      if (empty($navigation[$menuItem]['below'])) {
+        unset($navigation[$menuItem]);
+      }
     }
 
     return [
@@ -203,6 +213,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
     return Cache::mergeContexts(parent::getCacheContexts(), [
       'url.path',
       'languages:language_content',
+      'user.permissions',
     ]);
   }
 
