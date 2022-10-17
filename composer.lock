@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62d2dac475ac33a26d9cc43503978d82",
+    "content-hash": "1e5fdafe6862aea617d3d458f2698a7a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4395,16 +4395,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.13.5",
+            "version": "2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "567af1eab1c3ebf0012a7ad2c308a08dfe7a87ba"
+                "reference": "175ba33e34de18d0dee5fa715a887cbbea6d912e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/567af1eab1c3ebf0012a7ad2c308a08dfe7a87ba",
-                "reference": "567af1eab1c3ebf0012a7ad2c308a08dfe7a87ba",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/175ba33e34de18d0dee5fa715a887cbbea6d912e",
+                "reference": "175ba33e34de18d0dee5fa715a887cbbea6d912e",
                 "shasum": ""
             },
             "require": {
@@ -4514,10 +4514,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.13.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.13.4",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-10-14T11:00:01+00:00"
+            "time": "2022-10-13T08:54:33+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5284,17 +5284,17 @@
         },
         {
             "name": "drupal/openid_connect",
-            "version": "2.0.0-beta2",
+            "version": "2.0.0-alpha12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openid_connect.git",
-                "reference": "2.0.0-beta2"
+                "reference": "2.0.0-alpha12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/openid_connect-2.0.0-beta2.zip",
-                "reference": "2.0.0-beta2",
-                "shasum": "a03b329c0d8c4be45d5eb3ca09e90a72a97d8c95"
+                "url": "https://ftp.drupal.org/files/projects/openid_connect-2.0.0-alpha12.zip",
+                "reference": "2.0.0-alpha12",
+                "shasum": "6680cdd5875c80cb6e9f28bd0bea7d0278230931"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -5305,11 +5305,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta2",
-                    "datestamp": "1665935100",
+                    "version": "2.0.0-alpha12",
+                    "datestamp": "1640197185",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
