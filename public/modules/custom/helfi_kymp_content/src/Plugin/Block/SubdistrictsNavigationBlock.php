@@ -107,16 +107,17 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    * {@inheritdoc}
    */
   public function build(): array {
+    $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
+
     // Get currently viewed district node.
-    $node = $this->routeMatch->getParameter('node');
-    if (!$node instanceof NodeInterface || $node->getType() != 'district') {
+    $translatedNode = $this->routeMatch->getParameter('node')->getTranslation($currentLanguageId);
+    if (!$translatedNode instanceof NodeInterface || $translatedNode->getType() != 'district') {
       return [];
     }
 
     $navigation = [];
     $parentTitle = $this->t('Home');
     $parentUrl = '/';
-    $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
 
     // Get the sidebar navigation title from the current path structure.
     if ($titleParent = $this->getTitleParent()) {
@@ -128,27 +129,32 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
 
     // Get node IDs for districts that have the currently viewed district as a
     // sub-district.
-    $parentDistrictIds = DistrictUtility::getSubdistrictParentIds($node);
+    $parentDistrictIds = DistrictUtility::getSubdistrictParentIds($translatedNode);
 
     // Check if the current node itself is a parent for sub-districts.
-    if (!$node->get('field_subdistricts')->isEmpty()) {
-      $parentDistrictIds[] = $node->id();
+    if (!$translatedNode->get('field_subdistricts')->isEmpty()) {
+      $parentDistrictIds[] = $translatedNode->id();
     }
 
     // Create the navigation structure.
     foreach ($parentDistrictIds as $parentId) {
       $menuItem = 'menu_link_content:' . $parentId;
-      $parent = $this->entityTypeManager->getStorage('node')->load($parentId);
-      $subdistricts = $parent->get('field_subdistricts')->referencedEntities();
+
+      if (!$this->entityTypeManager->getStorage('node')->load($parentId)->hasTranslation($currentLanguageId)) {
+        continue;
+      }
+      $translatedParent = $this->entityTypeManager->getStorage('node')->load($parentId)->getTranslation($currentLanguageId);
+
+      $subdistricts = $translatedParent->get('field_subdistricts')->referencedEntities();
       $currentUri = \Drupal::request()->getRequestUri();
 
       // Set menu item.
       $navigation[$menuItem] = [
-        'title' => $parent->getTranslation($currentLanguageId)->label(),
-        'url' => $parent->getTranslation($currentLanguageId)->toUrl(),
+        'title' => $translatedParent->label(),
+        'url' => $translatedParent->toUrl(),
         'is_expanded' => (!empty($subdistricts)),
         'is_collapsed' => FALSE,
-        'in_active_trail' => ($node->id() === $parentId),
+        'in_active_trail' => ($translatedNode->id() === $parentId),
         'attributes' => new Attribute([
           'class' => [
             'menu__item',
@@ -156,7 +162,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
             'menu__item--item-below',
           ],
         ]),
-        'is_currentPage' => ($parent->getTranslation($currentLanguageId)->toUrl()->toString() === $currentUri),
+        'is_currentPage' => ($translatedParent->toUrl()->toString() === $currentUri),
       ];
 
       // Add parent's sub-districts.
@@ -186,7 +192,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
         ];
 
         // Set active trail.
-        if ($node->id() === $subdistrict->id()) {
+        if ($translatedNode->id() === $subdistrict->id()) {
           $navigation[$menuItem]['in_active_trail'] = TRUE;
           $navigation[$menuItem]['below'][$subdistrict->id()]['in_active_trail'] = TRUE;
         }
