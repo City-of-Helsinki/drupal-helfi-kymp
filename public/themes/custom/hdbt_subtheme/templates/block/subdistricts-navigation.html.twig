@@ -5,12 +5,12 @@
 
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }} class="sidebar-navigation sidebar-navigation--section-navigation">
   <div class="section-navigation__header">
-    <h2{{ title_attributes.setAttribute('id', heading_id) }} class="sidebar-navigation__title section-navigation__title">
+    <div{{ title_attributes.setAttribute('id', heading_id) }} class="sidebar-navigation__title section-navigation__title">
       {% set link_attributes = {
         'id': section_menu_title_link,
       } %}
       {{ link(parent_title, 'base:' ~ parent_url, link_attributes) }}
-    </h2>
+    </div>
     <span class="section-navigation__toggle-wrapper">
       <button
         type="button"
