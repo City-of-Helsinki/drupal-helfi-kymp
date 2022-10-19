@@ -9,8 +9,7 @@
       {% set link_attributes = {
         'id': section_menu_title_link,
       } %}
-
-      {{ link(content['parent_title'], 'base:' ~ content['parent_url'], link_attributes) }}
+      {{ link(parent_title, 'base:' ~ parent_url, link_attributes) }}
     </h2>
     <span class="section-navigation__toggle-wrapper">
       <button
@@ -26,7 +25,7 @@
   </div>
   <div class="section-navigation__menu-wrapper" id=" {{ section_menu_aria_controls }}">
     {% block content %}
-      {% set items = content['#navigation'] %}
+      {% set items = navigation %}
       {% embed "@hdbt/navigation/menu.html.twig" with {auto_open: true, allow_collabsible: true} %}{% endembed %}
     {% endblock %}
   </div>
