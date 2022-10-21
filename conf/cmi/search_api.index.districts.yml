@@ -6,11 +6,11 @@ dependencies:
     - field.storage.media.field_media_image
     - field.storage.node.field_district_image
     - field.storage.node.field_district_search_metatags
+    - field.storage.node.field_subdistricts
     - search_api.server.elastic_kymp
   module:
     - node
     - media
-    - file
     - search_api
     - helfi_kymp_district_project_search
 id: districts
@@ -46,10 +46,20 @@ field_settings:
     label: 'District search metatags'
     datasource_id: 'entity:node'
     property_path: field_district_search_metatags
-    type: text
+    type: string
     dependencies:
       config:
         - field.storage.node.field_district_search_metatags
+  field_district_subdistricts_title:
+    label: 'District subdistricts title'
+    datasource_id: 'entity:node'
+    property_path: 'field_subdistricts:entity:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_subdistricts
+      module:
+        - node
   nid:
     label: Nid
     datasource_id: 'entity:node'
@@ -62,7 +72,7 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
+    type: string
     boost: !!float 2
     dependencies:
       module:
@@ -98,13 +108,9 @@ processor_settings:
     all_fields: false
     fields:
       - content_type
-      - field_district_sub_districts_name
+      - field_district_subdistricts_title
       - title
   language_with_fallback: {  }
-  number_field_boost:
-    weights:
-      preprocess_index: 0
-    boosts: {  }
   project_execution_schedule: {  }
   project_image_absolute_url: {  }
   project_plan_schedule: {  }
@@ -114,8 +120,7 @@ processor_settings:
       preprocess_index: -6
       preprocess_query: -6
     all_fields: false
-    fields:
-      - field_district_search_metatags
+    fields: {  }
     spaces: ''
     ignored: '.,_'
     overlap_cjk: 1
