@@ -20,7 +20,6 @@ services:
       # Optionally, you can add this to your default environments variables to enable or disable
       # xdebug by default (like /etc/environments, ~/.bashrc, or ~/.zshrc).
       XDEBUG_ENABLE: "${XDEBUG_ENABLE:-false}"
-      ELASTIC_PROXY_URL: "${ELASTIC_PROXY_URL}"
       # DOCKERHOST: host.docker.internal
       # Use drush server to run functional tests so we don't have to care about
       # permission issues.
@@ -46,12 +45,12 @@ services:
       - "traefik.docker.network=stonehenge-network"
   redis:
     container_name: "${COMPOSE_PROJECT_NAME}-redis"
-    image: redis:6-alpine
+    image: redis:7-alpine
     networks:
       - internal
   db:
     container_name: "${COMPOSE_PROJECT_NAME}-db"
-    image: druidfi/mariadb:10.6-drupal
+    image: druidfi/mariadb:10.7-drupal
     volumes:
       - db_data:/var/lib/mysql
     ports:
