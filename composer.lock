@@ -3936,6 +3936,10 @@
                     "name": "Alexander Ross (bleen)",
                     "homepage": "https://www.drupal.org/u/bleen",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Rajeshreeputra",
+                    "homepage": "https://www.drupal.org/user/3418561"
                 }
             ],
             "description": "Focal Point allows content creators to mark the most important part of an image for easier cropping.",
@@ -4165,16 +4169,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "43048a8a41a3e28cd3f8de6c6282a84bbbe09fab"
+                "reference": "403c56e5dc436ba0c404c240546e59de944eae2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/43048a8a41a3e28cd3f8de6c6282a84bbbe09fab",
-                "reference": "43048a8a41a3e28cd3f8de6c6282a84bbbe09fab",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/403c56e5dc436ba0c404c240546e59de944eae2e",
+                "reference": "403c56e5dc436ba0c404c240546e59de944eae2e",
                 "shasum": ""
             },
             "require": {
@@ -4197,10 +4201,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.3.2",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.3.3",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2022-10-14T09:42:58+00:00"
+            "time": "2022-10-24T06:09:19+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4523,16 +4527,16 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "2.2.7",
+            "version": "2.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "be69a56c6f4019110d3c0c68d9475827286fa6ab"
+                "reference": "e75e953316a551a2075ddb7edad8b09128b19723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/be69a56c6f4019110d3c0c68d9475827286fa6ab",
-                "reference": "be69a56c6f4019110d3c0c68d9475827286fa6ab",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/e75e953316a551a2075ddb7edad8b09128b19723",
+                "reference": "e75e953316a551a2075ddb7edad8b09128b19723",
                 "shasum": ""
             },
             "require": {
@@ -4555,10 +4559,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/2.2.8",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2022-09-28T05:57:53+00:00"
+            "time": "2022-10-25T06:04:50+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -6048,17 +6052,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.26.0",
+            "version": "1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.26"
+                "reference": "8.x-1.27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.26.zip",
-                "reference": "8.x-1.26",
-                "shasum": "a37f4ac23f7f0517df85fd450b4a9a50333ae93d"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.27.zip",
+                "reference": "8.x-1.27",
+                "shasum": "b8c9a055fe43435c09231fd93d3e07c5d2863a46"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10.0"
@@ -6079,8 +6083,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.26",
-                    "datestamp": "1664975343",
+                    "version": "8.x-1.27",
+                    "datestamp": "1666211720",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6867,20 +6871,20 @@
         },
         {
             "name": "drupal/views_bulk_edit",
-            "version": "2.7.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_edit.git",
-                "reference": "8.x-2.7"
+                "reference": "8.x-2.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_edit-8.x-2.7.zip",
-                "reference": "8.x-2.7",
-                "shasum": "148457820e7ecd78942326c9c799147ed440f2a6"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_edit-8.x-2.8.zip",
+                "reference": "8.x-2.8",
+                "shasum": "8600f5688d21d5d98e56b5f8c154997f6cb190c1"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.1 || ^10"
             },
             "require-dev": {
                 "drupal/views_bulk_operations": "~3.0"
@@ -6891,8 +6895,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.7",
-                    "datestamp": "1664355764",
+                    "version": "8.x-2.8",
+                    "datestamp": "1666257164",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6922,20 +6926,21 @@
         },
         {
             "name": "drupal/views_bulk_operations",
-            "version": "4.2.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_operations.git",
-                "reference": "4.2.0"
+                "reference": "4.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.2.0.zip",
-                "reference": "4.2.0",
-                "shasum": "b18fd9a43c47ffaf20f5f888871ff801b6f9f99f"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.2.1.zip",
+                "reference": "4.2.1",
+                "shasum": "3bce967e24c0ce19fc7e0de031594729e22c38ef"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10"
+                "drupal/core": "^9.4 || ^10",
+                "php": ">=7.4.0"
             },
             "require-dev": {
                 "drush/drush": "^11"
@@ -6946,8 +6951,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.2.0",
-                    "datestamp": "1664360435",
+                    "version": "4.2.1",
+                    "datestamp": "1666185226",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7385,23 +7390,23 @@
         },
         {
             "name": "ezimuel/guzzlestreams",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezimuel/guzzlestreams.git",
-                "reference": "abe3791d231167f14eb80d413420d1eab91163a8"
+                "reference": "b4b5a025dfee70d6cd34c780e07330eb93d5b997"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezimuel/guzzlestreams/zipball/abe3791d231167f14eb80d413420d1eab91163a8",
-                "reference": "abe3791d231167f14eb80d413420d1eab91163a8",
+                "url": "https://api.github.com/repos/ezimuel/guzzlestreams/zipball/b4b5a025dfee70d6cd34c780e07330eb93d5b997",
+                "reference": "b4b5a025dfee70d6cd34c780e07330eb93d5b997",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~9.0"
             },
             "type": "library",
             "extra": {
@@ -7432,9 +7437,9 @@
                 "stream"
             ],
             "support": {
-                "source": "https://github.com/ezimuel/guzzlestreams/tree/3.0.1"
+                "source": "https://github.com/ezimuel/guzzlestreams/tree/3.1.0"
             },
-            "time": "2020-02-14T23:11:50+00:00"
+            "time": "2022-10-24T12:58:50+00:00"
         },
         {
             "name": "ezimuel/ringphp",
@@ -17681,5 +17686,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
