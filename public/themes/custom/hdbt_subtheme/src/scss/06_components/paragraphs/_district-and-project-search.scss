@@ -43,6 +43,14 @@
       font-weight: 500;
     }
 
+    div[role="button"] {
+      width: auto;
+
+      svg {
+        margin-left: $spacing-half;
+      }
+    }
+
     > div:last-child {
       margin-bottom: $spacing;
     }
@@ -85,7 +93,6 @@
   --color-hover-focus: var(--hdbt-color-black);
   --focus-outline-color: var(--hdbt-color-black);
 }
-
 
 // Use a very specific selector here to override hds styles
 button.district-project-search-form__remove-selection-button:not(:disabled) {

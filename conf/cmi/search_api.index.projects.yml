@@ -106,10 +106,20 @@ field_settings:
     dependencies:
       module:
         - node
+  project_execution_schedule:
+    label: 'Project execution schedule'
+    datasource_id: 'entity:node'
+    property_path: project_execution_schedule
+    type: string
   project_image_absolute_url:
     label: 'Project image absolute URL'
     datasource_id: 'entity:node'
     property_path: project_image_absolute_url
+    type: string
+  project_plan_schedule:
+    label: 'Project plan schedule'
+    datasource_id: 'entity:node'
+    property_path: project_plan_schedule
     type: string
   title:
     label: Title
