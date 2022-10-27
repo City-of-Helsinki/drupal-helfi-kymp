@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_project_district
     - field.storage.node.field_project_external_website
     - field.storage.media.field_media_image
     - field.storage.node.field_project_image
@@ -28,6 +29,16 @@ field_settings:
     property_path: type
     type: string
     dependencies:
+      module:
+        - node
+  field_project_district_title:
+    label: 'Project district title'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_district:entity:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_district
       module:
         - node
   field_project_external_website:
@@ -63,7 +74,7 @@ field_settings:
     label: 'Project search metatags'
     datasource_id: 'entity:node'
     property_path: field_project_search_metatags
-    type: text
+    type: string
     dependencies:
       config:
         - field.storage.node.field_project_search_metatags
@@ -95,16 +106,26 @@ field_settings:
     dependencies:
       module:
         - node
+  project_execution_schedule:
+    label: 'Project execution schedule'
+    datasource_id: 'entity:node'
+    property_path: project_execution_schedule
+    type: string
   project_image_absolute_url:
     label: 'Project image absolute URL'
     datasource_id: 'entity:node'
     property_path: project_image_absolute_url
     type: string
+  project_plan_schedule:
+    label: 'Project plan schedule'
+    datasource_id: 'entity:node'
+    property_path: project_plan_schedule
+    type: string
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
+    type: string
     boost: !!float 2
     dependencies:
       module:
@@ -140,16 +161,13 @@ processor_settings:
     all_fields: false
     fields:
       - content_type
+      - field_project_district_title
       - field_project_phase_name
       - field_project_search_metatags
       - field_project_theme_name
       - field_project_type_name
       - title
   language_with_fallback: {  }
-  number_field_boost:
-    weights:
-      preprocess_index: 0
-    boosts: {  }
   project_execution_schedule: {  }
   project_image_absolute_url: {  }
   project_plan_schedule: {  }
@@ -159,8 +177,7 @@ processor_settings:
       preprocess_index: -6
       preprocess_query: -6
     all_fields: false
-    fields:
-      - field_project_search_metatags
+    fields: {  }
     spaces: ''
     ignored: '.,_'
     overlap_cjk: 1

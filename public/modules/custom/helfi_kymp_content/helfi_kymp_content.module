@@ -5,11 +5,27 @@
  * Contains alterations for content.
  */
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function helfi_kymp_content_theme() {
+  return [
+    'subdistricts_navigation' => [
+      'variables' => [
+        'navigation' => NULL,
+        'parent_title' => NULL,
+        'parent_url' => NULL,
+      ],
+    ],
+  ];
+}
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -173,6 +189,50 @@ function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms() {
 }
 
 /**
+ * Implements hook_node_update().
+ */
+function helfi_kymp_content_node_update(NodeInterface $node) {
+  if ($node->getType() === 'district') {
+    _helfi_kymp_content_invalidate_subdistricts($node);
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function helfi_kymp_content_node_insert(NodeInterface $node) {
+  if ($node->getType() === 'district') {
+    _helfi_kymp_content_invalidate_subdistricts($node);
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function helfi_kymp_content_node_delete(NodeInterface $node) {
+  if ($node->getType() === 'district') {
+    _helfi_kymp_content_invalidate_subdistricts($node);
+  }
+}
+
+/**
+ * Invalidate cache for nodes that are referenced as sub-districts.
+ */
+function _helfi_kymp_content_invalidate_subdistricts(NodeInterface $node) {
+  if (!$node->hasField('field_subdistricts')) {
+    return;
+  }
+
+  $subdistricts = $node->get('field_subdistricts')->referencedEntities();
+  foreach ($subdistricts as $subdistrict) {
+    if (!$subdistrict instanceof NodeInterface) {
+      continue;
+    }
+    Cache::invalidateTags(['node:' . $subdistrict->id()]);
+  }
+}
+
+/**
  * Implements hook_sidebar_visibility_allowed_entities_alter().
  *
  * Adds district and project content types to the list that allows
@@ -187,13 +247,18 @@ function helfi_kymp_content_sidebar_visibility_allowed_entities_alter(&$entities
  * Implements hook_preprocess_HOOK().
  */
 function helfi_kymp_content_preprocess_page(&$variables) {
-  // Handle sidebar visibility.
+  $variables['has_section_nav'] = FALSE;
+
+  // District content type alterations.
   $node = hdbt_content_get_page_entity();
   if ($node instanceof NodeInterface) {
-    // Handle first and second sidebar visibility for the "Standard page" (page)
-    // content type.
     if ($node->getType() === 'district') {
+      // Handle first and second sidebar visibility for the "District"
+      // content type.
       helfi_kymp_content_sidebar_menu_visibility($variables, $node);
+
+      // Enable section navigation for "District" content type.
+      $variables['has_section_nav'] = TRUE;
     }
   }
 }

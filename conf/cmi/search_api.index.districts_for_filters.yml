@@ -5,33 +5,32 @@ dependencies:
   config:
     - search_api.server.elastic_kymp
   module:
-    - taxonomy
+    - node
     - search_api
     - helfi_kymp_district_project_search
-id: districts_taxonomy
-name: 'Districts taxonomy'
-description: 'Districts from taxonomies to be used for search filters.'
+id: districts_for_filters
+name: 'Districts for filters'
+description: 'Districts to be used for search filters.'
 read_only: false
 field_settings:
+  district_title:
+    label: 'District title'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
   entity_type:
     label: 'Entity type'
     property_path: search_api_entity_type
     type: string
-  name:
-    label: Name
-    datasource_id: 'entity:taxonomy_term'
-    property_path: name
-    type: string
-    dependencies:
-      module:
-        - taxonomy
 datasource_settings:
-  'entity:taxonomy_term':
+  'entity:node':
     bundles:
       default: false
       selected:
-        - project_district
-        - project_sub_district
+        - district
     languages:
       default: false
       selected:
@@ -41,7 +40,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  entity_status: {  }
+  district_image_absolute_url: {  }
   entity_type: {  }
   ignorecase:
     weights:
@@ -49,10 +48,11 @@ processor_settings:
       preprocess_query: -20
     all_fields: false
     fields:
+      - district_title
       - entity_type
-      - name
   language_with_fallback: {  }
   project_execution_schedule: {  }
+  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
 tracker_settings:
