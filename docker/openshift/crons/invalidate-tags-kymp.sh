@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running invalidate by cache tags: $(date)"
+echo "Running invalidate by cache tags: $(date +'%Y-%m-%dT%H:%M:%S%:z')"
 
 tags="helfi_kymp_plans"
 
