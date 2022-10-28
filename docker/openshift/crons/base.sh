@@ -23,8 +23,8 @@ exec "/crons/content-scheduler.sh" &
 
 while true
 do
-  echo "Running cron: $(date)\n"
-  drush cron
+  echo "Running cron: $(date +'%Y-%m-%dT%H:%M:%S%:z')\n"
+  drush cron -q
   # Sleep for 10 minutes.
   sleep 600
 done
