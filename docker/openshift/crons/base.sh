@@ -20,10 +20,11 @@ exec "/crons/migrate-tpr.sh" &
 exec "/crons/purge-queue.sh" &
 exec "/crons/update-translations.sh" &
 exec "/crons/content-scheduler.sh" &
+exec "/crons/invalidate-tags-kymp.sh" &
 
 while true
 do
-  echo "Running cron: $(date)\n"
+  echo "Running cron: $(date +'%Y-%m-%dT%H:%M:%S%:z')\n"
   drush cron
   # Sleep for 10 minutes.
   sleep 600
