@@ -39,7 +39,7 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
     $plans = $service->getPlans();
 
     // Cache for an hour.
-    \Drupal::cache()->set('helfi_kymp_plans', $plans, \Drupal::time()->getRequestTime() + 3600);
+    \Drupal::cache()->set('helfi_kymp_plans', $plans, \Drupal::time()->getRequestTime() + 3600, ['helfi_kymp_plans']);
   }
 
   $variables['plans'] = $plans;
@@ -48,4 +48,8 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
 
   // Attach the JavaScript library.
   $variables['#attached']['library'][] = 'helfi_kymp_plans/list_of_plans';
+
+  // Adding a cache tag which is used by a cron script to periodically clear
+  // the cache related to the list of plans.
+  $variables['#cache']['tags'][] = 'helfi_kymp_plans';
 }

@@ -20,6 +20,7 @@ exec "/crons/migrate-tpr.sh" &
 exec "/crons/purge-queue.sh" &
 exec "/crons/update-translations.sh" &
 exec "/crons/content-scheduler.sh" &
+exec "/crons/invalidate-tags-kymp.sh" &
 
 while true
 do
