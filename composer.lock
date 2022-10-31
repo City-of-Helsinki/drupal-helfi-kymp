@@ -3309,26 +3309,26 @@
         },
         {
             "name": "drupal/eu_cookie_compliance",
-            "version": "1.19.0",
+            "version": "1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eu-cookie-compliance.git",
-                "reference": "8.x-1.19"
+                "reference": "8.x-1.24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.19.zip",
-                "reference": "8.x-1.19",
-                "shasum": "5a13cd53f87a58501cebd6e560c280ad7274035c"
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.24.zip",
+                "reference": "8.x-1.24",
+                "shasum": "ab8dcd866e5ad95cde6fdf9cbca509c7f399bd23"
             },
             "require": {
-                "drupal/core": "^8.9 || ^9"
+                "drupal/core": "^8.9 || ^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.19",
-                    "datestamp": "1633775773",
+                    "version": "8.x-1.24",
+                    "datestamp": "1665158185",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4270,16 +4270,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.13.8",
+            "version": "2.13.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "8701f0fb6403de7d36aabd1455522be00486f1a1"
+                "reference": "f26cb4a6997571daaf5971285f6fd6011f348263"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/8701f0fb6403de7d36aabd1455522be00486f1a1",
-                "reference": "8701f0fb6403de7d36aabd1455522be00486f1a1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f26cb4a6997571daaf5971285f6fd6011f348263",
+                "reference": "f26cb4a6997571daaf5971285f6fd6011f348263",
                 "shasum": ""
             },
             "require": {
@@ -4299,7 +4299,7 @@
                 "drupal/elasticsearch_connector": "^7.0@alpha",
                 "drupal/entity_browser": "^2.5",
                 "drupal/entity_usage": "^2.0@beta",
-                "drupal/eu_cookie_compliance": "1.19",
+                "drupal/eu_cookie_compliance": "^1.24",
                 "drupal/external_entities": "^2.0@alpha",
                 "drupal/features": "^3.12",
                 "drupal/field_group": "^3.1",
@@ -4360,8 +4360,7 @@
                         "https://www.drupal.org/project/default_content/issues/2640734#comment-14638943": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/main/patches/default_content_2.0.0-alpha2-2640734_manual_imports-e164a354.patch"
                     },
                     "drupal/eu_cookie_compliance": {
-                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/d1a6866b2138f7d3597df79f395a5c1a9e19ee2e/patches/eu_cookie_compliance_block_8.x-1.19.patch",
-                        "[#UHF-2956] Fix JavaScript error at cookie preference page": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/97683d32e57808a4c9a4f6a2d20757af7a0b8c37/patches/eu_cookie_compliance_js_error_8.x-1.19-patched.patch"
+                        "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/e02b73fc68bd7d9f3611a1d55da267f6fe826340/patches/eu_cookie_compliance_block_8.x-1.24.patch"
                     },
                     "drupal/features": {
                         "https://www.drupal.org/project/features/issues/2869336": "https://www.drupal.org/files/issues/features_export-config-translation-2869336-2.patch"
@@ -4389,10 +4388,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.13.8",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.13.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-10-28T12:02:48+00:00"
+            "time": "2022-10-31T11:03:04+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5202,10 +5201,6 @@
             ],
             "authors": [
                 {
-                    "name": "balintk",
-                    "homepage": "https://www.drupal.org/user/613760"
-                },
-                {
                     "name": "bojanz",
                     "homepage": "https://www.drupal.org/user/86106"
                 },
@@ -5214,20 +5209,12 @@
                     "homepage": "https://www.drupal.org/user/122464"
                 },
                 {
-                    "name": "Mario Steinitz",
-                    "homepage": "https://www.drupal.org/user/2536014"
-                },
-                {
                     "name": "pfrilling",
                     "homepage": "https://www.drupal.org/user/169695"
                 },
                 {
                     "name": "pjcdawkins",
                     "homepage": "https://www.drupal.org/user/1025236"
-                },
-                {
-                    "name": "robertDouglass",
-                    "homepage": "https://www.drupal.org/user/5449"
                 },
                 {
                     "name": "sanduhrs",
@@ -10710,16 +10697,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.47",
+            "version": "v4.4.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "4f40012db8d55c956406890b5720f686fee7f7b7"
+                "reference": "8e70c1cab07ac641b885ce80385b9824a293c623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/4f40012db8d55c956406890b5720f686fee7f7b7",
-                "reference": "4f40012db8d55c956406890b5720f686fee7f7b7",
+                "url": "https://api.github.com/repos/symfony/console/zipball/8e70c1cab07ac641b885ce80385b9824a293c623",
+                "reference": "8e70c1cab07ac641b885ce80385b9824a293c623",
                 "shasum": ""
             },
             "require": {
@@ -10780,7 +10767,7 @@
             "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/console/tree/v4.4.47"
+                "source": "https://github.com/symfony/console/tree/v4.4.48"
             },
             "funding": [
                 {
@@ -10796,7 +10783,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-04T05:58:30+00:00"
+            "time": "2022-10-26T16:02:45+00:00"
         },
         {
             "name": "symfony/debug",
@@ -11378,16 +11365,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v5.4.14",
+            "version": "v5.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "8a3929c814cba77db93de61c22759e0dbeaa4c87"
+                "reference": "8f29b0f06c9ff48c8431e78eb90c8bd6f82cb12b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/8a3929c814cba77db93de61c22759e0dbeaa4c87",
-                "reference": "8a3929c814cba77db93de61c22759e0dbeaa4c87",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/8f29b0f06c9ff48c8431e78eb90c8bd6f82cb12b",
+                "reference": "8f29b0f06c9ff48c8431e78eb90c8bd6f82cb12b",
                 "shasum": ""
             },
             "require": {
@@ -11445,7 +11432,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v5.4.14"
+                "source": "https://github.com/symfony/http-client/tree/v5.4.15"
             },
             "funding": [
                 {
@@ -11461,7 +11448,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-11T15:16:01+00:00"
+            "time": "2022-10-25T16:22:13+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
@@ -11543,16 +11530,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.4.47",
+            "version": "v4.4.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "7eea76ae186c68466e7676e62812ce2769f96811"
+                "reference": "cd4f478e67f7c8776a13b17e7d44241fd66261ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7eea76ae186c68466e7676e62812ce2769f96811",
-                "reference": "7eea76ae186c68466e7676e62812ce2769f96811",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cd4f478e67f7c8776a13b17e7d44241fd66261ad",
+                "reference": "cd4f478e67f7c8776a13b17e7d44241fd66261ad",
                 "shasum": ""
             },
             "require": {
@@ -11591,7 +11578,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v4.4.47"
+                "source": "https://github.com/symfony/http-foundation/tree/v4.4.48"
             },
             "funding": [
                 {
@@ -11607,20 +11594,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-01T21:39:02+00:00"
+            "time": "2022-10-12T09:40:54+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v4.4.47",
+            "version": "v4.4.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "91cf5dbc9ea4d902470e596246a736179acfb79d"
+                "reference": "a6d5229dd9466e046674baad8449ad92ee24eddd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/91cf5dbc9ea4d902470e596246a736179acfb79d",
-                "reference": "91cf5dbc9ea4d902470e596246a736179acfb79d",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/a6d5229dd9466e046674baad8449ad92ee24eddd",
+                "reference": "a6d5229dd9466e046674baad8449ad92ee24eddd",
                 "shasum": ""
             },
             "require": {
@@ -11695,7 +11682,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v4.4.47"
+                "source": "https://github.com/symfony/http-kernel/tree/v4.4.48"
             },
             "funding": [
                 {
@@ -11711,7 +11698,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-12T07:05:45+00:00"
+            "time": "2022-10-28T16:49:22+00:00"
         },
         {
             "name": "symfony/mime",
@@ -13105,16 +13092,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v4.4.47",
+            "version": "v4.4.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "37456082bb034cb5f2d8602471a0de6c448535b8"
+                "reference": "54781a4c41efbd283b779110bf8ae7f263737775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/37456082bb034cb5f2d8602471a0de6c448535b8",
-                "reference": "37456082bb034cb5f2d8602471a0de6c448535b8",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/54781a4c41efbd283b779110bf8ae7f263737775",
+                "reference": "54781a4c41efbd283b779110bf8ae7f263737775",
                 "shasum": ""
             },
             "require": {
@@ -13191,7 +13178,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v4.4.47"
+                "source": "https://github.com/symfony/validator/tree/v4.4.48"
             },
             "funding": [
                 {
@@ -13207,7 +13194,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-01T17:13:09+00:00"
+            "time": "2022-10-25T13:54:11+00:00"
         },
         {
             "name": "symfony/var-dumper",
