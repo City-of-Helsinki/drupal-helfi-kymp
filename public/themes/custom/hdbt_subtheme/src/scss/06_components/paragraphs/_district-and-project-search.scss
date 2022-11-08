@@ -63,6 +63,59 @@
   }
 }
 
+.district-project-search-form__clear-all {
+  list-style-type: none;
+  margin-bottom: $spacing-half;
+
+  // Negate hdbt's li+li margin
+  margin-top: 0;
+}
+
+.district-project-search-form__selections-wrapper {
+  margin-top: $spacing-double;
+}
+
+.district-project-search-form__selections-container {
+  align-items: center;
+}
+
+// Need a specific selector to override hds styles
+.district-project-search-form__clear-all .district-project-search-form__clear-all-button {
+  --background-color-hover: transparent;
+  --background-color-focus: transparent;
+  --background-color-hover-focus: transparent;
+  --border-color-hover: var(--hdbt-color-black);
+  --border-color-focus: var(--hdbt-color-black);
+  --border-color-hover-focus: var(--hdbt-color-black);
+  --color: var(--hdbt-color-black);
+  --color-hover: var(--hdbt-color-black);
+  --color-focus: var(--hdbt-color-black);
+  --color-hover-focus: var(--hdbt-color-black);
+  --focus-outline-color: var(--hdbt-color-black);
+}
+
+// Use a very specific selector here to override hds styles
+button.district-project-search-form__remove-selection-button:not(:disabled) {
+  @include tag('interactive--deletable');
+  color: var(--hdbt-color-black);
+  --color-hover-focus: var(--hdbt-text-color);
+  // TODO: Combine styles between HDS versions
+  padding: 12px 0px 12px 20px;
+}
+
+// Neagate HDS-defined paddings for span-element inside button
+.district-project-search-form__remove-selection-button span {
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+// Negate HDS-defined margin for icon inside remove button
+.district-project-search-form_selections-wrapper button.district-project-search-form__remove-selection-button > div {
+  margin-right: 0;
+}
+
 .district-project-search__results_heading {
   border-bottom: 1px solid var(--color-black-20);
   margin-top: $spacing-quadruple;
@@ -102,4 +155,3 @@
     @include font('lead');
   }
 }
-
