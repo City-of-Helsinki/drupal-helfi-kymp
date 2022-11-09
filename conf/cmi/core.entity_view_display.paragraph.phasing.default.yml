@@ -35,13 +35,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_phasing_item_title_level:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_phasing_title_level:
     type: list_key
     label: hidden
@@ -68,4 +61,5 @@ content:
     weight: 0
     region: content
 hidden:
+  field_phasing_item_title_level: true
   search_api_excerpt: true
