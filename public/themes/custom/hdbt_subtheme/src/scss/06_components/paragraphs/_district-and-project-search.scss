@@ -1,5 +1,9 @@
 .component--district-and-project-search {
   background-color: $color-silver-light;
+
+  ul[role="listbox"] {
+    background-color: var(--color-white);
+  }
 }
 
 // If the district and project search is just before footer it needs to function the same way as unit search.
@@ -19,10 +23,6 @@
 }
 
 .district-project-search-form__filters-container {
-  ul[role="listbox"] {
-    background-color: var(--color-white);
-  }
-
   .district-project-search-form__filters {
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +40,7 @@
     margin-top: $spacing;
 
     div[role="heading"] {
+      flex: 0 1 auto;
       font-weight: 500;
     }
 
