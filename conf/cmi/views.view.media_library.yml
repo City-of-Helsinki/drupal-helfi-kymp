@@ -270,11 +270,11 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1:
+              -
                 title: Published
                 operator: '='
                 value: '1'
-              2:
+              -
                 title: Unpublished
                 operator: '='
                 value: '0'
@@ -1032,7 +1032,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/media/{{ mid }}/edit" class="media-library-item__edit icon-link" title="{% trans %}Edit {{ name }}. Opens in a new tab.{% endtrans %}" target="_new">{% trans %}Edit {{ name }}{% endtrans %}</a>'
+            text: "<a href=\"{{ path('entity.media.edit_form', {'media': mid }) }}\" class=\"media-library-item__edit icon-link\" title=\"{% trans %}Edit {{ name }}. Opens in a new tab.{% endtrans %}\" target=\"_new\">{% trans %}Edit {{ name }}{% endtrans %}</a>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1275,6 +1275,27 @@ display:
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: admin/content/media-widget
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 24
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '6, 12, 24, 48'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:

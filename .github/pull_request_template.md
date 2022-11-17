@@ -9,7 +9,7 @@
 ## How to install
 
 * Make sure your instance is up and running on correct branch.
-  * `git pull origin UHF-0000_insert_correct_branch`
+  * `git checkout UHF-0000_insert_correct_branch`
   * `make fresh`
 * Run `make drush-cr`
 
