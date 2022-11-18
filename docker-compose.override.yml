@@ -1,6 +1,9 @@
 version: '3.7'
 
 services:
+  app:
+    environment:
+      - ELASTIC_PROXY_URL=${ELASTIC_PROXY_URL}
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.4.0
     container_name: "${COMPOSE_PROJECT_NAME}-elastic"
