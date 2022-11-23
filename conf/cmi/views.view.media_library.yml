@@ -1072,6 +1072,27 @@ display:
           absolute: 0
           output_url_as_text: 0
           text: Edit
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 24
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '6, 12, 24, 48'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       access:
         type: perm
         options:
@@ -1275,27 +1296,6 @@ display:
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: admin/content/media-widget
-      pager:
-        type: full
-        options:
-          offset: 0
-          items_per_page: 24
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '6, 12, 24, 48'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:
