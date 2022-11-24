@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b23349161dbe712b2bb5c7d4f560667",
+    "content-hash": "c929279d189c03a0d063c627d3154f23",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4268,16 +4268,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "ec0dbc3296481a7cb3ae2d9824bfcfd1a7d657a1"
+                "reference": "139740f15aea3b783584320e7ecc19bc2c44ec7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/ec0dbc3296481a7cb3ae2d9824bfcfd1a7d657a1",
-                "reference": "ec0dbc3296481a7cb3ae2d9824bfcfd1a7d657a1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/139740f15aea3b783584320e7ecc19bc2c44ec7f",
+                "reference": "139740f15aea3b783584320e7ecc19bc2c44ec7f",
                 "shasum": ""
             },
             "require": {
@@ -4314,7 +4314,7 @@
                 "drupal/matomo_reports": "^1.1",
                 "drupal/media_entity_file_replace": "^1.0",
                 "drupal/media_entity_soundcloud": "^3.0.0",
-                "drupal/menu_block_current_language": "^1.5",
+                "drupal/menu_block_current_language": "^2.0",
                 "drupal/menu_link_attributes": "^1.2",
                 "drupal/metatag": "^1.16",
                 "drupal/oembed_providers": "^2.0",
@@ -4383,10 +4383,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.14.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/2.15.0",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2022-11-22T08:00:46+00:00"
+            "time": "2022-11-24T09:44:44+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4941,26 +4941,27 @@
         },
         {
             "name": "drupal/menu_block_current_language",
-            "version": "1.6.0",
+            "version": "2.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_block_current_language.git",
-                "reference": "8.x-1.6"
+                "reference": "2.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_block_current_language-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "02489647e17bff7c3a1b3eb4e47c5ddea50f0840"
+                "url": "https://ftp.drupal.org/files/projects/menu_block_current_language-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "24b3830a72635879fec6bd30d721462102cb151b"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10",
+                "php": ">=8.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1621416669",
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1667717930",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4969,7 +4970,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -4986,7 +4987,7 @@
                 }
             ],
             "description": "Filters out all the menu links that does not have translation for the current language.",
-            "homepage": "https://www.drupal.org/project/menu_block_current_language",
+            "homepage": "http://drupal.org/project/menu_block_current_language",
             "support": {
                 "source": "https://git.drupalcode.org/project/menu_block_current_language"
             }
@@ -9836,6 +9837,51 @@
                 "source": "https://github.com/php-http/promise/tree/1.1.0"
             },
             "time": "2020-07-07T09:29:14+00:00"
+        },
+        {
+            "name": "phpstan/phpdoc-parser",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
+                "reference": "33aefcdab42900e36366d0feab6206e2dd68f947"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/33aefcdab42900e36366d0feab6206e2dd68f947",
+                "reference": "33aefcdab42900e36366d0feab6206e2dd68f947",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "symfony/process": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\PhpDocParser\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "support": {
+                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.13.0"
+            },
+            "time": "2022-10-21T09:57:39+00:00"
         },
         {
             "name": "psr/cache",
