@@ -1,23 +1,20 @@
-.project__image-container {
-  img {
-    height: auto;
-    width: 100%;
-  }
+.project__image-container img {
+  height: auto;
+  width: 100%;
 }
 
-.page-type--project.no-sidebar {
-  .project__image-container,
-  .content-tags,
-  .project__metadata-wrapper {
-    @include components-container-max-width;
-    @include component-side-padding;
-    margin-left: auto;
-    margin-right: auto;
+.page-type--project {
+
+  &.no-sidebar {
+    .project__image-container,
+    .content-tags,
+    .project__metadata-wrapper {
+      @include components-container-max-width;
+      @include component-side-padding;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
-}
-
-
-.node--type-project {
 
   .content-tags {
     margin-top: $spacing-double;
@@ -35,13 +32,14 @@
     max-width: $content-width-max;
   }
 
-  .metadata__item-content .label:not(:last-of-type)::after,
-  .metadata__item--schedule--plan-schedule *:last-child::after {
-    content: ', ';
-  }
-
   .project-metadata__schedule {
     display: block;
+  }
+}
+
+.card--project {
+  .card__meta .project-schedule:not(:last-child) time:last-child::after {
+    content: ', ';
   }
 }
 

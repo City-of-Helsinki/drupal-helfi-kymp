@@ -1,3 +1,60 @@
+{% set card_image %}
+  {% if content.field_project_image.0 %}
+    {{ content.field_project_image }}
+  {% else %}
+    {% include '@hdbt/media/image--card.html.twig' with {content: '' } %}
+  {% endif %}
+{% endset %}
+
+{% if content.field_project_external_website|render %}
+  {% set link_url = content.field_project_external_website.0['#url'] %}
+  {% set external = true %}
+{% else %}
+  {% set link_url = node_url %}
+{% endif %}
+
+{% set schedule %}
+  {% if content.field_project_plan_schedule|render %}
+    <span class="project-schedule">
+      {{ 'planning'|t }}{{ content.field_project_plan_schedule }}
+    </span>
+  {% endif %}
+  {% if content.field_project_execution_schedule|render %}
+    <span class="project-execution">
+      {{ 'execution'|t }}{{ content.field_project_execution_schedule }}
+    </span>
+  {% endif %}
+{% endset %}
+
+{% embed '@hdbt/component/card.twig' with {
+    card_modifier_class: 'card--project',
+    card_image: card_image,
+    card_title: label,
+    card_url: link_url,
+    card_url_external: external,
+    card_category: 'Project'|t,
+    card_category_color: 'gold',
+    card_metas: [
+      {
+        icon: 'calendar',
+        label: 'Estimated schedule'|t,
+        content: schedule,
+      },
+      {
+        icon: 'location',
+        label: 'Project location'|t,
+        content: district_titles,
+      },
+      {
+        icon: 'locate',
+        label: 'Project theme'|t,
+        content: content.field_project_theme,
+      },
+    ],
+  } %}
+{% endembed %}
+
+{# # }
 {%
   set classes = [
     'project-teaser',
@@ -87,3 +144,4 @@
     {% endif %}
   </div>
 </article>
+{# #}

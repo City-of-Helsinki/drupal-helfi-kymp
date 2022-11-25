@@ -1,3 +1,29 @@
+{% set card_image %}
+  {% if content.field_district_image.0 %}
+    {{ content.field_district_image }}
+  {% else %}
+    {% include '@hdbt/media/image--card.html.twig' with {content: '' } %}
+  {% endif %}
+{% endset %}
+
+{% embed '@hdbt/component/card.twig' with {
+    card_modifier_class: 'card--district',
+    card_image: card_image,
+    card_title: label,
+    card_url: node_url,
+    card_category: 'District'|t,
+    card_category_color: 'coat-of-arms',
+    card_metas: content.field_subdistricts.0 ? [
+      {
+        icon: 'location',
+        label: 'Districts'|t,
+        content: content.field_subdistricts,
+      },
+    ],
+  } %}
+{% endembed %}
+
+{#  # }
 {%
   set classes = [
     'district-teaser',
@@ -52,3 +78,4 @@
     {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
   </div>
 </article>
+{#  #}
