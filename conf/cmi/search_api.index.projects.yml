@@ -74,7 +74,8 @@ field_settings:
     label: 'Project search metatags'
     datasource_id: 'entity:node'
     property_path: field_project_search_metatags
-    type: string
+    type: text
+    boost: !!float 0
     dependencies:
       config:
         - field.storage.node.field_project_search_metatags
@@ -172,6 +173,17 @@ processor_settings:
   project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+    fields:
+      - field_project_search_metatags
+    spaces: ''
+    ignored: '.,_-'
+    overlap_cjk: 0
+    minimum_word_size: '3'
 tracker_settings:
   default:
     indexing_order: fifo
