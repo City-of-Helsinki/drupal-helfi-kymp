@@ -46,7 +46,8 @@ field_settings:
     label: 'District search metatags'
     datasource_id: 'entity:node'
     property_path: field_district_search_metatags
-    type: string
+    type: text
+    boost: !!float 0
     dependencies:
       config:
         - field.storage.node.field_district_search_metatags
@@ -108,6 +109,7 @@ processor_settings:
     all_fields: false
     fields:
       - content_type
+      - field_district_search_metatags
       - field_district_subdistricts_title
       - title
   language_with_fallback: {  }
@@ -120,10 +122,11 @@ processor_settings:
       preprocess_index: -6
       preprocess_query: -6
     all_fields: false
-    fields: {  }
+    fields:
+      - field_district_search_metatags
     spaces: ''
-    ignored: '.,_'
-    overlap_cjk: 1
+    ignored: '.,_-'
+    overlap_cjk: 0
     minimum_word_size: '3'
 tracker_settings:
   default:
