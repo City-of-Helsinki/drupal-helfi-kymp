@@ -11,8 +11,10 @@
     card_image: card_image,
     card_title: label,
     card_url: node_url,
-    card_category: 'District'|t,
-    card_category_color: 'coat-of-arms',
+    card_category_tag: {
+      tag: 'District'|t,
+      color: 'coat-of-arms',
+    },
     card_metas: content.field_subdistricts.0 ? [
       {
         icon: 'location',
