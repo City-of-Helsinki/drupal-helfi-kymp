@@ -9,7 +9,7 @@
     "require": {
         "ext-dom": "*",
         "ext-libxml": "*",
-        "city-of-helsinki/helfi-kymp-district-project-search": "0.6.2",
+        "city-of-helsinki/helfi-kymp-district-project-search": "0.7",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
         "drupal/core-composer-scaffold": "~9.4.5",
@@ -107,23 +107,23 @@
             "type": "package",
             "package": {
                 "name": "city-of-helsinki/helfi-kymp-district-project-search",
-                "version": "0.6.2",
+                "version": "0.7",
                 "dist": {
-                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.6.2/helfi-kymp-district-project-search.zip",
+                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.7/helfi-kymp-district-project-search.zip",
                     "type": "zip"
                 },
                 "source": {
                     "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search",
                     "type": "git",
-                    "reference": "0.6.2"
+                    "reference": "0.7"
                 }
             }
         }
     ],
     "scripts": {
         "test": [
-          "@lint-php",
-          "@test-php"
+            "@lint-php",
+            "@test-php"
         ],
         "test-php": "vendor/bin/phpunit -c phpunit.xml.dist",
         "lint-php": "vendor/bin/phpcs --standard=Drupal",
