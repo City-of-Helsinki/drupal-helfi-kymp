@@ -96,7 +96,9 @@ function hdbt_subtheme_preprocess_node(array &$variables) {
     $district_titles = [];
     foreach ($districts as $district) {
       $district_node_id = $district['target_id'];
-      $district_node = Node::load($district_node_id);
+      if (!$district_node = Node::load($district_node_id)) {
+        continue;
+      }
       $district_title = $district_node->getTitle();
 
       if ($district_node->hasTranslation($variables['current_langcode'])) {
