@@ -30,7 +30,13 @@
     gap: $spacing-and-half;
 
     > div {
-      flex-basis: 48%;
+      flex-basis: 100%;
+    }
+
+    @include breakpoint($breakpoint-m) {
+      > div {
+        flex-basis: 48%;
+      }
     }
   }
 
