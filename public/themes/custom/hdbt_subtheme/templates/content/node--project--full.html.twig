@@ -50,7 +50,7 @@
     </div>
 
     {% if content.field_project_plan_schedule|render and content.field_project_execution_schedule|render %}
-      {% set schedule_label = 'Schedule'|t %}
+      {% set schedule_label = 'Estimated schedule'|t %}
       {% set schedule_content %}
         <span class="project-metadata__schedule">{{'Plan:'|t({}, {'context': 'Plan schedule label'})}} {{ content.field_project_plan_schedule }}</span>
         <span class="project-metadata__schedule">{{'Execution:'|t({}, {'context': 'Execution schedule label'})}} {{ content.field_project_execution_schedule }}</span>
