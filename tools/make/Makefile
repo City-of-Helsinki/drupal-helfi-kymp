@@ -12,23 +12,6 @@ UNAME_S := $(shell uname -s)
 UPDATE_SCRIPT_URL := https://git.io/JP10q
 WEBROOT ?= public
 
-# Detect app
-IS_DRUPAL ?= $(shell test -f $(WEBROOT)/sites/default/settings.php && echo yes || echo no)
-IS_SYMFONY ?= $(shell test -f config/bundles.php && echo yes || echo no)
-IS_WP ?= $(shell (test -f $(WEBROOT)/wp-settings.php || test -f conf/wp-config.php) && echo yes || echo no)
-
-# Detect additional tooling
-LAGOON := $(shell test -f .lagoon.yml && echo yes || echo no)
-WODBY := $(shell test -f wodby.yml && echo yes || echo no)
-
-ifeq ($(LAGOON),yes)
-	SYSTEM := LAGOON
-else ifeq ($(WODBY),yes)
-	SYSTEM := WODBY
-else
-	SYSTEM := WHOKNOWS
-endif
-
 include $(DRUIDFI_TOOLS_MAKE_DIR)utils.mk
 
 # Include druidfi/tools make files
