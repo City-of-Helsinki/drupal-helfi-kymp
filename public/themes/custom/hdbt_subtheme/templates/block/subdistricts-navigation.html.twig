@@ -26,7 +26,7 @@
   <div class="section-navigation__menu-wrapper" id=" {{ section_menu_aria_controls }}">
     {% block content %}
       {% set items = navigation %}
-      {% set menu_depth = 5 %}
+      {% set menu_depth = 5 %} {# TODO: This should be set globally. #}
       {% embed "@hdbt/navigation/menu.html.twig" with {auto_open: true, allow_collabsible: true} %}{% endembed %}
     {% endblock %}
   </div>
