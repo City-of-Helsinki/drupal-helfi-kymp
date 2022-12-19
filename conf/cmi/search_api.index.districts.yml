@@ -42,6 +42,28 @@ field_settings:
         - field.storage.node.field_district_image
       module:
         - media
+  field_district_image_height:
+    label: 'District image height'
+    datasource_id: 'entity:node'
+    property_path: 'field_district_image:entity:field_media_image:height'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_district_image
+      module:
+        - media
+  field_district_image_width:
+    label: 'District image width'
+    datasource_id: 'entity:node'
+    property_path: 'field_district_image:entity:field_media_image:width'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_district_image
+      module:
+        - media
   field_district_search_metatags:
     label: 'District search metatags'
     datasource_id: 'entity:node'
@@ -53,6 +75,16 @@ field_settings:
         - field.storage.node.field_district_search_metatags
   field_district_subdistricts_title:
     label: 'District subdistricts title'
+    datasource_id: 'entity:node'
+    property_path: 'field_subdistricts:entity:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_subdistricts
+      module:
+        - node
+  field_district_subdistricts_title_for_ui:
+    label: 'District subdistricts title for UI'
     datasource_id: 'entity:node'
     property_path: 'field_subdistricts:entity:title'
     type: string
@@ -75,6 +107,14 @@ field_settings:
     property_path: title
     type: string
     boost: !!float 2
+    dependencies:
+      module:
+        - node
+  title_for_ui:
+    label: 'Title for UI'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
     dependencies:
       module:
         - node

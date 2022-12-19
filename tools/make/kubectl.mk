@@ -3,7 +3,6 @@ KUBECTL_NAMESPACE ?= foobar-namespace
 KUBECTL_SHELL ?= sh
 KUBECTL_EXEC_FLAGS ?= -n $(KUBECTL_NAMESPACE) -c $(KUBECTL_CONTAINER)
 KUBECTL_WORKDIR ?= /app
-KUBECTL_POD_SELECTOR ?= --field-selector=status.phase==Running
 
 PHONY += kubectl-sync-db
 kubectl-sync-db: ## Sync database from Kubernetes
@@ -48,5 +47,5 @@ define kubectl_cp
 endef
 
 define kubectl_get_pod
-	$(shell $(KUBECTL_BIN) get pods -n $(KUBECTL_NAMESPACE) $(KUBECTL_POD_SELECTOR) -o jsonpath="{.items[0].metadata.name}")
+	$(shell $(KUBECTL_BIN) get pods -n $(KUBECTL_NAMESPACE) --template '{{range .items}}{{ if not .metadata.deletionTimestamp }}{{.metadata.name}}{{"\n"}}{{end}}{{end}}')
 endef
