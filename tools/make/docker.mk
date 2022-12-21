@@ -1,7 +1,7 @@
 CLI_SERVICE := cli
 CLI_SHELL := sh
 CLI_USER := root
-DOCKER_COMPOSE := docker-compose
+DOCKER_COMPOSE := docker compose
 DOCKER_COMPOSE_EXEC ?= $(DOCKER_COMPOSE) exec
 DOCKER_COMPOSE_YML_PATH ?= docker-compose.yml
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f $(DOCKER_COMPOSE_YML_PATH) && echo yes || echo no)
@@ -15,7 +15,7 @@ endif
 
 PHONY += config
 config: ## Show docker-compose config
-	$(call step,Show docker-compose config...\n)
+	$(call step,Show Docker Compose config...\n)
 	$(call docker_compose,config)
 
 PHONY += pull
@@ -29,8 +29,8 @@ down: ## Tear down the environment
 	$(call docker_compose,down -v --remove-orphans --rmi local)
 
 PHONY += ps
-ps: ## Show docker-compose ps
-	$(call step,Show docker-compose ps...\n)
+ps: ## List containers
+	$(call step,List container(s)...\n)
 	$(call docker_compose,ps)
 
 PHONY += stop
@@ -39,9 +39,9 @@ stop: ## Stop the environment
 	$(call docker_compose,stop)
 
 PHONY += up
-up: pull ## Launch the environment
+up: ## Launch the environment
 	$(call step,Start up the container(s)...\n)
-	$(call docker_compose,up -d --remove-orphans)
+	$(call docker_compose,up -d --pull always --wait --remove-orphans)
 
 PHONY += shell
 shell: ## Login to CLI container

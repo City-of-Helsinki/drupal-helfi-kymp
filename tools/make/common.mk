@@ -40,7 +40,8 @@ build-production:
 
 PHONY += clean
 clean: ## Cleanup
-	$(call step,Do Git clean\n)
+	$(call step,Cleanup loaded files...\n)
+	@rm -rf vendor
 	@git clean -fdx $(foreach item,$(CLEAN_EXCLUDE),-e $(item))
 
 PHONY += self-update
