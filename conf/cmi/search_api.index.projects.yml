@@ -41,6 +41,16 @@ field_settings:
         - field.storage.node.field_project_district
       module:
         - node
+  field_project_district_title_for_ui:
+    label: 'Project district title for UI'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_district:entity:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_project_district
+      module:
+        - node
   field_project_external_website:
     label: 'Project external website'
     datasource_id: 'entity:node'
@@ -54,6 +64,28 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_project_image:entity:field_media_image:alt'
     type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_project_image
+      module:
+        - media
+  field_project_image_height:
+    label: 'Project image height'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_image:entity:field_media_image:height'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_project_image
+      module:
+        - media
+  field_project_image_width:
+    label: 'Project image width'
+    datasource_id: 'entity:node'
+    property_path: 'field_project_image:entity:field_media_image:width'
+    type: integer
     dependencies:
       config:
         - field.storage.media.field_media_image
@@ -128,6 +160,14 @@ field_settings:
     property_path: title
     type: string
     boost: !!float 2
+    dependencies:
+      module:
+        - node
+  title_for_ui:
+    label: 'Title for UI'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
     dependencies:
       module:
         - node

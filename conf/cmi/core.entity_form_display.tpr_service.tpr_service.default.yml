@@ -105,6 +105,16 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+  has_unit:
+    type: readonly_field_widget
+    weight: 27
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
   hide_sidebar_navigation:
     type: boolean_checkbox
     weight: 21
@@ -147,11 +157,31 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  name_synonyms:
+    type: readonly_field_widget
+    weight: 26
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
   path:
     type: path
     weight: 7
     region: content
     settings: {  }
+    third_party_settings: {  }
+  service_id:
+    type: readonly_field_widget
+    weight: 28
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
     third_party_settings: {  }
   simple_sitemap:
     weight: 10
