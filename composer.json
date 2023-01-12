@@ -12,8 +12,8 @@
         "city-of-helsinki/helfi-kymp-district-project-search": "0.8",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
-        "drupal/core-composer-scaffold": "~9.4.5",
-        "drupal/core-recommended": "~9.4.5",
+        "drupal/core-composer-scaffold": "^9.4",
+        "drupal/core-recommended": "^9.4",
         "drupal/filelog": "^2.1",
         "drupal/hdbt": "^4.0",
         "drupal/hdbt_admin": "^1.0",
@@ -22,7 +22,7 @@
         "drupal/helfi_media_map": "^1.0",
         "drupal/helfi_navigation": "^1.0",
         "drupal/helfi_platform_config": "^2.0",
-        "drupal/helfi_proxy": "^2.0",
+        "drupal/helfi_proxy": "^3.0",
         "drupal/helfi_tpr": "^2.0",
         "drupal/helfi_tunnistamo": "^2.0",
         "drupal/key_value_field": "^1.3",
@@ -31,7 +31,7 @@
         "drupal/redis": "^1.5",
         "drupal/stage_file_proxy": "^1.2",
         "drupal/translatable_menu_link_uri": "^2.0",
-        "drush/drush": "^10.4"
+        "drush/drush": "^10.4 || ^11"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
