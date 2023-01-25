@@ -7,13 +7,13 @@ name: KYMP
 url: 'http://elastic:9200'
 options:
   multiple_nodes_connection: false
-  use_authentication: 1
+  use_authentication: true
   authentication_type: Basic
   username: ''
   password: ''
-  timeout: '3'
+  timeout: 3
   rewrite:
-    rewrite_index: 1
+    rewrite_index: true
     index:
       prefix: ''
       suffix: ''
