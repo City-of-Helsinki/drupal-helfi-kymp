@@ -7,6 +7,9 @@ jobs:
   release-pr:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
       - name: Create pull request
         run: |
           gh pr create \
