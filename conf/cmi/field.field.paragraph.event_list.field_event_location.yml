@@ -1,0 +1,25 @@
+uuid: 7d0d179d-39a9-4c68-a0bf-59bc54eb2ede
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_location
+    - paragraphs.paragraphs_type.event_list
+_core:
+  default_config_hash: qn_ofDevCfu_ZKP8n6kRAQFTmy0cRAXNJUvxS6mU-6Q
+id: paragraph.event_list.field_event_location
+field_name: field_event_location
+entity_type: paragraph
+bundle: event_list
+label: 'Event location'
+description: 'Show "event location" filter. Do not use at the same time with the "Remote events" filter.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
