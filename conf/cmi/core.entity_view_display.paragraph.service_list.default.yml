@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.service_list.field_service_list_description
-    - field.field.paragraph.service_list.field_service_list_meta_load_mor
     - field.field.paragraph.service_list.field_service_list_services
     - field.field.paragraph.service_list.field_service_list_title
     - paragraphs.paragraphs_type.service_list
@@ -21,14 +20,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_service_list_meta_load_mor:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_service_list_services:
     type: entity_reference_entity_id
