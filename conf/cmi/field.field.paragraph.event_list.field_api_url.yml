@@ -8,13 +8,13 @@ dependencies:
   module:
     - link
 _core:
-  default_config_hash: nkKsGw0gRWVU1GwZugGKaiSe3OoNrBjDpoUXkkt457Y
+  default_config_hash: lGeClo15Zf7kvOo9oZobBROAy8-TnAFRtIwnSvDIArY
 id: paragraph.event_list.field_api_url
 field_name: field_api_url
 entity_type: paragraph
 bundle: event_list
 label: 'Api URL'
-description: 'Add URL from tapahtumat.hel.fi to form a list of events'
+description: 'Add URL from tapahtumat.hel.fi to form a list of events. Example URL: https://tapahtumat.hel.fi/fi/events?categories=museum'
 required: false
 translatable: false
 default_value: {  }

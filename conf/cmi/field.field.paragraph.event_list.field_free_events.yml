@@ -1,0 +1,25 @@
+uuid: 6e35d5de-9645-4331-ac17-bc4c9c6f2efd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_free_events
+    - paragraphs.paragraphs_type.event_list
+_core:
+  default_config_hash: 43RWM8pRAJy3tpuEGjFEy4ghMhQoCznir0O2015s_hc
+id: paragraph.event_list.field_free_events
+field_name: field_free_events
+entity_type: paragraph
+bundle: event_list
+label: 'Free events'
+description: 'Show "list only free events" filter.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
