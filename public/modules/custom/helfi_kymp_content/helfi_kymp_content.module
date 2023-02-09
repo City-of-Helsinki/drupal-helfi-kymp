@@ -36,7 +36,7 @@ function helfi_kymp_content_preprocess_block(&$variables) {
   }
 
   // Get current entity and entity version.
-  $entity_matcher = \Drupal::service('hdbt_content.entity_version_matcher')->getType();
+  $entity_matcher = \Drupal::service('helfi_platform_config.entity_version_matcher')->getType();
 
   /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
   $entity = $entity_matcher['entity'];
@@ -250,7 +250,7 @@ function helfi_kymp_content_preprocess_page(&$variables) {
   $variables['has_section_nav'] = FALSE;
 
   // District content type alterations.
-  $node = hdbt_content_get_page_entity();
+  $node = hdbt_admin_tools_get_page_entity();
   if ($node instanceof NodeInterface) {
     if ($node->getType() === 'district') {
       // Handle first and second sidebar visibility for the "District"
