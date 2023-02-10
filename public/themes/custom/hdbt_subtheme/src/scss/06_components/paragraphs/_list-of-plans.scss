@@ -43,6 +43,23 @@
   margin-top: $spacing-double;
 }
 
+.list-of-plans__pager {
+  margin-top: $spacing-double;
+
+  @include breakpoint($breakpoint-m) {
+    margin-top: $spacing-quadruple;
+    text-align: center;
+  }
+}
+
+.list-of-plans__pager-button {
+  width: 100%;
+
+  @include breakpoint($breakpoint-m) {
+    width: auto;
+  }
+}
+
 .plan {
   background-color: $color-white;
   margin-top: $spacing-half;
