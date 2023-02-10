@@ -15,7 +15,7 @@
       }
 
       // Show more items when clicking the button.
-      $('.pager-button').click(function(e) {
+      $('.list-of-plans__pager-button').click(function(e) {
         e.preventDefault();
 
         numberOfItems = numberOfItems + showMoreItems;
@@ -28,7 +28,7 @@
 
         // Hide the button when all items are visible.
         if (numberOfItems >= initialPlanCount) {
-          $('.pager-button').hide();
+          $('.list-of-plans__pager-button').hide();
         }
       });
     }

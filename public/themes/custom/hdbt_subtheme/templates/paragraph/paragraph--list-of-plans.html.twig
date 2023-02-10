@@ -40,13 +40,11 @@
           {% endfor %}
 
           {% if plan_count > 8 %}
-            <ul class="pager infinite-scroll-pager">
-              <li>
-                <a href="#" class="hds-button hds-button--primary pager-button" rel="next">
-                  <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
-                </a>
-              </li>
-            </ul>
+            <div class="list-of-plans__pager">
+              <a href="#" class="hds-button hds-button--primary list-of-plans__pager-button" rel="next">
+                <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
+              </a>
+            </div>
           {% endif %}
 
         </div>
