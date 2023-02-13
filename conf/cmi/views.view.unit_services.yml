@@ -2,12 +2,11 @@ uuid: 6fe2842b-828d-433c-bf93-971db328cf46
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.tpr_service.teaser
   module:
     - helfi_tpr
     - user
-    - views_infinite_scroll
-_core:
-  default_config_hash: T2t3K6CcI37herb9On_hZftBPSL6mGvVgvuK1LmFta4
 id: unit_services
 label: 'Unit services'
 module: views
@@ -18,7 +17,7 @@ base_field: id
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
@@ -76,15 +75,17 @@ display:
           hide_alter_empty: true
           view_mode: teaser
       pager:
-        type: infinite_scroll
+        type: full
         options:
           offset: 0
-          items_per_page: 8
+          items_per_page: 4
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -93,10 +94,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load more services'
-            automatically_load_content: false
-            initially_load_all_pages: false
+          quantity: 9
       exposed_form:
         type: basic
         options:

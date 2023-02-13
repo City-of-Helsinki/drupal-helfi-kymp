@@ -7,9 +7,6 @@ dependencies:
   module:
     - helfi_tpr
     - user
-    - views_infinite_scroll
-_core:
-  default_config_hash: _Z7QJuAWq4ELCa01yjAzWc7af1YwQkfp33pQZ9uAOwI
 id: service_units
 label: 'Service units'
 module: views
@@ -20,7 +17,7 @@ base_field: id
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
@@ -91,15 +88,17 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: infinite_scroll
+        type: full
         options:
           offset: 0
-          items_per_page: 5
+          items_per_page: 8
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -108,10 +107,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load more service locations'
-            automatically_load_content: false
-            initially_load_all_pages: false
+          quantity: 9
       exposed_form:
         type: basic
         options:

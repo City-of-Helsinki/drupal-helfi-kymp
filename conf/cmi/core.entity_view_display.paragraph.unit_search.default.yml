@@ -6,7 +6,6 @@ dependencies:
     - field.field.paragraph.unit_search.field_unit_search_description
     - field.field.paragraph.unit_search.field_unit_search_meta_button
     - field.field.paragraph.unit_search.field_unit_search_meta_label
-    - field.field.paragraph.unit_search.field_unit_search_meta_load_more
     - field.field.paragraph.unit_search.field_unit_search_meta_placehold
     - field.field.paragraph.unit_search.field_unit_search_title
     - field.field.paragraph.unit_search.field_unit_search_units
@@ -42,14 +41,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_unit_search_meta_load_more:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
     region: content
   field_unit_search_meta_placehold:
     type: string
