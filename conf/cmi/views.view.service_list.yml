@@ -7,7 +7,6 @@ dependencies:
   module:
     - helfi_tpr
     - user
-    - views_infinite_scroll
 id: service_list
 label: 'Service list'
 module: views
@@ -103,15 +102,17 @@ display:
           entity_field: name_override
           plugin_id: field
       pager:
-        type: infinite_scroll
+        type: full
         options:
           offset: 0
-          items_per_page: 8
+          items_per_page: 4
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -120,10 +121,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load more services'
-            automatically_load_content: false
-            initially_load_all_pages: false
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -327,8 +325,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -556,8 +553,7 @@ display:
       defaults:
         fields: false
         arguments: false
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
