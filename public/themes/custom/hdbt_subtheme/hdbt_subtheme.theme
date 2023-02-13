@@ -41,7 +41,7 @@ function hdbt_subtheme_theme_suggestions_menu_alter(&$suggestions, $variables) {
       'mainnavigation' => 'menu__main__desktop',
       'main_navigation_level_2' => 'menu__main__sidebar',
       'brandingnavigation' => 'menu__main__branding',
-      default => 'menu__'.$variables['attributes']['block_id'],
+      default => 'menu__' . $variables['attributes']['block_id'],
     };
   }
 }
