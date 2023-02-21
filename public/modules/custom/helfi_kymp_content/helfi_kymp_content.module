@@ -11,6 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
+use Drupal\paragraphs\ParagraphInterface;
 
 /**
  * Implements hook_theme().
@@ -31,7 +32,7 @@ function helfi_kymp_content_theme() {
  * Implements hook_preprocess_HOOK().
  */
 function helfi_kymp_content_preprocess_block(&$variables) {
-  if ($variables["plugin_id"] !== 'hero_block') {
+  if ($variables['plugin_id'] !== 'hero_block') {
     return;
   }
 
@@ -41,34 +42,33 @@ function helfi_kymp_content_preprocess_block(&$variables) {
   /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
   $entity = $entity_matcher['entity'];
 
-  // No need to continue if current entity doesn't have has_hero field.
+  // No need to continue if current entity doesn't have hero set.
   if (
     !$entity instanceof ContentEntityInterface ||
-    !$entity->hasField('field_has_hero')
+    !$entity->hasField('field_has_hero') ||
+    !(bool) $entity->get('field_has_hero')->value ||
+    $entity->get('field_content')->isEmpty()
   ) {
     return;
   }
+  $paragraph = $entity->get('field_content')->first()->get('entity')->getValue();
 
-  if ((bool) $entity->get('field_has_hero')->value) {
-    if (
-      in_array($entity->getType(), ['landing_page', 'page']) &&
-      isset($entity->get('field_content')->first()->entity)
-    ) {
+  if (
+    empty($paragraph) ||
+    !in_array($entity->getType(), ['landing_page', 'page']) ||
+    !$paragraph instanceof ParagraphInterface
+  ) {
+    return;
+  }
+  $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
 
-      $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
-
-      // Check if the content field first paragraph is District and project
-      // search or District listing and add classes accordingly.
-      $paragraph = $entity->get('field_content')->first()->entity;
-      if (!empty($paragraph)) {
-        switch ($paragraph->getType()) {
-          case 'district_and_project_search':
-          case 'district_listing':
-            $first_paragraph_gray = 'has-first-gray-bg-block';
-            break;
-        }
-      }
-    }
+  // Check if the content field first paragraph is District and project
+  // search or District listing and add classes accordingly.
+  switch ($paragraph->getType()) {
+    case 'district_and_project_search':
+    case 'district_listing':
+      $first_paragraph_gray = 'has-first-gray-bg-block';
+      break;
   }
 }
 
