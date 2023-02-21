@@ -90,7 +90,7 @@ function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $for
       break;
   }
   // Custom submit callback.
-  $form['actions']['submit']['#submit'][] = 'hdbt_admin_editorial_node_form_submit_callback';
+  $form['actions']['submit']['#submit'][] = 'hdbt_admin_tools_node_form_submit_callback';
 }
 
 /**
