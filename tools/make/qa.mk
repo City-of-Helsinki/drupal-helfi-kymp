@@ -43,7 +43,7 @@ test-phpunit: ## Run PHPUnit tests
 ifeq ($(CI),true)
 	vendor/bin/phpunit -c phpunit.xml.dist --testsuite $(TESTSUITES)
 else
-	$(call docker_run_cmd,${DOCKER_PROJECT_ROOT}/vendor/bin/phpunit -c $(DOCKER_PROJECT_ROOT)/phpunit.xml.dist \
+	$(call docker,${DOCKER_PROJECT_ROOT}/vendor/bin/phpunit -c $(DOCKER_PROJECT_ROOT)/phpunit.xml.dist \
 		--testsuite $(TESTSUITES))
 endif
 	$(call test_result,test-phpunit,"[OK]")
@@ -60,8 +60,8 @@ endef
 
 ifeq ($(CS_INSTALLED),yes)
 define cs
-$(call docker_run_cmd,vendor/bin/$(1) --config-set installed_paths $(CS_STANDARD_PATHS))
-$(call docker_run_cmd,vendor/bin/$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
+$(call docker_compose_exec,vendor/bin/$(1) --config-set installed_paths $(CS_STANDARD_PATHS))
+$(call docker_compose_exec,vendor/bin/$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
 endef
 else
 define cs
