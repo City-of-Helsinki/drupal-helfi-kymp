@@ -14,11 +14,7 @@ composer-update: ## Update Composer packages
 PHONY += composer-install
 composer-install: ## Install Composer packages
 	$(call step,Do Composer install...\n)
-ifeq ($(ENV),production)
-	$(call composer,install $(COMPOSER_PROD_FLAGS))
-else
-	$(call composer,install)
-endif
+	$(call composer,install$(if $(filter production,$(ENV)), $(COMPOSER_PROD_FLAGS),))
 
 PHONY += composer-outdated
 composer-outdated: ## Show outdated Composer packages
@@ -27,7 +23,7 @@ composer-outdated: ## Show outdated Composer packages
 
 ifeq ($(RUN_ON),docker)
 define composer
-	$(call docker_run_cmd,cd $(DOCKER_PROJECT_ROOT) && composer --ansi$(if $(filter $(COMPOSER_JSON_PATH),.),, --working-dir=$(COMPOSER_JSON_PATH)) $(1))
+	$(call docker_compose_exec,composer --ansi$(if $(filter $(COMPOSER_JSON_PATH),.),, --working-dir=$(COMPOSER_JSON_PATH)) $(1))
 endef
 else
 define composer

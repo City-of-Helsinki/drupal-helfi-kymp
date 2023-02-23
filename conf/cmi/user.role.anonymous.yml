@@ -8,6 +8,9 @@ dependencies:
     - helfi_tpr
     - media
     - system
+    - rest
+  config:
+    - rest.resource.helfi_global_mobile_menu
 _core:
   default_config_hash: EDyVdaROG6pYzyEct43c01Wq4gpATszrk-qR6gqnQ84
 id: anonymous
@@ -21,3 +24,4 @@ permissions:
   - 'view remote entities'
   - 'view tpr_service'
   - 'view tpr_unit'
+  - 'restful get helfi_global_mobile_menu'

@@ -49,7 +49,7 @@ fresh: ## Build fresh development environment
 PHONY += fix-symfony
 fix-symfony: tools/php-cs-fixer/vendor ## Fix Symfony code style
 	$(call step,Fix Symfony code style in ./src ...\n)
-	$(call docker_run_cmd,tools/php-cs-fixer/vendor/bin/php-cs-fixer --ansi -vvvv fix src)
+	$(call docker_compose_exec,tools/php-cs-fixer/vendor/bin/php-cs-fixer --ansi -vvvv fix src)
 
 PHONY += lint-symfony
 lint-symfony: PATHS := src
@@ -64,17 +64,17 @@ tools/php-cs-fixer/vendor:
 
 ifeq ($(RUN_ON),docker)
 define sf_console
-	$(call docker_run_cmd,bin/console --ansi $(1))
+	$(call docker_compose_exec,bin/console $(1))
 endef
 else
 define sf_console
-	@bin/console --ansi $(1)
+	@bin/console $(1)
 endef
 endif
 
 ifeq ($(CS_INSTALLED),yes)
 define cs_symfony
-$(call docker_run_cmd,vendor/bin/phpcs --ignore=node_modules $(1))
+$(call docker_compose_exec,vendor/bin/phpcs --ignore=node_modules $(1))
 endef
 else
 define cs_symfony
