@@ -2,6 +2,8 @@ uuid: f3591290-abd6-4f5d-bcfa-71a324b376ae
 langcode: en
 status: true
 dependencies:
+  config:
+    - rest.resource.helfi_global_mobile_menu
   module:
     - eu_cookie_compliance
     - helfi_api_base
@@ -10,8 +12,6 @@ dependencies:
     - system
     - toolbar
     - rest
-  config:
-    - rest.resource.helfi_global_mobile_menu
 _core:
   default_config_hash: 83Nuup-6oYkkdAsvg3nrR2pBOgtTXEV1JrzpCCLkYLM
 id: authenticated
