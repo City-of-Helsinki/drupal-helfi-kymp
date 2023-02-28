@@ -2723,6 +2723,10 @@
                     "role": "Maintainer"
                 },
                 {
+                    "name": "lhangea",
+                    "homepage": "https://www.drupal.org/user/2743803"
+                },
+                {
                     "name": "miro_dietiker",
                     "homepage": "https://www.drupal.org/user/227761"
                 },
@@ -3999,16 +4003,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "4.4.14",
+            "version": "4.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "376c9fa26748b10829ebb2bbff40924969d41f35"
+                "reference": "6065c40f968f5b3dfcb42b8fb295ad8b41867c15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/376c9fa26748b10829ebb2bbff40924969d41f35",
-                "reference": "376c9fa26748b10829ebb2bbff40924969d41f35",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/6065c40f968f5b3dfcb42b8fb295ad8b41867c15",
+                "reference": "6065c40f968f5b3dfcb42b8fb295ad8b41867c15",
                 "shasum": ""
             },
             "require": {
@@ -4023,10 +4027,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.4.14",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.4.17",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2023-02-23T08:37:56+00:00"
+            "time": "2023-02-28T07:38:40+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4438,16 +4442,16 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "467379e347873021e9218e330732b29c51fdad1a"
+                "reference": "625d1baf0df705d96bd8b59fb9e6a6166dbcee77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/467379e347873021e9218e330732b29c51fdad1a",
-                "reference": "467379e347873021e9218e330732b29c51fdad1a",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/625d1baf0df705d96bd8b59fb9e6a6166dbcee77",
+                "reference": "625d1baf0df705d96bd8b59fb9e6a6166dbcee77",
                 "shasum": ""
             },
             "require": {
@@ -4464,6 +4468,7 @@
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "drupal/coder": "^8.3",
+                "drupal/simple_sitemap": "^4.1",
                 "phpspec/prophecy-phpunit": "^2"
             },
             "type": "drupal-module",
@@ -4472,10 +4477,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/3.0.2",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/3.0.3",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2023-01-16T09:45:08+00:00"
+            "time": "2023-02-28T07:10:49+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
@@ -6668,17 +6673,17 @@
         },
         {
             "name": "drupal/twig_tweak",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/twig_tweak.git",
-                "reference": "3.2.0"
+                "reference": "3.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.2.0.zip",
-                "reference": "3.2.0",
-                "shasum": "2e5944a0705929f9db21a8684fdca0d1a0b001e4"
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.2.1.zip",
+                "reference": "3.2.1",
+                "shasum": "89fc08b60f494a7d786251b6c2c493c536218222"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10.0",
@@ -6693,8 +6698,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.2.0",
-                    "datestamp": "1664084754",
+                    "version": "3.2.1",
+                    "datestamp": "1677404306",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
