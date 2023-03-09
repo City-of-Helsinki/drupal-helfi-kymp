@@ -60,7 +60,7 @@ shell-%: ## Login to remote instance
 
 PHONY += sync
 sync: ## Sync data from other environments
-	$(call group_step,Sync:$(NO_COLOR) $(SYNC_TARGETS)\n)
+	$(call group_step,Sync:$(NO_COLOR) $(SYNC_TARGETS))
 	@$(MAKE) $(SYNC_TARGETS) ENV=$(ENV)
 
 PHONY += gh-download-dump
