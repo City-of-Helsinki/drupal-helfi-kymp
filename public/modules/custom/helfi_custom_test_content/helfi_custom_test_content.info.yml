@@ -1,0 +1,12 @@
+name: 'HELfi Custom test content'
+type: module
+core: 8.x
+core_version_requirement: '^8 || ^9'
+package: HELfi
+dependencies:
+  - helfi_test_content:helfi_test_content
+default_content:
+  menu_link_content:
+    - efa4ebeb-7b3a-442b-b1c4-370cae548442
+  node:
+    - a8f3cf05-f5e3-4fba-8514-642d8d77e05a
