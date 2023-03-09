@@ -1,25 +1,25 @@
 _meta:
   version: '1.0'
   entity_type: menu_link_content
-  uuid: efa4ebeb-7b3a-442b-b1c4-370cae548442
+  uuid: b58878d7-e165-48b5-b9ca-858061764b19
   bundle: menu_link_content
   default_langcode: en
   depends:
-    0f1e306e-7940-42f1-a924-ff14e1af3983: menu_link_content
-    a8f3cf05-f5e3-4fba-8514-642d8d77e05a: node
+    d0e23094-7fdf-4141-8ab3-175a79cf688f: menu_link_content
+    8621246c-2d89-442c-bc9e-67f88df0a9c1: node
 default:
   enabled:
     -
       value: true
   title:
     -
-      value: 'DC: component list of plans'
+      value: 'DC: layouts custom'
   menu_name:
     -
       value: main
   link:
     -
-      target_uuid: a8f3cf05-f5e3-4fba-8514-642d8d77e05a
+      target_uuid: 8621246c-2d89-442c-bc9e-67f88df0a9c1
       title: ''
       options: {  }
   external:
@@ -36,7 +36,7 @@ default:
       value: false
   parent:
     -
-      value: 'menu_link_content:0f1e306e-7940-42f1-a924-ff14e1af3983'
+      value: 'menu_link_content:d0e23094-7fdf-4141-8ab3-175a79cf688f'
   revision_translation_affected:
     -
       value: true
@@ -54,4 +54,4 @@ default:
       value: true
   content_translation_created:
     -
-      value: 1658296112
+      value: 1678371520
