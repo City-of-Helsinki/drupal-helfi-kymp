@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.district.field_subdistricts
     - node.type.district
   module:
-    - hdbt_admin_editorial
+    - hdbt_admin_tools
     - media_library
     - metatag
     - paragraphs
@@ -170,6 +170,12 @@ content:
   publish_on:
     type: datetime_timestamp_no_default
     weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

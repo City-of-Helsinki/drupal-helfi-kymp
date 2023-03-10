@@ -10,18 +10,18 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
-    - paragraphs.paragraphs_type.district_and_project_search
-    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
-    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
     - paragraphs.paragraphs_type.phasing
+    - paragraphs.paragraphs_type.popular_services
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.service_list
+    - paragraphs.paragraphs_type.service_list_search
+    - paragraphs.paragraphs_type.target_group_links
     - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
@@ -42,130 +42,77 @@ settings:
   handler_settings:
     target_bundles:
       columns: columns
-      banner: banner
       list_of_links: list_of_links
-      liftup_with_image: liftup_with_image
       content_cards: content_cards
       content_liftup: content_liftup
+      banner: banner
+      liftup_with_image: liftup_with_image
       from_library: from_library
+      chart: chart
       remote_video: remote_video
       map: map
-      chart: chart
-      unit_search: unit_search
-      event_list: event_list
       news_list: news_list
-      district_listing: district_listing
-      service_list: service_list
-      district_and_project_search: district_and_project_search
-      list_of_plans: list_of_plans
+      event_list: event_list
       phasing: phasing
       popular_services: popular_services
       target_group_links: target_group_links
+      unit_search: unit_search
+      service_list: service_list
+      service_list_search: service_list_search
     negate: 0
     target_bundles_drag_drop:
-      accordion:
-        weight: -31
-        enabled: false
-      accordion_item:
-        weight: -30
-        enabled: false
       banner:
-        weight: -36
+        weight: 0
         enabled: true
       chart:
-        weight: 25
+        weight: 0
         enabled: true
       columns:
-        weight: -37
+        weight: 0
         enabled: true
-      contact_card:
-        weight: 31
-        enabled: false
-      contact_card_listing:
-        weight: 32
-        enabled: false
       content_cards:
-        weight: -33
+        weight: 0
         enabled: true
       content_liftup:
-        weight: -32
-        enabled: true
-      district_and_project_search:
-        weight: 41
-        enabled: true
-      district_listing:
-        weight: 33
+        weight: 0
         enabled: true
       event_list:
-        weight: 30
+        weight: 0
         enabled: true
       from_library:
-        weight: -23
+        weight: 0
         enabled: true
-      gallery:
-        weight: -29
-        enabled: false
-      gallery_slide:
-        weight: -28
-        enabled: false
-      hero:
-        weight: -27
-        enabled: false
-      image:
-        weight: -26
-        enabled: false
       liftup_with_image:
-        weight: -34
+        weight: 0
         enabled: true
       list_of_links:
-        weight: -35
-        enabled: true
-      list_of_links_item:
-        weight: -25
-        enabled: false
-      list_of_plans:
-        weight: 43
+        weight: 0
         enabled: true
       map:
-        weight: -20
+        weight: 0
         enabled: true
       news_list:
-        weight: 30
+        weight: 0
         enabled: true
       phasing:
-        weight: 50
+        weight: 0
         enabled: true
-      phasing_item:
-        weight: 30
-        enabled: false
       popular_services:
-        weight: 42
+        weight: 0
         enabled: true
-      project_listing:
-        weight: 56
-        enabled: false
       remote_video:
-        weight: -22
+        weight: 0
         enabled: true
       service_list:
-        weight: 36
+        weight: 0
         enabled: true
-      sidebar_text:
-        weight: 47
-        enabled: false
-      social_media_link:
-        weight: 48
-        enabled: false
-      target_group_link_item:
-        weight: 45
-        enabled: false
+      service_list_search:
+        weight: 0
+        enabled: true
       target_group_links:
-        weight: 24
+        weight: 0
         enabled: true
-      text:
-        weight: -24
-        enabled: false
       unit_search:
-        weight: 28
+        weight: 0
         enabled: true
 field_type: entity_reference_revisions

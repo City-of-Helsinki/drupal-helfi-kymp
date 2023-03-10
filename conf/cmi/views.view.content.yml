@@ -250,7 +250,7 @@ display:
           hide_alter_empty: true
           type: timestamp
           settings:
-            date_format: short
+            date_format: long
             custom_date_format: ''
             timezone: ''
         operations:
@@ -642,8 +642,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
       path: admin/content/node
       menu:
         type: 'default tab'

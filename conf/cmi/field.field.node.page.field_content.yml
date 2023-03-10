@@ -16,9 +16,8 @@ dependencies:
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
-    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
-    - paragraphs.paragraphs_type.news_list
+    - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.unit_search
@@ -42,109 +41,68 @@ settings:
     target_bundles:
       text: text
       columns: columns
-      accordion: accordion
       image: image
-      content_liftup: content_liftup
+      accordion: accordion
       list_of_links: list_of_links
+      contact_card_listing: contact_card_listing
       content_cards: content_cards
+      content_liftup: content_liftup
       banner: banner
+      event_list: event_list
       from_library: from_library
+      phasing: phasing
       chart: chart
       remote_video: remote_video
-      unit_search: unit_search
-      contact_card_listing: contact_card_listing
       map: map
-      list_of_plans: list_of_plans
-      event_list: event_list
-      news_list: news_list
-      phasing: phasing
+      unit_search: unit_search
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: -25
+        weight: 0
         enabled: true
-      accordion_item:
-        weight: -20
-        enabled: false
       banner:
-        weight: -16
+        weight: 0
         enabled: true
       chart:
-        weight: 25
+        weight: 0
         enabled: true
       columns:
-        weight: -26
+        weight: 0
         enabled: true
-      contact_card:
-        weight: 30
-        enabled: false
       contact_card_listing:
-        weight: 31
+        weight: 0
         enabled: true
       content_cards:
-        weight: -21
+        weight: 0
         enabled: true
       content_liftup:
-        weight: -22
+        weight: 0
         enabled: true
       event_list:
-        weight: 30
+        weight: 0
         enabled: true
       from_library:
-        weight: 21
+        weight: 0
         enabled: true
-      gallery:
-        weight: -23
-        enabled: false
-      gallery_slide:
-        weight: -19
-        enabled: false
-      hero:
-        weight: -18
-        enabled: false
       image:
-        weight: -24
+        weight: 0
         enabled: true
-      liftup_with_image:
-        weight: -15
-        enabled: false
       list_of_links:
-        weight: -22
-        enabled: true
-      list_of_links_item:
-        weight: -17
-        enabled: false
-      list_of_plans:
-        weight: 43
+        weight: 0
         enabled: true
       map:
-        weight: 31
-        enabled: true
-      news_list:
-        weight: 30
+        weight: 0
         enabled: true
       phasing:
-        weight: 50
+        weight: 0
         enabled: true
-      phasing_item:
-        weight: 30
-        enabled: false
       remote_video:
-        weight: 27
+        weight: 0
         enabled: true
-      service_list:
-        weight: 46
-        enabled: false
-      sidebar_text:
-        weight: 47
-        enabled: false
-      social_media_link:
-        weight: 46
-        enabled: false
       text:
-        weight: -27
+        weight: 0
         enabled: true
       unit_search:
-        weight: 28
+        weight: 0
         enabled: true
 field_type: entity_reference_revisions

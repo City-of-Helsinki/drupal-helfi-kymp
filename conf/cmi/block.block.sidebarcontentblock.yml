@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hdbt_content
+    - hdbt_admin_tools
   theme:
     - hdbt
 id: sidebarcontentblock
@@ -16,5 +16,5 @@ settings:
   id: sidebar_content_block
   label: 'Sidebar content block'
   label_display: '0'
-  provider: hdbt_content
+  provider: hdbt_admin_tools
 visibility: {  }

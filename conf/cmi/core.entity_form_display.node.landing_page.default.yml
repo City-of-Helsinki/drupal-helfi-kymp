@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.landing_page.field_metatags
     - node.type.landing_page
   module:
+    - hdbt_admin_tools
     - media_library
     - metatag
     - paragraphs
     - path
+    - publication_date
     - scheduler
 _core:
   default_config_hash: EpKucMjH6qBboFur_x0R89tX9KYcPmS9ijWcfK2fQPA
@@ -113,8 +115,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   scheduler_settings:
     weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

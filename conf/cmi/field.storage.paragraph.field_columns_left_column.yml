@@ -5,6 +5,9 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+  enforced:
+    config:
+      - paragraphs.paragraphs_type.columns
 _core:
   default_config_hash: 2ltVYjn6epl4lpmh_AI6gI_WCUR9oDl1wtOVc335s1Y
 id: paragraph.field_columns_left_column

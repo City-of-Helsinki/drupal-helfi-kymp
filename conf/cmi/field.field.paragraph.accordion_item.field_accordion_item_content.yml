@@ -7,6 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.accordion_item
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -32,70 +33,16 @@ settings:
       phasing: phasing
     negate: 0
     target_bundles_drag_drop:
-      accordion:
-        weight: 12
-        enabled: false
-      accordion_item:
-        weight: 13
-        enabled: false
-      banner:
-        weight: 23
-        enabled: false
       columns:
-        weight: 14
+        weight: 0
         enabled: true
-      content_cards:
-        weight: 25
-        enabled: false
-      content_liftup:
-        weight: 26
-        enabled: false
-      from_library:
-        weight: 27
-        enabled: false
-      gallery:
-        weight: 15
-        enabled: false
-      gallery_slide:
-        weight: 16
-        enabled: false
-      hero:
-        weight: 17
-        enabled: false
       image:
-        weight: 18
+        weight: 0
         enabled: true
-      liftup_with_image:
-        weight: 32
-        enabled: false
-      list_of_links:
-        weight: 20
-        enabled: false
-      list_of_links_item:
-        weight: 21
-        enabled: false
-      map:
-        weight: 35
-        enabled: false
       phasing:
-        weight: 49
+        weight: 0
         enabled: true
-      phasing_item:
-        weight: 50
-        enabled: false
-      remote_video:
-        weight: 36
-        enabled: false
-      service_list:
-        weight: 37
-        enabled: false
-      sidebar_text:
-        weight: 38
-        enabled: false
       text:
-        weight: 22
+        weight: 0
         enabled: true
-      unit_search:
-        weight: 40
-        enabled: false
 field_type: entity_reference_revisions
