@@ -1,0 +1,150 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 19b7130b-8dce-4daa-a604-d490e79d839c
+  bundle: district
+  default_langcode: en
+  depends:
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+    41c41049-c78d-4dab-913f-b10f3433c52c: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout district - hero - subnav - sidebar - toc'
+  created:
+    -
+      value: 1678437959
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: true
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /urban-planning-and-construction/urban-development/dc-layout-district-hero-subnav-sidebar-toc
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1fd9287b-db01-4d8d-b7ad-7b8a0d309990
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678438021
+          behavior_settings:
+            -
+              value: {  }
+          field_text:
+            -
+              value: "<h2>Praesent sapien massa</h2>\r\n\r\n<p>Convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<h2>Curabitur non nulla</h2>\r\n\r\n<p>Sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+              format: full_html
+  field_district_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_has_hero:
+    -
+      value: true
+  field_hero:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a7f46329-40b2-47f6-972d-fca9b29e7a1f
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678437988
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_hero_bg_color:
+            -
+              value: coat-of-arms
+          field_hero_desc:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>\r\n"
+              format: full_html
+          field_hero_design:
+            -
+              value: with-image-right
+          field_hero_image:
+            -
+              entity: 41c41049-c78d-4dab-913f-b10f3433c52c
+          field_hero_link_design:
+            -
+              value: primary
+          field_hero_title:
+            -
+              value: 'DC: layout district - hero - subnav - sidebar - toc'
+  field_sidebar_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: dfbb26b2-195f-413d-8664-93faa80b1e04
+          bundle: sidebar_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678438028
+          behavior_settings:
+            -
+              value: {  }
+          field_sidebar_text_text:
+            -
+              value: "<p>Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.</p>\r\n\r\n<p>Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada.</p>\r\n\r\n<ul>\r\n\t<li>Sed porttitor lectus nibh.</li>\r\n\t<li>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</li>\r\n</ul>\r\n"
+              format: minimal
+          field_sidebar_text_title:
+            -
+              value: 'Curabitur non nulla sit amet'

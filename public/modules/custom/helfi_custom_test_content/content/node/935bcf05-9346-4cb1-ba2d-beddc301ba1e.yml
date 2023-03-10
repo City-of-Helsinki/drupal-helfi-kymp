@@ -1,0 +1,85 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 935bcf05-9346-4cb1-ba2d-beddc301ba1e
+  bundle: district
+  default_langcode: en
+  depends:
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout district - no-hero - subnav - no-sidebar - toc'
+  created:
+    -
+      value: 1678438534
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: true
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /urban-planning-and-construction/urban-development/dc-layout-district-no-hero-subnav-no-sidebar-toc
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c7d8cab8-3dcb-498e-8918-13bf1051ed78
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678438589
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_text:
+            -
+              value: "<h2 id=\"praesent-sapien-massa\">Praesent sapien massa</h2>\r\n\r\n<p>Convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<h2 id=\"curabitur-non-nulla\">Curabitur non nulla</h2>\r\n\r\n<p>Sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+              format: full_html
+  field_district_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_has_hero:
+    -
+      value: false

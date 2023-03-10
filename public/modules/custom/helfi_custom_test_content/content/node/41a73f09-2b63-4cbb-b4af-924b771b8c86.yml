@@ -1,0 +1,121 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 41a73f09-2b63-4cbb-b4af-924b771b8c86
+  bundle: district
+  default_langcode: en
+  depends:
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+    41c41049-c78d-4dab-913f-b10f3433c52c: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout district - hero - subnav - no-sidebar - no-toc'
+  created:
+    -
+      value: 1678435556
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /urban-planning-and-construction/urban-development/dc-layout-district-hero-subnav-no-sidebar-no-toc
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d37c66e5-c721-4912-8f93-faca24060709
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678437634
+          behavior_settings:
+            -
+              value: {  }
+          field_text:
+            -
+              value: "<p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+              format: full_html
+  field_district_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_has_hero:
+    -
+      value: true
+  field_hero:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c1a2f1c5-4b33-4404-8cb0-d284001f90e4
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678435578
+          behavior_settings:
+            -
+              value: {  }
+          field_hero_bg_color:
+            -
+              value: coat-of-arms
+          field_hero_desc:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>\r\n"
+              format: full_html
+          field_hero_design:
+            -
+              value: with-image-right
+          field_hero_image:
+            -
+              entity: 41c41049-c78d-4dab-913f-b10f3433c52c
+          field_hero_link_design:
+            -
+              value: primary
+          field_hero_title:
+            -
+              value: 'DC: layout district - hero - subnav - no-sidebar'
