@@ -7,7 +7,6 @@ _meta:
   depends:
     ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
     41c41049-c78d-4dab-913f-b10f3433c52c: media
-    19b7130b-8dce-4daa-a604-d490e79d839c: node
 default:
   revision_uid:
     -
@@ -164,9 +163,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_list_of_links_image:
                     -
                       entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
@@ -203,8 +199,8 @@ default:
                       entity: 41c41049-c78d-4dab-913f-b10f3433c52c
                   field_list_of_links_link:
                     -
-                      target_uuid: 19b7130b-8dce-4daa-a604-d490e79d839c
-                      title: 'DC: layout district - hero - subnav - sidebar - toc'
+                      uri: 'https://hel.fi/fi'
+                      title: 'Hel.fi front page'
                       options:
                         target_new: 0
                         target_check: 0
