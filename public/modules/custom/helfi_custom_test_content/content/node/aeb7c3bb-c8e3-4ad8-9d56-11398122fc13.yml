@@ -1,0 +1,218 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: aeb7c3bb-c8e3-4ad8-9d56-11398122fc13
+  bundle: project
+  default_langcode: en
+  depends:
+    41a73f09-2b63-4cbb-b4af-924b771b8c86: node
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+    5c3777f5-7486-43cb-ada3-8c863440ee84: node
+    878f1f67-55ad-400d-8b4c-8ca47478e1b3: node
+    29e01875-1d07-4c06-8010-134efb989de3: node
+    935bcf05-9346-4cb1-ba2d-beddc301ba1e: node
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+    a0f823a9-c0c4-4a93-87f8-29ad1d924886: taxonomy_term
+    23d3aa90-c3ae-4625-ac77-dad8159b44ae: taxonomy_term
+    54060084-7a8f-4e53-972e-b9408374bef0: taxonomy_term
+    0e23f322-5e26-4e88-8a74-64bcea7ea0ca: taxonomy_term
+    5bff8e48-a256-4c9f-ad2a-1fbf2bb66ded: taxonomy_term
+    739ebb1b-e12f-449d-b823-43d920736421: taxonomy_term
+    49fa458a-08ac-4687-aa30-90e56bc08cbd: taxonomy_term
+    b3ca5b4f-c67f-46b7-9a66-fb723b657ef9: taxonomy_term
+    d76fa671-a165-4762-a5e8-ac3307f41b65: taxonomy_term
+    0d082d92-67e6-4c4b-b849-fa81c816e24e: taxonomy_term
+    7c4574a3-0d62-40f4-86a6-aee93fb2bde6: taxonomy_term
+    3393833a-8704-49bb-96a8-555892601855: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout project - lead - sidebar - picture - lot-of-information'
+  created:
+    -
+      value: 1678453355
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /urban-planning-and-construction/search-plans-and-projects/dc-layout-project-lead-sidebar-picture-0
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 72a91a70-6100-4a84-a05a-afc69821ea46
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678453402
+          behavior_settings:
+            -
+              value: {  }
+          field_text:
+            -
+              value: "<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.</p>\r\n\r\n<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+              format: full_html
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 48824807-8501-4a3e-9643-0a9828dd450a
+          bundle: banner
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678453417
+          behavior_settings:
+            -
+              value: {  }
+          field_banner_desc:
+            -
+              value: "<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>\r\n"
+              format: full_html
+          field_banner_design:
+            -
+              value: align-center
+          field_banner_link:
+            -
+              uri: 'https://example.com'
+              title: 'Example.com website'
+              options:
+                target_new: 0
+                target_check: 0
+                icon: face-smile
+          field_banner_link_design:
+            -
+              value: secondary
+          field_banner_title:
+            -
+              value: 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi'
+  field_lead_in:
+    -
+      value: 'Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  field_project_district:
+    -
+      entity: 41a73f09-2b63-4cbb-b4af-924b771b8c86
+    -
+      entity: 19b7130b-8dce-4daa-a604-d490e79d839c
+    -
+      entity: 5c3777f5-7486-43cb-ada3-8c863440ee84
+    -
+      entity: 878f1f67-55ad-400d-8b4c-8ca47478e1b3
+    -
+      entity: 29e01875-1d07-4c06-8010-134efb989de3
+    -
+      entity: 935bcf05-9346-4cb1-ba2d-beddc301ba1e
+  field_project_execution_schedule:
+    -
+      value: '2023-03-27'
+      end_value: '2023-04-02'
+  field_project_external_website:
+    -
+      uri: 'http://example.com'
+      title: ''
+      options: {  }
+  field_project_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_project_phase:
+    -
+      entity: a0f823a9-c0c4-4a93-87f8-29ad1d924886
+  field_project_plan_schedule:
+    -
+      value: '2023-03-19T22:00:00'
+      end_value: '2023-03-26T20:59:59'
+  field_project_theme:
+    -
+      entity: 23d3aa90-c3ae-4625-ac77-dad8159b44ae
+    -
+      entity: 54060084-7a8f-4e53-972e-b9408374bef0
+    -
+      entity: 0e23f322-5e26-4e88-8a74-64bcea7ea0ca
+    -
+      entity: 5bff8e48-a256-4c9f-ad2a-1fbf2bb66ded
+    -
+      entity: 739ebb1b-e12f-449d-b823-43d920736421
+  field_project_type:
+    -
+      entity: 49fa458a-08ac-4687-aa30-90e56bc08cbd
+    -
+      entity: b3ca5b4f-c67f-46b7-9a66-fb723b657ef9
+    -
+      entity: d76fa671-a165-4762-a5e8-ac3307f41b65
+    -
+      entity: 0d082d92-67e6-4c4b-b849-fa81c816e24e
+    -
+      entity: 7c4574a3-0d62-40f4-86a6-aee93fb2bde6
+    -
+      entity: 3393833a-8704-49bb-96a8-555892601855
+  field_sidebar_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 8a1ec3ba-fe71-4579-89a6-c74888deec72
+          bundle: sidebar_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678453472
+          behavior_settings:
+            -
+              value: {  }
+          field_sidebar_text_text:
+            -
+              value: "<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>\r\n\r\n<p>Pellentesque in ipsum id orci porta dapibus.</p>\r\n\r\n<ul>\r\n\t<li>Vivamus suscipit tortor eget felis porttitor volutpat.</li>\r\n\t<li>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.&nbsp;</li>\r\n</ul>\r\n"
+              format: minimal
+          field_sidebar_text_title:
+            -
+              value: 'Cras ultricies ligula sed magna dictum porta'

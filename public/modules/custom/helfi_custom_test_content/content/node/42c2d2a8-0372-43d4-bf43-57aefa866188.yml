@@ -1,0 +1,99 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 42c2d2a8-0372-43d4-bf43-57aefa866188
+  bundle: project
+  default_langcode: en
+  depends:
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+    629ee369-2ae2-4d6e-8925-0377a34e8256: taxonomy_term
+    23d3aa90-c3ae-4625-ac77-dad8159b44ae: taxonomy_term
+    d76fa671-a165-4762-a5e8-ac3307f41b65: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout project - no-lead - no-sidebar - no-picture'
+  created:
+    -
+      value: 1678453171
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /urban-planning-and-construction/search-plans-and-projects/dc-layout-project-no-lead-no-sidebar-no
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a5052cdf-f4ca-4053-9dfa-e893c30b5382
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678453185
+          behavior_settings:
+            -
+              value: {  }
+          field_text:
+            -
+              value: "<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n\r\n<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh.</p>\r\n"
+              format: full_html
+  field_project_district:
+    -
+      entity: 19b7130b-8dce-4daa-a604-d490e79d839c
+  field_project_execution_schedule:
+    -
+      value: '2023-03-27'
+      end_value: '2023-04-02'
+  field_project_phase:
+    -
+      entity: 629ee369-2ae2-4d6e-8925-0377a34e8256
+  field_project_plan_schedule:
+    -
+      value: '2023-03-19T22:00:00'
+      end_value: '2023-03-26T20:59:59'
+  field_project_theme:
+    -
+      entity: 23d3aa90-c3ae-4625-ac77-dad8159b44ae
+  field_project_type:
+    -
+      entity: d76fa671-a165-4762-a5e8-ac3307f41b65
