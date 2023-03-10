@@ -49,6 +49,32 @@ default:
   content_translation_outdated:
     -
       value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: aa873713-c897-40f1-82aa-4d745ecc9252
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678455922
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_text:
+            -
+              value: "<ul>\r\n\t<li>DC: layout district - hero - subnav - sidebar - no-toc</li>\r\n\t<li>DC: layout district - hero - subnav - no-sidebar - no-toc</li>\r\n\t<li>DC: layout district - hero - subnav - sidebar - toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - no-sidebar - no-toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - no-sidebar - toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - sidebar - toc</li>\r\n\t<li>DC: layout project - lead - sidebar - no-picture</li>\r\n\t<li>DC: layout project - lead - sidebar - picture - lot-of-information</li>\r\n\t<li>DC: layout project - lead - sidebar - picture</li>\r\n\t<li>DC: layout project - no-lead - no-sidebar - no-picture</li>\r\n\t<li>DC: layout project - no-lead - no-sidebar - picture</li>\r\n\t<li>DC: layout project - no-lead - sidebar - picture</li>\r\n</ul>\r\n"
+              format: full_html
   field_has_hero:
     -
       value: false

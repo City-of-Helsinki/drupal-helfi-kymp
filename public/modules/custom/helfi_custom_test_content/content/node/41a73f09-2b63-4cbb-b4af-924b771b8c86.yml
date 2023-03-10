@@ -7,6 +7,7 @@ _meta:
   depends:
     ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
     41c41049-c78d-4dab-913f-b10f3433c52c: media
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
 default:
   revision_uid:
     -
@@ -119,3 +120,94 @@ default:
           field_hero_title:
             -
               value: 'DC: layout district - hero - subnav - no-sidebar'
+  field_lower_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3006caee-1fc0-4794-ac2a-088aa3ac288f
+          bundle: list_of_links
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678456860
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_list_of_links_design:
+            -
+              value: with-image
+          field_list_of_links_links:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 04b01c4e-3980-4e1f-bba9-1bd374a76b0e
+                  bundle: list_of_links_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1678456860
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_list_of_links_image:
+                    -
+                      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+                  field_list_of_links_link:
+                    -
+                      uri: 'https://example.com'
+                      title: 'Example.com website'
+                      options:
+                        target_new: 0
+                        target_check: 0
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: c2f97a2c-1e42-4dc0-b72f-0bb653fd023f
+                  bundle: list_of_links_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1678456950
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_list_of_links_image:
+                    -
+                      entity: 41c41049-c78d-4dab-913f-b10f3433c52c
+                  field_list_of_links_link:
+                    -
+                      target_uuid: 19b7130b-8dce-4daa-a604-d490e79d839c
+                      title: 'DC: layout district - hero - subnav - sidebar - toc'
+                      options:
+                        target_new: 0
+                        target_check: 0
+          field_list_of_links_title:
+            -
+              value: 'List of links'
