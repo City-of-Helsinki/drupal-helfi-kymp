@@ -8,6 +8,7 @@
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\helfi_platform_config\DTO\ParagraphTypeCollection;
 use Drupal\node\Entity\Node;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
@@ -284,4 +285,50 @@ function helfi_kymp_content_sidebar_menu_visibility(array &$variables, NodeInter
   elseif (!empty(DistrictUtility::getSubdistrictParentIds($node))) {
     $variables['has_sidebar_first'] = TRUE;
   }
+}
+
+/**
+ * Implements hook_helfi_paragraph_types().
+ */
+function helfi_kymp_content_helfi_paragraph_types() : array {
+  $entities = [
+    'node' => [
+      'page' => [
+        'field_content' => [
+          'list_of_plans',
+        ],
+        'field_lower_content' => [
+          'list_of_plans',
+        ],
+      ],
+      'landing_page' => [
+        'field_content' => [
+          'district_and_project_search',
+          'district_listing',
+          'list_of_plans',
+        ],
+      ],
+    ],
+    'paragraphs_library_item' => [
+      'paragraphs_library_item' => [
+        'paragraphs' => [
+          'district_and_project_search',
+          'district_listing',
+          'list_of_plans',
+        ],
+      ],
+    ],
+  ];
+
+  $enabled = [];
+  foreach ($entities as $entityTypeId => $bundles) {
+    foreach ($bundles as $bundle => $fields) {
+      foreach ($fields as $field => $paragraphTypes) {
+        foreach ($paragraphTypes as $paragraphType) {
+          $enabled[] = new ParagraphTypeCollection($entityTypeId, $bundle, $field, $paragraphType);
+        }
+      }
+    }
+  }
+  return $enabled;
 }
