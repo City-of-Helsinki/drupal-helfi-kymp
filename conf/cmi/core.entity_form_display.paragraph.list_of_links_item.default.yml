@@ -8,8 +8,10 @@ dependencies:
     - field.field.paragraph.list_of_links_item.field_list_of_links_link
     - paragraphs.paragraphs_type.list_of_links_item
   module:
-    - hdbt_admin_editorial
     - media_library
+  enforced:
+    module:
+      - linkit
 _core:
   default_config_hash: U-gNAaUoB_zo65wA8j_8yoVi4ZXBwhsrIEyzS8OMkeg
 id: paragraph.list_of_links_item.default
@@ -37,11 +39,8 @@ content:
     weight: 1
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      link_target: ''
-      linkit_auto_link_text: 0
-      linkit_profile: tpr_content
+      linkit_profile: helfi
+      linkit_auto_link_text: false
     third_party_settings: {  }
 hidden:
   created: true

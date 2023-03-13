@@ -8,26 +8,8 @@ dependencies:
     - field.field.paragraph.service_list.field_service_list_title
     - paragraphs.paragraphs_type.service_list
   module:
-    - field_group
     - select2
     - text
-third_party_settings:
-  field_group:
-    group_service_list_meta:
-      children:
-        - field_service_list_meta_load_mor
-      label: 'Meta information'
-      region: content
-      parent_name: ''
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
 id: paragraph.service_list.default
 targetEntityType: paragraph
 bundle: service_list

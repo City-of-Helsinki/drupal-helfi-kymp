@@ -6,7 +6,11 @@ dependencies:
     - field.storage.paragraph.field_hero_desc
     - paragraphs.paragraphs_type.hero
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
 _core:
   default_config_hash: GnZymgGfpVTqsKATa5zkIXdscsZxW3ZkKMGmL9mDy8g
 id: paragraph.hero.field_hero_desc

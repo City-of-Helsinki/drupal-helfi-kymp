@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_announcement_content_pages
     - node.type.announcement
-    - node.type.article
     - node.type.landing_page
     - node.type.page
 _core:
@@ -24,12 +23,11 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      article: article
       page: page
       landing_page: landing_page
     sort:
       field: title
       direction: ASC
     auto_create: false
-    auto_create_bundle: article
+    auto_create_bundle: page
 field_type: entity_reference
