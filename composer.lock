@@ -4003,16 +4003,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "4.5.1",
+            "version": "4.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "623aea237dfcfb68ddbbc4190fb0baef31529e7b"
+                "reference": "e2d489ee1b463c8b5acde20751172611387e4df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/623aea237dfcfb68ddbbc4190fb0baef31529e7b",
-                "reference": "623aea237dfcfb68ddbbc4190fb0baef31529e7b",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/e2d489ee1b463c8b5acde20751172611387e4df7",
+                "reference": "e2d489ee1b463c8b5acde20751172611387e4df7",
                 "shasum": ""
             },
             "require": {
@@ -4027,10 +4027,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.5.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/4.5.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2023-03-07T07:22:49+00:00"
+            "time": "2023-03-13T07:59:03+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4156,16 +4156,16 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "e2486d70d0bcfb9c696065e2bded6c287fd7a079"
+                "reference": "17e7208e9e08ce015f80d7daf283355d467b0d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/e2486d70d0bcfb9c696065e2bded6c287fd7a079",
-                "reference": "e2486d70d0bcfb9c696065e2bded6c287fd7a079",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/17e7208e9e08ce015f80d7daf283355d467b0d02",
+                "reference": "17e7208e9e08ce015f80d7daf283355d467b0d02",
                 "shasum": ""
             },
             "require": {
@@ -4181,10 +4181,10 @@
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/1.1.2",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/1.2.0",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2022-11-15T03:27:28+00:00"
+            "time": "2023-03-11T05:51:21+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -4560,29 +4560,35 @@
         },
         {
             "name": "drupal/image_style_quality",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/image_style_quality.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/image_style_quality-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "5c2e80cfe88d8902ac9c7b6b3c70f6e8c893ffe1"
+                "url": "https://ftp.drupal.org/files/projects/image_style_quality-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "1ba0ec041c1810286a2c51c01e91c0dc97abf607"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8 || ^9 || ^10",
+                "php": ">=7.4"
             },
             "require-dev": {
-                "drupal/imagemagick": "*"
+                "drupal/imagemagick": "*",
+                "drupal/imagick": "*"
+            },
+            "suggest": {
+                "drupal/imagemagick": "*",
+                "drupal/imagick": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1597367306",
+                    "version": "8.x-1.5",
+                    "datestamp": "1678374565",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4597,6 +4603,10 @@
                 {
                     "name": "Chris Charlton",
                     "homepage": "https://www.drupal.org/user/17089"
+                },
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
                 },
                 {
                     "name": "Sam152",
