@@ -16,6 +16,7 @@ dependencies:
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.remote_video
@@ -39,6 +40,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      list_of_plans: list_of_plans
       text: text
       columns: columns
       image: image
@@ -88,6 +90,9 @@ settings:
         weight: 0
         enabled: true
       list_of_links:
+        weight: 0
+        enabled: true
+      list_of_plans:
         weight: 0
         enabled: true
       map:

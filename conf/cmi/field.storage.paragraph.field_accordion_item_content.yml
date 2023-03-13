@@ -5,6 +5,9 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+  enforced:
+    config:
+      - paragraphs.paragraphs_type.accordion_item
 _core:
   default_config_hash: mOG-smkX52eEQrZjVtUaqeOYVqQIIYHjfMk5GQmdYHs
 id: paragraph.field_accordion_item_content

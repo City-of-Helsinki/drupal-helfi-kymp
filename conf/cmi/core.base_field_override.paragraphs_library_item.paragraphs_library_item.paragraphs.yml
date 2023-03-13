@@ -9,9 +9,12 @@ dependencies:
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
+    - paragraphs.paragraphs_type.district_and_project_search
+    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.service_list
     - paragraphs.paragraphs_type.sidebar_text
@@ -39,6 +42,9 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      district_and_project_search: district_and_project_search
+      district_listing: district_listing
+      list_of_plans: list_of_plans
       accordion: accordion
       banner: banner
       columns: columns
@@ -73,6 +79,12 @@ settings:
       content_liftup:
         weight: 0
         enabled: true
+      district_and_project_search:
+        weight: 0
+        enabled: true
+      district_listing:
+        weight: 0
+        enabled: true
       image:
         weight: 0
         enabled: true
@@ -80,6 +92,9 @@ settings:
         weight: 0
         enabled: true
       list_of_links:
+        weight: 0
+        enabled: true
+      list_of_plans:
         weight: 0
         enabled: true
       map:
