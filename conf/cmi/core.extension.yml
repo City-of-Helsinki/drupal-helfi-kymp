@@ -14,7 +14,6 @@ module:
   config_ignore: 0
   config_rewrite: 0
   config_translation: 0
-  config_update: 0
   content_lock: 0
   content_lock_timeout: 0
   crop: 0
@@ -41,38 +40,53 @@ module:
   focal_point: 0
   gin_toolbar: 0
   hal: 0
-  hdbt_admin_editorial: 0
   hdbt_admin_tools: 0
-  hdbt_component_library: 0
-  hdbt_content: 0
   health_check: 0
-  helfi_announcements: 0
-  helfi_announcements_tpr: 0
   helfi_api_base: 0
   helfi_azure_fs: 0
-  helfi_base_config: 0
-  helfi_charts: 0
-  helfi_contact_cards: 0
-  helfi_content: 0
-  helfi_gdpr_compliance: 0
+  helfi_base_content: 0
+  helfi_ckeditor: 0
+  helfi_eu_cookie_compliance: 0
+  helfi_image_styles: 0
   helfi_kymp_content: 0
   helfi_kymp_district_project_search: 0
   helfi_kymp_migrations: 0
   helfi_kymp_plans: 0
-  helfi_languages: 0
   helfi_media: 0
+  helfi_media_chart: 0
   helfi_media_map: 0
-  helfi_media_map_config: 0
+  helfi_media_remote_video: 0
   helfi_navigation: 0
-  helfi_news_feed: 0
+  helfi_node_announcement: 0
+  helfi_node_landing_page: 0
+  helfi_node_page: 0
+  helfi_paragraphs_accordion: 0
+  helfi_paragraphs_banner: 0
+  helfi_paragraphs_chart: 0
+  helfi_paragraphs_columns: 0
+  helfi_paragraphs_contact_card_listing: 0
+  helfi_paragraphs_content_cards: 0
+  helfi_paragraphs_content_liftup: 0
+  helfi_paragraphs_hero: 0
+  helfi_paragraphs_image: 0
+  helfi_paragraphs_liftup_with_image: 0
+  helfi_paragraphs_list_of_links: 0
+  helfi_paragraphs_map: 0
+  helfi_paragraphs_phasing: 0
+  helfi_paragraphs_popular_services: 0
+  helfi_paragraphs_remote_video: 0
+  helfi_paragraphs_sidebar_text: 0
+  helfi_paragraphs_target_group_links: 0
+  helfi_paragraphs_text: 0
   helfi_platform_config: 0
+  helfi_platform_config_base: 0
   helfi_proxy: 0
   helfi_react_search: 0
-  helfi_siteimprove_config: 0
   helfi_toc: 0
   helfi_tpr: 0
   helfi_tpr_config: 0
   helfi_tunnistamo: 0
+  helfi_user_roles: 0
   image: 0
   image_style_quality: 0
   imagecache_external: 0
@@ -121,7 +135,6 @@ module:
   scheduler: 0
   search_api: 0
   select2: 0
-  select2_icon: 0
   serialization: 0
   simple_sitemap: 0
   siteimprove: 0
@@ -137,7 +150,6 @@ module:
   translatable_menu_link_uri: 0
   twig_tweak: 0
   update: 0
-  update_helper: 0
   user: 0
   varnish_purge_tags: 0
   varnish_purger: 0
@@ -150,6 +162,7 @@ module:
   externalauth: 10
   views: 10
   paragraphs: 11
+  publication_date: 99
   minimal: 1000
   eu_cookie_compliance: 1001
 theme:

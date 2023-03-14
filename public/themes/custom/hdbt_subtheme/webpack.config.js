@@ -19,10 +19,7 @@ const Entries = () => {
   };
 
   const pattern = './src/js/**/*.js';
-  const ignore = [
-    // Some javascript what is needed to ignore and handled separately.
-    // './src/js/component-library.js'
-  ];
+  const ignore = [];
 
   glob.sync(pattern, {ignore: ignore}).map((item) => {
     entries[path.parse(item).name] = item }
@@ -105,6 +102,7 @@ module.exports = (env, argv) => {
       extensions: ['.js', '.json'],
     },
     plugins: [
+      // Uncomment following lines to create svg icon sprite.
       // new SvgToSprite(
       //   path.resolve(__dirname, 'src/icons/**/*.svg'),
       //   'icons/hdbt-subtheme-sprite.svg',

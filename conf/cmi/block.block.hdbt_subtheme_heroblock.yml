@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hdbt_content
+    - hdbt_admin_tools
     - node
   theme:
     - hdbt_subtheme
@@ -19,7 +19,7 @@ settings:
   id: hero_block
   label: 'Hero block'
   label_display: '0'
-  provider: hdbt_content
+  provider: hdbt_admin_tools
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

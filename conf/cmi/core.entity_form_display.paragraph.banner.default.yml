@@ -11,9 +11,11 @@ dependencies:
     - field.field.paragraph.banner.field_icon
     - paragraphs.paragraphs_type.banner
   module:
-    - hdbt_admin_editorial
-    - select2_icon
+    - hdbt_admin_tools
     - text
+  enforced:
+    module:
+      - hdbt_admin_tools
 _core:
   default_config_hash: cUl5PG2elS-k5_0QkIjSKWmdrnqkv8IfEZC7PTqQWYc
 id: paragraph.banner.default
@@ -40,12 +42,8 @@ content:
     weight: 4
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      link_target: ''
-      icon: ''
-      linkit_auto_link_text: 0
-      linkit_profile: tpr_content
+      linkit_profile: helfi
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_banner_link_design:
     type: design_field_widget

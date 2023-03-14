@@ -12,7 +12,7 @@ dependencies:
     - field.field.paragraph.hero.field_hero_title
     - paragraphs.paragraphs_type.hero
   module:
-    - hdbt_admin_editorial
+    - hdbt_admin_tools
     - media_library
     - text
 _core:
@@ -54,12 +54,8 @@ content:
     weight: 6
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      link_target: ''
-      icon: ''
-      linkit_auto_link_text: 0
-      linkit_profile: tpr_content
+      linkit_profile: helfi
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_hero_link_design:
     type: design_field_widget

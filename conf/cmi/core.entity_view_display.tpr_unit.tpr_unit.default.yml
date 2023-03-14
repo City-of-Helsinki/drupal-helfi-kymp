@@ -4,10 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.tpr_unit.tpr_unit.field_content
+    - field.field.tpr_unit.tpr_unit.field_districts
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
-    - field.field.tpr_unit.tpr_unit.field_unit_type
-    - field.field.tpr_unit.tpr_unit.field_unit_type
     - field.field.tpr_unit.tpr_unit.field_unit_type
   module:
     - address
@@ -122,6 +121,13 @@ content:
     third_party_settings: {  }
     weight: 17
     region: content
+  highlights:
+    type: tpr_connection
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
   name:
     type: string
     label: hidden
@@ -171,6 +177,14 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  provided_languages:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
   service_map_embed:
     type: service_map_embed
     label: hidden
@@ -203,13 +217,12 @@ content:
     region: content
 hidden:
   created: true
+  field_districts: true
   field_unit_type: true
   hide_description: true
-  highlights: true
   langcode: true
   latitude: true
   longitude: true
-  provided_languages: true
   search_api_excerpt: true
   show_www: true
   streetview_entrance_url: true

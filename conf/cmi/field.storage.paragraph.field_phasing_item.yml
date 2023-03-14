@@ -5,6 +5,9 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+  enforced:
+    config:
+      - paragraphs.paragraphs_type.phasing_item
 id: paragraph.field_phasing_item
 field_name: field_phasing_item
 entity_type: paragraph
