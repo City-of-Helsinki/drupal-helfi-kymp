@@ -10,17 +10,6 @@ label: Helfi
 id: helfi
 description: 'A Linkit profile for Helfi.'
 matchers:
-  8ffea69f-853b-42d7-8171-80fbcb5a813c:
-    id: 'entity:node'
-    uuid: 8ffea69f-853b-42d7-8171-80fbcb5a813c
-    settings:
-      metadata: ''
-      bundles: {  }
-      group_by_bundle: false
-      substitution_type: canonical
-      limit: 20
-      include_unpublished: false
-    weight: 0
   744298c6-f701-49e7-ba32-bed4e527cffc:
     id: 'entity:tpr_unit'
     uuid: 744298c6-f701-49e7-ba32-bed4e527cffc
@@ -41,3 +30,14 @@ matchers:
       substitution_type: canonical
       limit: 20
     weight: -2
+  8ffea69f-853b-42d7-8171-80fbcb5a813c:
+    id: 'entity:node'
+    uuid: 8ffea69f-853b-42d7-8171-80fbcb5a813c
+    settings:
+      metadata: ''
+      bundles: {  }
+      group_by_bundle: false
+      substitution_type: canonical
+      limit: 20
+      include_unpublished: false
+    weight: 0
