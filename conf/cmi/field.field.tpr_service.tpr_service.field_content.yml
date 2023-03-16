@@ -9,12 +9,11 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.from_library
-    - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.phasing
+    - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
-    - paragraphs.paragraphs_type.remote_video
-    - paragraphs.paragraphs_type.remote_video
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -47,60 +46,33 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: -27
+        weight: 0
         enabled: true
-      accordion_item:
-        weight: -22
-        enabled: false
       banner:
-        weight: -21
+        weight: 0
         enabled: true
       columns:
-        weight: -28
+        weight: 0
         enabled: true
       content_cards:
-        weight: -23
+        weight: 0
         enabled: true
       from_library:
-        weight: 21
+        weight: 0
         enabled: true
-      gallery:
-        weight: -25
-        enabled: false
-      gallery_slide:
-        weight: -20
-        enabled: false
-      hero:
-        weight: -19
-        enabled: false
       image:
-        weight: -26
+        weight: 0
         enabled: true
-      liftup_with_image:
-        weight: -18
-        enabled: false
       list_of_links:
-        weight: -24
+        weight: 0
         enabled: true
-      list_of_links_item:
-        weight: -17
-        enabled: false
-      map:
-        weight: 31
-        enabled: false
       phasing:
-        weight: 50
+        weight: 0
         enabled: true
-      phasing_item:
-        weight: 30
-        enabled: false
       remote_video:
-        weight: 41
+        weight: 0
         enabled: true
       text:
-        weight: -29
+        weight: 0
         enabled: true
-      unit_search:
-        weight: -16
-        enabled: false
 field_type: entity_reference_revisions

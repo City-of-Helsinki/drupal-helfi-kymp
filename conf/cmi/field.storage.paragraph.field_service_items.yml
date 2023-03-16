@@ -5,6 +5,9 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+  enforced:
+    config:
+      - paragraphs.paragraphs_type.popular_services
 _core:
   default_config_hash: CvdAWj0H_Pr54s2W6mCAtSzJrCX3EzeEEeo5cCjA2FY
 id: paragraph.field_service_items

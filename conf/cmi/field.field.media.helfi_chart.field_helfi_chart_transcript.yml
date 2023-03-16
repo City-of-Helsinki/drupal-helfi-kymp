@@ -10,9 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    minimal: minimal
-    full_html: '0'
-    plain_text: '0'
+    allowed_formats:
+      - minimal
 _core:
   default_config_hash: 7il4Dro949nSDjskG89Sqmxr_vsg-wbwOFLYNV0KnmY
 id: media.helfi_chart.field_helfi_chart_transcript

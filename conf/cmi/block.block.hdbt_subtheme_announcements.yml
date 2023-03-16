@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - helfi_announcements
+    - helfi_node_announcement
   theme:
     - hdbt_subtheme
 id: hdbt_subtheme_announcements
@@ -16,5 +16,5 @@ settings:
   id: announcements
   label: Announcements
   label_display: '0'
-  provider: helfi_announcements
+  provider: helfi_node_announcement
 visibility: {  }

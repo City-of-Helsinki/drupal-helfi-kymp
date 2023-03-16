@@ -1,7 +1,10 @@
 uuid: 7743c5f5-18cd-497d-96f5-86b1c3deb7d5
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    config:
+      - paragraphs.paragraphs_type.list_of_links
 _core:
   default_config_hash: JJbV-c48oaLAnXbQQmvKk3j5QaOWCX84DFicAqITi68
 id: list_of_links_item

@@ -6,12 +6,15 @@ dependencies:
     - paragraphs.paragraphs_type.accordion
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
-    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.district_and_project_search
+    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.service_list
     - paragraphs.paragraphs_type.sidebar_text
@@ -20,6 +23,9 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs_library
+  enforced:
+    module:
+      - helfi_base_content
 _core:
   default_config_hash: 1q3kdhNu6cQRAG89NkQ3ahKTmg_d3cHIofeCdeX7viA
 id: paragraphs_library_item.paragraphs_library_item.paragraphs
@@ -33,83 +39,77 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: default
+  handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      district_and_project_search: district_and_project_search
+      district_listing: district_listing
+      list_of_plans: list_of_plans
       accordion: accordion
       banner: banner
       columns: columns
+      contact_card_listing: contact_card_listing
       content_cards: content_cards
       content_liftup: content_liftup
-      gallery: gallery
       image: image
       liftup_with_image: liftup_with_image
       list_of_links: list_of_links
-      service_list: service_list
+      map: map
       sidebar_text: sidebar_text
       text: text
       unit_search: unit_search
-      map: map
-    negate: '0'
+      service_list: service_list
+    negate: 0
     target_bundles_drag_drop:
       accordion:
-        enabled: '1'
-        weight: '21'
-      accordion_item:
-        weight: '22'
-        enabled: 0
+        weight: 0
+        enabled: true
       banner:
-        enabled: '1'
-        weight: '23'
+        weight: 0
+        enabled: true
       columns:
-        enabled: '1'
-        weight: '24'
+        weight: 0
+        enabled: true
+      contact_card_listing:
+        weight: 0
+        enabled: true
       content_cards:
-        enabled: '1'
-        weight: '25'
+        weight: 0
+        enabled: true
       content_liftup:
-        enabled: '1'
-        weight: '26'
-      from_library:
-        weight: '27'
-        enabled: 0
-      gallery:
-        enabled: '1'
-        weight: '28'
-      gallery_slide:
-        weight: '29'
-        enabled: 0
-      hero:
-        weight: '30'
-        enabled: 0
+        weight: 0
+        enabled: true
+      district_and_project_search:
+        weight: 0
+        enabled: true
+      district_listing:
+        weight: 0
+        enabled: true
       image:
-        enabled: '1'
-        weight: '31'
+        weight: 0
+        enabled: true
       liftup_with_image:
-        enabled: '1'
-        weight: '32'
+        weight: 0
+        enabled: true
       list_of_links:
-        enabled: '1'
-        weight: '33'
-      list_of_links_item:
-        weight: '34'
-        enabled: 0
+        weight: 0
+        enabled: true
+      list_of_plans:
+        weight: 0
+        enabled: true
       map:
-        weight: '35'
-        enabled: 0
-      remote_video:
-        weight: '36'
-        enabled: 0
+        weight: 0
+        enabled: true
       service_list:
-        enabled: '1'
-        weight: '37'
+        weight: 0
+        enabled: true
       sidebar_text:
-        enabled: '1'
-        weight: '38'
+        weight: 0
+        enabled: true
       text:
-        enabled: '1'
-        weight: '39'
+        weight: 0
+        enabled: true
       unit_search:
-        enabled: '1'
-        weight: '40'
+        weight: 0
+        enabled: true
 field_type: entity_reference_revisions

@@ -20,7 +20,7 @@ dependencies:
     - node.type.project
   module:
     - datetime_range
-    - hdbt_admin_editorial
+    - hdbt_admin_tools
     - link
     - media_library
     - metatag
@@ -209,6 +209,12 @@ content:
   publish_on:
     type: datetime_timestamp_no_default
     weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

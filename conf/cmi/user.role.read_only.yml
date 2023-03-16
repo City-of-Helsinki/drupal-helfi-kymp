@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - helfi_tpr
+    - node
     - paragraphs
     - toolbar
     - view_unpublished
@@ -16,6 +17,7 @@ permissions:
   - 'view any unpublished announcement content'
   - 'view any unpublished landing_page content'
   - 'view any unpublished page content'
+  - 'view own unpublished content'
   - 'view unpublished paragraphs'
   - 'view unpublished tpr_errand_service'
   - 'view unpublished tpr_service'
