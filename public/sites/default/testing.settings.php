@@ -10,3 +10,4 @@ $config['helfi_proxy.settings']['prefixes'] = [
 ];
 
 $config['helfi_news_feed.settings']['source_environment'] = 'test';
+$config['helfi_global_announcement.settings']['source_environment'] = 'test';
