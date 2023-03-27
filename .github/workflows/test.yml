@@ -1,4 +1,7 @@
-on: [push]
+on:
+  pull_request:
+  push:
+    branches: ['main', 'dev']
 name: CI
 env:
   SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
@@ -13,7 +16,7 @@ jobs:
 
     services:
       db:
-        image: mariadb:10.9
+        image: mariadb
         env:
           MYSQL_USER: drupal
           MYSQL_PASSWORD: drupal
@@ -29,6 +32,9 @@ jobs:
 
       - name: Build project
         run: composer install
+
+      - name: Scan security updates
+        run: drush pm:security
 
       - name: Check that subtheme is not built with dev mode
         run: if grep -q 'sourceMappingURL=' -R public/themes/custom/hdbt_subtheme/dist/css; then exit 1; fi
