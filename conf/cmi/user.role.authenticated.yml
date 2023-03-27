@@ -9,9 +9,10 @@ dependencies:
     - helfi_api_base
     - helfi_tpr
     - media
+    - paragraphs
+    - rest
     - system
     - toolbar
-    - rest
 _core:
   default_config_hash: 83Nuup-6oYkkdAsvg3nrR2pBOgtTXEV1JrzpCCLkYLM
 id: authenticated
@@ -22,8 +23,9 @@ permissions:
   - 'access content'
   - 'access toolbar'
   - 'display eu cookie compliance popup'
+  - 'restful get helfi_global_mobile_menu'
   - 'view media'
   - 'view remote entities'
   - 'view tpr_service'
   - 'view tpr_unit'
-  - 'restful get helfi_global_mobile_menu'
+  - 'view unpublished paragraphs'

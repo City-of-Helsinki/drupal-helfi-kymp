@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_content_cards_content
-    - node.type.article
     - node.type.landing_page
     - node.type.page
     - paragraphs.paragraphs_type.content_cards
@@ -24,12 +23,11 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      article: article
       landing_page: landing_page
       page: page
     sort:
       field: title
       direction: ASC
     auto_create: false
-    auto_create_bundle: article
+    auto_create_bundle: page
 field_type: entity_reference

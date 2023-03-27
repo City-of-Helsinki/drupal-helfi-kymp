@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hdbt_content
+    - hdbt_admin_tools
   theme:
     - hdbt
 _core:
@@ -18,5 +18,5 @@ settings:
   id: lower_content_block
   label: 'Lower content block'
   label_display: '0'
-  provider: hdbt_content
+  provider: hdbt_admin_tools
 visibility: {  }

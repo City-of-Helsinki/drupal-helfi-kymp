@@ -1,0 +1,25 @@
+uuid: 8a5b8b6f-6bd8-49cf-a1c9-8602fd06f2d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_service_list_services
+    - paragraphs.paragraphs_type.service_list_search
+id: paragraph.service_list_search.field_service_list_services
+field_name: field_service_list_services
+entity_type: paragraph
+bundle: service_list_search
+label: 'Additional services'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: service_list
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference
