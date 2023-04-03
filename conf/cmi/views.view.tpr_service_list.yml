@@ -5,6 +5,8 @@ dependencies:
   module:
     - helfi_tpr
     - user
+    - helfi_tpr
+    - user
 id: tpr_service_list
 label: 'TPR service list'
 module: views
@@ -716,6 +718,11 @@ display:
         - url
         - url.query_args
         - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -729,6 +736,11 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
