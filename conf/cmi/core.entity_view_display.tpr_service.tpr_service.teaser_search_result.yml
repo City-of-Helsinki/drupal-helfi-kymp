@@ -12,7 +12,7 @@ dependencies:
     - helfi_tpr
     - text
 _core:
-  default_config_hash: xI-QgKUvsjLc0SRc8bpDE336uJXT5rVP6K8TirZUzw8
+  default_config_hash: ujJDnxXZHiN-DByQZHw7_ftiBEHe7NVqg8JElL2XkCw
 id: tpr_service.tpr_service.teaser_search_result
 targetEntityType: tpr_service
 bundle: tpr_service
@@ -33,8 +33,8 @@ content:
       sort_order:
         ESERVICE:
           label: E-service
-          show: false
           weight: 0
+          show: false
         CHAT:
           label: Chat
           show: true
@@ -53,29 +53,28 @@ content:
           weight: 4
         LOCAL:
           label: 'Local service'
-          show: false
           weight: 5
+          show: false
         SMS:
           label: SMS
-          show: false
           weight: 6
+          show: false
         WEBPAGE:
           label: Webpage
-          show: false
           weight: 7
+          show: false
         MAIL:
           label: 'Postal mail'
-          show: false
           weight: 8
+          show: false
         TELEFAX:
           label: Telefax
-          show: false
           weight: 9
+          show: false
         OFFICE:
           label: 'Service point'
-          show: false
           weight: 99
-      view_mode: default
+          show: false
     third_party_settings: {  }
     weight: 2
     region: content

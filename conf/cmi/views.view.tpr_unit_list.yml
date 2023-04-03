@@ -8,6 +8,11 @@ dependencies:
     - views_bulk_operations
     - views_bulk_edit
     - content_lock
+    - helfi_tpr
+    - user
+    - views_bulk_operations
+    - views_bulk_edit
+    - content_lock
 id: tpr_unit_list
 label: 'TPR unit list'
 module: views
@@ -81,28 +86,54 @@ display:
           clear_on_exposed: true
           force_selection_info: false
           selected_actions:
-            0:
+            -
               action_id: 'entity:break_lock:tpr_unit'
               preconfiguration:
                 add_confirmation: false
                 label_override: 'Break lock'
-            1:
+            -
               action_id: 'remote_entity:migration_update:tpr_unit'
               preconfiguration:
                 add_confirmation: false
                 label_override: Update
-            2:
+            -
               action_id: views_bulk_edit
               preconfiguration:
                 add_confirmation: false
                 label_override: 'Modify values'
                 get_bundles_from_results: true
-            4:
+            -
               action_id: 'entity:unpublish_action:tpr_unit'
               preconfiguration:
                 add_confirmation: false
                 label_override: 'Unpublish unit'
-            5:
+            -
+              action_id: 'entity:publish_action:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Publish unit'
+            -
+              action_id: 'entity:break_lock:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Break lock'
+            -
+              action_id: 'remote_entity:migration_update:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: Update
+            -
+              action_id: views_bulk_edit
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Modify values'
+                get_bundles_from_results: true
+            -
+              action_id: 'entity:unpublish_action:tpr_unit'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Unpublish unit'
+            -
               action_id: 'entity:publish_action:tpr_unit'
               preconfiguration:
                 add_confirmation: false
@@ -749,6 +780,11 @@ display:
         - url
         - url.query_args
         - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -762,6 +798,11 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url

@@ -5,12 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.tpr_unit.minimal
     - field.field.tpr_unit.tpr_unit.field_content
+    - field.field.tpr_unit.tpr_unit.field_districts
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
     - field.field.tpr_unit.tpr_unit.field_unit_type
   module:
     - address
     - helfi_tpr
+_core:
+  default_config_hash: '-PlL5PW4ox5Omj4LpofJ5LrLgrYahOxcc1Cku386V-o'
 id: tpr_unit.tpr_unit.minimal
 targetEntityType: tpr_unit
 bundle: tpr_unit
