@@ -36,6 +36,10 @@ const getDropdownValues = (searchStateValue: any, componentId: string, options: 
     return [];
   }
 
+  if (componentId === 'districts') {
+    return options.filter(item => searchStateValue[componentId].value.find((val: OptionType) => val.value.charAt(0).toUpperCase() + val.value.slice(1) === item.value));
+  }
+
   return options.filter(item => searchStateValue[componentId].value.find((val: OptionType) => val.value === item.value));
 };
 
@@ -70,7 +74,7 @@ export const Dropdown = ({
       const values: OptionType[] = [];
 
       initialValue.forEach((value: string) => {
-        values.push({value: value});
+        values.push({ value: value });
       });
 
       setQuery({
@@ -81,7 +85,7 @@ export const Dropdown = ({
       setLoading(false);
     }
   }, [aggregations, componentId, initialize, initialValue, loading, options, setQuery]);
-  
+
   useEffect(() => {
     setValue(getDropdownValues(searchState, componentId, options))
   }, [searchState]);
@@ -96,7 +100,7 @@ export const Dropdown = ({
         // @ts-ignore
         options={options}
         onChange={(values: OptionType[]) => {
-          let valuesWithoutLabel = values.map(({label, ...values}) => values);
+          let valuesWithoutLabel = values.map(({ label, ...values }) => values);
           setQuery({
             value: valuesWithoutLabel,
           });
