@@ -1,5 +1,5 @@
 import { Button, IconCross } from 'hds-react';
-import { ReactElement, memo } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 import type OptionType from '../types/OptionType';
 
@@ -15,39 +15,57 @@ type SelectionsContainerProps = {
 };
 
 const SelectionsContainer = ({ searchState, setSearchState, clearSelection }: SelectionsContainerProps) => {
+  const [submitButtonValue, setSubmitButtonValue] = useState<Number>(0);
+  const [filters, setFilters] = useState<ReactElement<HTMLLIElement>[]>([]);
+
+  useEffect(() => {
+    // Check if searchState is changed by submit button.
+    if (searchState?.submit && (typeof searchState?.submit?.value === 'undefined' || Number(searchState?.submit?.value) !== submitButtonValue)) {
+      setSubmitButtonValue(Number(searchState.submit.value));
+    }
+  }, [searchState]);
+
+  // Update filter bullets when submit button is pressed.
+  useEffect(() => {
+    setFilters(getFilterButtons(SearchComponents));
+  }, [submitButtonValue]);
+
   const clearSelections = () => {
     setSearchState({});
     clearParams();
   };
 
-  const filters: ReactElement<HTMLLIElement>[] = [];
-
-  [SearchComponents.DISTRICTS, SearchComponents.THEME, SearchComponents.PHASE, SearchComponents.TYPE].forEach((key) => {
-    if (searchState[key]?.value?.length) {
-      searchState[key].value.forEach((value: OptionType) =>
-        filters.push(
-          <li
-            className='content-tags__tags__tag content-tags__tags--interactive'
-            key={`${key}-${value.value}`}
-            onClick={() => clearSelection(value, key)}
-          >
-            <Button
-              aria-label={Drupal.t(
-                'Remove @item from search results',
-                { '@item': value.value },
-                { context: 'Search: remove item aria label' }
-              )}
-              className='district-project-search-form__remove-selection-button'
-              iconRight={<IconCross />}
-              variant='supplementary'
+  const getFilterButtons = (SearchComponents: any) => {
+    const filterButtons: any = [];
+    [SearchComponents.DISTRICTS, SearchComponents.THEME, SearchComponents.PHASE, SearchComponents.TYPE].forEach((key) => {
+      if (searchState[key]?.value?.length) {
+        searchState[key].value.forEach((value: OptionType) =>
+          filterButtons.push(
+            <li
+              className='content-tags__tags__tag content-tags__tags--interactive'
+              key={`${key}-${value.value}`}
+              onClick={() => clearSelection(value, key)}
             >
-              {capitalize(value.value)}
-            </Button>
-          </li>
-        )
-      );
-    }
-  });
+              <Button
+                aria-label={Drupal.t(
+                  'Remove @item from search results',
+                  { '@item': value.value },
+                  { context: 'Search: remove item aria label' }
+                )}
+                className='district-project-search-form__remove-selection-button'
+                iconRight={<IconCross />}
+                variant='supplementary'
+              >
+                {capitalize(value.value)}
+              </Button>
+            </li>
+          )
+        );
+      }
+    });
+
+    return filterButtons;
+  }
 
   if (!filters.length) {
     return null;
@@ -74,12 +92,4 @@ const SelectionsContainer = ({ searchState, setSearchState, clearSelection }: Se
   );
 };
 
-const updateSelections = (prev: SelectionsContainerProps, next: SelectionsContainerProps) => {
-  if (prev.searchState[SearchComponents.SUBMIT]?.value === next.searchState[SearchComponents.SUBMIT]?.value) {
-    return true;
-  }
-
-  return false;
-};
-
-export default memo(SelectionsContainer, updateSelections);
+export default SelectionsContainer;

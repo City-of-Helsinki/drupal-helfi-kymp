@@ -65,21 +65,21 @@ const getQuery = ({ searchState, languageFilter }: GetQueryProps) => {
     const state = searchState?.[key] || null;
 
     if (state && state.value && state.value.length) {
-      query.function_score.min_score = (isProjectFilterSet && isDistrictFilterSet) || (isProjectFilterSet && isTitleFilterSet) ?  Number(210) : Number(weight + 1);
+      query.function_score.min_score = (isProjectFilterSet && isDistrictFilterSet) || (isProjectFilterSet && isTitleFilterSet) ? Number(210) : Number(weight + 1);
 
       if (key === SearchComponents.TITLE) {
         const districtWildcards: object[] = [];
         const projectWildcards: object[] = [];
 
         state.value.forEach((value: any) => {
-          districtWildcards.push({ wildcard: { [`${IndexFields.TITLE}`]: { value: `*${value.value.toLowerCase()}*`, boost: 50 }}});
-          districtWildcards.push({ wildcard: { [`${IndexFields.FIELD_DISTRICT_SUBDISTRICTS_TITLE}`]: { value: `*${value.value.toLowerCase()}*`, boost: isProjectFilterSet ? 45 : 22 }}});
-          districtWildcards.push({ wildcard: { [IndexFields.FIELD_DISTRICT_SEARCH_METATAGS]: { value: `*${value.value.toLowerCase()}*`, boost: 22 }}});
-          
-          projectWildcards.push({ wildcard: { [`${IndexFields.TITLE}`]: { value: `*${value.value.toLowerCase()}*`, boost: 50 }}});
+          districtWildcards.push({ wildcard: { [IndexFields.TITLE]: { value: `*${value.value.toLowerCase()}*`, boost: 50 } } });
+          districtWildcards.push({ wildcard: { [IndexFields.FIELD_DISTRICT_SUBDISTRICTS_TITLE]: { value: `*${value.value.toLowerCase()}*`, boost: isProjectFilterSet ? 45 : 22 } } });
+          districtWildcards.push({ wildcard: { [IndexFields.FIELD_DISTRICT_SEARCH_METATAGS]: { value: `*${value.value.toLowerCase()}*`, boost: 22 } } });
+
+          projectWildcards.push({ wildcard: { [IndexFields.TITLE]: { value: `*${value.value.toLowerCase()}*`, boost: 50 } } });
           // if project filter is also set, boost projects.
-          projectWildcards.push({ wildcard: { [`${IndexFields.FIELD_PROJECT_DISTRICT_TITLE}`]: { value: `*${value.value.toLowerCase()}*`, boost: isProjectFilterSet ? 1000 : 22 }}});
-          projectWildcards.push({ wildcard: { [IndexFields.FIELD_PROJECT_SEARCH_METATAGS]: { value: `*${value.value.toLowerCase()}*`, boost: 22 }}});
+          projectWildcards.push({ wildcard: { [IndexFields.FIELD_PROJECT_DISTRICT_TITLE]: { value: `*${value.value.toLowerCase()}*`, boost: isProjectFilterSet ? 1000 : 22 } } });
+          projectWildcards.push({ wildcard: { [IndexFields.FIELD_PROJECT_SEARCH_METATAGS]: { value: `*${value.value.toLowerCase()}*`, boost: 22 } } });
         });
 
         query.function_score.query.bool.should[0].bool.should.push(...districtWildcards);
@@ -90,12 +90,12 @@ const getQuery = ({ searchState, languageFilter }: GetQueryProps) => {
         const projectTerms: object[] = [];
 
         state.value.forEach((value: any) => {
-          districtTerms.push({ term: { [`${IndexFields.TITLE}`]: { value: value.value.toLowerCase(), boost: 50 }}});
-          districtTerms.push({ term: { [`${IndexFields.FIELD_DISTRICT_SUBDISTRICTS_TITLE}`]: { value: value.value.toLowerCase(), boost: 50 }}});
-          
-          projectTerms.push({ term: { [`${IndexFields.TITLE}`]: { value: value.value.toLowerCase(), boost: 50 }}});
+          districtTerms.push({ term: { [IndexFields.TITLE]: { value: value.value.toLowerCase(), boost: 50 } } });
+          districtTerms.push({ term: { [IndexFields.FIELD_DISTRICT_SUBDISTRICTS_TITLE]: { value: value.value.toLowerCase(), boost: 50 } } });
+
+          projectTerms.push({ term: { [IndexFields.TITLE]: { value: value.value.toLowerCase(), boost: 50 } } });
           // if project filter is also set, boost projects.
-          projectTerms.push({ term: { [`${IndexFields.FIELD_PROJECT_DISTRICT_TITLE}`]: { value: value.value.toLowerCase(), boost: isProjectFilterSet ? 3000 : 30 }}});
+          projectTerms.push({ term: { [IndexFields.FIELD_PROJECT_DISTRICT_TITLE]: { value: value.value.toLowerCase(), boost: isProjectFilterSet ? 3000 : 30 } } });
         });
 
         query.function_score.query.bool.should[0].bool.should.push(...districtTerms);
@@ -116,7 +116,7 @@ const getQuery = ({ searchState, languageFilter }: GetQueryProps) => {
   return {
     query: query,
     // add Submit component value by default.
-    value: Number(searchState?.submit?.value) + 1 || 0
+    value: Number(searchState?.submit?.value) + 1 || 1
   };
 }
 

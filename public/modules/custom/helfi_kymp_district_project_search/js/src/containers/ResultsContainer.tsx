@@ -45,7 +45,7 @@ const ResultsContainer = ({ initialParams, searchState }: ResultsContainerProps)
       [`${IndexFields.TITLE}`]: { order: "desc" },
     },
   };
-  
+
   return (
     <div ref={resultsWrapper}>
       <ResultsHeading setSort={setSort} />

@@ -18,7 +18,7 @@ export const SubmitButton = ({ initialized, searchState, setQuery }: SubmitButto
 
   useEffect(() => {
     if (initialized && !mounted) {
-      setQuery(getQuery({searchState, languageFilter}));
+      setQuery(getQuery({ searchState, languageFilter }));
       setMounted(true);
     }
   }, [getQuery, initialized, mounted, setMounted, setQuery]);
@@ -29,7 +29,7 @@ export const SubmitButton = ({ initialized, searchState, setQuery }: SubmitButto
       type='submit'
       disabled={!initialized}
       onClick={() => {
-        setQuery(getQuery({searchState, languageFilter}));
+        setQuery(getQuery({ searchState, languageFilter }));
         setParams(searchState);
       }}
       variant='primary'
