@@ -7,6 +7,8 @@ dependencies:
     - user
     - helfi_tpr
     - user
+    - helfi_tpr
+    - user
 _core:
   default_config_hash: 0wDqZhJn8tnNhEq6QJNITXspmRbtFffjYqD82wc3myE
 id: tpr_errand_service_list
@@ -627,6 +629,7 @@ display:
         groups:
           - AND
           - AND
+          - AND
       style:
         type: table
         options:
@@ -725,6 +728,11 @@ display:
         - url
         - url.query_args
         - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -737,6 +745,11 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url

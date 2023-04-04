@@ -16,9 +16,8 @@ dependencies:
     - paragraphs
     - path
     - readonly_field_widget
-    - select2
 _core:
-  default_config_hash: YWnRrqJSaeQZEwAqgArp65Mhok9h6tEU1KTO5KzRl80
+  default_config_hash: cotjiL17Qafj5pirtPax237aflvFs_-3pKHSP6wblrg
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -122,16 +121,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_districts:
-    type: select2_entity_reference
-    weight: 29
-    region: content
-    settings:
-      width: 100%
-      autocomplete: false
-      match_operator: STARTS_WITH
-      match_limit: 10
     third_party_settings: {  }
   field_lower_content:
     type: paragraphs
@@ -323,6 +312,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_districts: true
   hide_description: true
   ontologyword_ids: true
   show_www: true
