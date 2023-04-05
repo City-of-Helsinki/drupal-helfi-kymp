@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.tpr_unit.tpr_unit.field_content
-    - field.field.tpr_unit.tpr_unit.field_districts
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
     - field.field.tpr_unit.tpr_unit.field_unit_type
@@ -312,7 +311,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_districts: true
   hide_description: true
   ontologyword_ids: true
   show_www: true
