@@ -143,32 +143,6 @@ display:
               preconfiguration:
                 add_confirmation: false
                 label_override: 'Publish unit'
-            -
-              action_id: 'entity:break_lock:tpr_unit'
-              preconfiguration:
-                add_confirmation: false
-                label_override: 'Break lock'
-            -
-              action_id: 'remote_entity:migration_update:tpr_unit'
-              preconfiguration:
-                add_confirmation: false
-                label_override: Update
-            -
-              action_id: views_bulk_edit
-              preconfiguration:
-                add_confirmation: false
-                label_override: 'Modify values'
-                get_bundles_from_results: true
-            -
-              action_id: 'entity:unpublish_action:tpr_unit'
-              preconfiguration:
-                add_confirmation: false
-                label_override: 'Unpublish unit'
-            -
-              action_id: 'entity:publish_action:tpr_unit'
-              preconfiguration:
-                add_confirmation: false
-                label_override: 'Publish unit'
         id:
           id: id
           table: tpr_unit_field_data
@@ -811,16 +785,6 @@ display:
         - url
         - url.query_args
         - user.permissions
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -834,16 +798,6 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
