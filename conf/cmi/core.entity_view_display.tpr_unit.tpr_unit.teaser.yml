@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.tpr_unit.teaser
     - field.field.tpr_unit.tpr_unit.field_content
-    - field.field.tpr_unit.tpr_unit.field_districts
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
     - field.field.tpr_unit.tpr_unit.field_unit_type
@@ -15,7 +14,7 @@ dependencies:
     - helfi_tpr
     - imagecache_external
 _core:
-  default_config_hash: CSGZthOWS5PNgCpEcOhdUYSQvJyYAJhDMvhkD2RotHU
+  default_config_hash: E_I6tFu_ojyafS1ARj9pBdic7fwoYSiFD1UOeVO-eEo
 id: tpr_unit.tpr_unit.teaser
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -73,7 +72,6 @@ hidden:
   description: true
   email: true
   field_content: true
-  field_districts: true
   field_lower_content: true
   field_metatags: true
   field_unit_type: true

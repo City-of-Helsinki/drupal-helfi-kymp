@@ -8,11 +8,6 @@ dependencies:
     - views_bulk_operations
     - views_bulk_edit
     - content_lock
-    - helfi_tpr
-    - user
-    - views_bulk_operations
-    - views_bulk_edit
-    - content_lock
 id: tpr_unit_list
 label: 'TPR unit list'
 module: views
@@ -780,11 +775,6 @@ display:
         - url
         - url.query_args
         - user.permissions
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -798,11 +788,6 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
