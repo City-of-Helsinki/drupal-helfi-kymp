@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Drupal\helfi_kymp_content;
 
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -43,7 +44,9 @@ class DistrictUtility {
     // @todo Get translated entity reference field value using the entity query
     // above, if possible.
     $parentIds = [];
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $langcode = \Drupal::languageManager()
+      ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+      ->getId();
     foreach ($query->execute() as $parentId) {
       if (!\Drupal::entityTypeManager()->getStorage('node')->load($parentId)->hasTranslation($langcode)) {
         continue;
