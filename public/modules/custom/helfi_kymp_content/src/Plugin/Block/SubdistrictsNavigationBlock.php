@@ -6,6 +6,7 @@ namespace Drupal\helfi_kymp_content\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -107,7 +108,9 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    * {@inheritdoc}
    */
   public function build(): array {
-    $currentLanguageId = $this->languageManager->getCurrentLanguage()->getId();
+    $currentLanguageId = $this->languageManager
+      ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)
+      ->getId();
 
     // Get currently viewed district node.
     $translatedNode = $this->routeMatch->getParameter('node')->getTranslation($currentLanguageId);
