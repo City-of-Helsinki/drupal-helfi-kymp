@@ -1,7 +1,12 @@
 uuid: a76f0334-215e-45ae-bc52-e8256164259c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - basic_auth
+    - helfi_api_base
+    - serialization
+    - user
 id: helfi_debug_data
 plugin_id: helfi_debug_data
 granularity: resource
@@ -12,3 +17,4 @@ configuration:
     - json
   authentication:
     - cookie
+    - basic_auth
