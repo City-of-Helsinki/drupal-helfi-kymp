@@ -24,6 +24,7 @@ export const Text = ({
   searchState,
 }: TextProps): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
+  const [value, setValue] = useState<string>();
 
   useEffect(() => {
     if (loading) {
@@ -36,7 +37,7 @@ export const Text = ({
       const values: OptionType[] = [];
 
       initialValue.forEach((value: string) => {
-        values.push({value: value});
+        values.push({ value: value });
       });
 
       setQuery({
@@ -48,19 +49,23 @@ export const Text = ({
     }
   }, [componentId, initialize, initialValue, loading, setQuery]);
 
-  const title: string = searchState[componentId]?.value?.[0]?.value;
+  useEffect(() => {
+    const newValue = !searchState?.[componentId]?.value ? '' : searchState[componentId]?.value?.[0]?.value;
+    setValue(newValue);
+  }, [searchState]);
 
   return (
     <TextInput
       id="district-or-project-name"
       label={label}
       placeholder={placeholder}
-      defaultValue={title}
+      value={value}
       onChange={({ target: { value } }) => {
+        setValue(value);
         if (value) {
-          setQuery({value: [{value: value}]});
+          setQuery({ value: [{ value: value }] });
         } else {
-          setQuery({value: []});
+          setQuery({ value: [] });
         }
       }}
     />
