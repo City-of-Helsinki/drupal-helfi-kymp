@@ -15,10 +15,11 @@ dependencies:
     - paragraphs.paragraphs_type.contact_card
   module:
     - entity_reference_revisions
+    - helfi_platform_config
     - image
     - telephone
 _core:
-  default_config_hash: ukFgqFjQ470JApRBQfMv8SZ8umtkb9xck9fZBEWHLKs
+  default_config_hash: X5x-5vSXj4FHXf2NNNyzzwVH7xlQUk6wGBYjejfb-iQ
 id: paragraph.contact_card.default
 targetEntityType: paragraph
 bundle: contact_card
@@ -26,7 +27,7 @@ mode: default
 content:
   field_contact_description:
     type: text_span
-    label: visually_hidden
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 5
@@ -52,7 +53,7 @@ content:
     region: content
   field_contact_name:
     type: string
-    label: visually_hidden
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -69,7 +70,7 @@ content:
     region: content
   field_contact_title:
     type: string
-    label: visually_hidden
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -77,14 +78,14 @@ content:
     region: content
   field_email:
     type: email_mailto
-    label: visually_hidden
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 4
     region: content
   field_phone_number:
     type: telephone_link
-    label: visually_hidden
+    label: hidden
     settings:
       title: ''
     third_party_settings: {  }
