@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
+    - basic_auth
+    - helfi_api_base
+    - serialization
     - user
 id: helfi_debug_package_version
 plugin_id: helfi_debug_package_version
@@ -14,3 +17,4 @@ configuration:
     - json
   authentication:
     - cookie
+    - basic_auth
