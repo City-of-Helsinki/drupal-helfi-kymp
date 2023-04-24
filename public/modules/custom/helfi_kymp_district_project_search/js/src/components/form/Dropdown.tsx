@@ -91,7 +91,7 @@ export const Dropdown = ({
   }, [searchState]);
 
   return (
-    <div className="district-project-search-form__filter">
+    <div className="district-project-search-form__filter hdbt-search__filter">
       <Combobox
         clearButtonAriaLabel={clearButtonAriaLabel}
         disabled={loading}
