@@ -3,34 +3,6 @@ _meta:
   entity_type: file
   uuid: 29bd12c4-3726-4538-a4b9-3c91fbe510f3
   default_langcode: en
-  # @TODO Fix the main cause of default_content sorting.
-  # Importer.php:244 $this->sortTree($this->graph); will not sort the
-  # dependencies correctly - especially when the dependable content is located
-  # in another module. Bypass this error with an artificial dependency
-  # in a file entity, which is created and handled first.
-  depends:
-    cc1f6048-2597-4a1a-97d5-6346060545e8: node
-    7ce7d99c-3699-4030-8367-e1493c803096: node
-    8621246c-2d89-442c-bc9e-67f88df0a9c1: node
-    b58878d7-e165-48b5-b9ca-858061764b19: node
-    935bcf05-9346-4cb1-ba2d-beddc301ba1e: node
-    41a73f09-2b63-4cbb-b4af-924b771b8c86: node
-    a1a7c479-cb1b-4661-98c1-a9d59a11bc0f: node
-    5c3777f5-7486-43cb-ada3-8c863440ee84: node
-    42c2d2a8-0372-43d4-bf43-57aefa866188: node
-    0f1e306e-7940-42f1-a924-ff14e1af3983: node
-    31177148-7553-4660-8a3f-9861057132f8: node
-    2abbdcf2-dbc8-4ea4-8317-83936b204630: node
-    1173fce8-9848-4772-9a8b-bc5ccd8491d3: node
-    19b7130b-8dce-4daa-a604-d490e79d839c: node
-    123d8f3d-d049-47a2-be5f-e27b34c19a61: node
-    ffade22f-d0d7-46ff-83c1-149ce093b657: node
-    878f1f67-55ad-400d-8b4c-8ca47478e1b3: node
-    aeb7c3bb-c8e3-4ad8-9d56-11398122fc13: node
-    79f708b3-5ef2-4156-a214-167db801feb1: node
-    e03a7693-a242-455d-9a02-4a9f33aaf038: node
-    29e01875-1d07-4c06-8010-134efb989de3: node
-    a8f3cf05-f5e3-4fba-8514-642d8d77e05a: node
 default:
   uid:
     -
