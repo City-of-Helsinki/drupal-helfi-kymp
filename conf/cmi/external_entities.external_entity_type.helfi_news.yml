@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: LHjSxv6kFsoLp07coZ2zMnuWp3cKGk6Q3lxRTr-ql70
+  default_config_hash: imFLQtHenUWCDEXySYBm0H7gJ55i3_AF8zALft8uiqo
 id: helfi_news
 label: 'Helfi: News'
 label_plural: 'Helfi: News'
@@ -34,7 +34,7 @@ field_mapper_config:
     short_title:
       value: '$.attributes[''short_title'']'
 storage_client_id: helfi_news
-storage_client_config: null
+storage_client_config: {  }
 persistent_cache_max_age: 1800
 annotation_entity_type_id: null
 annotation_bundle_id: null

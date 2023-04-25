@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.tpr_service.teaser
+    - core.entity_view_mode.tpr_service.teaser_search_result
   module:
     - helfi_tpr
+    - text
     - user
+_core:
+  default_config_hash: XOlpVUQKUlLSivoX2Q_cLITkN9lG3XWYV0xIRbsf_pg
 id: service_list
 label: 'Service list'
 module: views

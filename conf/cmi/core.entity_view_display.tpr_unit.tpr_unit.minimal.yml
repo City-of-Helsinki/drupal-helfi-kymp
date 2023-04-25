@@ -11,6 +11,8 @@ dependencies:
   module:
     - address
     - helfi_tpr
+_core:
+  default_config_hash: CmgZbjhEqqtXajBdd0qdd1pKeF8AlLnIjmX77kO52jk
 id: tpr_unit.tpr_unit.minimal
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -50,7 +52,6 @@ hidden:
   description: true
   email: true
   field_content: true
-  field_districts: true
   field_lower_content: true
   field_metatags: true
   field_unit_type: true

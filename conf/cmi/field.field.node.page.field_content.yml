@@ -18,6 +18,7 @@ dependencies:
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.news_list
     - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
@@ -51,6 +52,7 @@ settings:
       content_liftup: content_liftup
       banner: banner
       event_list: event_list
+      news_list: news_list
       from_library: from_library
       phasing: phasing
       chart: chart
@@ -96,6 +98,9 @@ settings:
         weight: 0
         enabled: true
       map:
+        weight: 0
+        enabled: true
+      news_list:
         weight: 0
         enabled: true
       phasing:

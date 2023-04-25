@@ -9,7 +9,6 @@
     "require": {
         "ext-dom": "*",
         "ext-libxml": "*",
-        "city-of-helsinki/helfi-kymp-district-project-search": "0.8",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
         "drupal/core": "^9.4",
@@ -24,7 +23,6 @@
         "drupal/helfi_proxy": "^3.0",
         "drupal/helfi_tpr": "^2.0",
         "drupal/helfi_tunnistamo": "^2.0",
-        "drupal/linkit": "6.0.0-beta3",
         "drupal/raven": "^4.0",
         "drupal/redis": "^1.5",
         "drupal/stage_file_proxy": "^1.2",
@@ -99,22 +97,6 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "city-of-helsinki/helfi-kymp-district-project-search",
-                "version": "0.8",
-                "dist": {
-                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search/releases/download/0.8/helfi-kymp-district-project-search.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "https://github.com/City-of-Helsinki/helfi-kymp-district-project-search",
-                    "type": "git",
-                    "reference": "0.8"
-                }
-            }
         }
     ],
     "scripts": {
@@ -126,11 +108,9 @@
         "lint-php": "vendor/bin/phpcs --standard=Drupal",
         "copy-commit-message-script": "make copy-commit-message-script",
         "post-install-cmd": [
-            "rm -rf public/modules/custom/helfi_kymp_district_project_search/assets && rsync -a vendor/city-of-helsinki/helfi-kymp-district-project-search/*.js public/modules/custom/helfi_kymp_district_project_search/assets/ || true",
             "@copy-commit-message-script"
         ],
         "post-update-cmd": [
-            "rm -rf public/modules/custom/helfi_kymp_district_project_search/assets && rsync -a vendor/city-of-helsinki/helfi-kymp-district-project-search/*.js public/modules/custom/helfi_kymp_district_project_search/assets/ || true",
             "@copy-commit-message-script"
         ]
     }

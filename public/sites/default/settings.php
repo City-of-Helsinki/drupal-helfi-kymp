@@ -36,8 +36,11 @@ $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT') ?: '000';
 // @see https://wodby.com/docs/stacks/drupal/#overriding-settings-from-wodbysettingsphp
 if (isset($_SERVER['WODBY_APP_NAME'])) {
   // The include won't be added automatically if it's already there.
-  include '/var/www/conf/wodby.settings.php';
+  // phpcs:ignore
+  include_once '/var/www/conf/wodby.settings.php'; // NOSONAR
 }
+
+$config['scheduler.settings']['lightweight_cron_access_key'] = getenv('DRUPAL_SCHEDULER_CRON_KEY') ?: $settings['hash_salt'];
 
 $config['openid_connect.client.tunnistamo']['settings']['client_id'] = getenv('TUNNISTAMO_CLIENT_ID');
 $config['openid_connect.client.tunnistamo']['settings']['client_secret'] = getenv('TUNNISTAMO_CLIENT_SECRET');
@@ -60,17 +63,14 @@ if ($drupal_routes = getenv('DRUPAL_ROUTES')) {
 }
 $routes[] = 'http://127.0.0.1';
 
+if ($drush_options_uri = getenv('DRUSH_OPTIONS_URI')) {
+  $routes[] = $drush_options_uri;
+}
+
 foreach ($routes as $route) {
   $host = parse_url($route, PHP_URL_HOST);
   $trusted_host = str_replace('.', '\.', $host);
   $settings['trusted_host_patterns'][] = '^' . $trusted_host . '$';
-}
-
-$drush_options_uri = getenv('DRUSH_OPTIONS_URI');
-
-if ($drush_options_uri && !in_array($drush_options_uri, $routes)) {
-  $host = str_replace('.', '\.', parse_url($drush_options_uri)['host']);
-  $settings['trusted_host_patterns'][] = '^' . $host . '$';
 }
 
 $settings['config_sync_directory'] = '../conf/cmi';
@@ -128,6 +128,16 @@ if ($navigation_authentication_key = getenv('DRUPAL_NAVIGATION_API_KEY')) {
   $config['helfi_navigation.api']['key'] = $navigation_authentication_key;
 }
 
+// Make sure project name and app env are defined in GitHub actions too.
+if ($github_repository = getenv('GITHUB_REPOSITORY')) {
+  if (!getenv('APP_ENV')) {
+    putenv('APP_ENV=ci');
+  }
+
+  if (!getenv('PROJECT_NAME')) {
+    putenv('PROJECT_NAME=' . $github_repository);
+  }
+}
 $config['helfi_api_base.environment_resolver.settings']['environment_name'] = getenv('APP_ENV');
 $config['helfi_api_base.environment_resolver.settings']['project_name'] = getenv('PROJECT_NAME');
 
@@ -166,6 +176,12 @@ if ($stage_file_proxy_origin = getenv('STAGE_FILE_PROXY_ORIGIN')) {
   $config['stage_file_proxy.settings']['origin_dir'] = getenv('STAGE_FILE_PROXY_ORIGIN_DIR') ?: 'test';
   $config['stage_file_proxy.settings']['hotlink'] = FALSE;
   $config['stage_file_proxy.settings']['use_imagecache_root'] = FALSE;
+}
+
+// Map API accounts. The value should be a base64 encoded JSON string.
+// @see https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/blob/main/documentation/api-accounts.md.
+if ($api_accounts = getenv('DRUPAL_API_ACCOUNTS')) {
+  $config['helfi_api_base.api_accounts']['accounts'] = json_decode(base64_decode($api_accounts), TRUE);
 }
 
 // Override session suffix when present.
@@ -221,12 +237,14 @@ $settings['is_azure'] = FALSE;
 
 // Environment specific overrides.
 if (file_exists(__DIR__ . '/all.settings.php')) {
-  include __DIR__ . '/all.settings.php';
+  // phpcs:ignore
+  include_once __DIR__ . '/all.settings.php'; // NOSONAR
 }
 
 if ($env = getenv('APP_ENV')) {
   if (file_exists(__DIR__ . '/' . $env . '.settings.php')) {
-    include __DIR__ . '/' . $env . '.settings.php';
+    // phpcs:ignore
+    include_once __DIR__ . '/' . $env . '.settings.php'; // NOSONAR
   }
 
   $servicesFiles = [
@@ -242,6 +260,7 @@ if ($env = getenv('APP_ENV')) {
   }
 
   if (getenv('OPENSHIFT_BUILD_NAMESPACE') && file_exists(__DIR__ . '/azure.settings.php')) {
-    include __DIR__ . '/azure.settings.php';
+    // phpcs:ignore
+    include_once __DIR__ . '/azure.settings.php'; // NOSONAR
   }
 }
