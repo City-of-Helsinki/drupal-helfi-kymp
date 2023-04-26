@@ -32,6 +32,9 @@ default:
   sticky:
     -
       value: false
+  revision_translation_affected:
+    -
+      value: true
   hide_sidebar_navigation:
     -
       value: false
@@ -71,6 +74,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_text:
             -
               value: "<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n\r\n<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh.</p>\r\n"
@@ -125,6 +131,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_sidebar_text_text:
             -
               value: "<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>\r\n\r\n<p>Pellentesque in ipsum id orci porta dapibus.</p>\r\n\r\n<ul>\r\n\t<li>Vivamus suscipit tortor eget felis porttitor volutpat.</li>\r\n\t<li>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.&nbsp;</li>\r\n</ul>\r\n"

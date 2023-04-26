@@ -26,6 +26,9 @@ default:
   sticky:
     -
       value: false
+  revision_translation_affected:
+    -
+      value: true
   hide_sidebar_navigation:
     -
       value: false
@@ -65,6 +68,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_text:
             -
               value: "<ul>\r\n\t<li>DC: component district and project search</li>\r\n\t<li>DC: component district listing</li>\r\n\t<li>DC: component list of plans</li>\r\n\t<li>DC:&nbsp;component project listing</li>\r\n</ul>\r\n"
