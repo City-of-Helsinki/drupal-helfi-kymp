@@ -5,12 +5,12 @@ _meta:
   bundle: project
   default_langcode: en
   depends:
-    41a73f09-2b63-4cbb-b4af-924b771b8c86: node
-    5c3777f5-7486-43cb-ada3-8c863440ee84: node
-    19b7130b-8dce-4daa-a604-d490e79d839c: node
     878f1f67-55ad-400d-8b4c-8ca47478e1b3: node
     935bcf05-9346-4cb1-ba2d-beddc301ba1e: node
     29e01875-1d07-4c06-8010-134efb989de3: node
+    5c3777f5-7486-43cb-ada3-8c863440ee84: node
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+    41a73f09-2b63-4cbb-b4af-924b771b8c86: node
     ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
     33db70e6-338f-40cc-9b6e-8bd26bdce381: taxonomy_term
     088e58ab-afdb-4c79-8fec-b422605e11cf: taxonomy_term
@@ -53,7 +53,7 @@ default:
       value: 'Table of contents'
   path:
     -
-      alias: /dc-helfi-custom-test-content/dc-layouts-custom/dc-layout-project-lead-sidebar-picture-0
+      alias: /dc-helfi-custom-test-content/dc-layouts-custom/dc-layout-project-lead-sidebar-picture-lot-of-information
       langcode: en
       pathauto: 0
   content_translation_source:
@@ -129,17 +129,17 @@ default:
       value: 'Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   field_project_district:
     -
-      entity: 41a73f09-2b63-4cbb-b4af-924b771b8c86
-    -
-      entity: 5c3777f5-7486-43cb-ada3-8c863440ee84
-    -
-      entity: 19b7130b-8dce-4daa-a604-d490e79d839c
-    -
       entity: 878f1f67-55ad-400d-8b4c-8ca47478e1b3
     -
       entity: 935bcf05-9346-4cb1-ba2d-beddc301ba1e
     -
       entity: 29e01875-1d07-4c06-8010-134efb989de3
+    -
+      entity: 5c3777f5-7486-43cb-ada3-8c863440ee84
+    -
+      entity: 19b7130b-8dce-4daa-a604-d490e79d839c
+    -
+      entity: 41a73f09-2b63-4cbb-b4af-924b771b8c86
   field_project_execution_schedule:
     -
       value: '2023-03-27'
