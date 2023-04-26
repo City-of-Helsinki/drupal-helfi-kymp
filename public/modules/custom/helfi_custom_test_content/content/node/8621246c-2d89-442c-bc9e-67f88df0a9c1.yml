@@ -26,9 +26,6 @@ default:
   sticky:
     -
       value: false
-  revision_translation_affected:
-    -
-      value: true
   hide_sidebar_navigation:
     -
       value: false
@@ -40,7 +37,7 @@ default:
       value: 'Table of contents'
   path:
     -
-      alias: /dc-helfi-platform-test-content/dc-layouts-custom
+      alias: /dc-helfi-custom-test-content/dc-layouts-custom
       langcode: en
       pathauto: 0
   content_translation_source:
@@ -68,9 +65,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_text:
             -
               value: "<ul>\r\n\t<li>DC: layout district - hero - subnav - sidebar - no-toc</li>\r\n\t<li>DC: layout district - hero - subnav - no-sidebar - no-toc</li>\r\n\t<li>DC: layout district - hero - subnav - sidebar - toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - no-sidebar - no-toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - no-sidebar - toc</li>\r\n\t<li>DC: layout district - no-hero - subnav - sidebar - toc</li>\r\n\t<li>DC: layout project - lead - sidebar - no-picture</li>\r\n\t<li>DC: layout project - lead - sidebar - picture - lot-of-information</li>\r\n\t<li>DC: layout project - lead - sidebar - picture</li>\r\n\t<li>DC: layout project - no-lead - no-sidebar - no-picture</li>\r\n\t<li>DC: layout project - no-lead - no-sidebar - picture</li>\r\n\t<li>DC: layout project - no-lead - sidebar - picture</li>\r\n</ul>\r\n"

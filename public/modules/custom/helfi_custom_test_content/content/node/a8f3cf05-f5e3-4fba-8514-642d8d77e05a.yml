@@ -26,9 +26,6 @@ default:
   sticky:
     -
       value: false
-  revision_translation_affected:
-    -
-      value: true
   hide_sidebar_navigation:
     -
       value: false
@@ -40,7 +37,7 @@ default:
       value: 'Table of contents'
   path:
     -
-      alias: /dc-helfi-platform-test-content/dc-components-custom/dc-component-list-of-plans
+      alias: /dc-helfi-custom-test-content/dc-components-custom/dc-component-list-of-plans
       langcode: en
       pathauto: 0
   content_translation_source:
@@ -68,9 +65,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_list_of_plans_title:
             -
               value: 'List Of Plans - No Description'
@@ -92,9 +86,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_list_of_plans_description:
             -
               value: 'Proin ullamcorper elit non tempor consectetur. Vestibulum ut felis porta, sagittis felis suscipit, sollicitudin turpis. Etiam sed erat varius, eleifend diam rutrum, porta dolor. Ut in lacinia arcu, et laoreet arcu. Morbi id vehicula eros, et porttitor est. Etiam eu mollis ipsum. Phasellus elementum tempor orci.'

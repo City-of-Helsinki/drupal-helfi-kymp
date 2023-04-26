@@ -6,7 +6,6 @@ _meta:
   default_langcode: en
   depends:
     ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
-    41c41049-c78d-4dab-913f-b10f3433c52c: media
 default:
   revision_uid:
     -
@@ -43,7 +42,7 @@ default:
       value: 'Table of contents'
   path:
     -
-      alias: /urban-planning-and-construction/urban-development/dc-layout-district-hero-subnav-no-sidebar-no-toc
+      alias: /dc-helfi-custom-test-content/dc-layouts-custom/dc-layout-district-hero-subnav-no-sidebar-no-toc
       langcode: en
       pathauto: 0
   content_translation_source:
@@ -112,7 +111,7 @@ default:
               value: with-image-right
           field_hero_image:
             -
-              entity: 41c41049-c78d-4dab-913f-b10f3433c52c
+              entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
           field_hero_link_design:
             -
               value: primary
@@ -163,6 +162,9 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_list_of_links_image:
                     -
                       entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
@@ -196,7 +198,7 @@ default:
                       value: true
                   field_list_of_links_image:
                     -
-                      entity: 41c41049-c78d-4dab-913f-b10f3433c52c
+                      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
                   field_list_of_links_link:
                     -
                       uri: 'https://hel.fi/fi'
