@@ -3,7 +3,7 @@ _meta:
   entity_type: menu_link_content
   uuid: 3b4a4c02-bbca-45dc-b647-107e9d9d5978
   bundle: menu_link_content
-  default_langcode: fi
+  default_langcode: en
   depends:
     651e31ab-30aa-4cba-af96-03cfac7cd820: node
 default:
@@ -51,26 +51,3 @@ default:
   content_translation_created:
     -
       value: 1682495941
-translations:
-  en:
-    title:
-      -
-        value: 'DC: Helfi custom test content'
-    revision_translation_affected:
-      -
-        value: true
-    content_translation_source:
-      -
-        value: und
-    content_translation_outdated:
-      -
-        value: false
-    content_translation_uid:
-      -
-        target_id: 1
-    content_translation_status:
-      -
-        value: true
-    content_translation_created:
-      -
-        value: 1682495941
