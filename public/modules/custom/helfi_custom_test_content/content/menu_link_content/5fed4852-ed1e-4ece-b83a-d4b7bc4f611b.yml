@@ -1,0 +1,57 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 5fed4852-ed1e-4ece-b83a-d4b7bc4f611b
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    b58878d7-e165-48b5-b9ca-858061764b19: menu_link_content
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'DC: layout district - hero - subnav - sidebar - toc'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      target_uuid: 19b7130b-8dce-4daa-a604-d490e79d839c
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: false
+  weight:
+    -
+      value: 0
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:b58878d7-e165-48b5-b9ca-858061764b19'
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_status:
+    -
+      value: true
+  content_translation_created:
+    -
+      value: 1678438121

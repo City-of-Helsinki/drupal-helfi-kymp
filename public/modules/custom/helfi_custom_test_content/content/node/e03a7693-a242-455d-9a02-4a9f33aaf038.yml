@@ -1,0 +1,111 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: e03a7693-a242-455d-9a02-4a9f33aaf038
+  bundle: project
+  default_langcode: en
+  depends:
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+    33db70e6-338f-40cc-9b6e-8bd26bdce381: taxonomy_term
+    088e58ab-afdb-4c79-8fec-b422605e11cf: taxonomy_term
+    9ddc482a-0a6b-4872-be7b-ee92d91a72d0: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout project - no-lead - no-sidebar - picture'
+  created:
+    -
+      value: 1678452846
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /dc-helfi-platform-test-content/dc-helfi-custom-test-content/dc-layouts-custom/dc-layout-project-no-lead-no-sidebar
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 183ae6f6-168b-4138-b087-f7bbc52c89c2
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678452891
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_text:
+            -
+              value: "<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n\r\n<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh.</p>\r\n"
+              format: full_html
+  field_project_district:
+    -
+      entity: 19b7130b-8dce-4daa-a604-d490e79d839c
+  field_project_execution_schedule:
+    -
+      value: '2023-03-27'
+      end_value: '2023-04-02'
+  field_project_external_website:
+    -
+      uri: 'http://example.com'
+      title: ''
+      options: {  }
+  field_project_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_project_phase:
+    -
+      entity: 33db70e6-338f-40cc-9b6e-8bd26bdce381
+  field_project_plan_schedule:
+    -
+      value: '2023-03-19T22:00:00'
+      end_value: '2023-03-26T20:59:59'
+  field_project_theme:
+    -
+      entity: 088e58ab-afdb-4c79-8fec-b422605e11cf
+  field_project_type:
+    -
+      entity: 9ddc482a-0a6b-4872-be7b-ee92d91a72d0

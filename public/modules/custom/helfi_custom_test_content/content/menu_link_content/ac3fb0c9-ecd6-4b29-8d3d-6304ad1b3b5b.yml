@@ -1,0 +1,57 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: ac3fb0c9-ecd6-4b29-8d3d-6304ad1b3b5b
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    b58878d7-e165-48b5-b9ca-858061764b19: menu_link_content
+    aeb7c3bb-c8e3-4ad8-9d56-11398122fc13: node
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'DC: layout project - lead - sidebar - picture - lot-of-information'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      target_uuid: aeb7c3bb-c8e3-4ad8-9d56-11398122fc13
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: false
+  weight:
+    -
+      value: 0
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:b58878d7-e165-48b5-b9ca-858061764b19'
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_status:
+    -
+      value: true
+  content_translation_created:
+    -
+      value: 1678453586

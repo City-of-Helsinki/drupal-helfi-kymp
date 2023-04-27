@@ -1,0 +1,88 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 31177148-7553-4660-8a3f-9861057132f8
+  bundle: district
+  default_langcode: en
+  depends:
+    19b7130b-8dce-4daa-a604-d490e79d839c: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: component project listing'
+  created:
+    -
+      value: 1678456431
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /dc-helfi-platform-test-content/dc-helfi-custom-test-content/dc-components-custom/dc-component-project-listing
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f181afc0-0dde-4fdc-b859-ac39d8feabf9
+          bundle: project_listing
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678456467
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_project_list_description:
+            -
+              value: "<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat.</p>\r\n"
+              format: minimal
+          field_project_list_district:
+            -
+              entity: 19b7130b-8dce-4daa-a604-d490e79d839c
+          field_project_list_title:
+            -
+              value: 'Project listing'
+  field_has_hero:
+    -
+      value: false
