@@ -21,7 +21,7 @@ endif
 
 PHONY += --open-db-gui
 --open-db-gui:
-	@open mysql://$(DB_USER):$(DB_PASS)@$(shell docker port $(DB_CONTAINER) 3306)/$(DB_NAME)
+	@open mysql://$(DB_USER):$(DB_PASS)@$(shell docker port $(DB_CONTAINER) 3306 | grep -v ::)/$(DB_NAME)
 
 define dbg
 	@printf "${GREEN}${1}:${NO_COLOR} ${2}\n"
