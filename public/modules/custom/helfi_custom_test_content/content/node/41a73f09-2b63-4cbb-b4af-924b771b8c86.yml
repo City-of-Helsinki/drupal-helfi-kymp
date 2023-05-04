@@ -1,0 +1,217 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 41a73f09-2b63-4cbb-b4af-924b771b8c86
+  bundle: district
+  default_langcode: en
+  depends:
+    ed3c3be5-c469-4eba-b6c1-f03d1643d9f2: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DC: layout district - hero - subnav - no-sidebar - no-toc'
+  created:
+    -
+      value: 1678435556
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  hide_sidebar_navigation:
+    -
+      value: false
+  toc_enabled:
+    -
+      value: false
+  toc_title:
+    -
+      value: 'Table of contents'
+  path:
+    -
+      alias: /dc-helfi-platform-test-content/dc-helfi-custom-test-content/dc-layouts-custom/dc-layout-district-hero-subnav-no-sidebar-no-toc
+      langcode: en
+      pathauto: 0
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d37c66e5-c721-4912-8f93-faca24060709
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678437634
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_text:
+            -
+              value: "<p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+              format: full_html
+  field_district_image:
+    -
+      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+  field_has_hero:
+    -
+      value: true
+  field_hero:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c1a2f1c5-4b33-4404-8cb0-d284001f90e4
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678435578
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_hero_bg_color:
+            -
+              value: coat-of-arms
+          field_hero_desc:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>\r\n"
+              format: full_html
+          field_hero_design:
+            -
+              value: with-image-right
+          field_hero_image:
+            -
+              entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+          field_hero_link_design:
+            -
+              value: primary
+          field_hero_title:
+            -
+              value: 'DC: layout district - hero - subnav - no-sidebar'
+  field_lower_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3006caee-1fc0-4794-ac2a-088aa3ac288f
+          bundle: list_of_links
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1678456860
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_list_of_links_design:
+            -
+              value: with-image
+          field_list_of_links_links:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 04b01c4e-3980-4e1f-bba9-1bd374a76b0e
+                  bundle: list_of_links_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1678456860
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_list_of_links_image:
+                    -
+                      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+                  field_list_of_links_link:
+                    -
+                      uri: 'https://example.com'
+                      title: 'Example.com website'
+                      options:
+                        target_new: 0
+                        target_check: 0
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: c2f97a2c-1e42-4dc0-b72f-0bb653fd023f
+                  bundle: list_of_links_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1678456950
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_list_of_links_image:
+                    -
+                      entity: ed3c3be5-c469-4eba-b6c1-f03d1643d9f2
+                  field_list_of_links_link:
+                    -
+                      uri: 'https://hel.fi/fi'
+                      title: 'Hel.fi front page'
+                      options:
+                        target_new: 0
+                        target_check: 0
+          field_list_of_links_title:
+            -
+              value: 'List of links'

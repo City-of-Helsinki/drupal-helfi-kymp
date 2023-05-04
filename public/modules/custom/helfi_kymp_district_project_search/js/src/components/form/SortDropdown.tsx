@@ -66,7 +66,7 @@ export const SortDropdown = ({
   }, [searchState, setSubmitButtonValue, setSort, submitButtonValue]);
 
   return (
-    <div className="district-project-search-form__filter">
+    <div className="district-project-search-form__filter hdbt-search__filter">
       <Select
         label={label}
         options={SortOptions}
