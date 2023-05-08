@@ -6,7 +6,7 @@ dependencies:
     - options
     - paragraphs
 _core:
-  default_config_hash: ktXofBgkADlgnkihjCiK2kkTZKpSUcu2K1h2HufmEds
+  default_config_hash: YdtJgnURFgQWIddkieo9IZzFJ8D6VA_S30zaRxaAaJE
 id: paragraph.field_banner_design
 field_name: field_banner_design
 entity_type: paragraph
@@ -14,14 +14,8 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: align-center
-      label: 'Aligned to the center'
-    -
       value: align-left
       label: 'Aligned to the left'
-    -
-      value: align-center-secondary
-      label: 'Aligned to the center, secondary color'
     -
       value: align-left-secondary
       label: 'Aligned to the left, secondary color'
