@@ -43,7 +43,6 @@ module.exports = (env, argv) => {
       pathinfo: isDev,
       filename: 'js/[name].min.js',
       publicPath: '../',
-      clean: true,
     },
     module: {
       rules: [
@@ -139,6 +138,12 @@ module.exports = (env, argv) => {
           new TerserPlugin({
             terserOptions: {
               ecma: 2015,
+              mangle: {
+                reserved:[
+                  'Drupal',
+                  'drupalSettings'
+                ]
+              },
               format: {
                 comments: false,
               },
