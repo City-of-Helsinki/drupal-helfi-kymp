@@ -43,6 +43,7 @@ module.exports = (env, argv) => {
       pathinfo: isDev,
       filename: 'js/[name].min.js',
       publicPath: '../',
+      clean: true,
     },
     module: {
       rules: [
