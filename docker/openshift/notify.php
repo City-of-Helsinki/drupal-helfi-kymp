@@ -1,5 +1,39 @@
 <?php
 
+/**
+ * @file
+ * A php script to send messages to a configured Slack channel.
+ *
+ * This script is called from 'docker/openshift/entrypoints/20-deploy.sh'.
+ *
+ * Configuration:
+ *
+ * In order for this to work, you must define the following environment
+ * variables:
+ *
+ * - SLACK_CHANNEL_ID
+ *     You can find this value by right-clicking the channel name and selecting
+ *     Copy -> Copy link. The last part of the link should be the channel ID.
+ *
+ * - SLACK_AUTHORIZATION
+ *    The authorization token for your Slack application.
+ *
+ * Usage:
+ *
+ * echo "your message" | php notify.php
+ *
+ * An additional metadata gathered from configured environment variables will
+ * be appended to all messages, such as APP_ENV, OPENSHIFT_BUILD_ID etc.
+ *
+ * You can pass an optional boolean value as an argument to this script
+ * to highlight everyone active in that channel. For example
+ *
+ * echo "your message" | php notify.php true
+ *
+ * This will, in addition to everything else, notify everyone active in that
+ * channel. Like `@here your message`.
+ */
+
 declare(strict_types = 1);
 
 use GuzzleHttp\Client;

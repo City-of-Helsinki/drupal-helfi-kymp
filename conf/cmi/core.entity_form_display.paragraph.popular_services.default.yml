@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.popular_services.field_popular_services_title
     - field.field.paragraph.popular_services.field_service_items
     - paragraphs.paragraphs_type.popular_services
-    - field.field.paragraph.popular_services.field_popular_services_title
   module:
     - paragraphs
 _core:
-  default_config_hash: 3KlUynRcTXaWin6s8Z8jN5WolwwwAKPgOuxFMbuU7zg
+  default_config_hash: p92mQfVABLdoDyLyijLsf5Eoop2UcHixAVk_QYF6PJc
 id: paragraph.popular_services.default
 targetEntityType: paragraph
 bundle: popular_services
