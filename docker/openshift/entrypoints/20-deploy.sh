@@ -7,15 +7,11 @@ function send_notification {
   echo ${1} | php ../docker/openshift/notify.php ${2} || true
 }
 
-# Print the error message and sends it as a Slack message without notifying
-# anyone.
 function output_message {
   echo ${1}
   send_notification ${1}
 }
 
-# Prints the error message and sends it as a Slack message notifying
-# all members of the Slack channel.
 function output_error_message {
   echo ${1}
   send_notification ${1} true
