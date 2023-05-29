@@ -8,8 +8,10 @@ dependencies:
     - field.field.paragraph.target_group_link_item.field_target_group_item_subtitle
     - paragraphs.paragraphs_type.target_group_link_item
   module:
-    - link
     - hdbt_admin_tools
+    - link
+_core:
+  default_config_hash: i80ANNBaRvZWikQ1vNa_Ib_ogd25z6iAxzCrXayVsTA
 id: paragraph.target_group_link_item.default
 targetEntityType: paragraph
 bundle: target_group_link_item
