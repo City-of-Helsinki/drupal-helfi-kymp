@@ -143,10 +143,10 @@ function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms() {
   $term_storage = $entity_type_manager->getStorage('taxonomy_term');
 
   $tids = $term_storage->getQuery()
-  ->condition('vid', $vocabulary)
-  ->condition('langcode', $original_lang)
-  ->accessCheck(FALSE)
-  ->execute();
+    ->condition('vid', $vocabulary)
+    ->condition('langcode', $original_lang)
+    ->accessCheck(FALSE)
+    ->execute();
 
   $terms = $term_storage->loadMultiple($tids);
 
