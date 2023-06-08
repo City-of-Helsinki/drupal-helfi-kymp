@@ -15,6 +15,7 @@ dependencies:
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.journey_planner
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
@@ -42,30 +43,34 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      list_of_plans: list_of_plans
-      text: text
-      columns: columns
-      image: image
       accordion: accordion
-      list_of_links: list_of_links
+      banner: banner
+      chart: chart
+      columns: columns
       contact_card_listing: contact_card_listing
       content_cards: content_cards
       content_liftup: content_liftup
-      banner: banner
       event_list: event_list
-      news_list: news_list
       from_library: from_library
-      phasing: phasing
-      chart: chart
-      remote_video: remote_video
+      image: image
+      list_of_links: list_of_links
+      list_of_plans: list_of_plans
       map: map
-      unit_search: unit_search
+      news_list: news_list
+      phasing: phasing
+      remote_video: remote_video
       service_list_search: service_list_search
+      text: text
+      unit_search: unit_search
+      journey_planner: journey_planner
     negate: 0
     target_bundles_drag_drop:
       accordion:
         weight: 0
         enabled: true
+      accordion_item:
+        weight: 38
+        enabled: false
       banner:
         weight: 0
         enabled: true
@@ -75,6 +80,9 @@ settings:
       columns:
         weight: 0
         enabled: true
+      contact_card:
+        weight: 42
+        enabled: false
       contact_card_listing:
         weight: 0
         enabled: true
@@ -84,18 +92,36 @@ settings:
       content_liftup:
         weight: 0
         enabled: true
+      district_and_project_search:
+        weight: 46
+        enabled: false
+      district_listing:
+        weight: 47
+        enabled: false
       event_list:
         weight: 0
         enabled: true
       from_library:
         weight: 0
         enabled: true
+      hero:
+        weight: 50
+        enabled: false
       image:
         weight: 0
         enabled: true
+      journey_planner:
+        weight: 52
+        enabled: true
+      liftup_with_image:
+        weight: 53
+        enabled: false
       list_of_links:
         weight: 0
         enabled: true
+      list_of_links_item:
+        weight: 55
+        enabled: false
       list_of_plans:
         weight: 0
         enabled: true
@@ -108,12 +134,39 @@ settings:
       phasing:
         weight: 0
         enabled: true
+      phasing_item:
+        weight: 60
+        enabled: false
+      popular_service_item:
+        weight: 61
+        enabled: false
+      popular_services:
+        weight: 62
+        enabled: false
+      project_listing:
+        weight: 63
+        enabled: false
       remote_video:
         weight: 0
         enabled: true
+      service_list:
+        weight: 65
+        enabled: false
       service_list_search:
         weight: 0
         enabled: true
+      sidebar_text:
+        weight: 67
+        enabled: false
+      social_media_link:
+        weight: 68
+        enabled: false
+      target_group_link_item:
+        weight: 69
+        enabled: false
+      target_group_links:
+        weight: 70
+        enabled: false
       text:
         weight: 0
         enabled: true

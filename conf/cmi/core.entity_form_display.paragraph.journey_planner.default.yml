@@ -1,0 +1,34 @@
+uuid: 4921e1b1-09f1-48c0-96ed-51f30175a54e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.journey_planner.field_description
+    - field.field.paragraph.journey_planner.field_title
+    - paragraphs.paragraphs_type.journey_planner
+  module:
+    - text
+id: paragraph.journey_planner.default
+targetEntityType: paragraph
+bundle: journey_planner
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
