@@ -1,0 +1,23 @@
+{% block paragraph %}
+  {% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--journey-planner' ],
+      component_title: content.field_title,
+      component_description: content.field_description,
+      component_content_class: 'journey-planner journey-planner--embed',
+    }
+  %}
+    {% block component_content %}
+
+      <iframe 
+        width="500"
+        height="250"
+        style="border-radius: 10px;"
+        src="https://reittiopas.hsl.fi/haku?bikeOnly=1&lang={{ langcode }}"
+        title="{{ 'Digitransit UI embedded search'|t({}, {'context': 'Journey planner'}) }}"
+        scrolling="no">
+      </iframe>
+
+    {% endblock component_content %}
+  {% endembed %}
+{% endblock paragraph %}
