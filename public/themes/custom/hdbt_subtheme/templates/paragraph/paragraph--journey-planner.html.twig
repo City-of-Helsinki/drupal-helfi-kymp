@@ -8,12 +8,11 @@
     }
   %}
     {% block component_content %}
-
       <iframe 
         width="500"
         height="250"
         style="border-radius: 10px;"
-        src="https://reittiopas.hsl.fi/haku?bikeOnly=1&lang={{ langcode }}"
+        src="https://reittiopas.hsl.fi/haku?bikeOnly=1&lang={{ current_langcode }}"
         title="{{ 'Digitransit UI embedded search'|t({}, {'context': 'Journey planner'}) }}"
         scrolling="no">
       </iframe>
