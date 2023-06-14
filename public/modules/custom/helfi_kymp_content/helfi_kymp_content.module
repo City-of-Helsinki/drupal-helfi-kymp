@@ -142,10 +142,12 @@ function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms() {
   $entity_type_manager = \Drupal::entityTypeManager();
   $term_storage = $entity_type_manager->getStorage('taxonomy_term');
 
-  $query = $term_storage->getQuery();
-  $query->condition('vid', $vocabulary);
-  $query->condition('langcode', $original_lang);
-  $tids = $query->execute();
+  $tids = $term_storage->getQuery()
+    ->condition('vid', $vocabulary)
+    ->condition('langcode', $original_lang)
+    ->accessCheck(FALSE)
+    ->execute();
+
   $terms = $term_storage->loadMultiple($tids);
 
   foreach ($terms as $term) {
