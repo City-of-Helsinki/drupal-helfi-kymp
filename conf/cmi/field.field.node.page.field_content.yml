@@ -15,6 +15,7 @@ dependencies:
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.journey_planner
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
@@ -61,6 +62,7 @@ settings:
       service_list_search: service_list_search
       text: text
       unit_search: unit_search
+      journey_planner: journey_planner
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -109,8 +111,8 @@ settings:
         weight: 0
         enabled: true
       journey_planner:
-        weight: 52
-        enabled: false
+        weight: 0
+        enabled: true
       liftup_with_image:
         weight: 53
         enabled: false
