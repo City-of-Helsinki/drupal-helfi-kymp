@@ -7,6 +7,7 @@
 
 declare(strict_types = 1);
 
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 
@@ -95,4 +96,12 @@ function hdbt_subtheme_preprocess_node(array &$variables) {
     }
     $variables['district_titles'] = implode(', ', $district_titles);
   }
+}
+
+function hdbt_subtheme_preprocess_paragraph__journey_planner(array &$variables): void {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+  $variables['privacy_policy_url'] = helfi_eu_cookie_compliance_get_privacy_policy_url();
+  $variables['media_service_url'] = 'https://reittiopas.hsl.fi';
+  $variables['media_url'] = 'https://reittiopas.hsl.fi/haku?bikeOnly=1&lang=' . $langcode;
+  $variables['media_id'] = 'journey-map';
 }
