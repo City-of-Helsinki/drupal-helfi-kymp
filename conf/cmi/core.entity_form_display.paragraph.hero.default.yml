@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.hero.field_hero_bg_color
     - field.field.paragraph.hero.field_hero_desc
     - field.field.paragraph.hero.field_hero_design
     - field.field.paragraph.hero.field_hero_image
@@ -16,18 +15,12 @@ dependencies:
     - media_library
     - text
 _core:
-  default_config_hash: a7HT1FL6Lj9NGy6KYZjyVqpngR4ANDSgnjRSQ15UHmQ
+  default_config_hash: CvDiqRtujItZjhiR7KUf0a9dQrlgEcmuDDhJHmzUNOw
 id: paragraph.hero.default
 targetEntityType: paragraph
 bundle: hero
 mode: default
 content:
-  field_hero_bg_color:
-    type: options_select
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_hero_desc:
     type: text_textarea
     weight: 3
