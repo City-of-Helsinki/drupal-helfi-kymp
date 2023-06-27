@@ -1,0 +1,42 @@
+{% block paragraph %}
+  {% embed "@hdbt/misc/component.twig" with
+    {
+      component_classes: [ 'component--journey-planner' ],
+      component_title: content.field_title,
+      component_description: content.field_description,
+      component_content_class: 'journey-planner',
+    }
+  %}
+    {% block component_content %}
+
+      {% set after_planner_id = media_id ~ random() ~ '-after'|clean_id %}
+      {% set before_planner_id = media_id ~ random() ~ '-before'|clean_id %}
+
+      {% include '@hdbt/misc/embedded-content-cookie-compliance.twig' with {
+        media_url: media_url,
+        media_id: media_id,
+        media_service_url: media_service_url,
+        privacy_policy_url: privacy_policy_url,
+      } %}
+
+      {% set drupal_settings = {
+        '#attached': {
+          'drupalSettings': {
+            'embedded_media_attributes': {
+              (media_id): {
+                'src': media_url,
+                'title': 'Digitransit UI embedded search'|t({}, {'context': 'Journey planner'}),
+                'type': 'journey_planner',
+                'skipLinkAfterId' : after_planner_id,
+                'skipLinkBeforeId' : before_planner_id,
+              }
+            }
+          }
+        }
+      } %}
+
+      {{ drupal_settings }}
+
+    {% endblock component_content %}
+  {% endembed %}
+{% endblock paragraph %}
