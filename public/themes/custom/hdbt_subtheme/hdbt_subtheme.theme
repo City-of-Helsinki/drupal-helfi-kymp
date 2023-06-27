@@ -103,7 +103,7 @@ function hdbt_subtheme_preprocess_node(array &$variables) {
  */
 function hdbt_subtheme_preprocess_paragraph__journey_planner(array &$variables): void {
   $variables['#attached']['library'][] = 'hdbt/embedded-content-cookie-compliance';
-  
+
   $langcode = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
   $variables['privacy_policy_url'] = helfi_eu_cookie_compliance_get_privacy_policy_url();
   $variables['media_service_url'] = 'https://reittiopas.hsl.fi';
