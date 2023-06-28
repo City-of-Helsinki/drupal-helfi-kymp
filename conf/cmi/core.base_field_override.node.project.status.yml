@@ -1,0 +1,22 @@
+uuid: 0e78cc9a-cfa4-4c4f-bf71-eec0b92f8430
+langcode: fi
+status: true
+dependencies:
+  config:
+    - node.type.project
+id: node.project.status
+field_name: status
+entity_type: node
+bundle: project
+label: Julkaistu
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Käytössä
+  off_label: 'Pois päältä'
+field_type: boolean
