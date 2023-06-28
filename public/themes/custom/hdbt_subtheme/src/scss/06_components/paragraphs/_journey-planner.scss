@@ -1,9 +1,9 @@
 .component--journey-planner {
   .media-oembed-content {
+    border: 1px solid $color-black-20;
+    border-radius: 10px;
     height: 252px;
     width: 100%;
-    border: 1px solid $color-black-20;
-    border-radius: 10px;    
 
     @include breakpoint($breakpoint-m) {
       width: 500px;
