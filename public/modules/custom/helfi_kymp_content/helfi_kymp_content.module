@@ -8,9 +8,9 @@
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\helfi_platform_config\DTO\ParagraphTypeCollection;
 use Drupal\node\Entity\Node;
-use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
 
@@ -298,6 +298,7 @@ function helfi_kymp_content_helfi_paragraph_types() : array {
       'page' => [
         'field_content' => [
           'list_of_plans',
+          'journey_planner',
         ],
         'field_lower_content' => [
           'list_of_plans',
