@@ -1,0 +1,22 @@
+uuid: 5afac56f-67ff-4ebf-a7fa-9f7315d63b47
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.district
+id: node.district.status
+field_name: status
+entity_type: node
+bundle: district
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: On
+  off_label: Off
+field_type: boolean
