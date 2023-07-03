@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - scheduler
 third_party_settings:
   menu_ui:
     available_menus:
@@ -23,7 +24,7 @@ third_party_settings:
     unpublish_required: false
     unpublish_revision: false
 _core:
-  default_config_hash: ah3vIiRAXEYtaITIDXDkTMxz_d55Eu7rV-nNz1ZknEU
+  default_config_hash: PfTlYxtl_LoeL3LJeT4Qwnzu5MZq6Rc7R5o3NLTInHU
 name: 'Landing page'
 type: landing_page
 description: 'Content type for the front page of a section or theme. A landing page consists of highlight areas, content listings and links.'

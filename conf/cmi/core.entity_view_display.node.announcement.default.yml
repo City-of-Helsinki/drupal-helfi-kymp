@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.announcement.field_announcement_all_pages
     - field.field.node.announcement.field_announcement_content_pages
     - field.field.node.announcement.field_announcement_link
+    - field.field.node.announcement.field_announcement_service_pages
     - field.field.node.announcement.field_announcement_type
+    - field.field.node.announcement.field_announcement_unit_pages
     - node.type.announcement
   module:
     - link
@@ -15,7 +17,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: d9dGJc2qp1Rc1GeEJBPEm5UIpxhfL0k-12i1h94wvKo
+  default_config_hash: IHF-sP4Gq6tdTyWDxQDDEdLbHz3-QzklMNE1QA2mQU0
 id: node.announcement.default
 targetEntityType: node
 bundle: announcement

@@ -1,13 +1,15 @@
-uuid: 5afac56f-67ff-4ebf-a7fa-9f7315d63b47
+uuid: 174bf2d1-4dcb-4921-abf3-2c126e42ce76
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.district
-id: node.district.status
+    - node.type.landing_page
+_core:
+  default_config_hash: ewmZbuO4KgD36Ka7QA-8tJ9jktJH-jQbTNMrkHfuQRc
+id: node.landing_page.status
 field_name: status
 entity_type: node
-bundle: district
+bundle: landing_page
 label: Published
 description: ''
 required: false
