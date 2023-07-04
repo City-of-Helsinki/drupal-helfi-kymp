@@ -18,7 +18,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: DOuUkveApF8w1Src7sCS9GnmmA_IpAqLzHYZYzCmPPk
+  default_config_hash: eEYHiODeZDTb8z0FJIhd8OeomGNTM2nh51IdmVBQBqc
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -45,7 +45,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 21
+    weight: 19
     region: content
   accessibility_www:
     type: link
@@ -81,13 +81,6 @@ content:
     third_party_settings: {  }
     weight: 11
     region: content
-  contacts:
-    type: tpr_connection
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 26
-    region: content
   description:
     type: text_default
     label: hidden
@@ -110,7 +103,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 20
+    weight: 18
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
@@ -119,7 +112,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 22
+    weight: 20
     region: content
   field_metatags:
     type: metatag_empty_formatter
@@ -133,14 +126,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 24
-    region: content
-  links:
-    type: tpr_connection
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 25
+    weight: 22
     region: content
   name:
     type: string
@@ -164,13 +150,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 7
-    region: content
-  other_info:
-    type: tpr_connection
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 18
     region: content
   phone:
     type: telephone_link
@@ -198,20 +177,13 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  price_info:
-    type: tpr_connection
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 19
-    region: content
   provided_languages:
     type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 23
+    weight: 21
     region: content
   service_map_embed:
     type: service_map_embed
@@ -244,12 +216,16 @@ content:
     weight: 12
     region: content
 hidden:
+  contacts: true
   created: true
   field_unit_type: true
   hide_description: true
   langcode: true
   latitude: true
+  links: true
   longitude: true
+  other_info: true
+  price_info: true
   search_api_excerpt: true
   show_www: true
   streetview_entrance_url: true
