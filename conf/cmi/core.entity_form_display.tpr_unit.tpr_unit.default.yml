@@ -82,6 +82,16 @@ content:
       formatter_settings: {  }
       show_description: false
     third_party_settings: {  }
+  contacts:
+    type: readonly_field_widget
+    weight: 36
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
   description:
     type: readonly_field_widget
     weight: 13
@@ -164,6 +174,16 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  highlights:
+    type: readonly_field_widget
+    weight: 32
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 0
@@ -174,6 +194,16 @@ content:
   latitude:
     type: readonly_field_widget
     weight: 17
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
+  links:
+    type: readonly_field_widget
+    weight: 35
     region: content
     settings:
       label: above
@@ -209,6 +239,26 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  opening_hours:
+    type: readonly_field_widget
+    weight: 31
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
+  other_info:
+    type: readonly_field_widget
+    weight: 33
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
   path:
     type: path
     weight: 11
@@ -241,6 +291,16 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  price_info:
+    type: readonly_field_widget
+    weight: 34
+    region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
     third_party_settings: {  }
   provided_languages:
     type: readonly_field_widget

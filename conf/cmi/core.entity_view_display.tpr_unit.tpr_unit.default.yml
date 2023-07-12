@@ -18,7 +18,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: Zg1dRaAcdqWrYdUQPfrE3NjtAFm507U4rg_8LPIPhWA
+  default_config_hash: eEYHiODeZDTb8z0FJIhd8OeomGNTM2nh51IdmVBQBqc
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -216,12 +216,16 @@ content:
     weight: 12
     region: content
 hidden:
+  contacts: true
   created: true
   field_unit_type: true
   hide_description: true
   langcode: true
   latitude: true
+  links: true
   longitude: true
+  other_info: true
+  price_info: true
   search_api_excerpt: true
   show_www: true
   streetview_entrance_url: true
