@@ -17,7 +17,7 @@ dependencies:
     module:
       - hdbt_admin_tools
 _core:
-  default_config_hash: Vtp2PgsgVx3XvL6wqcXbKUn8j0EMUkSmwv55K092n0M
+  default_config_hash: dW34Ba__f5zlIB6OaYxFRW0itQBA98RdooSTUnqW2RE
 id: paragraph.banner.default
 targetEntityType: paragraph
 bundle: banner
@@ -42,8 +42,8 @@ content:
     weight: 4
     region: content
     settings:
-      linkit_profile: helfi
       linkit_auto_link_text: false
+      linkit_profile: helfi
     third_party_settings: {  }
   field_banner_link_design:
     type: design_field_widget
@@ -60,7 +60,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_icon:
-    type: select2_icon_widget
+    type: select_icon_widget
     weight: 2
     region: content
     settings: {  }
