@@ -19,10 +19,6 @@ else
 	@lt --port 443 --subdomain $(COMPOSE_PROJECT_NAME) --local-https --allow-invalid-cert
 endif
 
-PHONY += --open-db-gui
---open-db-gui:
-	@open mysql://$(DB_USER):$(DB_PASS)@$(shell docker port $(DB_CONTAINER) 3306 | grep -v ::)/$(DB_NAME)
-
 define dbg
 	@printf "${GREEN}${1}:${NO_COLOR} ${2}\n"
 endef

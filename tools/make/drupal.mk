@@ -40,7 +40,8 @@ endif
 
 PHONY += drupal-create-folders
 drupal-create-folders:
-	@mkdir -p $(DRUPAL_CREATE_FOLDERS)
+	$(call step,Create folders for Drupal...\n)
+	$(call docker_compose_exec,mkdir -v -p $(DRUPAL_CREATE_FOLDERS))
 
 PHONY += drupal-update
 drupal-update: ## Update Drupal core with Composer
@@ -162,23 +163,18 @@ drush-download-dump: ## Download database dump to dump.sql
 	$(call drush,@$(DRUPAL_SYNC_SOURCE) sql-dump --structure-tables-key=common > ${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
 
 PHONY += open-db-gui
-open-db-gui: DB_CONTAINER := $(COMPOSE_PROJECT_NAME)-db
-open-db-gui: DB_NAME := drupal
-open-db-gui: DB_USER := drupal
-open-db-gui: DB_PASS := drupal
-open-db-gui: --open-db-gui ## Open database with GUI tool
+open-db-gui: ## Open database with GUI tool
+	$(eval DB_SERVICE ?= db)
+	$(eval DB_NAME ?= drupal)
+	$(eval DB_USER ?= drupal)
+	$(eval DB_PASS ?= drupal)
+	@open mysql://$(DB_USER):$(DB_PASS)@$(shell docker compose port $(DB_SERVICE) 3306 | grep -v ::)/$(DB_NAME)
 
 PHONY += fix-drupal
 fix-drupal: PATHS := $(subst $(space),,$(LINT_PATHS_PHP))
 fix-drupal: ## Fix Drupal code style
 	$(call step,Fix Drupal code style with phpcbf...\n)
 	$(call cs,phpcbf,$(PATHS))
-
-PHONY += fix-drupal-coder
-fix-drupal-coder: VERSION := 8.3.16
-fix-drupal-coder: ## Fix Drupal Coder loading
-	composer config repositories.drupal '{"type": "composer", "url": "https://packages.drupal.org/8"}'
-	composer config repositories.drupal/coder '{"type": "package", "package": {"name": "drupal/coder", "type": "phpcodesniffer-standard", "version": "$(VERSION)", "dist": {"type": "zip", "url": "https://ftp.drupal.org/files/projects/coder-$(VERSION).zip"}}}'
 
 PHONY += lint-drupal
 lint-drupal: PATHS := $(subst $(space),,$(LINT_PATHS_PHP))

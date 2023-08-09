@@ -1,5 +1,6 @@
 CLI_SERVICE := cli
 CLI_SHELL := bash
+DB_SERVICE := mariadb
 
 INSTANCE_prod_USER ?= project-name-branch
 INSTANCE_prod_HOST ?= ssh.lagoon.amazeeio.cloud
