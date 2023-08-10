@@ -1,0 +1,32 @@
+uuid: 972acdae-8e71-4d12-a335-bc91828f4851
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.helfi_news_tags.helfi_news_tags.field_frontpage_term_id
+  module:
+    - external_entities
+_core:
+  default_config_hash: nG1sU9U2OdZFQu6ff1cBmVKYRDR1n3cI-odUwMY5FLU
+id: helfi_news_tags.helfi_news_tags.default
+targetEntityType: helfi_news_tags
+bundle: helfi_news_tags
+mode: default
+content:
+  field_frontpage_term_id:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

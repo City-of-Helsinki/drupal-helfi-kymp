@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: p1queceC0XdJdYY5diRNVw-hdAFymgdpq7fhQudsddE
+  default_config_hash: tM9Z1SfXjTcoCvjFIESPPl2sya7IyIQ9kZ-zQFFNppU
 id: helfi_news_neighbourhoods
 label: 'Helfi: News neighbourhoods'
 label_plural: 'Helfi: News neighbourhoods'
 description: 'Retrieves news neighbourhoods taxonomy terms from Helfi'
-read_only: true
 generate_aliases: null
+read_only: true
 field_mapper_id: jsonpath
 field_mapper_config:
   field_mappings:
@@ -19,6 +19,8 @@ field_mapper_config:
       value: $.id
     title:
       value: '$.attributes["name"]'
+    field_frontpage_term_id:
+      value: '$.attributes["drupal_internal__tid"]'
 storage_client_id: helfi_news_neighbourhoods
 storage_client_config: {  }
 persistent_cache_max_age: 86400
