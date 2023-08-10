@@ -74,7 +74,6 @@ display:
           batch: true
           batch_size: 50
           form_step: true
-          ajax_loader: false
           buttons: false
           action_title: Action
           clear_on_exposed: true
@@ -106,6 +105,7 @@ display:
               preconfiguration:
                 add_confirmation: false
                 label_override: 'Publish unit'
+          ajax_loader: false
         id:
           id: id
           table: tpr_unit_field_data

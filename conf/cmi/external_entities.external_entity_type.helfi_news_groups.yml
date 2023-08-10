@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: zCk_D7oSjREqCU2vFZI4uyGywY_PFNicpUIFuWxtawA
+  default_config_hash: U7yZGEsFvk5UxcRUripTm4JXrM9_gU_UV1aMQ8986a4
 id: helfi_news_groups
 label: 'Helfi: News groups'
 label_plural: 'Helfi: News groups'
 description: 'Retrieves news groups taxonomy terms from Helfi'
-read_only: true
 generate_aliases: null
+read_only: true
 field_mapper_id: jsonpath
 field_mapper_config:
   field_mappings:
@@ -19,6 +19,8 @@ field_mapper_config:
       value: $.id
     title:
       value: '$.attributes["name"]'
+    field_frontpage_term_id:
+      value: '$.attributes["drupal_internal__tid"]'
 storage_client_id: helfi_news_groups
 storage_client_config: {  }
 persistent_cache_max_age: 86400
