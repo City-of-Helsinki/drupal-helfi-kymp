@@ -4130,16 +4130,16 @@
         },
         {
             "name": "drupal/helfi_proxy",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy.git",
-                "reference": "f5125c5569c04781730d1420f0d1886ba1096c1f"
+                "reference": "257e937e6e1d77e8da5ec1ef20f133109b9b1ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/f5125c5569c04781730d1420f0d1886ba1096c1f",
-                "reference": "f5125c5569c04781730d1420f0d1886ba1096c1f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-proxy/zipball/257e937e6e1d77e8da5ec1ef20f133109b9b1ed4",
+                "reference": "257e937e6e1d77e8da5ec1ef20f133109b9b1ed4",
                 "shasum": ""
             },
             "require": {
@@ -4156,6 +4156,8 @@
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "drupal/coder": "^8.3",
+                "drupal/helfi_tunnistamo": "*",
+                "drupal/redirect": "^1.0",
                 "drupal/simple_sitemap": "^4.1",
                 "phpspec/prophecy-phpunit": "^2"
             },
@@ -4165,10 +4167,10 @@
             ],
             "description": "Provides various fixes so we can serve multiple Drupal instances in one domain.",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/3.0.4",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/tree/3.0.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-proxy/issues"
             },
-            "time": "2023-03-14T06:27:48+00:00"
+            "time": "2023-08-11T05:35:26+00:00"
         },
         {
             "name": "drupal/helfi_tpr",
