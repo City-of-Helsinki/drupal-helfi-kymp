@@ -1,13 +1,14 @@
-ARG DRUPAL_DOCKER_TAG=8.1
+ARG DRUPAL_DOCKER_TAG=8.2
 FROM ghcr.io/city-of-helsinki/drupal-docker-base:${DRUPAL_DOCKER_TAG}
 
 COPY / /var/www/html/
 WORKDIR /var/www/html
 RUN composer install --no-progress --profile --prefer-dist --no-interaction --no-dev --optimize-autoloader
 
-# Copy deploy script
-COPY docker/openshift/entrypoints/20-deploy.sh /entrypoints
-RUN chmod +x /entrypoints/20-deploy.sh
+# Copy ALL deploy scripts
+COPY docker/openshift/entrypoints/ /entrypoints
+RUN chmod +x /entrypoints/*
+
 
 # Copy cron scripts
 RUN mkdir /crons
