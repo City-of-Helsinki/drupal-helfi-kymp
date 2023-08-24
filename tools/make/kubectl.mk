@@ -6,6 +6,7 @@ KUBECTL_WORKDIR ?= /app
 
 PHONY += kubectl-sync-db
 kubectl-sync-db: ## Sync database from Kubernetes
+	$(call drush,sql-drop --quiet -y)
 ifeq ($(DUMP_SQL_EXISTS),no)
 	$(eval POD := $(call kubectl_get_pod))
 	$(call step,Get database dump from $(POD)...\n)
