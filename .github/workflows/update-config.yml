@@ -3,10 +3,6 @@ on:
   repository_dispatch:
     types: [config_change]
 name: Update config
-env:
-  SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
-  SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
-  XDEBUG_MODE: off
 jobs:
   update-config:
     runs-on: ubuntu-latest
@@ -37,10 +33,10 @@ jobs:
 
       - name: Build project
         run: |
-          composer install
+          composer install --no-interaction
           $(drush sql:connect) < latest.sql
           drush cim -y && drush updb -y && drush cr
-          composer update drupal/helfi_* drupal/hdbt* -W
+          composer update drupal/helfi_* drupal/hdbt* -W --no-interaction
           drush cr && drush updb -y && drush cex -y
           # Update platform
           drush helfi:tools:update-platform
