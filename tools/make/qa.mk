@@ -2,6 +2,7 @@ TEST_TARGETS += test-phpunit
 FIX_TARGETS :=
 LINT_PHP_TARGETS :=
 CS_INSTALLED := $(shell test -f $(COMPOSER_JSON_PATH)/vendor/bin/phpcs && echo yes || echo no)
+CS_CONF_EXISTS := $(shell test -f phpcs.xml.dist && echo yes || echo no)
 TESTSUITES ?= unit,kernel,functional
 
 PHONY += fix
@@ -57,10 +58,13 @@ define test_result
 	@echo "\n${YELLOW}${1}:${NO_COLOR} ${GREEN}${2}${NO_COLOR}"
 endef
 
-ifeq ($(CS_INSTALLED),yes)
+ifeq ($(CS_INSTALLED)-$(CS_CONF_EXISTS),yes-yes)
 define cs
-$(call docker_compose_exec,vendor/bin/$(1) --config-set installed_paths $(CS_STANDARD_PATHS))
-$(call docker_compose_exec,vendor/bin/$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
+$(call docker_compose_exec,$(1))
+endef
+else ifeq ($(CS_INSTALLED)-$(CS_CONF_EXISTS),yes-no)
+define cs
+$(call docker_compose_exec,$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
 endef
 else
 define cs
