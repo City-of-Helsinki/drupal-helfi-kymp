@@ -1,0 +1,39 @@
+uuid: 9011d905-40f1-494a-955d-95ae60db2ddb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hearings.field_hearings_description
+    - field.field.paragraph.hearings.field_hearings_title
+    - paragraphs.paragraphs_type.hearings
+  module:
+    - text
+_core:
+  default_config_hash: kS2OalHOAuM9YHvNdaO9be_ys26-Wdo1tQjjgSniWoI
+id: paragraph.hearings.default
+targetEntityType: paragraph
+bundle: hearings
+mode: default
+content:
+  field_hearings_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hearings_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  list:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true

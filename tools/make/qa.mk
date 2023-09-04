@@ -60,11 +60,11 @@ endef
 
 ifeq ($(CS_INSTALLED)-$(CS_CONF_EXISTS),yes-yes)
 define cs
-$(call docker_compose_exec,$(1))
+$(call docker_compose_exec,vendor/bin/$(1))
 endef
 else ifeq ($(CS_INSTALLED)-$(CS_CONF_EXISTS),yes-no)
 define cs
-$(call docker_compose_exec,$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
+$(call docker_compose_exec,vendor/bin/$(1) --standard=$(CS_STANDARDS) --extensions=$(CS_EXTS) --ignore=node_modules $(2))
 endef
 else
 define cs

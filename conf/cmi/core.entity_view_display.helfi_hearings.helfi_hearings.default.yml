@@ -1,0 +1,124 @@
+uuid: cb965487-2415-4d91-904d-39bded8ff8ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - responsive_image.styles.image__3_2
+  module:
+    - external_entities
+    - imagecache_external
+_core:
+  default_config_hash: fILQEVNfZTZZh_DbxUgOfgAwVP5-S0z3Ud7QI4g8ato
+id: helfi_hearings.helfi_hearings.default
+targetEntityType: helfi_hearings
+bundle: helfi_hearings
+mode: default
+content:
+  close_at:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  comments:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  count:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  created_at:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  existing_translations:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  langcode:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  main_image:
+    type: imagecache_external_responsive_image
+    label: hidden
+    settings:
+      imagecache_external_link: ''
+      imagecache_external_responsive_style: image__3_2
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  main_image_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  open_at:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  organization:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  slug:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  url:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  abstract: true
+  search_api_excerpt: true
