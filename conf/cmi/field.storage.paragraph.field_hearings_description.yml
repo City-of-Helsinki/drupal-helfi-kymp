@@ -1,0 +1,21 @@
+uuid: dc4a91a4-0571-47a6-8e1f-12356ec425bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: '-wixoAUHw5pe0XRvRilN50lCY_xQEdOGkGO5nVM-22M'
+id: paragraph.field_hearings_description
+field_name: field_hearings_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 09ae21f6-1bf8-447e-b152-2e223b60263c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hearings_title
+    - paragraphs.paragraphs_type.hearings
+_core:
+  default_config_hash: 7ND3L8b6WIkrG6ew034kRIVRBdyKZXVhRhEdlBu-tJ4
+id: paragraph.hearings.field_hearings_title
+field_name: field_hearings_title
+entity_type: paragraph
+bundle: hearings
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
