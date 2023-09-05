@@ -21,6 +21,7 @@ exec "/crons/purge-queue.sh" &
 exec "/crons/update-translations.sh" &
 exec "/crons/content-scheduler.sh" &
 exec "/crons/invalidate-tags-kymp.sh" &
+exec "/crons/pubsub.sh" &
 
 while true
 do
