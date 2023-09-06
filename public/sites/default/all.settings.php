@@ -29,3 +29,6 @@ if (getenv('ELASTICSEARCH_URL')) {
 
 // Elastic proxy URL.
 $config['elastic_proxy.settings']['elastic_proxy_url'] = getenv('ELASTIC_PROXY_URL');
+
+// Sentry DSN for React.
+$config['react_search.settings']['sentry_dsn_react'] = getenv('SENTRY_DSN_REACT');
