@@ -70,8 +70,7 @@ function hdbt_subtheme_preprocess_views_view__project_list(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function hdbt_subtheme_preprocess_node(array &$variables)
-{
+function hdbt_subtheme_preprocess_node(array &$variables) {
   // On project nodes print out the districts even if they are unpublished.
   if ($variables['node']->getType() === 'project') {
     $node = $variables['node'];
