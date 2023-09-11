@@ -1,0 +1,25 @@
+uuid: fb76d288-af47-489c-8a51-8753e8eb52dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_contact_use_phone
+    - paragraphs.paragraphs_type.unit_contact_card
+_core:
+  default_config_hash: BnO5qnDTPxaMoFFoYvGvl8YDm-kg_8u6ftGQEcrS8PQ
+id: paragraph.unit_contact_card.field_unit_contact_use_phone
+field_name: field_unit_contact_use_phone
+entity_type: paragraph
+bundle: unit_contact_card
+label: 'Show phone number'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

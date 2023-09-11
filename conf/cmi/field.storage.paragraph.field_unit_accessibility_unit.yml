@@ -1,0 +1,22 @@
+uuid: cfd2993f-a163-4f85-ac0a-bfa49dcc139e
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_tpr
+    - paragraphs
+_core:
+  default_config_hash: FLBlbWAOFQ3vURlgVJl8tNoscxkpu-55Zcvg-56WMW8
+id: paragraph.field_unit_accessibility_unit
+field_name: field_unit_accessibility_unit
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: tpr_unit
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

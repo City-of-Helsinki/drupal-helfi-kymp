@@ -7,7 +7,7 @@ dependencies:
     - helfi_api_base
     - linkit
 _core:
-  default_config_hash: iir5dZUojC1bWTysG1mu4qEgxkT8Le4FLCF6C1hQSoY
+  default_config_hash: 6AGo1h4zFCH6SC4pUy99nHKNsUsd7ZNLffnFw9RiSBA
 name: Minimal
 format: minimal
 weight: 0
@@ -42,7 +42,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<em> <strong> <ul type> <ol start type> <li> <p class=""> <a href hreflang !href accesskey id rel target title data-design data-link-text data-selected-icon data-is-external data-protocol class=""> <span role aria-* lang dir class="">'
+      allowed_html: '<em> <strong> <ul> <ol start> <li> <p class=""> <a href hreflang !href rel target title data-design data-link-text data-selected-icon data-is-external data-protocol class=""> <span role aria-* lang dir class="">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_htmlcorrector:

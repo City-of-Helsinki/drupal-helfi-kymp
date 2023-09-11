@@ -55,7 +55,7 @@ fix-symfony: ## Fix Symfony code style
 PHONY += lint-symfony
 lint-symfony: ## Lint Symfony code style
 	$(call step,Lint Symfony code style...\n)
-	$(call cs_symfony,fix --dry-run --diff --ansi src)
+	$(call cs_symfony,fix --dry-run --diff --ansi --verbose src)
 
 ifeq ($(RUN_ON),docker)
 define sf_console
