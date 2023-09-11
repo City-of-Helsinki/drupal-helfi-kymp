@@ -17,6 +17,8 @@ dependencies:
     - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.unit_accessibility_information
+    - paragraphs.paragraphs_type.unit_contact_card
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -49,6 +51,8 @@ settings:
       contact_card_listing: contact_card_listing
       map: map
       event_list: event_list
+      unit_accessibility_information: unit_accessibility_information
+      unit_contact_card: unit_contact_card
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -88,6 +92,12 @@ settings:
         weight: 0
         enabled: true
       text:
+        weight: 0
+        enabled: true
+      unit_accessibility_information:
+        weight: 0
+        enabled: true
+      unit_contact_card:
         weight: 0
         enabled: true
 field_type: entity_reference_revisions
