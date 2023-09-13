@@ -71,11 +71,6 @@ function hdbt_subtheme_preprocess_views_view__project_list(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function hdbt_subtheme_preprocess_node(array &$variables) {
-  $config = \Drupal::config('elastic_proxy.settings');
-  if ($config->get('elastic_proxy_url')) {
-    $variables['#attached']['drupalSettings']['helfi_kymp_district_project_search']['elastic_proxy_url'] = $config->get('elastic_proxy_url');
-  }
-
   // On project nodes print out the districts even if they are unpublished.
   if ($variables['node']->getType() === 'project') {
     $node = $variables['node'];

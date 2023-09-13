@@ -1,0 +1,28 @@
+uuid: c8d00333-6820-438a-be59-f78405341463
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_contact_unit
+    - paragraphs.paragraphs_type.unit_contact_card
+_core:
+  default_config_hash: '-TJ64AvbccN9tM_3346W4uk62EMhack-1q7ScuxBvc8'
+id: paragraph.unit_contact_card.field_unit_contact_unit
+field_name: field_unit_contact_unit
+entity_type: paragraph
+bundle: unit_contact_card
+label: Unit
+description: 'Add here the unit that you want to appear as the contact card. The unit doesn''t have to be published.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:tpr_unit'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

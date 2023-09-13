@@ -1,0 +1,25 @@
+uuid: b3e7de69-b20b-4357-97d0-a919aa420908
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_unit_contact_use_details
+    - paragraphs.paragraphs_type.unit_contact_card
+_core:
+  default_config_hash: mKUcY-77saUKuSnjzPmx8QHw-gtexDvlq60TkWZIfJw
+id: paragraph.unit_contact_card.field_unit_contact_use_details
+field_name: field_unit_contact_use_details
+entity_type: paragraph
+bundle: unit_contact_card
+label: 'Show additional details'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
