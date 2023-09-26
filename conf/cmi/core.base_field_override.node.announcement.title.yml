@@ -1,0 +1,20 @@
+uuid: 219f60c3-afb8-4832-9a40-5813c3d46ce3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.announcement
+_core:
+  default_config_hash: v0rg9ztfYRnKz2PXAcGD_Q52rTcPbwqaZLw3tXWd4rM
+id: node.announcement.title
+field_name: title
+entity_type: node
+bundle: announcement
+label: 'Administrative title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
