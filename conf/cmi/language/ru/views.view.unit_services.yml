@@ -9,15 +9,6 @@ display:
           exposed_sorts_label: 'Сортировать по'
           sort_asc_label: 'По возрастанию'
           sort_desc_label: 'По убыванию'
-      pager:
-        options:
-          tags:
-            previous: '‹ Предыдущий'
-            next: 'Следующий ›'
-          expose:
-            items_per_page_label: 'Элементов на страницу'
-            items_per_page_options_all_label: '- Все -'
-            offset_label: Пропустить
       arguments:
         id:
           exception:
