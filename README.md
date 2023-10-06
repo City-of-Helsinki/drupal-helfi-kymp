@@ -1,11 +1,11 @@
-# City of Helsinki - KYMP Drupal 9
+# City of Helsinki - Liikenne Drupal
 
 ## Environments
 
-Env | Branch | Drush alias | URL
---- | ------ | ----------- | ---
-development | * | - | http://helfi-kymp.docker.so/
-production | main | @main | TBD
+Env | Branch | URL
+--- |--------| ---
+local | dev    | http://helfi-kymp.docker.so/
+production | main | TBD
 
 ## Requirements
 
@@ -13,23 +13,20 @@ You need to have these applications installed to operate on all environments:
 
 - [Docker](https://github.com/druidfi/guidelines/blob/master/docs/docker.md)
 - [Stonehenge](https://github.com/druidfi/stonehenge)
-- For the new person: Your SSH public key needs to be added to servers
 
 ## Create and start the environment
 
-For the first time (new project):
+To install Drupal from scratch using existing configuration:
 
 ``
 $ make new
 ``
 
-And following times to create and start the environment:
+To sync database from testing environment:
 
 ``
 $ make fresh
 ``
-
-NOTE: Change these according of the state of your project.
 
 ## Login to Drupal container
 
@@ -39,12 +36,10 @@ This will log you inside the app container:
 $ make shell
 ```
 
-## Testing
+## Docker compose profiles
 
-Start your containers with `COMPOSE_PROFILES=testing make up` or add
+Modify the value of `COMPOSE_PROFILES` environment variable from `.env` file or start the project with `COMPOSE_RROFILES=your-profiles make up`.
 
-```
-COMPOSE_PROFILES=testing
-```
-
-to your `.env` file and restart all containers (`make stop && make up`).
+### Available profiles:
+- `search`
+- `queue`
