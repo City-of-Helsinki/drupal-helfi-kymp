@@ -5,11 +5,13 @@ on:
 name: CI
 env:
   SYMFONY_DEPRECATIONS_HELPER: disabled
+  SIMPLETEST_BASE_URL: http://app:8888
 jobs:
   tests:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/city-of-helsinki/drupal-php-docker:8.2-alpine
+      options: --hostname app
 
     services:
       db:
@@ -31,7 +33,7 @@ jobs:
         run: composer install --no-interaction
 
       - name: Scan security updates
-        run: drush pm:security
+        run: composer audit
 
       - name: Check that subtheme is not built with dev mode
         run: if grep -q 'sourceMappingURL=' -R public/themes/custom/hdbt_subtheme/dist/css; then exit 1; fi
@@ -53,11 +55,7 @@ jobs:
 
       - name: Start services
         run: |
-          drush runserver $SIMPLETEST_BASE_URL > /dev/null 2>&1 &
-          chromedriver --port=4444 > /dev/null 2>&1 &
-          # Chromium browser is required to run 'functional-javascript' and
-          # 'existing-site-javascript' tests.
-          chromium-browser --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 &
+          drush runserver $SIMPLETEST_BASE_URL --dns > /dev/null 2>&1 &
 
           # Wait for drush server to start.
           for i in {1..5}; do RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SIMPLETEST_BASE_URL" || true); if [ "$RESPONSE_CODE" -gt "301" ] || [ "$RESPONSE_CODE" -lt "200" ]; then sleep 2; fi; done
@@ -65,4 +63,5 @@ jobs:
       - name: Run PHPUnit tests
         run: |
           composer test-php public/modules/custom
-          [ -d "tests/" ] && composer test-php tests/ || echo "No DTT tests found. Ignoring..."
+          if [ -d "tests/" ]; then composer test-php tests/; else echo "No DTT tests found. Ignoring..."; fi
+
