@@ -12,6 +12,31 @@ else {
   ini_set('zend.enable_gc', 'Off');
 }
 
+
+if (!function_exists('drupal_get_env')) {
+  /**
+   * Gets the value of given environment variable.
+   *
+   * @param string|array $variables
+   *   The variables to scan.
+   *
+   * @return mixed
+   *   The value.
+   */
+  function drupal_get_env(string|array $variables) : mixed {
+    if (!is_array($variables)) {
+      $variables = [$variables];
+    }
+
+    foreach ($variables as $var) {
+      if ($value = getenv($var)) {
+        return $value;
+      }
+    }
+    return NULL;
+  }
+}
+
 if ($simpletest_db = getenv('SIMPLETEST_DB')) {
   $parts = parse_url($simpletest_db);
   putenv(sprintf('DRUPAL_DB_NAME=%s', substr($parts['path'], 1)));
@@ -69,6 +94,10 @@ if ($drupal_routes = getenv('DRUPAL_ROUTES')) {
 }
 $routes[] = 'http://127.0.0.1';
 
+if ($simpletest_base_url = getenv('SIMPLETEST_BASE_URL')) {
+  $routes[] = $simpletest_base_url;
+}
+
 if ($drush_options_uri = getenv('DRUSH_OPTIONS_URI')) {
   $routes[] = $drush_options_uri;
 }
@@ -102,8 +131,14 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
       'driver' => 'helfi_azure',
       'config' => [
         'name' => $blob_storage_name,
-        'key' => getenv('AZURE_BLOB_STORAGE_KEY'),
-        'token' => getenv('AZURE_BLOB_STORAGE_SAS_TOKEN'),
+        'key' => drupal_get_env([
+          'AZURE_BLOB_STORAGE_KEY',
+          'BLOBSTORAGE_ACCOUNT_KEY',
+        ]),
+        'token' => drupal_get_env([
+          'AZURE_BLOB_STORAGE_SAS_TOKEN',
+          'BLOBSTORAGE_SAS_TOKEN',
+        ]),
         'container' => getenv('AZURE_BLOB_STORAGE_CONTAINER'),
         'endpointSuffix' => 'core.windows.net',
         'protocol' => 'https',
@@ -203,6 +238,34 @@ if ($session_suffix = getenv('DRUPAL_SESSION_SUFFIX')) {
 
 if ($robots_header_enabled = getenv('DRUPAL_X_ROBOTS_TAG_HEADER')) {
   $config['helfi_proxy.settings']['robots_header_enabled'] = (bool) $robots_header_enabled;
+}
+
+$artemis_destination = drupal_get_env([
+  'ARTEMIS_DESTINATION',
+  'PROJECT_NAME',
+]);
+
+$artemis_brokers = getenv('ARTEMIS_BROKERS');
+
+if ($artemis_brokers && $artemis_destination) {
+  $settings['stomp']['default'] = [
+    'clientId' => getenv('ARTEMIS_CLIENT_ID') ?: 'artemis',
+    'login' => getenv('ARTEMIS_LOGIN') ?: NULL,
+    'passcode' => getenv('ARTEMIS_PASSCODE') ?: NULL,
+    'destination' => sprintf('/queue/%s', $artemis_destination),
+    'brokers' => $artemis_brokers,
+    'timeout' => ['read' => 12000],
+    'heartbeat' => [
+      'send' => 20000,
+      'receive' => 0,
+      'observers' => [
+        [
+          'class' => '\Stomp\Network\Observer\HeartbeatEmitter',
+        ],
+      ],
+    ],
+  ];
+  $settings['queue_default'] = 'queue.stomp.default';
 }
 
 $config['filelog.settings']['rotation']['schedule'] = 'never';
