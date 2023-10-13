@@ -16,7 +16,7 @@ dependencies:
     - path
     - readonly_field_widget
 _core:
-  default_config_hash: RcjlFBYhitNunsd4AVtO6f3l-efOfSCW_nlNFMznzhk
+  default_config_hash: eepmIYNv6ShHO0W2uVzuu18Gashz0oos8xMyfTluiMI
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -348,6 +348,16 @@ content:
     type: readonly_field_widget
     weight: 19
     region: content
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: {  }
+      show_description: false
+    third_party_settings: {  }
+  topical:
+    type: readonly_field_widget
+    region: content
+    weight: 31
     settings:
       label: above
       formatter_type: null
