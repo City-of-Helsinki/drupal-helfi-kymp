@@ -18,7 +18,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: rsUs9_e1k9mgX9c276wA8WlLKzCLUoYk2npzo22UFh8
+  default_config_hash: tfkOTFeDgVhyd9NcyUP7yambOlzTfsjNcKwlLHPsbhw
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -246,6 +246,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 16
+    region: content
+  toc_enabled:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
     region: content
   topical:
     type: tpr_connection
