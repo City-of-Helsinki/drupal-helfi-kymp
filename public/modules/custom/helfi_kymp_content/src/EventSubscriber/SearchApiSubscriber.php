@@ -31,7 +31,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Reindex event.
+   * Tell tracker which IDs to index on next indexing.
    *
    * @param Drupal\search_api\Event\ReindexScheduledEvent $event
    *   The event.

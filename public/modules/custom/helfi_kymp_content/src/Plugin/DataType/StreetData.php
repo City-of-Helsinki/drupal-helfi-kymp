@@ -20,7 +20,7 @@ class StreetData extends Map {
   /**
    * Get property definition.
    */
-  public static function propertyDefinitions() {
+  public static function propertyDefinitions(): array {
     $properties = [];
 
     $properties['id'] = DataDefinition::create('integer')
