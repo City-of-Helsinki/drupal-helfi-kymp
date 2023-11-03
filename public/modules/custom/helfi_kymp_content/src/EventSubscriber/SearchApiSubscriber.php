@@ -15,7 +15,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   /**
    * The constructor.
    *
-   * @param LoggerInterface $logger
+   * @param Psr\Log\LoggerInterface $logger
    *   The logger.
    */
   public function __construct(private LoggerInterface $logger) {
