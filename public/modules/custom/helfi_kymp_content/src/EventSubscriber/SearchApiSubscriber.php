@@ -27,7 +27,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
    * Disable incompatible processor.
    *
    * @param GatheringPluginInfoEvent $event
-   * @return void
+   *   The event.
    */
   public function disableProcessor(GatheringPluginInfoEvent $event) {
     $processors = $event->getDefinitions();
@@ -40,7 +40,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
    * Reindex event.
    *
    * @param ReindexScheduledEvent $event
-   *   the event.
+   *   The event.
    *
    * @throws \Drupal\search_api\SearchApiException
    */
@@ -53,8 +53,10 @@ class SearchApiSubscriber implements EventSubscriberInterface {
         return;
       }
     }
-    catch(\Exception $e) {
-      // Logging goes here
+    catch (\Exception $e) {
+      \Drupal::logger('helfi_kymp_content')->error(
+        'unable to fetch data while running reindex event'
+      );
     }
 
     $index->trackItemsInserted($source->getPluginId(), array_keys($data));
