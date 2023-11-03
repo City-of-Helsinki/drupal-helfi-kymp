@@ -71,7 +71,8 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
       }
     }
     catch (\Exception $e) {
-      // log
+      $this->logger->error("Errors while fetching street data from kartta.hel.fi: {$e->getMessage()}");
+      return [];
     }
 
     libxml_use_internal_errors(true);
@@ -80,10 +81,9 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
     $errors = libxml_get_errors();
 
     if ($errors) {
-      // log ?
+      $this->logger->error('Errors while parsing street data xml string.');
+      return [];
     }
-
-
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
