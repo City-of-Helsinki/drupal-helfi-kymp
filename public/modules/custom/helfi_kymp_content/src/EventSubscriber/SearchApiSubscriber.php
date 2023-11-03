@@ -49,7 +49,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
         }
       }
       catch (\Exception $e) {
-        $this->logger('unable to fetch data while running reindex event');
+        $this->logger->error('unable to fetch data while running reindex event');
       }
 
       $index->trackItemsInserted($source->getPluginId(), array_keys($data));
