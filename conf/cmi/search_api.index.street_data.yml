@@ -15,21 +15,21 @@ read_only: false
 field_settings:
   id:
     label: id
-    datasource_id: external_source
+    datasource_id: helfi_street_data_source
     property_path: id
     type: integer
   maintenance_class:
     label: 'Maintenance class'
-    datasource_id: external_source
+    datasource_id: helfi_street_data_source
     property_path: maintenance_class
     type: integer
   street_name:
     label: 'Street name'
-    datasource_id: external_source
+    datasource_id: helfi_street_data_source
     property_path: street_name
     type: string
 datasource_settings:
-  external_source: {  }
+  helfi_street_data_source: {  }
 processor_settings:
   add_url: {  }
   aggregated_field: {  }

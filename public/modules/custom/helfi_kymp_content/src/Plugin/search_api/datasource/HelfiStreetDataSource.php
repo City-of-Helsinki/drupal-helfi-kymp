@@ -16,12 +16,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Provides a datasource for kartta.hel.fi.
  *
  * @SearchApiDatasource(
- *   id = "external_source",
+ *   id = "helfi_street_data_source",
  *   label = @Translation("External datasource"),
  *   description = @Translation("Datasource for street data from kartta.hel.fi."),
  * )
  */
-class ExternalDatasource extends DatasourcePluginBase implements DatasourceInterface {
+class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceInterface {
 
   use TypedDataTrait;
 

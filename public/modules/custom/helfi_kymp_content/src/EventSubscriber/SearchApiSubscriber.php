@@ -41,7 +41,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   public function reindex(ReindexScheduledEvent $event): void {
     $index = $event->getIndex();
     if ($index->id() == 'street_data') {
-      $source = $index->getDatasource('external_source');
+      $source = $index->getDatasource('helfi_street_data_source');
       try {
         $data = $source->loadMultiple([]);
         if (!$data) {

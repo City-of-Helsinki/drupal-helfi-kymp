@@ -16,28 +16,4 @@ use Drupal\Core\TypedData\Plugin\DataType\Map;
  * )
  */
 class StreetData extends Map {
-
-  /**
-   * Get property definition.
-   */
-  public static function propertyDefinitions() {
-    $properties = [];
-
-    $properties['id'] = DataDefinition::create('integer')
-      ->setLabel('id')
-      ->setRequired(TRUE);
-
-    $properties['street_name'] = DataDefinition::create('string')
-      ->setLabel('Street name')
-      ->addConstraint('Range', ['min' => 0, 'max' => 255])
-      ->setRequired(TRUE);
-
-    $properties['maintenance_class'] = DataDefinition::create('integer')
-      ->setLabel('Maintenance class')
-      ->addConstraint('Range', ['min' => 0, 'max' => 5])
-      ->setRequired(TRUE);
-
-    return $properties;
-  }
-
 }
