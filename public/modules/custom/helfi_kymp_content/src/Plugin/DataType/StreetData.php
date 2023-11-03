@@ -15,7 +15,11 @@ use Drupal\Core\TypedData\Plugin\DataType\Map;
  * )
  */
 class StreetData extends Map {
-  public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
+
+  /**
+   * Get property definition.
+   */
+  public static function propertyDefinitions() {
     $properties = [];
 
     $properties['id'] = DataDefinition::create('integer')

@@ -27,8 +27,18 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
 
   public const API_URL = 'https://kartta.hel.fi/ws/geoserver/avoindata/wfs';
 
+  /**
+   * The client.
+   *
+   * @var GuzzleHttp\ClientInterface
+   */
   protected ClientInterface $client;
 
+  /**
+   * The logger.
+   *
+   * @var Psr\Log\LoggerInterface
+   */
   protected LoggerInterface $logger;
 
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -45,6 +55,9 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
     return $item['id'];
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function load($id) {
     $items = $this->loadMultiple([$id]);
     return $items ? reset($items) : NULL;
@@ -75,7 +88,7 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
       return [];
     }
 
-    libxml_use_internal_errors(true);
+    libxml_use_internal_errors(TRUE);
     $doc = new \DOMDocument(encoding: 'UTF-8');
     $doc->loadXML($xmlResult);
     $errors = libxml_get_errors();
@@ -88,14 +101,16 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
       foreach ($street_data->childNodes->getIterator() as $field) {
-        switch($field->nodeName) {
+        switch ($field->nodeName) {
           case 'avoindata:katualue_id':
-              $id = $field->nodeValue;
-              $single_street['id'] = $ids && $id && in_array($id, $ids) ? $id : NULL;
+            $id = $field->nodeValue;
+            $single_street['id'] = $ids && $id && in_array($id, $ids) ? $id : NULL;
             break;
+
           case 'avoindata:kadun_nimi':
             $single_street['street_name'] = $field->nodeValue;
             break;
+
           case 'avoindata:yllapitoluokka':
             // Turn field value from III or II to 3 or 2 etc.
             $single_street['maintenance_class'] = strlen($field->nodeValue);
@@ -124,7 +139,7 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
    * {@inheritdoc}
    */
   public function getItemLanguage(ComplexDataInterface $item): string {
-    return  LanguageInterface::LANGCODE_NOT_SPECIFIED;
+    return LanguageInterface::LANGCODE_NOT_SPECIFIED;
   }
 
   /**

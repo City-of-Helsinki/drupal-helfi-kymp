@@ -5,7 +5,14 @@ namespace Drupal\helfi_kymp_content\TypedData;
 use Drupal\Core\TypedData\ComplexDataDefinitionBase;
 use Drupal\Core\TypedData\DataDefinition;
 
+/**
+ * The street data definition.
+ */
 class StreetDataDefinition extends ComplexDataDefinitionBase {
+
+  /**
+   * {@inheritDoc}
+   */
   public function getPropertyDefinitions() {
     if (!isset($this->propertyDefinitions)) {
       $this->propertyDefinitions['id'] = DataDefinition::create('integer')
@@ -22,4 +29,5 @@ class StreetDataDefinition extends ComplexDataDefinitionBase {
     }
     return $this->propertyDefinitions;
   }
+
 }
