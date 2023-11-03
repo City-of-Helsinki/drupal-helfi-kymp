@@ -77,6 +77,56 @@ function helfi_kymp_content_preprocess_block(&$variables) {
  * Implements hook_form_FORM_ID_form_alter().
  */
 function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /*
+  $query = http_build_query([
+    'request' => 'GetFeature',
+    'service' => 'WFS',
+    'version' => '1.1.0',
+    'typeName' => 'avoindata:YLRE_Katualue_alue',
+    'propertyname' => 'avoindata:kadun_nimi,avoindata:kayttotarkoitus,avoindata:yllapitoluokka,avoindata:pituus',
+  ]);
+  $uri = sprintf('%s?%s', 'https://kartta.hel.fi/ws/geoserver/avoindata/wfs', $query);
+  $client = \Drupal::httpClient();
+  try {
+    $content = $client->request('GET', $uri);
+    $xmlResult = $content->getBody()->getContents();
+  }
+  catch (\Exception $e) {
+  }
+
+  libxml_use_internal_errors(true);
+  $doc = new DOMDocument(encoding: 'UTF-8');
+  $doc->loadXML($xmlResult);
+  $errors = libxml_get_errors();
+
+  if ($errors) {
+    // log ?
+    // return ?
+  }
+
+  $data = [];
+
+  foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
+    $single_area = [];
+    foreach ($street_data->childNodes->getIterator() as $field) {
+      switch($field->nodeName) {
+        case 'avoindata:katualue_id':
+          $single_area['id'] = $field->nodeValue;
+          break;
+        case 'avoindata:kadun_nimi':
+          $single_area['street_name'] = $field->nodeValue;
+          break;
+        case 'avoindata:yllapitoluokka':
+          // Turn field value from III or II to 3 or 2 etc.
+          $single_area['maintenance_class'] = strlen($field->nodeValue);
+          break;
+      }
+    }
+    // tee tuosta singe areasta typed data
+    $data[$single_area['id']] = $single_area;
+  }
+*/
+
   $form['#validate'][] = 'helfi_kymp_content_node_form_validate';
 
   switch ($form_id) {
