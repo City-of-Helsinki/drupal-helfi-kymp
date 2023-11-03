@@ -87,12 +87,11 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
-      $single_street = [];
       foreach ($street_data->childNodes->getIterator() as $field) {
         switch($field->nodeName) {
           case 'avoindata:katualue_id':
-            $id = $field->nodeValue;
-            $single_street['id'] = $id;
+              $id = $field->nodeValue;
+              $single_street['id'] = $ids && $id && in_array($id, $ids) ? $id : NULL;
             break;
           case 'avoindata:kadun_nimi':
             $single_street['street_name'] = $field->nodeValue;
@@ -102,24 +101,19 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
             $single_street['maintenance_class'] = strlen($field->nodeValue);
             break;
         }
+
+        if (!$id) {
+          continue;
+        }
       }
 
-      if (!$id) {
+      if ($ids && $id && !in_array($id, $ids)) {
         continue;
       }
 
       $street_data = $this->typedDataManager->create($street_data_definition);
       $street_data->setValue($single_street);
       $data[$id] = $street_data;
-    }
-
-    // Todo: if id is set
-    if ($ids) {
-      $x = [];
-      foreach($ids as $id){
-        $x[$id] = $data[$id];
-      }
-      return $x;
     }
 
     return $data;
