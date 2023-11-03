@@ -2,8 +2,6 @@
 
 namespace Drupal\helfi_kymp_content\EventSubscriber;
 
-use Drupal\search_api\Entity\Index;
-use Drupal\search_api\Event\GatheringPluginInfoEvent;
 use Drupal\search_api\Event\ReindexScheduledEvent;
 use Drupal\search_api\Event\SearchApiEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
