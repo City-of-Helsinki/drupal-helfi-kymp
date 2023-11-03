@@ -8,6 +8,9 @@ use Drupal\search_api\Event\ReindexScheduledEvent;
 use Drupal\search_api\Event\SearchApiEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+/**
+ * Subscribe to search api events.
+ */
 class SearchApiSubscriber implements EventSubscriberInterface {
 
   /**
