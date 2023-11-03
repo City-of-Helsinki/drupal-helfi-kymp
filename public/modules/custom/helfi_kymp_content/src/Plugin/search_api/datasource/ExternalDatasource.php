@@ -83,7 +83,7 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
       // log ?
     }
 
-    $street_data_definition = $this->getTypedDataManager()->createDataDefinition('street_data');
+
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
@@ -111,7 +111,8 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
         continue;
       }
 
-      $street_data = $this->typedDataManager->create($street_data_definition);
+      $street_data_definition = $this->getTypedDataManager()->createDataDefinition('street_data');
+      $street_data = $this->getTypedDataManager()->create($street_data_definition);
       $street_data->setValue($single_street);
       $data[$id] = $street_data;
     }

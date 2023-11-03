@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\helfi_kymp_content\Plugin\TypedData;
+namespace Drupal\helfi_kymp_content\TypedData;
 
 use Drupal\Core\TypedData\ComplexDataDefinitionBase;
 use Drupal\Core\TypedData\DataDefinition;

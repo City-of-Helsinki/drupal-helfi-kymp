@@ -11,7 +11,7 @@ use Drupal\Core\TypedData\Plugin\DataType\Map;
  *   id = "street_data",
  *   label = @Translation("Street data"),
  *   constraints = {},
- *   definition_class = "\Drupal\helfi_kymp_content\Plugin\TypedData\StreetDataDefinition"
+ *   definition_class = "\Drupal\helfi_kymp_content\TypedData\StreetDataDefinition"
  * )
  */
 class StreetData extends Map {
