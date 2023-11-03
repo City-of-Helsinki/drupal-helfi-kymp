@@ -3,6 +3,7 @@
 namespace Drupal\helfi_kymp_content\EventSubscriber;
 
 use Drupal\search_api\Entity\Index;
+use Drupal\search_api\Event\GatheringPluginInfoEvent;
 use Drupal\search_api\Event\ReindexScheduledEvent;
 use Drupal\search_api\Event\SearchApiEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -14,8 +15,22 @@ class SearchApiSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents(): array {
     return [
-      SearchApiEvents::REINDEX_SCHEDULED => ['reindex']
+      SearchApiEvents::REINDEX_SCHEDULED => ['reindex'],
+      SearchApiEvents::GATHERING_PROCESSORS => ['disableProcessor'],
     ];
+  }
+
+  /**
+   * Disable incompatible processor.
+   *
+   * @param GatheringPluginInfoEvent $event
+   * @return void
+   */
+  public function disableProcessor(GatheringPluginInfoEvent $event) {
+    $processors = $event->getDefinitions();
+    if (isset($processors['media_reference_to_object'])) {
+      unset($processors['media_reference_to_object']);
+    }
   }
 
   /**
