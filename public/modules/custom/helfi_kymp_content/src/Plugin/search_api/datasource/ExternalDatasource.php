@@ -83,7 +83,7 @@ class ExternalDatasource extends DatasourcePluginBase implements DatasourceInter
       // log ?
     }
 
-    $street_data_definition = $this->typedDataManager->createDataDefinition('street_data');
+    $street_data_definition = $this->getTypedDataManager()->createDataDefinition('street_data');
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
