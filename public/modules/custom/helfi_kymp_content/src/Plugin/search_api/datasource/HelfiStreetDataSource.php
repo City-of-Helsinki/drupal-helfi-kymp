@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @SearchApiDatasource(
  *   id = "helfi_street_data_source",
- *   label = @Translation("External datasource"),
+ *   label = @Translation("Helfi street datasource"),
  *   description = @Translation("Datasource for street data from kartta.hel.fi."),
  * )
  */
