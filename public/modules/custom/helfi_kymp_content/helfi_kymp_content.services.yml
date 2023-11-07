@@ -1,0 +1,11 @@
+services:
+  logger.channel.helfi_kymp_content:
+    parent: logger.channel_base
+    arguments:
+      - 'helfi_kymp_content'
+
+  helfi_kymp_content.search_api_subscriber:
+    class: Drupal\helfi_kymp_content\EventSubscriber\SearchApiSubscriber
+    arguments: ['@logger.channel.helfi_kymp_content']
+    tags:
+      - { name: event_subscriber }
