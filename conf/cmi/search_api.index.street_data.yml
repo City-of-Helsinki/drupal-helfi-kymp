@@ -1,0 +1,51 @@
+uuid: 0f434f1f-19a0-45a2-84bc-9f81e52ade45
+langcode: fi
+status: true
+dependencies:
+  config:
+    - search_api.server.elastic_kymp
+  module:
+    - search_api
+    - helfi_react_search
+    - helfi_kymp_content
+id: street_data
+name: 'Street data'
+description: 'Street data for street maintenance class search.'
+read_only: false
+field_settings:
+  id:
+    label: id
+    datasource_id: helfi_street_data_source
+    property_path: id
+    type: integer
+  maintenance_class:
+    label: 'Maintenance class'
+    datasource_id: helfi_street_data_source
+    property_path: maintenance_class
+    type: integer
+  street_name:
+    label: 'Street name'
+    datasource_id: helfi_street_data_source
+    property_path: street_name
+    type: string
+datasource_settings:
+  helfi_street_data_source: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  district_image_absolute_url: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  project_execution_schedule: {  }
+  project_image_absolute_url: {  }
+  project_plan_schedule: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: false
+  track_changes_in_references: true
+server: elastic_kymp
