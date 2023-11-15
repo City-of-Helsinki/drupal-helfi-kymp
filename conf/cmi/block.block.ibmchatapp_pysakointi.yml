@@ -1,0 +1,37 @@
+uuid: 5962858c-0d2f-4956-a3a2-81fabf0e4b87
+langcode: fi
+status: true
+dependencies:
+  module:
+    - helfi_platform_config
+    - language
+    - system
+  theme:
+    - hdbt_subtheme
+id: ibmchatapp_pysakointi
+theme: hdbt_subtheme
+region: attachments
+weight: 0
+provider: null
+plugin: ibm_chat_app
+settings:
+  id: ibm_chat_app
+  label: 'IBM Chat App (Pysäköinti)'
+  label_display: '0'
+  provider: helfi_platform_config
+  hostname: 'https://coh-chat-app-test.mo1wrhhyog0.eu-de.codeengine.appdomain.cloud'
+  engagementId: parkki
+  tenantId: www-hel-fi-test
+  assistantId: parkki
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/pysakointi\r\n/pysakointi/*"
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      fi: fi
