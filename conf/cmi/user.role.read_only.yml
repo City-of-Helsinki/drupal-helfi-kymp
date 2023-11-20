@@ -2,7 +2,12 @@ uuid: deab6282-a64c-4a28-bfc2-7cd4ba63b647
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.announcement
+    - node.type.landing_page
+    - node.type.page
   module:
+    - file
     - helfi_tpr
     - node
     - paragraphs
@@ -14,6 +19,7 @@ weight: 2
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'delete own files'
   - 'view any unpublished announcement content'
   - 'view any unpublished landing_page content'
   - 'view any unpublished page content'

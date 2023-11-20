@@ -7,6 +7,8 @@ dependencies:
     - image.style.1_1_s_2x
     - image.style.1_1_xs
     - image.style.1_1_xs_2x
+  module:
+    - helfi_image_styles
 _core:
   default_config_hash: NuriQB70Hu9_irYO0uyCTx6ChH38pAdEoZn48rmtfqo
 id: list_of_links__thumbnail
@@ -30,13 +32,13 @@ image_style_mappings:
   -
     image_mapping_type: image_style
     image_mapping: 1_1_xs_2x
-    breakpoint_id: helfi_image_styles.xs
-    multiplier: 2x
+    breakpoint_id: helfi_image_styles.xxs
+    multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: 1_1_xs_2x
-    breakpoint_id: helfi_image_styles.xxs
-    multiplier: 1x
+    breakpoint_id: helfi_image_styles.xs
+    multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: 1_1_xs_2x

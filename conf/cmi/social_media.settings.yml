@@ -16,7 +16,7 @@ social_media:
   facebook_msg:
     enable: 0
     text: 'Facebook messenger'
-    api_url: 'FB.ui({method: ''send'',link: ''[current-page:url]''})'
+    api_url: "FB.ui({method: 'send',link: '[current-page:url]'})"
     api_event: onclick
     default_img: 1
     weight: 2

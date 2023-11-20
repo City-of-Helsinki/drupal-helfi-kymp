@@ -1,43 +1,45 @@
-uuid: 2bc14143-7f23-465e-8b48-75c10677c891
+uuid: 8fed3f01-8515-45f1-a939-f576b7c90157
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.minimal
   module:
-    - ckeditor
+    - ckeditor5
 _core:
-  default_config_hash: UYVamJgeMVQeM3VYumbShc-tGJoYe4RhrXqiL_tJw4c
+  default_config_hash: eS-qt8gYhlbOwnV4BIbI-IG-mV85MWJudQS34fp9rb8
 format: minimal
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Tools
-          items:
-            - language_selector
-            - Source
+    items:
+      - bold
+      - italic
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - link
+      - helfiLanguageSelector
+      - '|'
+      - sourceEditing
   plugins:
-    drupallink:
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<span role aria-* class>'
+        - '<ul type>'
+        - '<ol type>'
+        - '<a hreflang accesskey id rel target title data-design data-link-text data-selected-icon data-is-external data-protocol>'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: helfi
+    helfi_ckeditor_helfi_link:
+      helfi_link_attributes:
+        - '<a aria-label class data-design data-hds-icon-start data-is-external data-link-text data-protocol data-selected-icon data-hds-component data-hds-variant id rel role target="_blank" title>'
+        - '<span aria-hidden class role>'
 image_upload:
   status: false
   scheme: public
