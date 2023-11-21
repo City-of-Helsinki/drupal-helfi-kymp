@@ -106,7 +106,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_project_search_metatags
     type: text
-    boost: !!float 0
+    boost: 0.0
     dependencies:
       config:
         - field.storage.node.field_project_search_metatags
@@ -158,7 +158,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       module:
         - node

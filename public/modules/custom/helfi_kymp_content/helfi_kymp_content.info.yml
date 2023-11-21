@@ -5,3 +5,5 @@ core_version_requirement: ^9 || ^10
 package: HELfi
 'interface translation project': helfi_kymp_content
 'interface translation server pattern': modules/custom/helfi_kymp_content/translations/%language.po
+dependencies:
+    - search_api:search_api

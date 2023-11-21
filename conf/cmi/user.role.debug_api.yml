@@ -5,10 +5,12 @@ dependencies:
   config:
     - rest.resource.helfi_debug_data
   module:
+    - file
     - rest
 id: debug_api
 label: 'Debug API'
 weight: 6
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'restful get helfi_debug_data'
