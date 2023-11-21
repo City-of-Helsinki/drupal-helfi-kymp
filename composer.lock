@@ -3690,30 +3690,31 @@
         },
         {
             "name": "drupal/hal",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/hal.git",
-                "reference": "2.0.1"
+                "reference": "2.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/hal-2.0.1.zip",
-                "reference": "2.0.1",
-                "shasum": "606106bd17e7691611c0bd22b4aed9888a6b6983"
+                "url": "https://ftp.drupal.org/files/projects/hal-2.0.2.zip",
+                "reference": "2.0.2",
+                "shasum": "9ec3ad376678941bae2e0eae0c980c42cddfc8b2"
             },
             "require": {
                 "drupal/core": "^10"
             },
             "require-dev": {
                 "drupal/aggregator": "2.x-dev",
-                "drupal/entity_reference_revisions": "1.x-dev"
+                "drupal/entity_reference_revisions": "1.x-dev",
+                "drupal/rdf": "2.x-dev"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.1",
-                    "datestamp": "1658902138",
+                    "version": "2.0.2",
+                    "datestamp": "1700523711",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3742,16 +3743,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "30ca30d91c3b496ac668ec092507c9e68d144c30"
+                "reference": "5c92f8ae5c2a529a89ecb690cfac878584f9cedd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/30ca30d91c3b496ac668ec092507c9e68d144c30",
-                "reference": "30ca30d91c3b496ac668ec092507c9e68d144c30",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/5c92f8ae5c2a529a89ecb690cfac878584f9cedd",
+                "reference": "5c92f8ae5c2a529a89ecb690cfac878584f9cedd",
                 "shasum": ""
             },
             "require": {
@@ -3769,10 +3770,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.0.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.0.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2023-11-16T09:09:26+00:00"
+            "time": "2023-11-21T09:33:37+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -6840,16 +6841,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "12.4.2",
+            "version": "12.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "dbc97d7073fc08d06b2fc1208ac9d5e3d037875b"
+                "reference": "8245acede57ecc62a90aa0f19ff3b29e5f11f971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/dbc97d7073fc08d06b2fc1208ac9d5e3d037875b",
-                "reference": "dbc97d7073fc08d06b2fc1208ac9d5e3d037875b",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/8245acede57ecc62a90aa0f19ff3b29e5f11f971",
+                "reference": "8245acede57ecc62a90aa0f19ff3b29e5f11f971",
                 "shasum": ""
             },
             "require": {
@@ -6972,7 +6973,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/12.4.2"
+                "source": "https://github.com/drush-ops/drush/tree/12.4.3"
             },
             "funding": [
                 {
@@ -6980,7 +6981,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-31T14:18:28+00:00"
+            "time": "2023-11-16T22:57:24+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
