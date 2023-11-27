@@ -10,7 +10,7 @@ declare(strict_types=1);
 /**
  * Implements hook_modules_installed().
  */
-function helfi_kymp_migrations_modules_installed($modules) {
+function helfi_kymp_migrations_modules_installed($modules) : void {
   // Run taxonomy migrations after the necessary entities have been installed.
   if (in_array('helfi_kymp_migrations', $modules)) {
     helfi_kymp_migrations__run_taxonomy_migration();
@@ -21,7 +21,7 @@ function helfi_kymp_migrations_modules_installed($modules) {
 /**
  * Run taxonomy migrations.
  */
-function helfi_kymp_migrations__run_taxonomy_migration() {
+function helfi_kymp_migrations__run_taxonomy_migration() : void {
   $logger = \Drupal::service('logger.channel.default');
   $migration = \Drupal::service(
     'helfi_kymp_migrations.taxonomy_migration_service'
@@ -31,6 +31,6 @@ function helfi_kymp_migrations__run_taxonomy_migration() {
     $migration->migrate();
   }
   catch (\Exception $e) {
-    return $logger->error('HELfi KYMP Migration taxonomy migration failed with error: ' . $e->getMessage());
+    $logger->error('HELfi KYMP Migration taxonomy migration failed with error: ' . $e->getMessage());
   }
 }

@@ -7,6 +7,7 @@
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\helfi_platform_config\DTO\ParagraphTypeCollection;
@@ -56,7 +57,7 @@ function helfi_kymp_content_preprocess_block(&$variables) {
 
   if (
     empty($paragraph) ||
-    !in_array($entity->getType(), ['landing_page', 'page']) ||
+    !in_array($entity->bundle(), ['landing_page', 'page']) ||
     !$paragraph instanceof ParagraphInterface
   ) {
     return;
@@ -98,9 +99,11 @@ function helfi_kymp_content_form_node_form_alter(&$form, FormStateInterface $for
  * Custom validation function for node form.
  */
 function helfi_kymp_content_node_form_validate($form, FormStateInterface $form_state) {
-  $node = $form_state->getFormObject()->getEntity();
+  $formObject = $form_state->getFormObject();
+  assert($formObject instanceof EntityFormInterface);
+  $node = $formObject->getEntity();
 
-  if ($node->getType() == 'project') {
+  if ($node->bundle() == 'project') {
     $project_plan_schedule = $form_state->getValue('field_project_plan_schedule');
     $plan_start = $project_plan_schedule[0]['value'];
     $plan_end = $project_plan_schedule[0]['end_value'];
@@ -180,6 +183,7 @@ function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms() {
       }
 
       if (!$node->hasTranslation($lang)) {
+        /** @var \Drupal\taxonomy\TermInterface $translated_term */
         $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($term, $lang);
         $node_translation = $node->addTranslation($lang);
         $node_translation->set('title', $translated_term->getName());
