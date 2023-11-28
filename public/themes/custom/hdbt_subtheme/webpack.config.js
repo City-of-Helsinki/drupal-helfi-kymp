@@ -19,10 +19,13 @@ const Entries = () => {
   };
 
   const pattern = './src/js/**/*.js';
-  const ignore = [];
+  const ignore = [
+    // Some javascript what is needed to ignore and handled separately.
+    // './src/js/some-component.js'
+  ];
 
   glob.sync(pattern, {ignore: ignore}).map((item) => {
-    entries[path.parse(item).name] = item }
+    entries[path.parse(item).name] = `./${item}` }
   );
   return entries;
 };
