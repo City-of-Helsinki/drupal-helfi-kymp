@@ -74,6 +74,11 @@ drush-uli: ## Get login link
 	$(call step,Login to your site with:\n)
 	$(call drush,uli$(if $(DRUPAL_UID), --uid=$(DRUPAL_UID),) $(DRUPAL_DESTINATION))
 
+PHONY += drush-uli-%
+drush-uli-%: ## Get login link for provided uid
+	$(call step,Login to your site as user $* with:\n)
+	$(call drush,uli --uid=$*)
+
 PHONY += drush-si
 ifeq ($(DRUPAL_CONF_EXISTS),yes)
     drush-si: DRUSH_SI := -y --existing-config
