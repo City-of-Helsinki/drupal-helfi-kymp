@@ -10,15 +10,30 @@ function get_deploy_id {
   echo $(cat sites/default/files/deploy.lock)
 }
 
-if [ "$(get_deploy_id)" != "$OPENSHIFT_BUILD_NAME" ]; then
-  echo "Current deploy_id $OPENSHIFT_BUILD_NAME not set. Probably a deployment is in progress."
-  exit 1
-fi
+function deployment_in_progress {
+  if [ "$(get_deploy_id)" != "$OPENSHIFT_BUILD_NAME" ]; then
+    return 1
+  fi
 
-if [ "$(drush state:get system.maintenance_mode)" = "1" ]; then
-  echo "Maintenance mode on. Probably a deployment is in progress."
-  exit 1
-fi
+  if [ "$(drush state:get system.maintenance_mode)" = "1" ]; then
+    return 1
+  fi
+
+  return 0
+}
+
+ATTEMPTS=0
+while [ deployment_in_progress ]
+do
+  let ATTEMPTS++
+
+  if (( ATTEMPTS > 10 )); then
+    echo "Failed to start a new cron pod - deployment probably failed"
+    exit 1
+  fi
+  echo "A deployment is in progress - waiting for completion ..."
+  sleep 60
+done
 
 echo "Starting cron: $(date)"
 
