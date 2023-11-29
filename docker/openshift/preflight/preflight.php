@@ -43,17 +43,13 @@ function preflight_failed(string $message, string|int ...$variables) : void {
 /**
  * Checks if given environment variable are set.
  *
- * @param string|array $items
+ * @param array $items
  *   The environment variables to check.
  *
  * @return bool
  *   TRUE if environment variable is set.
  */
-function environment_variable_isset(string|array $items) : bool {
-  if (is_string($items)) {
-    return (bool) getenv($items);
-  }
-
+function environment_variable_isset(array $items) : bool {
   foreach ($items as $item) {
     if (getenv($item)) {
       return TRUE;
