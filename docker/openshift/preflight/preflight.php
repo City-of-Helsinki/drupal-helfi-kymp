@@ -66,7 +66,7 @@ $class_loader = require_once './../vendor/autoload.php';
 include_once './sites/default/settings.php';
 
 if (!isset($preflight_checks['environmentVariables'], $preflight_checks['additionalFiles'])) {
-  exit(0);
+  exit(0); // NOSONAR
 }
 
 foreach ($preflight_checks['additionalFiles'] as $additionalFile) {
@@ -92,5 +92,5 @@ foreach ($preflight_checks['environmentVariables'] as $item) {
 // Fail deployment if any preflight check has failed.
 if ($messages = preflight_messages()) {
   echo implode(PHP_EOL, $messages);
-  exit(1);
+  exit(1); // NOSONAR
 }
