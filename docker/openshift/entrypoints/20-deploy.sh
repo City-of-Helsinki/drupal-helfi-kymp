@@ -3,11 +3,11 @@
 cd /var/www/html/public
 
 function get_deploy_id {
-  echo $(cat sites/default/files/deploy.lock)
+  echo $(cat sites/default/files/deploy.id)
 }
 
 function set_deploy_id {
-  echo ${1} > sites/default/files/deploy.lock
+  echo ${1} > sites/default/files/deploy.id
 }
 
 function output_error_message {
@@ -15,7 +15,7 @@ function output_error_message {
   php ../docker/openshift/notify.php "${1}" || true
 }
 
-function deploy_failure {
+function rollback_deployment {
   output_error_message "Deployment failed: ${1}"
   set_deploy_id ${2}
   exit 1
@@ -46,11 +46,6 @@ fi
 # deployment fails.
 CURRENT_DEPLOY_ID=$(get_deploy_id)
 
-# Attempt to set deploy ID in case this is the first deploy.
-if [[ -z "$CURRENT_DEPLOY_ID" ]]; then
-  set_deploy_id $OPENSHIFT_BUILD_NAME
-fi
-
 # This script is run every time a container is spawned and certain environments might
 # start more than one Drupal container. This is used to make sure we run deploy
 # tasks only once per deploy.
@@ -58,13 +53,13 @@ if [ "$CURRENT_DEPLOY_ID" != "$OPENSHIFT_BUILD_NAME" ]; then
   set_deploy_id $OPENSHIFT_BUILD_NAME
 
   if [ $? -ne 0 ]; then
-    deploy_failure "Failed to set deploy_id" $CURRENT_DEPLOY_ID
+    rollback_deployment "Failed to set deploy_id" $CURRENT_DEPLOY_ID
   fi
   # Put site in maintenance mode
   drush state:set system.maintenance_mode 1 --input-format=integer
 
   if [ $? -ne 0 ]; then
-    deploy_failure "Failed to enable maintenance_mode" $CURRENT_DEPLOY_ID
+    rollback_deployment "Failed to enable maintenance_mode" $CURRENT_DEPLOY_ID
   fi
   # Run helfi specific pre-deploy tasks. Allow this to fail in case
   # the environment is not using the 'helfi_api_base' module.
@@ -74,7 +69,7 @@ if [ "$CURRENT_DEPLOY_ID" != "$OPENSHIFT_BUILD_NAME" ]; then
   drush deploy
 
   if [ $? -ne 0 ]; then
-    deploy_failure "drush deploy failed with {$?} exit code. See logs for more information." $CURRENT_DEPLOY_ID
+    rollback_deployment "drush deploy failed with {$?} exit code. See logs for more information." $CURRENT_DEPLOY_ID
     exit 1
   fi
   # Run helfi specific post deploy tasks. Allow this to fail in case
@@ -85,6 +80,6 @@ if [ "$CURRENT_DEPLOY_ID" != "$OPENSHIFT_BUILD_NAME" ]; then
   drush state:set system.maintenance_mode 0 --input-format=integer
 
   if [ $? -ne 0 ]; then
-    deploy_failure "Failed to disable maintenance_mode" $CURRENT_DEPLOY_ID
+    rollback_deployment "Failed to disable maintenance_mode" $CURRENT_DEPLOY_ID
   fi
 fi

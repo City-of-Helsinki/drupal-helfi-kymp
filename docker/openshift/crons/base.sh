@@ -6,17 +6,19 @@ if [ ! -n "$OPENSHIFT_BUILD_NAME" ]; then
   exit 1
 fi
 
-while [ "$(drush state:get deploy_id)" != "$OPENSHIFT_BUILD_NAME" ]
-do
-  echo "Current deploy_id $OPENSHIFT_BUILD_NAME not found in state. Probably a deployment is in progress - waiting for completion..."
-  sleep 60
-done
+function get_deploy_id {
+  echo $(cat sites/default/files/deploy.lock)
+}
 
-while [ "$(drush state:get system.maintenance_mode)" = "1" ]
-do
-  echo "Maintenance mode on. Probably a deployment is in progress - waiting for completion..."
-  sleep 60
-done
+if [ "$(get_deploy_id)" != "$OPENSHIFT_BUILD_NAME" ]; then
+  echo "Current deploy_id $OPENSHIFT_BUILD_NAME not set. Probably a deployment is in progress."
+  exit 1
+fi
+
+if [ "$(drush state:get system.maintenance_mode)" = "1" ]; then
+  echo "Maintenance mode on. Probably a deployment is in progress."
+  exit 1
+fi
 
 echo "Starting cron: $(date)"
 
