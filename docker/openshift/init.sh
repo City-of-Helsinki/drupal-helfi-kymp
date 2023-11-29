@@ -3,7 +3,7 @@
 cd /var/www/html/public
 
 function get_deploy_id {
-  if [ ! -f "sites/default/files/deploy.id" ];
+  if [ ! -f "sites/default/files/deploy.id" ]; then
     touch sites/default/files/deploy.id
   fi
   echo $(cat sites/default/files/deploy.id)
