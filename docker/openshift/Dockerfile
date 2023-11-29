@@ -7,11 +7,11 @@ RUN composer install --no-progress --profile --prefer-dist --no-interaction --no
 
 COPY docker/openshift/init.sh /init.sh
 
-RUN mkdir /entrypoints
+RUN mkdir -p /entrypoints
 COPY docker/openshift/entrypoints/ /entrypoints
 RUN chmod +x /entrypoints/*
 
-RUN mkdir /crons
+RUN mkdir -p /crons
 COPY docker/openshift/crons/ /crons
 RUN chmod +x /crons/*
 
