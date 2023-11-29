@@ -4,7 +4,7 @@ source /init.sh
 
 ATTEMPTS=0
 # Checking if a new deployment is in progress, as we should not run cron while deploying.
-while [ deployment_in_progress ]
+while deployment_in_progress
 do
   let ATTEMPTS++
 
