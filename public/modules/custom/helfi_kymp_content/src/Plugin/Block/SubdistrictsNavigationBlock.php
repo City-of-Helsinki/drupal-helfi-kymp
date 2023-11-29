@@ -12,11 +12,13 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
 use Drupal\path_alias\AliasManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Provides a 'SubdistrictsNavigationBlock' block.
@@ -26,42 +28,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   admin_label = @Translation("Subdistricts navigation"),
  * )
  */
-class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
-  /**
-   * An alias manager to find the alias for the current system path.
-   *
-   * @var \Drupal\path_alias\AliasManagerInterface
-   */
-  protected AliasManagerInterface $aliasManager;
-
-  /**
-   * The current route match.
-   *
-   * @var \Drupal\Core\Routing\RouteMatchInterface
-   */
-  protected RouteMatchInterface $routeMatch;
-
-  /**
-   * The current path.
-   *
-   * @var \Drupal\Core\Path\CurrentPathStack
-   */
-  protected CurrentPathStack $currentPath;
-
-  /**
-   * The node storage.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected EntityTypeManagerInterface $entityTypeManager;
-
-  /**
-   * The language manager.
-   *
-   * @var \Drupal\Core\Language\LanguageManagerInterface
-   */
-  protected LanguageManagerInterface $languageManager;
+final class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Constructs a new SubdistrictsNavigationBlock instance.
@@ -72,24 +39,34 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
-   *   The current route match.
-   * @param \Drupal\path_alias\AliasManagerInterface $alias_manager
-   *   An alias manager to find the alias for the current system path.
-   * @param \Drupal\Core\Path\CurrentPathStack $current_path
+   * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
+   *   The route match.
+   * @param \Drupal\path_alias\AliasManagerInterface $aliasManager
+   *   The alias manager.
+   * @param \Drupal\Core\Path\CurrentPathStack $currentPath
    *   The current path.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
-   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
+   * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
    *   The language manager.
+   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+   *   The request stack service.
+   * @param \Drupal\Core\Session\AccountProxyInterface $currentUser
+   *   The current user service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, AliasManagerInterface $alias_manager, CurrentPathStack $current_path, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    private RouteMatchInterface $routeMatch,
+    private AliasManagerInterface $aliasManager,
+    private CurrentPathStack $currentPath,
+    private EntityTypeManagerInterface $entityTypeManager,
+    private LanguageManagerInterface $languageManager,
+    private RequestStack $requestStack,
+    private AccountProxyInterface $currentUser
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->routeMatch = $route_match;
-    $this->aliasManager = $alias_manager;
-    $this->currentPath = $current_path;
-    $this->entityTypeManager = $entity_type_manager;
-    $this->languageManager = $language_manager;
   }
 
   /**
@@ -101,7 +78,10 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       $container->get('path_alias.manager'),
       $container->get('path.current'),
       $container->get('entity_type.manager'),
-      $container->get('language_manager'));
+      $container->get('language_manager'),
+      $container->get('request_stack'),
+      $container->get('current_user'),
+    );
   }
 
   /**
@@ -149,7 +129,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
       $translatedParent = $this->entityTypeManager->getStorage('node')->load($parentId)->getTranslation($currentLanguageId);
 
       $subdistricts = $translatedParent->get('field_subdistricts')->referencedEntities();
-      $currentUri = \Drupal::request()->getRequestUri();
+      $currentUri = $this->requestStack->getCurrentRequest()->getRequestUri();
 
       // Set menu item.
       $navigation[$menuItem] = [
@@ -177,7 +157,7 @@ class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryP
         }
 
         // Do not show unpublished subdistrict for anonymous users.
-        if (!\Drupal::currentUser()->isAuthenticated() && !$subdistrict->getTranslation($currentLanguageId)->isPublished()) {
+        if (!$this->currentUser->isAuthenticated() && !$subdistrict->getTranslation($currentLanguageId)->isPublished()) {
           continue;
         }
 

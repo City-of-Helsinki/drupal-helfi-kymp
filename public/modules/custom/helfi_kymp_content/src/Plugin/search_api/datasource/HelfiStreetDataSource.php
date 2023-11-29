@@ -30,14 +30,14 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
   /**
    * The client.
    *
-   * @var GuzzleHttp\ClientInterface
+   * @var \GuzzleHttp\ClientInterface
    */
   protected ClientInterface $client;
 
   /**
    * The logger.
    *
-   * @var Psr\Log\LoggerInterface
+   * @var \Psr\Log\LoggerInterface
    */
   protected LoggerInterface $logger;
 
@@ -103,6 +103,9 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
+      $id = NULL;
+      $single_street = [];
+
       foreach ($street_data->childNodes->getIterator() as $field) {
         switch ($field->nodeName) {
           case 'avoindata:katualue_id':
@@ -119,10 +122,6 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
             $single_street['maintenance_class'] = strlen($field->nodeValue);
             break;
         }
-
-        if (!$id) {
-          continue;
-        }
       }
 
       if ($ids && $id && !in_array($id, $ids)) {
@@ -130,6 +129,7 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
       }
 
       $street_data_definition = $this->getTypedDataManager()->createDataDefinition('street_data');
+      /** @var \Drupal\Core\TypedData\ComplexDataInterface $street_data */
       $street_data = $this->getTypedDataManager()->create($street_data_definition);
       $street_data->setValue($single_street);
       $data[$id] = $street_data;
