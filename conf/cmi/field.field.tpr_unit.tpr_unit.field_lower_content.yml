@@ -14,8 +14,10 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
     - paragraphs.paragraphs_type.remote_video
+    - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -47,6 +49,8 @@ settings:
       contact_card_listing: contact_card_listing
       remote_video: remote_video
       event_list: event_list
+      map: map
+      text: text
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -79,10 +83,16 @@ settings:
       list_of_links:
         weight: 0
         enabled: true
+      map:
+        weight: 0
+        enabled: true
       news_list:
         weight: 0
         enabled: true
       remote_video:
+        weight: 0
+        enabled: true
+      text:
         weight: 0
         enabled: true
 field_type: entity_reference_revisions
