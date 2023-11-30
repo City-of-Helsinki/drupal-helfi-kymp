@@ -8,16 +8,6 @@
   padding-bottom: 55px; // Leave enough room between the last card and footer.
 }
 
-.component--district-listing .component__container {
-  padding-bottom: $spacing-double;
-  padding-top: $spacing-double;
-
-  @include breakpoint($breakpoint-m) {
-    padding-bottom: $spacing-quadruple;
-    padding-top: $spacing-quadruple;
-  }
-}
-
 .district-listing .views-infinite-scroll-content-wrapper {
   margin-top: $spacing;
 
