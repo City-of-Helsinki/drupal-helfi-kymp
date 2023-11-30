@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.storage.paragraph.field_event_list_description
     - paragraphs.paragraphs_type.event_list
+  module:
+    - text
 _core:
-  default_config_hash: SzE8z9tE3ud5ZHtE7FrtYyTUx0LHVzqMWydOAFsDDGY
+  default_config_hash: oPuSy256H3spbbctja0gZ-kBYwVQNKt-K6vBYmtoJlo
 id: paragraph.event_list.field_event_list_description
 field_name: field_event_list_description
 entity_type: paragraph
