@@ -15,7 +15,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   /**
    * The constructor.
    *
-   * @param Psr\Log\LoggerInterface $logger
+   * @param \Psr\Log\LoggerInterface $logger
    *   The logger.
    */
   public function __construct(private LoggerInterface $logger) {
@@ -33,7 +33,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   /**
    * Tell tracker which IDs to index on next indexing.
    *
-   * @param Drupal\search_api\Event\ReindexScheduledEvent $event
+   * @param \Drupal\search_api\Event\ReindexScheduledEvent $event
    *   The event.
    *
    * @throws \Drupal\search_api\SearchApiException
@@ -47,12 +47,12 @@ class SearchApiSubscriber implements EventSubscriberInterface {
         if (!$data) {
           return;
         }
+        $index->trackItemsInserted($source->getPluginId(), array_keys($data));
       }
       catch (\Exception $e) {
         $this->logger->error('unable to fetch data while running reindex event');
       }
 
-      $index->trackItemsInserted($source->getPluginId(), array_keys($data));
     }
   }
 

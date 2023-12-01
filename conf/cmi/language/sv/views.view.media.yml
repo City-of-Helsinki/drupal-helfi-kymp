@@ -1,34 +1,25 @@
-label: Media
 description: 'Hitta och hantera media.'
 display:
   default:
     display_title: Förvald
     display_options:
-      title: Media
       fields:
         media_bulk_form:
           action_title: Åtgärd
         thumbnail__target_id:
           label: Miniatyr
-          separator: ', '
         name:
           label: Medianamn
-          separator: ', '
         bundle:
           label: Typ
-          separator: ', '
         uid:
           label: Författare
-          separator: ', '
         status:
-          label: Status
           settings:
             format_custom_false: 'Ej publicerad'
             format_custom_true: Publicerad
-          separator: ', '
         changed:
           label: Uppdaterad
-          separator: ', '
         operations:
           label: Funktioner
       pager:
@@ -62,6 +53,7 @@ display:
         status:
           expose:
             label: Sant
+            description: ''
           group_info:
             label: 'Status för publicering'
             group_items:
@@ -73,7 +65,5 @@ display:
           expose:
             label: Språk
   media_page_list:
-    display_title: Media
     display_options:
-      menu:
-        title: Media
+      menu: {  }
