@@ -1,18 +1,6 @@
 .component--project-list {
-  background-color: $color-black-5;
-
-  .component__container {
-    padding-bottom: $spacing-quadruple;
-    padding-top: $spacing-quadruple;
-
-    // Since the component is not "full width" next to a sidebar, we should uniform padding around
-    .has-sidebar .components--upper & {
-      padding-bottom: $spacing-double;
-      padding-left: $spacing-double;
-      padding-right: $spacing-double;
-      padding-top: $spacing-double;
-    }
-  }
+  @include component-side-padding;
+  background-color: $color-silver-light;
 }
 
 .project-list_count {

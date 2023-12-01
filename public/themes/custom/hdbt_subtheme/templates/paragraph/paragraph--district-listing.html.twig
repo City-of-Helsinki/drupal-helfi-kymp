@@ -1,7 +1,10 @@
 {% block paragraph %}
   {% embed "@hdbt/misc/component.twig" with
     {
-      component_classes: [ 'component--district-listing' ],
+      component_classes: [
+        'component--full-width',
+        'component--district-listing'
+      ],
       component_title: content.field_district_list_title,
       component_description: content.field_district_list_description,
       component_content_class: 'district-listing',
