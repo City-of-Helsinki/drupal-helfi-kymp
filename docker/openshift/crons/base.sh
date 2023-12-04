@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /init.sh
+
 echo "Starting cron: $(date)"
 
 # You can add any additional cron "daemons" here:
