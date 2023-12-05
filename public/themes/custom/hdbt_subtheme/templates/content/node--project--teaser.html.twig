@@ -40,7 +40,7 @@
     {% set tag_content %}
       <span>{{ 'Project'|t }}</span>
     {% endset %}
-    {% embed '@hdbt/misc/tag-list.twig'%}
+    {% embed '@hdbt/misc/tag-list.twig' with { tag_container_class: ' content-tags--card' } %}
       {% block content %}
         {% include '@hdbt/misc/tag.twig' with {
           color: 'gold',

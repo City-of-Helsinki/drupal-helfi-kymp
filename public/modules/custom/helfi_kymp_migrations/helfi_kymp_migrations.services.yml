@@ -1,4 +1,4 @@
 services:
   helfi_kymp_migrations.taxonomy_migration_service:
     class: Drupal\helfi_kymp_migrations\TaxonomyMigrationService
-    arguments: [ '@file_system', '@module_handler' ]
+    arguments: [ '@file_system', '@module_handler', '@entity_type.manager' ]

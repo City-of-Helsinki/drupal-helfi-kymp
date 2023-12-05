@@ -2,6 +2,7 @@
 
 namespace Drupal\helfi_kymp_migrations;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -28,7 +29,11 @@ class TaxonomyMigrationService {
   /**
    * Construct.
    */
-  public function __construct(protected FileSystemInterface $fileSystem, protected ModuleHandlerInterface $moduleHandler) {
+  public function __construct(
+    protected FileSystemInterface $fileSystem,
+    protected ModuleHandlerInterface $moduleHandler,
+    protected EntityTypeManagerInterface $entityTypeManager
+  ) {
     $this->projectFilePath = $this->fileSystem->realpath(
       $this->moduleHandler->getModule('helfi_kymp_migrations')->getPath()
     ) . '/src/csv/taxonomies.csv';
@@ -105,7 +110,7 @@ class TaxonomyMigrationService {
           $taxonomy_data['field_parent_district'] = NULL;
         }
 
-        $existing_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+        $existing_term = $this->entityTypeManager->getStorage('taxonomy_term')
           ->loadByProperties(['name' => trim($row[1]), 'vid' => $row[0]]);
 
         if (!$existing_term) {
@@ -123,7 +128,7 @@ class TaxonomyMigrationService {
             $term->bundle() == 'project_sub_district' &&
             $term->hasField('field_parent_district')
           ) {
-            $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $row[4]]);
+            $parent = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $row[4]]);
             if ($parent) {
               $term->field_parent_district->entity = reset($parent);
               $term->save();

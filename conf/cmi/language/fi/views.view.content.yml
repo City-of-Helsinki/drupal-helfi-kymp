@@ -4,12 +4,10 @@ display:
       fields:
         langcode:
           label: Kieli
-          separator: ', '
         title:
           label: Otsikko
         type:
           label: Sisältötyyppi
-          separator: ', '
         name:
           label: Kirjoittaja
         status:
@@ -54,8 +52,6 @@ display:
             group_items:
               1:
                 title: Julkaistu
-              2:
-                title: Julkaisematon
         langcode:
           expose:
             label: Kieli
