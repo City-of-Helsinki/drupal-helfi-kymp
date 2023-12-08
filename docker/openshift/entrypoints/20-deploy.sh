@@ -51,4 +51,5 @@ if [ "$CURRENT_DEPLOY_ID" != "$OPENSHIFT_BUILD_NAME" ]; then
   if [ $? -ne 0 ]; then
     rollback_deployment "Failed to disable maintenance_mode" $CURRENT_DEPLOY_ID
   fi
+  sleep 300
 fi
