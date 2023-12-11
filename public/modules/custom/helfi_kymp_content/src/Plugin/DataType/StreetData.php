@@ -31,7 +31,7 @@ class StreetData extends Map {
       ->setLabel('Street name')
       ->addConstraint('Range', ['min' => 0, 'max' => 255])
       ->setRequired(TRUE);
-      
+
     $properties['length'] = DataDefinition::create('integer')
       ->setLabel('Length')
       ->setRequired(TRUE);
