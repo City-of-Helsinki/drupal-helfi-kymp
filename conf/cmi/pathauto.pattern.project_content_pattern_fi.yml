@@ -8,20 +8,20 @@ dependencies:
 id: project_content_pattern_fi
 label: 'Project content pattern (FI)'
 type: 'canonical_entities:node'
-pattern: 'kaupunkisuunnittelu-ja-rakentaminen/hae-suunnitelmia-ja-hankkeita/[node:title]'
+pattern: 'kaupunkisuunnittelu-ja-rakentaminen/suunnitelmat-ja-rakennushankkeet/[node:title]'
 selection_criteria:
-  9a633b22-53b4-4106-9806-d087740687eb:
+  b87914d9-fc7d-4916-b015-1ea077744583:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 9a633b22-53b4-4106-9806-d087740687eb
+    uuid: b87914d9-fc7d-4916-b015-1ea077744583
     context_mapping:
       node: node
     bundles:
       project: project
-  2cce6ebc-19ed-449d-b0e3-3fb513413f6c:
+  44ec2474-d4e6-4331-8c3c-556d4e195ec5:
     id: language
     negate: false
-    uuid: 2cce6ebc-19ed-449d-b0e3-3fb513413f6c
+    uuid: 44ec2474-d4e6-4331-8c3c-556d4e195ec5
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
