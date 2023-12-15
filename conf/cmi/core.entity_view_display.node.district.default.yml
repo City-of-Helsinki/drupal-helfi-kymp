@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.district.field_district_search_metatags
     - field.field.node.district.field_has_hero
     - field.field.node.district.field_hero
+    - field.field.node.district.field_lead_in
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
     - field.field.node.district.field_sidebar_content
@@ -15,6 +16,7 @@ dependencies:
     - node.type.district
   module:
     - entity_reference_revisions
+    - helfi_platform_config
     - metatag
     - user
 id: node.district.default
@@ -30,6 +32,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_lead_in:
+    type: text_span
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
