@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.district.field_district_search_metatags
     - field.field.node.district.field_has_hero
     - field.field.node.district.field_hero
+    - field.field.node.district.field_lead_in
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
     - field.field.node.district.field_sidebar_content
@@ -19,6 +20,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - publication_date
     - scheduler
 id: node.district.default
 targetEntityType: node
@@ -90,6 +92,14 @@ content:
         add_above: '0'
         collapse_edit_all: '0'
         duplicate: '0'
+    third_party_settings: {  }
+  field_lead_in:
+    type: string_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
     third_party_settings: {  }
   field_lower_content:
     type: paragraphs
