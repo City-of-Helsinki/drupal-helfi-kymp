@@ -29,7 +29,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -54,7 +54,7 @@ content:
     third_party_settings: {  }
   field_district_image:
     type: media_library_widget
-    weight: 3
+    weight: 4
     region: content
     settings:
       media_types: {  }
@@ -95,7 +95,7 @@ content:
     third_party_settings: {  }
   field_lead_in:
     type: string_textarea
-    weight: 13
+    weight: 3
     region: content
     settings:
       rows: 3
@@ -122,7 +122,7 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 22
+    weight: 23
     region: content
     settings:
       sidebar: false
@@ -166,44 +166,44 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   published_at:
     type: publication_date_timestamp
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   simple_sitemap:
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -217,13 +217,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -233,12 +233,12 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
