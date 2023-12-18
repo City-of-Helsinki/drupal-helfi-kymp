@@ -32,6 +32,10 @@ class StreetData extends Map {
       ->addConstraint('Range', ['min' => 0, 'max' => 255])
       ->setRequired(TRUE);
 
+    $properties['length'] = DataDefinition::create('integer')
+      ->setLabel('Length')
+      ->setRequired(TRUE);
+
     $properties['maintenance_class'] = DataDefinition::create('integer')
       ->setLabel('Maintenance class')
       ->addConstraint('Range', ['min' => 0, 'max' => 5])

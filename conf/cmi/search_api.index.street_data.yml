@@ -18,6 +18,11 @@ field_settings:
     datasource_id: helfi_street_data_source
     property_path: id
     type: integer
+  length:
+    label: length
+    datasource_id: helfi_street_data_source
+    property_path: length
+    type: integer
   maintenance_class:
     label: 'Maintenance class'
     datasource_id: helfi_street_data_source
@@ -27,7 +32,7 @@ field_settings:
     label: 'Street name'
     datasource_id: helfi_street_data_source
     property_path: street_name
-    type: string
+    type: text
 datasource_settings:
   helfi_street_data_source: {  }
 processor_settings:
