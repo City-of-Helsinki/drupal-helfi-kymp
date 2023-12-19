@@ -24,6 +24,7 @@ exec "/crons/update-translations.sh" &
 exec "/crons/content-scheduler.sh" &
 exec "/crons/invalidate-tags-kymp.sh" &
 exec "/crons/pubsub.sh" &
+exec "/crons/street-data.sh" &
 
 while true
 do
