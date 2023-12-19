@@ -22,6 +22,16 @@ include $(DRUIDFI_TOOLS_MAKE_DIR)symfony.mk
 endif
 
 #
+# Other tools
+#
+
+HAS_ANSIBLE ?= $(shell test -d ansible && echo yes || echo no)
+
+ifeq ($(HAS_ANSIBLE),yes)
+include $(DRUIDFI_TOOLS_MAKE_DIR)ansible.mk
+endif
+
+#
 # Hosting systems
 #
 
