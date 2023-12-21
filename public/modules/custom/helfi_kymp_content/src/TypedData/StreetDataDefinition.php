@@ -22,6 +22,9 @@ class StreetDataDefinition extends ComplexDataDefinitionBase {
         ->setLabel('Street name')
         ->addConstraint('Range', ['min' => 0, 'max' => 255])
         ->setRequired(TRUE);
+      $this->propertyDefinitions['length'] = DataDefinition::create('integer')
+        ->setLabel('Length')
+        ->setRequired(TRUE);
       $this->propertyDefinitions['maintenance_class'] = DataDefinition::create('integer')
         ->setLabel('Maintenance class')
         ->addConstraint('Range', ['min' => 0, 'max' => 5])

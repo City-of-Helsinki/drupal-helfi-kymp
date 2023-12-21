@@ -1,0 +1,14 @@
+uuid: 2c004d5a-124e-4405-ba32-d39afc7af3fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.ploughing_schedule
+id: paragraph.ploughing_schedule.default
+targetEntityType: paragraph
+bundle: ploughing_schedule
+mode: default
+content: {  }
+hidden:
+  created: true
+  status: true

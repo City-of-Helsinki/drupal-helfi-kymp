@@ -21,6 +21,7 @@ dependencies:
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
     - paragraphs.paragraphs_type.phasing
+    - paragraphs.paragraphs_type.ploughing_schedule
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.service_list_search
     - paragraphs.paragraphs_type.text
@@ -63,6 +64,7 @@ settings:
       map: map
       unit_search: unit_search
       service_list_search: service_list_search
+      ploughing_schedule: ploughing_schedule
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -111,6 +113,9 @@ settings:
         weight: 0
         enabled: true
       phasing:
+        weight: 0
+        enabled: true
+      ploughing_schedule:
         weight: 0
         enabled: true
       remote_video:

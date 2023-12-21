@@ -8,20 +8,20 @@ dependencies:
 id: project_content_pattern_sv
 label: 'Project content pattern (SV)'
 type: 'canonical_entities:node'
-pattern: 'stadsplanering-och-byggande/sok-planer-och-projekt/[node:title]'
+pattern: 'stadsplanering-och-byggande/planer-och-byggnadsprojekt/[node:title]'
 selection_criteria:
-  ebdd871b-9faa-4fe6-a59b-eec4d896b879:
+  8fb70e14-4863-4fc6-990f-e59780496e95:
     id: 'entity_bundle:node'
     negate: false
-    uuid: ebdd871b-9faa-4fe6-a59b-eec4d896b879
+    uuid: 8fb70e14-4863-4fc6-990f-e59780496e95
     context_mapping:
       node: node
     bundles:
       project: project
-  1da9fa60-dbfc-4ac9-836f-d4ada8fbd5ab:
+  7e600edb-5a00-4007-9aaa-6cecd7348091:
     id: language
     negate: false
-    uuid: 1da9fa60-dbfc-4ac9-836f-d4ada8fbd5ab
+    uuid: 7e600edb-5a00-4007-9aaa-6cecd7348091
     context_mapping:
       language: 'node:langcode:language'
     langcodes:

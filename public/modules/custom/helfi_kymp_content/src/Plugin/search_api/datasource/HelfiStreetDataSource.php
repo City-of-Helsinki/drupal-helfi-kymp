@@ -117,6 +117,10 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
             $single_street['street_name'] = $field->nodeValue;
             break;
 
+          case 'avoindata:pituus':
+            $single_street['length'] = $field->nodeValue;
+            break;
+
           case 'avoindata:yllapitoluokka':
             // Turn field value from III or II to 3 or 2 etc.
             $single_street['maintenance_class'] = strlen($field->nodeValue);
@@ -157,6 +161,9 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
     $property_definition['street_name'] = DataDefinition::create('string')
       ->setLabel('Street name')
       ->addConstraint('Range', ['min' => 0, 'max' => 255])
+      ->setRequired(TRUE);
+    $property_definition['length'] = DataDefinition::create('integer')
+      ->setLabel('Length')
       ->setRequired(TRUE);
     $property_definition['maintenance_class'] = DataDefinition::create('integer')
       ->setLabel('Maintenance class')

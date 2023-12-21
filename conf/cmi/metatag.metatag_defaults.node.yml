@@ -8,7 +8,7 @@ id: node
 label: Content
 tags:
   title: '[node:title] | [site:page-title-suffix]'
-  description: '[node:field_lead_in]'
+  description: '[node:lead-in]'
   canonical_url: '[node:url]'
   article_modified_time: '[node:created:html_datetime]'
   article_published_time: '[node:created:html_datetime]'
@@ -18,3 +18,4 @@ tags:
   og_url: '[current-page:url:absolute]'
   twitter_cards_image: '[node:shareable-image]'
   og_image: '[node:shareable-image]'
+  og_description: '[node:lead-in]'
