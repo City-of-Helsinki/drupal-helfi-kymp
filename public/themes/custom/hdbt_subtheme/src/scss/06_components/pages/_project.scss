@@ -40,7 +40,9 @@
   }
 
   .metadata__item-content .label:not(:last-of-type)::after,
-  .metadata__item--schedule--plan-schedule *:last-child::after {
+  .metadata__item--schedule--plan-schedule *:last-child::after,
+  .card__meta__content .label:not(:last-of-type)::after,
+  .card__meta__content .label--schedule:not(:last-of-type) *:last-child::after {
     content: ', ';
   }
 
