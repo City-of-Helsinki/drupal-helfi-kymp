@@ -5,21 +5,7 @@
   ]
 %}
 
-{% set link_title %}
-  {{ title_prefix }}
-  <h3 class="content-card__title">
-    {{ label }}
-  </h3>
-  {{ title_suffix }}
-{% endset %}
-
-{% set link_attributes = {
-  'class': [
-    'project-teaser__link',
-  ],
-  'rel': 'bookmark',
-} %}
-
+{% set external = false %}
 {% if content.field_project_external_website|render %}
   {% set link_url = content.field_project_external_website.0['#url'] %}
   {% set external = true %}
@@ -27,63 +13,43 @@
   {% set link_url = node_url %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+{% set schedule %}  
+  {% if content.field_project_plan_schedule|render %}        
+    <span class="label--schedule">{{ 'planning'|t }}{{ content.field_project_plan_schedule }}</span>
+  {% endif %}
+  {% if content.field_project_execution_schedule|render %}
+    <span class="label--schedule">{{ 'execution'|t }}{{ content.field_project_execution_schedule }}</span>
+  {% endif %}
+{% endset %}
 
-  <div class="project-teaser__image">
-    {% if content.field_project_image.0 %}
-      {{ content.field_project_image }}
-    {% else %}
-      {% include '@hdbt/media/image--card.html.twig' with {content: '' } %}
-    {% endif %}
-  </div>
-  <div class="project-teaser__data">
-    {% set tag_content %}
-      <span>{{ 'Project'|t }}</span>
-    {% endset %}
-    {% embed '@hdbt/misc/tag-list.twig' with { tag_container_class: ' content-tags--card' } %}
-      {% block content %}
-        {% include '@hdbt/misc/tag.twig' with {
-          color: 'gold',
-          tag: tag_content
-        }%}
-      {% endblock content %}
-    {% endembed %}
-    {{ link(link_title, link_url, link_attributes) }}
-
-    {% set schedule %}
-      {% if content.field_project_plan_schedule|render %}
-        <span class="metadata__item--schedule metadata__item--schedule--plan-schedule">
-          {{ 'planning'|t }}{{ content.field_project_plan_schedule }}
-        </span>
-      {% endif %}
-      {% if content.field_project_execution_schedule|render %}
-        <span class="metadata__item--schedule">
-          {{ 'execution'|t }}{{ content.field_project_execution_schedule }}
-        </span>
-      {% endif %}
-    {% endset %}
-
-    {% include '@hdbt/misc/metadata-item.twig' with {
-      item_icon: 'calendar',
-      item_label: 'Estimated schedule'|t,
-      item_content: schedule,
-    }%}
-    {% include '@hdbt/misc/metadata-item.twig' with {
-      item_icon: 'location',
-      item_label: 'Project location'|t,
-      item_content: content.field_project_district,
-    }%}
-    {% include '@hdbt/misc/metadata-item.twig' with {
-      item_icon: 'locate',
-      item_label: 'Project theme'|t,
-      item_content: content.field_project_theme,
-    }%}
-
-
-    {% if external %}
-      {% include "@hdbt/misc/icon.twig" with {icon: 'link-external' } only %}
-    {% else %}
-      {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
-    {% endif %}
-  </div>
-</article>
+{% embed '@hdbt/component/card.twig' with {
+    card_modifier_class: classes|join(' '),
+    card_image: content.field_project_image,
+    card_title: label,
+    card_url: link_url,
+    card_url_external: external,
+    card_metas: [
+      {
+        icon: 'calendar',
+        label: 'Estimated schedule'|t,
+        content: schedule
+      },
+      {
+        icon: 'location',
+        label: 'Project location'|t,
+        content: content.field_project_district
+      },
+      {
+        icon: 'locate',
+        label: 'Project theme'|t,
+        content: content.field_project_theme
+      },
+    ],
+    card_tags: [
+      {
+        tag: 'Project'|t,
+        color: 'gold',
+      },
+    ],
+  } %}
+{% endembed %}
