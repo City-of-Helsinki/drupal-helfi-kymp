@@ -79,8 +79,12 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
     ]);
     $uri = sprintf('%s?%s', 'https://kartta.hel.fi/ws/geoserver/avoindata/wfs', $query);
 
+    $options = [
+      'timeout' => 10,
+    ];
+
     try {
-      $content = $this->client->request('GET', $uri);
+      $content = $this->client->request('GET', $uri, $options);
       $xmlResult = $content->getBody()->getContents();
       if (!$xmlResult) {
         return [];
