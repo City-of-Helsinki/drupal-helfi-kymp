@@ -1,8 +1,7 @@
 @use "sass:math";
 
 /* District and project shared teaser styles */
-.district-teaser,
-.project-teaser {
+.district-teaser {
   background-color: $color-white;
   margin-bottom: $spacing;
   position: relative;
@@ -30,8 +29,7 @@
   }
 }
 
-.district-teaser__data,
-.project-teaser__data {
+.district-teaser__data {
   display: flex;
   flex-direction: column;
   padding: $spacing-double $spacing-and-half $spacing-double $spacing-and-half;
@@ -72,8 +70,7 @@ $-image-placeholder-ratio: math.div(3, 2);
 $-image-size: 380px;
 $-image-min-size: 220px;
 
-.district-teaser__image,
-.project-teaser__image {
+.district-teaser__image {
   min-width: $-image-min-size;
   overflow: hidden;
 
@@ -94,8 +91,7 @@ $-image-min-size: 220px;
   }
 }
 
-.district-teaser__link,
-.project-teaser__link {
+.district-teaser__link {
   display: block;
   margin-bottom: $spacing;
   text-decoration: none;
