@@ -301,27 +301,27 @@ function helfi_kymp_content_helfi_paragraph_types() : array {
     'node' => [
       'page' => [
         'field_content' => [
-          'list_of_plans',
-          'journey_planner',
+          'journey_planner' => 18,
+          'list_of_plans' => 19,
         ],
         'field_lower_content' => [
-          'list_of_plans',
+          'list_of_plans' => 18,
         ],
       ],
       'landing_page' => [
         'field_content' => [
-          'district_and_project_search',
-          'district_listing',
-          'list_of_plans',
+          'district_and_project_search' => 18,
+          'list_of_plans' => 19,
+          'district_listing' => 20,
         ],
       ],
     ],
     'paragraphs_library_item' => [
       'paragraphs_library_item' => [
         'paragraphs' => [
-          'district_and_project_search',
-          'district_listing',
-          'list_of_plans',
+          'district_and_project_search' => 1,
+          'list_of_plans' => 2,
+          'district_listing' => 3,
         ],
       ],
     ],
@@ -331,8 +331,8 @@ function helfi_kymp_content_helfi_paragraph_types() : array {
   foreach ($entities as $entityTypeId => $bundles) {
     foreach ($bundles as $bundle => $fields) {
       foreach ($fields as $field => $paragraphTypes) {
-        foreach ($paragraphTypes as $paragraphType) {
-          $enabled[] = new ParagraphTypeCollection($entityTypeId, $bundle, $field, $paragraphType);
+        foreach ($paragraphTypes as $paragraphType => $weight) {
+          $enabled[] = new ParagraphTypeCollection($entityTypeId, $bundle, $field, $paragraphType, $weight);
         }
       }
     }
