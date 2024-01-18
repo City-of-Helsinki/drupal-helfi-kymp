@@ -34,43 +34,43 @@ settings:
   handler_settings:
     target_bundles:
       text: text
-      columns: columns
       accordion: accordion
+      banner: banner
       image: image
       list_of_links: list_of_links
       content_cards: content_cards
-      banner: banner
       from_library: from_library
-      contact_card_listing: contact_card_listing
       remote_video: remote_video
+      columns: columns
+      contact_card_listing: contact_card_listing
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: 0
+        weight: 1
         enabled: true
       banner:
-        weight: 0
+        weight: 2
         enabled: true
       columns:
-        weight: 0
+        weight: 8
         enabled: true
       contact_card_listing:
-        weight: 0
+        weight: 9
         enabled: true
       content_cards:
-        weight: 0
+        weight: 5
         enabled: true
       from_library:
-        weight: 0
+        weight: 6
         enabled: true
       image:
-        weight: 0
+        weight: 3
         enabled: true
       list_of_links:
-        weight: 0
+        weight: 4
         enabled: true
       remote_video:
-        weight: 0
+        weight: 7
         enabled: true
       text:
         weight: 0
