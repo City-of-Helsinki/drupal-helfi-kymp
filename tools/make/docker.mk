@@ -1,5 +1,6 @@
 CLI_SERVICE := app
 CLI_SHELL := sh
+# Note: specification says this file would be compose.yaml
 DOCKER_COMPOSE_YML_PATH ?= docker-compose.yml
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f $(DOCKER_COMPOSE_YML_PATH) && echo yes || echo no)
 DOCKER_PROJECT_ROOT ?= /app
@@ -75,7 +76,7 @@ endif
 
 ifeq ($(RUN_ON),docker)
 define docker_compose
-	@docker compose$(if $(filter docker-compose.yml,$(DOCKER_COMPOSE_YML_PATH)),, -f $(DOCKER_COMPOSE_YML_PATH)) $(1)
+	@docker compose$(if $(filter $(DOCKER_COMPOSE_YML_PATH),$(DOCKER_COMPOSE_YML_PATH)),, -f $(DOCKER_COMPOSE_YML_PATH)) $(1)
 endef
 else
 define docker_compose
