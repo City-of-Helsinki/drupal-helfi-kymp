@@ -6,18 +6,16 @@ dependencies:
     - field.storage.paragraph.field_unit_search_meta_placehold
     - paragraphs.paragraphs_type.unit_search
 _core:
-  default_config_hash: K6i7_W3tb5vOn1zfSi_fxqmEGAV6dhR8y6-Q2XZ_d6k
+  default_config_hash: GrQB9l3hLoUZhQ-FDWoVOX0rTHMExIq0kin0dlxTtVk
 id: paragraph.unit_search.field_unit_search_meta_placehold
 field_name: field_unit_search_meta_placehold
 entity_type: paragraph
 bundle: unit_search
-label: 'Search placeholder'
-description: ''
+label: 'Placeholder text for the search input'
+description: 'For example: Kotikatu 1'
 required: false
 translatable: false
-default_value:
-  -
-    value: 'Enter name, address or postal code'
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: string
