@@ -3746,16 +3746,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.4.9",
+            "version": "6.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "478c584e03ee0e978065e34ec9175a9104665bc4"
+                "reference": "68471d79e085f59968b7bae901aa311a344ca640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/478c584e03ee0e978065e34ec9175a9104665bc4",
-                "reference": "478c584e03ee0e978065e34ec9175a9104665bc4",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/68471d79e085f59968b7bae901aa311a344ca640",
+                "reference": "68471d79e085f59968b7bae901aa311a344ca640",
                 "shasum": ""
             },
             "require": {
@@ -3773,10 +3773,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.4.9",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.4.10",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2024-02-09T07:57:08+00:00"
+            "time": "2024-02-09T10:34:28+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4039,16 +4039,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.3.6",
+            "version": "4.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "9c6632b8f485f9bd6f4f0200360df78935ea08d2"
+                "reference": "a6f9a5021369b9734b8a7104c4284a23f44cfdc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/9c6632b8f485f9bd6f4f0200360df78935ea08d2",
-                "reference": "9c6632b8f485f9bd6f4f0200360df78935ea08d2",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/a6f9a5021369b9734b8a7104c4284a23f44cfdc0",
+                "reference": "a6f9a5021369b9734b8a7104c4284a23f44cfdc0",
                 "shasum": ""
             },
             "require": {
@@ -4095,7 +4095,7 @@
                 "drupal/scheduler": "^1.3",
                 "drupal/search_api": "^1.0",
                 "drupal/select2": "^1.12",
-                "drupal/simple_sitemap": "4.1.7",
+                "drupal/simple_sitemap": "^4.0",
                 "drupal/siteimprove": "^2.0",
                 "drupal/social_media": "^2.0",
                 "drupal/stomp": "^2.0",
@@ -4146,12 +4146,6 @@
                         "[#UHF-7721] Fixed node preview when publication date is not set. (https://www.drupal.org/i/3074373)": "https://www.drupal.org/files/issues/2022-12-20/publication_date_is_required_for_completing_the_form-3074373-11.patch",
                         "[#UHF-9113] Fix PHP 8.2 deprecation issue with PublishedAtOrNowComputed class. (https://www.drupal.org/i/3328575)": "https://www.drupal.org/files/issues/2023-05-31/3328575-5-fix-bux-publicate-date.patch"
                     },
-                    "drupal/social_media": {
-                        "Add missing schema to social media. (https://www.drupal.org/project/social_media/issues/2986819)": "https://git.drupalcode.org/project/social_media/-/commit/1964f42e5a6fb5d7a97fdf8ec5ca259bc6c5b19a.patch"
-                    },
-                    "drupal/simple_sitemap": {
-                        "[#UHF-8514] Fix frontpage URLs in sitemap. (https://www.drupal.org/i/3264573)": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/55722f695264bbaf6062f46e400e905c761fd5b7/patches/simple_sitemap-3264573-respect-frontpage-configuration.patch"
-                    },
                     "drupal/view_unpublished": {
                         "[#UHF-9256] Fix missing dynamic permission dependencies.": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/cbb944ae79643ba7ed895db3fac7f3b3d90ac850/patches/view_unpublished_permissions_missing_dependencies.patch"
                     }
@@ -4162,10 +4156,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.3.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.3.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2024-01-30T07:58:25+00:00"
+            "time": "2024-02-09T10:34:32+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
