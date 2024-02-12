@@ -9,9 +9,15 @@ if ($hotjar_id = getenv('HOTJAR_ID')) {
   $config['helfi_hotjar.settings']['hjid'] = $hotjar_id;
 }
 
+$elastic_url = getenv('ELASTICSEARCH_URL');
+
+if (!$elastic_url && getenv('APP_ENV') === 'local') {
+  $elastic_url = gethostbyname('elastic');
+}
+
 // Elasticsearch settings.
-if (getenv('ELASTICSEARCH_URL')) {
-  $config['elasticsearch_connector.cluster.kymp']['url'] = getenv('ELASTICSEARCH_URL');
+if ($elastic_url) {
+  $config['elasticsearch_connector.cluster.kymp']['url'] = $elastic_url;
 
   if (getenv('ELASTIC_USER') && getenv('ELASTIC_PASSWORD')) {
     $config['elasticsearch_connector.cluster.kymp']['options']['use_authentication'] = '1';
@@ -20,6 +26,7 @@ if (getenv('ELASTICSEARCH_URL')) {
     $config['elasticsearch_connector.cluster.kymp']['options']['password'] = getenv('ELASTIC_PASSWORD');
   }
 }
+
 
 // Elastic proxy URL.
 $config['elastic_proxy.settings']['elastic_proxy_url'] = getenv('ELASTIC_PROXY_URL');
