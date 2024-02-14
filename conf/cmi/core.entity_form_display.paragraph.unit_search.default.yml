@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.unit_search.field_search_results_terms
     - field.field.paragraph.unit_search.field_unit_search_description
     - field.field.paragraph.unit_search.field_unit_search_meta_button
+    - field.field.paragraph.unit_search.field_unit_search_meta_desc
     - field.field.paragraph.unit_search.field_unit_search_meta_label
     - field.field.paragraph.unit_search.field_unit_search_meta_placehold
     - field.field.paragraph.unit_search.field_unit_search_title
@@ -22,6 +23,7 @@ third_party_settings:
       children:
         - field_unit_search_meta_label
         - field_unit_search_meta_placehold
+        - field_unit_search_meta_desc
         - field_unit_search_meta_button
         - field_search_results_term
         - field_search_results_terms
@@ -37,7 +39,7 @@ third_party_settings:
         description: ''
         required_fields: true
 _core:
-  default_config_hash: fTziigwM99wtfwA2JFLTaxuwlbPXXLDZHA0WRTm14wU
+  default_config_hash: vbRB18A3JsLF_zwHOAgvihRh5k7hedeENTPhXgJEkJ8
 id: paragraph.unit_search.default
 targetEntityType: paragraph
 bundle: unit_search
@@ -45,7 +47,7 @@ mode: default
 content:
   field_search_results_term:
     type: string_textfield
-    weight: 7
+    weight: 8
     region: content
     settings:
       size: 60
@@ -53,7 +55,7 @@ content:
     third_party_settings: {  }
   field_search_results_terms:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
@@ -69,10 +71,18 @@ content:
     third_party_settings: {  }
   field_unit_search_meta_button:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_unit_search_meta_desc:
+    type: string_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_unit_search_meta_label:

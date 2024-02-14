@@ -6,18 +6,16 @@ dependencies:
     - field.storage.paragraph.field_unit_search_meta_button
     - paragraphs.paragraphs_type.unit_search
 _core:
-  default_config_hash: H1p7TFY_4QqV75OgUrXeyKb3anWpkAzSCgw8Qi2LJJo
+  default_config_hash: WMu_pMff9ufbsIcNN5Zvzs4WpVegPk-rKheQ66Bdu9Y
 id: paragraph.unit_search.field_unit_search_meta_button
 field_name: field_unit_search_meta_button
 entity_type: paragraph
 bundle: unit_search
-label: 'Search button'
-description: ''
+label: 'Search button text'
+description: "The button's text is set to 'Search' by default. It is not recommended to change the text."
 required: false
 translatable: false
-default_value:
-  -
-    value: 'Search for units'
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: string

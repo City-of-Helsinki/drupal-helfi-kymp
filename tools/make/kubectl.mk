@@ -2,6 +2,7 @@ KUBECTL_BIN := $(shell command -v kubectl || echo no)
 KUBECTL_NAMESPACE ?= foobar-namespace
 KUBECTL_SHELL ?= sh
 KUBECTL_EXEC_FLAGS ?= -n $(KUBECTL_NAMESPACE) -c $(KUBECTL_CONTAINER)
+KUBECTL_POD_SELECTOR ?= appName=foobar-app
 KUBECTL_WORKDIR ?= /app
 
 PHONY += kubectl-sync-db
@@ -10,7 +11,10 @@ kubectl-sync-db: ## Sync database from Kubernetes
 ifeq ($(DUMP_SQL_EXISTS),no)
 	$(eval POD := $(call kubectl_get_pod))
 	$(call step,Get database dump from $(POD)...\n)
-	$(call kubectl_exec_to_file,$(POD),drush sql-dump --structure-tables-key=common --extra-dump=--no-tablespaces,$(DUMP_SQL_FILENAME))
+	$(KUBECTL_BIN) exec $(KUBECTL_EXEC_FLAGS) $(POD) -- drush sql-dump --structure-tables-key=common --extra-dump=--no-tablespaces --result-file=/tmp/$(DUMP_SQL_FILENAME) --gzip
+	$(KUBECTL_BIN) cp $(KUBECTL_EXEC_FLAGS) --retries=-1 $(POD):/tmp/$(DUMP_SQL_FILENAME).gz ./$(DUMP_SQL_FILENAME).gz
+	$(KUBECTL_BIN) exec $(KUBECTL_EXEC_FLAGS) $(POD) -- rm -f /tmp/$(DUMP_SQL_FILENAME).gz
+	@gzip -d $(DUMP_SQL_FILENAME).gz
 endif
 	$(call step,Import local SQL dump...\n)
 	$(call drush,sql-query --file=${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
@@ -48,5 +52,5 @@ define kubectl_cp
 endef
 
 define kubectl_get_pod
-	$(shell $(KUBECTL_BIN) get pods -n $(KUBECTL_NAMESPACE) --template '{{range .items}}{{ if not .metadata.deletionTimestamp }}{{.metadata.name}}{{"\n"}}{{end}}{{end}}')
+	$(shell $(KUBECTL_BIN) get pods -n $(KUBECTL_NAMESPACE) --selector=$(KUBECTL_POD_SELECTOR) --template '{{range .items}}{{ if not .metadata.deletionTimestamp }}{{.metadata.name}}{{"\n"}}{{end}}{{end}}')
 endef
