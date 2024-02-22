@@ -1,0 +1,40 @@
+uuid: a2750e49-33fc-4204-9aa3-4a11c28059f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_platform_config
+    - language
+    - user
+  theme:
+    - hdbt_subtheme
+id: hdbt_subtheme_user_inquiry
+theme: hdbt_subtheme
+region: attachments
+weight: -19
+provider: helfi_platform_config
+plugin: chat_leijuke
+settings:
+  id: chat_leijuke
+  label: 'User inquiry'
+  label_display: ''
+  provider: helfi_platform_config
+  chat_title: ''
+  chat_selection: user_inquiry
+visibility:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      fi: fi
+      en: en
+      sv: sv
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
