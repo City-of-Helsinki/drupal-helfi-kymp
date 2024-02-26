@@ -10,7 +10,6 @@ dependencies:
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
-    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
@@ -43,7 +42,6 @@ settings:
   handler_settings:
     target_bundles:
       district_and_project_search: district_and_project_search
-      district_listing: district_listing
       list_of_plans: list_of_plans
       accordion: accordion
       banner: banner
@@ -59,6 +57,7 @@ settings:
       text: text
       unit_search: unit_search
       service_list: service_list
+      district_listing: district_listing
     negate: 0
     target_bundles_drag_drop:
       accordion:

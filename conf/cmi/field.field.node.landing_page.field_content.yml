@@ -11,7 +11,6 @@ dependencies:
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
-    - paragraphs.paragraphs_type.district_listing
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.hearings
@@ -46,7 +45,6 @@ settings:
   handler_settings:
     target_bundles:
       district_and_project_search: district_and_project_search
-      district_listing: district_listing
       list_of_plans: list_of_plans
       columns: columns
       list_of_links: list_of_links
@@ -67,6 +65,7 @@ settings:
       unit_search: unit_search
       service_list: service_list
       service_list_search: service_list_search
+      district_listing: district_listing
     negate: 0
     target_bundles_drag_drop:
       banner:
