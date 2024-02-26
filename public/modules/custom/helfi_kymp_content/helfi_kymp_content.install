@@ -13,3 +13,19 @@ declare(strict_types=1);
 function helfi_kymp_content_update_9001(): void {
   _helfi_kymp_content_create_district_nodes_from_taxonomy_terms();
 }
+
+/**
+ * UHF-9446: Remove all district listing paragraphs.
+ */
+function helfi_kymp_content_update_9002(): void {
+  $storage = \Drupal::entityTypeManager()
+    ->getStorage('paragraph');
+  $entityIds = $storage->getQuery()
+    ->condition('type', 'district_listing')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  foreach ($entityIds as $id) {
+    $storage->load($id)->delete();
+  }
+}
