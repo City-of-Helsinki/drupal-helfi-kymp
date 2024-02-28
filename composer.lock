@@ -3932,20 +3932,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "4aaf6ed18367044cdf7017a0fd1e7fad451dbaf6"
+                "reference": "7a1cc3ed0c3e4f81bb964fa33a55d5987cb673f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/4aaf6ed18367044cdf7017a0fd1e7fad451dbaf6",
-                "reference": "4aaf6ed18367044cdf7017a0fd1e7fad451dbaf6",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/7a1cc3ed0c3e4f81bb964fa33a55d5987cb673f1",
+                "reference": "7a1cc3ed0c3e4f81bb964fa33a55d5987cb673f1",
                 "shasum": ""
             },
             "require": {
-                "drush/drush": "^11 || ^12"
+                "drupal/helfi_api_base": "*",
+                "drush/drush": "^11 || ^12 || ^13"
             },
             "require-dev": {
+                "composer/installers": "^2",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "drupal/coder": "^8.3",
+                "drupal/core-dev": "^10.2",
+                "drupal/core-recommended": "^10.2",
                 "jangregor/phpstan-prophecy": "^1.0",
                 "phpspec/prophecy-phpunit": "^2",
                 "phpstan/extension-installer": "^1.3",
@@ -3955,6 +3959,28 @@
             },
             "default-branch": true,
             "type": "drupal-drush",
+            "extra": {
+                "installer-paths": {
+                    "sut/core": [
+                        "type:drupal-core"
+                    ],
+                    "sut/libraries/{$name}": [
+                        "type:drupal-library"
+                    ],
+                    "sut/modules/contrib/{$name}": [
+                        "type:drupal-module"
+                    ],
+                    "sut/profiles/contrib/{$name}": [
+                        "type:drupal-profile"
+                    ],
+                    "sut/themes/contrib/{$name}": [
+                        "type:drupal-theme"
+                    ],
+                    "sut/drush/contrib/{$name}": [
+                        "type:drupal-drush"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "DrupalTools\\": "src"
@@ -3967,6 +3993,10 @@
                 "psr-4": {
                     "DrupalToolsTest\\": "tests/fixtures"
                 },
+                "classmap": [
+                    "sut/core",
+                    "sut/modules/contrib"
+                ],
                 "files": [
                     "tests/fixtures/migration_fixture.php"
                 ]
@@ -3979,7 +4009,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2024-02-27T07:25:28+00:00"
+            "time": "2024-02-28T07:58:18+00:00"
         },
         {
             "name": "drupal/helfi_navigation",
