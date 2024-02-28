@@ -60,7 +60,9 @@ jobs:
             MODE="upsert"
           fi
           echo "MODE=$MODE" >> $GITHUB_OUTPUT
-          cat /tmp/pr-message.txt
+
+      - name: Debug message
+        run: cat /tmp/pr-message.txt
 
       - name: Attempt to find PR
         id: find-pr
