@@ -65,7 +65,7 @@ function helfi_kymp_content_preprocess_block(&$variables) {
   $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
 
   // Check if the content field first paragraph is District and project
-  // search or District listing and add classes accordingly.
+  // search and add classes accordingly.
   switch ($paragraph->getType()) {
     case 'district_and_project_search':
       $first_paragraph_gray = 'has-first-gray-bg-block';
