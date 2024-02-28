@@ -55,14 +55,11 @@ jobs:
         id: module-status
         run: |
           MODE="delete"
-          drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock && EXIT_CODE=$? || EXIT_CODE=$? > /tmp/pr-message.txt
+          drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock > /tmp/pr-message.txt && EXIT_CODE=$? || EXIT_CODE=$?
           if [ "$EXIT_CODE" -eq 3 ]; then
             MODE="upsert"
           fi
           echo "MODE=$MODE" >> $GITHUB_OUTPUT
-
-      - name: Debug message
-        run: cat /tmp/pr-message.txt
 
       - name: Attempt to find PR
         id: find-pr
