@@ -1,0 +1,30 @@
+uuid: ba06d4d0-0556-4cd9-bea2-b7c011a10c55
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: W2iqfgCjeJZBrD986D1BhZ_gCyDeusZz5ahWyiDDLsM
+id: assets
+name: Assets
+invalidationtype: regex
+hostname: localhost
+port: 6081
+path: '/[invalidation:expression]'
+request_method: BAN
+scheme: http
+verify: '1'
+headers:
+  -
+    field: X-VC-Purge-Method
+    value: regex
+  -
+    field: Host
+    value: localhost
+body: null
+body_content_type: null
+runtime_measurement: true
+timeout: 1.0
+connect_timeout: 1.0
+cooldown_time: 0.0
+max_requests: 100
+http_errors: true

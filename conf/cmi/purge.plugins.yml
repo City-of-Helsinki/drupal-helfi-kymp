@@ -7,6 +7,10 @@ purgers:
     instance_id: varnish_purge_all
     plugin_id: varnish
     order_index: 3
+  -
+    instance_id: assets
+    plugin_id: varnish
+    order_index: 4
 processors:
   -
     plugin_id: drush_purge_queue_work
