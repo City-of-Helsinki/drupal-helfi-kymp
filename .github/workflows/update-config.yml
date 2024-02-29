@@ -55,9 +55,9 @@ jobs:
         id: module-status
         run: |
           MODE="delete"
-          echo "Failed to install the latest version of the following packages:\n" > /tmp/pr-message.txt
+          echo "Failed to install the latest version of the following packages:  " > /tmp/pr-message.txt
           drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock --format=markdown_table >> /tmp/pr-message.txt && EXIT_CODE=$? || EXIT_CODE=$?
-          echo "Please run `composer why-not drupal/package_name package_version`\n." >> /tmp/pr-message.txt
+          echo "Please run \`composer why-not drupal/package_name package_version\` to see why." >> /tmp/pr-message.txt
           if [ "$EXIT_CODE" -eq 3 ]; then
             MODE="upsert"
           fi
