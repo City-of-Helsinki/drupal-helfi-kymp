@@ -49,6 +49,7 @@ jobs:
           body: |
             - Updated active configuration.
             - Updated platform
+          base: dev
           branch: update-configuration
 
       - name: Check module versions
