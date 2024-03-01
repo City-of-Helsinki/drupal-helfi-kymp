@@ -65,8 +65,10 @@ jobs:
           echo "MODE=$MODE" >> $GITHUB_OUTPUT
 
       - name: Attempt to find PR
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         id: find-pr
-        run: echo "number=$(gh pr list --base ${GITHUB_BASE_REF} --head update-configuration --json number --jq '.[].number')" >> $GITHUB_OUTPUT
+        run: echo "number=$(gh pr list --base ${BRANCH_NAME} --head update-configuration --json number --jq '.[].number')" >> $GITHUB_OUTPUT
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
