@@ -65,10 +65,9 @@ function helfi_kymp_content_preprocess_block(&$variables) {
   $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
 
   // Check if the content field first paragraph is District and project
-  // search or District listing and add classes accordingly.
+  // search and add classes accordingly.
   switch ($paragraph->getType()) {
     case 'district_and_project_search':
-    case 'district_listing':
       $first_paragraph_gray = 'has-first-gray-bg-block';
       break;
   }
@@ -313,7 +312,6 @@ function helfi_kymp_content_helfi_paragraph_types() : array {
         'field_content' => [
           'district_and_project_search' => 18,
           'list_of_plans' => 19,
-          'district_listing' => 20,
         ],
       ],
     ],
@@ -322,7 +320,6 @@ function helfi_kymp_content_helfi_paragraph_types() : array {
         'paragraphs' => [
           'district_and_project_search' => 1,
           'list_of_plans' => 2,
-          'district_listing' => 3,
         ],
       ],
     ],
