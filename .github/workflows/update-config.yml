@@ -58,6 +58,7 @@ jobs:
           drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock --format=markdown_table >> $GITHUB_STEP_SUMMARY && EXIT_CODE=$? || EXIT_CODE=$?
           if [ "$EXIT_CODE" -eq 3 ]; then
             MODE="upsert"
+            echo "  " >> $GITHUB_STEP_SUMMARY
             echo ":warning: Failed to install the latest version of the packages listed above" >> $GITHUB_STEP_SUMMARY
             echo "  " >> $GITHUB_STEP_SUMMARY
             echo "Please run \`composer why-not drupal/package_name package_version\` to see why." >> $GITHUB_STEP_SUMMARY
