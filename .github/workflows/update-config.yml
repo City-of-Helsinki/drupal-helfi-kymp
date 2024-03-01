@@ -40,17 +40,6 @@ jobs:
           # Update platform
           drush helfi:tools:update-platform
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: Update configuration
-          title: Automatic update
-          labels: auto-update
-          body: |
-            - Updated active configuration.
-            - Updated platform
-          branch: update-configuration
-
       - name: Check module versions
         id: module-status
         run: |
@@ -65,6 +54,17 @@ jobs:
           fi
           echo "MODE=$MODE" >> $GITHUB_OUTPUT
           cat $GITHUB_STEP_SUMMARY > /tmp/pr-message.txt
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Update configuration
+          title: Automatic update
+          labels: auto-update
+          body: |
+            - Updated active configuration.
+            - Updated platform
+          branch: update-configuration
 
       - name: Attempt to find PR
         env:
