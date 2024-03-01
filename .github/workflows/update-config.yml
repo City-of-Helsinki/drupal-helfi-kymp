@@ -55,14 +55,15 @@ jobs:
         id: module-status
         run: |
           MODE="delete"
-          echo ":warning: Failed to install the latest version of the following packages:  " >> $GITHUB_STEP_SUMMARY
-          drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock --format=markdown_table >> /tmp/pr-message.txt && EXIT_CODE=$? || EXIT_CODE=$?
-          echo "  " >> $GITHUB_STEP_SUMMARY
-          echo "Please run \`composer why-not drupal/package_name package_version\` to see why." >> $GITHUB_STEP_SUMMARY
+          drush helfi:tools:check-composer-versions $GITHUB_WORKSPACE/composer.lock --format=markdown_table >> $GITHUB_STEP_SUMMARY && EXIT_CODE=$? || EXIT_CODE=$?
           if [ "$EXIT_CODE" -eq 3 ]; then
             MODE="upsert"
+            echo ":warning: Failed to install the latest version of the packages listed above" >> $GITHUB_STEP_SUMMARY
+            echo "  " >> $GITHUB_STEP_SUMMARY
+            echo "Please run \`composer why-not drupal/package_name package_version\` to see why." >> $GITHUB_STEP_SUMMARY
           fi
           echo "MODE=$MODE" >> $GITHUB_OUTPUT
+          cat $GITHUB_STEP_SUMMARY > /tmp/pr-message.txt
 
       - name: Attempt to find PR
         env:
@@ -76,5 +77,5 @@ jobs:
         with:
           comment_tag: status
           mode: ${{ steps.module-status.outputs.MODE }}
-          filePath: ${{ env.GITHUB_STEP_SUMMARY }}
+          filePath: /tmp/pr-message.txt
           pr_number: ${{ steps.find-pr.outputs.number }}
