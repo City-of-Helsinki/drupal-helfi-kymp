@@ -66,7 +66,7 @@ jobs:
 
       - name: Attempt to find PR
         id: find-pr
-        run: echo "number=$(gh pr list --base $GITHUB_BASE_HREF --head update-configuration --json number --jq '.[].number')" >> $GITHUB_OUTPUT
+        run: echo "number=$(gh pr list --base ${GITHUB_BASE_HREF} --head update-configuration --json number --jq '.[].number')" >> $GITHUB_OUTPUT
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
