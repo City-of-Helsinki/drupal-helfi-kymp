@@ -14,6 +14,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.hearings
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.journey_planner
     - paragraphs.paragraphs_type.list_of_links
@@ -65,6 +66,7 @@ settings:
       unit_search: unit_search
       service_list_search: service_list_search
       ploughing_schedule: ploughing_schedule
+      hearings: hearings
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -94,17 +96,20 @@ settings:
       from_library:
         weight: 8
         enabled: true
+      hearings:
+        weight: 18
+        enabled: true
       image:
         weight: 3
         enabled: true
       journey_planner:
-        weight: 18
+        weight: 19
         enabled: true
       list_of_links:
         weight: 4
         enabled: true
       list_of_plans:
-        weight: 19
+        weight: 20
         enabled: true
       map:
         weight: 9
@@ -116,7 +121,7 @@ settings:
         weight: 7
         enabled: true
       ploughing_schedule:
-        weight: 20
+        weight: 21
         enabled: true
       remote_video:
         weight: 10
