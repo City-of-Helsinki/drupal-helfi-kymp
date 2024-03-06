@@ -9,7 +9,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: i0i5Sy5UJYyKJqoc7NKFbAMaMlXpC53GoO7Z3mahaBE
+  default_config_hash: NC4qX-7naY7U9PAcLK80wAYby0wkk8T8ZuqKK2_fRd0
 id: tpr_service_channel.tpr_service_channel.default
 targetEntityType: tpr_service_channel
 bundle: tpr_service_channel
@@ -105,6 +105,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 22
+    region: content
+  information:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   langcode:
     type: language
