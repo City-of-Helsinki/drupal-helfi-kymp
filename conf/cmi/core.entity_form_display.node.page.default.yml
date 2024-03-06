@@ -21,7 +21,7 @@ dependencies:
     - publication_date
     - scheduler
 _core:
-  default_config_hash: _RX52hwdyz48o4MBqyRPUVkop-Unt1rcPuPanpQ7ksk
+  default_config_hash: IrTthHmbnCZxuMpndzRlr9-t2RT3szU18RcM_bpnrz0
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -79,10 +79,12 @@ content:
         duplicate: '0'
     third_party_settings: {  }
   field_lead_in:
-    type: string_textarea
+    type: textarea_character_counter
     weight: 13
     region: content
     settings:
+      counter_step: 160
+      counter_total: 200
       rows: 3
       placeholder: ''
     third_party_settings: {  }
@@ -203,10 +205,12 @@ content:
       display_label: true
     third_party_settings: {  }
   title:
-    type: string_textfield
+    type: textfield_character_counter
     weight: 1
     region: content
     settings:
+      counter_step: 0
+      counter_total: 55
       size: 60
       placeholder: ''
     third_party_settings: {  }
