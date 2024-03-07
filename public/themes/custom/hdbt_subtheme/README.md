@@ -70,34 +70,14 @@ hdbt_subtheme
 │   │   └───...
 │   └───js
 │   │   │   common.js
-│   └───icons
-│       |   some-icon.svg
 └───dist
     └───css
         |   styles.min.css
     └───js
         |   bundle.min.js
-    └───icons
-        |   sprite.svg
 ```
 
 ## How tos
-
-### How can I add a new SVG icon and then use it on my site.
-
-You can add your custom icons to `./src/icons/`. F.e. `my-awesome-icon.svg`.
-Running `nvm use && npm i && npm run build` will collect the icon to the sprite.svg and it should then be available for use on your site by calling `my-awesome-icon`. Just remember to clear caches.
-The icons can be used in twig like so:
-
-    {# HDBT Subtheme specific icons #}
-    {% include "@hdbt_subtheme/misc/icon.twig" with {icon: 'my-awesome-icon'} %}
-
-    {# HDBT specific icons #}
-    {% include "@hdbt/misc/icon.twig" with {icon: 'google-view'} %}
-
-To use the icon in SCSS, you can call it like so:
-
-    background-image: url('../icons/my-awesome-icon.svg');
 
 ### My javascript has unexpected errors when loading a page in Drupal.
 
