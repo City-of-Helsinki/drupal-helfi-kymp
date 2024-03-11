@@ -27,7 +27,7 @@ social_media:
   linkedin:
     enable: 1
     text: 'Share in Linkedin'
-    api_url: 'http://www.linkedin.com/shareArticle?mini=true&url=[current-page:url]&title=[current-page:title]&source=[current-page:url]'
+    api_url: 'https://www.linkedin.com/sharing/share-offsite/?url=[current-page:url]'
     api_event: href
     default_img: 0
     weight: 3
