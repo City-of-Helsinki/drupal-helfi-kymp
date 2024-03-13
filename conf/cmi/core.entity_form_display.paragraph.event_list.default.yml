@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.event_list.field_event_list_title
     - field.field.paragraph.event_list.field_event_location
     - field.field.paragraph.event_list.field_event_time
+    - field.field.paragraph.event_list.field_filter_keywords
     - field.field.paragraph.event_list.field_free_events
     - field.field.paragraph.event_list.field_remote_events
     - paragraphs.paragraphs_type.event_list
@@ -16,7 +17,7 @@ dependencies:
     - link
     - text
 _core:
-  default_config_hash: bGb0ZQ38-NxHtZ1rrdqclYHeStlwA5q3ucy5Wpnb0ng
+  default_config_hash: 26rzwNcMiiF5Bucl9iUliZYoL4vZcdmdNkYBAr9DYOU
 id: paragraph.event_list.default
 targetEntityType: paragraph
 bundle: event_list
@@ -65,6 +66,16 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_filter_keywords:
+    type: entity_reference_autocomplete_tags
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_free_events:
     type: boolean_checkbox
