@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.event_list.field_event_list_title
     - field.field.paragraph.event_list.field_event_location
     - field.field.paragraph.event_list.field_event_time
+    - field.field.paragraph.event_list.field_filter_keywords
     - field.field.paragraph.event_list.field_free_events
     - field.field.paragraph.event_list.field_remote_events
     - paragraphs.paragraphs_type.event_list
@@ -16,7 +17,7 @@ dependencies:
     - options
     - text
 _core:
-  default_config_hash: dMZ_8jKpOaA7CkuxlB2baa1apQcQ_vFlXM04jq4bqQY
+  default_config_hash: klW1qrhnmScBqsz4kDhFjtI4wmrMjLZynRsx9475Egs
 id: paragraph.event_list.default
 targetEntityType: paragraph
 bundle: event_list
@@ -63,6 +64,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_filter_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_free_events:
     type: boolean
