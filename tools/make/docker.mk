@@ -1,7 +1,7 @@
 CLI_SERVICE := app
 CLI_SHELL := sh
 # Note: specification says this file would be compose.yaml
-DOCKER_COMPOSE_YML_PATH ?= docker-compose.yml
+DOCKER_COMPOSE_YML_PATH ?= compose.yaml
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f $(DOCKER_COMPOSE_YML_PATH) && echo yes || echo no)
 DOCKER_PROJECT_ROOT ?= /app
 DOCKER_WARNING_INSIDE := You are inside the Docker container!
