@@ -30,6 +30,7 @@ jobs:
 
       - name: Setup drupal and save database dump
         run: |
+          set -e
           drush si -y && drush cr && drush si --existing-config -y && drush cim -y
           drush sql-dump --result-file=${GITHUB_WORKSPACE}/latest.sql
 
