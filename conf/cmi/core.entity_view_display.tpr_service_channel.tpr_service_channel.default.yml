@@ -9,7 +9,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: NC4qX-7naY7U9PAcLK80wAYby0wkk8T8ZuqKK2_fRd0
+  default_config_hash: 9XViQdkj3AGE9DnZ_8xfkqd8ZNNYMpNf7YLno-9_-40
 id: tpr_service_channel.tpr_service_channel.default
 targetEntityType: tpr_service_channel
 bundle: tpr_service_channel
@@ -72,10 +72,9 @@ content:
     weight: 19
     region: content
   email:
-    type: string
+    type: email_mailto
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 9
     region: content

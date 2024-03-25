@@ -1,0 +1,79 @@
+display:
+  default:
+    display_title: Основной
+    display_options:
+      fields:
+        name:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: First
+            last: Last
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: фильтр
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      empty:
+        area:
+          content:
+            value: 'Нет результатов'
+      arguments:
+        id:
+          exception:
+            title: Все
+  block:
+    display_title: Блок
+  block_search:
+    display_title: Блок
+    display_options:
+      fields:
+        name:
+          separator: ', '
+        name_synonyms:
+          separator: ', '
+        description__summary:
+          separator: ', '
+        name_override:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: First
+            last: Last
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: Поиск
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
+      arguments:
+        id_or_service_id:
+          exception:
+            title: Все
+  entity_reference_1:
+    display_title: 'Entity Reference'
+    display_options:
+      fields:
+        name_override:
+          separator: ', '
+        id:
+          separator: ', '
+        name:
+          separator: ', '
