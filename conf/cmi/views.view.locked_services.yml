@@ -7,7 +7,7 @@ dependencies:
     - helfi_tpr
     - user
 _core:
-  default_config_hash: aH7J9QoFP01KCyEcUcw89rP57lnqQeFTwSTQezYdEDY
+  default_config_hash: Pnq8MLjK6uDLOkFp8p4s47ZfhnG6kiAU5a5zK__uKU8
 id: locked_services
 label: 'Locked services'
 module: views
@@ -391,10 +391,10 @@ display:
             last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- Kaikki -'
+            items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
           quantity: 9
@@ -403,7 +403,7 @@ display:
         options:
           submit_button: Filter
           reset_button: false
-          reset_button_label: Palauta
+          reset_button_label: Reset
           exposed_sorts_label: Sort
           expose_sort_order: true
           sort_asc_label: Ascending
@@ -425,7 +425,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There is no content currently locked.'
+          content: 'There is no currently locked services.'
           tokenize: false
       sorts: {  }
       arguments: {  }

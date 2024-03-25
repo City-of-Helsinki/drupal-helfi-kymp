@@ -25,11 +25,14 @@ display:
             last: 'Последняя »'
           expose:
             offset_label: Пропустить
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
       exposed_form:
         options:
           submit_button: Фильтр
           sort_asc_label: Ascending
           sort_desc_label: Descending
+          reset_button_label: Сбросить
       filters:
         name:
           expose:
