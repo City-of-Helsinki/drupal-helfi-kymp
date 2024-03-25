@@ -26,12 +26,15 @@ display:
             last: 'Sista »'
           expose:
             offset_label: Kompensera
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
       exposed_form:
         options:
           submit_button: Filtrera
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
+          reset_button_label: Återställ
       filters:
         name:
           expose:
