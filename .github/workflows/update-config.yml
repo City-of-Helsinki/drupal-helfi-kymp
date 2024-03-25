@@ -36,19 +36,12 @@ jobs:
           composer install --no-interaction
           $(drush sql:connect) < latest.sql
           drush cim -y && drush updb -y && drush cr
-
-          # Import configuration to fix possible translation issues with
-          # configuration translations.
-          drush cim -y
-          
           composer update drupal/helfi_* drupal/hdbt* -W --no-interaction
+          drush cr
 
           # Update translations from localize.drupal.org and helfi-modules
           # before running update hooks to reduce clutter in configuration files.
           drush locale:check && drush locale:update
-          drush cr
-
-          # Run updates.
           drush updb -y
 
           # Update translations from helfi_platform_config. These translations
