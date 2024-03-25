@@ -1,0 +1,40 @@
+display:
+  default:
+    display_title: Förvald
+    display_options:
+      fields:
+        tpr_service_bulk_form:
+          label: Massuppdatera
+          action_title: Åtgärd
+        name:
+          label: Title
+          separator: ', '
+        name_1:
+          label: 'Lock owner'
+          separator: ', '
+        langcode:
+          label: 'Content language'
+          separator: ', '
+        operations:
+          label: Funktioner
+      pager:
+        options:
+          tags:
+            next: 'Nästa ›'
+            previous: '‹ Föregående'
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Filtrera
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      filters:
+        name:
+          expose:
+            label: Title
+  locked_services_block:
+    display_title: Block

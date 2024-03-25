@@ -20,7 +20,7 @@ display:
         node_bulk_form:
           action_title: Åtgärd
         title:
-          label: Titel
+          label: Title
           separator: ', '
         type:
           label: Innehållstyp
@@ -45,7 +45,7 @@ display:
       filters:
         title:
           expose:
-            label: Titel
+            label: Title
         type:
           expose:
             label: Innehållstyp
@@ -72,14 +72,14 @@ display:
       menu:
         title: Schemalagd
       tab_options:
-        title: Innehåll
+        title: Content
     display_title: 'Content Overview'
   user_page:
     display_options:
       menu:
         title: Schemalagd
       tab_options:
-        title: Innehåll
+        title: Content
       arguments:
         uid:
           exception:
