@@ -19,8 +19,14 @@ display:
           label: Роли
         created:
           label: 'Зарегистрирован на сайте'
+          settings:
+            future_format: '@interval'
+            past_format: '@interval'
         access:
           label: 'Последнее посещение'
+          settings:
+            future_format: '@interval hence'
+            past_format: '@interval ago'
         operations:
           label: Операции
         mail:

@@ -1,0 +1,38 @@
+display:
+  default:
+    display_title: Основной
+    display_options:
+      fields:
+        tpr_service_bulk_form:
+          label: 'Массовое обновление'
+          action_title: Действие
+        name:
+          label: Заголовок
+          separator: ', '
+        name_1:
+          separator: ', '
+        langcode:
+          label: 'Content language'
+          separator: ', '
+        operations:
+          label: Операции
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: '« Первая'
+            last: 'Последняя »'
+          expose:
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: Фильтр
+          sort_asc_label: Ascending
+          sort_desc_label: Descending
+      filters:
+        name:
+          expose:
+            label: Заголовок
+  locked_services_block:
+    display_title: Блок

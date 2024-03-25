@@ -1,0 +1,43 @@
+display:
+  default:
+    display_title: Förvald
+    display_options:
+      fields:
+        tpr_unit_bulk_form:
+          label: Massuppdatera
+          action_title: Åtgärd
+        name:
+          label: Titel
+          separator: ', '
+        name_1:
+          label: 'Lock owner'
+          separator: ', '
+        langcode:
+          label: 'Content language'
+          separator: ', '
+        operations:
+          label: Funktioner
+      pager:
+        options:
+          tags:
+            next: 'Nästa ›'
+            previous: '‹ Föregående'
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      filters:
+        name:
+          expose:
+            label: Titel
+  locked_units_block:
+    display_title: Block

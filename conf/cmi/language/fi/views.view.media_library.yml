@@ -15,6 +15,7 @@ display:
           expose:
             items_per_page_label: 'Merkintöjä sivua kohti'
             items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
       exposed_form:
         options:
           submit_button: 'Suodata tuloksia'
@@ -24,7 +25,7 @@ display:
           sort_desc_label: Laskevasti
       empty:
         area_text_custom:
-          content: 'Ei mediatiedostoja saatavilla.'
+          content: 'Mediatiedostoja ei ole saatavilla.'
       sorts:
         created:
           expose:
@@ -55,6 +56,7 @@ display:
         langcode:
           expose:
             label: Kieli
+      title: Media
   page:
     display_title: Sivu
     display_options:
@@ -71,6 +73,8 @@ display:
             text: 'Poista {{ name }}'
             alt: 'Poista {{ name }}'
           text: Poista
+        name:
+          separator: ', '
   widget:
     display_title: Widgetti
     display_options:
