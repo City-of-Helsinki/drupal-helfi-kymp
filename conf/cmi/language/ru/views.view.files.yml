@@ -41,6 +41,9 @@ display:
           label: 'Дата изменения'
         count:
           label: 'Используется в'
+          alter:
+            path: 'admin/content/files/usage/{{ fid }}'
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
       filters:
         filename:
           expose:
@@ -81,6 +84,7 @@ display:
           label: 'Регистрация модуля'
         count:
           label: 'Используемое количество'
+          format_plural_string: !!binary MQNAY291bnQ=
       title: 'Использование файла'
       arguments:
         fid:

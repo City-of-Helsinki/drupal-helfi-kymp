@@ -7,8 +7,10 @@ dependencies:
     - field.field.paragraph.image.field_image_caption
     - field.field.paragraph.image.field_original_aspect_ratio
     - paragraphs.paragraphs_type.image
+  module:
+    - helfi_platform_config
 _core:
-  default_config_hash: WOIjdvfdwRn0wIU-TyaRDV4PKTm77QLskpKljuLGk5Q
+  default_config_hash: 3mLKi-YKV64AEso5VbzLofy-2PrULe3WFxhURqVP6NM
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image

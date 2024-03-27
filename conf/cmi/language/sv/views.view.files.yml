@@ -41,6 +41,9 @@ display:
           label: 'Datum för ändring'
         count:
           label: 'Används i'
+          alter:
+            path: 'admin/content/files/usage/{{ fid }}'
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
       filters:
         filename:
           expose:
@@ -81,6 +84,7 @@ display:
           label: 'Registrerar modul'
         count:
           label: 'Antal använd'
+          format_plural_string: !!binary MQNAY291bnQ=
       title: Filanvändning
       arguments:
         fid:

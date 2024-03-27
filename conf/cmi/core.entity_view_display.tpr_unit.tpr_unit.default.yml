@@ -18,7 +18,7 @@ dependencies:
     - telephone
     - text
 _core:
-  default_config_hash: SoKM8cPSwNeMsP8ZRG0b8B8n-e1Uy9yoMmPk018vmoY
+  default_config_hash: 8GmiJoVZmgbZpZ9jGuNv_AQg3EgThOq06AsznzuWOGk
 id: tpr_unit.tpr_unit.default
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -96,10 +96,9 @@ content:
     weight: 2
     region: content
   email:
-    type: string
+    type: email_mailto
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 8
     region: content

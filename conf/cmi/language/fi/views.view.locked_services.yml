@@ -10,12 +10,15 @@ display:
           action_title: Toiminto
         name:
           label: Otsikko
+          separator: ', '
         name_1:
           label: 'Lukituksen tekijä'
+          separator: ', '
         timestamp:
           label: 'Lukituksen ajankohta'
         langcode:
           label: 'Sisällön kieli'
+          separator: ', '
         operations:
           label: Toimenpiteet
       pager:
@@ -25,18 +28,23 @@ display:
             previous: '‹ Edellinen'
             first: '« Ensimmäinen'
             last: 'Viimeinen »'
-          expose: {  }
+          expose:
+            offset_label: Offset
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
       exposed_form:
         options:
           submit_button: Suodata
           exposed_sorts_label: Järjestä
           sort_asc_label: Nouseva
           sort_desc_label: Laskeva
+          reset_button_label: Palauta
       empty:
         area_text_custom:
-          content: 'Lukittuja palveluja ei ole.'
+          content: 'Lukittuja palveluita ei ole.'
       filters:
         name:
           expose:
             label: Otsikko
-  locked_services_block: {  }
+  locked_services_block:
+    display_title: Lohko
