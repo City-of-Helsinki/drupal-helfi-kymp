@@ -7,6 +7,8 @@ dependencies:
     - field.field.tpr_unit.tpr_unit.field_content
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
+    - field.field.tpr_unit.tpr_unit.field_phone_label
+    - field.field.tpr_unit.tpr_unit.field_phone_with_contacts
     - field.field.tpr_unit.tpr_unit.field_unit_type
     - responsive_image.styles.image__3_2
   module:
@@ -15,7 +17,7 @@ dependencies:
     - imagecache_external
     - telephone
 _core:
-  default_config_hash: 0wDMf9-yI6dKb0je5d0tNyKMNCX5FmuYbFxMRzGs1kc
+  default_config_hash: 4JVDtiNxzY2SrNjrfQQb9FqiK5AqDROxV5xrIRT9iYs
 id: tpr_unit.tpr_unit.wide_teaser
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -92,6 +94,8 @@ hidden:
   field_content: true
   field_lower_content: true
   field_metatags: true
+  field_phone_label: true
+  field_phone_with_contacts: true
   field_unit_type: true
   hide_description: true
   highlights: true
