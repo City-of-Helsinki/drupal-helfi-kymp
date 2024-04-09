@@ -1,27 +1,24 @@
-ANSIBLE_INVENTORY_PATH ?= ansible/inventory
 ANSIBLE_ROLES_PATH ?= ansible/roles
 ANSIBLE_CHECK_ROLE ?= geerlingguy.docker
 ANSIBLE_PLAYBOOK ?= ansible-playbook
 ANSIBLE_PROVISION ?= ansible/provision.yml
 ANSIBLE_REQUIREMENTS ?= ansible/requirements.yml
+ANSIBLE_FLAGS ?=
 
 PHONY += provision
-provision: INVENTORY ?= production
 provision: $(ANSIBLE_ROLES_PATH)/$(ANSIBLE_CHECK_ROLE) ## Make provisioning
 	$(call step,Ansible: Make dry run on provisioning...\n)
-	@$(ANSIBLE_PLAYBOOK) -i $(ANSIBLE_INVENTORY_PATH)/$(INVENTORY) $(ANSIBLE_PROVISION)
+	@$(ANSIBLE_PLAYBOOK) $(ANSIBLE_PROVISION) $(ANSIBLE_FLAGS)
 
 PHONY += provision-%
-provision-%: INVENTORY ?= production
 provision-%: $(ANSIBLE_ROLES_PATH)/$(ANSIBLE_CHECK_ROLE) ## Make provisioning by tag
 	$(call step,Ansible: Make provisioning by tag "$*"...\n)
-	@$(ANSIBLE_PLAYBOOK) -i $(ANSIBLE_INVENTORY_PATH)/$(INVENTORY) $(ANSIBLE_PROVISION) --tags="$*"
+	@$(ANSIBLE_PLAYBOOK) $(ANSIBLE_PROVISION) --tags="$*" $(ANSIBLE_FLAGS)
 
 PHONY += provision-dry-run
-provision-dry-run: INVENTORY ?= production
 provision-dry-run: $(ANSIBLE_ROLES_PATH)/$(ANSIBLE_CHECK_ROLE) ## Make dry run on provisioning
 	$(call step,Ansible: Make dry run on provisioning...\n)
-	@$(ANSIBLE_PLAYBOOK) -i $(ANSIBLE_INVENTORY_PATH)/$(INVENTORY) $(ANSIBLE_PROVISION) --check
+	@$(ANSIBLE_PLAYBOOK) $(ANSIBLE_PROVISION) $(ANSIBLE_FLAGS) --check
 
 PHONY += ansible-install-roles
 ansible-install-roles: ## Install Ansible roles
