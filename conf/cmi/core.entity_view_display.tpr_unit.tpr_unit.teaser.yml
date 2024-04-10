@@ -7,6 +7,8 @@ dependencies:
     - field.field.tpr_unit.tpr_unit.field_content
     - field.field.tpr_unit.tpr_unit.field_lower_content
     - field.field.tpr_unit.tpr_unit.field_metatags
+    - field.field.tpr_unit.tpr_unit.field_phone_label
+    - field.field.tpr_unit.tpr_unit.field_phone_with_contacts
     - field.field.tpr_unit.tpr_unit.field_unit_type
     - responsive_image.styles.image__3_2
   module:
@@ -14,7 +16,7 @@ dependencies:
     - helfi_tpr
     - imagecache_external
 _core:
-  default_config_hash: 6HvSNKVwbTTTZp-QqRhArKx-A-rx42QloU6l9LZG9rQ
+  default_config_hash: bu1vbWjYc7PTOP7denJmdFWv2Zxqx4AW3vn1SI8bTBE
 id: tpr_unit.tpr_unit.teaser
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -76,6 +78,8 @@ hidden:
   field_content: true
   field_lower_content: true
   field_metatags: true
+  field_phone_label: true
+  field_phone_with_contacts: true
   field_unit_type: true
   hide_description: true
   highlights: true

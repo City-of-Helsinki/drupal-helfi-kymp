@@ -9,7 +9,7 @@ jobs:
   update-config:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/city-of-helsinki/drupal-php-docker:8.2-alpine
+      image: ghcr.io/city-of-helsinki/drupal-php-docker:8.3-alpine
 
     services:
       db:
@@ -30,6 +30,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh run download -n latest.sql
+
+      - name: Prepare setup
+        run: |
+          # We install Drupal from existing dump, so locale_install() hook
+          # is never fired. Make sure the translations folder exists.
+          mkdir -p public/sites/default/files/translations -p
 
       - name: Build project
         run: |

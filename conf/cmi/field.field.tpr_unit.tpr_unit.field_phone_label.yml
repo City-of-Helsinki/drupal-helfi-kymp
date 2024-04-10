@@ -1,0 +1,22 @@
+uuid: 04df5db3-1d25-4d68-9317-5aeee9e6fab6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpr_unit.field_phone_label
+  module:
+    - helfi_tpr
+_core:
+  default_config_hash: 5ijk9KdGolEgNPeoYmIMlnwrI6wJAQfHu08OHlHckN4
+id: tpr_unit.tpr_unit.field_phone_label
+field_name: field_phone_label
+entity_type: tpr_unit
+bundle: tpr_unit
+label: 'Phone label'
+description: 'The label shown above the phone number when displayed in other contact info accordion.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
