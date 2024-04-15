@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor5
 _core:
-  default_config_hash: 6rE3ZrnVZlyWJ666VxrZAjXyipoRfxSuvcgxoWduDKQ
+  default_config_hash: ugdwymSgCGFPKEgJ5z8jmQmqYze8oXVFgpsZYlqJxys
 format: full_html
 editor: ckeditor5
 settings:
@@ -134,6 +134,7 @@ settings:
       allowed_tags:
         - '<figure tabindex>'
         - '<figcaption>'
+        - '<p data-chat-trigger>'
     helfi_ckeditor_helfi_link:
       helfi_link_attributes:
         - '<a data-hds-icon-start data-is-external data-protocol data-hds-component data-hds-variant rel target="_blank">'
