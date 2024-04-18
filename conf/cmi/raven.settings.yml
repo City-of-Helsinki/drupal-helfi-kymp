@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: 0cSFmtaooEoYv15Hw6hl0XsvZE6k1DKbqjukwUjZi6Y
+  default_config_hash: 9rw2YgXiK9d42SeeSO8sPyCoxiG6rIlj64rJ8ocdEYU
 client_key: ''
 environment: ''
 release: ''
@@ -19,7 +19,7 @@ trace: false
 fatal_error_handler: true
 fatal_error_handler_memory: 2560
 javascript_error_handler: false
-drush_error_handler: false
+drush_error_handler: true
 public_dsn: ''
 ssl: verify_ssl
 ca_cert: ''
@@ -27,10 +27,19 @@ ignored_channels: {  }
 send_user_data: false
 rate_limit: 0
 send_request_body: false
-request_tracing: false
-traces_sample_rate: null
+request_tracing: true
+traces_sample_rate: 0.2
 browser_traces_sample_rate: null
-database_tracing: false
-twig_tracing: false
+database_tracing: true
+twig_tracing: true
 auto_session_tracking: false
+send_client_reports: false
+drush_tracing: false
+seckit_set_report_uri: false
+send_monitoring_sensor_status_changes: false
+404_tracing: false
+show_report_dialog: false
+error_embed_url: ''
+tunnel: false
+modules: false
 http_compression: true
