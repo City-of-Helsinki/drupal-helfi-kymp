@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: GvppOlIwJAJVJOOtLnjrHf_A44MVZ5DTgJ8bsDmcELI
+  default_config_hash: xPH76a4sTO1uLWP_ZsngVVA7ulD6ZzRw6AUy0AwFsww
 id: tpr_service
 label: 'TPR - Service'
 tags:
@@ -11,7 +11,7 @@ tags:
   content_language: '[tpr_service:langcode]'
   description: '[tpr_service:description:summary]'
   title: '[tpr_service:label] | [site:page-title-suffix]'
-  article_modified_time: '[tpr_service:created:html_datetime]'
+  article_modified_time: '[tpr_service:changed:html_datetime]'
   article_published_time: '[tpr_service:created:html_datetime]'
   og_title: '[tpr_service:label]'
   og_description: '[tpr_service:description:summary]'
