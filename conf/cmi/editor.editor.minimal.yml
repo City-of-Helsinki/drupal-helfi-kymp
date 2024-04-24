@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor5
 _core:
-  default_config_hash: rid5XXLDfJZlrwYxIxxELVd9rUvaHjkeoqtXgJW_m1Q
+  default_config_hash: 5-ooLNHf6seCXcxTq7GgRliZT6bSLCwAXekmT61kdqw
 format: minimal
 editor: ckeditor5
 settings:
@@ -113,7 +113,8 @@ settings:
           search: '<a name="[^"]*">(.*?)<\/a>'
           replace: $1
     ckeditor5_sourceEditing:
-      allowed_tags: {  }
+      allowed_tags:
+        - '<p data-chat-trigger>'
     helfi_ckeditor_helfi_link:
       helfi_link_attributes:
         - '<a data-hds-icon-start data-is-external data-protocol data-hds-component data-hds-variant rel target="_blank">'
