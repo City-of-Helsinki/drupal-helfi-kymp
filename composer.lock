@@ -2629,17 +2629,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.1.11",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.1.11"
+                "reference": "2.1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.1.11.zip",
-                "reference": "2.1.11",
-                "shasum": "23fd7f0e7ceb091162468eed290d083a2e3b62af"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.1.12.zip",
+                "reference": "2.1.12",
+                "shasum": "2a3e32c25eebdcdb3c64144b01d7dd4ce2945fec"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -2650,8 +2650,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.11",
-                    "datestamp": "1713470242",
+                    "version": "2.1.12",
+                    "datestamp": "1713880633",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4076,16 +4076,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.3.50",
+            "version": "4.3.51",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "31270962a560539df2642cb8224fe57d4ed60fdc"
+                "reference": "d698a1daf6719d54455fb3f39cd3f01f5b88ef17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/31270962a560539df2642cb8224fe57d4ed60fdc",
-                "reference": "31270962a560539df2642cb8224fe57d4ed60fdc",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/d698a1daf6719d54455fb3f39cd3f01f5b88ef17",
+                "reference": "d698a1daf6719d54455fb3f39cd3f01f5b88ef17",
                 "shasum": ""
             },
             "require": {
@@ -4177,9 +4177,6 @@
                     "drupal/default_content": {
                         "https://www.drupal.org/project/default_content/issues/2640734#comment-14638943": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/main/patches/default_content_2.0.0-alpha2-2640734_manual_imports-e164a354.patch"
                     },
-                    "drupal/editoria11y": {
-                        "[#3442729] Run drupalSettings.editoria11y.css_url through file_url_generator service": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/3a3b005271e7db4476198d822aba1e3ee2e0b8e6/patches/editoria11y-3442729.patch"
-                    },
                     "drupal/eu_cookie_compliance": {
                         "[#UHF-885] Helfi-specific customizations to EU Cookie Compliance": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/923b35f699820b544397a35b7696570e101cd02c/patches/eu_cookie_compliance_block_8.x-1.24.patch",
                         "[#UHF-8720] Missing config schema for dependencies (https://www.drupal.org/i/3330024)": "https://www.drupal.org/files/issues/2022-12-28/config_dependencies_schema-3330024-2.patch"
@@ -4205,10 +4202,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.3.50",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.3.51",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2024-04-23T08:12:58+00:00"
+            "time": "2024-04-23T14:25:19+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
