@@ -64,7 +64,7 @@ final class SubdistrictsNavigationBlock extends BlockBase implements ContainerFa
     private EntityTypeManagerInterface $entityTypeManager,
     private LanguageManagerInterface $languageManager,
     private RequestStack $requestStack,
-    private AccountProxyInterface $currentUser
+    private AccountProxyInterface $currentUser,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }

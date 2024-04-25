@@ -16,7 +16,7 @@ class ListOfPlans {
    *   RSS feed URL.
    */
   public function __construct(
-    public string $rss_feed_url = 'https://ptp.hel.fi/rss/nahtavana_nyt/'
+    public string $rss_feed_url = 'https://ptp.hel.fi/rss/nahtavana_nyt/',
   ) {}
 
   /**
