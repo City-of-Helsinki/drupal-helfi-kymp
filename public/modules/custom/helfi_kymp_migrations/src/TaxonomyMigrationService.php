@@ -32,7 +32,7 @@ class TaxonomyMigrationService {
   public function __construct(
     protected FileSystemInterface $fileSystem,
     protected ModuleHandlerInterface $moduleHandler,
-    protected EntityTypeManagerInterface $entityTypeManager
+    protected EntityTypeManagerInterface $entityTypeManager,
   ) {
     $this->projectFilePath = $this->fileSystem->realpath(
       $this->moduleHandler->getModule('helfi_kymp_migrations')->getPath()
