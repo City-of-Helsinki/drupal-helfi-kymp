@@ -5,10 +5,6 @@
  * Contains site specific overrides.
  */
 
-if ($hotjar_id = getenv('HOTJAR_ID')) {
-  $config['helfi_hotjar.settings']['hjid'] = $hotjar_id;
-}
-
 // Elasticsearch settings.
 if (getenv('ELASTICSEARCH_URL')) {
   $config['elasticsearch_connector.cluster.kymp']['url'] = getenv('ELASTICSEARCH_URL');
@@ -50,8 +46,8 @@ $additionalEnvVars = [
   'DRUPAL_VARNISH_HOST',
   'DRUPAL_VARNISH_PORT',
   'PROJECT_NAME',
-  'DRUPAL_API_ACCOUNTS',
-  'DRUPAL_VAULT_ACCOUNTS',
+  'DRUPAL_PUBSUB_VAULT',
+  'DRUPAL_NAVIGATION_VAULT',
   'REDIS_HOST',
   'REDIS_PORT',
   'REDIS_PASSWORD',
