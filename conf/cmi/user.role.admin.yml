@@ -15,7 +15,6 @@ dependencies:
     - node.type.landing_page
     - node.type.page
     - node.type.project
-    - rest.resource.helfi_debug_data
     - taxonomy.vocabulary.keywords
     - taxonomy.vocabulary.project_district
     - taxonomy.vocabulary.project_phase
@@ -174,7 +173,6 @@ permissions:
   - 'edit terms in project_theme'
   - 'edit terms in project_type'
   - 'mark as hidden in editoria11y'
-  - 'restful get helfi_debug_data'
   - 'revert all revisions'
   - 'revert all tpr_service revisions'
   - 'revert all tpr_unit revisions'
