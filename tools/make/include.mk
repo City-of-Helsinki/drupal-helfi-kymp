@@ -36,12 +36,9 @@ endif
 #
 
 LAGOON := $(shell test -f .lagoon.yml && echo yes || echo no)
-WODBY := $(shell test -f wodby.yml && echo yes || echo no)
 
 ifeq ($(LAGOON),yes)
 	SYSTEM := LAGOON
-else ifeq ($(WODBY),yes)
-	SYSTEM := WODBY
 else
 	SYSTEM := WHOKNOWS
 endif
