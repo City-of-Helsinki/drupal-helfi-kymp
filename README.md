@@ -52,6 +52,7 @@ Modify the value of `COMPOSE_PROFILES` environment variable from `.env` file or 
 
 A content which can be searched with `District and project search`.
 
+
 ### Area -content type (Alue)
 
 A content type which has a node for every district and subdistrict in Helsinki. The page contains some content related to the district and
@@ -60,23 +61,23 @@ a `subdistrict block` in sidebar.
 
 ### Subdistrict block
 
-A block in Area -content type page's sidebar which lists district and subdistricts related to the current content.
+A block in `Area -content type` page's sidebar which lists district and subdistricts related to the current content.
 
 ***Module:*** part of helfi_kymp_content
 
 
 ### Plans (Suunnitelmat)
 
-Plans lists city development plans for people to see and comment
+Lists city development plans for people to see and comment
 The paragraph can be seen [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/osallistu-kaupungin-suunnitteluun)
 
-***Module:*** helfi_kymp_plans
-***API:*** https://ptp.hel.fi/rss/nahtavana_nyt/
-***Cron:*** invalidate-tags-kymp
+- ***Module:*** helfi_kymp_plans
+- ***API:*** https://ptp.hel.fi/rss/nahtavana_nyt/
+- ***Cron:*** invalidate-tags-kymp
 
 #### How it works
 
-On site load the API is queried and result is cached. The plans are then shown on the page.
+On page load the API is queried and result is cached. The plans are then shown on the page.
 A simple javascript is used to hide and show the plans.
 Cron is used to empty the cached plans once an hour.
 
@@ -87,11 +88,14 @@ The search allows searching for city districts and city development projects.
 It can be found from [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/suunnitelmat-ja-rakennushankkeet)
 City districts were imported using helfi_kymp_migrations module (might have been removed)
 
-***Module:*** part of helfi_kymp_content
-***API:***
-***React:*** district-and-project-search
+- ***Module:*** part of helfi_kymp_content
+- ***React:*** district-and-project-search
 
 #### How it works
+
+Districts and subdistricts has been added via helfi_kymp_migrations module (module might have been removed)
+Projects are created manually by content creators.
+Searching for projects work as any other react search.
 
 
 ### Journey planner (Reittiopas)
