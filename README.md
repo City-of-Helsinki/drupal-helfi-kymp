@@ -7,7 +7,7 @@ Kaupunkiympäristö ja liikenne (Kymp) is a site which contains information abou
 Env | Branch | URL
 --- |--------| ---
 local | dev    | http://helfi-kymp.docker.so/
-production | main | TBD
+production | main | https://hel.fi/fi/kaupunkiymparisto-ja-liikenne
 
 ## Requirements
 
