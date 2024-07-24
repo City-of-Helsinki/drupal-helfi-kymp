@@ -48,22 +48,27 @@ Modify the value of `COMPOSE_PROFILES` environment variable from `.env` file or 
 
 ## Instance specific features
 
-### Helfi kymp migrations
+### Project -content type (Hanke)
 
-Most likely useless module to be disabled and removed. REMOVE THIS FROM DOCUMENTATION IF THE CUSTOM MODULE HAS BEEN REMOVED.
+A content which can be searched with `District and project search`.
+
+### Area -content type (Alue)
+
+A content type which has a node for every district and subdistrict in Helsinki. The page contains some content related to the district and
+a `subdistrict block` in sidebar.
 
 
-### Custom test content
+### Subdistrict block
 
-Uses helfi_test_content-module to add test data so developer can test the components without need to manually create content.
+A block in Area -content type page's sidebar which lists district and subdistricts related to the current content.
+
+***Module:*** part of helfi_kymp_content
 
 
 ### Plans (Suunnitelmat)
 
 Plans lists city development plans for people to see and comment
 The paragraph can be seen [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/osallistu-kaupungin-suunnitteluun)
-
-#### Used tools
 
 ***Module:*** helfi_kymp_plans
 ***API:*** https://ptp.hel.fi/rss/nahtavana_nyt/
@@ -76,17 +81,11 @@ A simple javascript is used to hide and show the plans.
 Cron is used to empty the cached plans once an hour.
 
 
-### Project ???
-
-
-
 ### District and project search (Alue ja hankehaku)
 
 The search allows searching for city districts and city development projects.
 It can be found from [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/suunnitelmat-ja-rakennushankkeet)
 City districts were imported using helfi_kymp_migrations module (might have been removed)
-
-#### Used tools
 
 ***Module:*** part of helfi_kymp_content
 ***API:***
@@ -95,21 +94,19 @@ City districts were imported using helfi_kymp_migrations module (might have been
 #### How it works
 
 
-### Journey planner / plans ? list of plans ?
-#### Used tools
+### Journey planner (Reittiopas)
+
+An external tool by HSL which allows to find routes, for example [pyöräilyreittihaku](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/pyoraily/pyorareitit)
+
 #### How it works
 
-
-### District/Subdistrict ???
-#### How it works
+An iframe is added to the page which allows searching for routes.
 
 
 ### Snow ploughing schedule (Aurausaikataulu)
 
 Ploughing schedule is a tool which allows user to get estimated snow ploughing schedule for a specific street.
 Currently the search tool is located only [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kunnossapito/katujen-kunnossapito/katujen-talvikunnossapito)
-
-#### Used tools
 
 - **Module**: helfi_kymp_content
 - **Cron:** street_data
@@ -125,6 +122,11 @@ The data is directly fetched from API and indexed into ElasticSearch. Cron is us
 UI is a simple react-application.
 
 
+### Custom test content (module)
+
+Uses helfi_test_content-module to add test data so developer can test the components without need to manually create content.
 
 
+### Helfi kymp migrations (module)
 
+Most likely useless module to be disabled and removed. REMOVE THIS FROM DOCUMENTATION IF THE CUSTOM MODULE HAS BEEN REMOVED.
