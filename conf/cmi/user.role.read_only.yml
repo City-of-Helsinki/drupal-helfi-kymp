@@ -11,6 +11,7 @@ dependencies:
     - helfi_tpr
     - node
     - paragraphs
+    - tfa
     - toolbar
     - view_unpublished
 id: read_only
@@ -20,6 +21,8 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'delete own files'
+  - 'disable own tfa'
+  - 'setup own tfa'
   - 'view any unpublished announcement content'
   - 'view any unpublished landing_page content'
   - 'view any unpublished page content'
