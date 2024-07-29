@@ -82,9 +82,10 @@ function hdbt_subtheme_preprocess_node(array &$variables) {
         continue;
       }
       $district_title = $district_node->getTitle();
-
-      if ($district_node->hasTranslation($variables['current_langcode'])) {
-        $district_title = $district_node->getTranslation($variables['current_langcode'])->getTitle();
+      $language = \Drupal::languageManager()
+        ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT);
+      if ($district_node->hasTranslation($language->getId())) {
+        $district_title = $district_node->getTranslation($language->getId())->getTitle();
       }
 
       $district_titles[] = $district_title;
