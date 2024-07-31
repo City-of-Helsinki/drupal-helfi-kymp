@@ -1,7 +1,7 @@
 # City of Helsinki - KYMP Drupal project
 
-KYMP, short for Kaupunkiympäristö ja liikenne, is a site that contains information about the city, its development, and
-transportation.
+KYMP, short for Kaupunkiympäristö ja liikenne, also formerly known only as Liikenne is a site that contains information
+about the city, its development, and transportation.
 
 ## Environments
 Env | Branch | URL
@@ -46,23 +46,24 @@ Modify the value of `COMPOSE_PROFILES` environment variable from `.env` file or 
 
 ### Custom node types
 
-#### Area (area)
+#### District (district)
 A content type that includes a node for every district and subdistrict in Helsinki. The page layout closely follows the
-standard page layout. Each area can be either a district or a subdistrict, depending on the contents of the
+standard page layout. Each district can be either a main district or a subdistrict, depending on the contents of the
 Subdistricts (`field_subdistricts`) field on the node. The content was initially created automatically from Helsinki
 city districts and subdistricts and is manually adjusted over time.
 
 #### Project (project)
 
-A custom content type for the KYMP instance, closely related to the [area](#area-area) content type. Each project is
-associated with an area via the entity reference field Project District (field_project_district). Projects can be
-categorized in various ways and follow a layout similar to the standard page. Projects can be searched using the [District and Project Search](#district-and-project-search-district_and_project_search).
+A custom content type for the KYMP instance, closely related to the [district](#district-district) content type. Each
+project is associated with an district via the entity reference field Project District (field_project_district).
+Projects can be categorized in various ways and follow a layout similar to the standard page. Projects can be searched
+using the [District and Project Search](#district-and-project-search-district_and_project_search).
 
 ### Custom blocks
 
 #### Subdistrict block
-A block in the sidebar of pages with the content type [area](#area-area) lists subdistricts related to the viewed
-district. The logic for this block is located in the custom module [`helfi_kymp_content`](https://github.com/City-of-Helsinki/drupal-helfi-kymp/tree/dev/public/modules/custom/helfi_kymp_content).
+A block in the sidebar of pages with the content type [district](#district-district) lists subdistricts related to the
+viewed district. The logic for this block is located in the custom module [`helfi_kymp_content`](https://github.com/City-of-Helsinki/drupal-helfi-kymp/tree/dev/public/modules/custom/helfi_kymp_content).
 
 - **Module:** part of helfi_kymp_content
 
@@ -97,6 +98,15 @@ started the city districts were imported using [`helfi_kymp_migrations`](#helfi-
 ##### How it works
 Districts and subdistricts have been added to the Drupal database via the [`helfi_kymp_migrations`](#helfi-kymp-migrations-helfi_kymp_migrations-module)
 module. Projects are created manually by content creators. Searching for projects works like any other React search.
+
+#### Project Listing (project-listing)
+A Project List paragraph displays [Projects](#project-project) based on the referenced [District](#district-district) in
+the Area field (`field_project_list_district`). To link the block to the [District and Project Search](#district-and-project-search-district_and_project_search),
+add the Search Link Parameters (`field_search_link_parameters`).
+
+##### How it works
+The paragraph uses a view called Project List (`project_list`)to filter desired projects based on the given contextual
+filter, which is the District in this case. The paragraph also includes editable title and description fields.
 
 #### Journey Planner (journey_planner)
 An embedded external tool by HSL allows users to find bike routes within the HSL area.
