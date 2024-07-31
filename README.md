@@ -46,55 +46,68 @@ Modify the value of `COMPOSE_PROFILES` environment variable from `.env` file or 
 
 ### Custom node types
 
-#### Project (project)
-A content which can be searched with `District and project search`.
-
 #### Area (area)
-A content type which has a node for every district and subdistrict in Helsinki. The page contains some content related to the district and
-a `subdistrict block` in sidebar.
+A content type that includes a node for every district and subdistrict in Helsinki. The page layout closely follows the
+standard page layout. Each area can be either a district or a subdistrict, depending on the contents of the
+Subdistricts (`field_subdistricts`) field on the node. The content was initially created automatically from Helsinki
+city districts and subdistricts and is manually adjusted over time.
+
+#### Project (project)
+
+A custom content type for the KYMP instance, closely related to the [area](#area-area) content type. Each project is
+associated with an area via the entity reference field Project District (field_project_district). Projects can be
+categorized in various ways and follow a layout similar to the standard page. Projects can be searched using the [District and Project Search](#district-and-project-search-district_and_project_search).
 
 ### Custom blocks
 
 #### Subdistrict block
-A block in `Area -content type` page's sidebar which lists district and subdistricts related to the current content.
+A block in the sidebar of pages with the content type [area](#area-area) lists subdistricts related to the viewed
+district. The logic for this block is located in the custom module [`helfi_kymp_content`](https://github.com/City-of-Helsinki/drupal-helfi-kymp/tree/dev/public/modules/custom/helfi_kymp_content).
 
-***Module:*** part of helfi_kymp_content
+- **Module:** part of helfi_kymp_content
 
 ### Custom paragraphs
 
 #### List of Plans (list_of_plans)
-Lists city development plans for people to see and comment
-The paragraph can be seen [HERE](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/osallistu-kaupungin-suunnitteluun)
+This paragraph lists the city development plans for people to see and comment.
 
-- ***Module:*** helfi_kymp_plans
-- ***API:*** https://ptp.hel.fi/rss/nahtavana_nyt/
-- ***Cron:*** invalidate-tags-kymp
-
-##### How it works
-On page load the API is queried and result is cached. The plans are then shown on the page.
-A simple javascript is used to hide and show the plans.
-Cron is used to empty the cached plans once an hour.
-
-#### District and project search (district_and_project_search)
-The search allows searching for city districts and city development projects.
-It can be found from [here](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkisuunnittelu-ja-rakentaminen/suunnitelmat-ja-rakennushankkeet)
-City districts were imported using helfi_kymp_migrations module (might have been removed)
-
-- ***Module:*** part of helfi_kymp_content
-- ***React:*** district-and-project-search
+- **Module:** helfi_kymp_plans
+- **API:** https://ptp.hel.fi/rss/nahtavana_nyt/
+- **Cron:** invalidate-tags-kymp
 
 ##### How it works
-Districts and subdistricts has been added via helfi_kymp_migrations module (module might have been removed)
-Projects are created manually by content creators.
-Searching for projects work as any other react search.
+The paragraph has configurable title and description fields, but the rest of the logic is hardcoded. On page load, the
+API is queried and the result is cached. The plans are then displayed in the block. A simple JavaScript is used to
+toggle the visibility of the plans. The related JavaScript and PHP code can be found [here](https://github.com/City-of-Helsinki/drupal-helfi-kymp/tree/dev/public/modules/custom/helfi_kymp_plans).
+The template for the paragraph is located in the [`hdbt_subtheme`](https://github.com/City-of-Helsinki/drupal-helfi-kymp/blob/dev/public/themes/custom/hdbt_subtheme/templates/paragraph/paragraph--list-of-plans.html.twig).
+Cron is used to clear the cached plans once an hour.
 
-#### Journey planner (journey_planner)
-An external tool by HSL which allows to find routes, for example [pyöräilyreittihaku](https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/pyoraily/pyorareitit)
+#### District and Project Search (district_and_project_search)
+The District and Project Search tool allows users to search for city districts and development projects.
+
+The District and Project Search is a React search that uses views listing (`district_and_project_search`) as a fallback
+when JavaScript is not enabled. All React searches are in the `hdbt` theme, so most of the related logic is also found
+there. The district_and_project_search paragraph has an editable title and description. When development on the feature
+started the city districts were imported using [`helfi_kymp_migrations`](#helfi-kymp-migrations-helfi_kymp_migrations-module) module.
+
+- **Module:** part of helfi_kymp_content
+- **React:** district-and-project-search
+- **ElasticSearch:** districts, districts_for_filters, projects, project_phases, project_themes and project_types indexes
 
 ##### How it works
-An iframe is added to the page which allows searching for routes.
+Districts and subdistricts have been added to the Drupal database via the [`helfi_kymp_migrations`](#helfi-kymp-migrations-helfi_kymp_migrations-module)
+module. Projects are created manually by content creators. Searching for projects works like any other React search.
 
-#### Ploughing schedule (ploughing_schedule)
+#### Journey Planner (journey_planner)
+An embedded external tool by HSL allows users to find bike routes within the HSL area.
+
+##### How it works
+The paragraph contains title and description fields, and includes an embedded iframe. This iframe is hardcoded into the
+`hdbt_subtheme` [here](https://github.com/City-of-Helsinki/drupal-helfi-kymp/blob/dev/public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme)
+and is not configurable through the editor. The layout is constructed in the template using data provided by the
+`hdbt_subtheme` preprocess hook.
+
+#### Ploughing Schedule (ploughing_schedule)
 The Ploughing Schedule paragraph is a tool that allows website users to get an estimated snow ploughing schedule for a
 specific street.
 
