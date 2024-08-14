@@ -334,6 +334,11 @@ if (
 
 $settings['is_azure'] = FALSE;
 
+if ($tfa_key = getenv('TFA_ENCRYPTION_KEY')) {
+  $config['key.key.tfa']['key_provider_settings']['key_value'] = $tfa_key;
+  $config['key.key.tfa']['key_provider_settings']['base64_encoded'] = TRUE;
+}
+
 /**
  * Deployment preflight checks.
  *
