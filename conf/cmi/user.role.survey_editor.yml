@@ -1,0 +1,27 @@
+uuid: 9ec2282e-0675-4746-9892-cd37d2b6fc8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.survey
+  module:
+    - content_translation
+    - node
+    - publication_date
+_core:
+  default_config_hash: CliaTgzCQcvNF9ot3u_EbHnydymXh8bvNgNFlSffj9s
+id: survey_editor
+label: 'Survey editor'
+weight: 8
+is_admin: null
+permissions:
+  - 'create survey content'
+  - 'delete any survey content'
+  - 'delete own survey content'
+  - 'delete survey revisions'
+  - 'edit any survey content'
+  - 'edit own survey content'
+  - 'revert survey revisions'
+  - 'set survey published on date'
+  - 'translate survey node'
+  - 'view survey revisions'
