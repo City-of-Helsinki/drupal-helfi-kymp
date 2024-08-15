@@ -8,6 +8,7 @@ dependencies:
     - content_translation
     - node
     - publication_date
+    - tfa
 _core:
   default_config_hash: CliaTgzCQcvNF9ot3u_EbHnydymXh8bvNgNFlSffj9s
 id: survey_editor
@@ -19,9 +20,11 @@ permissions:
   - 'delete any survey content'
   - 'delete own survey content'
   - 'delete survey revisions'
+  - 'disable own tfa'
   - 'edit any survey content'
   - 'edit own survey content'
   - 'revert survey revisions'
   - 'set survey published on date'
+  - 'setup own tfa'
   - 'translate survey node'
   - 'view survey revisions'
