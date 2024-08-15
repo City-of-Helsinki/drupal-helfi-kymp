@@ -1,0 +1,6 @@
+help_text: 'Contact support to reset your access'
+mail:
+  tfa_enabled_configuration:
+    body: "[user:display-name],\r\n\r\nThanks for configuring two-factor authentication on your [site:name] account!\r\n\r\nThis additional level of security will help to ensure that only you are able to log in to your account.\r\n\r\nIf you ever lose the device you configured, you should act quickly to delete its association with this account.\r\n\r\n--\r\n[site:name] team"
+  tfa_disabled_configuration:
+    body: "[user:display-name],\r\n\r\nTwo-factor authentication has been disabled on your [site:name] account.\r\n\r\nIf you did not take this action, please contact a site administrator immediately.\r\n\r\n--\r\n[site:name] team"
