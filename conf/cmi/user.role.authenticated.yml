@@ -14,6 +14,7 @@ dependencies:
     - paragraphs
     - rest
     - system
+    - tfa
     - toolbar
 _core:
   default_config_hash: 83Nuup-6oYkkdAsvg3nrR2pBOgtTXEV1JrzpCCLkYLM
@@ -25,13 +26,16 @@ permissions:
   - 'access content'
   - 'access toolbar'
   - 'delete own files'
+  - 'disable own tfa'
   - 'display eu cookie compliance popup'
   - 'restful get helfi_global_mobile_menu'
+  - 'setup own tfa'
   - 'view helfi_announcements external entity'
   - 'view helfi_news external entity'
   - 'view helfi_news_groups external entity'
   - 'view helfi_news_neighbourhoods external entity'
   - 'view helfi_news_tags external entity'
+  - 'view helfi_surveys external entity'
   - 'view media'
   - 'view remote entities'
   - 'view tpr_service'

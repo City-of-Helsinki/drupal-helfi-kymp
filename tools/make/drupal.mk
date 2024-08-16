@@ -7,6 +7,7 @@ CLEAN_EXCLUDE += $(WEBROOT)/sites/default/files
 DRUPAL_DISABLE_MODULES ?= no
 DRUPAL_ENABLE_MODULES ?= no
 DRUPAL_PROFILE ?= minimal
+DRUPAL_SITE_EMAIL ?= maintenance@druid.fi
 DRUPAL_SYNC_FILES ?= yes
 DRUPAL_SYNC_SOURCE ?= main
 DRUSH_RSYNC_MODE ?= Pakzu
@@ -87,7 +88,7 @@ else
 endif
 drush-si: ## Site install
 	$(call step,Do Drush site:install...\n)
-	$(call drush,si ${DRUSH_SI})
+	$(call drush,si ${DRUSH_SI} --site-mail=$(DRUPAL_SITE_EMAIL))
 
 PHONY += drush-deploy
 drush-deploy: ## Run Drush deploy
