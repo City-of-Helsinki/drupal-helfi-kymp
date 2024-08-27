@@ -5,50 +5,40 @@
   ]
 %}
 
-{% set link_title %}
-  {{ title_prefix }}
-  <h3 class="content-card__title">
-    {{ label }}
-  </h3>
-  {{ title_suffix }}
-{% endset %}
-
-{% set link_attributes = {
-  'class': [
-    'district-teaser__link',
-  ],
-  'rel': 'bookmark',
-} %}
-
-<article{{ attributes.addClass(classes) }}>
-  <div class="district-teaser__image">
-    {% if content.field_district_image.0 %}
-      {{ content.field_district_image }}
-    {% else %}
-      {% include '@hdbt/media/image--card.html.twig' with {content: '' } %}
-    {% endif %}
-  </div>
-  <div class="district-teaser__data">
-    {% set tag_content %}
-      <span>{{ 'District'|t }}</span>
-    {% endset %}
-    {% embed '@hdbt/misc/tag-list.twig' with { tag_container_class: ' content-tags--card' } %}
-      {% block content %}
-        {% include '@hdbt/misc/tag.twig' with {
-          color: 'coat-of-arms',
-          tag: tag_content
-        }%}
-      {% endblock content %}
-    {% endembed %}
-    {{ link(link_title, node_url, link_attributes) }}
-    {% if content.field_subdistricts.0 %}
-      {% include '@hdbt/misc/metadata-item.twig' with {
-        item_icon: 'location',
-        item_label: 'Districts'|t,
-        item_content: content.field_subdistricts,
-      }%}
-    {% endif %}
-
-    {% include "@hdbt/misc/icon.twig" with {icon: 'arrow-right' } only %}
-  </div>
-</article>
+{% if content.field_subdistricts.0 %}
+  {% set subdistricts = content.field_subdistricts %}
+  {% embed '@hdbt/component/card.twig' with {
+    card_modifier_class: classes|join(' '),
+    card_image: content.field_district_image,
+    card_title: label,
+    card_url: node_url,
+    card_metas: [
+      {
+        icon: 'location',
+        label: 'Districts'|t,
+        content:  subdistricts
+      },
+    ],
+    card_tags: [
+      {
+        tag: 'District'|t,
+        color: 'coat-of-arms',
+      },
+    ],
+  } %}
+  {% endembed %}
+{% else %}
+  {% embed '@hdbt/component/card.twig' with {
+    card_modifier_class: classes|join(' '),
+    card_image: content.field_district_image,
+    card_title: label,
+    card_url: node_url,
+    card_tags: [
+      {
+        tag: 'District'|t,
+        color: 'coat-of-arms',
+      },
+    ],
+  } %}
+  {% endembed %}
+{% endif %}
