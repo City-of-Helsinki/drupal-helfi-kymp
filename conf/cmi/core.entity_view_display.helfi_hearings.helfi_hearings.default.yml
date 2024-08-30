@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - responsive_image.styles.image__3_2
+    - responsive_image.styles.card
   module:
     - external_entities
     - imagecache_external
 _core:
-  default_config_hash: fILQEVNfZTZZh_DbxUgOfgAwVP5-S0z3Ud7QI4g8ato
+  default_config_hash: 8hY7p23O5VMnnoWz_4GEuZiFgOaa8mzWA3gP9l5HTJY
 id: helfi_hearings.helfi_hearings.default
 targetEntityType: helfi_hearings
 bundle: helfi_hearings
@@ -67,7 +67,7 @@ content:
     label: hidden
     settings:
       imagecache_external_link: ''
-      imagecache_external_responsive_style: image__3_2
+      imagecache_external_responsive_style: card
     third_party_settings: {  }
     weight: 1
     region: content
