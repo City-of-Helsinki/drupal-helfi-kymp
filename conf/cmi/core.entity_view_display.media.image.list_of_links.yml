@@ -7,11 +7,11 @@ dependencies:
     - field.field.media.image.field_media_image
     - field.field.media.image.field_photographer
     - media.type.image
-    - responsive_image.styles.list_of_links__thumbnail
+    - responsive_image.styles.list_of_links
   module:
     - responsive_image
 _core:
-  default_config_hash: I2ZfKyY1mhXnucuiK0u3fyNZLSAgwvP7erzRedZy4Wg
+  default_config_hash: 0ua0sJ9TczDG97Cu-YiLD6k0ey467PYpoz1pS1Ta7Vs
 id: media.image.list_of_links
 targetEntityType: media
 bundle: image
@@ -21,7 +21,7 @@ content:
     type: responsive_image
     label: hidden
     settings:
-      responsive_image_style: list_of_links__thumbnail
+      responsive_image_style: list_of_links
       image_link: ''
       image_loading:
         attribute: eager

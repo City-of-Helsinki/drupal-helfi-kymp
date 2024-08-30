@@ -10,14 +10,14 @@ dependencies:
     - field.field.tpr_unit.tpr_unit.field_phone_label
     - field.field.tpr_unit.tpr_unit.field_phone_with_contacts
     - field.field.tpr_unit.tpr_unit.field_unit_type
-    - responsive_image.styles.image__3_2
+    - responsive_image.styles.card
   module:
     - address
     - helfi_tpr
     - imagecache_external
     - telephone
 _core:
-  default_config_hash: XgxN3jbnhDyWylFc1AbX-ZCkbtmkCWri5liWmWtvm4E
+  default_config_hash: UaACkuFRQLTKE8imRH4LA1ik5ye-p3nmJ_F9oNlDH3I
 id: tpr_unit.tpr_unit.teaser_with_image
 targetEntityType: tpr_unit
 bundle: tpr_unit
@@ -51,7 +51,7 @@ content:
     label: hidden
     settings:
       imagecache_external_link: ''
-      imagecache_external_responsive_style: image__3_2
+      imagecache_external_responsive_style: card
     third_party_settings: {  }
     weight: 0
     region: content
@@ -59,7 +59,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: image
+      view_mode: card
       link: false
     third_party_settings: {  }
     weight: 1
