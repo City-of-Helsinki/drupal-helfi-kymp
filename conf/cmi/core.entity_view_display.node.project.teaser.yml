@@ -18,12 +18,10 @@ dependencies:
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
     - field.field.node.project.field_sidebar_content
-    - image.style.3_2_s
     - node.type.project
   module:
     - datetime_range
     - link
-    - media
     - user
 id: node.project.teaser
 targetEntityType: node
@@ -62,13 +60,11 @@ content:
     weight: 6
     region: content
   field_project_image:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: 3_2_s
-      image_loading:
-        attribute: lazy
+      view_mode: card
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
