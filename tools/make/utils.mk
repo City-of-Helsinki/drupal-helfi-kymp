@@ -70,5 +70,5 @@ define remove_string
 endef
 
 define run
-	@${1} && printf "${2}\n" || printf "${RED}${3}${NO_COLOR}\n"
+	@${1} && printf "${2}\n" || (printf "${RED}${3}${NO_COLOR}\n" && exit 1)
 endef
