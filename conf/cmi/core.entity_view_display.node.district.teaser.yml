@@ -14,10 +14,8 @@ dependencies:
     - field.field.node.district.field_metatags
     - field.field.node.district.field_sidebar_content
     - field.field.node.district.field_subdistricts
-    - image.style.3_2_s
     - node.type.district
   module:
-    - media
     - user
 id: node.district.teaser
 targetEntityType: node
@@ -25,13 +23,11 @@ bundle: district
 mode: teaser
 content:
   field_district_image:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: 3_2_s
-      image_loading:
-        attribute: lazy
+      view_mode: card
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
