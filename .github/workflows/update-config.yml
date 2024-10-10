@@ -27,8 +27,8 @@ jobs:
       - name: Check if required secrets are set
         env:
           AUTOMATIC_UPDATE_TOKEN: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
-          if: env.AUTOMATIC_UPDATE_TOKEN == ''
-          run: exit 1
+        if: env.AUTOMATIC_UPDATE_TOKEN == ''
+        run: exit 1
 
       - name: Download latest dump
         env:
