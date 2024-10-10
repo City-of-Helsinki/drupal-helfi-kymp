@@ -75,10 +75,9 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
         with:
           commit-message: Update configuration
+          token: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
           title: Automatic update
           labels: auto-update
           body: |
