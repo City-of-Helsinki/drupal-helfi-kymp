@@ -22,6 +22,12 @@ jobs:
           - 3306:3306
 
     steps:
+      - name: Check if required secrets are set
+        env:
+          AUTOMATIC_UPDATE_TOKEN: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
+          if: env.AUTOMATIC_UPDATE_TOKEN == ''
+          run: exit 1
+
       - uses: actions/checkout@v4
 
       - name: Download latest dump
