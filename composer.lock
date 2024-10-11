@@ -4073,16 +4073,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.7.8",
+            "version": "6.7.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "9ad05cc9c80d0dc536132ae07625ae4375c51d3d"
+                "reference": "5f9902895d8690e0167af2b8df37e84798c1ab8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9ad05cc9c80d0dc536132ae07625ae4375c51d3d",
-                "reference": "9ad05cc9c80d0dc536132ae07625ae4375c51d3d",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/5f9902895d8690e0167af2b8df37e84798c1ab8b",
+                "reference": "5f9902895d8690e0167af2b8df37e84798c1ab8b",
                 "shasum": ""
             },
             "require": {
@@ -4101,23 +4101,23 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.7.8",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.7.11",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2024-10-07T12:37:51+00:00"
+            "time": "2024-10-11T08:54:21+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "3.2.3",
+            "version": "3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "2d5454a08e66621f0e7ef5116066c1eb450cea33"
+                "reference": "f3284d00c7cb52126c727b744ccac5108195544c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/2d5454a08e66621f0e7ef5116066c1eb450cea33",
-                "reference": "2d5454a08e66621f0e7ef5116066c1eb450cea33",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/f3284d00c7cb52126c727b744ccac5108195544c",
+                "reference": "f3284d00c7cb52126c727b744ccac5108195544c",
                 "shasum": ""
             },
             "require": {
@@ -4138,10 +4138,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.2.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.2.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2024-10-02T11:54:42+00:00"
+            "time": "2024-10-11T08:52:57+00:00"
         },
         {
             "name": "drupal/health_check",
@@ -4241,16 +4241,16 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "955f8b742147cab0cf82370b6cc93a6901624261"
+                "reference": "f35b0a703e2da09374c4ca137dd6519274db552a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/955f8b742147cab0cf82370b6cc93a6901624261",
-                "reference": "955f8b742147cab0cf82370b6cc93a6901624261",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/f35b0a703e2da09374c4ca137dd6519274db552a",
+                "reference": "f35b0a703e2da09374c4ca137dd6519274db552a",
                 "shasum": ""
             },
             "require": {
@@ -4272,6 +4272,9 @@
                     },
                     "twistor/flysystem-stream-wrapper": {
                         "PHP 8.2 support (https://www.drupal.org/project/flysystem/issues/3387094)": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-module-helfi-azure-fs/ddb222622b92d1c2b7db975a84167a00579a1ad0/patches/3387094-add-context-property-to-stream-wrapper.patch"
+                    },
+                    "drupal/flysystem": {
+                        "UHF-10544 D10.3 support (https://drupal.org/i/3457193)": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-module-helfi-azure-fs/82f0dc93d14357011d12d219f5d1641da7ae6960/patches/3457193.patch"
                     }
                 }
             },
@@ -4280,10 +4283,10 @@
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2024-10-03T06:32:56+00:00"
+            "time": "2024-10-11T07:42:06+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -4406,16 +4409,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.6.11",
+            "version": "4.6.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "46f83e38d3e63714779f3b040e040c9b4be406bb"
+                "reference": "a5706c1fff0690115510224dcdccf61ce2b6dadd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/46f83e38d3e63714779f3b040e040c9b4be406bb",
-                "reference": "46f83e38d3e63714779f3b040e040c9b4be406bb",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/a5706c1fff0690115510224dcdccf61ce2b6dadd",
+                "reference": "a5706c1fff0690115510224dcdccf61ce2b6dadd",
                 "shasum": ""
             },
             "require": {
@@ -4436,7 +4439,7 @@
                 "drupal/elasticsearch_connector": "^7.0@alpha",
                 "drupal/entity_browser": "^2.5",
                 "drupal/entity_usage": "^2.0@beta",
-                "drupal/eu_cookie_compliance": "^1.24",
+                "drupal/eu_cookie_compliance": "1.24",
                 "drupal/external_entities": "^2.0@beta",
                 "drupal/field_group": "^3.1",
                 "drupal/focal_point": "^2.0",
@@ -4534,10 +4537,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.6.11",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.6.14",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2024-10-08T06:10:45+00:00"
+            "time": "2024-10-11T08:52:39+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -9626,16 +9629,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a"
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3abf7425cd284141dc5d8d14a9ee444de3345d1a",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8eea230464783aa9671db8eea6f8c6ac5285794b",
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b",
                 "shasum": ""
             },
             "require": {
@@ -9678,9 +9681,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
-            "time": "2024-09-29T13:56:26+00:00"
+            "time": "2024-10-08T18:51:32+00:00"
         },
         {
             "name": "nodespark/des-connector",
