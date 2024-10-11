@@ -11,7 +11,6 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
@@ -23,11 +22,12 @@ dependencies:
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.service_list_search
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.unit_contact_card
     - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: AejXN443GE3b159k_6fsqDyZ_BHs68SU9wBMY24Ueog
+  default_config_hash: v3n3ZeAjQ22N3kPPeDCIlFFcOuTiJ9F1CB0Gf4HQ6ZI
 id: node.page.field_lower_content
 field_name: field_lower_content
 entity_type: node
@@ -58,9 +58,9 @@ settings:
       event_list: event_list
       contact_card_listing: contact_card_listing
       news_list: news_list
-      content_liftup: content_liftup
       service_list_search: service_list_search
       unit_search: unit_search
+      unit_contact_card: unit_contact_card
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -80,9 +80,6 @@ settings:
         enabled: true
       content_cards:
         weight: 1
-        enabled: true
-      content_liftup:
-        weight: 12
         enabled: true
       event_list:
         weight: 13
@@ -116,6 +113,9 @@ settings:
         enabled: true
       text:
         weight: 2
+        enabled: true
+      unit_contact_card:
+        weight: 18
         enabled: true
       unit_search:
         weight: 17

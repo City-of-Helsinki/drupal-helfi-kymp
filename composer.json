@@ -13,7 +13,6 @@
         "cweagans/composer-patches": "^1.6.7",
         "drupal/core": "^10.1",
         "drupal/core-composer-scaffold": "^10.0",
-        "drupal/filelog": "^2.1",
         "drupal/hdbt": "^6.0",
         "drupal/hdbt_admin": "^3.0",
         "drupal/helfi_azure_fs": "^2.0",
@@ -55,7 +54,8 @@
             "phpstan/extension-installer": true
         },
         "audit": {
-            "abandoned": "report"
+            "abandoned": "report",
+            "ignore": ["GHSA-mg8j-w93w-xjgc"]
         }
     },
     "extra": {

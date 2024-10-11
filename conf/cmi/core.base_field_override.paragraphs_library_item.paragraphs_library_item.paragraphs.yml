@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
@@ -18,6 +17,7 @@ dependencies:
     - paragraphs.paragraphs_type.service_list
     - paragraphs.paragraphs_type.sidebar_text
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.unit_contact_card
     - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
@@ -48,7 +48,6 @@ settings:
       columns: columns
       contact_card_listing: contact_card_listing
       content_cards: content_cards
-      content_liftup: content_liftup
       image: image
       liftup_with_image: liftup_with_image
       list_of_links: list_of_links
@@ -57,6 +56,7 @@ settings:
       text: text
       unit_search: unit_search
       service_list: service_list
+      unit_contact_card: unit_contact_card
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -72,9 +72,6 @@ settings:
         weight: 0
         enabled: true
       content_cards:
-        weight: 0
-        enabled: true
-      content_liftup:
         weight: 0
         enabled: true
       district_and_project_search:
@@ -102,6 +99,9 @@ settings:
         weight: 0
         enabled: true
       text:
+        weight: 0
+        enabled: true
+      unit_contact_card:
         weight: 0
         enabled: true
       unit_search:

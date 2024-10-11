@@ -3,11 +3,16 @@ CLI_SHELL := sh
 # Note: specification says this file would be compose.yaml
 DOCKER_COMPOSE_YML_PATH ?= compose.yaml
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f $(DOCKER_COMPOSE_YML_PATH) && echo yes || echo no)
+DOCKER_ENV := $(shell test -f /.dockerenv && echo yes || echo no)
 DOCKER_PROJECT_ROOT ?= /app
 DOCKER_WARNING_INSIDE := You are inside the Docker container!
 
-# If docker-compose.yml exists
-ifeq ($(DOCKER_COMPOSE_YML_EXISTS),yes)
+ifeq ($(DOCKER_ENV),yes)
+	RUN_ON := host
+endif
+
+# If compose.yaml exists
+ifeq ($(DOCKER_ENV)-$(DOCKER_COMPOSE_YML_EXISTS),no-yes)
 	RUN_ON := docker
 endif
 

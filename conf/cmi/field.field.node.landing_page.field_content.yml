@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.chart
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
@@ -25,11 +24,12 @@ dependencies:
     - paragraphs.paragraphs_type.service_list
     - paragraphs.paragraphs_type.service_list_search
     - paragraphs.paragraphs_type.target_group_links
+    - paragraphs.paragraphs_type.unit_contact_card
     - paragraphs.paragraphs_type.unit_search
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: zEXoDFJnyArUOiL2ZrtDuq4YDWKyn6ung9JndPk_Ntg
+  default_config_hash: hTXPpiRGSAr_S4UXdMrZbYum_JkD4y-qlfTvBS_M-X4
 id: node.landing_page.field_content
 field_name: field_content
 entity_type: node
@@ -61,10 +61,10 @@ settings:
       event_list: event_list
       news_list: news_list
       hearings: hearings
-      content_liftup: content_liftup
       service_list: service_list
       service_list_search: service_list_search
       unit_search: unit_search
+      unit_contact_card: unit_contact_card
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -78,9 +78,6 @@ settings:
         enabled: true
       content_cards:
         weight: 1
-        enabled: true
-      content_liftup:
-        weight: 11
         enabled: true
       district_and_project_search:
         weight: 18
@@ -126,6 +123,9 @@ settings:
         enabled: true
       target_group_links:
         weight: 12
+        enabled: true
+      unit_contact_card:
+        weight: 18
         enabled: true
       unit_search:
         weight: 17
