@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.district_and_project_search
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.liftup_with_image
@@ -49,7 +48,6 @@ settings:
       columns: columns
       contact_card_listing: contact_card_listing
       content_cards: content_cards
-      content_liftup: content_liftup
       image: image
       liftup_with_image: liftup_with_image
       list_of_links: list_of_links
@@ -74,9 +72,6 @@ settings:
         weight: 0
         enabled: true
       content_cards:
-        weight: 0
-        enabled: true
-      content_liftup:
         weight: 0
         enabled: true
       district_and_project_search:

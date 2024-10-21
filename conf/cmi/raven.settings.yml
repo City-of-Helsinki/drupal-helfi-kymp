@@ -29,7 +29,7 @@ rate_limit: 0
 send_request_body: false
 request_tracing: true
 traces_sample_rate: 0.2
-browser_traces_sample_rate: null
+browser_traces_sample_rate: 0.2
 database_tracing: true
 twig_tracing: true
 auto_session_tracking: false

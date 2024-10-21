@@ -11,7 +11,6 @@ dependencies:
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact_card_listing
     - paragraphs.paragraphs_type.content_cards
-    - paragraphs.paragraphs_type.content_liftup
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.hearings
@@ -31,7 +30,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: G8uqVofIIeSPJSEW4FPnQrwefO2xMZGnwlbcHrbpZ48
+  default_config_hash: 6ObVx71DtZm2Bwbo4phVPA-nauJ8lld2GdbvT9iFIcw
 id: node.page.field_content
 field_name: field_content
 entity_type: node
@@ -65,7 +64,6 @@ settings:
       event_list: event_list
       contact_card_listing: contact_card_listing
       news_list: news_list
-      content_liftup: content_liftup
       service_list_search: service_list_search
       unit_search: unit_search
       unit_contact_card: unit_contact_card
@@ -88,9 +86,6 @@ settings:
         enabled: true
       content_cards:
         weight: 5
-        enabled: true
-      content_liftup:
-        weight: 12
         enabled: true
       event_list:
         weight: 13
