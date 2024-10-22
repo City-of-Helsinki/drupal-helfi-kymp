@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\helfi_kymp_content\EventSubscriber;
 
 use Drupal\search_api\Event\ReindexScheduledEvent;
