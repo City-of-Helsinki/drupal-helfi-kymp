@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\helfi_kymp_migrations;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
