@@ -7,12 +7,13 @@
 
 // Elasticsearch settings.
 if (getenv('ELASTICSEARCH_URL')) {
-  $config['search_api.server.elastic_rekry']['backend_config']['connector_config']['url'] = getenv('ELASTICSEARCH_URL');
+  $config['elasticsearch_connector.cluster.kymp']['url'] = getenv('ELASTICSEARCH_URL');
 
   if (getenv('ELASTIC_USER') && getenv('ELASTIC_PASSWORD')) {
-    $config['search_api.server.elastic_rekry']['backend_config']['connector'] = 'basicauth';
-    $config['search_api.server.elastic_rekry']['backend_config']['connector_config']['username'] = getenv('ELASTIC_USER');
-    $config['search_api.server.elastic_rekry']['backend_config']['connector_config']['password'] = getenv('ELASTIC_PASSWORD');
+    $config['elasticsearch_connector.cluster.kymp']['options']['use_authentication'] = '1';
+    $config['elasticsearch_connector.cluster.kymp']['options']['authentication_type'] = 'Basic';
+    $config['elasticsearch_connector.cluster.kymp']['options']['username'] = getenv('ELASTIC_USER');
+    $config['elasticsearch_connector.cluster.kymp']['options']['password'] = getenv('ELASTIC_PASSWORD');
   }
 }
 // Elastic proxy URL.
