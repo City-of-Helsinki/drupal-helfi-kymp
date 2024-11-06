@@ -72,27 +72,12 @@
 }
 
 .plan__link {
-  text-decoration: none;
-
   // Make the whole card clickable.
   &::before {
     content: '';
     display: block;
     inset: 0;
     position: absolute;
-  }
-
-  .link__type {
-    left: $spacing-and-half;
-    bottom: $spacing-and-half;
-    position: absolute;
-
-    @include breakpoint($breakpoint-l) {
-      --line-height: 2;
-      left: auto;
-      // Arbitrary value from the design to line up the icon in a pretty way.
-      right: 20px;
-    }
   }
 }
 
