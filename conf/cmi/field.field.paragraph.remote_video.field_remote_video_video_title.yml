@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_remote_video_video_title
     - paragraphs.paragraphs_type.remote_video
 _core:
-  default_config_hash: Bp1tvXNbkNozGjMop7bTopoVYSimcgFctt5eELalVbY
+  default_config_hash: OetItkfP7vdKFfRMKUkRAiIavZrk78vEeZ0lYtv3kU8
 id: paragraph.remote_video.field_remote_video_video_title
 field_name: field_remote_video_video_title
 entity_type: paragraph
 bundle: remote_video
 label: 'Title of the video'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -9,6 +9,13 @@ name: 'Elastic KYMP'
 description: ''
 backend: elasticsearch
 backend_config:
-  cluster_settings:
-    cluster: kymp
-  fuzziness: auto
+  connector: basicauth
+  connector_config:
+    username: ''
+    password: ''
+    url: 'http://elastic:9200'
+    enable_debug_logging: false
+  advanced:
+    prefix: ''
+    suffix: ''
+    fuzziness: auto
