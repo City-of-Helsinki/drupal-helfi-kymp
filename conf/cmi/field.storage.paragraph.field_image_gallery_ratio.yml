@@ -1,0 +1,23 @@
+uuid: b0297b85-5bc6-45cf-83d7-a131f5cbbf6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: Wpxl8xbhczwaJ0b0_J1V00Tv8v0Z_cOq12TEKIPGwCs
+id: paragraph.field_image_gallery_ratio
+field_name: field_image_gallery_ratio
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: helfi_paragraphs_image_gallery_allowed_values
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

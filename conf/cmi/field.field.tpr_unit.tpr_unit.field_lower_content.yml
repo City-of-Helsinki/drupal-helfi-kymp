@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.image_gallery
     - paragraphs.paragraphs_type.liftup_with_image
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
@@ -51,6 +52,7 @@ settings:
       liftup_with_image: liftup_with_image
       map: map
       remote_video: remote_video
+      image_gallery: image_gallery
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -76,6 +78,9 @@ settings:
         enabled: true
       image:
         weight: 10
+        enabled: true
+      image_gallery:
+        weight: 14
         enabled: true
       liftup_with_image:
         weight: 11
