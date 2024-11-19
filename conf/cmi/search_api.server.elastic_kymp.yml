@@ -14,6 +14,6 @@ backend_config:
     url: 'http://elastic:9200'
     enable_debug_logging: false
   advanced:
+    fuzziness: auto
     prefix: ''
     suffix: ''
-    fuzziness: auto
