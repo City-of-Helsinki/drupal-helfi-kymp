@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.event_list
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.image_gallery
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.phasing
@@ -53,6 +54,7 @@ settings:
       contact_card_listing: contact_card_listing
       unit_accessibility_information: unit_accessibility_information
       unit_contact_card: unit_contact_card
+      image_gallery: image_gallery
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -78,6 +80,9 @@ settings:
         enabled: true
       image:
         weight: 3
+        enabled: true
+      image_gallery:
+        weight: 15
         enabled: true
       list_of_links:
         weight: 4
