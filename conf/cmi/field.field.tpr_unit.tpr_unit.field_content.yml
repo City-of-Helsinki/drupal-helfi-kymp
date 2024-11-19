@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_cards
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.image_gallery
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
@@ -43,6 +44,7 @@ settings:
       remote_video: remote_video
       columns: columns
       contact_card_listing: contact_card_listing
+      image_gallery: image_gallery
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -65,6 +67,9 @@ settings:
         enabled: true
       image:
         weight: 3
+        enabled: true
+      image_gallery:
+        weight: 10
         enabled: true
       list_of_links:
         weight: 4
