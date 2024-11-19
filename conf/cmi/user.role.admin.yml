@@ -27,9 +27,9 @@ dependencies:
     - content_translation
     - editoria11y
     - entity_usage
+    - eu_cookie_compliance
     - file
     - filter
-    - hdbt_cookie_banner
     - helfi_api_base
     - helfi_tpr
     - locale
@@ -74,7 +74,8 @@ permissions:
   - 'access tpr_unit overview'
   - 'access user profiles'
   - 'administer blocks'
-  - 'administer hdbt_cookie_banner'
+  - 'administer eu cookie compliance categories'
+  - 'administer eu cookie compliance popup'
   - 'administer menu'
   - 'administer nodes'
   - 'administer paragraphs library'
@@ -145,6 +146,7 @@ permissions:
   - 'delete remote entities'
   - 'delete terms in keywords'
   - 'disable own tfa'
+  - 'display eu cookie compliance popup'
   - 'edit any announcement content'
   - 'edit any district content'
   - 'edit any file media'
