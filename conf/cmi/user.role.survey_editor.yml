@@ -6,7 +6,6 @@ dependencies:
     - node.type.survey
   module:
     - content_translation
-    - eu_cookie_compliance
     - node
     - publication_date
     - tfa
@@ -22,7 +21,6 @@ permissions:
   - 'delete own survey content'
   - 'delete survey revisions'
   - 'disable own tfa'
-  - 'display eu cookie compliance popup'
   - 'edit any survey content'
   - 'edit own survey content'
   - 'revert survey revisions'
