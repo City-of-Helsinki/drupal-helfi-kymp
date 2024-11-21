@@ -5,7 +5,6 @@ dependencies:
   config:
     - rest.resource.helfi_global_mobile_menu
   module:
-    - eu_cookie_compliance
     - external_entities
     - file
     - helfi_api_base
@@ -28,7 +27,6 @@ permissions:
   - 'access toolbar'
   - 'delete own files'
   - 'disable own tfa'
-  - 'display eu cookie compliance popup'
   - 'restful get helfi_global_mobile_menu'
   - 'send javascript errors to sentry'
   - 'setup own tfa'
