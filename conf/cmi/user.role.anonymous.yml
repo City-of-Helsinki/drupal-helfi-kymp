@@ -5,7 +5,6 @@ dependencies:
   config:
     - rest.resource.helfi_global_mobile_menu
   module:
-    - eu_cookie_compliance
     - external_entities
     - helfi_api_base
     - helfi_tpr
@@ -21,7 +20,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'display eu cookie compliance popup'
   - 'restful get helfi_global_mobile_menu'
   - 'send javascript errors to sentry'
   - 'view helfi_announcements external entity'
