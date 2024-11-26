@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.media.field_media_image
     - field.storage.node.field_project_district
     - field.storage.node.field_project_external_website
-    - field.storage.media.field_media_image
     - field.storage.node.field_project_image
     - field.storage.node.field_project_phase
     - field.storage.node.field_project_search_metatags
@@ -13,10 +13,10 @@ dependencies:
     - field.storage.node.field_project_type
     - search_api.server.elastic_kymp
   module:
-    - node
+    - helfi_react_search
     - media
+    - node
     - taxonomy
-    - search_api
 id: projects
 name: Projects
 description: ''
