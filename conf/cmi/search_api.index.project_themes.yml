@@ -5,8 +5,8 @@ dependencies:
   config:
     - search_api.server.elastic_kymp
   module:
+    - helfi_react_search
     - taxonomy
-    - search_api
 id: project_themes
 name: 'Project themes'
 description: 'Project themes from taxonomy to be used for search filters.'

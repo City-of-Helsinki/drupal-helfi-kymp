@@ -5,8 +5,8 @@ dependencies:
   config:
     - search_api.server.elastic_kymp
   module:
+    - helfi_react_search
     - taxonomy
-    - search_api
 id: project_phases
 name: 'Project phases'
 description: 'Project phases from taxonomy to be used for search filters.'

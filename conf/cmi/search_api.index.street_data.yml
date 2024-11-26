@@ -5,9 +5,8 @@ dependencies:
   config:
     - search_api.server.elastic_kymp
   module:
-    - search_api
-    - helfi_react_search
     - helfi_kymp_content
+    - helfi_react_search
 id: street_data
 name: 'Street data'
 description: 'Street data for street maintenance class search.'
