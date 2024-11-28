@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 /**
  * Service for fetching street data from kartta.hel.fi.
  */
-final readonly class StreetDataService {
+class StreetDataService {
 
   public const API_URL = 'https://kartta.hel.fi/ws/geoserver/avoindata/wfs';
 
@@ -21,17 +21,17 @@ final readonly class StreetDataService {
    * Constructs a new StreetDataService instance.
    */
   public function __construct(
-    protected ClientInterface $client,
-    protected TypedDataManagerInterface $typedDataManager,
+    protected readonly ClientInterface $client,
+    protected readonly TypedDataManagerInterface $typedDataManager,
     #[Autowire(service: 'logger.channel.helfi_kymp_content')]
-    protected LoggerInterface $logger,
+    protected readonly LoggerInterface $logger,
   ) {
   }
 
   /**
    * Gets street data.
    *
-   * @return \Drupal\helfi_kymp_content\Plugin\DataType\StreetData[]
+   * @return array<int|string, \Drupal\Core\TypedData\ComplexDataInterface>
    *   Street data.
    */
   public function getStreetData(): array {
@@ -56,10 +56,12 @@ final readonly class StreetDataService {
       return [];
     }
 
-    libxml_use_internal_errors(TRUE);
+    $internal_errors = libxml_use_internal_errors(TRUE);
     $doc = new \DOMDocument(encoding: 'UTF-8');
+    $doc->preserveWhiteSpace = FALSE;
     $doc->loadXML($xmlResult);
     $errors = libxml_get_errors();
+    libxml_use_internal_errors($internal_errors);
 
     if ($errors) {
       $this->logger->error('Errors while parsing street data xml string.');
@@ -68,6 +70,10 @@ final readonly class StreetDataService {
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
+      if (!$street_data instanceof \DOMElement) {
+        continue;
+      }
+
       $id = $street_data->getAttribute('gml:id');
       if (!$id) {
         continue;
