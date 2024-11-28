@@ -6,8 +6,8 @@ namespace Drupal\helfi_kymp_content\Plugin\search_api\datasource;
 
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\TypedDataTrait;
+use Drupal\helfi_kymp_content\Plugin\DataType\StreetData;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
 use GuzzleHttp\ClientInterface;
@@ -155,24 +155,7 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
    * {@inheritdoc}
    */
   public function getPropertyDefinitions(): array {
-    $property_definition = [];
-
-    $property_definition['id'] = DataDefinition::create('integer')
-      ->setLabel('id')
-      ->setRequired(TRUE);
-    $property_definition['street_name'] = DataDefinition::create('string')
-      ->setLabel('Street name')
-      ->addConstraint('Range', ['min' => 0, 'max' => 255])
-      ->setRequired(TRUE);
-    $property_definition['length'] = DataDefinition::create('integer')
-      ->setLabel('Length')
-      ->setRequired(TRUE);
-    $property_definition['maintenance_class'] = DataDefinition::create('integer')
-      ->setLabel('Maintenance class')
-      ->addConstraint('Range', ['min' => 0, 'max' => 5])
-      ->setRequired(TRUE);
-
-    return $property_definition;
+    return StreetData::propertyDefinitions();
   }
 
 }
