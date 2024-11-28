@@ -11,6 +11,7 @@ use Drupal\helfi_kymp_content\Plugin\DataType\StreetData;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -79,7 +80,7 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
       'typeName' => 'avoindata:YLRE_Katualue_alue',
       'propertyname' => 'avoindata:kadun_nimi,avoindata:kayttotarkoitus,avoindata:yllapitoluokka,avoindata:pituus',
     ]);
-    $uri = sprintf('%s?%s', 'https://kartta.hel.fi/ws/geoserver/avoindata/wfs', $query);
+    $uri = sprintf('%s?%s', self::API_URL, $query);
 
     try {
       $content = $this->client->request('GET', $uri);
@@ -88,7 +89,7 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
         return [];
       }
     }
-    catch (\Exception $e) {
+    catch (GuzzleException $e) {
       $this->logger->error("Errors while fetching street data from kartta.hel.fi: {$e->getMessage()}");
       return [];
     }
@@ -105,16 +106,18 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
 
     $data = [];
     foreach ($doc->firstChild->firstChild->childNodes->getIterator() as $street_data) {
-      $id = NULL;
-      $single_street = [];
+      $id = $street_data->getAttribute('gml:id');
+
+      if (!$id || $ids && !in_array($id, $ids)) {
+        continue;
+      }
+
+      $single_street = [
+        'id' => $id,
+      ];
 
       foreach ($street_data->childNodes->getIterator() as $field) {
         switch ($field->nodeName) {
-          case 'avoindata:katualue_id':
-            $id = $field->nodeValue;
-            $single_street['id'] = $ids && $id && in_array($id, $ids) ? $id : NULL;
-            break;
-
           case 'avoindata:kadun_nimi':
             $single_street['street_name'] = $field->nodeValue;
             break;
@@ -128,10 +131,6 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
             $single_street['maintenance_class'] = strlen($field->nodeValue);
             break;
         }
-      }
-
-      if ($ids && $id && !in_array($id, $ids)) {
-        continue;
       }
 
       $street_data_definition = $this->getTypedDataManager()->createDataDefinition('street_data');

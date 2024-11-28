@@ -27,7 +27,7 @@ class StreetData extends Map {
   public static function propertyDefinitions(): array {
     $properties = [];
 
-    $properties['id'] = DataDefinition::create('integer')
+    $properties['id'] = DataDefinition::create('string')
       ->setLabel('id')
       ->setRequired(TRUE);
 
