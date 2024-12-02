@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.server.elastic_kymp
+    - search_api.server.default
   module:
     - helfi_react_search
     - node
@@ -60,4 +60,4 @@ options:
   cron_limit: 50
   index_directly: false
   track_changes_in_references: true
-server: elastic_kymp
+server: default

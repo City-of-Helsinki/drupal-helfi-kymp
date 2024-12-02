@@ -11,7 +11,7 @@ dependencies:
     - field.storage.node.field_project_search_metatags
     - field.storage.node.field_project_theme
     - field.storage.node.field_project_type
-    - search_api.server.elastic_kymp
+    - search_api.server.default
   module:
     - helfi_react_search
     - media
@@ -230,4 +230,4 @@ options:
   cron_limit: 50
   index_directly: false
   track_changes_in_references: true
-server: elastic_kymp
+server: default
