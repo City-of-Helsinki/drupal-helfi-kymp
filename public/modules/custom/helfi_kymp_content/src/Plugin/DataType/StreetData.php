@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content\Plugin\DataType;
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\TypedData\Attribute\DataType;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\Plugin\DataType\Map;
+use Drupal\helfi_kymp_content\TypedData\StreetDataDefinition;
 
 /**
  * Street data type.
- *
- * @DataType(
- *   id = "street_data",
- *   label = @Translation("Street data"),
- *   constraints = {},
- *   definition_class = "\Drupal\helfi_kymp_content\TypedData\StreetDataDefinition"
- * )
  */
+#[DataType(
+  id: "street_data",
+  label: new TranslatableMarkup("Street data"),
+  definition_class: StreetDataDefinition::class,
+  constraints: [],
+)]
 class StreetData extends Map {
 
   /**
@@ -25,7 +27,7 @@ class StreetData extends Map {
   public static function propertyDefinitions(): array {
     $properties = [];
 
-    $properties['id'] = DataDefinition::create('integer')
+    $properties['id'] = DataDefinition::create('string')
       ->setLabel('id')
       ->setRequired(TRUE);
 

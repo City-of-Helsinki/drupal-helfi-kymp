@@ -1,4 +1,8 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
   logger.channel.helfi_kymp_content:
     parent: logger.channel_base
     arguments:
@@ -9,3 +13,5 @@ services:
     arguments: ['@logger.channel.helfi_kymp_content']
     tags:
       - { name: event_subscriber }
+
+  Drupal\helfi_kymp_content\StreetDataService: ~

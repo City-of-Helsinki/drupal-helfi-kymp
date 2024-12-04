@@ -3,11 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.server.elastic_kymp
+    - search_api.server.default
   module:
-    - search_api
-    - helfi_react_search
     - helfi_kymp_content
+    - helfi_react_search
 id: street_data
 name: 'Street data'
 description: 'Street data for street maintenance class search.'
@@ -53,4 +52,4 @@ options:
   cron_limit: 50
   index_directly: false
   track_changes_in_references: true
-server: elastic_kymp
+server: default
