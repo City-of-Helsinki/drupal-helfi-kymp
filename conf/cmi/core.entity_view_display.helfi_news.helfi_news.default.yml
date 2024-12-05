@@ -4,23 +4,13 @@ status: true
 dependencies:
   module:
     - external_entities
-    - imagecache_external
 _core:
-  default_config_hash: TzFYs57VYyNSZxEoCXjHYfpzD22uE9zZlC0p7bmsREk
+  default_config_hash: MK1WwyJih8WwRaem-6cDbbs9ea-7dGXkUwnOJkuEYNU
 id: helfi_news.helfi_news.default
 targetEntityType: helfi_news
 bundle: helfi_news
 mode: default
 content:
-  main_image:
-    type: imagecache_external_responsive_image
-    label: hidden
-    settings:
-      imagecache_external_link: ''
-      imagecache_external_responsive_style: gallery_thumbnail
-    third_party_settings: {  }
-    weight: 1
-    region: content
   title:
     type: string
     label: hidden
