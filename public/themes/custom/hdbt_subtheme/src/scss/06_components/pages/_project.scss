@@ -51,15 +51,6 @@
   }
 }
 
-.page-type--project {
-  .lower-content .component--list-of-links:last-of-type {
-    background-color: $color-black-5;
-    margin-bottom: calc((#{$footer-koro-height} + #{$spacing-quadruple}) * -1);
-    padding-bottom: $spacing-sextuple;
-    padding-top: $spacing-sextuple;
-  }
-}
-
 /* Project teaser specific styles */
 .project-teaser .content-tags {
   margin-top: 0;
