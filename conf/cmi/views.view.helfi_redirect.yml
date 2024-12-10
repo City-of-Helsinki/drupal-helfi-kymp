@@ -1,14 +1,16 @@
-uuid: 423e1dde-0df2-4c3f-82ed-e22c9910770e
+uuid: bf25e83d-5e50-4476-a09f-b072a996e778
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - system.menu.admin
   module:
     - link
     - redirect
     - user
 _core:
-  default_config_hash: 7-f_3ASk-Ly7MqcUiwREHB0r0l-jkq7bKwjRLTMhDEs
-id: redirect
+  default_config_hash: h9PYX1gxwmkwfgZUv0BJ_Js6-woWmUbyPSK0INlm538
+id: helfi_redirect
 label: Redirect
 module: views
 description: 'List of redirects'
@@ -18,7 +20,7 @@ base_field: rid
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
@@ -155,6 +157,73 @@ display:
           entity_type: redirect
           entity_field: status_code
           plugin_id: field
+        is_custom:
+          id: is_custom
+          table: redirect
+          field: is_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: redirect
+          entity_field: is_custom
+          plugin_id: field
+          label: Custom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: unicode-yes-no
+            format_custom_false: ''
+            format_custom_true: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         language:
           id: language
           table: redirect
@@ -405,112 +474,49 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              -
-                value: {  }
-              -
-                value: {  }
-              -
-                value: {  }
-              -
-                value: {  }
-              -
-                value: {  }
-              -
-                value: {  }
-              -
-                value: {  }
-              -
+              1:
                 title: '300 Multiple Choices'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '300'
-              -
+              2:
                 title: '301 Moved Permanently'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '301'
-              -
+              3:
                 title: '302 Found'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '302'
-              -
+              4:
                 title: '303 See Other'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '303'
-              -
+              5:
                 title: '304 Not Modified'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '304'
-              -
+              6:
                 title: '305 Use Proxy'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '305'
-              -
-                title: '307 Temporary Redirect'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '307'
-              -
-                title: '300 Multiple Choices'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '300'
-              -
-                title: '301 Moved Permanently'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '301'
-              -
-                title: '302 Found'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '302'
-              -
-                title: '303 See Other'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '303'
-              -
-                title: '304 Not Modified'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '304'
-              -
-                title: '305 Use Proxy'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '305'
-              -
+              7:
                 title: '307 Temporary Redirect'
                 operator: '='
                 value:
@@ -560,10 +566,108 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        is_custom:
+          id: is_custom
+          table: redirect
+          field: is_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: redirect
+          entity_field: is_custom
+          plugin_id: boolean
+          operator: '='
+          value: All
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Custom
+            description: ''
+            use_operator: false
+            operator: is_custom_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: is_custom
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              read_only: '0'
+              content_producer: '0'
+              editor: '0'
+              admin: '0'
+              menu_api: '0'
+              super_administrator: '0'
+              news_producer: '0'
+              survey_editor: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status:
+          id: status
+          table: redirect
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: redirect
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Julkaistu
+            description: ''
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              read_only: '0'
+              content_producer: '0'
+              editor: '0'
+              admin: '0'
+              menu_api: '0'
+              super_administrator: '0'
+              news_producer: '0'
+              survey_editor: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
-          - AND
+          1: AND
       style:
         type: table
         options:
@@ -659,6 +763,15 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/config/search/redirect
+      menu:
+        type: normal
+        title: Redirect
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: hdbt_admin_tools.overview
+        context: '0'
     cache_metadata:
       max-age: 0
       contexts:

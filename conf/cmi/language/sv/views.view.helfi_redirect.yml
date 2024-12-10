@@ -1,0 +1,65 @@
+label: Omdirigera
+description: 'Lista över omdirigeringar'
+display:
+  default:
+    display_title: Förvald
+    display_options:
+      title: Omdirigera
+      fields:
+        redirect_bulk_form:
+          action_title: 'Med urval'
+        redirect_source__path:
+          label: Från
+          separator: ', '
+        is_custom:
+          label: Anpassad
+          separator: ', '
+        created:
+          label: Skapad
+      pager:
+        options:
+          tags:
+            next: 'next ›'
+            previous: '‹ previous'
+            first: '« first'
+            last: 'last »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Filtrera
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      empty:
+        area_text_custom:
+          content: 'Det finns ingen omdirigering ännu.'
+      filters:
+        redirect_source__path:
+          expose:
+            label: Från
+        redirect_redirect__uri:
+          expose:
+            label: Till
+        status_code:
+          expose:
+            label: Statuskod
+          group_info:
+            label: Statuskod
+            group_items:
+              7:
+                title: '300 Multiple Choices'
+        language:
+          expose:
+            label: Ursprungsspråk
+        is_custom:
+          expose:
+            label: Anpassad
+  page_1:
+    display_title: Sida
+    display_options:
+      menu:
+        title: Omdirigera
