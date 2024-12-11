@@ -12,7 +12,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: PZYH0XJHai5BanrU841HBb6psP_104W5Abd-D8q4dIU
+  default_config_hash: S0Go4odbO-zxS9ydKxxo5m6EuhdnpZiM4g5Y3tYk-98
 id: paragraph.accordion_item.field_accordion_item_content
 field_name: field_accordion_item_content
 entity_type: paragraph
@@ -27,20 +27,20 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      columns: columns
-      image: image
       text: text
+      image: image
       phasing: phasing
+      columns: columns
     negate: 0
     target_bundles_drag_drop:
       columns:
-        weight: 0
+        weight: 3
         enabled: true
       image:
-        weight: 0
+        weight: 1
         enabled: true
       phasing:
-        weight: 0
+        weight: 2
         enabled: true
       text:
         weight: 0
