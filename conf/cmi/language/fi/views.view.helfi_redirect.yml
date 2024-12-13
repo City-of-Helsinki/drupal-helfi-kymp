@@ -5,20 +5,20 @@ display:
         status_code:
           group_info:
             group_items:
-              7:
-                title: '300 Multiple Choices'
               1:
-                title: '300 Multiple Choices'
+                title: '300 Useita valintoja'
               2:
-                title: '301 Moved Permanently'
+                title: '301 Pysyvästi siirretty'
               3:
-                title: '302 Found'
+                title: '302 Löydetty'
               4:
-                title: '303 See Other'
+                title: '303 Kts. toinen'
               5:
-                title: '304 Not Modified'
+                title: '304 Muuttamaton'
               6:
-                title: '305 Use Proxy'
+                title: '305 Käytä proxyä'
+              7:
+                title: '307 Tilapäinen uudelleenohjaus'
             label: Tilakoodi
           expose:
             label: Tilakoodi
@@ -34,6 +34,9 @@ display:
         is_custom:
           expose:
             label: 'Käyttäjän luoma'
+        status:
+          expose:
+            label: Julkaistu
       exposed_form:
         options:
           submit_button: Suodata
@@ -48,10 +51,10 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset_label: Offset
           tags:
-            next: 'next ›'
-            previous: '‹ previous'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ edellinen'
+            next: 'seuraava ›'
+            first: '« ensimmäinen'
+            last: 'viimeinen »'
       fields:
         redirect_bulk_form:
           action_title: Valinnalla
@@ -62,6 +65,9 @@ display:
           label: Luotu
         is_custom:
           label: 'Käyttäjän luoma'
+          separator: ', '
+        status:
+          label: Julkaistu
           separator: ', '
       empty:
         area_text_custom:
