@@ -16,6 +16,9 @@ display:
           separator: ', '
         created:
           label: Skapad
+        status:
+          label: Publicerad
+          separator: ', '
       pager:
         options:
           tags:
@@ -58,6 +61,9 @@ display:
         is_custom:
           expose:
             label: Anpassad
+        status:
+          expose:
+            label: Publicerad
   page_1:
     display_title: Sida
     display_options:
