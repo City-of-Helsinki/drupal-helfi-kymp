@@ -5,17 +5,17 @@ display:
         status_code:
           group_info:
             group_items:
-              15:
+              1:
                 title: '300 Useita valintoja'
-              16:
+              2:
                 title: '301 Pysyvästi siirretty'
-              17:
+              3:
                 title: '302 Löydetty'
-              18:
+              4:
                 title: '303 Kts. toinen'
-              19:
+              5:
                 title: '304 Muuttamaton'
-              20:
+              6:
                 title: '305 Käytä proxyä'
               7:
                 title: '307 Tilapäinen uudelleenohjaus'
@@ -31,6 +31,12 @@ display:
         language:
           expose:
             label: 'Alkuperäinen kieli'
+        is_custom:
+          expose:
+            label: 'Käyttäjän luoma'
+        status:
+          expose:
+            label: Julkaistu
       exposed_form:
         options:
           submit_button: Suodata
@@ -40,15 +46,15 @@ display:
           sort_desc_label: Laskevasti
       pager:
         options:
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
           tags:
             previous: '‹ edellinen'
             next: 'seuraava ›'
             first: '« ensimmäinen'
             last: 'viimeinen »'
-          expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
       fields:
         redirect_bulk_form:
           action_title: Valinnalla
@@ -57,12 +63,21 @@ display:
           separator: ', '
         created:
           label: Luotu
-      title: Uudelleenohjaukset
+        is_custom:
+          label: 'Käyttäjän luoma'
+          separator: ', '
+        status:
+          label: Julkaistu
+          separator: ', '
       empty:
         area_text_custom:
           content: 'Ei ole vielä uudelleenohjaksia.'
+      title: Uudelleenohjaukset
     display_title: Oletus
   page_1:
     display_title: Sivu
+    display_options:
+      menu:
+        title: Uudelleenohjaukset
 label: Uudelleenohjaukset
 description: Uudelleenohjaukset
