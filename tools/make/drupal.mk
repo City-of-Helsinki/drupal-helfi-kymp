@@ -92,7 +92,8 @@ PHONY += new
 new: $(DRUPAL_NEW_TARGETS) ## Create a new empty Drupal installation from configuration
 
 dump.sql:
-	@docker run --network host --env-file .env -it --rm -v $(shell pwd):/app --name helfi-oc ghcr.io/city-of-helsinki/drupal-oc-cli:latest sh -c "db-sync"
+	@touch /tmp/kube-config
+	@docker run --network host --env-file .env -it --rm -v /tmp/kube-config:/root/.kube/config -v $(shell pwd):/app --name helfi-oc ghcr.io/city-of-helsinki/drupal-oc-cli:latest sh -c "db-sync"
 	$(call docker_compose_exec,gunzip dump.sql.gz)
 
 PHONY += drush-import-dump
