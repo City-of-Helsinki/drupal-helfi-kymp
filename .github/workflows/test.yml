@@ -19,7 +19,7 @@ jobs:
           fi
 
       - name: Run tests
-        uses: city-of-helsinki/drupal-gh-actions/.github/workflows/project-tests.yml
+        uses: city-of-helsinki/drupal-gh-actions/.github/workflows/project-tests.yml@main
 
       - name: Check that subtheme is not built with dev mode
         run: docker compose exec app bash -c "if grep -q 'sourceMappingURL=' -R public/themes/custom/hdbt_subtheme/dist/css; then exit 1; fi"
