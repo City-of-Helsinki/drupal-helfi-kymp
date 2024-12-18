@@ -6,3 +6,6 @@ name: CI
 jobs:
   tests:
     uses: city-of-helsinki/.github/workflows/project-tests.yml@main
+    with:
+      caller_repository: ${{ github.repository }}
+      caller_ref: ${{ github.ref }}
