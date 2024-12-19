@@ -7,4 +7,4 @@ jobs:
   update-config:
     uses: city-of-helsinki/drupal-gh-actions/.github/workflows/update-config.yml@main
     with:
-      automatic_update_token: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
+      automatic_update_token: "${{ secrets.AUTOMATIC_UPDATE_TOKEN }}"
