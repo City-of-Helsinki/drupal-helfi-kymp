@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.unit_contact_card.field_unit_contact_title
+    - field.field.paragraph.unit_contact_card.field_unit_contact_heading
     - field.field.paragraph.unit_contact_card.field_unit_contact_unit
     - field.field.paragraph.unit_contact_card.field_unit_contact_use_address
     - field.field.paragraph.unit_contact_card.field_unit_contact_use_details
@@ -15,20 +15,12 @@ dependencies:
     - field.field.paragraph.unit_contact_card.field_unit_contact_use_postal
     - paragraphs.paragraphs_type.unit_contact_card
 _core:
-  default_config_hash: DvEDTYQYY2bJ_PzPZtlMEowZm2o5MrLaCa3p9T-NTAs
+  default_config_hash: ueLmUIlWmD3niFjRRANYBSf1QCFcMlnGSGdCZ34IcNw
 id: paragraph.unit_contact_card.default
 targetEntityType: paragraph
 bundle: unit_contact_card
 mode: default
 content:
-  field_unit_contact_title:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_unit_contact_unit:
     type: entity_reference_label
     label: hidden
@@ -38,6 +30,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_unit_contact_heading: true
   field_unit_contact_use_address: true
   field_unit_contact_use_details: true
   field_unit_contact_use_link: true
