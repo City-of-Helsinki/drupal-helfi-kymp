@@ -4,6 +4,8 @@ DRUPAL_CONF_EXISTS := $(shell test -f conf/cmi/core.extension.yml && echo yes ||
 DRUPAL_CREATE_FOLDERS := /app/public/sites/default/files/private
 DRUPAL_CREATE_FOLDERS += /app/public/sites/default/files/translations
 
+DRUPAL_PROFILE ?= minimal
+
 PHONY += drupal-create-folders
 drupal-create-folders:
 	$(call step,Create folders for Drupal...\n)
@@ -50,6 +52,12 @@ drush-si: ## Site install
 	$(call step,Do Drush site:install...\n)
 	$(call drush,si ${DRUSH_SI})
 
+PHONY += drush-helfi-enable-modules
+drush-helfi-enable-modules: ## Enable modules and base configurations.
+	$(call step,Install base configurations...)
+	$(call drush,cr)
+	$(call drush,en -y helfi_platform_config helfi_platform_config_base)
+
 PHONY += drush-deploy
 drush-deploy: ## Run Drush deploy
 	$(call step,Run Drush deploy...\n)
@@ -87,13 +95,13 @@ DRUPAL_FRESH_TARGETS := up drupal-create-folders composer-install drush-import-d
 PHONY += fresh
 fresh: $(DRUPAL_FRESH_TARGETS) ## Build fresh development environment and sync
 
-DRUPAL_NEW_TARGETS := up drupal-create-folders composer-install drush-si $(DRUPAL_POST_INSTALL_TARGETS)
+DRUPAL_NEW_TARGETS := up drupal-create-folders composer-install drush-si drush-helfi-enable-modules drush-cr drush-unblock drush-uli
 PHONY += new
 new: $(DRUPAL_NEW_TARGETS) ## Create a new empty Drupal installation from configuration
 
 dump.sql:
 	@touch /tmp/kube-config
-	@docker run --network host --env-file .env -it --rm -v /tmp/kube-config:/root/.kube/config -v $(shell pwd):/app --name helfi-oc ghcr.io/city-of-helsinki/drupal-oc-cli:latest sh -c "db-sync"
+	@docker run --pull=always --env-file .env -it --rm -v /tmp/kube-config:/root/.kube/config -v $(shell pwd):/app --name helfi-oc ghcr.io/city-of-helsinki/drupal-oc-cli:latest sh -c "db-sync"
 	$(call docker_compose_exec,gunzip dump.sql.gz)
 
 PHONY += drush-import-dump
