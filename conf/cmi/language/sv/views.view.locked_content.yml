@@ -1,4 +1,3 @@
-label: 'Locked content'
 display:
   default:
     display_title: Förvald
@@ -13,10 +12,10 @@ display:
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Första'
             last: 'Sista »'
+            next: ››
+            previous: ‹‹
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
@@ -31,7 +30,7 @@ display:
           label: Innehållstyp
           separator: ', '
         name:
-          label: 'Lock owner'
+          label: 'Lås ägare'
           separator: ', '
         operations:
           label: Funktioner
@@ -44,15 +43,16 @@ display:
             group_items:
               1:
                 title: Publicerad
-        type:
-          expose:
-            label: Innehållstyp
         title:
           expose:
             label: Titel
-      title: 'Locked content'
+        type:
+          expose:
+            label: Innehållstyp
+      title: 'Låst innehåll'
   page_1:
     display_title: Sida
     display_options:
       menu:
-        title: 'Locked content'
+        title: 'Låst innehåll'
+label: 'Låst innehåll'

@@ -1,35 +1,42 @@
-label: Omdirigera
-description: 'Lista över omdirigeringar'
 display:
   default:
-    display_title: Förvald
     display_options:
-      title: Omdirigera
-      fields:
-        redirect_bulk_form:
-          action_title: 'Med urval'
-        redirect_source__path:
-          label: Från
-          separator: ', '
-        is_custom:
-          label: Anpassad
-          separator: ', '
-        created:
-          label: Skapad
-        status:
-          label: Publicerad
-          separator: ', '
-      pager:
-        options:
-          tags:
-            next: 'next ›'
-            previous: '‹ previous'
-            first: '« first'
-            last: 'last »'
+      filters:
+        status_code:
+          group_info:
+            group_items:
+              1:
+                title: '300 Flera val'
+              2:
+                title: '301 Flyttad permanent'
+              3:
+                title: '302 Hittad'
+              4:
+                title: '303 Se annan'
+              5:
+                title: '304 Ej modifierad'
+              6:
+                title: '305 Använd proxy'
+              7:
+                title: '307 Tillfällig omdirigering'
+            label: Statuskod
           expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
+            label: Statuskod
+        redirect_source__path:
+          expose:
+            label: Från
+        redirect_redirect__uri:
+          expose:
+            label: Till
+        language:
+          expose:
+            label: Originalspråk
+        is_custom:
+          expose:
+            label: Användarskapad
+        status:
+          expose:
+            label: Publicerad
       exposed_form:
         options:
           submit_button: Filtrera
@@ -37,35 +44,40 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+          tags:
+            previous: '‹ föregående'
+            next: 'nästa ›'
+            first: '« första'
+            last: 'sista »'
+      fields:
+        redirect_bulk_form:
+          action_title: 'Med valda'
+        redirect_source__path:
+          label: Från
+          separator: ', '
+        created:
+          label: Skapad
+        is_custom:
+          label: Användarskapad
+          separator: ', '
+        status:
+          label: Publicerad
+          separator: ', '
       empty:
         area_text_custom:
-          content: 'Det finns ingen omdirigering ännu.'
-      filters:
-        redirect_source__path:
-          expose:
-            label: Från
-        redirect_redirect__uri:
-          expose:
-            label: Till
-        status_code:
-          expose:
-            label: Statuskod
-          group_info:
-            label: Statuskod
-            group_items:
-              7:
-                title: '300 Multiple Choices'
-        language:
-          expose:
-            label: Ursprungsspråk
-        is_custom:
-          expose:
-            label: Anpassad
-        status:
-          expose:
-            label: Publicerad
+          content: 'Det finns inga omdirigeringar ännu.'
+      title: Redirect
+    display_title: Förvald
   page_1:
     display_title: Sida
     display_options:
       menu:
-        title: Omdirigera
+        title: Redirect
+label: Redirect
+description: 'List of redirects'
