@@ -2,8 +2,6 @@ uuid: 6e748642-6026-4d90-9a6b-fa2a59491647
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.admin
   module:
     - node
     - scheduler
@@ -723,8 +721,8 @@ display:
             remember: false
             multiple: false
             remember_roles:
-              anonymous: '0'
               authenticated: '0'
+              anonymous: '0'
               administrator: '0'
           is_grouped: true
           group_info:

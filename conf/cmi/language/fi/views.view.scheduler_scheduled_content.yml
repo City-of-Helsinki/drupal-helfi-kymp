@@ -3,20 +3,6 @@ description: 'Etsi ja ylläpidä ajastettua sisältöä.'
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          submit_button: Suodata
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
-      pager:
-        options:
-          tags:
-            previous: '‹ edellinen'
-            next: 'seuraava ›'
-            first: '« ensimmäinen'
-            last: 'viimeinen »'
       fields:
         node_bulk_form:
           action_title: Toiminto
@@ -67,6 +53,20 @@ display:
       empty:
         area_text_custom:
           content: 'Ei vielä ajastettua sisältöä.'
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ edellinen'
+            next: 'seuraava ›'
+            first: '« ensimmäinen'
+            last: 'viimeinen »'
     display_title: Oletus
   overview:
     display_options:
@@ -74,7 +74,6 @@ display:
         title: Ajastettu
       tab_options:
         title: Sisältö
-        description: 'Find and manage scheduled content'
       display_description: 'Yleiskatsaus koko ajoitetusta sisällöstä.'
     display_title: Sisältö
   user_page:
@@ -83,8 +82,6 @@ display:
         title: Ajastettu
       tab_options:
         title: Sisältö
-        description: 'Find and manage scheduled content'
-      display_description: "Scheduled content tab on user profile, showing just that user's scheduled content"
       arguments:
         uid:
           exception:
