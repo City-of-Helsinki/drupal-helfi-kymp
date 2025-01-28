@@ -9,7 +9,7 @@ dependencies:
     - redirect
     - user
 _core:
-  default_config_hash: T8ZZY-2rwfH9QPXho30lLjOnPsWsLzhy6YGOTix228k
+  default_config_hash: tH9tiLAhaR2LdCQkjUf5FTsU-8Adc_4pBxrNJPtBKL4
 id: helfi_redirect
 label: Redirect
 module: views
@@ -367,10 +367,10 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'next ›'
-            previous: '‹ previous'
-            first: '« first'
-            last: 'last »'
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
