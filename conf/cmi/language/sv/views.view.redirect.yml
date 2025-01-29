@@ -1,5 +1,5 @@
-label: Omdirigera
-description: 'Lista över omdirigeringar'
+label: Redirect
+description: 'List of redirects'
 display:
   default:
     display_title: Förvald
@@ -14,17 +14,17 @@ display:
       pager:
         options:
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: Föregående
+            next: Nästa
+            first: Första
+            last: Sista
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
             offset_label: Kompensera
       fields:
         redirect_bulk_form:
-          action_title: 'Med urval'
+          action_title: 'Med valda'
         redirect_source__path:
           label: Från
           separator: ', '
@@ -44,13 +44,13 @@ display:
             label: Statuskod
             group_items:
               7:
-                title: '300 Multiple Choices'
+                title: '307 Tillfällig omdirigering'
         language:
           expose:
-            label: Ursprungsspråk
-      title: Omdirigera
+            label: Originalspråk
+      title: Redirect
       empty:
         area_text_custom:
-          content: 'Det finns ingen omdirigering ännu.'
+          content: 'Det finns inga omdirigeringar ännu.'
   page_1:
     display_title: Sida

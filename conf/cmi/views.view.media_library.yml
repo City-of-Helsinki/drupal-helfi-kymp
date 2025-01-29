@@ -144,8 +144,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
+            next: Next
+            previous: Previous
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -271,11 +271,11 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              -
+              1:
                 title: Published
                 operator: '='
                 value: '1'
-              -
+              2:
                 title: Unpublished
                 operator: '='
                 value: '0'
@@ -477,13 +477,13 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-        - 'languages:language_content'
       tags: {  }
   page:
     id: page
@@ -1083,10 +1083,10 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
-            first: '« First'
-            last: 'Last »'
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'

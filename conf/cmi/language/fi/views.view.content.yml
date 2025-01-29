@@ -25,10 +25,10 @@ display:
       pager:
         options:
           tags:
-            next: 'Seuraava ›'
-            previous: '‹ Edellinen'
-            first: '« Ensimmäinen'
-            last: 'Viimeinen »'
+            next: Seuraava
+            previous: Edellinen
+            first: Ensimmäinen
+            last: Viimeinen
       exposed_form:
         options:
           submit_button: Suodata
@@ -54,6 +54,8 @@ display:
             group_items:
               1:
                 title: Julkaistu
+              2:
+                title: Julkaisematon
         langcode:
           expose:
             label: Kieli

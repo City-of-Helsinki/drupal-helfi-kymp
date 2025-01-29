@@ -10,7 +10,7 @@ display:
           label: Titel
           separator: ', '
         name_1:
-          label: 'Lock owner'
+          label: 'Lås ägare'
           separator: ', '
         langcode:
           label: 'Content language'
@@ -20,10 +20,10 @@ display:
       pager:
         options:
           tags:
-            next: 'Nästa ›'
-            previous: '‹ Föregående'
-            first: '« Första'
-            last: 'Sista »'
+            next: Nästa
+            previous: Föregående
+            first: Första
+            last: Sista
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'

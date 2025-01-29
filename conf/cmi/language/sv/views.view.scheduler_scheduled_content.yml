@@ -1,21 +1,6 @@
-label: 'Scheduled content'
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          submit_button: Filtrera
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
       fields:
         node_bulk_form:
           action_title: Åtgärd
@@ -29,10 +14,10 @@ display:
           label: Författare
           separator: ', '
         status:
-          label: Status
           settings:
             format_custom_true: Publicerad
             format_custom_false: 'Ej publicerad'
+          label: Status
           separator: ', '
         publish_on:
           label: 'Publicera den'
@@ -50,8 +35,6 @@ display:
           expose:
             label: Innehållstyp
         status:
-          expose:
-            label: Status
           group_info:
             label: 'Status för publicering'
             group_items:
@@ -59,10 +42,26 @@ display:
                 title: Publicerad
               2:
                 title: 'Ej publicerad'
+          expose:
+            label: Status
         langcode:
           expose:
             label: Språk
-      title: 'Scheduled Content'
+      exposed_form:
+        options:
+          submit_button: Filtrera
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: Föregående
+            next: Nästa
+            first: Första
+            last: Sista
+      title: 'Schemalagt innehåll'
       empty:
         area_text_custom:
           content: 'Inget schemalagt innehåll.'
@@ -73,7 +72,7 @@ display:
         title: Schemalagd
       tab_options:
         title: Innehåll
-    display_title: 'Content Overview'
+    display_title: Innehållsöversikt
   user_page:
     display_options:
       menu:
@@ -84,5 +83,5 @@ display:
         uid:
           exception:
             title: Alla
-    display_title: 'User profile tab'
+label: 'Schemalagt innehåll'
 description: 'Hitta och hantera schemalagt innehåll.'
