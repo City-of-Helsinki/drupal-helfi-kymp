@@ -4011,17 +4011,17 @@
         },
         {
             "name": "drupal/hal",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/hal.git",
-                "reference": "2.0.3"
+                "reference": "2.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/hal-2.0.3.zip",
-                "reference": "2.0.3",
-                "shasum": "81bc4b0bfdc6c3b7c2ec50f5eb4739451ff5c2ae"
+                "url": "https://ftp.drupal.org/files/projects/hal-2.0.4.zip",
+                "reference": "2.0.4",
+                "shasum": "5d98f2ebbc7952d183278351d24d3e51ea18c8ee"
             },
             "require": {
                 "drupal/core": "^10 || ^11"
@@ -4035,8 +4035,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1721252595",
+                    "version": "2.0.4",
+                    "datestamp": "1738532063",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4065,16 +4065,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.9.5",
+            "version": "6.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "2042bfc4bed397dcc60eec22dc7d5d06a0705418"
+                "reference": "e997096e0446fa8e2994c2c8b17494c099de89c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/2042bfc4bed397dcc60eec22dc7d5d06a0705418",
-                "reference": "2042bfc4bed397dcc60eec22dc7d5d06a0705418",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/e997096e0446fa8e2994c2c8b17494c099de89c1",
+                "reference": "e997096e0446fa8e2994c2c8b17494c099de89c1",
                 "shasum": ""
             },
             "require": {
@@ -4093,10 +4093,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.9.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.9.6",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-01-29T10:36:09+00:00"
+            "time": "2025-02-04T10:09:34+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -5821,6 +5821,10 @@
                 {
                     "name": "dgtlmoon",
                     "homepage": "https://www.drupal.org/user/25027"
+                },
+                {
+                    "name": "dpiet",
+                    "homepage": "https://www.drupal.org/user/3626504"
                 },
                 {
                     "name": "jstoller",
@@ -11261,16 +11265,16 @@
         },
         {
             "name": "stomp-php/stomp-php",
-            "version": "5.1.1",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stomp-php/stomp-php.git",
-                "reference": "942d93563eefc9dee40e836e594ee16dd08653f0"
+                "reference": "85e7ad490aeda7d23f8dd7c570aab08e096e40b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stomp-php/stomp-php/zipball/942d93563eefc9dee40e836e594ee16dd08653f0",
-                "reference": "942d93563eefc9dee40e836e594ee16dd08653f0",
+                "url": "https://api.github.com/repos/stomp-php/stomp-php/zipball/85e7ad490aeda7d23f8dd7c570aab08e096e40b6",
+                "reference": "85e7ad490aeda7d23f8dd7c570aab08e096e40b6",
                 "shasum": ""
             },
             "require": {
@@ -11318,7 +11322,7 @@
             ],
             "support": {
                 "issues": "https://github.com/stomp-php/stomp-php/issues",
-                "source": "https://github.com/stomp-php/stomp-php/tree/5.1.1"
+                "source": "https://github.com/stomp-php/stomp-php/tree/5.1.2"
             },
             "funding": [
                 {
@@ -11330,7 +11334,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-13T08:48:49+00:00"
+            "time": "2025-02-03T12:32:51+00:00"
         },
         {
             "name": "symfony/console",
