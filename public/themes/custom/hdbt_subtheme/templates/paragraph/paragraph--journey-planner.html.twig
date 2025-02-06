@@ -9,14 +9,16 @@
   %}
     {% block component_content %}
 
-      {% set after_planner_id = media_id ~ random() ~ '-after'|clean_id %}
-      {% set before_planner_id = media_id ~ random() ~ '-before'|clean_id %}
+      {% set skip_link_after = media_id ~ random() ~ '-after'|clean_id %}
+      {% set skip_link_before = media_id ~ random() ~ '-before'|clean_id %}
+      {% set cookie_consent_groups = ['preferences', 'statistics'] %}
 
       {% include '@hdbt/misc/embedded-content-cookie-compliance.twig' with {
         media_url: media_url,
         media_id: media_id,
         media_service_url: media_service_url,
         privacy_policy_url: privacy_policy_url,
+        cookie_consent_groups: cookie_consent_groups,
       } %}
 
       {% set drupal_settings = {
@@ -27,8 +29,9 @@
                 'src': media_url,
                 'title': 'Digitransit UI embedded search'|t({}, {'context': 'Journey planner'}),
                 'type': 'journey_planner',
-                'skipLinkAfterId' : after_planner_id,
-                'skipLinkBeforeId' : before_planner_id,
+                'skipLinkAfterId' : skip_link_after,
+                'skipLinkBeforeId' : skip_link_before,
+                'cookieConsentGroups' : cookie_consent_groups,
               }
             }
           }
