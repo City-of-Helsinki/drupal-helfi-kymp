@@ -10,7 +10,8 @@
     "build": "webpack --progress --mode=production --config webpack.config.js",
     "preinstall": "npx update-browserslist-db@latest",
     "lint": "lint-staged",
-    "lint:js": "eslint --fix src/"
+    "lint:js": "eslint --fix src/",
+    "prepare": "cd ../../../.. && husky install public/themes/custom/hdbt_subtheme/.husky || true"
   },
   "dependencies": {
     "@babel/core": "^7.23.2",
