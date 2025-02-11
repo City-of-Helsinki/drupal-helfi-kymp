@@ -2957,20 +2957,20 @@
         },
         {
             "name": "drupal/elasticsearch_connector",
-            "version": "8.0.0-alpha2",
+            "version": "8.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/elasticsearch_connector.git",
-                "reference": "8.0.0-alpha2"
+                "reference": "8.0.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha2.zip",
-                "reference": "8.0.0-alpha2",
-                "shasum": "35928100f913b7a1d57a362b528071034f2ae1ff"
+                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha3.zip",
+                "reference": "8.0.0-alpha3",
+                "shasum": "6743642017ed64be903526f8acf925f1351124e8"
             },
             "require": {
-                "drupal/core": "^9 || ^10 | ^11",
+                "drupal/core": "^9 || ^10 || ^11",
                 "drupal/search_api": "^1.23",
                 "elasticsearch/elasticsearch": "^8",
                 "makinacorpus/php-lucene": "^1.1",
@@ -2992,8 +2992,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.0.0-alpha2",
-                    "datestamp": "1722668348",
+                    "version": "8.0.0-alpha3",
+                    "datestamp": "1738945053",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -3026,7 +3026,7 @@
                     "homepage": "https://www.drupal.org/user/257311"
                 }
             ],
-            "description": "Provides an ElasticSearch backend for Search API.",
+            "description": "Provides a Search API backend for Elasticsearch (a powerful, distributed, RESTful search and analytics engine), using the official Elasticsearch PHP Client.",
             "homepage": "https://www.drupal.org/project/elasticsearch_connector",
             "support": {
                 "source": "https://git.drupalcode.org/project/elasticsearch_connector"
@@ -3520,6 +3520,10 @@
                 {
                     "name": "clemens.tolboom",
                     "homepage": "https://www.drupal.org/user/125814"
+                },
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
                 },
                 {
                     "name": "guignonv",
@@ -4065,16 +4069,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.9.13",
+            "version": "6.9.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "fb4210ba65715165f8db930dfda4704f5f649f09"
+                "reference": "b30f5a708ee6a9fbf5b777683667a35473103fa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/fb4210ba65715165f8db930dfda4704f5f649f09",
-                "reference": "fb4210ba65715165f8db930dfda4704f5f649f09",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/b30f5a708ee6a9fbf5b777683667a35473103fa7",
+                "reference": "b30f5a708ee6a9fbf5b777683667a35473103fa7",
                 "shasum": ""
             },
             "require": {
@@ -4093,10 +4097,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.9.13",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.9.16",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-02-06T13:35:32+00:00"
+            "time": "2025-02-11T07:11:26+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4186,16 +4190,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.7.22",
+            "version": "2.7.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "0ee94f8a401ecad58811c89ebaeafa2255168341"
+                "reference": "3b923419ffdec7cbf492a8bf01fb426f3cbda1af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/0ee94f8a401ecad58811c89ebaeafa2255168341",
-                "reference": "0ee94f8a401ecad58811c89ebaeafa2255168341",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/3b923419ffdec7cbf492a8bf01fb426f3cbda1af",
+                "reference": "3b923419ffdec7cbf492a8bf01fb426f3cbda1af",
                 "shasum": ""
             },
             "require": {
@@ -4227,10 +4231,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.7.22",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.7.23",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2025-02-05T09:19:31+00:00"
+            "time": "2025-02-10T08:43:36+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4402,16 +4406,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.12.14",
+            "version": "4.12.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "5ed16fbdc3125c346ce6df4a0140c1f5e27a0452"
+                "reference": "f903111158324d608b3d60f837472934d3d93f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/5ed16fbdc3125c346ce6df4a0140c1f5e27a0452",
-                "reference": "5ed16fbdc3125c346ce6df4a0140c1f5e27a0452",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f903111158324d608b3d60f837472934d3d93f2d",
+                "reference": "f903111158324d608b3d60f837472934d3d93f2d",
                 "shasum": ""
             },
             "require": {
@@ -4535,10 +4539,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.12.14",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.12.16",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-02-06T13:36:51+00:00"
+            "time": "2025-02-10T15:16:22+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5006,6 +5010,50 @@
             "homepage": "https://www.drupal.org/project/jquery_ui_draggable",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_draggable"
+            }
+        },
+        {
+            "name": "drupal/js_cookie",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/js_cookie.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/js_cookie-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "e010b3de64a0d57eef9c1773c4dd7e3d9bd9118c"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.1",
+                    "datestamp": "1693951097",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                }
+            ],
+            "description": "Provides the js-cookie library as a dependency.",
+            "homepage": "https://www.drupal.org/project/js_cookie",
+            "support": {
+                "source": "https://git.drupalcode.org/project/js_cookie"
             }
         },
         {
@@ -5915,17 +5963,17 @@
         },
         {
             "name": "drupal/raven",
-            "version": "6.0.14",
+            "version": "6.0.15",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/raven.git",
-                "reference": "6.0.14"
+                "reference": "6.0.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/raven-6.0.14.zip",
-                "reference": "6.0.14",
-                "shasum": "4533faf65caad0068c6bb818f29b3151645a9686"
+                "url": "https://ftp.drupal.org/files/projects/raven-6.0.15.zip",
+                "reference": "6.0.15",
+                "shasum": "aaecb396c77dfbd230b336579ec2728c3a094ddb"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11",
@@ -5940,8 +5988,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.0.14",
-                    "datestamp": "1735930900",
+                    "version": "6.0.15",
+                    "datestamp": "1738870775",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6587,20 +6635,21 @@
         },
         {
             "name": "drupal/siteimprove",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/siteimprove.git",
-                "reference": "2.0.2"
+                "reference": "2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/siteimprove-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "9e716fcd5ae3e7b23a1c8a9bdc6a0980085c2642"
+                "url": "https://ftp.drupal.org/files/projects/siteimprove-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "d5b46baf312161d294cccac3bb5767dea3e1630d"
             },
             "require": {
-                "drupal/core": "^9.2 || ^10"
+                "drupal/core": "^9.2 || ^10",
+                "drupal/js_cookie": "^1.0"
             },
             "require-dev": {
                 "drupal/domain_access": "*"
@@ -6608,8 +6657,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1704376526",
+                    "version": "2.0.3",
+                    "datestamp": "1738928590",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
