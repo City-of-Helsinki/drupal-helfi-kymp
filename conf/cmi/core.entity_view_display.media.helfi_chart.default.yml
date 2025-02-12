@@ -8,10 +8,10 @@ dependencies:
     - field.field.media.helfi_chart.field_helfi_chart_url
     - media.type.helfi_chart
   module:
-    - helfi_media_chart
+    - link
     - text
 _core:
-  default_config_hash: 1xd_Ay1Sm-oy3t_qPIo9gRcIHleOgRxGwiLk41gA6Yw
+  default_config_hash: FUv-BgecAAz5WBHKaQdV8sD8uNcYSfMUOpMez76--HA
 id: media.helfi_chart.default
 targetEntityType: media
 bundle: helfi_chart
@@ -33,9 +33,14 @@ content:
     weight: 2
     region: content
   field_helfi_chart_url:
-    type: helfi_chart
+    type: link
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
     weight: 1
     region: content
