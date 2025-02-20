@@ -6,13 +6,13 @@ dependencies:
     - field.storage.paragraph.field_remote_events
     - paragraphs.paragraphs_type.event_list
 _core:
-  default_config_hash: FDxBxbAJWFx6CgcYVHtJc0CDYvMvy04Xqib_pWDlUhA
+  default_config_hash: wz7a1ma56v-vMw8QiUY3AxztYVoDF6xKj0aO_yA0d_4
 id: paragraph.event_list.field_remote_events
 field_name: field_remote_events
 entity_type: paragraph
 bundle: event_list
 label: 'Remote events'
-description: 'Show "list only remote events" filter. Do not use at the same time with the "Event location" filter.'
+description: 'Show "list only remote events" filter.'
 required: false
 translatable: false
 default_value:
