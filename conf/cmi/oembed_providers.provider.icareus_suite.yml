@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: xqAoab3RpoZ36mhZClLPbQFg4fppDaQIS-spV_33m44
+  default_config_hash: cx73uI3KIlc_zavusNtbn2_vDJwmNJhxgorInBFhRAw
 id: icareus_suite
 label: 'Icareus Suite'
 provider_url: 'https://www.helsinkikanava.fi'
@@ -39,6 +39,14 @@ endpoints:
     schemes:
       - 'https://www.helsinkikanava.fi/*/webcast?*assetId=*'
       - 'https://helsinkikanava.fi/*/webcast?*assetId=*'
+    url: 'https://suite.icareus.com/api/oembed'
+    discovery: false
+    formats:
+      json: true
+      xml: false
+  -
+    schemes:
+      - 'https://players.icareus.com/helsinkikanava/embed/vod/*'
     url: 'https://suite.icareus.com/api/oembed'
     discovery: false
     formats:
