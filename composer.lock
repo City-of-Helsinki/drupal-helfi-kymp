@@ -2961,20 +2961,20 @@
         },
         {
             "name": "drupal/elasticsearch_connector",
-            "version": "8.0.0-alpha3",
+            "version": "8.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/elasticsearch_connector.git",
-                "reference": "8.0.0-alpha3"
+                "reference": "8.0.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha3.zip",
-                "reference": "8.0.0-alpha3",
-                "shasum": "6743642017ed64be903526f8acf925f1351124e8"
+                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha4.zip",
+                "reference": "8.0.0-alpha4",
+                "shasum": "f2c0448ad77268fb2716187691e6e0a80f9806db"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/core": "^10.2 || ^11",
                 "drupal/search_api": "^1.23",
                 "elasticsearch/elasticsearch": "^8",
                 "makinacorpus/php-lucene": "^1.1",
@@ -2996,8 +2996,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.0.0-alpha3",
-                    "datestamp": "1738945053",
+                    "version": "8.0.0-alpha4",
+                    "datestamp": "1740168985",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4377,16 +4377,16 @@
         },
         {
             "name": "drupal/helfi_navigation",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation.git",
-                "reference": "3bed3083c2df0aee40d9f714c31166cfcda65f87"
+                "reference": "fe96472f7c317bfac99d4a88ec1bb1e91f17edc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-navigation/zipball/3bed3083c2df0aee40d9f714c31166cfcda65f87",
-                "reference": "3bed3083c2df0aee40d9f714c31166cfcda65f87",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-navigation/zipball/fe96472f7c317bfac99d4a88ec1bb1e91f17edc4",
+                "reference": "fe96472f7c317bfac99d4a88ec1bb1e91f17edc4",
                 "shasum": ""
             },
             "require": {
@@ -4404,23 +4404,23 @@
             ],
             "description": "Helfi - Navigation",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation/tree/2.2.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation/tree/2.2.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-navigation/issues"
             },
-            "time": "2024-09-10T07:05:48+00:00"
+            "time": "2025-02-21T14:53:43+00:00"
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.12.22",
+            "version": "4.12.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "4fccd08acfc3d7f4f5294219197dd168c95c667e"
+                "reference": "f6ba6c5cc95d7bf65df0df9c7be3fab9873a58d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4fccd08acfc3d7f4f5294219197dd168c95c667e",
-                "reference": "4fccd08acfc3d7f4f5294219197dd168c95c667e",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f6ba6c5cc95d7bf65df0df9c7be3fab9873a58d5",
+                "reference": "f6ba6c5cc95d7bf65df0df9c7be3fab9873a58d5",
                 "shasum": ""
             },
             "require": {
@@ -4533,9 +4533,6 @@
                     },
                     "drupal/view_unpublished": {
                         "[#UHF-9256] Fix missing dynamic permission dependencies.": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/cbb944ae79643ba7ed895db3fac7f3b3d90ac850/patches/view_unpublished_permissions_missing_dependencies.patch"
-                    },
-                    "drupal/elasticsearch_connector": {
-                        "https://drupal.org/i/3486375": "https://raw.githubusercontent.com/City-of-Helsinki/drupal-helfi-platform-config/be8a1fba1a5ea2422154caf4fb7183dfc3917599/patches/3486375.patch"
                     }
                 }
             },
@@ -4544,10 +4541,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.12.22",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.12.23",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-02-21T09:11:25+00:00"
+            "time": "2025-02-24T10:09:31+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -6461,17 +6458,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.37.0",
+            "version": "1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.37"
+                "reference": "8.x-1.38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.37.zip",
-                "reference": "8.x-1.37",
-                "shasum": "76d9b5850d7fce9df8fc6cf8c49450ab541f455d"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.38.zip",
+                "reference": "8.x-1.38",
+                "shasum": "d1c83ba74e553eca07d3ea4b15e5d9c7f009a496"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -6492,8 +6489,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.37",
-                    "datestamp": "1732727356",
+                    "version": "8.x-1.38",
+                    "datestamp": "1740298961",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
