@@ -2,80 +2,15 @@
 /**
  * @file
  * Theme override for main view template.
- *
- * Available variables:
- * - attributes: Remaining HTML attributes for the element.
- * - css_name: A CSS-safe version of the view name.
- * - css_class: The user-specified classes names, if any.
- * - header: The optional header.
- * - footer: The optional footer.
- * - rows: The results of the view query, if any.
- * - empty: The content to display if there are no rows.
- * - pager: The optional pager next/prev links to display.
- * - exposed: Exposed widget form/info to display.
- * - feed_icons: Optional feed icons to display.
- * - more: An optional link to the next page of results.
- * - title: Title of the view, only used when displaying in the admin preview.
- * - title_prefix: Additional output populated by modules, intended to be
- *   displayed in front of the view title.
- * - title_suffix: Additional output populated by modules, intended to be
- *   displayed after the view title.
- * - attachment_before: An optional attachment view to be displayed before the
- *   view content.
- * - attachment_after: An optional attachment view to be displayed after the
- *   view content.
- * - dom_id: Unique id for every view being printed to give unique class for
- *   Javascript.
- *
- * @see template_preprocess_views_view()
  */
 #}
-{%
-  set classes = [
-  css_name ? 'views--view-' ~ css_name,
-  dom_id ? 'js-view-dom-id-' ~ dom_id,
-  'unit-search__content',
-]
-%}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
 
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
-
-  {{ exposed }}
-  {{ attachment_before }}
-
-  <div class="unit-search__results" data-id-number="{{ dom_id }}">
-    <h3 class="unit-search__count-container">
-      {%- if total_rows -%}
-        {{ total_rows }} {% trans with {'context': 'District and project search fallback'}%}search result{% plural total_rows ?? 0 %}search results{% endtrans %}
-      {%- else -%}
-        {{ 'No results'|t({}, {'context' : 'Unit search no results title'}) }}
-      {%- endif -%}
-    </h3>
-
-    {%- if empty -%}
-      <p>{{ 'No results were found for the criteria you entered. Try changing your search criteria.'|t({}, {'context' : 'Unit search no results text'}) }}</p>
+{% embed '@hdbt/component/unit-search.twig'%}
+  {% block count_container%}
+    {%- if total_rows -%}
+      {{ total_rows }} {% trans with {'context': 'District and project search fallback'}%}search result{% plural total_rows ?? 0 %}search results{% endtrans %}
+    {%- else -%}
+      {{ 'No results'|t({}, {'context' : 'Unit search no results title'}) }}
     {%- endif -%}
-
-    {{ rows }}
-    {{ pager }}
-  </div>
-
-  {{ attachment_after }}
-  {{ more }}
-
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
-
-  {{ feed_icons }}
-</div>
+  {% endblock count_container %}
+{% endembed %}
