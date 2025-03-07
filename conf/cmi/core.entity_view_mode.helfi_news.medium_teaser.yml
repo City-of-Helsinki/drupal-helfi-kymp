@@ -4,8 +4,11 @@ status: true
 dependencies:
   module:
     - external_entities
+  enforced:
+    config:
+      - external_entities.external_entity_type.helfi_news
 _core:
-  default_config_hash: Fl8HX68URx0CChkXzE5wAEZ9p94KnjuIbgmVIo6r5n4
+  default_config_hash: UzN-pHOpdLiUeXRIc6u-sPQTYGvwRvR2dkj19RUrS-k
 id: helfi_news.medium_teaser
 label: 'Medium Teaser'
 description: ''
