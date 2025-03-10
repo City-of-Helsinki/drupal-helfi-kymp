@@ -4,8 +4,11 @@ status: true
 dependencies:
   module:
     - external_entities
+  enforced:
+    config:
+      - external_entities.external_entity_type.helfi_news_neighbourhoods
 _core:
-  default_config_hash: D9evkjd3Cb3jmo3UG5LInegI7KwGYVPdw-CFm6Kw_EE
+  default_config_hash: SbkVgoCTqd9-gocQkbQZwSdf-EBmMuKp9tzREbxvc6I
 id: helfi_news_neighbourhoods.helfi_news_neighbourhoods.default
 targetEntityType: helfi_news_neighbourhoods
 bundle: helfi_news_neighbourhoods
