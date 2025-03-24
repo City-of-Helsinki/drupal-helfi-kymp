@@ -10,7 +10,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: tYU3ozJEdEzgBo7vNnkTpTLq-d2yJOpuOWqzo8j_jl0
+  default_config_hash: HvP4CD_k8sjz85mIG76_thr_6_em_CWt5zLnjdZwLFw
 id: service_list
 label: 'Service list'
 module: views
@@ -109,6 +109,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 4
           total_pages: null
           id: 0
@@ -126,7 +127,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -646,6 +646,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 5
           total_pages: null
           id: 0
@@ -663,7 +664,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
