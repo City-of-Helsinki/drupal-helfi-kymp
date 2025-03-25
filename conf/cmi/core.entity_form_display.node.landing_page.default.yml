@@ -18,7 +18,7 @@ dependencies:
     - publication_date
     - scheduler
 _core:
-  default_config_hash: nz2kuZQ53sXaRjzi5GT0LPTskHJFGOgRZuY2XwpDYls
+  default_config_hash: toCt5Nw1UzFFFR3oZf7s_L5Oll3qiUCvinBYTsausRw
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -128,9 +128,9 @@ content:
     third_party_settings: {  }
   simple_sitemap:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   status:
     type: boolean_checkbox
     weight: 12
