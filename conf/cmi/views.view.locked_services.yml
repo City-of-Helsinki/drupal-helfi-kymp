@@ -7,7 +7,7 @@ dependencies:
     - helfi_tpr
     - user
 _core:
-  default_config_hash: aWWCfu_BLTqXUnVK428-5vmOLyDFaF5vc_wSCogl_CU
+  default_config_hash: 1dRKNkYLtZD9PWHvIf80gU-ZzsLrw-XvViAgSO-9_GE
 id: locked_services
 label: 'Locked services'
 module: views
@@ -381,6 +381,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -398,7 +399,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
