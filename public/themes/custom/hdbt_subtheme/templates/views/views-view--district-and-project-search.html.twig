@@ -5,7 +5,7 @@
  */
 #}
 
-{% embed '@hdbt/component/unit-search.twig'%}
+{% embed '@hdbt/component/content-list-with-count.twig'%}
   {% block count_container%}
     {%- if total_rows -%}
       {{ total_rows }} {% trans with {'context': 'District and project search fallback'}%}search result{% plural total_rows ?? 0 %}search results{% endtrans %}
