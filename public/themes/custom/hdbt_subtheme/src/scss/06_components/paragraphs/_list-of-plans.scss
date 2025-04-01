@@ -46,19 +46,19 @@
 .plan {
   background-color: $color-white;
   margin-top: $spacing-half;
-  padding-left: $spacing-and-half;
-  padding-top: $spacing-and-half;
-  padding-right: $spacing-and-half;
   // Card padding + icon height + spacing between the arrow and publish date.
   padding-bottom: calc(#{$spacing-and-half} + 28px + #{$spacing-half});
+  padding-left: $spacing-and-half;
+  padding-right: $spacing-and-half;
+  padding-top: $spacing-and-half;
   position: relative;
 
   @include breakpoint($breakpoint-l) {
-    padding-left: $spacing-double;
-    padding-top: $spacing-double;
-    padding-right: $spacing-double;
     // Arbitrary value from the design to line up the icon in a pretty way.
     padding-bottom: 60px;
+    padding-left: $spacing-double;
+    padding-right: $spacing-double;
+    padding-top: $spacing-double;
   }
 
   &:first-child {
@@ -67,7 +67,6 @@
 }
 
 .plan__title {
-  @include font('h4');
   margin-top: 0;
 }
 

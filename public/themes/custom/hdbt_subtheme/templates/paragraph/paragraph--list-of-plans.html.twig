@@ -29,7 +29,7 @@
               <h3 class="plan__title">
                 {% set link_attributes = {
                   'class': [
-                    'plan__link',
+                    '',
                   ],
                 } %}
                 {{ link(plan.title, plan.link, link_attributes) }}
@@ -42,24 +42,18 @@
             </div>
           {% endfor %}
 
-          {% if plan_count > 8 %}
-            <div class="list-of-plans__pager">
-              <a href="#" class="hds-button hds-button--primary list-of-plans__pager-button" rel="next">
-                <span class="hds-button__label">{{ 'Show more plans'|t({}, {'context': 'List of plans show more button'}) }}</span>
-              </a>
-            </div>
-          {% endif %}
+          <div class="list-of-plans__subscribe-link">
+            {% set link_title %}
+              {{ 'Subscribe to the plans\' RSS feed'|t({}, {'context': 'List of plans RSS link'}) }}
+            {% endset %}
+            {{ link(link_title, rss_feed_url) }}
+          </div>
+
+          {{ pager }}
 
         </div>
 
       {% endif %}
-
-      <div class="list-of-plans__subscribe-link">
-        {% set link_title %}
-          {{ 'Subscribe to the plans\' RSS feed'|t({}, {'context': 'List of plans RSS link'}) }}
-        {% endset %}
-        {{ link(link_title, rss_feed_url) }}
-      </div>
 
 		{% endblock component_content %}
 	{% endembed %}
