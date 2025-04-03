@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use Drupal\Core\Url;
+
 /**
  * Implements hook_theme().
  */
@@ -31,7 +33,7 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
   $variables['title'] = $title;
   $variables['description'] = $description;
 
-  $service = Drupal::service('helfi_kymp_plans');
+  $service = \Drupal::service('helfi_kymp_plans');
 
   // Check if the list already exists in cache.
   if ($cache = \Drupal::cache()->get('helfi_kymp_plans')) {
@@ -44,12 +46,24 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
     \Drupal::cache()->set('helfi_kymp_plans', $plans, \Drupal::time()->getRequestTime() + 3600, ['helfi_kymp_plans']);
   }
 
-  $variables['plans'] = $plans;
-  $variables['plan_count'] = count($plans);
-  $variables['rss_feed_url'] = $service->getFeedUrl();
+  // Add pagination.
+  $items_per_page = 10;
+  $total_items = count($plans);
 
-  // Attach the JavaScript library.
-  $variables['#attached']['library'][] = 'helfi_kymp_plans/list_of_plans';
+  \Drupal::service('pager.manager')->createPager($total_items, $items_per_page);
+  $current_page = \Drupal::service('pager.parameters')->findPage();
+
+  // Slice the plans array to only show the current page.
+  $paged_plans = array_slice($plans, $current_page * $items_per_page, $items_per_page);
+
+  $variables['plans'] = $paged_plans;
+  $variables['plan_count'] = $total_items;
+  $variables['rss_feed_url'] = Url::fromUri($service->getFeedUrl());
+
+  // Attach the pager to the theme.
+  $variables['pager'] = [
+    '#type' => 'pager',
+  ];
 
   // Adding a cache tag which is used by a cron script to periodically clear
   // the cache related to the list of plans.
