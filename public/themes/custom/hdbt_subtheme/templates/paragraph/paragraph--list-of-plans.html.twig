@@ -12,9 +12,11 @@
   %}
 		{% block component_content %}
 
-      <div class="list-of-plans__count-container">
-        {{ '<span class="list-of-plans__count">@plan_count</span> plans now available for comments'|t({ '@plan_count': plan_count }, {'context': 'List of plans number of comments'}) }}
-      </div>
+      {% if plan_count > 1 %}
+        <h3 class="list-of-plans__count-container">
+          {{ plan_count}} {{ 'plans now available for comments'|t({}, {'context': 'List of plans number of comments'}) }}
+        </h3>
+      {% endif %}
 
       {% if plan_count == 0 %}
 
@@ -25,29 +27,31 @@
         <div class="list-of-plans__list">
 
           {% for plan in plans %}
-            <div class="list-of-plans__plan plan">
-              <h3 class="plan__title">
-                {% set link_attributes = {
-                  'class': [
-                    '',
-                  ],
-                } %}
-                {{ link(plan.title, plan.link, link_attributes) }}
-              </h3>
-
-              <div class="plan__published">
-                {{ 'Published:'|t({}, {'context': 'List of plans publish date'}) }}
-                {{ plan.pub_date }}
-              </div>
-            </div>
+            {% embed '@hdbt/component/card.twig' with {
+              card_modifier_class: 'card--list-of-plans',
+              card_title_level: 'h3',
+              card_title_lang: 'fi',
+              card_title: plan.title,
+              card_url: plan.link,
+              card_metas: [
+                {
+                  icon: 'clock',
+                  label:  'Published'|t({}, {'context': 'List of plans publish date'}),
+                  content: plan.pub_date,
+                }
+              ],
+            } %}
+            {% endembed %}
           {% endfor %}
 
-          <div class="list-of-plans__subscribe-link">
             {% set link_title %}
               {{ 'Subscribe to the plans\' RSS feed'|t({}, {'context': 'List of plans RSS link'}) }}
             {% endset %}
-            {{ link(link_title, rss_feed_url) }}
-          </div>
+
+          {% include '@hdbt/misc/feed-icon.html.twig' with {
+            link_title: link_title,
+            url: rss_feed_url,
+          }%}
 
           {{ pager }}
 

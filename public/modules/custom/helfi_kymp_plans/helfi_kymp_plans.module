@@ -8,7 +8,7 @@
 declare(strict_types=1);
 
 use Drupal\Core\Pager\PagerDefault;
-use Drupal\Core\Pager\PagerParameters;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_theme().
@@ -60,7 +60,7 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
 
   $variables['plans'] = $paged_plans;
   $variables['plan_count'] = $total_items;
-  $variables['rss_feed_url'] = $service->getFeedUrl();
+  $variables['rss_feed_url'] = Url::fromUri($service->getFeedUrl());
 
   // Attach the pager to the theme.
   $variables['pager'] = [

@@ -5,83 +5,18 @@
 
 // If the unit-search is just before footer.
 .layout-main-wrapper > *:last-child .component--list-of-plans:last-child {
-  margin-bottom: -115px; // Enough to get the block under the footer.
-  padding-bottom: 55px; // Leave enough room between the last card and footer.
-}
-
-.list-of-plans__count-container {
-  @include font('lead');
-
-  .list-of-plans__count {
-    font-weight: $font-weight-bold;
-  }
+  margin-bottom: -115px; 
+  padding-bottom: 55px;
 }
 
 .list-of-plans__list {
   margin-top: $spacing-and-half;
-}
 
-.list-of-plans__subscribe-link {
-  @include font('body');
-  margin-top: $spacing-double;
-}
+  .feed-link {
+    margin-top: $spacing !important;
 
-.list-of-plans__pager {
-  margin-top: $spacing-double;
-
-  @include breakpoint($breakpoint-m) {
-    margin-top: $spacing-quadruple;
-    text-align: center;
+    &::after {
+      display: none !important;
+    }
   }
-}
-
-.list-of-plans__pager-button {
-  width: 100%;
-
-  @include breakpoint($breakpoint-m) {
-    width: auto;
-  }
-}
-
-.plan {
-  background-color: $color-white;
-  margin-top: $spacing-half;
-  // Card padding + icon height + spacing between the arrow and publish date.
-  padding-bottom: calc(#{$spacing-and-half} + 28px + #{$spacing-half});
-  padding-left: $spacing-and-half;
-  padding-right: $spacing-and-half;
-  padding-top: $spacing-and-half;
-  position: relative;
-
-  @include breakpoint($breakpoint-l) {
-    // Arbitrary value from the design to line up the icon in a pretty way.
-    padding-bottom: 60px;
-    padding-left: $spacing-double;
-    padding-right: $spacing-double;
-    padding-top: $spacing-double;
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.plan__title {
-  margin-top: 0;
-}
-
-.plan__link {
-  // Make the whole card clickable.
-  &::before {
-    content: '';
-    display: block;
-    inset: 0;
-    position: absolute;
-  }
-}
-
-.plan__published {
-  @include font('small');
-  color: $color-black-60;
-  margin-top: $spacing-and-half;
 }
