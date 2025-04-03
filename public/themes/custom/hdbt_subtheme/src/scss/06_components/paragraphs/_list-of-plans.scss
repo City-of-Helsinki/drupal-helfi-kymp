@@ -15,6 +15,7 @@
   .feed-link {
     margin-top: $spacing !important;
 
+    // External icon gets duplicated in the feed link.
     &::after {
       display: none !important;
     }
