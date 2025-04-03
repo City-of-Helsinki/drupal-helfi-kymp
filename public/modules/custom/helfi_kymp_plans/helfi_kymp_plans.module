@@ -7,7 +7,6 @@
 
 declare(strict_types=1);
 
-use Drupal\Core\Pager\PagerDefault;
 use Drupal\Core\Url;
 
 /**
@@ -51,8 +50,7 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
   $items_per_page = 10;
   $total_items = count($plans);
 
-  /** @var PagerDefault $pager */
-  $pager = \Drupal::service('pager.manager')->createPager($total_items, $items_per_page);
+  \Drupal::service('pager.manager')->createPager($total_items, $items_per_page);
   $current_page = \Drupal::service('pager.parameters')->findPage();
 
   // Slice the plans array to only show the current page.
@@ -66,7 +64,6 @@ function helfi_kymp_plans_preprocess_paragraph__list_of_plans(&$variables) {
   $variables['pager'] = [
     '#type' => 'pager',
   ];
-
 
   // Adding a cache tag which is used by a cron script to periodically clear
   // the cache related to the list of plans.
