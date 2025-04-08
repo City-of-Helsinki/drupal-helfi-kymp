@@ -1,0 +1,26 @@
+uuid: cc481cd1-3694-4473-9722-d143aa720531
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.1_250w_250h
+    - image.style.1_500w_500h_LQ
+  module:
+    - helfi_image_styles
+_core:
+  default_config_hash: VuYuUIx2tfZff1D0We2JgZQtqyDoiSj7C6gjfLDaJZQ
+id: square_thumbnail
+label: 'Square thumbnail'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_250w_250h
+    breakpoint_id: helfi_image_styles.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_500w_500h_LQ
+    breakpoint_id: helfi_image_styles.xs
+    multiplier: 2x
+breakpoint_group: helfi_image_styles
+fallback_image_style: 1_250w_250h
