@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.contact_card.field_contact_description
     - field.field.paragraph.contact_card.field_contact_image
     - field.field.paragraph.contact_card.field_contact_image_photographer
+    - field.field.paragraph.contact_card.field_contact_image_reference
     - field.field.paragraph.contact_card.field_contact_name
     - field.field.paragraph.contact_card.field_contact_social_media
     - field.field.paragraph.contact_card.field_contact_social_media_link
@@ -13,7 +14,7 @@ dependencies:
     - field.field.paragraph.contact_card.field_email
     - field.field.paragraph.contact_card.field_phone_number
     - paragraphs.paragraphs_type.contact_card
-    - responsive_image.styles.contact_card
+    - responsive_image.styles.square_thumbnail
   module:
     - entity_reference_revisions
     - helfi_paragraphs_contact_card_listing
@@ -21,7 +22,7 @@ dependencies:
     - responsive_image
     - telephone
 _core:
-  default_config_hash: g7mshBIsAGSEoG6m0KX2GLEN58sv4MnWAEXk68dClQ8
+  default_config_hash: o3L_0VvwTNVLSBxb2Oqb8lmF6DAt6aBFZsubJMhB4Ro
 id: paragraph.contact_card.default
 targetEntityType: paragraph
 bundle: contact_card
@@ -38,7 +39,7 @@ content:
     type: responsive_image
     label: hidden
     settings:
-      responsive_image_style: contact_card
+      responsive_image_style: square_thumbnail
       image_link: ''
       image_loading:
         attribute: eager
@@ -52,6 +53,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_contact_image_reference:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: square_thumbnail
+      link: false
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_contact_name:
     type: string
