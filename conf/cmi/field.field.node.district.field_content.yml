@@ -16,6 +16,7 @@ dependencies:
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
+    - paragraphs.paragraphs_type.number_highlights
     - paragraphs.paragraphs_type.project_listing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.text
@@ -49,6 +50,7 @@ settings:
       map: map
       project_listing: project_listing
       image_gallery: image_gallery
+      number_highlights: number_highlights
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -83,6 +85,9 @@ settings:
         enabled: true
       news_list:
         weight: 15
+        enabled: true
+      number_highlights:
+        weight: 18
         enabled: true
       project_listing:
         weight: 16
