@@ -19,6 +19,7 @@ dependencies:
     - paragraphs.paragraphs_type.list_of_plans
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.news_list
+    - paragraphs.paragraphs_type.number_highlights
     - paragraphs.paragraphs_type.phasing
     - paragraphs.paragraphs_type.remote_video
     - paragraphs.paragraphs_type.service_list_search
@@ -60,6 +61,7 @@ settings:
       contact_card_listing: contact_card_listing
       news_list: news_list
       image_gallery: image_gallery
+      number_highlights: number_highlights
       service_list_search: service_list_search
       unit_search: unit_search
       unit_contact_card: unit_contact_card
@@ -106,6 +108,9 @@ settings:
         enabled: true
       news_list:
         weight: 15
+        enabled: true
+      number_highlights:
+        weight: 17
         enabled: true
       phasing:
         weight: 7
