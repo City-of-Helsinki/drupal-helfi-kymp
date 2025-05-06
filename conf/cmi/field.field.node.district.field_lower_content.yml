@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_lower_content
     - node.type.district
     - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.number_highlights
   module:
     - entity_reference_revisions
 id: node.district.field_lower_content
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       list_of_links: list_of_links
+      number_highlights: number_highlights
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -91,6 +93,9 @@ settings:
       news_list:
         weight: -54
         enabled: false
+      number_highlights:
+        weight: 17
+        enabled: true
       phasing:
         weight: -43
         enabled: false
