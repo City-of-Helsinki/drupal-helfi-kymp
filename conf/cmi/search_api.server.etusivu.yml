@@ -1,0 +1,22 @@
+uuid: 549707e6-3487-4a87-a2d2-a543e3f8d911
+langcode: en
+status: true
+dependencies:
+  module:
+    - elasticsearch_connector
+_core:
+  default_config_hash: OIxUCaL66sr9LecMqWUniH-FqDJI4zgt1L3L_pU9jGk
+id: etusivu
+name: Etusivu
+description: 'Etusivu elasticsearch'
+backend: elasticsearch
+backend_config:
+  connector: standard
+  connector_config:
+    url: 'http://helfi-etusivu-elastic:9200'
+    enable_debug_logging: false
+  advanced:
+    fuzziness: auto
+    prefix: ''
+    suffix: ''
+  server_description: ''
