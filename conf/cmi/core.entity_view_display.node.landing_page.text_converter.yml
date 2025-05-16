@@ -1,0 +1,38 @@
+uuid: e87e4ab0-2a05-44cc-bec7-6c13e4a90cd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.text_converter
+    - field.field.node.landing_page.field_content
+    - field.field.node.landing_page.field_has_hero
+    - field.field.node.landing_page.field_hero
+    - field.field.node.landing_page.field_liftup_image
+    - field.field.node.landing_page.field_metatags
+    - node.type.landing_page
+  module:
+    - entity_reference_revisions
+id: node.landing_page.text_converter
+targetEntityType: node
+bundle: landing_page
+mode: text_converter
+content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_has_hero: true
+  field_hero: true
+  field_liftup_image: true
+  field_metatags: true
+  langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true
+  toc_enabled: true

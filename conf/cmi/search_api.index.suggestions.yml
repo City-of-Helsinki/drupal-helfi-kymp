@@ -1,0 +1,141 @@
+uuid: 364cb85c-4a7a-49e7-ac68-3d7cadc772e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.etusivu
+  module:
+    - helfi_react_search
+    - helfi_recommendations
+_core:
+  default_config_hash: S9SP9CPOZ_zHSuOSGZemAkCHYonrV4UNASIc_AFwzGI
+id: suggestions
+name: Suggestions
+description: ''
+read_only: false
+field_settings:
+  keywords:
+    label: Keywords
+    datasource_id: 'entity:suggested_topics'
+    property_path: keywords_scored
+    type: scored_item
+  parent_bundle:
+    label: 'Parent bundle'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_bundle
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+  parent_id:
+    label: 'Parent ID'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_id
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+  parent_image_alt_en:
+    label: 'Parent image alt in English'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_image_alt_en
+    type: string
+  parent_image_alt_fi:
+    label: 'Parent image alt in Finnish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_image_alt_fi
+    type: string
+  parent_image_alt_sv:
+    label: 'Parent image alt in Swedish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_image_alt_sv
+    type: string
+  parent_image_url:
+    label: 'Parent image url'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_image_url
+    type: string
+  parent_instance:
+    label: 'Parent instance'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_instance
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+  parent_published_at:
+    label: 'Parent published date'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_published_at
+    type: date
+  parent_title_en:
+    label: 'Parent title in English'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_title_en
+    type: string
+  parent_title_fi:
+    label: 'Parent title in Finnish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_title_fi
+    type: string
+  parent_title_sv:
+    label: 'Parent title in Swedish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_title_sv
+    type: string
+  parent_translations:
+    label: 'Parent translations'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_translations
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+  parent_type:
+    label: 'Parent type'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_type
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+  parent_url:
+    label: 'Parent url'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_url
+    type: string
+  uuid:
+    label: UUID
+    datasource_id: 'entity:suggested_topics'
+    property_path: uuid
+    type: string
+    dependencies:
+      module:
+        - helfi_recommendations
+datasource_settings:
+  'entity:suggested_topics': {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  district_image_absolute_url: {  }
+  entity_status: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  main_image_url: {  }
+  project_execution_schedule: {  }
+  project_image_absolute_url: {  }
+  project_plan_schedule: {  }
+  rendered_item: {  }
+  scored_reference: {  }
+  scored_reference_parent: {  }
+  uuid_langcode: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: etusivu
