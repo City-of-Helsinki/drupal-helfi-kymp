@@ -55,6 +55,7 @@ $additionalEnvVars = [
   'ELASTIC_USER',
   'ELASTIC_PASSWORD',
   'SENTRY_DSN_REACT',
+  'MATOMO_SITE_ID',
   // 'AMQ_BROKERS',
   // 'AMQ_USER',
   // 'AMQ_PASSWORD',
