@@ -8,14 +8,12 @@
 declare(strict_types=1);
 
 use Drupal\Core\Cache\Cache;
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\helfi_platform_config\DTO\ParagraphTypeCollection;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
-use Drupal\paragraphs\ParagraphInterface;
 
 /**
  * Implements hook_theme().
@@ -33,46 +31,10 @@ function helfi_kymp_content_theme() {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_first_paragraph_grey_alter().
  */
-function helfi_kymp_content_preprocess_block(&$variables) {
-  if ($variables['plugin_id'] !== 'hero_block') {
-    return;
-  }
-
-  // Get current entity and entity version.
-  $entity_matcher = \Drupal::service('helfi_platform_config.entity_version_matcher')->getType();
-
-  /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
-  $entity = $entity_matcher['entity'];
-
-  // No need to continue if current entity doesn't have hero set.
-  if (
-    !$entity instanceof ContentEntityInterface ||
-    !$entity->hasField('field_has_hero') ||
-    !(bool) $entity->get('field_has_hero')->value ||
-    $entity->get('field_content')->isEmpty()
-  ) {
-    return;
-  }
-  $paragraph = $entity->get('field_content')->first()->get('entity')->getValue();
-
-  if (
-    empty($paragraph) ||
-    !in_array($entity->bundle(), ['landing_page', 'page']) ||
-    !$paragraph instanceof ParagraphInterface
-  ) {
-    return;
-  }
-  $first_paragraph_gray = &$variables['content']['hero_block']['#first_paragraph_grey'];
-
-  // Check if the content field first paragraph is District and project
-  // search and add classes accordingly.
-  switch ($paragraph->getType()) {
-    case 'district_and_project_search':
-      $first_paragraph_gray = 'has-first-gray-bg-block';
-      break;
-  }
+function helfi_kymp_content_first_paragraph_grey_alter(array &$paragraphs): void {
+  $paragraphs[] = 'district_and_project_search';
 }
 
 /**
