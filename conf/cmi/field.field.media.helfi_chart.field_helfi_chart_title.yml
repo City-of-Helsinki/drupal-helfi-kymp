@@ -6,14 +6,14 @@ dependencies:
     - field.storage.media.field_helfi_chart_title
     - media.type.helfi_chart
 _core:
-  default_config_hash: 1-AJXcAy0ANS-0BXwAAz8RiB9_s6MfjOP7Mh02yl1X4
+  default_config_hash: 9iQHX3id8uF5Q4OOE6IyROLWTu0Mg_Tud7tZbmJXPAE
 id: media.helfi_chart.field_helfi_chart_title
 field_name: field_helfi_chart_title
 entity_type: media
 bundle: helfi_chart
 label: Title
 description: 'The chart is rendered via inline frame. Iframe needs a label so users can determine what content is being presented in the iframe.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
