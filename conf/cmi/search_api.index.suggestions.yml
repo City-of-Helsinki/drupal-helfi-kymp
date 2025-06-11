@@ -8,7 +8,7 @@ dependencies:
     - helfi_react_search
     - helfi_recommendations
 _core:
-  default_config_hash: S9SP9CPOZ_zHSuOSGZemAkCHYonrV4UNASIc_AFwzGI
+  default_config_hash: Oa68Thm03JppnRpr9j-z3NstGjy54-kxysX5RU7TTi8
 id: suggestions
 name: Suggestions
 description: ''
@@ -99,10 +99,20 @@ field_settings:
     dependencies:
       module:
         - helfi_recommendations
-  parent_url:
-    label: 'Parent url'
+  parent_url_en:
+    label: 'Parent url in English'
     datasource_id: 'entity:suggested_topics'
-    property_path: parent_url
+    property_path: parent_url_en
+    type: string
+  parent_url_fi:
+    label: 'Parent url in Finnish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_url_fi
+    type: string
+  parent_url_sv:
+    label: 'Parent url in Swedish'
+    datasource_id: 'entity:suggested_topics'
+    property_path: parent_url_sv
     type: string
   uuid:
     label: UUID
