@@ -50,10 +50,10 @@
   {{ title_suffix }}
 
   {% if total_rows > 0 %}
-    <div class="project-list__count-container">
+    <h3 class="project-list__count-container">
       <span class="project-list_count">{{ total_rows }}</span>
       <span class="project-list_count-text">{{ 'projects'|t({}, {'context': 'Project list, amount of projects'}) }}</span>
-    </div>
+    </h3>
   {% else %}
     <p>{{ 'There are no projects in this district.'|t({}, {'context': 'Project list, no projects description'}) }}</p>
   {% endif %}
