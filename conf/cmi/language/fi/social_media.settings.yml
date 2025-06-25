@@ -8,7 +8,7 @@ social_media:
     attributes: "target|_blank\r\nclass|linkedin"
   twitter:
     text: 'Jaa X-palvelussa'
-    api_url: 'https://twitter.com/intent/tweet?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
+    api_url: 'https://x.com/intent/post?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
     attributes: "target|_blank\r\nclass|twitter"
   email:
     text: 'Lähetä sivu sähköpostitse'

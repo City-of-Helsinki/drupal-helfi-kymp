@@ -37,15 +37,15 @@ social_media:
     img: linkedin
   twitter:
     enable: 1
-    text: 'Share in Twitter'
-    api_url: 'https://twitter.com/intent/tweet?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
+    text: 'Share on X'
+    api_url: 'https://x.com/intent/post?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
     api_event: href
     default_img: 0
     weight: 3
     attributes: "target|_blank\r\nclass|twitter"
     drupalSettings: ''
     library: ''
-    img: twitter
+    img: x
   pinterest:
     enable: 0
     text: Pinterest
