@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62f31478b059aa085b636aa534212b81",
+    "content-hash": "588efc2f0cefb4bc7d6b2890f7b1c290",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2319,20 +2319,20 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.4.8",
+            "version": "10.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "18b5bd895531f95c8c537e2445a27d64415c3846"
+                "reference": "105e9c770e55798fb07d624e9289538757c099a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/18b5bd895531f95c8c537e2445a27d64415c3846",
-                "reference": "18b5bd895531f95c8c537e2445a27d64415c3846",
+                "url": "https://api.github.com/repos/drupal/core/zipball/105e9c770e55798fb07d624e9289538757c099a4",
+                "reference": "105e9c770e55798fb07d624e9289538757c099a4",
                 "shasum": ""
             },
             "require": {
-                "asm89/stack-cors": "^2.1",
+                "asm89/stack-cors": "^2.3",
                 "composer-runtime-api": "^2.1",
                 "composer/semver": "^3.3",
                 "doctrine/annotations": "^1.14",
@@ -2477,13 +2477,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.4.8"
+                "source": "https://github.com/drupal/core/tree/10.5.0"
             },
-            "time": "2025-06-05T23:40:40+00:00"
+            "time": "2025-06-19T00:37:21+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.4.8",
+            "version": "10.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2527,7 +2527,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.0-beta1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.0"
             },
             "time": "2024-08-22T14:31:30+00:00"
         },
@@ -4134,16 +4134,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.11.24",
+            "version": "6.11.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "bd8e5ee7bec352aa87969c563b66294b940faf34"
+                "reference": "91ac418c7d8697e95b878e4ffaf38ddb0e764e3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/bd8e5ee7bec352aa87969c563b66294b940faf34",
-                "reference": "bd8e5ee7bec352aa87969c563b66294b940faf34",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/91ac418c7d8697e95b878e4ffaf38ddb0e764e3e",
+                "reference": "91ac418c7d8697e95b878e4ffaf38ddb0e764e3e",
                 "shasum": ""
             },
             "require": {
@@ -4162,10 +4162,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.11.24",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.11.25",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-06-25T06:48:40+00:00"
+            "time": "2025-06-26T05:14:56+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4469,16 +4469,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.14.39",
+            "version": "4.14.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "e20a156ed5dfd227993b510933b3f1b1d99ffba1"
+                "reference": "8c449ffed956dfb7f14d1c85b13f32adba4531fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e20a156ed5dfd227993b510933b3f1b1d99ffba1",
-                "reference": "e20a156ed5dfd227993b510933b3f1b1d99ffba1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/8c449ffed956dfb7f14d1c85b13f32adba4531fa",
+                "reference": "8c449ffed956dfb7f14d1c85b13f32adba4531fa",
                 "shasum": ""
             },
             "require": {
@@ -4547,8 +4547,8 @@
                 "symfony/property-access": "^7.3"
             },
             "conflict": {
-                "drupal/core": "<10.4 || >=10.5",
-                "drupal/core-composer-scaffold": "<10.4 || >=10.5",
+                "drupal/core": "<10.4",
+                "drupal/core-composer-scaffold": "<10.4",
                 "drupal/ctools": "<3.11 || ^4.0.1",
                 "drupal/default_content": ">2.0.0-alpha2",
                 "drupal/helfi_media_map": "*",
@@ -4600,10 +4600,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.14.39",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.14.38",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-06-25T09:09:59+00:00"
+            "time": "2025-06-25T06:46:06+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -6673,7 +6673,7 @@
             "extra": {
                 "drupal": {
                     "version": "4.2.2",
-                    "datestamp": "1732485885",
+                    "datestamp": "1750876597",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9821,16 +9821,16 @@
         },
         {
             "name": "open-telemetry/api",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/api.git",
-                "reference": "4e3bb38e069876fb73c2ce85c89583bf2b28cd86"
+                "reference": "b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/4e3bb38e069876fb73c2ce85c89583bf2b28cd86",
-                "reference": "4e3bb38e069876fb73c2ce85c89583bf2b28cd86",
+                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7",
+                "reference": "b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7",
                 "shasum": ""
             },
             "require": {
@@ -9850,7 +9850,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.1.x-dev"
+                    "dev-main": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -9887,7 +9887,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-07T12:32:21+00:00"
+            "time": "2025-06-19T23:36:51+00:00"
         },
         {
             "name": "open-telemetry/context",
@@ -16759,16 +16759,16 @@
         },
         {
             "name": "open-telemetry/sem-conv",
-            "version": "1.32.0",
+            "version": "1.32.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/sem-conv.git",
-                "reference": "16585cc0dbc3032a318e274043454679430d2ebf"
+                "reference": "94daa85ea61a8e2b7e1b0af6be0e875bedda7c22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/sem-conv/zipball/16585cc0dbc3032a318e274043454679430d2ebf",
-                "reference": "16585cc0dbc3032a318e274043454679430d2ebf",
+                "url": "https://api.github.com/repos/opentelemetry-php/sem-conv/zipball/94daa85ea61a8e2b7e1b0af6be0e875bedda7c22",
+                "reference": "94daa85ea61a8e2b7e1b0af6be0e875bedda7c22",
                 "shasum": ""
             },
             "require": {
@@ -16812,7 +16812,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-05T03:58:53+00:00"
+            "time": "2025-06-24T02:32:27+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -20222,6 +20222,6 @@
         "ext-dom": "*",
         "ext-libxml": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
