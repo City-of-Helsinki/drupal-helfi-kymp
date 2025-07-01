@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "588efc2f0cefb4bc7d6b2890f7b1c290",
+    "content-hash": "0be329fe81c40b225338328821034c23",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2319,20 +2319,20 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.5.1",
+            "version": "10.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "551442fec1db69cf6eedb1601a348d8a6268060f"
+                "reference": "18b5bd895531f95c8c537e2445a27d64415c3846"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/551442fec1db69cf6eedb1601a348d8a6268060f",
-                "reference": "551442fec1db69cf6eedb1601a348d8a6268060f",
+                "url": "https://api.github.com/repos/drupal/core/zipball/18b5bd895531f95c8c537e2445a27d64415c3846",
+                "reference": "18b5bd895531f95c8c537e2445a27d64415c3846",
                 "shasum": ""
             },
             "require": {
-                "asm89/stack-cors": "^2.3",
+                "asm89/stack-cors": "^2.1",
                 "composer-runtime-api": "^2.1",
                 "composer/semver": "^3.3",
                 "doctrine/annotations": "^1.14",
@@ -2477,13 +2477,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.5.1"
+                "source": "https://github.com/drupal/core/tree/10.4.8"
             },
-            "time": "2025-06-26T14:05:15+00:00"
+            "time": "2025-06-05T23:40:40+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.5.1",
+            "version": "10.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2527,7 +2527,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.0-beta1"
             },
             "time": "2024-08-22T14:31:30+00:00"
         },
@@ -4469,16 +4469,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.14.38",
+            "version": "4.14.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "8c449ffed956dfb7f14d1c85b13f32adba4531fa"
+                "reference": "ee38630e56e952f887f433ae5b6b3226bb116385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/8c449ffed956dfb7f14d1c85b13f32adba4531fa",
-                "reference": "8c449ffed956dfb7f14d1c85b13f32adba4531fa",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/ee38630e56e952f887f433ae5b6b3226bb116385",
+                "reference": "ee38630e56e952f887f433ae5b6b3226bb116385",
                 "shasum": ""
             },
             "require": {
@@ -4488,8 +4488,8 @@
                 "drupal/config_ignore": "^3.0",
                 "drupal/config_rewrite": "^1.4",
                 "drupal/content_lock": "^2.2",
-                "drupal/core": "^10",
-                "drupal/core-composer-scaffold": "^10",
+                "drupal/core": "10.4.8",
+                "drupal/core-composer-scaffold": "10.4.8",
                 "drupal/crop": "^2.1",
                 "drupal/default_content": "^2.0.0-alpha2",
                 "drupal/diff": "^1.0",
@@ -4600,10 +4600,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.14.38",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.14.43",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-06-25T06:46:06+00:00"
+            "time": "2025-06-30T12:56:22+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -9471,16 +9471,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.17.1",
+            "version": "v1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "90e01c0da3a5a1c2c06d94a56fa2e0594769d525"
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/90e01c0da3a5a1c2c06d94a56fa2e0594769d525",
-                "reference": "90e01c0da3a5a1c2c06d94a56fa2e0594769d525",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/465810689c477fbba17f4f949b75e4d0bdab13ea",
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea",
                 "shasum": ""
             },
             "require": {
@@ -9493,7 +9493,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17.1-dev"
+                    "dev-master": "1.17.2-dev"
                 }
             },
             "autoload": {
@@ -9514,9 +9514,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.17.1"
+                "source": "https://github.com/mck89/peast/tree/v1.17.2"
             },
-            "time": "2025-06-27T14:33:03+00:00"
+            "time": "2025-07-01T09:30:45+00:00"
         },
         {
             "name": "microsoft/azure-storage-blob",
