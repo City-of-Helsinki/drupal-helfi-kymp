@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_content_cards_title
     - paragraphs.paragraphs_type.content_cards
 _core:
-  default_config_hash: 4t6IDDIQ9iC1fhxbZtW1-aCntVobdCwcQqbMevi0KWk
+  default_config_hash: YxcyY0DLH3BSL3btibI-DZHyR0B6fPaNZMAfpGGGDIw
 id: paragraph.content_cards.field_content_cards_title
 field_name: field_content_cards_title
 entity_type: paragraph
 bundle: content_cards
 label: Title
 description: 'The title of the content cards paragraph.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
