@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_target_group_links_title
     - paragraphs.paragraphs_type.target_group_links
 _core:
-  default_config_hash: up0zwFgyD6srIkzRA6c-aQPY0z6fH93dFcHgYmQ2bMM
+  default_config_hash: m7Cadnw-aaOerTAWfLDzm26wFxX0swhjXYi5rubjVEI
 id: paragraph.target_group_links.field_target_group_links_title
 field_name: field_target_group_links_title
 entity_type: paragraph
 bundle: target_group_links
 label: Title
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

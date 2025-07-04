@@ -45,9 +45,14 @@
     {% endif %}
 
     {{ content.field_lead_in }}
-    <div class="project__image-container">
+    <figure class="project__image-container">
       {{ content.field_project_image }}
-    </div>
+      {% if content.field_project_image.0['#media'].field_photographer.value %}
+        <figcaption class="project__image-caption">
+          {{'Image'|t}}: {{ content.field_project_image.0['#media'].field_photographer.value }}
+        </figcaption>
+      {% endif %}
+    </figure>
 
     {% if content.field_project_plan_schedule|render and content.field_project_execution_schedule|render %}
       {% set schedule_label = 'Estimated schedule'|t %}

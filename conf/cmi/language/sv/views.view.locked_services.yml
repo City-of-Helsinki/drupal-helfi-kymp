@@ -13,7 +13,7 @@ display:
           label: 'Lås ägare'
           separator: ', '
         langcode:
-          label: 'Content language'
+          label: 'Språk för innehåll'
           separator: ', '
         operations:
           label: Funktioner
@@ -31,10 +31,10 @@ display:
       exposed_form:
         options:
           submit_button: Filtrera
-          exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
           reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
       filters:
         name:
           expose:
