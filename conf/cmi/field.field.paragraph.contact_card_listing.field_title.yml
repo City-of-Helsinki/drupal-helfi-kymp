@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.contact_card_listing
 _core:
-  default_config_hash: e8mz47LkKc-TXoRDaDWTU1fqodqgYtdOb9UNTH2ZQXI
+  default_config_hash: 6B-mDVI_-4f_4A-4L2JvjqzxA4Vk6xYVSejDQWizeQY
 id: paragraph.contact_card_listing.field_title
 field_name: field_title
 entity_type: paragraph
 bundle: contact_card_listing
 label: Title
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

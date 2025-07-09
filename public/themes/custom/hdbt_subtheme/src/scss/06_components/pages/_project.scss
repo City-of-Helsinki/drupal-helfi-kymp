@@ -20,6 +20,12 @@
       overflow: hidden;
     }
   }
+
+  .project__image-caption {
+    margin-block-start: $spacing;
+    max-width: $content-width-max;
+    text-align: right;
+  }
 }
 
 .node--type-project {
