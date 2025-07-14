@@ -103,8 +103,9 @@ $-image-min-size: 220px;
   }
 
   h3 {
-    @include font('h4');
     display: inline-block;
     margin-top: 0;
+
+    @include font('h4');
   }
 }
