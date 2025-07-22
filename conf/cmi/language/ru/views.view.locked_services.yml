@@ -29,10 +29,11 @@ display:
             items_per_page_options_all_label: '- Все -'
       exposed_form:
         options:
-          submit_button: Фильтр
-          sort_asc_label: Ascending
-          sort_desc_label: Descending
+          submit_button: фильтр
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
           reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
       filters:
         name:
           expose:

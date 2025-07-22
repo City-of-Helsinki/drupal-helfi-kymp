@@ -7,7 +7,7 @@ dependencies:
     - helfi_tpr
     - user
 _core:
-  default_config_hash: 1dRKNkYLtZD9PWHvIf80gU-ZzsLrw-XvViAgSO-9_GE
+  default_config_hash: '-UISGYRFQsg9H7NxQvTJIQIXiqcmuzVndExJg2A1-fM'
 id: locked_services
 label: 'Locked services'
 module: views
@@ -402,13 +402,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: Sort
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Ascending
-          sort_desc_label: Descending
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
