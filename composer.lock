@@ -3756,17 +3756,17 @@
         },
         {
             "name": "drupal/flysystem",
-            "version": "2.2.0-beta2",
+            "version": "2.2.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/flysystem.git",
-                "reference": "2.2.0-beta2"
+                "reference": "2.2.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/flysystem-2.2.0-beta2.zip",
-                "reference": "2.2.0-beta2",
-                "shasum": "fb5bf36caac0f91ab79712cc7a6a28fce55fd1cc"
+                "url": "https://ftp.drupal.org/files/projects/flysystem-2.2.0-rc1.zip",
+                "reference": "2.2.0-rc1",
+                "shasum": "6bd47cf7698fbac36e4373e5f08c81e825fb27a8"
             },
             "require": {
                 "codementality/flysystem-stream-wrapper": "^1.1.1",
@@ -3781,11 +3781,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.0-beta2",
-                    "datestamp": "1738243353",
+                    "version": "2.2.0-rc1",
+                    "datestamp": "1754345775",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -4078,16 +4078,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.13.0",
+            "version": "6.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "0e6595c1ba68137c6ad9fc7d7d8f8ee61b5861d7"
+                "reference": "9ceae2b32bb5152d6b06545a4612b2d1f9be06ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/0e6595c1ba68137c6ad9fc7d7d8f8ee61b5861d7",
-                "reference": "0e6595c1ba68137c6ad9fc7d7d8f8ee61b5861d7",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9ceae2b32bb5152d6b06545a4612b2d1f9be06ca",
+                "reference": "9ceae2b32bb5152d6b06545a4612b2d1f9be06ca",
                 "shasum": ""
             },
             "require": {
@@ -4106,10 +4106,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.13.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.13.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-08-01T08:53:15+00:00"
+            "time": "2025-08-06T08:13:31+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4248,16 +4248,16 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "143207a4c25e7e4fb064df9c4acd98c734be9adf"
+                "reference": "120bcd6e30c22e6cf8dba8e4831b995f43dac554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/143207a4c25e7e4fb064df9c4acd98c734be9adf",
-                "reference": "143207a4c25e7e4fb064df9c4acd98c734be9adf",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/120bcd6e30c22e6cf8dba8e4831b995f43dac554",
+                "reference": "120bcd6e30c22e6cf8dba8e4831b995f43dac554",
                 "shasum": ""
             },
             "require": {
@@ -4284,10 +4284,10 @@
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.12",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.13",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2025-06-24T11:44:24+00:00"
+            "time": "2025-08-06T06:36:50+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -4413,16 +4413,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.16.4",
+            "version": "4.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "2f02dae1ba56f2c68d7f7a39053b4188651300cc"
+                "reference": "2804b47f50e6297ae87e02e9e24cffd47583fa04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2f02dae1ba56f2c68d7f7a39053b4188651300cc",
-                "reference": "2f02dae1ba56f2c68d7f7a39053b4188651300cc",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2804b47f50e6297ae87e02e9e24cffd47583fa04",
+                "reference": "2804b47f50e6297ae87e02e9e24cffd47583fa04",
                 "shasum": ""
             },
             "require": {
@@ -4544,10 +4544,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.4",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-08-01T12:44:38+00:00"
+            "time": "2025-08-06T07:57:48+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5139,17 +5139,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.7",
+            "version": "7.0.8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.7"
+                "reference": "7.0.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.7.zip",
-                "reference": "7.0.7",
-                "shasum": "aa10493dfa34f4f8ce51313d47c66b21b9596f3e"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.8.zip",
+                "reference": "7.0.8",
+                "shasum": "3a16053650934b3942cf369ac1ee3ad85c655d45"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -5161,8 +5161,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.7",
-                    "datestamp": "1753116879",
+                    "version": "7.0.8",
+                    "datestamp": "1754406731",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7591,16 +7591,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.6.1",
+            "version": "13.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "fde8e2593fe78824acf7305c8faf8ff6c3ac352c"
+                "reference": "635fce5f8223bae5c39495ee5709e993127ca413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/fde8e2593fe78824acf7305c8faf8ff6c3ac352c",
-                "reference": "fde8e2593fe78824acf7305c8faf8ff6c3ac352c",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/635fce5f8223bae5c39495ee5709e993127ca413",
+                "reference": "635fce5f8223bae5c39495ee5709e993127ca413",
                 "shasum": ""
             },
             "require": {
@@ -7636,7 +7636,7 @@
             "require-dev": {
                 "composer/installers": "^2",
                 "cweagans/composer-patches": "~1.7.3",
-                "drupal/core-recommended": "^10.2.5 || 11.x-dev",
+                "drupal/core-recommended": "^10.3.0 || 11.x-dev",
                 "drupal/semver_example": "2.3.0",
                 "jetbrains/phpstorm-attributes": "^1.0",
                 "mglaman/phpstan-drupal": "^1.2",
@@ -7727,7 +7727,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.6.1"
+                "source": "https://github.com/drush-ops/drush/tree/13.6.2"
             },
             "funding": [
                 {
@@ -7735,7 +7735,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-24T10:42:08+00:00"
+            "time": "2025-08-04T21:21:58+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -11052,16 +11052,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.9",
+            "version": "v0.12.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1b801844becfe648985372cb4b12ad6840245ace"
+                "reference": "6e80abe6f2257121f1eb9a4c55bf29d921025b22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1b801844becfe648985372cb4b12ad6840245ace",
-                "reference": "1b801844becfe648985372cb4b12ad6840245ace",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/6e80abe6f2257121f1eb9a4c55bf29d921025b22",
+                "reference": "6e80abe6f2257121f1eb9a4c55bf29d921025b22",
                 "shasum": ""
             },
             "require": {
@@ -11111,12 +11111,11 @@
             "authors": [
                 {
                     "name": "Justin Hileman",
-                    "email": "justin@justinhileman.info",
-                    "homepage": "http://justinhileman.com"
+                    "email": "justin@justinhileman.info"
                 }
             ],
             "description": "An interactive shell for modern PHP.",
-            "homepage": "http://psysh.org",
+            "homepage": "https://psysh.org",
             "keywords": [
                 "REPL",
                 "console",
@@ -11125,9 +11124,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.9"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.10"
             },
-            "time": "2025-06-23T02:35:06+00:00"
+            "time": "2025-08-04T12:39:37+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
