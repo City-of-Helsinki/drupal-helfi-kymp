@@ -1002,16 +1002,16 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "4.6.0",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "5fd5656718d7068a02d046f418a7ba873d5abbfe"
+                "reference": "b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/5fd5656718d7068a02d046f418a7ba873d5abbfe",
-                "reference": "5fd5656718d7068a02d046f418a7ba873d5abbfe",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d",
+                "reference": "b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d",
                 "shasum": ""
             },
             "require": {
@@ -1050,9 +1050,9 @@
             "description": "Format text by applying transformations provided by plug-in formatters.",
             "support": {
                 "issues": "https://github.com/consolidation/output-formatters/issues",
-                "source": "https://github.com/consolidation/output-formatters/tree/4.6.0"
+                "source": "https://github.com/consolidation/output-formatters/tree/4.6.1"
             },
-            "time": "2024-10-18T14:02:48+00:00"
+            "time": "2024-12-13T18:38:45+00:00"
         },
         {
             "name": "consolidation/robo",
@@ -3761,17 +3761,17 @@
         },
         {
             "name": "drupal/flysystem",
-            "version": "2.2.0-rc2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/flysystem.git",
-                "reference": "2.2.0-rc2"
+                "reference": "2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/flysystem-2.2.0-rc2.zip",
-                "reference": "2.2.0-rc2",
-                "shasum": "fea7a1668c9a66cae23501b6d038ce5b2eac54b7"
+                "url": "https://ftp.drupal.org/files/projects/flysystem-2.2.0.zip",
+                "reference": "2.2.0",
+                "shasum": "0d5e5661271d89d65ff0fb382599871018715f73"
             },
             "require": {
                 "codementality/flysystem-stream-wrapper": "^1.1.1",
@@ -3786,11 +3786,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.0-rc2",
-                    "datestamp": "1754521671",
+                    "version": "2.2.0",
+                    "datestamp": "1756080936",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4083,16 +4083,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.13.10",
+            "version": "6.13.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "c05eeb9875284c6ffc6c4522bb536e11952cc9ac"
+                "reference": "7f58f008c777fece439dc54dd4b105e4540d722a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/c05eeb9875284c6ffc6c4522bb536e11952cc9ac",
-                "reference": "c05eeb9875284c6ffc6c4522bb536e11952cc9ac",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/7f58f008c777fece439dc54dd4b105e4540d722a",
+                "reference": "7f58f008c777fece439dc54dd4b105e4540d722a",
                 "shasum": ""
             },
             "require": {
@@ -4111,10 +4111,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.13.10",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.13.12",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-08-21T11:13:21+00:00"
+            "time": "2025-08-22T11:07:17+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4300,12 +4300,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "e23000f9e9302b02d08c521c9673f0ff427ab282"
+                "reference": "f02af325d57dd67936ee8ac2ca89dfd2a0a9c111"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/e23000f9e9302b02d08c521c9673f0ff427ab282",
-                "reference": "e23000f9e9302b02d08c521c9673f0ff427ab282",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/f02af325d57dd67936ee8ac2ca89dfd2a0a9c111",
+                "reference": "f02af325d57dd67936ee8ac2ca89dfd2a0a9c111",
                 "shasum": ""
             },
             "require": {
@@ -4380,7 +4380,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2025-08-06T10:28:45+00:00"
+            "time": "2025-08-25T06:27:55+00:00"
         },
         {
             "name": "drupal/helfi_navigation",
@@ -4418,16 +4418,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.16.9",
+            "version": "4.16.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "480728e5d9e7d3d2380701d5b7b7eeaf29bb2f39"
+                "reference": "1d71fe81dc54770416dec7d0d9e24125491a2b96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/480728e5d9e7d3d2380701d5b7b7eeaf29bb2f39",
-                "reference": "480728e5d9e7d3d2380701d5b7b7eeaf29bb2f39",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/1d71fe81dc54770416dec7d0d9e24125491a2b96",
+                "reference": "1d71fe81dc54770416dec7d0d9e24125491a2b96",
                 "shasum": ""
             },
             "require": {
@@ -4549,10 +4549,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.9",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.10",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-08-19T09:20:20+00:00"
+            "time": "2025-08-25T12:00:21+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -4602,16 +4602,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "2.3.15",
+            "version": "2.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "a81bcdd745bfb8a8eb03b8ec5ae96e213be5e887"
+                "reference": "15f36d4a3a4b0b6e289bb098248dd0bf231702fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/a81bcdd745bfb8a8eb03b8ec5ae96e213be5e887",
-                "reference": "a81bcdd745bfb8a8eb03b8ec5ae96e213be5e887",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/15f36d4a3a4b0b6e289bb098248dd0bf231702fe",
+                "reference": "15f36d4a3a4b0b6e289bb098248dd0bf231702fe",
                 "shasum": ""
             },
             "require": {
@@ -4637,10 +4637,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.3.15",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.3.16",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2025-08-05T06:04:17+00:00"
+            "time": "2025-08-22T11:07:26+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -8405,22 +8405,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.9.3",
+            "version": "7.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77"
+                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
-                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
+                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.5.3 || ^2.0.3",
-                "guzzlehttp/psr7": "^2.7.0",
+                "guzzlehttp/promises": "^2.3",
+                "guzzlehttp/psr7": "^2.8",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.2 || ^3.0"
@@ -8511,7 +8511,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.9.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.10.0"
             },
             "funding": [
                 {
@@ -8527,20 +8527,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T13:37:11+00:00"
+            "time": "2025-08-23T22:36:01+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c"
+                "reference": "481557b130ef3790cf82b713667b43030dc9c957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/7c69f28996b0a6920945dd20b3857e499d9ca96c",
-                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/481557b130ef3790cf82b713667b43030dc9c957",
+                "reference": "481557b130ef3790cf82b713667b43030dc9c957",
                 "shasum": ""
             },
             "require": {
@@ -8548,7 +8548,7 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
+                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
             },
             "type": "library",
             "extra": {
@@ -8594,7 +8594,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.2.0"
+                "source": "https://github.com/guzzle/promises/tree/2.3.0"
             },
             "funding": [
                 {
@@ -8610,20 +8610,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T13:27:01+00:00"
+            "time": "2025-08-22T14:34:08+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16"
+                "reference": "21dc724a0583619cd1652f673303492272778051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c2270caaabe631b3b44c85f99e5a04bbb8060d16",
-                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/21dc724a0583619cd1652f673303492272778051",
+                "reference": "21dc724a0583619cd1652f673303492272778051",
                 "shasum": ""
             },
             "require": {
@@ -8639,7 +8639,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "http-interop/http-factory-tests": "0.9.0",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
+                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
@@ -8710,7 +8710,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.7.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.8.0"
             },
             "funding": [
                 {
@@ -8726,7 +8726,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-27T12:30:47+00:00"
+            "time": "2025-08-23T21:21:41+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
