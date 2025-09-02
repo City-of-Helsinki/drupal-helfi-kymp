@@ -34,9 +34,9 @@ display:
         is_custom:
           expose:
             label: 'Käyttäjän luoma'
-        status:
+        enabled:
           expose:
-            label: Julkaistu
+            label: Käytössä
       exposed_form:
         options:
           submit_button: Suodata
@@ -66,8 +66,8 @@ display:
         is_custom:
           label: 'Käyttäjän luoma'
           separator: ', '
-        status:
-          label: Julkaistu
+        enabled:
+          label: Käytössä
           separator: ', '
       empty:
         area_text_custom:
