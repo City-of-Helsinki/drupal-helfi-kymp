@@ -34,9 +34,9 @@ display:
         is_custom:
           expose:
             label: Användarskapad
-        status:
+        enabled:
           expose:
-            label: Publicerad
+            label: Aktiverad
       exposed_form:
         options:
           submit_button: Filtrera
@@ -66,8 +66,8 @@ display:
         is_custom:
           label: Användarskapad
           separator: ', '
-        status:
-          label: Publicerad
+        enabled:
+          label: Aktiverad
           separator: ', '
       empty:
         area_text_custom:
