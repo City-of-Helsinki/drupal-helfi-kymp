@@ -4085,16 +4085,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.14.7",
+            "version": "6.14.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "5396a0535003ce2a4d6ebe028a4135b126b64668"
+                "reference": "5cc7c97fcfbfe3deafa0ae3d2a3ba028bf41aa0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/5396a0535003ce2a4d6ebe028a4135b126b64668",
-                "reference": "5396a0535003ce2a4d6ebe028a4135b126b64668",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/5cc7c97fcfbfe3deafa0ae3d2a3ba028bf41aa0b",
+                "reference": "5cc7c97fcfbfe3deafa0ae3d2a3ba028bf41aa0b",
                 "shasum": ""
             },
             "require": {
@@ -4113,10 +4113,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.14.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.14.10",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-09-11T08:48:14+00:00"
+            "time": "2025-09-16T07:15:12+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4422,16 +4422,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.16.20",
+            "version": "4.16.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "a5494533cf7a5fbff8e6d1626f1b71485edb08aa"
+                "reference": "36556141a9b59e26d3613cae4eb060228468f5a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/a5494533cf7a5fbff8e6d1626f1b71485edb08aa",
-                "reference": "a5494533cf7a5fbff8e6d1626f1b71485edb08aa",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/36556141a9b59e26d3613cae4eb060228468f5a7",
+                "reference": "36556141a9b59e26d3613cae4eb060228468f5a7",
                 "shasum": ""
             },
             "require": {
@@ -4541,9 +4541,6 @@
                         "[#UHF-2059] Enhancements for the Admin UI": "./public/modules/contrib/helfi_platform_config/patches/helfi_customizations_for_paragraphs_widget_8.x-1.12.patch",
                         "[#UHF-10840] https://www.drupal.org/i/3510842: Duplicating nested paragraph overwriting paragraph references": "./public/modules/contrib/helfi_platform_config/patches/paragraphs-3510842-duplicate_paragraph_overwrite.patch"
                     },
-                    "drupal/stage_file_proxy": {
-                        "Passing null to a parameter (https://www.drupal.org/i/3520313)": "https://www.drupal.org/files/issues/2025-05-29/stage_file_proxy-passing-null-to-parameter-fix-3520313-13.patch"
-                    },
                     "drupal/view_unpublished": {
                         "[#UHF-9256] Fix missing dynamic permission dependencies.": "./public/modules/contrib/helfi_platform_config/patches/view_unpublished_permissions_missing_dependencies.patch"
                     }
@@ -4554,10 +4551,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.20",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.24",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-09-10T12:13:34+00:00"
+            "time": "2025-09-16T07:16:05+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5153,17 +5150,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.8",
+            "version": "7.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.8"
+                "reference": "7.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.8.zip",
-                "reference": "7.0.8",
-                "shasum": "3a16053650934b3942cf369ac1ee3ad85c655d45"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.9.zip",
+                "reference": "7.0.9",
+                "shasum": "fa75d31583a5866c8dd1f0455b7b5d19642c6f34"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -5175,8 +5172,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.8",
-                    "datestamp": "1754406731",
+                    "version": "7.0.9",
+                    "datestamp": "1757621287",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5444,17 +5441,17 @@
         },
         {
             "name": "drupal/monolog",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/monolog.git",
-                "reference": "3.0.5"
+                "reference": "3.0.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/monolog-3.0.5.zip",
-                "reference": "3.0.5",
-                "shasum": "c151d8ca5a006e0250ef0aaaca44cc1c3359cc33"
+                "url": "https://ftp.drupal.org/files/projects/monolog-3.0.6.zip",
+                "reference": "3.0.6",
+                "shasum": "16069ababb30420e928c29c820f3e0cd61077535"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
@@ -5462,18 +5459,18 @@
                 "php": "^8.1.0"
             },
             "require-dev": {
-                "mglaman/phpstan-drupal": "^1.1",
+                "mglaman/phpstan-drupal": "^1.2 || ^2",
                 "phpstan/extension-installer": "^1.3",
-                "phpstan/phpstan": "^1.11",
+                "phpstan/phpstan": "^1.11 || ^2",
                 "phpstan/phpstan-deprecation-rules": "*",
-                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpstan/phpstan-strict-rules": "^1.5 || ^2",
                 "previousnext/coding-standard": "^1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.5",
-                    "datestamp": "1747324419",
+                    "version": "3.0.6",
+                    "datestamp": "1757672277",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6846,17 +6843,17 @@
         },
         {
             "name": "drupal/stage_file_proxy",
-            "version": "3.1.5",
+            "version": "3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/stage_file_proxy.git",
-                "reference": "3.1.5"
+                "reference": "3.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-3.1.5.zip",
-                "reference": "3.1.5",
-                "shasum": "b4bf35dceea7cfd2fc6808d041d903d7cbde2ed2"
+                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-3.1.6.zip",
+                "reference": "3.1.6",
+                "shasum": "06b7196c0c367dc079ab937e1f6b85fc28c2bcc2"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -6872,8 +6869,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.5",
-                    "datestamp": "1744819754",
+                    "version": "3.1.6",
+                    "datestamp": "1757610587",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
