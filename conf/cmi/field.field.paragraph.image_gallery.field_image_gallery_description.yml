@@ -8,10 +8,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - minimal
 _core:
   default_config_hash: YZDmpA9UTBckO4-LKC6WImb8G9GEKvWDth3DCvKHeZE
 id: paragraph.image_gallery.field_image_gallery_description
@@ -25,5 +21,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - minimal
 field_type: text_long

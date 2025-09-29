@@ -8,10 +8,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - minimal
 _core:
   default_config_hash: FHLEUI_URTUrI6G-qdrGMxbB0-DVgFzWc6DH02B-YyM
 id: paragraph.contact_card_listing.field_description
@@ -25,5 +21,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - minimal
 field_type: text_long

@@ -6,11 +6,7 @@ dependencies:
     - field.storage.paragraph.field_district_project_desc
     - paragraphs.paragraphs_type.district_and_project_search
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: paragraph.district_and_project_search.field_district_project_desc
 field_name: field_district_project_desc
 entity_type: paragraph
