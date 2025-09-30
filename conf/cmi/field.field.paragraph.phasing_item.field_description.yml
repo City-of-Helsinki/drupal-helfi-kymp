@@ -8,10 +8,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - minimal
 _core:
   default_config_hash: '-xKxEFLViuTINOHaiJUV4jiAI87Ehduxy3P4oj5m0Co'
 id: paragraph.phasing_item.field_description
@@ -25,5 +21,6 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - minimal
 field_type: text_long

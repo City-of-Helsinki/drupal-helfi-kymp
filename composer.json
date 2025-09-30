@@ -11,8 +11,7 @@
         "ext-libxml": "*",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.7",
-        "drupal/core": "^10.1",
-        "drupal/core-composer-scaffold": "^10.0",
+        "drupal/core-composer-scaffold": "^10|^11",
         "drupal/hdbt": "^6.0",
         "drupal/hdbt_admin": "^3.0",
         "drupal/helfi_azure_fs": "^2.0",
@@ -22,12 +21,13 @@
         "drupal/helfi_proxy": "^3.0",
         "drupal/helfi_tpr": "^2.0",
         "drupal/helfi_tunnistamo": "^3.0",
-        "drupal/redis": "^1.5"
+        "drupal/redis": "^1.5",
+        "mglaman/composer-drupal-lenient": "*"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "dg/bypass-finals": "^1.5",
-        "drupal/core-dev": "^10",
+        "drupal/core-dev": "^10|^11",
         "jangregor/phpstan-prophecy": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.1",
         "weitzman/drupal-test-traits": "^2.1"
@@ -45,7 +45,8 @@
             "drupal/core-composer-scaffold": true,
             "php-http/discovery": false,
             "phpstan/extension-installer": true,
-            "tbachert/spi": false
+            "tbachert/spi": false,
+            "mglaman/composer-drupal-lenient": true
         },
         "audit": {
             "abandoned": "report",
@@ -94,6 +95,9 @@
         },
         "patchLevel": {
             "drupal/core": "-p2"
+        },
+        "drupal-lenient": {
+            "allowed-list": ["drupal/big_pipe_sessionless"]
         }
     },
     "repositories": [
