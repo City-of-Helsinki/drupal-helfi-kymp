@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_sidebar_text_text
+    - filter.format.minimal
     - paragraphs.paragraphs_type.sidebar_text
   module:
-    - allowed_formats
     - text
 _core:
-  default_config_hash: txEL8z9FtAXqiaL5MkyAIDwvU_hO255PQklk-Ub9w7s
+  default_config_hash: SwBeyo46Zb4NP_DtxZjeIFJb2_oo0wvQ107faCVlMdk
 id: paragraph.sidebar_text.field_sidebar_text_text
 field_name: field_sidebar_text_text
 entity_type: paragraph

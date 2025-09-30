@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_text
+    - filter.format.full_html
     - paragraphs.paragraphs_type.text
   module:
-    - allowed_formats
     - text
 _core:
-  default_config_hash: ALhl0ScfdzRgSbxDO_Xwry8xRCKzaMZBUUPH3fKGwT4
+  default_config_hash: RN2lZap1VnvLW0-yBAJSYz_TNTocVRcBlk6qAQsDvBM
 id: paragraph.text.field_text
 field_name: field_text
 entity_type: paragraph
