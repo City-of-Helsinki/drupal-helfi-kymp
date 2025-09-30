@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_description
+    - filter.format.minimal
     - paragraphs.paragraphs_type.phasing_item
   module:
-    - allowed_formats
     - text
 _core:
-  default_config_hash: '-xKxEFLViuTINOHaiJUV4jiAI87Ehduxy3P4oj5m0Co'
+  default_config_hash: l-W8mRozfdteXoTv-eav_qiSzpHVu86Oa213o_7lj_g
 id: paragraph.phasing_item.field_description
 field_name: field_description
 entity_type: paragraph

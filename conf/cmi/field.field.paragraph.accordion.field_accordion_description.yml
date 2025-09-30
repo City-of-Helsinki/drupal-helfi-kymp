@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_accordion_description
+    - filter.format.minimal
     - paragraphs.paragraphs_type.accordion
   module:
-    - allowed_formats
     - text
 _core:
-  default_config_hash: j-K-qnxmYJISH2FD5kP90WEvaYPac3scFywf6jjx6AA
+  default_config_hash: zOStOjIiPsG-QNSXkZJEbyKeFBm2Vr2WOlDR2rDmJEU
 id: paragraph.accordion.field_accordion_description
 field_name: field_accordion_description
 entity_type: paragraph

@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_image_gallery_description
+    - filter.format.minimal
     - paragraphs.paragraphs_type.image_gallery
   module:
-    - allowed_formats
     - text
 _core:
-  default_config_hash: YZDmpA9UTBckO4-LKC6WImb8G9GEKvWDth3DCvKHeZE
+  default_config_hash: 34tyTKyygRlYVOVIY8U8of-AADUqF_WpQsJAS_2ck68
 id: paragraph.image_gallery.field_image_gallery_description
 field_name: field_image_gallery_description
 entity_type: paragraph
