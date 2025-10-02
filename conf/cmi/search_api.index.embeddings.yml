@@ -1,0 +1,60 @@
+uuid: 56f074ce-8e2d-406f-91a3-7852ad88c97d
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.etusivu
+  module:
+    - helfi_search
+    - node
+id: embeddings
+name: 'Vector embeddings'
+description: ''
+read_only: false
+field_settings:
+  embeddings:
+    label: Embeddings
+    property_path: embeddings
+    type: embeddings
+  entity_type:
+    label: 'Entity type'
+    property_path: search_api_entity_type
+    type: string
+  title:
+    label: Title
+    datasource_id: 'uuid_entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+    configuration:
+      absolute: false
+datasource_settings:
+  'uuid_entity:node':
+    bundles:
+      default: '0'
+      selected:
+        - landing_page
+        - page
+    languages:
+      default: '1'
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  entity_status: {  }
+  entity_type: {  }
+  helfi_search_embeddings: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 100
+  delete_on_fail: true
+  index_directly: false
+  track_changes_in_references: true
+server: etusivu
