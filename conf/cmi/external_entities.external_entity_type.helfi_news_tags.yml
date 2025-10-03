@@ -5,13 +5,13 @@ dependencies:
   module:
     - helfi_paragraphs_news_list
 _core:
-  default_config_hash: K6b21ZAQ5BIG-6xgcJVmXIdc4CIUdO81SJZsCYThvvM
+  default_config_hash: AUBJO9NdCQS_SFHCOxH4t3HshFx72yusQHqV9J_4IJ0
 id: helfi_news_tags
 label: 'Helfi: News tags'
 label_plural: 'Helfi: News tags'
+base_path: helfi_news_tags
 description: 'Retrieves news tags taxonomy terms from Helfi'
 content_class: Drupal\helfi_paragraphs_news_list\Entity\ExternalEntity\Term
-generate_aliases: false
 read_only: true
 debug_level: 0
 field_mappers:
@@ -30,6 +30,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   uuid:
     id: generic
     config:
@@ -45,6 +46,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   title:
     id: generic
     config:
@@ -60,12 +62,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
-  langcode:
-    id: null
-    config: {  }
-  default_langcode:
-    id: null
-    config: {  }
+      debug_level: 0
   tid:
     id: generic
     config:
@@ -81,6 +78,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
 field_mapping_notes: ''
 data_aggregator:
   id: single
@@ -90,8 +88,10 @@ data_aggregator:
         id: helfi_news_tags
         config: {  }
 data_aggregator_notes: ''
+language_settings: {  }
 persistent_cache_max_age: 86400
 annotation_entity_type_id: null
 annotation_bundle_id: null
 annotation_field_name: null
-inherits_annotation_fields: false
+annotation_inherited_fields: {  }
+locks: {  }
