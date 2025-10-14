@@ -5,13 +5,13 @@ dependencies:
   module:
     - helfi_paragraphs_curated_event_list
 _core:
-  default_config_hash: iX1D29_-5lcbPdImES_AlG_cwKaGqnto3s3UrSmz4Tk
+  default_config_hash: '-_R0SxE0Xi3WKxYGB6UJc5QSExb8-DTEfTX-jmFEfsc'
 id: linkedevents_event
 label: 'LinkedEvents: Event'
 label_plural: 'LinkedEvents: Events'
+base_path: linkedevents_event
 description: 'Event entities from https://api.hel.fi/linkedevents.'
 content_class: Drupal\external_entities\Entity\ExternalEntity
-generate_aliases: false
 read_only: true
 debug_level: 0
 field_mappers:
@@ -30,6 +30,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   uuid:
     id: generic
     config:
@@ -45,6 +46,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   title:
     id: generic
     config:
@@ -60,12 +62,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
-  langcode:
-    id: null
-    config: {  }
-  default_langcode:
-    id: null
-    config: {  }
+      debug_level: 0
   main_image:
     id: generic
     config:
@@ -92,6 +89,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   start_time:
     id: generic
     config:
@@ -107,6 +105,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   end_time:
     id: generic
     config:
@@ -122,6 +121,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   external_link:
     id: generic
     config:
@@ -148,6 +148,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
 field_mapping_notes: ''
 data_aggregator:
   id: single
@@ -157,8 +158,10 @@ data_aggregator:
         id: linkedevents_events
         config: {  }
 data_aggregator_notes: ''
+language_settings: {  }
 persistent_cache_max_age: 0
 annotation_entity_type_id: null
 annotation_bundle_id: null
 annotation_field_name: null
-inherits_annotation_fields: false
+annotation_inherited_fields: {  }
+locks: {  }

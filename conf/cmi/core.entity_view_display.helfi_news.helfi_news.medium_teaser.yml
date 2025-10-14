@@ -10,12 +10,20 @@ dependencies:
     config:
       - core.entity_view_mode.helfi_news.medium_teaser
 _core:
-  default_config_hash: mVSIRtxVMh_hPAb97hAa2xLZrKDESmHV1awN18-kwsg
+  default_config_hash: PxD9fb1stXHOLmIT2Yd0lxWpthtJpz287jPFiwhOkJ8
 id: helfi_news.helfi_news.medium_teaser
 targetEntityType: helfi_news
 bundle: helfi_news
 mode: medium_teaser
 content:
+  status:
+    label: hidden
+    type: string
+    region: content
+    weight: 1
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   title:
     type: string
     label: hidden

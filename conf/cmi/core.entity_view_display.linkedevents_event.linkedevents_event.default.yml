@@ -10,7 +10,7 @@ dependencies:
     - imagecache_external
     - linkit
 _core:
-  default_config_hash: xfmis8Lwu1_5aVO4fmPjsxNvasTjCnQoB6cjdCD9n00
+  default_config_hash: 1wzq7XGUNG5bXQhvkfPiJelLE7svLU-4HItYt4gASRg
 id: linkedevents_event.linkedevents_event.default
 targetEntityType: linkedevents_event
 bundle: linkedevents_event
@@ -63,6 +63,14 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  status:
+    label: hidden
+    type: string
+    region: content
+    weight: 6
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   title:
     type: string
     label: hidden

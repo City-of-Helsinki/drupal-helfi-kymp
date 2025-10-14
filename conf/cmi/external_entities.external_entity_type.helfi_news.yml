@@ -5,13 +5,13 @@ dependencies:
   module:
     - helfi_paragraphs_news_list
 _core:
-  default_config_hash: yMTPRuvaxRodBaNzvUry6d_vU1oqkaRMGyMVip4KUuo
+  default_config_hash: 5tcgI0kwe8G7I2mdcnTcucEArUMxDbiZU7VHFGJhNfI
 id: helfi_news
 label: 'Helfi: News'
 label_plural: 'Helfi: News'
+base_path: helfi_news
 description: ''
 content_class: Drupal\helfi_paragraphs_news_list\Entity\ExternalEntity\News
-generate_aliases: false
 read_only: true
 debug_level: 0
 field_mappers:
@@ -30,6 +30,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   uuid:
     id: generic
     config:
@@ -45,6 +46,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   title:
     id: generic
     config:
@@ -60,12 +62,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
-  langcode:
-    id: null
-    config: {  }
-  default_langcode:
-    id: null
-    config: {  }
+      debug_level: 0
   tags:
     id: generic
     config:
@@ -81,6 +78,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   tags_uuid:
     id: generic
     config:
@@ -96,6 +94,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   groups:
     id: generic
     config:
@@ -111,6 +110,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   groups_uuid:
     id: generic
     config:
@@ -126,6 +126,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   neighbourhoods:
     id: generic
     config:
@@ -141,6 +142,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   neighbourhoods_uuid:
     id: generic
     config:
@@ -156,6 +158,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   node_url:
     id: generic
     config:
@@ -171,6 +174,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   published_at:
     id: generic
     config:
@@ -186,6 +190,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
   short_title:
     id: generic
     config:
@@ -201,6 +206,7 @@ field_mappers:
                 id: default
                 config: {  }
             description: ''
+      debug_level: 0
 field_mapping_notes: ''
 data_aggregator:
   id: single
@@ -210,8 +216,10 @@ data_aggregator:
         id: helfi_news
         config: {  }
 data_aggregator_notes: ''
+language_settings: {  }
 persistent_cache_max_age: 1800
 annotation_entity_type_id: null
 annotation_bundle_id: null
 annotation_field_name: null
-inherits_annotation_fields: false
+annotation_inherited_fields: {  }
+locks: {  }

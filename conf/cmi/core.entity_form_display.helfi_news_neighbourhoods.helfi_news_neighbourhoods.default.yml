@@ -8,12 +8,26 @@ dependencies:
     config:
       - external_entities.external_entity_type.helfi_news_neighbourhoods
 _core:
-  default_config_hash: ZYRyMrruogifgRv5B9j4u6MLy4AGnsSp4YZ1Bia0eeU
+  default_config_hash: E2JXaoNs2Vzd2tfaK-I8vmnGevJioaI-wZY7WZPa_ec
 id: helfi_news_neighbourhoods.helfi_news_neighbourhoods.default
 targetEntityType: helfi_news_neighbourhoods
 bundle: helfi_news_neighbourhoods
 mode: default
 content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: -5
@@ -23,5 +37,4 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  langcode: true
   tid: true
