@@ -1,5 +1,8 @@
+label: Содержимое
+description: 'Поиск материалов и управление ими'
 display:
   default:
+    display_title: Основной
     display_options:
       fields:
         langcode:
@@ -59,7 +62,6 @@ display:
         langcode:
           expose:
             label: Язык
-    display_title: Основной
   page_1:
     display_title: Страница
     display_options:
@@ -68,5 +70,3 @@ display:
       tab_options:
         title: Содержимое
         description: 'Поиск материалов и управление ими'
-label: Содержимое
-description: 'Поиск материалов и управление ими'
