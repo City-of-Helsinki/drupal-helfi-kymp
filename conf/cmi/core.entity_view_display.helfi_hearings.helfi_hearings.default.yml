@@ -7,8 +7,11 @@ dependencies:
   module:
     - external_entities
     - imagecache_external
+  enforced:
+    config:
+      - external_entities.external_entity_type.helfi_hearings
 _core:
-  default_config_hash: klytQ3foRw-U-DR81h087vLE--W2lsOuhk6Y5N_tiqI
+  default_config_hash: 5OO51CRANC0T9swUO0Q_IGzj6omHVyF2T1siYdMe6n0
 id: helfi_hearings.helfi_hearings.default
 targetEntityType: helfi_hearings
 bundle: helfi_hearings
@@ -104,13 +107,13 @@ content:
     weight: 0
     region: content
   status:
-    label: hidden
     type: string
-    region: content
-    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   title:
     type: string
     label: hidden
