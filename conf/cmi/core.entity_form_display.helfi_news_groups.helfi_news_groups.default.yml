@@ -8,7 +8,7 @@ dependencies:
     config:
       - external_entities.external_entity_type.helfi_news_groups
 _core:
-  default_config_hash: oZCHkoxPaacRjm8LpHzVpi7DPeLovpakDrqPYBylqws
+  default_config_hash: jXS04vVJUegXeEq0yMT4KCNqI-j01qtoyUglmQiGwh8
 id: helfi_news_groups.helfi_news_groups.default
 targetEntityType: helfi_news_groups
 bundle: helfi_news_groups
@@ -23,10 +23,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 120
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
