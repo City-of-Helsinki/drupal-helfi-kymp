@@ -1,4 +1,4 @@
-uuid: 972acdae-8e71-4d12-a335-bc91828f4851
+uuid: 9c7194f0-392a-45f7-887c-2616ee9762e1
 langcode: en
 status: true
 dependencies:
@@ -6,35 +6,38 @@ dependencies:
     - external_entities
   enforced:
     config:
-      - external_entities.external_entity_type.helfi_news_tags
+      - external_entities.external_entity_type.helfi_news
 _core:
-  default_config_hash: lGkOXQTql0JcJYHxouj1j4jEO33jaypmkWAf85qqgzs
-id: helfi_news_tags.helfi_news_tags.default
-targetEntityType: helfi_news_tags
-bundle: helfi_news_tags
+  default_config_hash: 2gIHwLmEOuhroHvqBdK2Vlm03SuCjRUS1d-UcuJJsMM
+id: helfi_news.helfi_news.default
+targetEntityType: helfi_news
+bundle: helfi_news
 mode: default
 content:
   langcode:
     type: language_select
-    weight: 2
+    weight: 0
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 2
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  tid: true
+  node_url: true
+  published_at: true
+  search_api_language: true
+  short_title: true
