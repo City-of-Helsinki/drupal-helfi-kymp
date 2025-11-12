@@ -8,13 +8,13 @@ dependencies:
     - field.field.paragraph.list_of_links_item.field_list_of_links_link
     - paragraphs.paragraphs_type.list_of_links_item
   module:
-    - hdbt_admin_tools
+    - helfi_platform_config
     - media_library
   enforced:
     module:
       - linkit
 _core:
-  default_config_hash: gpIk2Gvwdo4l2nyLq5n_mobrJZYwUfweVy7MOidu7aM
+  default_config_hash: FX-rGSgXEwYAKYUZIfRVig3YgIHdSaa9j3EbbuHOAdk
 id: paragraph.list_of_links_item.default
 targetEntityType: paragraph
 bundle: list_of_links_item
@@ -36,10 +36,12 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_list_of_links_link:
-    type: link_target_field_widget
+    type: helfi_linkit
     weight: 1
     region: content
     settings:
+      placeholder_url: ''
+      placeholder_title: ''
       linkit_profile: helfi
       linkit_auto_link_text: false
     third_party_settings: {  }
