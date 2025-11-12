@@ -48,9 +48,11 @@
     <figure class="project__image-container">
       {{ content.field_project_image }}
       {% if content.field_project_image.0['#media'].field_photographer.value %}
-        <figcaption class="project__image-caption">
-          {{'Image'|t}}: {{ content.field_project_image.0['#media'].field_photographer.value }}
-        </figcaption>
+        {% embed '@hdbt/misc/photo-caption.twig' with {
+          caption_identifier_class: 'project__image-caption',
+          credit: content.field_project_image.0['#media'].field_photographer.value,
+        } %}
+        {% endembed %}
       {% endif %}
     </figure>
 
