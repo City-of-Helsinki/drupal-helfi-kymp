@@ -63,6 +63,144 @@
             "time": "2025-03-13T08:50:04+00:00"
         },
         {
+            "name": "azure-oss/storage",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure-OSS/azure-storage-php.git",
+                "reference": "1962b36c5f65b0032eb8fd69aed6754506ff4773"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php/zipball/1962b36c5f65b0032eb8fd69aed6754506ff4773",
+                "reference": "1962b36c5f65b0032eb8fd69aed6754506ff4773",
+                "shasum": ""
+            },
+            "require": {
+                "caseyamcl/guzzle_retry_middleware": "^2.10",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^7.8",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "guzzlehttp/test-server": "^0.1.0",
+                "laravel/pint": "1.20.0",
+                "phpbench/phpbench": "^1.3",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AzureOss\\Storage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brecht Vermeersch",
+                    "email": "brechtvermeersch@outlook.be"
+                },
+                {
+                    "name": "Pim Jansen",
+                    "email": "pimjansen@gmail.com"
+                }
+            ],
+            "description": "Azure Storage PHP SDK",
+            "keywords": [
+                "azure",
+                "php",
+                "sdk",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/Azure-OSS/azure-storage-php/issues",
+                "source": "https://github.com/Azure-OSS/azure-storage-php/tree/1.6.0"
+            },
+            "time": "2025-11-17T11:32:51+00:00"
+        },
+        {
+            "name": "caseyamcl/guzzle_retry_middleware",
+            "version": "v2.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caseyamcl/guzzle_retry_middleware.git",
+                "reference": "17c9299cde438b00bbeb099c6480319a81636a60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caseyamcl/guzzle_retry_middleware/zipball/17c9299cde438b00bbeb099c6480319a81636a60",
+                "reference": "17c9299cde438b00bbeb099c6480319a81636a60",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "jaschilz/php-coverage-badger": "^2.0",
+                "nesbot/carbon": "^2.0|^3.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^7.5|^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.5",
+                "symfony/var-dumper": "^5.0|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleRetry\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Casey McLaughlin",
+                    "email": "caseyamcl@gmail.com",
+                    "homepage": "https://caseymclaughlin.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Guzzle v6+ retry middleware that handles 429/503 status codes and connection timeouts",
+            "homepage": "https://github.com/caseyamcl/guzzle_retry_middleware",
+            "keywords": [
+                "Guzzle",
+                "back-off",
+                "caseyamcl",
+                "guzzle_retry_middleware",
+                "middleware",
+                "retry",
+                "retry-after"
+            ],
+            "support": {
+                "issues": "https://github.com/caseyamcl/guzzle_retry_middleware/issues",
+                "source": "https://github.com/caseyamcl/guzzle_retry_middleware/tree/v2.13.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/caseyamcl",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-07-11T12:33:22+00:00"
+        },
+        {
             "name": "caxy/php-htmldiff",
             "version": "v0.1.17",
             "source": {
@@ -785,16 +923,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.10.2",
+            "version": "4.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "e550ea4f177f199e0e9451168342bf3f321d92b0"
+                "reference": "69d29da4acac31a43caa4cea13b6b948f4e5c56d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/e550ea4f177f199e0e9451168342bf3f321d92b0",
-                "reference": "e550ea4f177f199e0e9451168342bf3f321d92b0",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/69d29da4acac31a43caa4cea13b6b948f4e5c56d",
+                "reference": "69d29da4acac31a43caa4cea13b6b948f4e5c56d",
                 "shasum": ""
             },
             "require": {
@@ -835,22 +973,22 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.10.2"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.10.4"
             },
-            "time": "2025-07-16T20:54:09+00:00"
+            "time": "2025-11-14T22:57:49+00:00"
         },
         {
             "name": "consolidation/config",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/config.git",
-                "reference": "54bb59d156e01698cd52d4dbbf6df98924f9ff7e"
+                "reference": "797652cd5ac870f02eb3ca1a7169d3dbbe6e5f84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/config/zipball/54bb59d156e01698cd52d4dbbf6df98924f9ff7e",
-                "reference": "54bb59d156e01698cd52d4dbbf6df98924f9ff7e",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/797652cd5ac870f02eb3ca1a7169d3dbbe6e5f84",
+                "reference": "797652cd5ac870f02eb3ca1a7169d3dbbe6e5f84",
                 "shasum": ""
             },
             "require": {
@@ -895,22 +1033,22 @@
             "description": "Provide configuration services for a commandline tool.",
             "support": {
                 "issues": "https://github.com/consolidation/config/issues",
-                "source": "https://github.com/consolidation/config/tree/3.1.1"
+                "source": "https://github.com/consolidation/config/tree/3.2.0"
             },
-            "time": "2025-07-07T13:37:38+00:00"
+            "time": "2025-11-14T18:44:25+00:00"
         },
         {
             "name": "consolidation/filter-via-dot-access-data",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/filter-via-dot-access-data.git",
-                "reference": "cb2eeba41f8e2e3c61698a5cf70ef048ff6c9d5b"
+                "reference": "f9e84bc623d420120028a50dcb9b1d4609ae3b5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/filter-via-dot-access-data/zipball/cb2eeba41f8e2e3c61698a5cf70ef048ff6c9d5b",
-                "reference": "cb2eeba41f8e2e3c61698a5cf70ef048ff6c9d5b",
+                "url": "https://api.github.com/repos/consolidation/filter-via-dot-access-data/zipball/f9e84bc623d420120028a50dcb9b1d4609ae3b5f",
+                "reference": "f9e84bc623d420120028a50dcb9b1d4609ae3b5f",
                 "shasum": ""
             },
             "require": {
@@ -945,22 +1083,22 @@
             ],
             "description": "This project uses dflydev/dot-access-data to provide simple output filtering for applications built with annotated-command / Robo.",
             "support": {
-                "source": "https://github.com/consolidation/filter-via-dot-access-data/tree/2.0.2"
+                "source": "https://github.com/consolidation/filter-via-dot-access-data/tree/2.0.3"
             },
-            "time": "2021-12-30T03:56:08+00:00"
+            "time": "2025-11-14T21:01:06+00:00"
         },
         {
             "name": "consolidation/log",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/log.git",
-                "reference": "c27a3beb36137c141ccbce0d89f64befb243c015"
+                "reference": "c1a87a94c01957697ec347fd67404d7f0030d1aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/log/zipball/c27a3beb36137c141ccbce0d89f64befb243c015",
-                "reference": "c27a3beb36137c141ccbce0d89f64befb243c015",
+                "url": "https://api.github.com/repos/consolidation/log/zipball/c1a87a94c01957697ec347fd67404d7f0030d1aa",
+                "reference": "c1a87a94c01957697ec347fd67404d7f0030d1aa",
                 "shasum": ""
             },
             "require": {
@@ -997,22 +1135,22 @@
             "description": "Improved Psr-3 / Psr\\Log logger based on Symfony Console components.",
             "support": {
                 "issues": "https://github.com/consolidation/log/issues",
-                "source": "https://github.com/consolidation/log/tree/3.1.0"
+                "source": "https://github.com/consolidation/log/tree/3.1.1"
             },
-            "time": "2024-04-04T23:50:25+00:00"
+            "time": "2025-11-14T21:11:00+00:00"
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "4.6.1",
+            "version": "4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d"
+                "reference": "dfc464c4d4a47594cac5eac01ce265e04b70cb94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d",
-                "reference": "b6bcaf13bec9f4597e75ae853f3b3ac0d53b798d",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/dfc464c4d4a47594cac5eac01ce265e04b70cb94",
+                "reference": "dfc464c4d4a47594cac5eac01ce265e04b70cb94",
                 "shasum": ""
             },
             "require": {
@@ -1051,22 +1189,22 @@
             "description": "Format text by applying transformations provided by plug-in formatters.",
             "support": {
                 "issues": "https://github.com/consolidation/output-formatters/issues",
-                "source": "https://github.com/consolidation/output-formatters/tree/4.6.1"
+                "source": "https://github.com/consolidation/output-formatters/tree/4.7.0"
             },
-            "time": "2024-12-13T18:38:45+00:00"
+            "time": "2025-11-14T21:06:10+00:00"
         },
         {
             "name": "consolidation/robo",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/robo.git",
-                "reference": "dde6bd88de5e1e8a7f6ed8906f80353817647ad9"
+                "reference": "6d02c7d800b5e1a3a8977ae74d23bce723486025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/robo/zipball/dde6bd88de5e1e8a7f6ed8906f80353817647ad9",
-                "reference": "dde6bd88de5e1e8a7f6ed8906f80353817647ad9",
+                "url": "https://api.github.com/repos/consolidation/robo/zipball/6d02c7d800b5e1a3a8977ae74d23bce723486025",
+                "reference": "6d02c7d800b5e1a3a8977ae74d23bce723486025",
                 "shasum": ""
             },
             "require": {
@@ -1124,22 +1262,22 @@
             "description": "Modern task runner",
             "support": {
                 "issues": "https://github.com/consolidation/robo/issues",
-                "source": "https://github.com/consolidation/robo/tree/5.1.0"
+                "source": "https://github.com/consolidation/robo/tree/5.1.1"
             },
-            "time": "2024-10-22T13:18:54+00:00"
+            "time": "2025-11-14T23:30:05+00:00"
         },
         {
             "name": "consolidation/site-alias",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/site-alias.git",
-                "reference": "aff6189aae17da813d23249cb2fc0fff33f26d40"
+                "reference": "d92058201fc8475a33fb9a2b80ffe5c89472f5af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/aff6189aae17da813d23249cb2fc0fff33f26d40",
-                "reference": "aff6189aae17da813d23249cb2fc0fff33f26d40",
+                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/d92058201fc8475a33fb9a2b80ffe5c89472f5af",
+                "reference": "d92058201fc8475a33fb9a2b80ffe5c89472f5af",
                 "shasum": ""
             },
             "require": {
@@ -1183,9 +1321,9 @@
             "description": "Manage alias records for local and remote sites.",
             "support": {
                 "issues": "https://github.com/consolidation/site-alias/issues",
-                "source": "https://github.com/consolidation/site-alias/tree/4.1.1"
+                "source": "https://github.com/consolidation/site-alias/tree/4.1.2"
             },
-            "time": "2024-12-13T19:05:11+00:00"
+            "time": "2025-11-14T21:08:14+00:00"
         },
         {
             "name": "consolidation/site-process",
@@ -2329,16 +2467,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.5.5",
+            "version": "10.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "0ac079f21a2dec57225a85cd8b338d2c3b730a0d"
+                "reference": "b685b04acbae19cb4fda0a63822ff21e1f743f44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/0ac079f21a2dec57225a85cd8b338d2c3b730a0d",
-                "reference": "0ac079f21a2dec57225a85cd8b338d2c3b730a0d",
+                "url": "https://api.github.com/repos/drupal/core/zipball/b685b04acbae19cb4fda0a63822ff21e1f743f44",
+                "reference": "b685b04acbae19cb4fda0a63822ff21e1f743f44",
                 "shasum": ""
             },
             "require": {
@@ -2488,13 +2626,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.5.5"
+                "source": "https://github.com/drupal/core/tree/10.5.6"
             },
-            "time": "2025-11-06T04:10:09+00:00"
+            "time": "2025-11-12T21:53:53+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.5.5",
+            "version": "10.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2538,23 +2676,23 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.5"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.5.6"
             },
             "time": "2024-08-22T14:31:30+00:00"
         },
         {
             "name": "drupal/crop",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/crop.git",
-                "reference": "8.x-2.4"
+                "reference": "8.x-2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/crop-8.x-2.4.zip",
-                "reference": "8.x-2.4",
-                "shasum": "be11fad0abf1d53544d35cb4ca6cedd8e91d2542"
+                "url": "https://ftp.drupal.org/files/projects/crop-8.x-2.5.zip",
+                "reference": "8.x-2.5",
+                "shasum": "759c8add182d9b74c04a58c26d1c402f9d1653e6"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11"
@@ -2562,8 +2700,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.4",
-                    "datestamp": "1720455738",
+                    "version": "8.x-2.5",
+                    "datestamp": "1763154892",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4140,16 +4278,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.15.5",
+            "version": "6.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "da63c7f911b3296a397d8e4ef61e623d81d660f5"
+                "reference": "530cef33ca91b4786f08ff74270685ae14219628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/da63c7f911b3296a397d8e4ef61e623d81d660f5",
-                "reference": "da63c7f911b3296a397d8e4ef61e623d81d660f5",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/530cef33ca91b4786f08ff74270685ae14219628",
+                "reference": "530cef33ca91b4786f08ff74270685ae14219628",
                 "shasum": ""
             },
             "require": {
@@ -4168,10 +4306,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.15.5",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.16.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2025-11-12T07:17:34+00:00"
+            "time": "2025-11-17T11:50:40+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4261,16 +4399,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.7.44",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "6c4f6c506a252f31fc719fb7d47a0c5c34455390"
+                "reference": "ca47b0fb17e0d5f4213b5925cb489330b68eedbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/6c4f6c506a252f31fc719fb7d47a0c5c34455390",
-                "reference": "6c4f6c506a252f31fc719fb7d47a0c5c34455390",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/ca47b0fb17e0d5f4213b5925cb489330b68eedbf",
+                "reference": "ca47b0fb17e0d5f4213b5925cb489330b68eedbf",
                 "shasum": ""
             },
             "require": {
@@ -4300,33 +4438,40 @@
                 "drupal/search_api": "^1.0"
             },
             "type": "drupal-module",
+            "extra": {
+                "patches": {
+                    "drupal/big_pipe_sessionless": {
+                        "Drupal 11 support (https://drupal.org/i/3428235)": "https://www.drupal.org/files/issues/2025-05-07/3428235.d11.patch"
+                    }
+                }
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.7.44",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.0",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2025-10-30T07:45:33+00:00"
+            "time": "2025-11-17T10:58:58+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "120bcd6e30c22e6cf8dba8e4831b995f43dac554"
+                "reference": "1f481a8a856396a8e234dd174fb1598ac2d04e31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/120bcd6e30c22e6cf8dba8e4831b995f43dac554",
-                "reference": "120bcd6e30c22e6cf8dba8e4831b995f43dac554",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/1f481a8a856396a8e234dd174fb1598ac2d04e31",
+                "reference": "1f481a8a856396a8e234dd174fb1598ac2d04e31",
                 "shasum": ""
             },
             "require": {
-                "drupal/flysystem": "^2.2",
-                "microsoft/azure-storage-blob": "^1.1"
+                "azure-oss/storage": "^1.5",
+                "drupal/flysystem": "^2.2"
             },
             "conflict": {
                 "drupal/core": "<10.3"
@@ -4348,10 +4493,10 @@
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.13",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.0.14",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2025-08-06T06:36:50+00:00"
+            "time": "2025-11-10T10:04:54+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
@@ -4477,16 +4622,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "4.16.59",
+            "version": "4.16.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "5587b25106a905d3ae9566c6d71044dbc5d7f586"
+                "reference": "6224ab687a050c0d83399c45a277398b9186bcce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/5587b25106a905d3ae9566c6d71044dbc5d7f586",
-                "reference": "5587b25106a905d3ae9566c6d71044dbc5d7f586",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/6224ab687a050c0d83399c45a277398b9186bcce",
+                "reference": "6224ab687a050c0d83399c45a277398b9186bcce",
                 "shasum": ""
             },
             "require": {
@@ -4609,10 +4754,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.59",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/4.16.61",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-11-11T10:52:44+00:00"
+            "time": "2025-11-14T11:22:32+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -8141,16 +8286,16 @@
         },
         {
             "name": "fileeye/mimemap",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FileEye/MimeMap.git",
-                "reference": "2bfaead48d74e730a4781902d3aaecbeb1f7edc0"
+                "reference": "257ab8a9d13fb2e62d900c4d2ef3c3c688e19cfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FileEye/MimeMap/zipball/2bfaead48d74e730a4781902d3aaecbeb1f7edc0",
-                "reference": "2bfaead48d74e730a4781902d3aaecbeb1f7edc0",
+                "url": "https://api.github.com/repos/FileEye/MimeMap/zipball/257ab8a9d13fb2e62d900c4d2ef3c3c688e19cfc",
+                "reference": "257ab8a9d13fb2e62d900c4d2ef3c3c688e19cfc",
                 "shasum": ""
             },
             "require": {
@@ -8193,9 +8338,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FileEye/MimeMap/issues",
-                "source": "https://github.com/FileEye/MimeMap/tree/2.2.2"
+                "source": "https://github.com/FileEye/MimeMap/tree/2.2.3"
             },
-            "time": "2025-04-10T18:54:12+00:00"
+            "time": "2025-11-16T09:32:53+00:00"
         },
         {
             "name": "fileeye/pel",
@@ -9605,102 +9750,6 @@
                 }
             ],
             "time": "2024-11-21T15:59:26+00:00"
-        },
-        {
-            "name": "microsoft/azure-storage-blob",
-            "version": "1.5.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Azure/azure-storage-blob-php.git",
-                "reference": "1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Azure/azure-storage-blob-php/zipball/1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf",
-                "reference": "1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf",
-                "shasum": ""
-            },
-            "require": {
-                "microsoft/azure-storage-common": "~1.5",
-                "php": ">=5.6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MicrosoftAzure\\Storage\\Blob\\": "src/Blob"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Azure Storage PHP Client Library",
-                    "email": "dmsh@microsoft.com"
-                }
-            ],
-            "description": "This project provides a set of PHP client libraries that make it easy to access Microsoft Azure Storage Blob APIs.",
-            "keywords": [
-                "azure",
-                "blob",
-                "php",
-                "sdk",
-                "storage"
-            ],
-            "support": {
-                "issues": "https://github.com/Azure/azure-storage-blob-php/issues",
-                "source": "https://github.com/Azure/azure-storage-blob-php/tree/v1.5.4"
-            },
-            "time": "2022-09-02T02:13:06+00:00"
-        },
-        {
-            "name": "microsoft/azure-storage-common",
-            "version": "1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Azure/azure-storage-common-php.git",
-                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Azure/azure-storage-common-php/zipball/8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
-                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.0|^7.0",
-                "php": ">=5.6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MicrosoftAzure\\Storage\\Common\\": "src/Common"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Azure Storage PHP Client Library",
-                    "email": "dmsh@microsoft.com"
-                }
-            ],
-            "description": "This project provides a set of common code shared by Azure Storage Blob, Table, Queue and File PHP client libraries.",
-            "keywords": [
-                "azure",
-                "common",
-                "php",
-                "sdk",
-                "storage"
-            ],
-            "support": {
-                "issues": "https://github.com/Azure/azure-storage-common-php/issues",
-                "source": "https://github.com/Azure/azure-storage-common-php/tree/v1.5.2"
-            },
-            "time": "2021-10-09T03:03:47+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -12234,16 +12283,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v6.4.28",
+            "version": "v6.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "1ba1d5fe6465b0fa39c8627ba552b2c29301aa81"
+                "reference": "b03d11e015552a315714c127d8d1e0f9e970ec88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/1ba1d5fe6465b0fa39c8627ba552b2c29301aa81",
-                "reference": "1ba1d5fe6465b0fa39c8627ba552b2c29301aa81",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b03d11e015552a315714c127d8d1e0f9e970ec88",
+                "reference": "b03d11e015552a315714c127d8d1e0f9e970ec88",
                 "shasum": ""
             },
             "require": {
@@ -12291,7 +12340,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v6.4.28"
+                "source": "https://github.com/symfony/http-foundation/tree/v6.4.29"
             },
             "funding": [
                 {
@@ -12311,20 +12360,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-06T10:41:18+00:00"
+            "time": "2025-11-08T16:40:12+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v6.4.28",
+            "version": "v6.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "bbccadab358e236fcf13cc02a01fc0115d09d787"
+                "reference": "18818b48f54c1d2bd92b41d82d8345af50b15658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/bbccadab358e236fcf13cc02a01fc0115d09d787",
-                "reference": "bbccadab358e236fcf13cc02a01fc0115d09d787",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/18818b48f54c1d2bd92b41d82d8345af50b15658",
+                "reference": "18818b48f54c1d2bd92b41d82d8345af50b15658",
                 "shasum": ""
             },
             "require": {
@@ -12409,7 +12458,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v6.4.28"
+                "source": "https://github.com/symfony/http-kernel/tree/v6.4.29"
             },
             "funding": [
                 {
@@ -12429,7 +12478,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-06T20:52:25+00:00"
+            "time": "2025-11-12T11:22:59+00:00"
         },
         {
             "name": "symfony/mailer",
@@ -14503,16 +14552,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v6.4.27",
+            "version": "v6.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "60dd71e219cd3d76fde906eb6b6c1271db628f5b"
+                "reference": "99df8a769e64e399f510166141ea74f450e8dd1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/60dd71e219cd3d76fde906eb6b6c1271db628f5b",
-                "reference": "60dd71e219cd3d76fde906eb6b6c1271db628f5b",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/99df8a769e64e399f510166141ea74f450e8dd1d",
+                "reference": "99df8a769e64e399f510166141ea74f450e8dd1d",
                 "shasum": ""
             },
             "require": {
@@ -14580,7 +14629,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v6.4.27"
+                "source": "https://github.com/symfony/validator/tree/v6.4.29"
             },
             "funding": [
                 {
@@ -14600,7 +14649,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-10-23T19:49:35+00:00"
+            "time": "2025-11-06T20:26:06+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -20442,16 +20491,16 @@
         },
         {
             "name": "theseer/tokenizer",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2"
+                "reference": "d74205c497bfbca49f34d4bc4c19c17e22db4ebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
-                "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/d74205c497bfbca49f34d4bc4c19c17e22db4ebb",
+                "reference": "d74205c497bfbca49f34d4bc4c19c17e22db4ebb",
                 "shasum": ""
             },
             "require": {
@@ -20480,7 +20529,7 @@
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "support": {
                 "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/1.2.3"
+                "source": "https://github.com/theseer/tokenizer/tree/1.3.0"
             },
             "funding": [
                 {
@@ -20488,7 +20537,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-03T12:36:25+00:00"
+            "time": "2025-11-13T13:44:09+00:00"
         },
         {
             "name": "webflo/drupal-finder",
