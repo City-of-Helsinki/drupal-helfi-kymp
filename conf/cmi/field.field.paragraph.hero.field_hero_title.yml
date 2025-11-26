@@ -6,13 +6,13 @@ dependencies:
     - field.storage.paragraph.field_hero_title
     - paragraphs.paragraphs_type.hero
 _core:
-  default_config_hash: M_9WbyHp-nRmfEt8Xwa1wU-HGs89Sb8wO08PQzhRhdo
+  default_config_hash: UurxQySq270gOUXF1wFOeuAof1ws42Rja6dyEyNlI10
 id: paragraph.hero.field_hero_title
 field_name: field_hero_title
 entity_type: paragraph
 bundle: hero
 label: 'Hero heading'
-description: "If a hero is used on the page, this heading will be used as the page's main heading."
+description: 'The hero title and the page title must be the same. The hero title is used as the page’s metadata title, which appears in search results. The page title is used in the page URL. You can edit the metadata title in the page’s meta settings.'
 required: true
 translatable: false
 default_value: {  }
