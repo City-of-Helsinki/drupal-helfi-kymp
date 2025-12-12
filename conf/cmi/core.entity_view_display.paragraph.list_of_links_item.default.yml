@@ -8,9 +8,9 @@ dependencies:
     - field.field.paragraph.list_of_links_item.field_list_of_links_link
     - paragraphs.paragraphs_type.list_of_links_item
   module:
-    - link
+    - linkit
 _core:
-  default_config_hash: CQuaekf9QZMU7bhaACjElbna_WTllG8ca1s06R2flKo
+  default_config_hash: DKYlKfoXqJVoZEgNwSGYWMd23mVbIi2qM8OfXr7RnTA
 id: paragraph.list_of_links_item.default
 targetEntityType: paragraph
 bundle: list_of_links_item
@@ -34,7 +34,7 @@ content:
     weight: 0
     region: content
   field_list_of_links_link:
-    type: link
+    type: linkit
     label: hidden
     settings:
       trim_length: 255
@@ -42,6 +42,7 @@ content:
       url_plain: false
       rel: '0'
       target: '0'
+      linkit_profile: helfi
     third_party_settings: {  }
     weight: 1
     region: content

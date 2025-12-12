@@ -2,6 +2,20 @@ display:
   default:
     display_title: Основной
     display_options:
+      fields:
+        name:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: First
+            last: Last
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
       exposed_form:
         options:
           submit_button: фильтр
@@ -9,20 +23,6 @@ display:
           exposed_sorts_label: 'Сортировать по'
           sort_asc_label: 'По возрастанию'
           sort_desc_label: 'По убыванию'
-      pager:
-        options:
-          tags:
-            previous: '‹ Предыдущий'
-            next: 'Следующий ›'
-            first: First
-            last: Last
-          expose:
-            items_per_page_label: 'Элементов на страницу'
-            items_per_page_options_all_label: '- Все -'
-            offset_label: Пропустить
-      fields:
-        name:
-          separator: ', '
       arguments:
         id:
           exception:

@@ -12,10 +12,10 @@ display:
       pager:
         options:
           tags:
-            first: Första
-            last: Sista
             previous: Föregående
             next: Nästa
+            first: Första
+            last: Sista
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
@@ -24,6 +24,9 @@ display:
         tpr_service_channel_bulk_form:
           label: Massuppdatera
           action_title: Åtgärd
+        id:
+          label: ID
+          separator: ', '
         name:
           label: Namn
           separator: ', '
@@ -31,19 +34,16 @@ display:
           label: Språk
           separator: ', '
         content_translation_status:
+          label: Status
           settings:
             format_custom_true: Publicerad
             format_custom_false: 'Ej publicerad'
-          label: Status
           separator: ', '
         content_translation_changed:
           label: Uppdaterad
           separator: ', '
         operations:
           label: Funktioner
-        id:
-          label: ID
-          separator: ', '
       filters:
         combine:
           expose:

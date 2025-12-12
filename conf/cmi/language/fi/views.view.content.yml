@@ -1,10 +1,11 @@
+label: Sisältö
+description: 'Etsi ja ylläpidä sisältöä.'
 display:
   default:
+    display_title: Oletus
     display_options:
+      title: Sisältö
       fields:
-        langcode:
-          label: Kieli
-          separator: ', '
         title:
           label: Otsikko
         type:
@@ -19,9 +20,11 @@ display:
             format_custom_true: Julkaistu
         changed:
           label: Päivitetty
+        langcode:
+          label: Kieli
+          separator: ', '
         operations:
           label: Toimenpiteet
-      title: Sisältö
       pager:
         options:
           tags:
@@ -59,7 +62,6 @@ display:
         langcode:
           expose:
             label: Kieli
-    display_title: Oletus
   page_1:
     display_title: Sivu
     display_options:
@@ -68,5 +70,3 @@ display:
       tab_options:
         title: Sisältö
         description: 'Etsi ja hallitse sisältöä'
-label: Sisältö
-description: 'Etsi ja ylläpidä sisältöä.'

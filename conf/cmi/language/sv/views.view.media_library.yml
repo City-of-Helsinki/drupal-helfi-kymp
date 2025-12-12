@@ -1,8 +1,10 @@
+label: 'Media library'
 description: 'Hitta och hantera media.'
 display:
   default:
     display_title: Förvald
     display_options:
+      title: Media
       fields:
         media_bulk_form:
           action_title: Åtgärd
@@ -57,13 +59,14 @@ display:
         langcode:
           expose:
             label: Språk
-      title: Media
   page:
     display_title: Sida
     display_options:
       fields:
         media_bulk_form:
           action_title: Åtgärd
+        name:
+          separator: ', '
         edit_media:
           alter:
             text: 'Redigera {{ name }}'
@@ -74,9 +77,8 @@ display:
             text: 'Radera {{ name }}'
             alt: 'Radera {{ name }}'
           text: Radera
-        name:
-          separator: ', '
   widget:
+    display_title: Widget
     display_options:
       arguments:
         bundle:
@@ -91,7 +93,6 @@ display:
           label: Rutnät
         display_link_table:
           label: Tabell
-    display_title: Widget
   widget_table:
     display_title: 'Gränssnittskomponent (tabell)'
     display_options:
@@ -117,4 +118,3 @@ display:
           label: Rutnät
         display_link_table:
           label: Tabell
-label: 'Media library'
