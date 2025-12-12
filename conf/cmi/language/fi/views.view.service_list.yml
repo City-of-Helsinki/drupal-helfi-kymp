@@ -1,8 +1,14 @@
-label: Palvelut
 display:
   default:
-    display_title: Oletus
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Ei tuloksia</p>'
+      fields:
+        name:
+          separator: ', '
       pager:
         options:
           tags:
@@ -21,20 +27,26 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      empty:
-        area:
-          content:
-            value: '<p>Ei tuloksia</p>'
-            format: full_html
       arguments:
         id:
           exception:
             title: Kaikki
+    display_title: Oletus
+  block:
+    display_title: Lohko
+  block_search:
+    display_title: Lohko
+    display_options:
+      title: Palveluluettelohaku
       fields:
         name:
           separator: ', '
-  block_search:
-    display_options:
+        name_synonyms:
+          separator: ', '
+        description__summary:
+          separator: ', '
+        name_override:
+          separator: ', '
       pager:
         options:
           tags:
@@ -62,17 +74,6 @@ display:
           expose:
             label: 'Neuvontapalvelun nimi tai hakusana'
             placeholder: 'Esim. Sosiaalineuvonta, terveys tai digi'
-      title: Palveluluettelohaku
-      fields:
-        name:
-          separator: ', '
-        name_synonyms:
-          separator: ', '
-        description__summary:
-          separator: ', '
-        name_override:
-          separator: ', '
-    display_title: Lohko
   entity_reference_1:
     display_title: Entiteettiviittaus
     display_options:
@@ -83,5 +84,4 @@ display:
           separator: ', '
         name:
           separator: ', '
-  block:
-    display_title: Lohko
+label: Palvelut

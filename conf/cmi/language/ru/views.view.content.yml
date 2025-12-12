@@ -4,10 +4,8 @@ display:
   default:
     display_title: Основной
     display_options:
+      title: Содержимое
       fields:
-        langcode:
-          label: Язык
-          separator: ', '
         title:
           label: Заголовок
         type:
@@ -22,9 +20,11 @@ display:
             format_custom_true: Опубликовано
         changed:
           label: Обновлено
+        langcode:
+          label: Язык
+          separator: ', '
         operations:
           label: Операции
-      title: Содержимое
       pager:
         options:
           tags:

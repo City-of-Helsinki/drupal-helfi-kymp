@@ -1,9 +1,56 @@
+label: Redirect
 display:
   default:
+    display_title: Förvald
     display_options:
+      title: Redirect
+      fields:
+        redirect_bulk_form:
+          action_title: 'Med valda'
+        redirect_source__path:
+          label: Från
+          separator: ', '
+        is_custom:
+          label: Användarskapad
+          separator: ', '
+        enabled:
+          label: Aktiverad
+          separator: ', '
+        created:
+          label: Skapad
+      pager:
+        options:
+          tags:
+            next: Nästa
+            previous: Föregående
+            first: Första
+            last: Sista
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Filtrera
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      empty:
+        area_text_custom:
+          content: 'Det finns inga omdirigeringar ännu.'
       filters:
+        redirect_source__path:
+          expose:
+            label: Från
+        redirect_redirect__uri:
+          expose:
+            label: Till
         status_code:
+          expose:
+            label: Statuskod
           group_info:
+            label: Statuskod
             group_items:
               1:
                 title: '300 Flera val'
@@ -19,15 +66,6 @@ display:
                 title: '305 Använd proxy'
               7:
                 title: '307 Tillfällig omdirigering'
-            label: Statuskod
-          expose:
-            label: Statuskod
-        redirect_source__path:
-          expose:
-            label: Från
-        redirect_redirect__uri:
-          expose:
-            label: Till
         language:
           expose:
             label: Originalspråk
@@ -37,46 +75,8 @@ display:
         enabled:
           expose:
             label: Aktiverad
-      exposed_form:
-        options:
-          submit_button: Filtrera
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
-          tags:
-            previous: Föregående
-            next: Nästa
-            first: Första
-            last: Sista
-      fields:
-        redirect_bulk_form:
-          action_title: 'Med valda'
-        redirect_source__path:
-          label: Från
-          separator: ', '
-        created:
-          label: Skapad
-        is_custom:
-          label: Användarskapad
-          separator: ', '
-        enabled:
-          label: Aktiverad
-          separator: ', '
-      empty:
-        area_text_custom:
-          content: 'Det finns inga omdirigeringar ännu.'
-      title: Redirect
-    display_title: Förvald
   page_1:
     display_title: Sida
     display_options:
       menu:
         title: Redirect
-label: Redirect

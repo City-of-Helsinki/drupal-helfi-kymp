@@ -1,7 +1,20 @@
 display:
   default:
-    display_title: Förvald
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Inget resultat</p>'
+      fields:
+        name:
+          separator: ', '
+        address__postal_code:
+          separator: ', '
+        address__address_line1:
+          separator: ', '
+        address__address_line2:
+          separator: ', '
       pager:
         options:
           tags:
@@ -20,11 +33,6 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
-      empty:
-        area:
-          content:
-            value: '<p>Inget resultat</p>'
-            format: full_html
       arguments:
         id:
           exception:
@@ -35,15 +43,9 @@ display:
             label: Sök
           group_info:
             label: 'Kombinera filterfält'
-      fields:
-        name:
-          separator: ', '
-        address__postal_code:
-          separator: ', '
-        address__address_line1:
-          separator: ', '
-        address__address_line2:
-          separator: ', '
+    display_title: Förvald
+  block:
+    display_title: Block
   entity_reference:
     display_title: Objektsreferens
     display_options:
@@ -54,5 +56,3 @@ display:
           separator: ', '
         name:
           separator: ', '
-  block:
-    display_title: Block

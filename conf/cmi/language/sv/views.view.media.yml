@@ -1,8 +1,28 @@
-description: 'Hitta och hantera media.'
 display:
   default:
-    display_title: Förvald
     display_options:
+      filters:
+        status:
+          expose:
+            description: ''
+            label: Sant
+          group_info:
+            label: 'Status för publicering'
+            group_items:
+              1:
+                title: Publicerad
+              2:
+                title: 'Ej publicerad'
+        name:
+          expose:
+            label: Medianamn
+        bundle:
+          expose:
+            label: Typ
+        langcode:
+          expose:
+            label: Språk
+      title: Media
       fields:
         media_bulk_form:
           action_title: Åtgärd
@@ -19,10 +39,10 @@ display:
           label: Författare
           separator: ', '
         status:
+          label: Status
           settings:
             format_custom_false: 'Ej publicerad'
             format_custom_true: Publicerad
-          label: Status
           separator: ', '
         changed:
           label: Uppdaterad
@@ -50,30 +70,11 @@ display:
       empty:
         area_text_custom:
           content: 'Ingen media tillgänglig.'
-      filters:
-        name:
-          expose:
-            label: Medianamn
-        bundle:
-          expose:
-            label: Typ
-        status:
-          expose:
-            label: Sant
-          group_info:
-            label: 'Status för publicering'
-            group_items:
-              1:
-                title: Publicerad
-              2:
-                title: 'Ej publicerad'
-        langcode:
-          expose:
-            label: Språk
-      title: Media
+    display_title: Förvald
   media_page_list:
     display_title: Media
     display_options:
       menu:
         title: Media
 label: Media
+description: 'Hitta och hantera media.'

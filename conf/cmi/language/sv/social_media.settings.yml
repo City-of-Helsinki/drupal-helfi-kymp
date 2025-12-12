@@ -2,22 +2,22 @@ social_media:
   facebook_share:
     text: 'Dela på Facebook'
     attributes: "target|_blank\r\nclass|facebook-share"
-  linkedin:
-    text: 'Dela på LinkedIn'
-    api_url: 'https://www.linkedin.com/sharing/share-offsite/?url=[current-page:url]'
-    attributes: "target|_blank\r\nclass|linkedin"
-  twitter:
-    text: 'Dela på X'
-    api_url: 'https://x.com/intent/post?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
-    attributes: "target|_blank\r\nclass|twitter"
-  email:
-    text: 'Skicka sidan via e‑post'
   facebook_msg:
     attributes: "target|_blank\r\nclass|facebook-msg\r\nrel|noopener noreferrer"
+  linkedin:
+    api_url: 'https://www.linkedin.com/sharing/share-offsite/?url=[current-page:url]'
+    text: 'Dela på LinkedIn'
+    attributes: "target|_blank\r\nclass|linkedin"
+  twitter:
+    api_url: 'https://x.com/intent/post?url=[current-page:url]&status=[current-page:title]+[current-page:url]'
+    text: 'Dela på X'
+    attributes: "target|_blank\r\nclass|twitter"
   pinterest:
     text: Pinterest
     attributes: "target|_blank\r\nclass|pinterest\r\nrel|noopener noreferrer"
   whatsapp:
     attributes: "class|whatsapp show-for-small-only\r\ndata-action|share/whatsapp/share"
+  email:
+    text: 'Skicka sidan via e‑post'
   print:
     text: Print
