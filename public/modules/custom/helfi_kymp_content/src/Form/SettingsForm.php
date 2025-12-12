@@ -5,52 +5,25 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Config\TypedConfigManager;
+use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Path\PathValidatorInterface;
 use Drupal\path_alias\AliasManagerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Change KYMP site specific settings, e.g. set project search page.
  */
 final class SettingsForm extends ConfigFormBase {
 
-  /**
-   * The path alias manager.
-   *
-   * @var \Drupal\path_alias\AliasManagerInterface
-   */
-  protected AliasManagerInterface $aliasManager;
+  use AutowireTrait;
 
-  /**
-   * The path validator.
-   *
-   * @var \Drupal\Core\Path\PathValidatorInterface
-   */
-  protected PathValidatorInterface $pathValidator;
-
-  /**
-   * Constructs a SettingsForm object for helfi_kymp_content.
-   *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The factory for configuration objects.
-   * @param \Drupal\path_alias\AliasManagerInterface $alias_manager
-   *   The path alias manager.
-   */
-  public function __construct(ConfigFactoryInterface $config_factory, AliasManagerInterface $alias_manager) {
-    parent::__construct($config_factory);
-    $this->aliasManager = $alias_manager;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) : self {
-    return new self(
-      $container->get('config.factory'),
-      $container->get('path_alias.manager'),
-    );
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    TypedConfigManager $typedConfigManager,
+    private AliasManagerInterface $aliasManager,
+  ) {
+    parent::__construct($config_factory, $typedConfigManager);
   }
 
   /**

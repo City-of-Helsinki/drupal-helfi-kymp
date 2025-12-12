@@ -22,7 +22,8 @@ public/sites/default/local.settings.php
 public/sites/default/local.services.yml
 
 *.sql
-*.env.local
+.env.local
+.secrets.json
 
 # Ignore OSX generated files
 ._*
@@ -30,4 +31,5 @@ public/sites/default/local.services.yml
 
 !*.gitkeep
 !*.keepme
-.phpunit.*
+# As this is project skeleton, we do not want to store composer.lock to version control
+composer.lock
