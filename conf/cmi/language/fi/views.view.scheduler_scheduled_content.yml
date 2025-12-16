@@ -1,8 +1,22 @@
-label: 'Ajastettu sisältö'
+label: Ajastettu
 description: 'Etsi ja ylläpidä ajastettua sisältöä.'
 display:
   default:
     display_options:
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: Edellinen
+            next: Seuraava
+            first: Ensimmäinen
+            last: Viimeinen
       fields:
         node_bulk_form:
           action_title: Toiminto
@@ -49,29 +63,16 @@ display:
         langcode:
           expose:
             label: Kieli
-      pager:
-        options:
-          tags:
-            previous: Edellinen
-            next: Seuraava
-            first: Ensimmäinen
-            last: Viimeinen
-      title: 'Ajastettu sisältö'
+      title: Ajastettu
       empty:
         area_text_custom:
           content: 'Ei vielä ajastettua sisältöä.'
-      exposed_form:
-        options:
-          submit_button: Suodata
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
     display_title: Oletus
   overview:
     display_options:
       menu:
         title: Ajastettu
+        description: 'Content scheduled for publishing and unpublishing'
       tab_options:
         title: Sisältö
       display_description: 'Yleiskatsaus koko ajoitetusta sisällöstä.'
@@ -89,4 +90,4 @@ display:
       empty:
         area_text_custom:
           content: '{{ arguments.uid }} käyttäjä ei ole ajastanut sisältöä.'
-    display_title: Käyttäjäprofiili
+    display_title: Käyttäjä

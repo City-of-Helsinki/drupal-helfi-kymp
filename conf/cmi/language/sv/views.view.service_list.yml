@@ -1,7 +1,14 @@
 display:
   default:
-    display_title: Förvald
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Inget resultat</p>'
+      fields:
+        name:
+          separator: ', '
       pager:
         options:
           tags:
@@ -20,20 +27,25 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
-      empty:
-        area:
-          content:
-            value: '<p>Inget resultat</p>'
-            format: full_html
       arguments:
         id:
           exception:
             title: Alla
+    display_title: Förvald
+  block:
+    display_title: Block
+  block_search:
+    display_title: Block
+    display_options:
       fields:
         name:
           separator: ', '
-  block_search:
-    display_options:
+        name_synonyms:
+          separator: ', '
+        description__summary:
+          separator: ', '
+        name_override:
+          separator: ', '
       pager:
         options:
           tags:
@@ -61,16 +73,6 @@ display:
           expose:
             label: 'Rådgivningstjänstens namn eller sökterm'
             placeholder: 't.ex. Socialrådgivning, hälsa eller digitalt Sök'
-      fields:
-        name:
-          separator: ', '
-        name_synonyms:
-          separator: ', '
-        description__summary:
-          separator: ', '
-        name_override:
-          separator: ', '
-    display_title: Block
   entity_reference_1:
     display_title: Objektsreferens
     display_options:
@@ -81,5 +83,3 @@ display:
           separator: ', '
         name:
           separator: ', '
-  block:
-    display_title: Block
