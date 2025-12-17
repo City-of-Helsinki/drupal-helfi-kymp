@@ -2,17 +2,6 @@ display:
   default:
     display_title: Основной
     display_options:
-      pager:
-        options:
-          tags:
-            previous: '‹ Предыдущий'
-            next: 'Следующий ›'
-            first: First
-            last: Last
-          expose:
-            items_per_page_label: 'Элементов на страницу'
-            items_per_page_options_all_label: '- Все -'
-            offset_label: Пропустить
       fields:
         name:
           separator: ', '
@@ -22,12 +11,24 @@ display:
           separator: ', '
         address__address_line2:
           separator: ', '
-      filters:
-        combine:
+      pager:
+        options:
+          tags:
+            next: 'Следующий ›'
+            previous: '‹ Предыдущий'
+            first: First
+            last: Last
           expose:
-            label: Поиск
-          group_info:
-            label: 'Combine fields filter'
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: Поиск
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
       empty:
         area:
           content:
@@ -36,13 +37,12 @@ display:
         id:
           exception:
             title: Все
-      exposed_form:
-        options:
-          submit_button: Поиск
-          reset_button_label: Сбросить
-          sort_asc_label: 'По возрастанию'
-          sort_desc_label: 'По убыванию'
-          exposed_sorts_label: 'Сортировать по'
+      filters:
+        combine:
+          expose:
+            label: Поиск
+          group_info:
+            label: 'Combine fields filter'
   block:
     display_title: Блок
   entity_reference:

@@ -1,3 +1,4 @@
+label: Запланировано
 display:
   default:
     display_options:
@@ -61,12 +62,13 @@ display:
         langcode:
           expose:
             label: Язык
-      title: 'Scheduled Content'
+      title: Запланировано
     display_title: Основной
   overview:
     display_options:
       menu:
         title: Запланировано
+        description: 'Content scheduled for publishing and unpublishing'
       tab_options:
         title: Содержимое
   user_page:
@@ -79,4 +81,4 @@ display:
         uid:
           exception:
             title: Все
-label: 'Scheduled content'
+    display_title: User

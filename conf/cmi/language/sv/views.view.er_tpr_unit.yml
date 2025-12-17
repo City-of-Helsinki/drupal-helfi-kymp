@@ -1,16 +1,23 @@
 display:
   default:
-    display_title: Förvald
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Inget resultat</p>'
+      fields:
+        name:
+          separator: ', '
       pager:
         options:
+          tags:
+            next: Nästa
+            previous: Föregående
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
             offset_label: Kompensera
-          tags:
-            next: Nästa
-            previous: Föregående
       exposed_form:
         options:
           submit_button: Verkställ
@@ -18,18 +25,11 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
-      empty:
-        area:
-          content:
-            value: '<p>Inget resultat</p>'
-            format: full_html
       arguments:
         id:
           exception:
             title: Alla
-      fields:
-        name:
-          separator: ', '
+    display_title: Förvald
   entity_reference:
     display_title: Objektsreferens
     display_options:
