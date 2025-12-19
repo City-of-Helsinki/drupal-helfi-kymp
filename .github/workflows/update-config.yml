@@ -5,6 +5,6 @@ on:
 name: Update config
 jobs:
   update-config:
-    uses: city-of-helsinki/drupal-gh-actions/.github/workflows/update-config.yml@main
+    uses: city-of-helsinki/drupal-gh-actions/.github/workflows/update-config.yml@UHF-12582
     secrets:
       automatic_update_token: ${{ secrets.AUTOMATIC_UPDATE_TOKEN }}
