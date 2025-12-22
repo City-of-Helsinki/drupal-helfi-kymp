@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0ef5e5df294348695def6694ea32e87",
+    "content-hash": "20b9729f2ede43b5890c4fa9fd451d14",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2689,7 +2689,7 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.3.1",
+            "version": "11.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2733,7 +2733,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.3.1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.10"
             },
             "time": "2025-10-13T16:03:31+00:00"
         },
@@ -4336,6 +4336,13 @@
                 "drupal/helfi_platform_config": "<4.16.68"
             },
             "type": "drupal-theme",
+            "extra": {
+                "patches": {
+                    "drupal/gin_toolbar": {
+                        "[#3552735] Dialog library causing Drupal CSS aggregation to link to non-existent CSS file": "./public/themes/contrib/hdbt_admin/patches/3552735.patch"
+                    }
+                }
+            },
             "license": [
                 "GPL-2.0+"
             ],
