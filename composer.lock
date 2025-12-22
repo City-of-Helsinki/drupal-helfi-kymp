@@ -2693,12 +2693,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "891b4615c479e17245c81571c9be0156be4b03f8"
+                "reference": "b8ea85a2072b52f88a1fadec28306a3946980b8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/891b4615c479e17245c81571c9be0156be4b03f8",
-                "reference": "891b4615c479e17245c81571c9be0156be4b03f8",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/b8ea85a2072b52f88a1fadec28306a3946980b8e",
+                "reference": "b8ea85a2072b52f88a1fadec28306a3946980b8e",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2735,7 @@
             "support": {
                 "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.10"
             },
-            "time": "2025-05-05T16:18:58+00:00"
+            "time": "2025-10-13T16:03:31+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3216,17 +3216,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.2.18",
+            "version": "2.2.19",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.2.18"
+                "reference": "2.2.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.18.zip",
-                "reference": "2.2.18",
-                "shasum": "ffac7da7e2c1f5cfda53f84e2b590af7193531d2"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.19.zip",
+                "reference": "2.2.19",
+                "shasum": "634952a21120424af2ae02a4832d22294f0537bf"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -3237,8 +3237,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.18",
-                    "datestamp": "1759332668",
+                    "version": "2.2.19",
+                    "datestamp": "1766259194",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3742,20 +3742,20 @@
         },
         {
             "name": "drupal/external_entities",
-            "version": "3.0.0-beta6",
+            "version": "3.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/external_entities.git",
-                "reference": "3.0.0-beta6"
+                "reference": "3.0.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/external_entities-3.0.0-beta6.zip",
-                "reference": "3.0.0-beta6",
-                "shasum": "4743abcdf32bf728737f268bccd0c5701452d935"
+                "url": "https://ftp.drupal.org/files/projects/external_entities-3.0.0-beta7.zip",
+                "reference": "3.0.0-beta7",
+                "shasum": "8815ba22fab0a750ff18e439a2d8f9408172aa33"
             },
             "require": {
-                "drupal/core": "^10.1 || ^11",
+                "drupal/core": "^11.2",
                 "galbar/jsonpath": "^2.0||^3.0"
             },
             "require-dev": {
@@ -3765,8 +3765,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-beta6",
-                    "datestamp": "1759247073",
+                    "version": "3.0.0-beta7",
+                    "datestamp": "1766072368",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -4151,17 +4151,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "5.0.9",
+            "version": "5.0.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "5.0.9"
+                "reference": "5.0.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-5.0.9.zip",
-                "reference": "5.0.9",
-                "shasum": "f7d20eafdf2254040550321f410211c592ed3b74"
+                "url": "https://ftp.drupal.org/files/projects/gin-5.0.10.zip",
+                "reference": "5.0.10",
+                "shasum": "023e4e39a1c7387c23dc2fae0fc2469341eef780"
             },
             "require": {
                 "drupal/core": "^11.2",
@@ -4170,8 +4170,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "5.0.9",
-                    "datestamp": "1763127085",
+                    "version": "5.0.10",
+                    "datestamp": "1766059405",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4315,16 +4315,16 @@
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "3.4.9",
+            "version": "3.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "05f98d4b52ae009b5fda5102a313d3cb62e9632a"
+                "reference": "8e63d79b66e4fbf5bff6bcc832085832294d07c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/05f98d4b52ae009b5fda5102a313d3cb62e9632a",
-                "reference": "05f98d4b52ae009b5fda5102a313d3cb62e9632a",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/8e63d79b66e4fbf5bff6bcc832085832294d07c6",
+                "reference": "8e63d79b66e4fbf5bff6bcc832085832294d07c6",
                 "shasum": ""
             },
             "require": {
@@ -4351,10 +4351,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.9",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.10",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2025-12-16T11:54:32+00:00"
+            "time": "2025-12-18T06:42:06+00:00"
         },
         {
             "name": "drupal/health_check",
@@ -4625,16 +4625,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.0.11",
+            "version": "5.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "f2c0142d1b35150d7ad3cd408d45d911f0101dc1"
+                "reference": "022e5683e48ce948d80490c29c750be9666d640d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/f2c0142d1b35150d7ad3cd408d45d911f0101dc1",
-                "reference": "f2c0142d1b35150d7ad3cd408d45d911f0101dc1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/022e5683e48ce948d80490c29c750be9666d640d",
+                "reference": "022e5683e48ce948d80490c29c750be9666d640d",
                 "shasum": ""
             },
             "require": {
@@ -4645,7 +4645,7 @@
                 "drupal/config_ignore": "^3.0",
                 "drupal/config_rewrite": "^1.4",
                 "drupal/content_lock": "^3.0",
-                "drupal/core": "^11",
+                "drupal/core": "~11.2.0",
                 "drupal/crop": "^2.1",
                 "drupal/csp": "^2.2",
                 "drupal/default_content": "^2.0.0",
@@ -4658,7 +4658,7 @@
                 "drupal/external_entities": "^3.0",
                 "drupal/field_group": "^4.0",
                 "drupal/focal_point": "^2.0",
-                "drupal/gin_toolbar": "^2.0 || ^3.0",
+                "drupal/gin_toolbar": "^3.0",
                 "drupal/helfi_api_base": "*",
                 "drupal/helfi_tpr": "*",
                 "drupal/image_style_quality": "^1.4",
@@ -4701,22 +4701,16 @@
                 "symfony/property-access": "^7.3"
             },
             "conflict": {
-                "drupal/core": "<10.5",
-                "drupal/core-composer-scaffold": "<10.5",
-                "drupal/external_entity": "<3.0.0-beta6",
-                "drupal/helfi_media_map": "*",
-                "drupal/redirect": "<1.12",
+                "drupal/external_entities": "<3.0.0-beta7",
                 "drush/drush": "<12",
                 "phpunit/phpunit": ">=11"
-            },
-            "require-dev": {
-                "dg/bypass-finals": "^1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "patches": {
                     "drupal/core": {
-                        "[#3452852]: Add create() factory method with autowired parameters to PluginBase": "./public/modules/contrib/helfi_platform_config/patches/3452852.patch",
+                        "[#UHF-12709] Patch 'Deleted and replaced ...' error messages": "./public/modules/contrib/helfi_platform_config/patches/UHF-12709-skip_deleted_and_replaced_log.patch",
+                        "[#3452852] Add create() factory method with autowired parameters to PluginBase": "./public/modules/contrib/helfi_platform_config/patches/3452852.patch",
                         "[#UHF-181] Hide untranslated menu links (https://www.drupal.org/project/drupal/issues/3091246)": "./public/modules/contrib/helfi_platform_config/patches/3091246.patch",
                         "[#UHF-3812] Ajax exposed filters not working for multiple instances of the same Views block placed on one page (https://www.drupal.org/project/drupal/issues/3163299)": "https://www.drupal.org/files/issues/2023-05-07/3163299-104-D10.patch",
                         "[#UHF-4325] Strip whitespaces from twig debug comments": "./public/modules/contrib/helfi_platform_config/patches/drupal_core_strip_debug_mode_whitespaces_10.3.x.patch",
@@ -4737,6 +4731,9 @@
                     "drupal/diff": {
                         "Revision overview form problem (https://www.drupal.org/i/3390329)": "./public/modules/contrib/helfi_platform_config/patches/diff_8.x_1.3_revision_overview_form.patch"
                     },
+                    "drupal/gin_toolbar": {
+                        "[#3552735] Dialog library causing Drupal CSS aggregation to link to non-existent CSS file": "./public/modules/contrib/helfi_platform_config/patches/3552735.patch"
+                    },
                     "drupal/paragraphs": {
                         "https://www.drupal.org/project/paragraphs/issues/2904705#comment-13836790": "https://www.drupal.org/files/issues/2020-09-25/2904705-115.patch",
                         "[#UHF-2059] Enhancements for the Admin UI": "./public/modules/contrib/helfi_platform_config/patches/helfi_customizations_for_paragraphs_widget_8.x-1.12.patch",
@@ -4752,10 +4749,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.0.11",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.0.14",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-12-16T13:17:25+00:00"
+            "time": "2025-12-19T12:22:19+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -5289,20 +5286,20 @@
         },
         {
             "name": "drupal/key",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/key.git",
-                "reference": "8.x-1.20"
+                "reference": "8.x-1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.20.zip",
-                "reference": "8.x-1.20",
-                "shasum": "f45415552de129e9976af72224393cd1d1f2ea65"
+                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.21.zip",
+                "reference": "8.x-1.21",
+                "shasum": "1e493e73bd41e70831821929b97bfb43818202fe"
             },
             "require": {
-                "drupal/core": ">=8.9 <12"
+                "drupal/core": "^9.1 || ^10 || ^11"
             },
             "require-dev": {
                 "drush/drush": ">=9"
@@ -5313,8 +5310,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.20",
-                    "datestamp": "1744582168",
+                    "version": "8.x-1.21",
+                    "datestamp": "1766353546",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11216,16 +11213,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.17",
+            "version": "v0.12.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "85fbbd9f3064e157fc21fe4362b2b5c19f2ea631"
+                "reference": "ddff0ac01beddc251786fe70367cd8bbdb258196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/85fbbd9f3064e157fc21fe4362b2b5c19f2ea631",
-                "reference": "85fbbd9f3064e157fc21fe4362b2b5c19f2ea631",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/ddff0ac01beddc251786fe70367cd8bbdb258196",
+                "reference": "ddff0ac01beddc251786fe70367cd8bbdb258196",
                 "shasum": ""
             },
             "require": {
@@ -11289,9 +11286,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.17"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.18"
             },
-            "time": "2025-12-15T04:55:34+00:00"
+            "time": "2025-12-17T14:35:46+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -20625,5 +20622,5 @@
         "ext-libxml": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
