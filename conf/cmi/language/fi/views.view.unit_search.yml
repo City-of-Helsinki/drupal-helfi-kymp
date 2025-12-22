@@ -1,13 +1,20 @@
 display:
   default:
     display_options:
-      filters:
-        combine:
-          group_info:
-            label: 'Kentät yhdistävä suodatin'
-          expose:
-            label: Etsi
-            placeholder: 'Syötä toimipisteen nimi tai osoite'
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Ei tuloksia</p>'
+      fields:
+        name:
+          separator: ', '
+        address__postal_code:
+          separator: ', '
+        address__address_line1:
+          separator: ', '
+        address__address_line2:
+          separator: ', '
       pager:
         options:
           tags:
@@ -26,24 +33,17 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      empty:
-        area:
-          content:
-            value: '<p>Ei tuloksia</p>'
-            format: full_html
       arguments:
         id:
           exception:
             title: Kaikki
-      fields:
-        name:
-          separator: ', '
-        address__postal_code:
-          separator: ', '
-        address__address_line1:
-          separator: ', '
-        address__address_line2:
-          separator: ', '
+      filters:
+        combine:
+          expose:
+            label: Etsi
+            placeholder: 'Syötä toimipisteen nimi tai osoite'
+          group_info:
+            label: 'Kentät yhdistävä suodatin'
     display_title: Oletus
   block:
     display_title: Lohko

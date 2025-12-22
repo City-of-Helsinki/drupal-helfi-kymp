@@ -1,25 +1,9 @@
+label: 'Låst innehåll'
 display:
   default:
     display_title: Förvald
     display_options:
-      exposed_form:
-        options:
-          submit_button: Verkställ
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          tags:
-            previous: Föregående
-            next: Nästa
-            first: Första
-            last: Sista
-          expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
+      title: 'Låst innehåll'
       fields:
         node_bulk_form:
           action_title: Åtgärd
@@ -34,6 +18,24 @@ display:
           separator: ', '
         operations:
           label: Funktioner
+      pager:
+        options:
+          tags:
+            next: Nästa
+            previous: Föregående
+            first: Första
+            last: Sista
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
       filters:
         status:
           expose:
@@ -43,16 +45,14 @@ display:
             group_items:
               1:
                 title: Publicerad
-        title:
-          expose:
-            label: Titel
         type:
           expose:
             label: Innehållstyp
-      title: 'Låst innehåll'
+        title:
+          expose:
+            label: Titel
   page_1:
     display_title: Sida
     display_options:
       menu:
         title: 'Låst innehåll'
-label: 'Låst innehåll'

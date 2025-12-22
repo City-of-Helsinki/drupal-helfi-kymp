@@ -1,7 +1,14 @@
 display:
   default:
-    display_title: Oletus
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Ei tuloksia</p>'
+      fields:
+        name:
+          separator: ', '
       pager:
         options:
           tags:
@@ -18,18 +25,11 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      empty:
-        area:
-          content:
-            value: '<p>Ei tuloksia</p>'
-            format: full_html
       arguments:
         id:
           exception:
             title: Kaikki
-      fields:
-        name:
-          separator: ', '
+    display_title: Oletus
   entity_reference:
     display_title: Entiteettiviittaus
     display_options:
