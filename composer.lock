@@ -2689,7 +2689,7 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.2.10",
+            "version": "11.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2733,7 +2733,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.10"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.3.1"
             },
             "time": "2025-10-13T16:03:31+00:00"
         },
@@ -4336,13 +4336,6 @@
                 "drupal/helfi_platform_config": "<4.16.68"
             },
             "type": "drupal-theme",
-            "extra": {
-                "patches": {
-                    "drupal/gin_toolbar": {
-                        "[#3552735] Dialog library causing Drupal CSS aggregation to link to non-existent CSS file": "./public/themes/contrib/hdbt_admin/patches/3552735.patch"
-                    }
-                }
-            },
             "license": [
                 "GPL-2.0+"
             ],
@@ -4625,16 +4618,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.0.14",
+            "version": "5.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "022e5683e48ce948d80490c29c750be9666d640d"
+                "reference": "4c51766034f014e455a4461f60068b09f99f8824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/022e5683e48ce948d80490c29c750be9666d640d",
-                "reference": "022e5683e48ce948d80490c29c750be9666d640d",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4c51766034f014e455a4461f60068b09f99f8824",
+                "reference": "4c51766034f014e455a4461f60068b09f99f8824",
                 "shasum": ""
             },
             "require": {
@@ -4749,10 +4742,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.0.14",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.0.15",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2025-12-19T12:22:19+00:00"
+            "time": "2025-12-23T09:07:33+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -17526,16 +17519,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.6.5",
+            "version": "5.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "90614c73d3800e187615e2dd236ad0e2a01bf761"
+                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/90614c73d3800e187615e2dd236ad0e2a01bf761",
-                "reference": "90614c73d3800e187615e2dd236ad0e2a01bf761",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/5cee1d3dfc2d2aa6599834520911d246f656bcb8",
+                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8",
                 "shasum": ""
             },
             "require": {
@@ -17545,7 +17538,7 @@
                 "phpdocumentor/reflection-common": "^2.2",
                 "phpdocumentor/type-resolver": "^1.7",
                 "phpstan/phpdoc-parser": "^1.7|^2.0",
-                "webmozart/assert": "^1.9.1"
+                "webmozart/assert": "^1.9.1 || ^2"
             },
             "require-dev": {
                 "mockery/mockery": "~1.3.5 || ~1.6.0",
@@ -17584,9 +17577,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.5"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.6"
             },
-            "time": "2025-11-27T19:50:05+00:00"
+            "time": "2025-12-22T21:13:58+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
