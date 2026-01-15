@@ -1,0 +1,19 @@
+uuid: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mn_sign_type
+    - node.type.mobilenote_item
+id: node.mobilenote_item.field_mn_sign_type
+field_name: field_mn_sign_type
+entity_type: node
+bundle: mobilenote_item
+label: 'Sign Type'
+description: 'Type of sign.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

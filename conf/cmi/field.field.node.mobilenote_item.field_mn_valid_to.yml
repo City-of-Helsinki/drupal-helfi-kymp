@@ -1,0 +1,19 @@
+uuid: a5b6c7d8-e9f0-a1b2-c3d4-e5f6a7b8c9d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mn_valid_to
+    - node.type.mobilenote_item
+id: node.mobilenote_item.field_mn_valid_to
+field_name: field_mn_valid_to
+entity_type: node
+bundle: mobilenote_item
+label: 'Valid To'
+description: 'Validity end date.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

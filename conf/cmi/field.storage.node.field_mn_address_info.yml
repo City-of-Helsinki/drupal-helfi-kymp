@@ -1,0 +1,21 @@
+uuid: fa0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mn_address_info
+field_name: field_mn_address_info
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

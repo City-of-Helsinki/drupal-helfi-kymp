@@ -1,0 +1,19 @@
+uuid: f9a0b1c2-d3e4-f5a6-b7c8-d9e0f1a2b3c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - helfi_platform_config
+id: node.field_mn_geometry
+field_name: field_mn_geometry
+entity_type: node
+type: geo_shape
+settings: {  }
+module: helfi_platform_config
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

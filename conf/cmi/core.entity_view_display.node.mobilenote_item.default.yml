@@ -1,0 +1,147 @@
+uuid: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mobilenote_item.field_mn_additional_text
+    - field.field.node.mobilenote_item.field_mn_address
+    - field.field.node.mobilenote_item.field_mn_address_info
+    - field.field.node.mobilenote_item.field_mn_created_at
+    - field.field.node.mobilenote_item.field_mn_feature_id
+    - field.field.node.mobilenote_item.field_mn_geometry
+    - field.field.node.mobilenote_item.field_mn_notes
+    - field.field.node.mobilenote_item.field_mn_phone
+    - field.field.node.mobilenote_item.field_mn_raw_json
+    - field.field.node.mobilenote_item.field_mn_reason
+    - field.field.node.mobilenote_item.field_mn_sign_type
+    - field.field.node.mobilenote_item.field_mn_time_range
+    - field.field.node.mobilenote_item.field_mn_updated_at
+    - field.field.node.mobilenote_item.field_mn_valid_from
+    - field.field.node.mobilenote_item.field_mn_valid_to
+    - node.type.mobilenote_item
+id: node.mobilenote_item.default
+targetEntityType: node
+bundle: mobilenote_item
+mode: default
+content:
+  field_mn_feature_id:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_address:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_reason:
+    type: string
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_valid_from:
+    type: datetime_default
+    weight: 4
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+  field_mn_valid_to:
+    type: datetime_default
+    weight: 5
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+  field_mn_time_range:
+    type: string
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_created_at:
+    type: datetime_default
+    weight: 7
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+  field_mn_updated_at:
+    type: datetime_default
+    weight: 8
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+  field_mn_geometry:
+    type: basic_string
+    weight: 9
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_mn_address_info:
+    type: string
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_sign_type:
+    type: string
+    weight: 11
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_additional_text:
+    type: basic_string
+    weight: 12
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_mn_notes:
+    type: basic_string
+    weight: 13
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_mn_phone:
+    type: string
+    weight: 15
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mn_raw_json:
+    type: basic_string
+    weight: 16
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

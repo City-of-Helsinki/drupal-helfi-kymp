@@ -1,0 +1,19 @@
+uuid: a8b9c0d1-e2f3-a4b5-c6d7-e8f9a0b1c2d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mn_updated_at
+    - node.type.mobilenote_item
+id: node.mobilenote_item.field_mn_updated_at
+field_name: field_mn_updated_at
+entity_type: node
+bundle: mobilenote_item
+label: 'Updated At (API)'
+description: 'Update timestamp from API (paivityspvm).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

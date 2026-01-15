@@ -1,0 +1,19 @@
+uuid: a7b8c9d0-e1f2-a3b4-c5d6-e7f8a9b0c1d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mn_created_at
+    - node.type.mobilenote_item
+id: node.mobilenote_item.field_mn_created_at
+field_name: field_mn_created_at
+entity_type: node
+bundle: mobilenote_item
+label: 'Created At (API)'
+description: 'Creation timestamp from API (luontipvm).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

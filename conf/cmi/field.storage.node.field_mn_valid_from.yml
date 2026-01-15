@@ -1,0 +1,20 @@
+uuid: f4a5b6c7-d8e9-f0a1-b2c3-d4e5f6a7b8c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_mn_valid_from
+field_name: field_mn_valid_from
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

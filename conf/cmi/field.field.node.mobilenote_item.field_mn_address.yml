@@ -1,0 +1,19 @@
+uuid: a2b3c4d5-e6f7-a8b9-c0d1-e2f3a4b5c6d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mn_address
+    - node.type.mobilenote_item
+id: node.mobilenote_item.field_mn_address
+field_name: field_mn_address
+entity_type: node
+bundle: mobilenote_item
+label: Address
+description: 'Street address.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
