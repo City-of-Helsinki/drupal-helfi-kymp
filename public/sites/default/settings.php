@@ -403,6 +403,18 @@ if (getenv('OPENAI_KEY')) {
   $config['helfi_search.settings']['openai_model'] = getenv('OPENAI_MODEL');
 }
 
+// MobileNote WFS API credentials.
+// Used by helfi_kymp_mobilenote_sync module.
+$settings['helfi_kymp_mobilenote_sync'] = [
+  'wfs_username' => getenv('MN_WFS_USERNAME'),
+  'wfs_password' => getenv('MN_WFS_PASSWORD'),
+  'wfs_url' => getenv('MN_WFS_URL'),
+  // Sync filter: fetch items where voimassaoloAlku >= (today - offset).
+  'sync_lookback_offset' => '-30 days',
+  // Cleanup: remove items where (voimassaoloLoppu + offset) < today.
+  'sync_removal_offset' => '+30 days',
+];
+
 // Environment specific overrides.
 if (file_exists(__DIR__ . '/all.settings.php')) {
   // phpcs:ignore
