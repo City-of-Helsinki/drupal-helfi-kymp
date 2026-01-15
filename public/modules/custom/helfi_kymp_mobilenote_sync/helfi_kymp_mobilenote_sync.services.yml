@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  logger.channel.helfi_kymp_mobilenote_sync:
+    parent: logger.channel_base
+    arguments:
+      - 'helfi_kymp_mobilenote_sync'
+
+  Drupal\helfi_kymp_mobilenote_sync\MobileNoteSyncService:
+    arguments:
+      $logger: '@logger.channel.helfi_kymp_mobilenote_sync'
