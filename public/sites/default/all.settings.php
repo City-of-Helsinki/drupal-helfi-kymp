@@ -72,6 +72,9 @@ $settings['helfi_kymp_mobilenote'] = [
   'wfs_url' => getenv('MN_WFS_URL') ?: '',
   'wfs_username' => getenv('MN_WFS_USERNAME') ?: '',
   'wfs_password' => getenv('MN_WFS_PASSWORD') ?: '',
+  // Sync filter: fetch items where voimassaoloAlku >= (today - offset).
   'sync_lookback_offset' => '-30 days',
+  // Cleanup: remove items where (voimassaoloLoppu + offset) < today.
+  'sync_removal_offset' => '+30 days',
 ];
 
