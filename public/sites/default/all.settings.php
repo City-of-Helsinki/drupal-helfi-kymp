@@ -66,3 +66,12 @@ $additionalEnvVars = [
 foreach ($additionalEnvVars as $var) {
   $preflight_checks['environmentVariables'][] = $var;
 }
+
+// MobileNote WFS API settings.
+$settings['helfi_kymp_mobilenote'] = [
+  'wfs_url' => getenv('MN_WFS_URL') ?: '',
+  'wfs_username' => getenv('MN_WFS_USERNAME') ?: '',
+  'wfs_password' => getenv('MN_WFS_PASSWORD') ?: '',
+  'sync_lookback_offset' => '-30 days',
+];
+
