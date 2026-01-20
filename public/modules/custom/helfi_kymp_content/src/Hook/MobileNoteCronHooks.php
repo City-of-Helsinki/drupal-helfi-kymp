@@ -60,11 +60,22 @@ class MobileNoteCronHooks {
         return;
       }
 
-      $ids = array_keys($data);
-      $index->trackItemsInserted($source->getPluginId(), $ids);
-      $this->logger->info('MobileNote cron: Tracked @count items for indexing.', [
-        '@count' => count($ids),
-      ]);
+      $cutoffTimestamp = $this->getCutoffTimestamp();
+      $idsToIndex = [];
+      foreach ($data as $id => $item) {
+        $validTo = $item->get('valid_to')->getValue();
+        // Index if not expired (valid_to is null or valid_to >= cutoff).
+        if (!$validTo || $validTo >= $cutoffTimestamp) {
+          $idsToIndex[] = $id;
+        }
+      }
+
+      if ($idsToIndex) {
+        $index->trackItemsInserted($source->getPluginId(), $idsToIndex);
+        $this->logger->info('MobileNote cron: Tracked @count items for indexing.', [
+          '@count' => count($idsToIndex),
+        ]);
+      }
     }
     catch (\Exception $e) {
       $this->logger->error('MobileNote cron failed: @message', [
@@ -85,18 +96,7 @@ class MobileNoteCronHooks {
         return;
       }
 
-      $settings = Settings::get('helfi_kymp_mobilenote', []);
-      $removalOffset = $settings['sync_removal_offset'] ?? '+30 days';
-
-      // '+30 days' means keep for 30 days after expiry,
-      // so delete where valid_to < (today - 30 days).
-      $invertedOffset = str_starts_with($removalOffset, '+')
-        ? '-' . substr($removalOffset, 1)
-        : '+' . substr($removalOffset, 1);
-
-      $cutoffTimestamp = (new \DateTime())->modify($invertedOffset)->getTimestamp();
-
-      // Get all current items from the datasource.
+      $cutoffTimestamp = $this->getCutoffTimestamp();
       $source = $index->getDatasource('mobilenote_data_source');
       $currentData = $source->loadMultiple([]);
 
@@ -121,6 +121,22 @@ class MobileNoteCronHooks {
         '@message' => $e->getMessage(),
       ]);
     }
+  }
+
+  /**
+   * Get the cutoff timestamp for expiration.
+   *
+   * @return int
+   *   The timestamp before which items are considered expired.
+   */
+  private function getCutoffTimestamp(): int {
+    $settings = Settings::get('helfi_kymp_mobilenote', []);
+    $removalOffset = $settings['sync_removal_offset'] ?? '+30 days';
+    $invertedOffset = str_starts_with($removalOffset, '+')
+      ? '-' . substr($removalOffset, 1)
+      : '+' . substr($removalOffset, 1);
+
+    return (new \DateTime())->modify($invertedOffset)->getTimestamp();
   }
 
 }
