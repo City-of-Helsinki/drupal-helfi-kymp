@@ -104,7 +104,6 @@ class MobileNoteCronHooks {
       // Get all current items from the datasource.
       $source = $index->getDatasource('mobilenote_data_source');
       $currentData = $source->loadMultiple([]);
-      $currentIds = array_keys($currentData);
 
       // Check each item and collect expired IDs.
       $expiredIds = [];
