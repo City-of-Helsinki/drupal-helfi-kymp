@@ -8,7 +8,6 @@ use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
-use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\search_api\Entity\Index;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -26,7 +25,6 @@ class MobileNoteCronHooks {
   private const RUN_INTERVAL = 3600;
 
   public function __construct(
-    private readonly MobileNoteDataService $dataService,
     private readonly StateInterface $state,
     #[Autowire(service: 'logger.channel.helfi_kymp_content')]
     private readonly LoggerInterface $logger,
