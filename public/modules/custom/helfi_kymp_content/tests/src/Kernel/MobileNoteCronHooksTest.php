@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
-use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\State\StateInterface;
@@ -45,7 +44,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     // Item 1: Active (no valid_to).
     $validTo1 = $this->prophesize(TypedDataInterface::class);
     $validTo1->getValue()->willReturn(NULL);
-    
+
     $item1 = $this->prophesize(ComplexDataInterface::class);
     $item1->get('valid_to')->willReturn($validTo1->reveal());
 
@@ -61,7 +60,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $oldExpired = (new \DateTime())->modify('-40 days')->getTimestamp();
     $validTo3 = $this->prophesize(TypedDataInterface::class);
     $validTo3->getValue()->willReturn($oldExpired);
-    
+
     $item3 = $this->prophesize(ComplexDataInterface::class);
     $item3->get('valid_to')->willReturn($validTo3->reveal());
 
@@ -79,7 +78,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     // 3. Mock Index entity.
     $index = $this->prophesize(Index::class);
     $index->getDatasource('mobilenote_data_source')->willReturn($datasource->reveal());
-    
+
     // Test Reindex: Should track item1 and item2 only.
     $index->trackItemsInserted('mobilenote_data_source', ['item1', 'item2'])
       ->shouldBeCalled();
