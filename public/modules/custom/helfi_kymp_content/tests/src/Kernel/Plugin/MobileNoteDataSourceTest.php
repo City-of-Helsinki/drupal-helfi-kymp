@@ -41,14 +41,14 @@ class MobileNoteDataSourceTest extends KernelTestBase {
 
     $this->container->set(MobileNoteDataService::class, $service->reveal());
 
-    /** @var \Drupal\search_api\Datasource\DatasourceInterface $sut */
-    $sut = $this->container->get('plugin.manager.search_api.datasource')
+    /** @var \Drupal\search_api\Datasource\DatasourceInterface $datasource */
+    $datasource = $this->container->get('plugin.manager.search_api.datasource')
       ->createInstance('mobilenote_data_source');
 
-    $this->assertInstanceOf(MobileNoteDataSource::class, $sut);
-    $this->assertEquals(['test_id' => 'test_data'], $sut->loadMultiple(['test_id']));
-    $this->assertEquals('test_data', $sut->load('test_id'));
-    $this->assertNull($sut->load('non_existent'));
+    $this->assertInstanceOf(MobileNoteDataSource::class, $datasource);
+    $this->assertEquals(['test_id' => 'test_data'], $datasource->loadMultiple(['test_id']));
+    $this->assertEquals('test_data', $datasource->load('test_id'));
+    $this->assertNull($datasource->load('non_existent'));
   }
 
 }
