@@ -30,63 +30,34 @@ class MobileNoteData extends Map {
   public static function propertyDefinitions(): array {
     $properties = [];
 
-    $properties['id'] = DataDefinition::create('string')
-      ->setLabel('ID')
-      ->setDescription('Feature ID from WFS')
-      ->setRequired(TRUE);
+    $fields = [
+      'id' => ['type' => 'string', 'label' => 'ID', 'desc' => 'Feature ID from WFS', 'required' => TRUE],
+      'address' => ['type' => 'string', 'label' => 'Address', 'desc' => 'Street address'],
+      'reason' => ['type' => 'string', 'label' => 'Reason', 'desc' => 'Sign reason'],
+      'valid_from' => ['type' => 'integer', 'label' => 'Valid from', 'desc' => 'Start timestamp'],
+      'valid_to' => ['type' => 'integer', 'label' => 'Valid to', 'desc' => 'End timestamp'],
+      'time_range' => ['type' => 'string', 'label' => 'Time range', 'desc' => 'Time description'],
+      'created_at' => ['type' => 'integer', 'label' => 'Created at', 'desc' => 'Creation timestamp'],
+      'updated_at' => ['type' => 'integer', 'label' => 'Updated at', 'desc' => 'Update timestamp'],
+      'address_info' => ['type' => 'string', 'label' => 'Address info', 'desc' => 'Additional address information'],
+      'sign_type' => ['type' => 'string', 'label' => 'Sign type', 'desc' => 'Type of sign'],
+      'additional_text' => ['type' => 'string', 'label' => 'Additional text', 'desc' => 'Extra text on sign'],
+      'notes' => ['type' => 'string', 'label' => 'Notes', 'desc' => 'Notes'],
+      'phone' => ['type' => 'string', 'label' => 'Phone', 'desc' => 'Contact phone number'],
+      'geometry' => ['type' => 'any', 'label' => 'Geometry', 'desc' => 'GeoJSON geometry for geo queries'],
+    ];
 
-    $properties['address'] = DataDefinition::create('string')
-      ->setLabel('Address')
-      ->setDescription('Street address');
+    foreach ($fields as $key => $info) {
+      $definition = DataDefinition::create($info['type'])
+        ->setLabel($info['label'])
+        ->setDescription($info['desc']);
 
-    $properties['reason'] = DataDefinition::create('string')
-      ->setLabel('Reason')
-      ->setDescription('Sign reason');
+      if (!empty($info['required'])) {
+        $definition->setRequired(TRUE);
+      }
 
-    $properties['valid_from'] = DataDefinition::create('integer')
-      ->setLabel('Valid from')
-      ->setDescription('Start timestamp');
-
-    $properties['valid_to'] = DataDefinition::create('integer')
-      ->setLabel('Valid to')
-      ->setDescription('End timestamp');
-
-    $properties['time_range'] = DataDefinition::create('string')
-      ->setLabel('Time range')
-      ->setDescription('Time description');
-
-    $properties['created_at'] = DataDefinition::create('integer')
-      ->setLabel('Created at')
-      ->setDescription('Creation timestamp');
-
-    $properties['updated_at'] = DataDefinition::create('integer')
-      ->setLabel('Updated at')
-      ->setDescription('Update timestamp');
-
-    $properties['address_info'] = DataDefinition::create('string')
-      ->setLabel('Address info')
-      ->setDescription('Additional address information');
-
-    $properties['sign_type'] = DataDefinition::create('string')
-      ->setLabel('Sign type')
-      ->setDescription('Type of sign');
-
-    $properties['additional_text'] = DataDefinition::create('string')
-      ->setLabel('Additional text')
-      ->setDescription('Extra text on sign');
-
-    $properties['notes'] = DataDefinition::create('string')
-      ->setLabel('Notes')
-      ->setDescription('Notes');
-
-    $properties['phone'] = DataDefinition::create('string')
-      ->setLabel('Phone')
-      ->setDescription('Contact phone number');
-
-    // Geometry as computed_geo_shape for Elasticsearch geo_shape queries.
-    $properties['geometry'] = DataDefinition::create('any')
-      ->setLabel('Geometry')
-      ->setDescription('GeoJSON geometry for geo queries');
+      $properties[$key] = $definition;
+    }
 
     return $properties;
   }
