@@ -86,6 +86,7 @@ class MobileNoteDataService {
       if ($item !== NULL) {
         $id = $item['id'];
         $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
+        /** @var \Drupal\Core\TypedData\ComplexDataInterface $typedData */
         $typedData = $this->typedDataManager->create($dataDefinition);
         $typedData->setValue($item);
         $data[$id] = $typedData;
@@ -119,7 +120,7 @@ class MobileNoteDataService {
 </Filter>
 XML;
 
-    $response = $this->client->get($settings['wfs_url'], [
+    $response = $this->client->request('GET', $settings['wfs_url'], [
       'auth' => [$settings['wfs_username'], $settings['wfs_password']],
       'query' => [
         'service' => 'WFS',

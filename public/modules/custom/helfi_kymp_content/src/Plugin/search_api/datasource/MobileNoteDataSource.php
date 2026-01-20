@@ -56,6 +56,7 @@ class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInt
    * {@inheritdoc}
    */
   public function loadMultiple(array $ids): array {
+    /** @var array<string, \Drupal\Core\TypedData\ComplexDataInterface> $mobileNoteData */
     $mobileNoteData = $this->dataService->getMobileNoteData();
 
     if ($ids) {
