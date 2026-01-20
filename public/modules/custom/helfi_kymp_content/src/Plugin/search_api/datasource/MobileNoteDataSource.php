@@ -9,7 +9,7 @@ use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\search_api\Annotation\SearchApiDatasource;
+use Drupal\search_api\Attribute\SearchApiDatasource;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
