@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content\Hook;
 
-use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
@@ -16,8 +15,6 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
  * Cron hook implementations for MobileNote.
  */
 class MobileNoteCronHooks {
-
-  use AutowireTrait;
 
   private const STATE_LAST_RUN = 'helfi_kymp_content.mobilenote_last_run';
 
