@@ -8,19 +8,20 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\search_api\Annotation\SearchApiDatasource;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a datasource for MobileNote parking sign data.
- *
- * @SearchApiDatasource(
- *   id = "mobilenote_data_source",
- *   label = @Translation("MobileNote datasource"),
- *   description = @Translation("Datasource for MobileNote parking sign data."),
- * )
  */
+#[SearchApiDatasource(
+  id: "mobilenote_data_source",
+  label: new TranslatableMarkup("MobileNote datasource"),
+  description: new TranslatableMarkup("Datasource for MobileNote parking sign data.")
+)]
 class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInterface {
 
   /**
