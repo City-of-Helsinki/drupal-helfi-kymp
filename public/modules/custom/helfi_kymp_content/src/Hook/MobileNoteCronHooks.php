@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content\Hook;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
@@ -23,6 +24,7 @@ class MobileNoteCronHooks {
 
   public function __construct(
     private readonly StateInterface $state,
+    private readonly EntityTypeManagerInterface $entityTypeManager,
     #[Autowire(service: 'logger.channel.helfi_kymp_content')]
     private readonly LoggerInterface $logger,
   ) {
@@ -47,7 +49,8 @@ class MobileNoteCronHooks {
    */
   protected function reindexMobileNoteData(): void {
     try {
-      $index = Index::load('mobilenote_data');
+      /** @var \Drupal\search_api\IndexInterface $index */
+      $index = $this->entityTypeManager->getStorage('search_api_index')->load('mobilenote_data');
       if (!$index) {
         $this->logger->warning('MobileNote cron: Index not found.');
         return;
@@ -91,7 +94,8 @@ class MobileNoteCronHooks {
    */
   protected function cleanupExpiredItems(): void {
     try {
-      $index = Index::load('mobilenote_data');
+      /** @var \Drupal\search_api\IndexInterface $index */
+      $index = $this->entityTypeManager->getStorage('search_api_index')->load('mobilenote_data');
       if (!$index) {
         return;
       }
