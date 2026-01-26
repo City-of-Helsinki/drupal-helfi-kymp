@@ -294,8 +294,6 @@ if ($amq_brokers && $amq_destination) {
   // @see https://github.com/City-of-Helsinki/drupal-helfi-platform/blob/main/documentation/queue.md
 }
 
-$config['filelog.settings']['rotation']['schedule'] = 'never';
-
 if (
   ($redis_host = getenv('REDIS_HOST')) &&
   file_exists('modules/contrib/redis/redis.services.yml') &&
@@ -401,6 +399,21 @@ if (getenv('OPENAI_KEY')) {
   $config['helfi_search.settings']['openai_api_key'] = getenv('OPENAI_KEY');
   $config['helfi_search.settings']['openai_base_url'] = getenv('OPENAI_BASE_URL');
   $config['helfi_search.settings']['openai_model'] = getenv('OPENAI_MODEL');
+}
+
+// E2E test users. We should never do this in production, so adding a failsafe
+// in case the environment variable would ever end up in production.
+if (getenv('APP_ENV') !== 'production' && $e2e_test_user = getenv('E2E_TEST_USER')) {
+  $e2e_test_user = json_decode($e2e_test_user, TRUE);
+
+  // Make sure the user exists in Drupal.
+  $config['helfi_api_base.api_accounts']['accounts'][] = $e2e_test_user;
+
+  // Some features need to be modified for the test user.
+  // @see Drupal\helfi_tfa\Hook\UserHooks::userLogin().
+  $config['helfi_platform_config.e2e_test_users']['users'][] = array_intersect_key($e2e_test_user, [
+    "username" => TRUE,
+  ]);
 }
 
 // Environment specific overrides.

@@ -14,7 +14,7 @@ dependencies:
     config:
       - paragraphs.paragraphs_type.accordion_item
 _core:
-  default_config_hash: 51mHm2O7Corvv_lfh2IeFdXy3zf8Uj5dgxtkmWy39yI
+  default_config_hash: odiuQGS607Y-0KfmodHLcxJ3e9iqFijeZ_maAsj5Te0
 id: paragraph.accordion_item.default
 targetEntityType: paragraph
 bundle: accordion_item
@@ -27,16 +27,17 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: closed_expand_nested
+      edit_mode: closed
       closed_mode: summary
       autocollapse: none
-      closed_mode_threshold: 0
+      closed_mode_threshold: 2
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
       features:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
   field_accordion_item_heading:
