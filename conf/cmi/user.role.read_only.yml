@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - node.type.announcement
+    - node.type.district
     - node.type.landing_page
     - node.type.page
+    - node.type.project
   module:
     - file
     - helfi_tpr
@@ -24,8 +26,10 @@ permissions:
   - 'disable own tfa'
   - 'setup own tfa'
   - 'view any unpublished announcement content'
+  - 'view any unpublished district content'
   - 'view any unpublished landing_page content'
   - 'view any unpublished page content'
+  - 'view any unpublished project content'
   - 'view own unpublished content'
   - 'view unpublished paragraphs'
   - 'view unpublished tpr_errand_service'
