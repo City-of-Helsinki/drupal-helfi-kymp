@@ -27,15 +27,37 @@ class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInt
   /**
    * The MobileNote data service.
    */
-  protected MobileNoteDataService $dataService;
+  /**
+   * Constructs a new MobileNoteDataSource instance.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\helfi_kymp_content\MobileNoteDataService $dataService
+   *   The MobileNote data service.
+   */
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    protected MobileNoteDataService $dataService,
+  ) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+  }
 
   /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
-    $instance->dataService = $container->get(MobileNoteDataService::class);
-    return $instance;
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get(MobileNoteDataService::class)
+    );
   }
 
   /**
@@ -54,17 +76,31 @@ class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInt
   }
 
   /**
+   * {@inheritDoc}
+   */
+  public function getItemIds($page = NULL) {
+    // fast fetch (no enrichment).
+    return array_keys($this->dataService->getMobileNoteData(FALSE));
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function loadMultiple(array $ids): array {
-    /** @var array<string, \Drupal\Core\TypedData\ComplexDataInterface> $mobileNoteData */
-    $mobileNoteData = $this->dataService->getMobileNoteData();
+    // Fetch raw data (fast).
+    $all = $this->dataService->getMobileNoteData(FALSE);
+    $items = [];
 
-    if ($ids) {
-      return array_intersect_key($mobileNoteData, array_flip($ids));
+    foreach ($ids as $id) {
+      if (isset($all[$id])) {
+        $items[$id] = $all[$id];
+      }
     }
 
-    return $mobileNoteData;
+    // Fetch streets only for the loaded batch.
+    $this->dataService->fetchNearbyStreets($items);
+
+    return $items;
   }
 
   /**
