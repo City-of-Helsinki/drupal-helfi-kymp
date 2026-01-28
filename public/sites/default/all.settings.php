@@ -62,6 +62,7 @@ $additionalEnvVars = [
   'MN_WFS_USERNAME',
   'MN_WFS_PASSWORD',
   'MN_WFS_URL',
+  'PAIKKATIETOHAKU_API_KEY',
 ];
 foreach ($additionalEnvVars as $var) {
   $preflight_checks['environmentVariables'][] = $var;
@@ -72,6 +73,7 @@ $settings['helfi_kymp_mobilenote'] = [
   'wfs_url' => getenv('MN_WFS_URL') ?: '',
   'wfs_username' => getenv('MN_WFS_USERNAME') ?: '',
   'wfs_password' => getenv('MN_WFS_PASSWORD') ?: '',
+  'address_api_key' => getenv('PAIKKATIETOHAKU_API_KEY') ?: '',
   // Sync filter: fetch items where voimassaoloAlku >= (today - offset).
   'sync_lookback_offset' => '-30 days',
   // Cleanup: remove items where (voimassaoloLoppu + offset) < today.
