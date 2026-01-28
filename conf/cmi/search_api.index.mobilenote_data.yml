@@ -82,6 +82,11 @@ field_settings:
     datasource_id: mobilenote_data_source
     property_path: geometry
     type: geo_shape
+  street_names:
+    label: 'Street names'
+    datasource_id: mobilenote_data_source
+    property_path: street_names
+    type: string
 datasource_settings:
   mobilenote_data_source: {  }
 processor_settings:
