@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use GuzzleHttp\ClientInterface;
@@ -13,6 +14,7 @@ use proj4php\Proj;
 use proj4php\Proj4php;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 
 /**
  * Service for fetching MobileNote data from WFS API.
@@ -30,9 +32,17 @@ class MobileNoteDataService {
   protected Proj $projSource;
 
   /**
-   * Target projection (WGS84).
+   * The target projection (WGS84).
    */
   protected Proj $projTarget;
+
+  public const METHOD_BBOX = 'BBOX';
+  public const METHOD_POINT = 'POINT';
+
+  /**
+   * The street query mode to use.
+   */
+  private const STREET_QUERY_MODE = self::METHOD_POINT;
 
   /**
    * Constructs a new MobileNoteDataService instance.
@@ -40,6 +50,8 @@ class MobileNoteDataService {
   public function __construct(
     protected readonly ClientInterface $client,
     protected readonly TypedDataManagerInterface $typedDataManager,
+    protected readonly TimeInterface $time,
+    protected readonly Settings $settings,
     #[Autowire(service: 'logger.channel.helfi_kymp_content')]
     protected readonly LoggerInterface $logger,
   ) {
@@ -56,19 +68,23 @@ class MobileNoteDataService {
   /**
    * Gets MobileNote data.
    *
+   * @param bool $fetchNearbyStreetData
+   *   Whether to fetch street name data.
+   *
    * @return array<int|string, \Drupal\Core\TypedData\ComplexDataInterface>
-   *   MobileNote data keyed by ID.
+   *   An array of MobileNote data items, keyed by ID.
    */
-  public function getMobileNoteData(): array {
-    $settings = Settings::get('helfi_kymp_mobilenote', []);
+  public function getMobileNoteData(bool $fetchNearbyStreetData = FALSE): array {
 
-    if (empty($settings['wfs_url']) || empty($settings['wfs_username']) || empty($settings['wfs_password'])) {
+    $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
+
+    if (empty($apiSettings['wfs_url']) || empty($apiSettings['wfs_username']) || empty($apiSettings['wfs_password'])) {
       $this->logger->warning('MobileNote: Missing API credentials. Cannot fetch data.');
       return [];
     }
 
     try {
-      $features = $this->fetchFromApi($settings);
+      $features = $this->fetchFromApi($apiSettings);
       $this->logger->info('MobileNote: Fetched @count features from API.', [
         '@count' => count($features),
       ]);
@@ -89,11 +105,47 @@ class MobileNoteDataService {
         /** @var \Drupal\Core\TypedData\ComplexDataInterface $typedData */
         $typedData = $this->typedDataManager->create($dataDefinition);
         $typedData->setValue($item);
-        $data[$id] = $typedData;
+        $items[$id] = $typedData;
       }
     }
 
-    return $data;
+    if ($fetchNearbyStreetData && !empty($items)) {
+      $this->fetchNearbyStreets($items);
+    }
+
+    return $items;
+  }
+
+  /**
+   * Fetches nearby street names calling Address API.
+   *
+   * @param \Drupal\helfi_kymp_content\TypedData\MobileNoteData[] $items
+   *   The items to fetch street names for.
+   */
+  public function fetchNearbyStreets(array $items): void {
+    $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
+    $apiKey = $apiSettings['address_api_key'] ?? NULL;
+
+    if (empty($apiKey)) {
+      $this->logger->warning('Paikkatietoapi: Missing API key.');
+      return;
+    }
+
+    foreach ($items as $id => $item) {
+      $hasMethod = method_exists($item, 'get');
+      $geo = ($hasMethod) ? $item->get('geometry')->getValue() : null;
+      
+      // Check if item has 'geometry' property (safer than instanceof).
+      if ($hasMethod && $geo) {
+        if (self::STREET_QUERY_MODE === self::METHOD_POINT) {
+          $result = $this->fetchStreetsByPoint($geo, $apiKey);
+        }
+        else {
+          $result = $this->fetchStreetsByBbox($geo, $apiKey);
+        }
+        $item->set('street_names', $result);
+      }
+    }
   }
 
   /**
@@ -108,8 +160,11 @@ class MobileNoteDataService {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   protected function fetchFromApi(array $settings): array {
+
     $lookbackOffset = $settings['sync_lookback_offset'] ?? '-30 days';
-    $minDate = (new \DateTime())->modify($lookbackOffset)->format('Y-m-d');
+    // Use request time for consistent "now" context.
+    $currentDate = \DateTime::createFromFormat('U', (string) $this->time->getRequestTime());
+    $minDate = $currentDate->modify($lookbackOffset)->format('Y-m-d');
 
     $filterXml = <<<XML
 <Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">
@@ -248,6 +303,139 @@ XML;
       'type' => strtolower($geometry['type'] ?? 'linestring'),
       'coordinates' => $convertedCoordinates,
     ];
+  }
+
+  /**
+   * Fetches street names using the bounding box method.
+   *
+   * @param object $geometry
+   *   The GeoJSON geometry object.
+   * @param string $apiKey
+   *   The Address API key.
+   *
+   * @return array
+   *   A list of unique street names found within the bounding box.
+   */
+  protected function fetchStreetsByBbox(object $geometry, string $apiKey): array {
+    if (empty($geometry->coordinates)) {
+      return [];
+    }
+
+    // Calculate Bounding Box (minX, minY, maxX, maxY).
+    $lons = array_column($geometry->coordinates, 0);
+    $lats = array_column($geometry->coordinates, 1);
+    
+    // Add buffer (approx 20m = 0.0002 deg) to ensure results for lines.
+    $buffer = 0.0002;
+    $minX = min($lons) - $buffer;
+    $maxX = max($lons) + $buffer;
+    $minY = min($lats) - $buffer;
+    $maxY = max($lats) + $buffer;
+
+    $bbox = implode(',', [$minX, $minY, $maxX, $maxY]);
+
+    try {
+      $response = $this->client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
+        'headers' => [
+          'Api-Key' => $apiKey,
+        ],
+        'query' => [
+          'bbox' => $bbox,
+          'limit' => 20, // Reasonable limit
+        ],
+        'timeout' => 60,
+      ]);
+
+      // Throttle requests to prevent API rate limiting/timeouts on bulk sync.
+      sleep(1);
+
+      $data = json_decode($response->getBody()->getContents(), TRUE);
+      $streets = [];
+
+      foreach ($data['results'] ?? [] as $result) {
+        if (!empty($result['street']['name']['fi'])) {
+          $streets[] = $result['street']['name']['fi'];
+        }
+      }
+
+      return array_values(array_unique($streets));
+    }
+    catch (\Exception $e) {
+      $this->logger->error('Paikkatietoapi failed: @message', [
+        '@message' => $e->getMessage(),
+      ]);
+      return [];
+    }
+  }
+
+
+
+  /**
+   * Fetches street names using the point-radius method.
+   *
+   * @param object $geometry
+   *   The GeoJSON geometry object.
+   * @param string $apiKey
+   *   The Address API key.
+   *
+   * @return array
+   *   A list of unique street names found within radius.
+   */
+  protected function fetchStreetsByPoint(object $geometry, string $apiKey): array {
+    if (empty($geometry->coordinates)) {
+      return [];
+    }
+
+    // Calculate Centroid.
+
+    // Alternative here could be querying api with both points of linestring.
+    $lons = array_column($geometry->coordinates, 0);
+    $lats = array_column($geometry->coordinates, 1);
+    $count = count($geometry->coordinates);
+
+    if ($count === 0) {
+      return [];
+    }
+
+    $avgLon = array_sum($lons) / $count;
+    $avgLat = array_sum($lats) / $count;
+
+    try {
+      $response = $this->client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
+        'headers' => [
+          'Api-Key' => $apiKey,
+        ],
+        'query' => [
+          'lat' => $avgLat,
+          'lon' => $avgLon,
+          'distance' => 20, // meters
+          'limit' => 20,
+        ],
+        'timeout' => 60,
+      ]);
+
+      // Throttle requests. API seems to throw 502 errors when querying without throttling.
+      sleep(1);
+
+      $data = json_decode($response->getBody()->getContents(), TRUE);
+      $streets = [];
+
+      foreach ($data['results'] ?? [] as $result) {
+
+        // TODO: Sould we worry about swedish names?
+        if (!empty($result['street']['name']['fi'])) {
+          $streets[] = $result['street']['name']['fi'];
+        }
+      }
+
+      return array_values(array_unique($streets));
+    }
+    catch (\Exception $e) {
+      $this->logger->error('Paikkatietoapi failed: @message', [
+        '@message' => $e->getMessage(),
+      ]);
+      return [];
+    }
   }
 
 }
