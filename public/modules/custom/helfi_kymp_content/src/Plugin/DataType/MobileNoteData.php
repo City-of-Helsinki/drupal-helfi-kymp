@@ -44,6 +44,7 @@ class MobileNoteData extends Map {
       'additional_text' => ['type' => 'string', 'label' => 'Additional text', 'desc' => 'Extra text on sign'],
       'notes' => ['type' => 'string', 'label' => 'Notes', 'desc' => 'Notes'],
       'phone' => ['type' => 'string', 'label' => 'Phone', 'desc' => 'Contact phone number'],
+      'street_names' => ['type' => 'any', 'label' => 'Street names', 'desc' => 'Enriched street names'],
       'geometry' => ['type' => 'any', 'label' => 'Geometry', 'desc' => 'GeoJSON geometry for geo queries'],
     ];
 
