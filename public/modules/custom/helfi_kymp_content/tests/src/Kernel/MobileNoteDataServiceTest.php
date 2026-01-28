@@ -49,6 +49,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       'wfs_username' => 'test_user',
       'wfs_password' => 'test_pass',
       'sync_lookback_offset' => '-30 days',
+      'address_api_key' => 'TEST_KEY',
     ];
     new Settings($settings);
   }
@@ -87,16 +88,30 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ],
     ]);
 
+    // Mock Address API response (correct structure).
+    $addressResponse = json_encode([
+      'results' => [
+        ['street' => ['name' => ['fi' => 'Mannerheimintie']]],
+        ['street' => ['name' => ['fi' => 'Kaivokatu']]],
+      ],
+    ]);
+
     $client = $this->prophesize(ClientInterface::class);
     $client->request('GET', 'https://example.com/wfs', Argument::any())
       ->shouldBeCalled()
       ->willReturn(new Response(200, [], $jsonResponse));
+    
+    $client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', Argument::that(function ($args) {
+       return !empty($args['query']['lat']) && !empty($args['query']['lon']) && ($args['headers']['Api-Key'] ?? '') === 'TEST_KEY';
+    }))
+      ->shouldBeCalled()
+      ->willReturn(new Response(200, [], $addressResponse));
 
     $this->container->set('http_client', $client->reveal());
 
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
-    $data = $this->sut->getMobileNoteData();
+    $data = $this->sut->getMobileNoteData(TRUE);
 
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.123', $data);
@@ -107,7 +122,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertEquals('test.123', $item['id']);
     $this->assertEquals('Test Street 1', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
-    $this->assertEquals('Extra', $item['additional_text']);
+    // 5. Assertions.
+    $this->assertNotEmpty($item['street_names']);
+    $this->assertContains('Mannerheimintie', $item['street_names']);
+    $this->assertContains('Kaivokatu', $item['street_names']);
+    $this->assertCount(2, $item['street_names']);
 
     // Verify date conversion.
     $this->assertEquals(strtotime('2026-01-20'), $item['valid_from']);
@@ -120,6 +139,49 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertLessThan(26, $coords[0]);
     $this->assertGreaterThan(60, $coords[1]);
     $this->assertLessThan(61, $coords[1]);
+  }
+
+  /**
+   * Tests fetching data without enrichment.
+   */
+  public function testGetMobileNoteDataNoEnrich(): void {
+    // Mock WFS API response.
+    $jsonResponse = json_encode([
+      'features' => [
+        [
+          'id' => 'test.456',
+          'geometry' => [
+            'type' => 'LineString',
+            'coordinates' => [[25497397.000, 6672506.000]],
+          ],
+          'properties' => [
+            'osoite' => 'Test Street 2',
+            'merkinSyy' => ['value' => 'Test Reason'],
+          ],
+        ],
+      ],
+    ]);
+
+    $client = $this->prophesize(ClientInterface::class);
+    $client->request('GET', 'https://example.com/wfs', Argument::any())
+      ->shouldBeCalled()
+      ->willReturn(new Response(200, [], $jsonResponse));
+
+    // Ensure Address API is NOT called.
+    $client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', Argument::any())
+      ->shouldNotBeCalled();
+
+    $this->container->set('http_client', $client->reveal());
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    // Call with $enrich = FALSE.
+    $data = $this->sut->getMobileNoteData(FALSE);
+
+    $this->assertCount(1, $data);
+    $this->assertArrayHasKey('test.456', $data);
+    $item = $data['test.456']->getValue();
+    $this->assertEquals('Test Street 2', $item['address']);
+    $this->assertArrayNotHasKey('street_names', $item);
   }
 
 }
