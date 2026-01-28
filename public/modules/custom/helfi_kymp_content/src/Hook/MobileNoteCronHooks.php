@@ -12,7 +12,6 @@ use Drupal\Core\State\StateInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
-use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 
 /**
  * Cron hook implementations for MobileNote.
@@ -155,7 +154,7 @@ class MobileNoteCronHooks {
       ? '-' . substr($removalOffset, 1)
       : '+' . substr($removalOffset, 1);
 
-    return (new \DateTime())->modify($invertedOffset)->getTimestamp();
+    return (new \DateTime())->setTimestamp($this->time->getRequestTime())->modify($invertedOffset)->getTimestamp();
   }
 
 }
