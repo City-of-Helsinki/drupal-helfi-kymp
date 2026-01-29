@@ -42,6 +42,9 @@ class MobileNoteCronHooksTest extends KernelTestBase {
    * Tests cron indexing logic.
    */
   public function testCronIndexing(): void {
+    // Use current time for consistent test behavior.
+    $currentTime = time();
+
     // 1. Mock Datasource items.
     // Item 1: Active (no valid_to).
     $validTo1 = $this->prophesize(TypedDataInterface::class);
@@ -50,16 +53,16 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $item1 = $this->prophesize(ComplexDataInterface::class);
     $item1->get('valid_to')->willReturn($validTo1->reveal());
 
-    // Item 2: Expired recently (e.g. 10 days ago). SHOULD BE INDEXED.
-    $recentExpired = (new \DateTime())->modify('-10 days')->getTimestamp();
+    // Item 2: Expired recently (10 days ago). SHOULD BE INDEXED.
+    $recentExpired = $currentTime - (10 * 24 * 60 * 60);
     $validTo2 = $this->prophesize(TypedDataInterface::class);
     $validTo2->getValue()->willReturn($recentExpired);
 
     $item2 = $this->prophesize(ComplexDataInterface::class);
     $item2->get('valid_to')->willReturn($validTo2->reveal());
 
-    // Item 3: Expired long ago (e.g. 40 days ago). SHOULD BE DELETED / SKIPPED.
-    $oldExpired = (new \DateTime())->modify('-40 days')->getTimestamp();
+    // Item 3: Expired long ago (40 days ago). SHOULD BE DELETED / SKIPPED.
+    $oldExpired = $currentTime - (40 * 24 * 60 * 60);
     $validTo3 = $this->prophesize(TypedDataInterface::class);
     $validTo3->getValue()->willReturn($oldExpired);
 
@@ -104,7 +107,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $state->set('helfi_kymp_content.mobilenote_last_run', Argument::any())->shouldBeCalled();
 
     $time = $this->prophesize(TimeInterface::class);
-    $time->getRequestTime()->willReturn(1234567890);
+    $time->getRequestTime()->willReturn($currentTime);
 
     $dataService = $this->prophesize(MobileNoteDataService::class);
     $dataService->getMobileNoteData(FALSE)->willReturn($items);

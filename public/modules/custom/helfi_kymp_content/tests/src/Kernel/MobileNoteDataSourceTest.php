@@ -86,7 +86,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     ]);
     $datasource = $index->getDatasource('mobilenote_data_source');
 
-    $items = $datasource->loadMultiple([]);
+    $items = $datasource->loadMultiple(['test.123']);
 
     $this->assertCount(1, $items);
     $this->assertTrue(array_all($items, static fn ($item) => $item instanceof MobileNoteData));
