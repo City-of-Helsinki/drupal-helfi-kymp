@@ -84,7 +84,8 @@ class MobileNoteDataService {
 
     if (empty($apiSettings['wfs_url']) || empty($apiSettings['wfs_username']) || empty($apiSettings['wfs_password'])) {
       $this->logger->info('MobileNote: Missing API credentials. Cannot fetch data.');
-      return [];
+      $cache = [];
+      return $cache;
     }
 
     try {

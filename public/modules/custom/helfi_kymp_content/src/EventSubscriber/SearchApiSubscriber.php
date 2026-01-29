@@ -48,10 +48,7 @@ class SearchApiSubscriber implements EventSubscriberInterface {
       $this->trackDatasourceItems($index, 'helfi_street_data_source');
     }
 
-    // Handle mobilenote_data index.
-    if ($index->id() == 'mobilenote_data') {
-      $this->trackDatasourceItems($index, 'mobilenote_data_source');
-    }
+
   }
 
   /**
