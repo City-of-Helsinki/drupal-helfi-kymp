@@ -100,7 +100,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $client->request('GET', 'https://example.com/wfs', Argument::any())
       ->shouldBeCalled()
       ->willReturn(new Response(200, [], $jsonResponse));
-    
+
     $client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', Argument::that(function ($args) {
        return !empty($args['query']['lat']) && !empty($args['query']['lon']) && ($args['headers']['Api-Key'] ?? '') === 'TEST_KEY';
     }))

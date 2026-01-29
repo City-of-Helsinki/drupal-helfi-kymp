@@ -10,12 +10,14 @@ use Drupal\Core\State\StateInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\Core\TypedData\TypedDataInterface;
 use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
+use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\Component\Datetime\TimeInterface;
+use Psr\Log\LoggerInterface;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Entity\Index;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
-use Psr\Log\LoggerInterface;
 
 /**
  * Tests MobileNoteCronHooks.
@@ -101,6 +103,12 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $state->get('helfi_kymp_content.mobilenote_last_run', 0)->willReturn(0);
     $state->set('helfi_kymp_content.mobilenote_last_run', Argument::any())->shouldBeCalled();
 
+    $time = $this->prophesize(TimeInterface::class);
+    $time->getRequestTime()->willReturn(1234567890);
+
+    $dataService = $this->prophesize(MobileNoteDataService::class);
+    $dataService->getMobileNoteData(FALSE)->willReturn($items);
+
     $logger = $this->prophesize(LoggerInterface::class);
     $logger->info(Argument::type('string'), Argument::any())->shouldBeCalled();
 
@@ -108,7 +116,9 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $hooks = new MobileNoteCronHooks(
       $state->reveal(),
       $etm->reveal(),
-      $logger->reveal()
+      $time->reveal(),
+      $logger->reveal(),
+      $dataService->reveal()
     );
 
     // Run cron.

@@ -22,11 +22,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
   label: new TranslatableMarkup("MobileNote datasource"),
   description: new TranslatableMarkup("Datasource for MobileNote parking sign data.")
 )]
-class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInterface {
+final class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInterface {
 
   /**
    * The MobileNote data service.
    */
+
   /**
    * Constructs a new MobileNoteDataSource instance.
    *
@@ -79,7 +80,7 @@ class MobileNoteDataSource extends DatasourcePluginBase implements DatasourceInt
    * {@inheritDoc}
    */
   public function getItemIds($page = NULL) {
-    // fast fetch (no enrichment).
+    // Fast fetch (no enrichment).
     return array_keys($this->dataService->getMobileNoteData(FALSE));
   }
 

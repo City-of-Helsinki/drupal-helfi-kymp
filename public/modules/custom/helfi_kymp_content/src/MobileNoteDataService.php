@@ -14,7 +14,6 @@ use proj4php\Proj;
 use proj4php\Proj4php;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
-use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 
 /**
  * Service for fetching MobileNote data from WFS API.
@@ -96,7 +95,7 @@ class MobileNoteDataService {
       return [];
     }
 
-    $data = [];
+    $items = [];
     foreach ($features as $feature) {
       $item = $this->transformFeature($feature);
       if ($item !== NULL) {
@@ -119,7 +118,7 @@ class MobileNoteDataService {
   /**
    * Fetches nearby street names calling Address API.
    *
-   * @param \Drupal\helfi_kymp_content\TypedData\MobileNoteData[] $items
+   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData[] $items
    *   The items to fetch street names for.
    */
   public function fetchNearbyStreets(array $items): void {
@@ -131,10 +130,10 @@ class MobileNoteDataService {
       return;
     }
 
-    foreach ($items as $id => $item) {
+    foreach ($items as $item) {
       $hasMethod = method_exists($item, 'get');
-      $geo = ($hasMethod) ? $item->get('geometry')->getValue() : null;
-      
+      $geo = ($hasMethod) ? $item->get('geometry')->getValue() : NULL;
+
       // Check if item has 'geometry' property (safer than instanceof).
       if ($hasMethod && $geo) {
         if (self::STREET_QUERY_MODE === self::METHOD_POINT) {
@@ -324,7 +323,7 @@ XML;
     // Calculate Bounding Box (minX, minY, maxX, maxY).
     $lons = array_column($geometry->coordinates, 0);
     $lats = array_column($geometry->coordinates, 1);
-    
+
     // Add buffer (approx 20m = 0.0002 deg) to ensure results for lines.
     $buffer = 0.0002;
     $minX = min($lons) - $buffer;
@@ -341,7 +340,8 @@ XML;
         ],
         'query' => [
           'bbox' => $bbox,
-          'limit' => 20, // Reasonable limit
+        // Reasonable limit.
+          'limit' => 20,
         ],
         'timeout' => 60,
       ]);
@@ -368,8 +368,6 @@ XML;
     }
   }
 
-
-
   /**
    * Fetches street names using the point-radius method.
    *
@@ -387,7 +385,6 @@ XML;
     }
 
     // Calculate Centroid.
-
     // Alternative here could be querying api with both points of linestring.
     $lons = array_column($geometry->coordinates, 0);
     $lats = array_column($geometry->coordinates, 1);
@@ -408,13 +405,15 @@ XML;
         'query' => [
           'lat' => $avgLat,
           'lon' => $avgLon,
-          'distance' => 20, // meters
+        // Meters.
+          'distance' => 20,
           'limit' => 20,
         ],
         'timeout' => 60,
       ]);
 
-      // Throttle requests. API seems to throw 502 errors when querying without throttling.
+      // Throttle requests. API seems to throw 502 errors when querying without
+      // throttling.
       sleep(1);
 
       $data = json_decode($response->getBody()->getContents(), TRUE);
@@ -422,7 +421,7 @@ XML;
 
       foreach ($data['results'] ?? [] as $result) {
 
-        // TODO: Sould we worry about swedish names?
+        // @todo Sould we worry about swedish names?
         if (!empty($result['street']['name']['fi'])) {
           $streets[] = $result['street']['name']['fi'];
         }
