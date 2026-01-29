@@ -81,7 +81,19 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
    */
   public function getItemIds($page = NULL) {
     // Fast fetch (no enrichment).
-    return array_keys($this->dataService->getMobileNoteData(FALSE));
+    $ids = array_keys($this->dataService->getMobileNoteData(FALSE));
+
+    // NULL = "tracking complete, no more pages".
+    if (empty($ids)) {
+      return NULL;
+    }
+
+    // Only return items on first page (page 0 or NULL).
+    if ($page !== NULL && $page > 0) {
+      return NULL;
+    }
+
+    return $ids;
   }
 
   /**
