@@ -65,11 +65,11 @@ class SearchApiSubscriber implements EventSubscriberInterface {
   protected function trackDatasourceItems($index, string $datasourceId): void {
     try {
       $source = $index->getDatasource($datasourceId);
-      $data = $source->loadMultiple([]);
-      if (!$data) {
+      $ids = $source->getItemIds();
+      if (!$ids) {
         return;
       }
-      $index->trackItemsInserted($source->getPluginId(), array_keys($data));
+      $index->trackItemsInserted($source->getPluginId(), $ids);
     }
     catch (\Exception $e) {
       $this->logger->error('Unable to fetch data while running reindex event for @datasource: @message', [

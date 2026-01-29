@@ -88,6 +88,10 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
    * {@inheritdoc}
    */
   public function loadMultiple(array $ids): array {
+    if (empty($ids)) {
+      return [];
+    }
+
     // Fetch raw data (fast).
     $all = $this->dataService->getMobileNoteData(FALSE);
     $items = [];

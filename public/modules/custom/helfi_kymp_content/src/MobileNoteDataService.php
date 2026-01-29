@@ -74,11 +74,16 @@ class MobileNoteDataService {
    *   An array of MobileNote data items, keyed by ID.
    */
   public function getMobileNoteData(bool $fetchNearbyStreetData = FALSE): array {
+    static $cache = NULL;
+
+    if ($cache !== NULL && !$fetchNearbyStreetData) {
+      return $cache;
+    }
 
     $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
 
     if (empty($apiSettings['wfs_url']) || empty($apiSettings['wfs_username']) || empty($apiSettings['wfs_password'])) {
-      $this->logger->warning('MobileNote: Missing API credentials. Cannot fetch data.');
+      $this->logger->info('MobileNote: Missing API credentials. Cannot fetch data.');
       return [];
     }
 
@@ -106,6 +111,11 @@ class MobileNoteDataService {
         $typedData->setValue($item);
         $items[$id] = $typedData;
       }
+    }
+
+    // Cache the base data (without streets) for subsequent calls.
+    if (!$fetchNearbyStreetData) {
+      $cache = $items;
     }
 
     if ($fetchNearbyStreetData && !empty($items)) {
