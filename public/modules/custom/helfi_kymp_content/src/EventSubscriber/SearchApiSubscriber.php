@@ -47,8 +47,6 @@ class SearchApiSubscriber implements EventSubscriberInterface {
     if ($index->id() == 'street_data') {
       $this->trackDatasourceItems($index, 'helfi_street_data_source');
     }
-
-
   }
 
   /**
