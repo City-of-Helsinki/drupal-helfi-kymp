@@ -342,41 +342,10 @@ XML;
     $minY = min($lats) - $buffer;
     $maxY = max($lats) + $buffer;
 
-    $bbox = implode(',', [$minX, $minY, $maxX, $maxY]);
-
-    try {
-      $response = $this->client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
-        'headers' => [
-          'Api-Key' => $apiKey,
-        ],
-        'query' => [
-          'bbox' => $bbox,
-        // Reasonable limit.
-          'limit' => 20,
-        ],
-        'timeout' => 60,
-      ]);
-
-      // Throttle requests to prevent API rate limiting/timeouts on bulk sync.
-      sleep(1);
-
-      $data = json_decode($response->getBody()->getContents(), TRUE);
-      $streets = [];
-
-      foreach ($data['results'] ?? [] as $result) {
-        if (!empty($result['street']['name']['fi'])) {
-          $streets[] = $result['street']['name']['fi'];
-        }
-      }
-
-      return array_values(array_unique($streets));
-    }
-    catch (\Exception $e) {
-      $this->logger->error('Paikkatietoapi failed: @message', [
-        '@message' => $e->getMessage(),
-      ]);
-      return [];
-    }
+    return $this->fetchStreetsFromApi([
+      'bbox' => implode(',', [$minX, $minY, $maxX, $maxY]),
+      'limit' => 20,
+    ], $apiKey);
   }
 
   /**
@@ -396,7 +365,6 @@ XML;
     }
 
     // Calculate Centroid.
-    // Alternative here could be querying api with both points of linestring.
     $lons = array_column($geometry->coordinates, 0);
     $lats = array_column($geometry->coordinates, 1);
     $count = count($geometry->coordinates);
@@ -405,34 +373,40 @@ XML;
       return [];
     }
 
-    $avgLon = array_sum($lons) / $count;
-    $avgLat = array_sum($lats) / $count;
+    return $this->fetchStreetsFromApi([
+      'lat' => array_sum($lats) / $count,
+      'lon' => array_sum($lons) / $count,
+      'distance' => 20,
+      'limit' => 20,
+    ], $apiKey);
+  }
 
+  /**
+   * Fetches street names from the Paikkatietohaku API.
+   *
+   * @param array $queryParams
+   *   Query parameters for the API request.
+   * @param string $apiKey
+   *   The Address API key.
+   *
+   * @return array
+   *   A list of unique street names.
+   */
+  protected function fetchStreetsFromApi(array $queryParams, string $apiKey): array {
     try {
       $response = $this->client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
-        'headers' => [
-          'Api-Key' => $apiKey,
-        ],
-        'query' => [
-          'lat' => $avgLat,
-          'lon' => $avgLon,
-        // Meters.
-          'distance' => 20,
-          'limit' => 20,
-        ],
+        'headers' => ['Api-Key' => $apiKey],
+        'query' => $queryParams,
         'timeout' => 60,
       ]);
 
-      // Throttle requests. API seems to throw 502 errors when querying without
-      // throttling.
+      // Throttle requests to prevent API rate limiting.
       sleep(1);
 
       $data = json_decode($response->getBody()->getContents(), TRUE);
       $streets = [];
 
       foreach ($data['results'] ?? [] as $result) {
-
-        // @todo Sould we worry about swedish names?
         if (!empty($result['street']['name']['fi'])) {
           $streets[] = $result['street']['name']['fi'];
         }
