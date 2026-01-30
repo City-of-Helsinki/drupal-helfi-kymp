@@ -47,7 +47,7 @@ class MobileNoteCronHooks {
     $this->state->set(self::STATE_LAST_RUN, $currentTime);
 
     // Fetch data once to avoid redundant API calls/parsing.
-    $data = $this->dataService->getMobileNoteData(FALSE);
+    $data = $this->dataService->getMobileNoteData();
 
     if (empty($data)) {
       $this->logger->info('MobileNote cron: No data to process.');

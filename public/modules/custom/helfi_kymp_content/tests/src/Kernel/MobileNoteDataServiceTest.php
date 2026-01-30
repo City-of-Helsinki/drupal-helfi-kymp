@@ -111,7 +111,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
-    $data = $this->sut->getMobileNoteData(TRUE);
+    $data = $this->sut->getMobileNoteData();
+    $this->sut->fetchNearbyStreets($data);
 
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.123', $data);
@@ -175,7 +176,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
     // Call with $enrich = FALSE.
-    $data = $this->sut->getMobileNoteData(FALSE);
+    $data = $this->sut->getMobileNoteData();
 
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.456', $data);

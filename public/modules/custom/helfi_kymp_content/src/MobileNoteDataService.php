@@ -67,16 +67,13 @@ class MobileNoteDataService {
   /**
    * Gets MobileNote data.
    *
-   * @param bool $fetchNearbyStreetData
-   *   Whether to fetch street name data.
-   *
-   * @return array<int|string, \Drupal\Core\TypedData\ComplexDataInterface>
+   * @return array<string, \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData>
    *   An array of MobileNote data items, keyed by ID.
    */
-  public function getMobileNoteData(bool $fetchNearbyStreetData = FALSE): array {
+  public function getMobileNoteData(): array {
     static $cache = NULL;
 
-    if ($cache !== NULL && !$fetchNearbyStreetData) {
+    if ($cache !== NULL) {
       return $cache;
     }
 
@@ -114,14 +111,7 @@ class MobileNoteDataService {
       }
     }
 
-    // Cache the base data (without streets) for subsequent calls.
-    if (!$fetchNearbyStreetData) {
-      $cache = $items;
-    }
-
-    if ($fetchNearbyStreetData && !empty($items)) {
-      $this->fetchNearbyStreets($items);
-    }
+    $cache = $items;
 
     return $items;
   }
@@ -142,11 +132,9 @@ class MobileNoteDataService {
     }
 
     foreach ($items as $item) {
-      $hasMethod = method_exists($item, 'get');
-      $geo = ($hasMethod) ? $item->get('geometry')->getValue() : NULL;
+      $geo = $item->get('geometry')->getValue();
 
-      // Check if item has 'geometry' property (safer than instanceof).
-      if ($hasMethod && $geo) {
+      if ($geo) {
         if (self::STREET_QUERY_MODE === self::METHOD_POINT) {
           $result = $this->fetchStreetsByPoint($geo, $apiKey);
         }
@@ -400,15 +388,15 @@ XML;
         'timeout' => 60,
       ]);
 
-      // Throttle requests to prevent API rate limiting.
-      sleep(1);
-
       $data = json_decode($response->getBody()->getContents(), TRUE);
       $streets = [];
 
       foreach ($data['results'] ?? [] as $result) {
         if (!empty($result['street']['name']['fi'])) {
           $streets[] = $result['street']['name']['fi'];
+        }
+        if (!empty($result['street']['name']['sv'])) {
+          $streets[] = $result['street']['name']['sv'];
         }
       }
 

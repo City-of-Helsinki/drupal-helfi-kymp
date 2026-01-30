@@ -81,7 +81,7 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
    */
   public function getItemIds($page = NULL) {
     // Fast fetch (no enrichment).
-    $ids = array_keys($this->dataService->getMobileNoteData(FALSE));
+    $ids = array_keys($this->dataService->getMobileNoteData());
 
     // NULL = "tracking complete, no more pages".
     if (empty($ids)) {
@@ -105,7 +105,7 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
     }
 
     // Fetch raw data (fast).
-    $all = $this->dataService->getMobileNoteData(FALSE);
+    $all = $this->dataService->getMobileNoteData();
     $items = [];
 
     foreach ($ids as $id) {

@@ -110,7 +110,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $time->getRequestTime()->willReturn($currentTime);
 
     $dataService = $this->prophesize(MobileNoteDataService::class);
-    $dataService->getMobileNoteData(FALSE)->willReturn($items);
+    $dataService->getMobileNoteData()->willReturn($items);
 
     $logger = $this->prophesize(LoggerInterface::class);
     $logger->info(Argument::type('string'), Argument::any())->shouldBeCalled();
