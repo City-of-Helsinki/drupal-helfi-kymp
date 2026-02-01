@@ -104,7 +104,7 @@ class MobileNoteDataService {
       if ($item !== NULL) {
         $id = $item['id'];
         $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
-        /** @var \Drupal\Core\TypedData\ComplexDataInterface $typedData */
+        /** @var \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $typedData */
         $typedData = $this->typedDataManager->create($dataDefinition);
         $typedData->setValue($item);
         $items[$id] = $typedData;
