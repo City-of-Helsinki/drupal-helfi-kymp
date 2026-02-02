@@ -1,0 +1,101 @@
+uuid: null
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.default
+  module:
+    - helfi_kymp_content
+    - helfi_react_search
+id: mobilenote_data
+name: 'MobileNote data'
+description: 'MobileNote parking sign data for geo queries.'
+read_only: false
+field_settings:
+  id:
+    label: ID
+    datasource_id: mobilenote_data_source
+    property_path: id
+    type: string
+  address:
+    label: Address
+    datasource_id: mobilenote_data_source
+    property_path: address
+    type: string
+  reason:
+    label: Reason
+    datasource_id: mobilenote_data_source
+    property_path: reason
+    type: string
+  valid_from:
+    label: 'Valid from'
+    datasource_id: mobilenote_data_source
+    property_path: valid_from
+    type: date
+  valid_to:
+    label: 'Valid to'
+    datasource_id: mobilenote_data_source
+    property_path: valid_to
+    type: date
+  time_range:
+    label: 'Time range'
+    datasource_id: mobilenote_data_source
+    property_path: time_range
+    type: string
+  created_at:
+    label: 'Created at'
+    datasource_id: mobilenote_data_source
+    property_path: created_at
+    type: date
+  updated_at:
+    label: 'Updated at'
+    datasource_id: mobilenote_data_source
+    property_path: updated_at
+    type: date
+  address_info:
+    label: 'Address info'
+    datasource_id: mobilenote_data_source
+    property_path: address_info
+    type: string
+  sign_type:
+    label: 'Sign type'
+    datasource_id: mobilenote_data_source
+    property_path: sign_type
+    type: string
+  additional_text:
+    label: 'Additional text'
+    datasource_id: mobilenote_data_source
+    property_path: additional_text
+    type: string
+  notes:
+    label: Notes
+    datasource_id: mobilenote_data_source
+    property_path: notes
+    type: string
+  phone:
+    label: Phone
+    datasource_id: mobilenote_data_source
+    property_path: phone
+    type: string
+  geometry:
+    label: Geometry
+    datasource_id: mobilenote_data_source
+    property_path: geometry
+    type: geo_shape
+  street_names:
+    label: 'Street names'
+    datasource_id: mobilenote_data_source
+    property_path: street_names
+    type: string
+datasource_settings:
+  mobilenote_data_source: {  }
+processor_settings:
+  add_url: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 20
+  index_directly: false
+  track_changes_in_references: true
+server: default
