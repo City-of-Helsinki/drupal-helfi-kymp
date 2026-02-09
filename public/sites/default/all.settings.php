@@ -58,11 +58,11 @@ $additionalEnvVars = [
   // 'AMQ_BROKERS',
   // 'AMQ_USER',
   // 'AMQ_PASSWORD',
-  // MobileNote WFS API.
-  'MN_WFS_USERNAME',
-  'MN_WFS_PASSWORD',
-  'MN_WFS_URL',
-  'PAIKKATIETOHAKU_API_KEY',
+  // @todo MobileNote WFS API.
+  // 'MN_WFS_USERNAME',
+  // 'MN_WFS_PASSWORD',
+  // 'MN_WFS_URL',
+  // 'PAIKKATIETOHAKU_API_KEY',
 ];
 foreach ($additionalEnvVars as $var) {
   $preflight_checks['environmentVariables'][] = $var;
