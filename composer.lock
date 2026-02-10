@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f910f52c9b4f4e0f916c8274235f7df3",
+    "content-hash": "f6bcc49cd08b6ba11e872af7ce818e9d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4516,6 +4516,38 @@
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
             "time": "2025-12-08T13:55:35+00:00"
+        },
+        {
+            "name": "drupal/helfi_hakuvahti",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti.git",
+                "reference": "02d48077ff1d72e08d06985a0e6150a7eb23b307"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-hakuvahti/zipball/02d48077ff1d72e08d06985a0e6150a7eb23b307",
+                "reference": "02d48077ff1d72e08d06985a0e6150a7eb23b307",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/helfi_api_base": "*"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "drupal/coder": "^8.3"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Helfi - Hakuvahti",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/tree/1.0.1",
+                "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/issues"
+            },
+            "time": "2026-01-23T12:16:11+00:00"
         },
         {
             "name": "drupal/helfi_navigation",
