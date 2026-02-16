@@ -6,8 +6,6 @@ display:
     display_options:
       title: Файлы
       fields:
-        fid:
-          label: Fid
         filename:
           label: Название
           separator: ', '
@@ -26,8 +24,6 @@ display:
           label: 'Дата изменения'
         count:
           label: 'Используется в'
-          alter:
-            path: 'admin/content/files/usage/{{ fid }}'
           format_plural_string: !!binary QGNvdW50INC80LXRgdGC0L4DQGNvdW50INC80LXRgdGC0LADQGNvdW50INC80LXRgdGC
       pager:
         options:
@@ -76,7 +72,6 @@ display:
           label: 'Регистрация модуля'
         count:
           label: 'Используемое количество'
-          format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:
