@@ -52,7 +52,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsForLineString(array $coordinates, int $distance = 100): array {
+  public function fetchStreetsForLineString(array $coordinates, int $distance = 75): array {
     $count = count($coordinates);
     $streets = [];
 
@@ -83,7 +83,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsByPoint(float $lat, float $lon, int $distance = 100): array {
+  public function fetchStreetsByPoint(float $lat, float $lon, int $distance = 75): array {
     $results = $this->makeRequest([
       'lat' => $lat,
       'lon' => $lon,
