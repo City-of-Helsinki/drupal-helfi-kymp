@@ -75,7 +75,8 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @param float $lon
    *   Longitude.
    * @param int $distance
-   *   Distance. We look at street names within this distance and pick the closest result.
+   *   Distance. We look at street names within this
+   *   distance and pick the closest result.
    *
    * @return array
    *   A list of unique street names found within radius.
@@ -131,6 +132,8 @@ class PaikkatietoClient implements LoggerAwareInterface {
    *
    * @param array $queryParams
    *   Query parameters for the API request.
+   * @param int $maxRetries
+   *   Maximum number of retries on 502 errors.
    *
    * @return array
    *   The results array from the API response.
@@ -185,7 +188,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
-   * Calculate the distance between two WGS84 coordinates using the Haversine formula.
+   * Calculate the distance between two coordinates using the Haversine formula.
    */
   private static function haversineDistance(float $lat1, float $lon1, float $lat2, float $lon2): float {
     $lat1 = deg2rad($lat1);
