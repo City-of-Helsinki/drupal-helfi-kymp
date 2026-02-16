@@ -124,22 +124,20 @@ readonly class MobileNoteDataService {
         continue;
       }
 
-      // Calculate Centroid.
-      $lons = array_column($geo->coordinates, 0);
-      $lats = array_column($geo->coordinates, 1);
-      $count = count($geo->coordinates);
-
-      if ($count === 0) {
+      if (empty($geo->coordinates)) {
         continue;
+      }
+
+      if ($geo->type !== 'linestring') {
+        $this->logger->warning('Skipping item with unknown geometry type @type.', [
+          '@type' => $geo->type,
+        ]);
       }
 
       // This can fail with an exception when the API is
       // unable to handle too many requests. If that happens,
       // the processing should fail and be re-tried automatically.
-      $result = $this->paikkatietoClient->fetchStreetsByPoint(
-        array_sum($lats) / $count,
-        array_sum($lons) / $count,
-      );
+      $result = $this->paikkatietoClient->fetchStreetsForLineString($geo->coordinates);
 
       $item->set('street_names', $result);
     }

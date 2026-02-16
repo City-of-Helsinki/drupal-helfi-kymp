@@ -21,10 +21,50 @@ class PaikkatietoClient implements LoggerAwareInterface {
 
   use LoggerAwareTrait;
 
+  /**
+   * Earth radius in meters.
+   */
+  private const float EARTH_RADIUS = 6371000;
+
   public function __construct(
     private readonly Settings $settings,
     private readonly ClientInterface $httpClient,
   ) {
+  }
+
+  /**
+   * Fetches unique street names along a linestring.
+   *
+   * Queries the API at the midpoint of each segment and returns
+   * the deduplicated set of closest street names.
+   *
+   * We attempt to avoid picking the wrong results at an intersection
+   * by choosing midpoints.
+   *
+   * @param array $coordinates
+   *   Array of [lon, lat] coordinate pairs (GeoJSON order).
+   * @param int $distance
+   *   Search radius in meters for each segment midpoint.
+   *
+   * @return array
+   *   Unique street names (fi and sv) found along the linestring.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   * @throws \InvalidArgumentException
+   */
+  public function fetchStreetsForLineString(array $coordinates, int $distance = 100): array {
+    $count = count($coordinates);
+    $streets = [];
+
+    for ($i = 0; $i < $count - 1; $i++) {
+      $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
+      $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
+
+      $segmentStreets = $this->fetchStreetsByPoint($midLat, $midLon, $distance);
+      array_push($streets, ...$segmentStreets);
+    }
+
+    return array_values(array_unique($streets));
   }
 
   /**
@@ -35,33 +75,70 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @param float $lon
    *   Longitude.
    * @param int $distance
-   *   Distance.
+   *   Distance. We look at street names within this distance and pick the closest result.
    *
    * @return array
    *   A list of unique street names found within radius.
    *
-   * @throws \Drupal\helfi_kymp_content\Paikatieto\Exception
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsByPoint(float $lat, float $lon, int $distance = 20): array {
-    return $this->makeRequest([
+  public function fetchStreetsByPoint(float $lat, float $lon, int $distance = 100): array {
+    $results = $this->makeRequest([
       'lat' => $lat,
       'lon' => $lon,
       'distance' => $distance,
       'limit' => 20,
     ]);
+
+    if (empty($results)) {
+      return [];
+    }
+
+    // Find the closest result by haversine distance.
+    $closest = NULL;
+    $minDistance = PHP_FLOAT_MAX;
+
+    foreach ($results as $result) {
+      $coords = $result->location->coordinates ?? NULL;
+      if (!$coords) {
+        continue;
+      }
+      // API returns [lon, lat] (GeoJSON order).
+      $d = self::haversineDistance($lat, $lon, $coords[1], $coords[0]);
+      if ($d < $minDistance) {
+        $minDistance = $d;
+        $closest = $result;
+      }
+    }
+
+    if (!$closest) {
+      return [];
+    }
+
+    $streets = [];
+    foreach (['fi', 'sv'] as $langcode) {
+      if (!empty($closest->street->name->{$langcode})) {
+        $streets[] = $closest->street->name->{$langcode};
+      }
+    }
+
+    return $streets;
   }
 
   /**
-   * Fetches street names from the Paikkatietohaku API.
+   * Fetches results from the Paikkatietohaku API.
    *
    * @param array $queryParams
    *   Query parameters for the API request.
    *
+   * @return array
+   *   The results array from the API response.
+   *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  private function makeRequest(array $queryParams): array {
+  private function makeRequest(array $queryParams, int $maxRetries = 3): array {
     $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
     $apiKey = $apiSettings['address_api_key'] ?? NULL;
 
@@ -69,39 +146,62 @@ class PaikkatietoClient implements LoggerAwareInterface {
       throw new \InvalidArgumentException('Paikkatietoapi: Missing API key.');
     }
 
-    try {
-      $response = $this->httpClient->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
-        'headers' => ['Api-Key' => $apiKey],
-        'query' => $queryParams,
-        'timeout' => 60,
-      ]);
+    $lastException = NULL;
 
-      $data = Utils::jsonDecode($response->getBody()->getContents(), TRUE);
-      $streets = [];
-
-      foreach ($data['results'] ?? [] as $result) {
-        if (!empty($result['street']['name']['fi'])) {
-          $streets[] = $result['street']['name']['fi'];
-        }
-        if (!empty($result['street']['name']['sv'])) {
-          $streets[] = $result['street']['name']['sv'];
-        }
+    for ($attempt = 0; $attempt <= $maxRetries; $attempt++) {
+      if ($attempt > 0) {
+        // Exponential backoff: 1s, 2s, 4s.
+        sleep(2 ** ($attempt - 1));
       }
 
-      return array_values(array_unique($streets));
-    }
-    catch (GuzzleException $e) {
-      // The API is known to fail with 502 when too many
-      // requests are made. The consumers should be
-      // configured to retry requests later if this fails.
-      if (!$e instanceof RequestException || $e->getResponse()?->getStatusCode() !== 502) {
-        $this->logger?->error('Paikkatietoapi failed: @message', [
-          '@message' => $e->getMessage(),
+      try {
+        $response = $this->httpClient->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
+          'headers' => ['Api-Key' => $apiKey],
+          'query' => $queryParams,
+          'timeout' => 60,
+        ]);
+
+        $data = Utils::jsonDecode($response->getBody()->getContents());
+
+        return $data->results ?? [];
+      }
+      catch (GuzzleException $e) {
+        $lastException = $e;
+        $is502 = $e instanceof RequestException && $e->getResponse()?->getStatusCode() === 502;
+
+        // Only retry on 502 (rate limiting).
+        if (!$is502) {
+          throw new Exception($e->getMessage(), previous: $e);
+        }
+
+        $this->logger?->info('Paikkatietoapi returned 502, retry @attempt of @max.', [
+          '@attempt' => $attempt + 1,
+          '@max' => $maxRetries,
         ]);
       }
-
-      throw new Exception($e->getMessage(), previous: $e);
     }
+
+    throw new Exception($lastException->getMessage(), previous: $lastException);
+  }
+
+  /**
+   * Calculate the distance between two WGS84 coordinates using the Haversine formula.
+   */
+  private static function haversineDistance(float $lat1, float $lon1, float $lat2, float $lon2): float {
+    $lat1 = deg2rad($lat1);
+    $lon1 = deg2rad($lon1);
+    $lat2 = deg2rad($lat2);
+    $lon2 = deg2rad($lon2);
+
+    $deltaLat = $lat2 - $lat1;
+    $deltaLon = $lon2 - $lon1;
+
+    $a = sin($deltaLat / 2) ** 2
+      + cos($lat1) * cos($lat2) * sin($deltaLon / 2) ** 2;
+
+    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+    return self::EARTH_RADIUS * $c;
   }
 
 }
