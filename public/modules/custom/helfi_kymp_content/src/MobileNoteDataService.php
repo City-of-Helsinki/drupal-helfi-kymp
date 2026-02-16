@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 /**
  * Service for fetching MobileNote data from WFS API.
  */
-readonly class MobileNoteDataService {
+class MobileNoteDataService {
 
   /**
    * Proj4php instance for coordinate conversion.
