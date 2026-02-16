@@ -128,9 +128,9 @@ readonly class MobileNoteDataService {
         continue;
       }
 
-      if ($geo->type !== 'linestring') {
+      if (!isset($geo->type) || $geo->type !== 'linestring') {
         $this->logger->warning('Skipping item with unknown geometry type @type.', [
-          '@type' => $geo->type,
+          '@type' => $geo->type ?? '',
         ]);
       }
 
