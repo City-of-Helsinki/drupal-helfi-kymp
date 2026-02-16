@@ -7,6 +7,7 @@ namespace Drupal\helfi_kymp_content;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
+use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use proj4php\Point;
@@ -18,7 +19,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 /**
  * Service for fetching MobileNote data from WFS API.
  */
-class MobileNoteDataService {
+readonly class MobileNoteDataService {
 
   /**
    * Proj4php instance for coordinate conversion.
@@ -35,24 +36,17 @@ class MobileNoteDataService {
    */
   protected Proj $projTarget;
 
-  public const METHOD_BBOX = 'BBOX';
-  public const METHOD_POINT = 'POINT';
-
-  /**
-   * The street query mode to use.
-   */
-  private const STREET_QUERY_MODE = self::METHOD_POINT;
-
   /**
    * Constructs a new MobileNoteDataService instance.
    */
   public function __construct(
-    protected readonly ClientInterface $client,
-    protected readonly TypedDataManagerInterface $typedDataManager,
-    protected readonly TimeInterface $time,
-    protected readonly Settings $settings,
+    protected ClientInterface $client,
+    protected TypedDataManagerInterface $typedDataManager,
+    protected TimeInterface $time,
+    protected Settings $settings,
     #[Autowire(service: 'logger.channel.helfi_kymp_content')]
-    protected readonly LoggerInterface $logger,
+    protected LoggerInterface $logger,
+    protected PaikkatietoClient $paikkatietoClient,
   ) {
     // EPSG:3879 is Helsinki local CRS (ETRS-GK25FIN).
     $this->proj4 = new Proj4php();
@@ -123,26 +117,31 @@ class MobileNoteDataService {
    *   The items to fetch street names for.
    */
   public function fetchNearbyStreets(array $items): void {
-    $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
-    $apiKey = $apiSettings['address_api_key'] ?? NULL;
-
-    if (empty($apiKey)) {
-      $this->logger->warning('Paikkatietoapi: Missing API key.');
-      return;
-    }
-
     foreach ($items as $item) {
       $geo = $item->get('geometry')->getValue();
 
-      if ($geo) {
-        if (self::STREET_QUERY_MODE === self::METHOD_POINT) {
-          $result = $this->fetchStreetsByPoint($geo, $apiKey);
-        }
-        else {
-          $result = $this->fetchStreetsByBbox($geo, $apiKey);
-        }
-        $item->set('street_names', $result);
+      if (!$geo) {
+        continue;
       }
+
+      // Calculate Centroid.
+      $lons = array_column($geo->coordinates, 0);
+      $lats = array_column($geo->coordinates, 1);
+      $count = count($geo->coordinates);
+
+      if ($count === 0) {
+        continue;
+      }
+
+      // This can fail with an exception when the API is
+      // unable to handle too many requests. If that happens,
+      // the processing should fail and be re-tried automatically.
+      $result = $this->paikkatietoClient->fetchStreetsByPoint(
+        array_sum($lats) / $count,
+        array_sum($lons) / $count,
+      );
+
+      $item->set('street_names', $result);
     }
   }
 
@@ -301,113 +300,6 @@ XML;
       'type' => strtolower($geometry['type'] ?? 'linestring'),
       'coordinates' => $convertedCoordinates,
     ];
-  }
-
-  /**
-   * Fetches street names using the bounding box method.
-   *
-   * @param object $geometry
-   *   The GeoJSON geometry object.
-   * @param string $apiKey
-   *   The Address API key.
-   *
-   * @return array
-   *   A list of unique street names found within the bounding box.
-   */
-  protected function fetchStreetsByBbox(object $geometry, string $apiKey): array {
-    if (empty($geometry->coordinates)) {
-      return [];
-    }
-
-    // Calculate Bounding Box (minX, minY, maxX, maxY).
-    $lons = array_column($geometry->coordinates, 0);
-    $lats = array_column($geometry->coordinates, 1);
-
-    // Add buffer (approx 20m = 0.0002 deg) to ensure results for lines.
-    $buffer = 0.0002;
-    $minX = min($lons) - $buffer;
-    $maxX = max($lons) + $buffer;
-    $minY = min($lats) - $buffer;
-    $maxY = max($lats) + $buffer;
-
-    return $this->fetchStreetsFromApi([
-      'bbox' => implode(',', [$minX, $minY, $maxX, $maxY]),
-      'limit' => 20,
-    ], $apiKey);
-  }
-
-  /**
-   * Fetches street names using the point-radius method.
-   *
-   * @param object $geometry
-   *   The GeoJSON geometry object.
-   * @param string $apiKey
-   *   The Address API key.
-   *
-   * @return array
-   *   A list of unique street names found within radius.
-   */
-  protected function fetchStreetsByPoint(object $geometry, string $apiKey): array {
-    if (empty($geometry->coordinates)) {
-      return [];
-    }
-
-    // Calculate Centroid.
-    $lons = array_column($geometry->coordinates, 0);
-    $lats = array_column($geometry->coordinates, 1);
-    $count = count($geometry->coordinates);
-
-    if ($count === 0) {
-      return [];
-    }
-
-    return $this->fetchStreetsFromApi([
-      'lat' => array_sum($lats) / $count,
-      'lon' => array_sum($lons) / $count,
-      'distance' => 20,
-      'limit' => 20,
-    ], $apiKey);
-  }
-
-  /**
-   * Fetches street names from the Paikkatietohaku API.
-   *
-   * @param array $queryParams
-   *   Query parameters for the API request.
-   * @param string $apiKey
-   *   The Address API key.
-   *
-   * @return array
-   *   A list of unique street names.
-   */
-  protected function fetchStreetsFromApi(array $queryParams, string $apiKey): array {
-    try {
-      $response = $this->client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', [
-        'headers' => ['Api-Key' => $apiKey],
-        'query' => $queryParams,
-        'timeout' => 60,
-      ]);
-
-      $data = json_decode($response->getBody()->getContents(), TRUE);
-      $streets = [];
-
-      foreach ($data['results'] ?? [] as $result) {
-        if (!empty($result['street']['name']['fi'])) {
-          $streets[] = $result['street']['name']['fi'];
-        }
-        if (!empty($result['street']['name']['sv'])) {
-          $streets[] = $result['street']['name']['sv'];
-        }
-      }
-
-      return array_values(array_unique($streets));
-    }
-    catch (\Exception $e) {
-      $this->logger->error('Paikkatietoapi failed: @message', [
-        '@message' => $e->getMessage(),
-      ]);
-      return [];
-    }
   }
 
 }

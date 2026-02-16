@@ -68,6 +68,11 @@ foreach ($additionalEnvVars as $var) {
   $preflight_checks['environmentVariables'][] = $var;
 }
 
+// Mobilenote integration spams a lot of failures.
+// The failures should be re-tried automatically.
+// Silence search api logger to reduce Sentry noise.
+$config['raven.settings']['ignored_channels'][] = 'search_api';
+
 // MobileNote WFS API settings.
 $settings['helfi_kymp_mobilenote'] = [
   'wfs_url' => getenv('MN_WFS_URL') ?: '',
