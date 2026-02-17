@@ -5,13 +5,13 @@ dependencies:
   module:
     - helfi_recommendations
     - language
-    - node
+    - system
   theme:
     - hdbt_subtheme
 id: helfirecommendationsblock
 theme: hdbt_subtheme
 region: content
-weight: 1
+weight: 10
 provider: helfi_recommendations
 plugin: helfi_recommendations
 settings:
