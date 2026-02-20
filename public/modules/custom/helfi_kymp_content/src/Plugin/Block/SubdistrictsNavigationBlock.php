@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content\Plugin\Block;
 
+use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -13,6 +14,7 @@ use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\helfi_kymp_content\DistrictUtility;
 use Drupal\node\NodeInterface;
@@ -22,12 +24,11 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Provides a 'SubdistrictsNavigationBlock' block.
- *
- * @Block(
- *   id = "subdistricts_navigation",
- *   admin_label = @Translation("Subdistricts navigation"),
- * )
  */
+#[Block(
+  id: 'subdistricts_navigation',
+  admin_label: new TranslatableMarkup('Subdistricts navigation'),
+)]
 final class SubdistrictsNavigationBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
