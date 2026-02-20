@@ -18,8 +18,11 @@ use Drupal\node\NodeInterface;
 /**
  * Implements hook_theme().
  */
-function helfi_kymp_content_theme() {
+function helfi_kymp_content_theme(): array {
   return [
+    'vehicle_removal' => [
+      'variables' => [],
+    ],
     'subdistricts_navigation' => [
       'variables' => [
         'navigation' => NULL,

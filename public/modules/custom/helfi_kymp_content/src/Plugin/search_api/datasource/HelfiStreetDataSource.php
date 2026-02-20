@@ -5,22 +5,23 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content\Plugin\search_api\datasource;
 
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\helfi_kymp_content\Plugin\DataType\StreetData;
 use Drupal\helfi_kymp_content\StreetDataService;
+use Drupal\search_api\Attribute\SearchApiDatasource;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a datasource for kartta.hel.fi.
- *
- * @SearchApiDatasource(
- *   id = "helfi_street_data_source",
- *   label = @Translation("Helfi street datasource"),
- *   description = @Translation("Datasource for street data from kartta.hel.fi."),
- * )
  */
+#[SearchApiDatasource(
+  id: 'helfi_street_data_source',
+  label: new TranslatableMarkup('Helfi street datasource'),
+  description: new TranslatableMarkup('Datasource for street data from kartta.hel.fi.'),
+)]
 class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceInterface {
 
   /**
@@ -35,6 +36,18 @@ class HelfiStreetDataSource extends DatasourcePluginBase implements DatasourceIn
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
     $instance->client = $container->get(StreetDataService::class);
     return $instance;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getItemIds($page = NULL) {
+    // No pagination.
+    if ($page && $page > 0) {
+      return NULL;
+    }
+
+    return array_keys($this->loadMultiple([]));
   }
 
   /**

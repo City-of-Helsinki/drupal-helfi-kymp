@@ -58,15 +58,20 @@ $additionalEnvVars = [
   // 'AMQ_BROKERS',
   // 'AMQ_USER',
   // 'AMQ_PASSWORD',
-  // @todo MobileNote WFS API.
-  // 'MN_WFS_USERNAME',
-  // 'MN_WFS_PASSWORD',
-  // 'MN_WFS_URL',
-  // 'PAIKKATIETOHAKU_API_KEY',
+  // MobileNote WFS API.
+  'MN_WFS_USERNAME',
+  'MN_WFS_PASSWORD',
+  'MN_WFS_URL',
+  'PAIKKATIETOHAKU_API_KEY',
 ];
 foreach ($additionalEnvVars as $var) {
   $preflight_checks['environmentVariables'][] = $var;
 }
+
+// Mobilenote integration spams a lot of failures.
+// The failures should be re-tried automatically.
+// Silence search api logger to reduce Sentry noise.
+$config['raven.settings']['ignored_channels'][] = 'search_api';
 
 // MobileNote WFS API settings.
 $settings['helfi_kymp_mobilenote'] = [
