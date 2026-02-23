@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor5
 _core:
-  default_config_hash: CbXr91M60wTYziM5ZHPNPrGb9khkUYjzkVVdyE3re9o
+  default_config_hash: 5XykmWxByyrIQ2N9_zHqVQlMtBUy9wc5P9lPrM_g7oQ
 format: minimal
 editor: ckeditor5
 settings:
@@ -127,6 +127,11 @@ settings:
           enabled: true
           weight: 18
           search: '<a name="[^"]*">(.*?)<\/a>'
+          replace: $1
+        -
+          enabled: true
+          weight: 19
+          search: '(<a\b[^>]*?)\s+target\s*=\s*("_blank"|_blank)'
           replace: $1
     ckeditor5_sourceEditing:
       allowed_tags:
