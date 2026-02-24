@@ -4,29 +4,35 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
-use Drupal\Core\TypedData\ComplexDataInterface;
-use Drupal\Core\TypedData\TypedDataInterface;
 use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Component\Datetime\TimeInterface;
-use Psr\Log\LoggerInterface;
-use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Entity\Index;
+use Drupal\search_api\Item\ItemInterface;
+use Drupal\search_api\Query\QueryInterface;
+use Drupal\search_api\Query\ResultSet;
+use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Psr\Log\LoggerInterface;
 
 /**
  * Tests MobileNoteCronHooks.
- *
- * @group helfi_kymp_content
  */
+#[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class MobileNoteCronHooksTest extends KernelTestBase {
 
   use ProphecyTrait;
+  use ApiTestTrait;
 
   /**
    * {@inheritdoc}
@@ -39,93 +45,169 @@ class MobileNoteCronHooksTest extends KernelTestBase {
   ];
 
   /**
-   * Tests cron indexing logic.
+   * Approximately 2026-02-04.
+   *
+   * Fixture items relative to this:
+   * - 68458: expired (valid_to 2026-01-29)
+   * - 68755: active (valid_to 2026-03-08)
+   * - 68761: active (valid_to 2026-03-08)
+   * - 68770: active (valid_to 2026-04-15)
    */
-  public function testCronIndexing(): void {
-    // Use current time for consistent test behavior.
-    $currentTime = time();
+  private const int CURRENT_TIME = 1770156000;
 
-    // 1. Mock Datasource items.
-    // Item 1: Active (no valid_to).
-    $validTo1 = $this->prophesize(TypedDataInterface::class);
-    $validTo1->getValue()->willReturn(NULL);
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
+    parent::setUp();
 
-    $item1 = $this->prophesize(ComplexDataInterface::class);
-    $item1->get('valid_to')->willReturn($validTo1->reveal());
-
-    // Item 2: Expired recently (10 days ago). SHOULD BE INDEXED.
-    $recentExpired = $currentTime - (10 * 24 * 60 * 60);
-    $validTo2 = $this->prophesize(TypedDataInterface::class);
-    $validTo2->getValue()->willReturn($recentExpired);
-
-    $item2 = $this->prophesize(ComplexDataInterface::class);
-    $item2->get('valid_to')->willReturn($validTo2->reveal());
-
-    // Item 3: Expired long ago (40 days ago). SHOULD BE DELETED / SKIPPED.
-    $oldExpired = $currentTime - (40 * 24 * 60 * 60);
-    $validTo3 = $this->prophesize(TypedDataInterface::class);
-    $validTo3->getValue()->willReturn($oldExpired);
-
-    $item3 = $this->prophesize(ComplexDataInterface::class);
-    $item3->get('valid_to')->willReturn($validTo3->reveal());
-
-    $items = [
-      'item1' => $item1->reveal(),
-      'item2' => $item2->reveal(),
-      'item3' => $item3->reveal(),
+    // Configure MobileNote API settings.
+    $settings = Settings::getAll();
+    $settings['helfi_kymp_mobilenote'] = [
+      'wfs_url' => 'https://example.com/wfs',
+      'wfs_username' => 'user',
+      'wfs_password' => 'pass',
     ];
+    new Settings($settings);
 
-    // 2. Mock Datasource plugin.
-    $datasource = $this->prophesize(DatasourceInterface::class);
-    $datasource->loadMultiple([])->willReturn($items);
-    $datasource->getPluginId()->willReturn('mobilenote_data_source');
+    // Mock HTTP client with fixture data.
+    $client = $this->createMockHttpClient([
+      new Response(body: file_get_contents(
+        dirname(__DIR__, 2) . '/fixtures/mobilenote.json'
+      )),
+    ]);
+    $this->container->set('http_client', $client);
+  }
 
-    // 3. Mock Index entity.
+  /**
+   * Creates a mock Index with query() returning given stale item IDs.
+   *
+   * @param array $staleItemIds
+   *   Raw item IDs to return from the index query (simulating stale entries).
+   *
+   * @return \Prophecy\Prophecy\ObjectProphecy
+   *   The Index prophecy (call ->reveal() when passing to code under test).
+   */
+  private function createMockIndex(array $staleItemIds = []): object {
     $index = $this->prophesize(Index::class);
-    $index->getDatasource('mobilenote_data_source')->willReturn($datasource->reveal());
 
-    // Test Reindex: Should track item1 and item2 only.
-    $index->trackItemsInserted('mobilenote_data_source', ['item1', 'item2'])
+    $queryProphecy = $this->prophesize(QueryInterface::class);
+    $queryMock = $queryProphecy->reveal();
+
+    // Build result set with stale items from the index.
+    $resultSet = new ResultSet($queryMock);
+    foreach ($staleItemIds as $id) {
+      $item = $this->prophesize(ItemInterface::class);
+      $item->getId()->willReturn("mobilenote_data_source/$id");
+      $resultSet->addResultItem($item->reveal());
+    }
+
+    $queryProphecy->addCondition('valid_to', self::CURRENT_TIME * 1000, '<')
+      ->willReturn($queryMock);
+    $queryProphecy->range(0, 100)->willReturn($queryMock);
+    $queryProphecy->execute()->willReturn($resultSet);
+
+    $index->query()->willReturn($queryMock);
+
+    return $index;
+  }
+
+  /**
+   * Tests first cron run: all active items are new.
+   */
+  public function testFirstCronRun(): void {
+    $index = $this->createMockIndex();
+
+    // All 3 active items should be inserted.
+    $index->trackItemsInserted('mobilenote_data_source', Argument::that(function ($ids) {
+      sort($ids);
+      return $ids === [
+        'ppoytakirjaExtranet.68755',
+        'ppoytakirjaExtranet.68761',
+        'ppoytakirjaExtranet.68770',
+      ];
+    }))->shouldBeCalled();
+
+    // The expired item should be deleted.
+    $index->trackItemsDeleted('mobilenote_data_source', ['ppoytakirjaExtranet.68458'])
       ->shouldBeCalled();
-    $index->trackItemsInserted('mobilenote_data_source', Argument::containing('item3'))
-      ->shouldNotBeCalled();
 
-    // Test Cleanup: Should delete item3 only.
-    $index->trackItemsDeleted('mobilenote_data_source', ['item3'])
+    // No updates on first run.
+    $index->trackItemsUpdated(Argument::cetera())->shouldNotBeCalled();
+
+    $hooks = $this->createSut($index->reveal());
+    $hooks->cron();
+  }
+
+  /**
+   * Tests subsequent cron run with known items state.
+   *
+   * Exercises all tracking paths in a single run:
+   * - 68755: known with same updated_at -> skipped (no tracking)
+   * - 68761: known with different updated_at -> trackItemsUpdated
+   * - 68770: not in known items -> trackItemsInserted
+   * - 68458: expired in API data -> trackItemsDeleted
+   * - 99999: stale item from index query -> trackItemsDeleted.
+   */
+  public function testSubsequentCronRun(): void {
+    // Fetch actual data to get real updated_at timestamps.
+    $dataService = $this->container->get(MobileNoteDataService::class);
+    $data = $dataService->getMobileNoteData();
+
+    // Pre-populate known items:
+    // - 68755 with matching updated_at -> unchanged
+    // - 68761 with a different value -> will be detected as updated
+    // - 68770 absent -> will be detected as new.
+    $state = $this->container->get(StateInterface::class);
+    $state->set(MobileNoteCronHooks::STATE_KNOWN_ITEMS, [
+      'ppoytakirjaExtranet.68755' => $data['ppoytakirjaExtranet.68755']->get('updated_at')->getValue(),
+      'ppoytakirjaExtranet.68761' => 0,
+    ]);
+
+    // Index query returns a stale item that's no longer in the API.
+    $index = $this->createMockIndex(['ppoytakirjaExtranet.99999']);
+
+    // Only the genuinely new item should be inserted.
+    $index->trackItemsInserted('mobilenote_data_source', ['ppoytakirjaExtranet.68770'])
       ->shouldBeCalled();
 
-    // 4. Mock EntityTypeManager and Storage.
+    // The item with changed updated_at should be re-indexed.
+    $index->trackItemsUpdated('mobilenote_data_source', ['ppoytakirjaExtranet.68761'])
+      ->shouldBeCalled();
+
+    // Both the API-expired and index-stale items should be deleted.
+    $index->trackItemsDeleted('mobilenote_data_source', Argument::that(function ($ids) {
+      sort($ids);
+      return $ids === [
+        'ppoytakirjaExtranet.68458',
+        'ppoytakirjaExtranet.99999',
+      ];
+    }))->shouldBeCalled();
+
+    $hooks = $this->createSut($index->reveal());
+    $hooks->cron();
+  }
+
+  /**
+   * Creates the MobileNoteCronHooks instance with mocked dependencies.
+   */
+  private function createSut(object $indexMock): MobileNoteCronHooks {
     $storage = $this->prophesize(EntityStorageInterface::class);
-    $storage->load('mobilenote_data')->willReturn($index->reveal());
+    $storage->load('mobilenote_data')->willReturn($indexMock);
 
     $etm = $this->prophesize(EntityTypeManagerInterface::class);
     $etm->getStorage('search_api_index')->willReturn($storage->reveal());
 
-    // 5. Mock State and Logger.
-    $state = $this->prophesize(StateInterface::class);
-    $state->get('helfi_kymp_content.mobilenote_last_run', 0)->willReturn(0);
-    $state->set('helfi_kymp_content.mobilenote_last_run', Argument::any())->shouldBeCalled();
-
     $time = $this->prophesize(TimeInterface::class);
-    $time->getRequestTime()->willReturn($currentTime);
+    $time->getRequestTime()->willReturn(self::CURRENT_TIME);
 
-    $dataService = $this->prophesize(MobileNoteDataService::class);
-    $dataService->getMobileNoteData()->willReturn($items);
-
-    $logger = $this->prophesize(LoggerInterface::class);
-    $logger->info(Argument::type('string'), Argument::any())->shouldBeCalled();
-
-    // 6. Instantiate Hooks class directly (unit-style testing within kernel).
-    $hooks = new MobileNoteCronHooks(
-      $state->reveal(),
+    return new MobileNoteCronHooks(
+      $this->container->get(StateInterface::class),
       $etm->reveal(),
       $time->reveal(),
-      $logger->reveal(),
-      $dataService->reveal()
+      $this->prophesize(LoggerInterface::class)->reveal(),
+      $this->container->get(MobileNoteDataService::class),
     );
-
-    // Run cron.
-    $hooks->cron();
   }
 
 }

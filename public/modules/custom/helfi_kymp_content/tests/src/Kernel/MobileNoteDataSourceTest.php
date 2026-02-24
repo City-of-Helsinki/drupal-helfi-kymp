@@ -11,11 +11,13 @@ use Drupal\search_api\Entity\Index;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Tests MobileNoteDataSource.
  */
 #[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class MobileNoteDataSourceTest extends KernelTestBase {
 
   use ApiTestTrait;

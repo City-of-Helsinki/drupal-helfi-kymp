@@ -7,21 +7,23 @@ namespace Drupal\helfi_kymp_content\Hook;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
-use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
+use Drupal\search_api\IndexInterface;
+use Drupal\helfi_kymp_content\MobileNoteDataService;
+use Drupal\search_api\Utility\Utility;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
-use Drupal\helfi_kymp_content\MobileNoteDataService;
 
 /**
  * Cron hook implementations for MobileNote.
  */
 class MobileNoteCronHooks {
 
-  private const STATE_LAST_RUN = 'helfi_kymp_content.mobilenote_last_run';
+  public const string STATE_LAST_RUN = 'helfi_kymp_content.mobilenote_last_run';
+  public const string STATE_KNOWN_ITEMS = 'helfi_kymp_content.mobilenote_known_items';
 
   // Limit running this to once per hour.
-  private const RUN_INTERVAL = 3600;
+  private const int RUN_INTERVAL = 3600;
 
   public function __construct(
     private readonly StateInterface $state,
@@ -46,115 +48,104 @@ class MobileNoteCronHooks {
     }
     $this->state->set(self::STATE_LAST_RUN, $currentTime);
 
-    // Fetch data once to avoid redundant API calls/parsing.
     $data = $this->dataService->getMobileNoteData();
 
-    if (empty($data)) {
-      $this->logger->info('MobileNote cron: No data to process.');
+    $expiredIds = [];
+
+    // Get expired items.
+    foreach ($data as $id => $item) {
+      $validTo = $item->get('valid_to')->getValue();
+
+      if ($validTo && $validTo < $currentTime) {
+        $expiredIds[] = $id;
+      }
+    }
+
+    /** @var \Drupal\search_api\IndexInterface $index */
+    $index = $this->entityTypeManager
+      ->getStorage('search_api_index')
+      ->load('mobilenote_data');
+
+    if (!$index) {
       return;
     }
 
-    $this->trackNewItems($data);
-    $this->trackExpiredItems($data);
+    // Query the index for expired items that the API may no longer return.
+    // Items whose valid_from is older than the API's lookback window will
+    // not appear in $data but may still exist in the index.
+    $query = $index->query()
+      // Elasticsearch expects milliseconds on date columns.
+      ->addCondition('valid_to', $currentTime * 1000, '<')
+      // The query should have a limit.
+      ->range(0, 100);
+
+    foreach ($query->execute() as $result) {
+      [, $id] = Utility::splitCombinedId($result->getId());
+
+      if (!in_array($id, $expiredIds)) {
+        $expiredIds[] = $id;
+      }
+    }
+
+    $activeIds = array_diff(array_keys($data), $expiredIds);
+
+    $this->syncIndex($index, 'mobilenote_data_source', $data, $activeIds, $expiredIds);
   }
 
   /**
-   * Track new items for indexing.
+   * Syncs the search index by tracking new, updated, and expired items.
    *
-   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData[] $data
-   *   The fetched data.
+   * @param \Drupal\search_api\IndexInterface $index
+   *   The search API index.
+   * @param string $datasourceId
+   *   The datasource plugin ID.
+   * @param array $data
+   *   All items from the API, keyed by ID.
+   * @param array $activeIds
+   *   IDs of non-expired items to index.
+   * @param array $expiredIds
+   *   IDs of expired items to delete.
    */
-  protected function trackNewItems(array $data): void {
-    try {
-      /** @var \Drupal\search_api\IndexInterface $index */
-      $index = $this->entityTypeManager->getStorage('search_api_index')->load('mobilenote_data');
-      if (!$index) {
-        $this->logger->warning('MobileNote cron: Index not found.');
-        return;
+  protected function syncIndex(IndexInterface $index, string $datasourceId, array $data, array $activeIds, array $expiredIds): void {
+    $knownItems = $this->state->get(self::STATE_KNOWN_ITEMS, []);
+    $currentItems = [];
+    $newIds = [];
+    $updatedIds = [];
+
+    foreach ($activeIds as $id) {
+      $updatedAt = $data[$id]->get('updated_at')->getValue();
+      $currentItems[$id] = $updatedAt;
+
+      if (!isset($knownItems[$id])) {
+        $newIds[] = $id;
       }
-
-      $source = $index->getDatasource('mobilenote_data_source');
-      $cutoffTimestamp = $this->getCutoffTimestamp();
-      $idsToIndex = [];
-
-      foreach ($data as $id => $item) {
-        $validTo = $item->get('valid_to')->getValue();
-        // Index if not expired (valid_to is null or valid_to >= cutoff).
-        if (!$validTo || $validTo >= $cutoffTimestamp) {
-          $idsToIndex[] = $id;
-        }
-      }
-
-      if ($idsToIndex) {
-        $index->trackItemsInserted($source->getPluginId(), $idsToIndex);
-        $this->logger->info('MobileNote cron: Tracked @count items for indexing.', [
-          '@count' => count($idsToIndex),
-        ]);
+      elseif ($knownItems[$id] !== $updatedAt) {
+        $updatedIds[] = $id;
       }
     }
-    catch (\Exception $e) {
-      $this->logger->error('MobileNote tracking failed: @message', [
-        '@message' => $e->getMessage(),
+
+    $this->state->set(self::STATE_KNOWN_ITEMS, $currentItems);
+
+    if ($newIds) {
+      $index->trackItemsInserted($datasourceId, $newIds);
+      $this->logger->info('MobileNote: Tracked @count new items for indexing.', [
+        '@count' => count($newIds),
       ]);
     }
-  }
 
-  /**
-   * Track expired items for deletion.
-   *
-   * Items are removed when (valid_to + sync_removal_offset) < today.
-   *
-   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData[] $data
-   *   The fetched data.
-   */
-  protected function trackExpiredItems(array $data): void {
-    try {
-      /** @var \Drupal\search_api\IndexInterface $index */
-      $index = $this->entityTypeManager->getStorage('search_api_index')->load('mobilenote_data');
-      if (!$index) {
-        return;
-      }
-
-      $cutoffTimestamp = $this->getCutoffTimestamp();
-      $source = $index->getDatasource('mobilenote_data_source');
-
-      // Check each item and collect expired IDs.
-      $expiredIds = [];
-      foreach ($data as $id => $item) {
-        $validTo = $item->get('valid_to')->getValue();
-        if ($validTo && $validTo < $cutoffTimestamp) {
-          $expiredIds[] = $id;
-        }
-      }
-
-      if (!empty($expiredIds)) {
-        $index->trackItemsDeleted($source->getPluginId(), $expiredIds);
-        $this->logger->info('MobileNote cleanup: Marked @count expired items for deletion.', [
-          '@count' => count($expiredIds),
-        ]);
-      }
-    }
-    catch (\Exception $e) {
-      $this->logger->error('MobileNote cleanup failed: @message', [
-        '@message' => $e->getMessage(),
+    if ($updatedIds) {
+      $index->trackItemsUpdated($datasourceId, $updatedIds);
+      $this->logger->info('MobileNote: Tracked @count updated items for re-indexing.', [
+        '@count' => count($updatedIds),
       ]);
     }
-  }
 
-  /**
-   * Get the cutoff timestamp for expiration.
-   *
-   * @return int
-   *   The timestamp before which items are considered expired.
-   */
-  private function getCutoffTimestamp(): int {
-    $settings = Settings::get('helfi_kymp_mobilenote', []);
-    $removalOffset = $settings['sync_removal_offset'] ?? '+30 days';
-    $invertedOffset = str_starts_with($removalOffset, '+')
-      ? '-' . substr($removalOffset, 1)
-      : '+' . substr($removalOffset, 1);
-
-    return (new \DateTime())->setTimestamp($this->time->getRequestTime())->modify($invertedOffset)->getTimestamp();
+    if ($expiredIds) {
+      $index->trackItemsDeleted($datasourceId, $expiredIds);
+      $this->logger->info('MobileNote: Marked @count expired items for deletion.', [
+        '@count' => count($expiredIds),
+      ]);
+    }
   }
 
 }
