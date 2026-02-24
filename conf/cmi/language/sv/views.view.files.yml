@@ -6,8 +6,6 @@ display:
     display_options:
       title: Filer
       fields:
-        fid:
-          label: Fid
         filename:
           label: Namn
           separator: ', '
@@ -26,8 +24,6 @@ display:
           label: 'Datum för ändring'
         count:
           label: 'Används i'
-          alter:
-            path: 'admin/content/files/usage/{{ fid }}'
           format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
       pager:
         options:
@@ -76,7 +72,6 @@ display:
           label: 'Registrerar modul'
         count:
           label: 'Antal använd'
-          format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:

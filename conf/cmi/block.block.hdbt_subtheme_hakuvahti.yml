@@ -1,0 +1,25 @@
+uuid: f73e721d-5865-48b3-a24a-051fa2f42961
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_kymp_content
+    - system
+  theme:
+    - hdbt_subtheme
+id: hdbt_subtheme_hakuvahti
+theme: hdbt_subtheme
+region: content
+weight: 5
+provider: null
+plugin: kymp_vehicle_removal
+settings:
+  id: kymp_vehicle_removal
+  label: Hakuvahti
+  label_display: '0'
+  provider: helfi_kymp_content
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/pysakointi/ajoneuvojen-siirrot/ajoneuvojen-siirtokehotukset\r\n/parking/vehicle-removal/vehicle-removal-requests\r\n/parkering/forflyttning-av-fordon/flyttningsuppmaningar"

@@ -68,6 +68,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
             'type' => 'LineString',
             'coordinates' => [
                [25497397.000, 6672506.000],
+               [25497500.000, 6672600.000],
             ],
           ],
           'properties' => [
@@ -91,8 +92,14 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     // Mock Address API response (correct structure).
     $addressResponse = json_encode([
       'results' => [
-        ['street' => ['name' => ['fi' => 'Mannerheimintie']]],
-        ['street' => ['name' => ['fi' => 'Kaivokatu']]],
+        [
+          'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
+          'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+        ],
+        [
+          'street' => ['name' => ['fi' => 'Kaivokatu']],
+          'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+        ],
       ],
     ]);
 
@@ -123,10 +130,10 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertEquals('test.123', $item['id']);
     $this->assertEquals('Test Street 1', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
-    // 5. Assertions.
+    // Street names should contain the closest result's fi and sv names.
     $this->assertNotEmpty($item['street_names']);
     $this->assertContains('Mannerheimintie', $item['street_names']);
-    $this->assertContains('Kaivokatu', $item['street_names']);
+    $this->assertContains('Mannerheimvägen', $item['street_names']);
     $this->assertCount(2, $item['street_names']);
 
     // Verify date conversion.

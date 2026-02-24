@@ -27,38 +27,19 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
   /**
    * The MobileNote data service.
    */
-
-  /**
-   * Constructs a new MobileNoteDataSource instance.
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\helfi_kymp_content\MobileNoteDataService $dataService
-   *   The MobileNote data service.
-   */
-  public function __construct(
-    array $configuration,
-    $plugin_id,
-    $plugin_definition,
-    protected MobileNoteDataService $dataService,
-  ) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-  }
+  protected MobileNoteDataService $dataService;
 
   /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
+    $instance = new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get(MobileNoteDataService::class)
     );
+    $instance->dataService = $container->get(MobileNoteDataService::class);
+    return $instance;
   }
 
   /**
