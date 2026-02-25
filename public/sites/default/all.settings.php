@@ -81,7 +81,5 @@ $settings['helfi_kymp_mobilenote'] = [
   'address_api_key' => getenv('PAIKKATIETOHAKU_API_KEY') ?: '',
   // Sync filter: fetch items where voimassaoloAlku >= (today - offset).
   'sync_lookback_offset' => '-30 days',
-  // Cleanup: remove items where (voimassaoloLoppu + offset) < today.
-  'sync_removal_offset' => '+30 days',
 ];
 

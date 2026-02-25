@@ -11,10 +11,14 @@ use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Tests street data service.
  */
+#[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class StreetDataTest extends KernelTestBase {
 
   use ApiTestTrait;
