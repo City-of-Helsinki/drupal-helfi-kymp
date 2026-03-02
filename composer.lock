@@ -64,19 +64,20 @@
         },
         {
             "name": "azure-oss/storage",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php.git",
-                "reference": "1962b36c5f65b0032eb8fd69aed6754506ff4773"
+                "url": "https://github.com/Azure-OSS/azure-storage-php-blob.git",
+                "reference": "c839cb93cd4c6b5155727e8c277e0a35cf17e70a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php/zipball/1962b36c5f65b0032eb8fd69aed6754506ff4773",
-                "reference": "1962b36c5f65b0032eb8fd69aed6754506ff4773",
+                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php-blob/zipball/c839cb93cd4c6b5155727e8c277e0a35cf17e70a",
+                "reference": "c839cb93cd4c6b5155727e8c277e0a35cf17e70a",
                 "shasum": ""
             },
             "require": {
+                "azure-oss/storage-common": "^1.0",
                 "caseyamcl/guzzle_retry_middleware": "^2.10",
                 "ext-curl": "*",
                 "ext-json": "*",
@@ -84,20 +85,10 @@
                 "guzzlehttp/guzzle": "^7.8",
                 "php": "^8.1"
             },
-            "require-dev": {
-                "ext-zlib": "*",
-                "guzzlehttp/test-server": "^0.1.0",
-                "laravel/pint": "1.20.0",
-                "phpbench/phpbench": "^1.3",
-                "phpstan/phpstan": "^2.1",
-                "phpstan/phpstan-deprecation-rules": "^2.0",
-                "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^10.5"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "AzureOss\\Storage\\": "src/"
+                    "AzureOss\\Storage\\Blob\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -114,7 +105,7 @@
                     "email": "pimjansen@gmail.com"
                 }
             ],
-            "description": "Azure Storage PHP SDK",
+            "description": "Azure Blob Storage PHP SDK",
             "keywords": [
                 "azure",
                 "php",
@@ -122,10 +113,48 @@
                 "storage"
             ],
             "support": {
-                "issues": "https://github.com/Azure-OSS/azure-storage-php/issues",
-                "source": "https://github.com/Azure-OSS/azure-storage-php/tree/1.6.0"
+                "source": "https://github.com/Azure-OSS/azure-storage-php-blob/tree/1.7.0"
             },
-            "time": "2025-11-17T11:32:51+00:00"
+            "time": "2026-03-01T16:43:02+00:00"
+        },
+        {
+            "name": "azure-oss/storage-common",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure-OSS/azure-storage-php-common.git",
+                "reference": "fb4dc1403e7e714c2b706ba97d2eccc48cd308c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php-common/zipball/fb4dc1403e7e714c2b706ba97d2eccc48cd308c2",
+                "reference": "fb4dc1403e7e714c2b706ba97d2eccc48cd308c2",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.8",
+                "php": "^8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AzureOss\\Storage\\Common\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brecht Vermeersch",
+                    "email": "brechtvermeersch@outlook.be"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/Azure-OSS/azure-storage-php-common/tree/1.0.0"
+            },
+            "time": "2026-03-01T16:51:17+00:00"
         },
         {
             "name": "caseyamcl/guzzle_retry_middleware",
@@ -3761,26 +3790,26 @@
         },
         {
             "name": "drupal/externalauth",
-            "version": "2.0.9",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/externalauth.git",
-                "reference": "2.0.9"
+                "reference": "2.0.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.9.zip",
-                "reference": "2.0.9",
-                "shasum": "cd4fe65f9a3cad1ad0812c65728a2372f90f4490"
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.11.zip",
+                "reference": "2.0.11",
+                "shasum": "f0f1eb7a386efda1066a392fd960792ac92386d6"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10 || ^11"
+                "drupal/core": "^10.1 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.9",
-                    "datestamp": "1770044599",
+                    "version": "2.0.11",
+                    "datestamp": "1772135408",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4435,12 +4464,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "bbb3d264ef9abb141a357d788b0bc48d4dfb5799"
+                "reference": "2f2bf8030cc1e2f6b5ddcda765b9280d3ffbf204"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/bbb3d264ef9abb141a357d788b0bc48d4dfb5799",
-                "reference": "bbb3d264ef9abb141a357d788b0bc48d4dfb5799",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/2f2bf8030cc1e2f6b5ddcda765b9280d3ffbf204",
+                "reference": "2f2bf8030cc1e2f6b5ddcda765b9280d3ffbf204",
                 "shasum": ""
             },
             "require": {
@@ -4452,16 +4481,9 @@
             },
             "require-dev": {
                 "composer/installers": "^2",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                "drupal/coder": "^8.3",
-                "drupal/core-dev": "^10.2",
-                "drupal/core-recommended": "^10.2",
-                "jangregor/phpstan-prophecy": "^1.0",
-                "phpspec/prophecy-phpunit": "^2",
-                "phpstan/extension-installer": "^1.3",
-                "phpstan/phpstan": "^1.10",
-                "phpstan/phpstan-deprecation-rules": "^1.1",
-                "phpunit/phpunit": "^9.6"
+                "drupal/core-dev": "^11.3",
+                "drupal/core-recommended": "^11.3",
+                "jangregor/phpstan-prophecy": "^2.3"
             },
             "default-branch": true,
             "type": "drupal-drush",
@@ -4515,7 +4537,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2025-12-08T13:55:35+00:00"
+            "time": "2026-02-28T06:56:13+00:00"
         },
         {
             "name": "drupal/helfi_hakuvahti",
@@ -4585,16 +4607,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.1.16",
+            "version": "5.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "93ca32515bd2e97eda1499e6a5c90e4cab394d81"
+                "reference": "eeb190e50df77e6666b0520ada4e10455e772b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/93ca32515bd2e97eda1499e6a5c90e4cab394d81",
-                "reference": "93ca32515bd2e97eda1499e6a5c90e4cab394d81",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/eeb190e50df77e6666b0520ada4e10455e772b5c",
+                "reference": "eeb190e50df77e6666b0520ada4e10455e772b5c",
                 "shasum": ""
             },
             "require": {
@@ -4656,6 +4678,7 @@
                 "drupal/views_bulk_edit": "^3.0",
                 "drupal/views_bulk_operations": "^4.1",
                 "ext-curl": "*",
+                "league/html-to-markdown": "^5.1",
                 "league/uri": "^6.0",
                 "php": "^8.1",
                 "ruflin/elastica": "^8.0",
@@ -4672,7 +4695,7 @@
                         "[#UHF-12709] Patch 'Deleted and replaced ...' error messages": "./public/modules/contrib/helfi_platform_config/patches/UHF-12709-skip_deleted_and_replaced_log.patch",
                         "[#UHF-181] Hide untranslated menu links (https://www.drupal.org/project/drupal/issues/3091246)": "./public/modules/contrib/helfi_platform_config/patches/3091246.patch",
                         "[#UHF-3812] Ajax exposed filters not working for multiple instances of the same Views block placed on one page (https://www.drupal.org/project/drupal/issues/3163299)": "https://www.drupal.org/files/issues/2023-05-07/3163299-104-D10.patch",
-                        "[#UHF-4325] Strip whitespaces from twig debug comments": "./public/modules/contrib/helfi_platform_config/patches/drupal_core_strip_debug_mode_whitespaces_10.3.x.patch",
+                        "[#UHF-4325] Strip whitespaces from twig debug comments": "./public/modules/contrib/helfi_platform_config/patches/drupal_core_strip_debug_mode_whitespaces_11.3.x.patch",
                         "[#UHF-7008] Add multilingual support for caching basefield definitions (https://www.drupal.org/project/drupal/issues/3114824)": "./public/modules/contrib/helfi_platform_config/patches/3114824.patch",
                         "[#UHF-7008] Admin toolbar and contextual links should always be rendered in the admin language (https://www.drupal.org/project/drupal/issues/2313309)": "./public/modules/contrib/helfi_platform_config/patches/2313309.patch",
                         "[#UHF-9690] Allow updating lists when switching from allowed values to allowed values function (https://www.drupal.org/i/2873353)": "https://www.drupal.org/files/issues/2025-06-27/allow-allowed-values-function-update-2873353-20.patch",
@@ -4704,10 +4727,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.16",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.17",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-02-24T08:29:10+00:00"
+            "time": "2026-03-02T07:13:19+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -9091,6 +9114,95 @@
                 "source": "https://github.com/thephpleague/flysystem-replicate-adapter/tree/master"
             },
             "time": "2015-08-18T21:07:17+00:00"
+        },
+        {
+            "name": "league/html-to-markdown",
+            "version": "5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/html-to-markdown.git",
+                "reference": "0b4066eede55c48f38bcee4fb8f0aa85654390fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/0b4066eede55c48f38bcee4fb8f0aa85654390fd",
+                "reference": "0b4066eede55c48f38bcee4fb8f0aa85654390fd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": "^7.2.5 || ^8.0"
+            },
+            "require-dev": {
+                "mikehaertl/php-shellcommand": "^1.1.0",
+                "phpstan/phpstan": "^1.8.8",
+                "phpunit/phpunit": "^8.5 || ^9.2",
+                "scrutinizer/ocular": "^1.6",
+                "unleashedtech/php-coding-standard": "^2.7 || ^3.0",
+                "vimeo/psalm": "^4.22 || ^5.0"
+            },
+            "bin": [
+                "bin/html-to-markdown"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\HTMLToMarkdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Nick Cernis",
+                    "email": "nick@cern.is",
+                    "homepage": "http://modernnerd.net",
+                    "role": "Original Author"
+                }
+            ],
+            "description": "An HTML-to-markdown conversion helper for PHP",
+            "homepage": "https://github.com/thephpleague/html-to-markdown",
+            "keywords": [
+                "html",
+                "markdown"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/html-to-markdown/issues",
+                "source": "https://github.com/thephpleague/html-to-markdown/tree/5.1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.colinodell.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/colinpodell/10.00",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/colinodell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/html-to-markdown",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-12T21:21:09+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -17638,16 +17750,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e"
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/897b5986ece6b4f9d8413fea345c7d49c757d6bf",
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf",
                 "shasum": ""
             },
             "require": {
@@ -17697,9 +17809,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.1"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.2"
             },
-            "time": "2026-01-20T15:30:42+00:00"
+            "time": "2026-03-01T18:43:49+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
