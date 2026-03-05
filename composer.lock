@@ -3240,17 +3240,17 @@
         },
         {
             "name": "drupal/elasticsearch_connector",
-            "version": "8.0.0-alpha5",
+            "version": "8.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/elasticsearch_connector.git",
-                "reference": "8.0.0-alpha5"
+                "reference": "8.0.0-alpha6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha5.zip",
-                "reference": "8.0.0-alpha5",
-                "shasum": "d277fd5f7cd8c91b8aff3b1fcb0c5dd8a1b20c54"
+                "url": "https://ftp.drupal.org/files/projects/elasticsearch_connector-8.0.0-alpha6.zip",
+                "reference": "8.0.0-alpha6",
+                "shasum": "8475e58d53d58f459fafa0aac2ccfab378e0165b"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11",
@@ -3262,6 +3262,7 @@
             "require-dev": {
                 "drupal/coder": "^8.3",
                 "drupal/devel": "^4.0|^5.0",
+                "drupal/facets": "^3",
                 "drupal/geofield": "^1",
                 "drupal/key": "^1",
                 "drush/drush": "^12.0 || ^13",
@@ -3277,8 +3278,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.0.0-alpha5",
-                    "datestamp": "1759236754",
+                    "version": "8.0.0-alpha6",
+                    "datestamp": "1772506346",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4780,16 +4781,16 @@
         },
         {
             "name": "drupal/helfi_tpr",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr.git",
-                "reference": "ff224dbe7b8c7462c7e46cd5dc6b9f3c6dc9088f"
+                "reference": "2358da9d63c69d268a08d0f27dd9594a3dcb4c2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/ff224dbe7b8c7462c7e46cd5dc6b9f3c6dc9088f",
-                "reference": "ff224dbe7b8c7462c7e46cd5dc6b9f3c6dc9088f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-tpr/zipball/2358da9d63c69d268a08d0f27dd9594a3dcb4c2f",
+                "reference": "2358da9d63c69d268a08d0f27dd9594a3dcb4c2f",
                 "shasum": ""
             },
             "require": {
@@ -4814,10 +4815,10 @@
             ],
             "description": "TPR integration",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.4.2",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/tree/2.4.3",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-tpr/issues"
             },
-            "time": "2026-02-06T09:08:53+00:00"
+            "time": "2026-03-04T12:34:38+00:00"
         },
         {
             "name": "drupal/helfi_tunnistamo",
@@ -10225,6 +10226,7 @@
                 "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Getopt",
                 "source": "https://github.com/pear/Console_Getopt"
             },
+            "abandoned": true,
             "time": "2019-11-20T18:27:48+00:00"
         },
         {
