@@ -7,12 +7,14 @@ namespace Drupal\Tests\helfi_kymp_content\Kernel;
 use Drupal\helfi_hakuvahti\DrupalSettings;
 use Drupal\helfi_kymp_content\Plugin\Block\VehicleRemovalBlock;
 use Drupal\KernelTests\KernelTestBase;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Tests VehicleRemovalBlock.
- *
- * @group helfi_kymp_content
  */
+#[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class VehicleRemovalBlockTest extends KernelTestBase {
 
   /**

@@ -9,14 +9,16 @@ use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
 
 /**
  * Tests MobileNoteDataService.
- *
- * @group helfi_kymp_content
  */
+#[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class MobileNoteDataServiceTest extends KernelTestBase {
 
   use ProphecyTrait;

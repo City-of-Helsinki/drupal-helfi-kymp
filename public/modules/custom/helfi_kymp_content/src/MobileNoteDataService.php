@@ -6,20 +6,26 @@ namespace Drupal\helfi_kymp_content;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
+use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Utils;
 use proj4php\Point;
 use proj4php\Proj;
 use proj4php\Proj4php;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 
 /**
  * Service for fetching MobileNote data from WFS API.
  */
-class MobileNoteDataService {
+class MobileNoteDataService implements LoggerAwareInterface {
+
+  use LoggerAwareTrait;
 
   /**
    * Proj4php instance for coordinate conversion.
@@ -44,8 +50,6 @@ class MobileNoteDataService {
     protected TypedDataManagerInterface $typedDataManager,
     protected TimeInterface $time,
     protected Settings $settings,
-    #[Autowire(service: 'logger.channel.helfi_kymp_content')]
-    protected LoggerInterface $logger,
     protected PaikkatietoClient $paikkatietoClient,
   ) {
     // EPSG:3879 is Helsinki local CRS (ETRS-GK25FIN).
@@ -71,43 +75,22 @@ class MobileNoteDataService {
       return $cache;
     }
 
-    $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
-
-    if (empty($apiSettings['wfs_url']) || empty($apiSettings['wfs_username']) || empty($apiSettings['wfs_password'])) {
-      $this->logger->info('MobileNote: Missing API credentials. Cannot fetch data.');
-      $cache = [];
-      return $cache;
-    }
-
     try {
-      $features = $this->fetchFromApi($apiSettings);
-      $this->logger->info('MobileNote: Fetched @count features from API.', [
-        '@count' => count($features),
-      ]);
+      $items = $this->fetchFromApi();
     }
-    catch (GuzzleException $e) {
-      $this->logger->error('MobileNote: Error fetching data: @message', [
-        '@message' => $e->getMessage(),
-      ]);
+    catch (GuzzleException | \InvalidArgumentException $e) {
+      if ($this->logger) {
+        Error::logException($this->logger, $e);
+      }
+
       return [];
     }
 
-    $items = [];
-    foreach ($features as $feature) {
-      $item = $this->transformFeature($feature);
-      if ($item !== NULL) {
-        $id = $item['id'];
-        $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
-        /** @var \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $typedData */
-        $typedData = $this->typedDataManager->create($dataDefinition);
-        $typedData->setValue($item);
-        $items[$id] = $typedData;
-      }
-    }
+    $this->logger?->info('MobileNote: Fetched @count features from API.', [
+      '@count' => count($items),
+    ]);
 
-    $cache = $items;
-
-    return $items;
+    return $cache = $items;
   }
 
   /**
@@ -129,7 +112,7 @@ class MobileNoteDataService {
       }
 
       if (!isset($geo->type) || $geo->type !== 'linestring') {
-        $this->logger->warning('Skipping item with unknown geometry type @type.', [
+        $this->logger?->warning('Skipping item with unknown geometry type @type.', [
           '@type' => $geo->type ?? '',
         ]);
       }
@@ -146,20 +129,33 @@ class MobileNoteDataService {
   /**
    * Fetches features from the MobileNote WFS API.
    *
-   * @param array $settings
-   *   The API settings.
-   *
-   * @return array
+   * @return array<string, \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData>
    *   Array of feature objects.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
+   * @throws \InvalidArgumentException
    */
-  protected function fetchFromApi(array $settings): array {
+  protected function fetchFromApi(): array {
+    $settings = $this->settings->get('helfi_kymp_mobilenote', []);
 
-    $lookbackOffset = $settings['sync_lookback_offset'] ?? '-30 days';
-    // Use request time for consistent "now" context.
-    $currentDate = \DateTime::createFromFormat('U', (string) $this->time->getRequestTime());
-    $minDate = $currentDate->modify($lookbackOffset)->format('Y-m-d');
+    if (
+      empty($settings['wfs_url']) ||
+      empty($settings['wfs_username']) ||
+      empty($settings['wfs_password'])
+    ) {
+      throw new \InvalidArgumentException('MobileNote: Missing API credentials.');
+    }
+
+    try {
+      $minDate = (new \DateTime())
+        ->setTimestamp($this->time->getRequestTime())
+        ->modify($settings['sync_lookback_offset'] ?? '-30 days');
+    }
+    catch (\DateMalformedStringException $e) {
+      throw new \InvalidArgumentException($e->getMessage(), previous: $e);
+    }
+
+    $minDate = $minDate->format('Y-m-d');
 
     $filterXml = <<<XML
 <Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">
@@ -185,23 +181,33 @@ XML;
       'timeout' => 30,
     ]);
 
-    $data = json_decode($response->getBody()->getContents(), TRUE);
-    return $data['features'] ?? [];
+    $data = Utils::jsonDecode($response->getBody()->getContents(), TRUE);
+
+    $items = [];
+    foreach ($data['features'] ?? [] as $feature) {
+      $item = $this->transformFeature($feature);
+
+      try {
+        $items[$item->get('id')->getString()] = $item;
+      }
+      catch (MissingDataException $e) {
+        throw new \InvalidArgumentException('MobileNote: Missing feature ID.', previous: $e);
+      }
+    }
+
+    return $items;
   }
 
   /**
-   * Transforms an API feature to typed data array.
+   * Transforms an API feature to a typed data item.
    *
    * @param array $feature
    *   The feature data from the API.
-   *
-   * @return array|null
-   *   The transformed data or NULL if invalid.
    */
-  protected function transformFeature(array $feature): ?array {
+  protected function transformFeature(array $feature): MobileNoteData {
     $featureId = $feature['id'] ?? NULL;
     if (!$featureId) {
-      return NULL;
+      throw new \InvalidArgumentException('MobileNote: Missing feature ID.');
     }
 
     $properties = $feature['properties'] ?? [];
@@ -228,7 +234,13 @@ XML;
       $item['geometry'] = $this->convertGeometry($geometry);
     }
 
-    return $item;
+    $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
+
+    /** @var \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $typedData */
+    $typedData = $this->typedDataManager->create($dataDefinition);
+    $typedData->setValue($item);
+
+    return $typedData;
   }
 
   /**
@@ -245,10 +257,9 @@ XML;
       return NULL;
     }
     try {
-      $dt = new \DateTime($dateString);
-      return $dt->getTimestamp();
+      return (new \DateTime($dateString))->getTimestamp();
     }
-    catch (\Exception $e) {
+    catch (\DateMalformedStringException) {
       return NULL;
     }
   }
@@ -267,10 +278,9 @@ XML;
       return NULL;
     }
     try {
-      $dt = new \DateTime($dateTimeString);
-      return $dt->getTimestamp();
+      return (new \DateTime($dateTimeString))->getTimestamp();
     }
-    catch (\Exception $e) {
+    catch (\DateMalformedStringException) {
       return NULL;
     }
   }
