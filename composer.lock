@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6bcc49cd08b6ba11e872af7ce818e9d",
+    "content-hash": "eb95fad87251fbfbdb4d2de4dc397048",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4542,16 +4542,16 @@
         },
         {
             "name": "drupal/helfi_hakuvahti",
-            "version": "1.1.1",
+            "version": "dev-UHF-12838",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti.git",
-                "reference": "1a4a01c0907e4490bc49a31520bb8d20ebaa429f"
+                "reference": "05e13d291859e5a613a0a44a8c0a78635ea8a3ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-hakuvahti/zipball/1a4a01c0907e4490bc49a31520bb8d20ebaa429f",
-                "reference": "1a4a01c0907e4490bc49a31520bb8d20ebaa429f",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-hakuvahti/zipball/05e13d291859e5a613a0a44a8c0a78635ea8a3ec",
+                "reference": "05e13d291859e5a613a0a44a8c0a78635ea8a3ec",
                 "shasum": ""
             },
             "require": {
@@ -4567,10 +4567,10 @@
             ],
             "description": "Helfi - Hakuvahti",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/tree/1.1.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/tree/UHF-12838",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/issues"
             },
-            "time": "2026-02-20T13:11:41+00:00"
+            "time": "2026-03-10T09:46:49+00:00"
         },
         {
             "name": "drupal/helfi_navigation",
@@ -20952,7 +20952,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/helfi_drupal_tools": 20
+        "drupal/helfi_drupal_tools": 20,
+        "drupal/helfi_hakuvahti": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
