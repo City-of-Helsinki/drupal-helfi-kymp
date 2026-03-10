@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\helfi_kymp_content\Paikkatieto;
 
-use Drupal\Core\Site\Settings;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
@@ -27,7 +27,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
   private const float EARTH_RADIUS = 6371000;
 
   public function __construct(
-    private readonly Settings $settings,
+    private readonly ConfigFactoryInterface $configFactory,
     private readonly ClientInterface $httpClient,
   ) {
   }
@@ -142,8 +142,8 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    */
   private function makeRequest(array $queryParams, int $maxRetries = 3): array {
-    $apiSettings = $this->settings->get('helfi_kymp_mobilenote', []);
-    $apiKey = $apiSettings['address_api_key'] ?? NULL;
+    $config = $this->configFactory->get('helfi_kymp_content.settings');
+    $apiKey = $config->get('address_api_key');
 
     if (empty($apiKey)) {
       throw new \InvalidArgumentException('Paikkatietoapi: Missing API key.');

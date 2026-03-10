@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
-use Drupal\Core\Site\Settings;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
 use GuzzleHttp\ClientInterface;
@@ -44,16 +43,13 @@ class MobileNoteDataServiceTest extends KernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    // Mock settings.
-    $settings = Settings::getAll();
-    $settings['helfi_kymp_mobilenote'] = [
-      'wfs_url' => 'https://example.com/wfs',
-      'wfs_username' => 'test_user',
-      'wfs_password' => 'test_pass',
-      'sync_lookback_offset' => '-30 days',
-      'address_api_key' => 'TEST_KEY',
-    ];
-    new Settings($settings);
+    $this->config('helfi_kymp_content.settings')
+      ->set('wfs_url', 'https://example.com/wfs')
+      ->set('wfs_username', 'test_user')
+      ->set('wfs_password', 'test_pass')
+      ->set('sync_lookback_offset', '-30 days')
+      ->set('address_api_key', 'TEST_KEY')
+      ->save();
   }
 
   /**
