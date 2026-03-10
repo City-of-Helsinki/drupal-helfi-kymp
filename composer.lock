@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb95fad87251fbfbdb4d2de4dc397048",
+    "content-hash": "8bed6be0d2a27c7c81b967467e9271ff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4239,16 +4239,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.16.43",
+            "version": "dev-UHF-12866",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "34f86e3472c4af8f8f755cb4f541436d3e3636cd"
+                "reference": "218b1f77cfcc17b171e1c32c7d269fab089a8d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/34f86e3472c4af8f8f755cb4f541436d3e3636cd",
-                "reference": "34f86e3472c4af8f8f755cb4f541436d3e3636cd",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/218b1f77cfcc17b171e1c32c7d269fab089a8d15",
+                "reference": "218b1f77cfcc17b171e1c32c7d269fab089a8d15",
                 "shasum": ""
             },
             "require": {
@@ -4267,10 +4267,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.16.43",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/UHF-12866",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-02-26T11:48:45+00:00"
+            "time": "2026-03-10T10:31:11+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -20952,6 +20952,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/hdbt": 20,
         "drupal/helfi_drupal_tools": 20,
         "drupal/helfi_hakuvahti": 20
     },
