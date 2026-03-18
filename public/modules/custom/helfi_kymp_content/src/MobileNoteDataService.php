@@ -348,7 +348,7 @@ XML;
       $left[] = [round($coordinates[$i][0] + $nx, 2), round($coordinates[$i][1] + $ny, 2)];
       $left[] = [round($coordinates[$i + 1][0] + $nx, 2), round($coordinates[$i + 1][1] + $ny, 2)];
       $right[] = [round($coordinates[$i][0] - $nx, 2), round($coordinates[$i][1] - $ny, 2)];
-      $right[] = [round($coordinates[$i + 1][0] - $nx, 2), round($coordinates[$i + 1][1] + $ny, 2)];
+      $right[] = [round($coordinates[$i + 1][0] - $nx, 2), round($coordinates[$i + 1][1] - $ny, 2)];
     }
 
     // Close the polygon: left side forward, right side reversed.
