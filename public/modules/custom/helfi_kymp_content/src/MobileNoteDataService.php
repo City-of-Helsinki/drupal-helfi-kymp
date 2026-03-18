@@ -323,6 +323,10 @@ XML;
    *   The kartta.hel.fi URL.
    */
   protected function buildMapUrl(array $coordinates): string {
+    if (count($coordinates) < 2) {
+      return '';
+    }
+
     $buffer = 10;
 
     // Build perpendicular offset polygon from the LineString.
