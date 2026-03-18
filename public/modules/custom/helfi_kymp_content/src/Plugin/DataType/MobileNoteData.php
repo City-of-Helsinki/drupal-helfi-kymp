@@ -46,6 +46,7 @@ class MobileNoteData extends Map {
       'phone' => ['type' => 'string', 'label' => 'Phone', 'desc' => 'Contact phone number'],
       'street_names' => ['type' => 'any', 'label' => 'Street names', 'desc' => 'Enriched street names'],
       'geometry' => ['type' => 'any', 'label' => 'Geometry', 'desc' => 'GeoJSON geometry for geo queries'],
+      'map_url' => ['type' => 'string', 'label' => 'Map URL', 'desc' => 'Pre-built kartta.hel.fi link'],
     ];
 
     foreach ($fields as $key => $info) {

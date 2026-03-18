@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content;
 
 use Drupal\Component\Datetime\TimeInterface;
-use Drupal\Core\Site\Settings;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\Core\Utility\Error;
@@ -49,7 +49,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     protected ClientInterface $client,
     protected TypedDataManagerInterface $typedDataManager,
     protected TimeInterface $time,
-    protected Settings $settings,
+    protected ConfigFactoryInterface $configFactory,
     protected PaikkatietoClient $paikkatietoClient,
   ) {
     // EPSG:3879 is Helsinki local CRS (ETRS-GK25FIN).
@@ -136,12 +136,12 @@ class MobileNoteDataService implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    */
   protected function fetchFromApi(): array {
-    $settings = $this->settings->get('helfi_kymp_mobilenote', []);
+    $settings = $this->configFactory->get('helfi_kymp_content.settings');
 
     if (
-      empty($settings['wfs_url']) ||
-      empty($settings['wfs_username']) ||
-      empty($settings['wfs_password'])
+      empty($settings->get('wfs_url')) ||
+      empty($settings->get('wfs_username')) ||
+      empty($settings->get('wfs_password'))
     ) {
       throw new \InvalidArgumentException('MobileNote: Missing API credentials.');
     }
@@ -149,7 +149,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     try {
       $minDate = (new \DateTime())
         ->setTimestamp($this->time->getRequestTime())
-        ->modify($settings['sync_lookback_offset'] ?? '-30 days');
+        ->modify($settings->get('sync_lookback_offset') ?? '-30 days');
     }
     catch (\DateMalformedStringException $e) {
       throw new \InvalidArgumentException($e->getMessage(), previous: $e);
@@ -166,8 +166,8 @@ class MobileNoteDataService implements LoggerAwareInterface {
 </Filter>
 XML;
 
-    $response = $this->client->request('GET', $settings['wfs_url'], [
-      'auth' => [$settings['wfs_username'], $settings['wfs_password']],
+    $response = $this->client->request('GET', $settings->get('wfs_url'), [
+      'auth' => [$settings->get('wfs_username'), $settings->get('wfs_password')],
       'query' => [
         'service' => 'WFS',
         'version' => '1.1.0',
@@ -175,7 +175,7 @@ XML;
         'typeName' => 'ppoytakirjaExtranet',
         'outputFormat' => 'application/json',
         'srsName' => 'EPSG:3879',
-        'maxFeatures' => 1000,
+        'maxFeatures' => 10000,
         'filter' => preg_replace('/\s+/', ' ', trim($filterXml)),
       ],
       'timeout' => 30,
@@ -232,6 +232,7 @@ XML;
     // Convert geometry to GeoJSON object.
     if (!empty($geometry['coordinates'])) {
       $item['geometry'] = $this->convertGeometry($geometry);
+      $item['map_url'] = $this->buildMapUrl($geometry['coordinates']);
     }
 
     $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
@@ -308,6 +309,72 @@ XML;
       'type' => strtolower($geometry['type'] ?? 'linestring'),
       'coordinates' => $convertedCoordinates,
     ];
+  }
+
+  /**
+   * Builds a kartta.hel.fi map URL from EPSG:3879 coordinates.
+   *
+   * Buffers the LineString into a Polygon (10m) and generates a WKT-based URL.
+   *
+   * @param array $coordinates
+   *   Array of [x, y] coordinate pairs in EPSG:3879.
+   *
+   * @return string
+   *   The kartta.hel.fi URL.
+   */
+  protected function buildMapUrl(array $coordinates): string {
+    if (count($coordinates) < 2) {
+      return '';
+    }
+
+    $buffer = 10;
+
+    // Build perpendicular offset polygon from the LineString.
+    $left = [];
+    $right = [];
+    $count = count($coordinates);
+
+    for ($i = 0; $i < $count - 1; $i++) {
+      $dx = $coordinates[$i + 1][0] - $coordinates[$i][0];
+      $dy = $coordinates[$i + 1][1] - $coordinates[$i][1];
+      $len = sqrt($dx * $dx + $dy * $dy);
+      if ($len == 0) {
+        continue;
+      }
+      // Perpendicular unit vector.
+      $nx = -$dy / $len * $buffer;
+      $ny = $dx / $len * $buffer;
+
+      $left[] = [round($coordinates[$i][0] + $nx, 2), round($coordinates[$i][1] + $ny, 2)];
+      $left[] = [round($coordinates[$i + 1][0] + $nx, 2), round($coordinates[$i + 1][1] + $ny, 2)];
+      $right[] = [round($coordinates[$i][0] - $nx, 2), round($coordinates[$i][1] - $ny, 2)];
+      $right[] = [round($coordinates[$i + 1][0] - $nx, 2), round($coordinates[$i + 1][1] - $ny, 2)];
+    }
+
+    // Close the polygon: left side forward, right side reversed.
+    $ring = array_merge($left, array_reverse($right));
+    $ring[] = $ring[0];
+
+    // Build WKT.
+    $points = array_map(fn($p) => $p[0] . ' ' . $p[1], $ring);
+    $wkt = 'POLYGON ((' . implode(', ', $points) . '))';
+
+    // Calculate center point.
+    $sumX = $sumY = 0;
+    foreach ($coordinates as $coord) {
+      $sumX += $coord[0];
+      $sumY += $coord[1];
+    }
+    $centerE = round($sumX / $count);
+    $centerN = round($sumY / $count);
+
+    // Build URL. rawurlencode uses %20 for spaces (required by kartta.hel.fi).
+    return sprintf(
+      'https://kartta.hel.fi/?e=%d&n=%d&r=2&l=Karttasarja&geom=%s',
+      $centerE,
+      $centerN,
+      rawurlencode($wkt)
+    );
   }
 
 }

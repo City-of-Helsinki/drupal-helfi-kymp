@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use Drupal\path_alias\Entity\PathAlias;
+
 /**
  * Creates District nodes from Project district taxonomy terms.
  */
@@ -27,5 +29,38 @@ function helfi_kymp_content_update_9002(): void {
 
   foreach ($entityIds as $id) {
     $storage->load($id)->delete();
+  }
+}
+
+/**
+ * UHF-12838: Translate hakuvahti paths.
+ */
+function helfi_kymp_content_update_11001(): void {
+  $paths = [
+    '/hakuvahti/confirm' => [
+      'en' => '/parking/confirm-vehicle-removal-alert',
+      'fi' => '/pysakointi/vahvista-siirtovahti',
+      'sv' => '/parkering/bekrafta-flyttningsvakten',
+    ],
+    '/hakuvahti/renew' => [
+      'en' => '/parking/extend-vehicle-removal-alert',
+      'fi' => '/pysakointi/jatka-siirtovahti',
+      'sv' => '/parkering/forlang-flyttningsvakten',
+    ],
+    '/hakuvahti/unsubscribe' => [
+      'en' => '/parking/remove-vehicle-removal-alert',
+      'fi' => '/pysakointi/poista-siirtovahti',
+      'sv' => '/parkering/redigera-flyttningsvakten',
+    ],
+  ];
+
+  foreach ($paths as $path => $info) {
+    foreach ($info as $langcode => $alias) {
+      PathAlias::create([
+        'path' => $path,
+        'alias' => $alias,
+        'langcode' => $langcode,
+      ])->save();
+    }
   }
 }

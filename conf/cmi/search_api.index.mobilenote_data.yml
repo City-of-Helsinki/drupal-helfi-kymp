@@ -37,6 +37,11 @@ field_settings:
     datasource_id: mobilenote_data_source
     property_path: geometry
     type: geo_shape
+  map_url:
+    label: 'Map URL'
+    datasource_id: mobilenote_data_source
+    property_path: map_url
+    type: string
   notes:
     label: Notes
     datasource_id: mobilenote_data_source

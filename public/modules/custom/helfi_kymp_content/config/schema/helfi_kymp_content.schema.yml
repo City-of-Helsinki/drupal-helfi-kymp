@@ -6,3 +6,18 @@ helfi_kymp_content.project_search:
     project_search_path:
       type: path
       label: 'Project search path'
+
+helfi_kymp_content.settings:
+  type: config_object
+  label: 'Mobile note'
+  mapping:
+    address_api_key:
+      type: string
+    wfs_url:
+      type: string
+    wfs_username:
+      type: string
+    wfs_password:
+      type: string
+    sync_lookback_offset:
+      type: string

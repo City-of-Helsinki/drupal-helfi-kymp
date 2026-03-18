@@ -7,7 +7,6 @@ namespace Drupal\Tests\helfi_kymp_content\Kernel;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Site\Settings;
 use Drupal\Core\State\StateInterface;
 use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
@@ -62,13 +61,11 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     parent::setUp();
 
     // Configure MobileNote API settings.
-    $settings = Settings::getAll();
-    $settings['helfi_kymp_mobilenote'] = [
-      'wfs_url' => 'https://example.com/wfs',
-      'wfs_username' => 'user',
-      'wfs_password' => 'pass',
-    ];
-    new Settings($settings);
+    $this->config('helfi_kymp_content.settings')
+      ->set('wfs_url', 'https://example.com/wfs')
+      ->set('wfs_username', 'user')
+      ->set('wfs_password', 'pass')
+      ->save();
 
     // Mock HTTP client with fixture data.
     $client = $this->createMockHttpClient([

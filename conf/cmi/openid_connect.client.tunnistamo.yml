@@ -8,12 +8,33 @@ id: tunnistamo
 label: Tunnistamo
 plugin: tunnistamo
 settings:
-  client_id: placeholder
-  client_secret: placeholder
+  client_id: ''
+  client_secret: ''
   iss_allowed_domains: ''
-  is_production: 0
+  prompt:
+    login: login
   auto_login: 0
   environment_url: ''
   client_scopes: 'openid,email'
   client_roles: {  }
-  debug_log: false
+  ad_roles:
+    -
+      ad_role: Drupal_Helfi_kaupunkitaso_paakayttajat
+      roles:
+        - admin
+    -
+      ad_role: Drupal_Helfi_Kaupunkiymp_ja_liikenne_sisallontuottajat_laaja
+      roles:
+        - editor
+    -
+      ad_role: Drupal_Helfi_Kaupunkiymp_ja_liikenne_sisallontuottajat_suppea
+      roles:
+        - content_producer
+    -
+      ad_role: Drupal_Helfi_Etusivu_kayttajakyselyt
+      roles:
+        - survey_editor
+    -
+      ad_role: 947058f4-697e-41bb-baf5-f69b49e5579a
+      roles:
+        - super_administrator

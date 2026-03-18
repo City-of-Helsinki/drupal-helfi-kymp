@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor5
 _core:
-  default_config_hash: 5XykmWxByyrIQ2N9_zHqVQlMtBUy9wc5P9lPrM_g7oQ
+  default_config_hash: oE8ZPS7LMQvOJv0JDM2AJcGyPAti79fl6vzr3v-GWM0
 format: minimal
 editor: ckeditor5
 settings:
@@ -133,6 +133,11 @@ settings:
           weight: 19
           search: '(<a\b[^>]*?)\s+target\s*=\s*("_blank"|_blank)'
           replace: $1
+        -
+          enabled: true
+          weight: 20
+          search: '&nbsp;'
+          replace: ' '
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<p data-chat-trigger>'
