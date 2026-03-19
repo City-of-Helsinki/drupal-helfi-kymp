@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
-use Drupal\Core\Site\Settings;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\search_api\Entity\Index;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Tests MobileNoteDataSource.
  */
 #[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class MobileNoteDataSourceTest extends KernelTestBase {
 
   use ApiTestTrait;
@@ -33,14 +34,12 @@ class MobileNoteDataSourceTest extends KernelTestBase {
    * Tests data fetching and coordinate conversion.
    */
   public function testDatasource(): void {
-    new Settings([
-      'helfi_kymp_mobilenote' => [
-        'wfs_url' => 'https://example.com/wfs',
-        'wfs_username' => 'test_user',
-        'wfs_password' => 'test_pass',
-        'sync_lookback_offset' => '-30 days',
-      ],
-    ]);
+    $this->config('helfi_kymp_content.settings')
+      ->set('wfs_url', 'https://example.com/wfs')
+      ->set('wfs_username', 'test_user')
+      ->set('wfs_password', 'test_pass')
+      ->set('sync_lookback_offset', '-30 days')
+      ->save();
 
     $this->setupMockHttpClient([
       new Response(body: json_encode([

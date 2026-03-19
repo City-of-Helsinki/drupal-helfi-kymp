@@ -74,14 +74,9 @@ foreach ($additionalEnvVars as $var) {
 $config['raven.settings']['ignored_channels'][] = 'search_api';
 
 // MobileNote WFS API settings.
-$settings['helfi_kymp_mobilenote'] = [
-  'wfs_url' => getenv('MN_WFS_URL') ?: '',
-  'wfs_username' => getenv('MN_WFS_USERNAME') ?: '',
-  'wfs_password' => getenv('MN_WFS_PASSWORD') ?: '',
-  'address_api_key' => getenv('PAIKKATIETOHAKU_API_KEY') ?: '',
-  // Sync filter: fetch items where voimassaoloAlku >= (today - offset).
-  'sync_lookback_offset' => '-30 days',
-  // Cleanup: remove items where (voimassaoloLoppu + offset) < today.
-  'sync_removal_offset' => '+30 days',
-];
+$config['helfi_kymp_content.settings']['wfs_url'] = getenv('MN_WFS_URL');
+$config['helfi_kymp_content.settings']['wfs_username'] = getenv('MN_WFS_USERNAME');
+$config['helfi_kymp_content.settings']['wfs_password'] = getenv('MN_WFS_PASSWORD');
 
+// Paikkatietohaku:
+$config['helfi_kymp_content.settings']['address_api_key'] = getenv('PAIKKATIETOHAKU_API_KEY');

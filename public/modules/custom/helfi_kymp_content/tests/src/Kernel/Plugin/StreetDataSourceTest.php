@@ -7,11 +7,15 @@ namespace Drupal\Tests\helfi_kymp_content\Kernel\Plugin;
 use Drupal\helfi_kymp_content\Plugin\search_api\datasource\HelfiStreetDataSource;
 use Drupal\helfi_kymp_content\StreetDataService;
 use Drupal\KernelTests\KernelTestBase;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use Prophecy\PhpUnit\ProphecyTrait;
 
 /**
  * Tests helfi_street_data_source plugin.
  */
+#[Group('helfi_kymp_content')]
+#[RunTestsInSeparateProcesses]
 class StreetDataSourceTest extends KernelTestBase {
 
   use ProphecyTrait;
