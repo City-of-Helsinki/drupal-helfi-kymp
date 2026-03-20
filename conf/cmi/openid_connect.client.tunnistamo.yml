@@ -15,24 +15,3 @@ settings:
   environment_url: ''
   client_scopes: 'openid,email'
   client_roles: {  }
-  ad_roles:
-    -
-      ad_role: Drupal_Helfi_kaupunkitaso_paakayttajat
-      roles:
-        - admin
-    -
-      ad_role: Drupal_Helfi_Kaupunkiymp_ja_liikenne_sisallontuottajat_laaja
-      roles:
-        - editor
-    -
-      ad_role: Drupal_Helfi_Kaupunkiymp_ja_liikenne_sisallontuottajat_suppea
-      roles:
-        - content_producer
-    -
-      ad_role: Drupal_Helfi_Etusivu_kayttajakyselyt
-      roles:
-        - survey_editor
-    -
-      ad_role: 947058f4-697e-41bb-baf5-f69b49e5579a
-      roles:
-        - super_administrator
