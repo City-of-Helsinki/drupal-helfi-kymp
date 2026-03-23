@@ -5,6 +5,7 @@ dependencies:
   config:
     - search_api.server.etusivu
   module:
+    - helfi_platform_config
     - helfi_react_search
     - helfi_recommendations
     - helfi_search
@@ -15,10 +16,18 @@ name: 'Vector embeddings'
 description: ''
 read_only: false
 field_settings:
-  embeddings:
-    label: Embeddings
-    property_path: embeddings
+  embeddings_text_embedding_3_large:
+    label: 'Embeddings (text-embedding-3-large)'
+    property_path: embeddings_text_embedding_3_large
     type: embeddings
+  embeddings_text_embedding_3_small:
+    label: 'Embeddings (text-embedding-3-small)'
+    property_path: embeddings_text_embedding_3_small
+    type: embeddings
+  entity_bundle:
+    label: 'Entity bundle'
+    property_path: helfi_entity_bundle
+    type: string
   entity_type:
     label: 'Entity type'
     property_path: search_api_entity_type
@@ -73,7 +82,7 @@ tracker_settings:
   default:
     indexing_order: fifo
 options:
-  cron_limit: 1
+  cron_limit: 5
   delete_on_fail: true
   index_directly: false
   track_changes_in_references: true
