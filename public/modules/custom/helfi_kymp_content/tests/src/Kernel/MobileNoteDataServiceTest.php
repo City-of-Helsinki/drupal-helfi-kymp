@@ -136,6 +136,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     // Verify date conversion.
     $this->assertEquals(strtotime('2026-01-20'), $item['valid_from']);
+    // valid_to should be the date + 25 hours (86400 + 3600 seconds).
+    $this->assertEquals(strtotime('2026-01-21') + 86400 + 3600, $item['valid_to']);
 
     // Verify EPSG:3879 to WGS84 coordinate conversion.
     $coords = $item['geometry']->coordinates[0];
@@ -163,6 +165,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
           'properties' => [
             'osoite' => 'Test Street 2',
             'merkinSyy' => ['value' => 'Test Reason'],
+            'voimassaoloAlku' => '2026-01-20',
+            'voimassaoloLoppu' => '2026-01-21',
           ],
         ],
       ],
