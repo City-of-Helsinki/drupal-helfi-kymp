@@ -99,8 +99,9 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     $this->assertEquals('Test Reason', $item['reason']);
     $this->assertEquals('Extra', $item['additional_text']);
 
-    // Verify date conversion.
-    $this->assertEquals(strtotime('2026-01-20'), $item['valid_from']);
+    // Verify date conversion (Europe/Helsinki timezone).
+    $tz = new \DateTimeZone('Europe/Helsinki');
+    $this->assertEquals((new \DateTime('2026-01-20', $tz))->getTimestamp(), $item['valid_from']);
 
     // Verify EPSG:3879 to WGS84 coordinate conversion.
     $coords = $item['geometry']->coordinates[0];
