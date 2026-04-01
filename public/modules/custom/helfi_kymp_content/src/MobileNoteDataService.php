@@ -213,21 +213,30 @@ XML;
     $properties = $feature['properties'] ?? [];
     $geometry = $feature['geometry'] ?? [];
 
-    $item = [
-      'id' => $featureId,
-      'address' => $properties['osoite'] ?? '',
-      'reason' => $properties['merkinSyy']['value'] ?? '',
-      'valid_from' => $this->dateToTimestamp($properties['voimassaoloAlku'] ?? NULL),
-      'valid_to' => $this->dateToTimestamp($properties['voimassaoloLoppu'] ?? NULL),
-      'time_range' => $properties['kello'] ?? '',
-      'created_at' => $this->dateTimeToTimestamp($properties['luontipvm'] ?? NULL),
-      'updated_at' => $this->dateTimeToTimestamp($properties['paivityspvm'] ?? NULL),
-      'address_info' => $properties['osoitteenlisatieto'] ?? '',
-      'sign_type' => $properties['merkinLaatu']['value'] ?? '',
-      'additional_text' => $properties['lisakilvenTeksti'] ?? '',
-      'notes' => $properties['huomautukset'] ?? '',
-      'phone' => $properties['puhelinnumero'] ?? '',
-    ];
+    if (empty($properties['voimassaoloAlku']) || empty($properties['voimassaoloLoppu'])) {}
+
+    try {
+      $item = [
+        'id' => $featureId,
+        'address' => $properties['osoite'] ?? '',
+        'reason' => $properties['merkinSyy']['value'] ?? '',
+        'valid_from' => $this->dateToTimestamp($properties['voimassaoloAlku'] ?? NULL),
+        // We only get date string from mobilenote. We
+        // add 25 hours to get the end timestamp.
+        'valid_to' => $this->dateToTimestamp($properties['voimassaoloLoppu'] ?? NULL) + 86400 + 3600,
+        'time_range' => $properties['kello'] ?? '',
+        'created_at' => $this->dateTimeToTimestamp($properties['luontipvm'] ?? NULL),
+        'updated_at' => $this->dateTimeToTimestamp($properties['paivityspvm'] ?? NULL),
+        'address_info' => $properties['osoitteenlisatieto'] ?? '',
+        'sign_type' => $properties['merkinLaatu']['value'] ?? '',
+        'additional_text' => $properties['lisakilvenTeksti'] ?? '',
+        'notes' => $properties['huomautukset'] ?? '',
+        'phone' => $properties['puhelinnumero'] ?? '',
+      ];
+    }
+    catch (\DateMalformedStringException $e) {
+      throw new \InvalidArgumentException("MobileNote: Invalid date", previous: $e);
+    }
 
     // Convert geometry to GeoJSON object.
     if (!empty($geometry['coordinates'])) {
@@ -252,17 +261,15 @@ XML;
    *
    * @return int|null
    *   The timestamp or NULL.
+   *
+   * @throws \DateMalformedStringException
    */
   protected function dateToTimestamp(?string $dateString): ?int {
     if (empty($dateString)) {
-      return NULL;
+      throw new \DateMalformedStringException('Empty date string');
     }
-    try {
-      return (new \DateTime($dateString))->getTimestamp();
-    }
-    catch (\DateMalformedStringException) {
-      return NULL;
-    }
+
+    return (new \DateTime($dateString))->getTimestamp();
   }
 
   /**
