@@ -213,8 +213,6 @@ XML;
     $properties = $feature['properties'] ?? [];
     $geometry = $feature['geometry'] ?? [];
 
-    if (empty($properties['voimassaoloAlku']) || empty($properties['voimassaoloLoppu'])) {}
-
     try {
       $item = [
         'id' => $featureId,
