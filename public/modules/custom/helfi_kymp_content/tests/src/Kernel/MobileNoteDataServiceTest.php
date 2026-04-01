@@ -134,10 +134,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Mannerheimvägen', $item['street_names']);
     $this->assertCount(2, $item['street_names']);
 
-    // Verify date conversion.
-    $this->assertEquals(strtotime('2026-01-20'), $item['valid_from']);
-    // valid_to should be the date + 25 hours (86400 + 3600 seconds).
-    $this->assertEquals(strtotime('2026-01-21') + 86400 + 3600, $item['valid_to']);
+    // Verify date conversion (Europe/Helsinki timezone).
+    $tz = new \DateTimeZone('Europe/Helsinki');
+    $this->assertEquals((new \DateTime('2026-01-20', $tz))->getTimestamp(), $item['valid_from']);
+    // valid_to should be the date + 24 hours (86400 seconds).
+    $this->assertEquals((new \DateTime('2026-01-21', $tz))->getTimestamp() + 86400, $item['valid_to']);
 
     // Verify EPSG:3879 to WGS84 coordinate conversion.
     $coords = $item['geometry']->coordinates[0];
