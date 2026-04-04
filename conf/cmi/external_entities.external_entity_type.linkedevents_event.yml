@@ -69,6 +69,18 @@ field_mappers:
                   default: null
             description: ''
       debug_level: 0
+  content_translation_source:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: constant
+          config:
+            mapping: en
+            required_field: false
+            main_property: true
+            description: ''
+      debug_level: 0
   main_image:
     id: generic
     config:
