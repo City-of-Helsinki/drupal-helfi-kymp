@@ -134,8 +134,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Mannerheimvägen', $item['street_names']);
     $this->assertCount(2, $item['street_names']);
 
-    // Verify date conversion.
-    $this->assertEquals(strtotime('2026-01-20'), $item['valid_from']);
+    // Verify date conversion (Europe/Helsinki timezone).
+    $tz = new \DateTimeZone('Europe/Helsinki');
+    $this->assertEquals((new \DateTime('2026-01-20', $tz))->getTimestamp(), $item['valid_from']);
+    // valid_to should be the date + 24 hours (86400 seconds).
+    $this->assertEquals((new \DateTime('2026-01-21', $tz))->getTimestamp() + 86400, $item['valid_to']);
 
     // Verify EPSG:3879 to WGS84 coordinate conversion.
     $coords = $item['geometry']->coordinates[0];
@@ -163,6 +166,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
           'properties' => [
             'osoite' => 'Test Street 2',
             'merkinSyy' => ['value' => 'Test Reason'],
+            'voimassaoloAlku' => '2026-01-20',
+            'voimassaoloLoppu' => '2026-01-21',
           ],
         ],
       ],

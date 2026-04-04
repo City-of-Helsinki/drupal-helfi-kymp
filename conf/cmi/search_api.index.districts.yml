@@ -9,7 +9,9 @@ dependencies:
     - field.storage.node.field_subdistricts
     - search_api.server.default
   module:
+    - helfi_platform_config
     - helfi_react_search
+    - helfi_recommendations
     - media
     - node
 id: districts
@@ -25,11 +27,6 @@ field_settings:
     dependencies:
       module:
         - node
-  district_image_absolute_url:
-    label: 'District image absolute URL'
-    datasource_id: 'entity:node'
-    property_path: district_image_absolute_url
-    type: string
   field_district_image_alt:
     label: 'District image alt'
     datasource_id: 'entity:node'
@@ -92,6 +89,24 @@ field_settings:
         - field.storage.node.field_subdistricts
       module:
         - node
+  main_image_url:
+    label: 'Main image: URL'
+    datasource_id: 'entity:node'
+    property_path: main_image_url
+    type: string
+    configuration:
+      field_name: field_district_image
+      image_styles:
+        - { id: '1.5_304w_203h', breakpoint: '1248' }
+        - { id: '1.5_294w_196h', breakpoint: '992' }
+        - { id: '1.5_220w_147h', breakpoint: '768' }
+        - { id: '1.5_176w_118h', breakpoint: '576' }
+        - { id: '1.5_511w_341h', breakpoint: '320' }
+        - { id: '1.5_608w_406w_LQ', breakpoint: '1248_2x' }
+        - { id: '1.5_588w_392h_LQ', breakpoint: '992_2x' }
+        - { id: '1.5_440w_294h_LQ', breakpoint: '768_2x' }
+        - { id: '1.5_352w_236h_LQ', breakpoint: '576_2x' }
+        - { id: '1.5_1022w_682h_LQ', breakpoint: '320_2x' }
   nid:
     label: Nid
     datasource_id: 'entity:node'
@@ -138,7 +153,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  district_image_absolute_url: {  }
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   ignorecase:
@@ -152,10 +167,12 @@ processor_settings:
       - field_district_subdistricts_title
       - title
   language_with_fallback: {  }
+  main_image_url: {  }
   project_execution_schedule: {  }
-  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
+  scored_reference: {  }
+  scored_reference_parent: {  }
   tokenizer:
     weights:
       preprocess_index: -6
@@ -172,6 +189,7 @@ tracker_settings:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: false
   track_changes_in_references: true
 server: default

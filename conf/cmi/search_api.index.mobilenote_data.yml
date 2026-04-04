@@ -6,7 +6,9 @@ dependencies:
     - search_api.server.default
   module:
     - helfi_kymp_content
+    - helfi_platform_config
     - helfi_react_search
+    - helfi_recommendations
 id: mobilenote_data
 name: 'MobileNote data'
 description: 'MobileNote parking sign data for geo queries.'
@@ -91,6 +93,15 @@ datasource_settings:
   mobilenote_data_source: {  }
 processor_settings:
   add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  project_execution_schedule: {  }
+  project_plan_schedule: {  }
+  rendered_item: {  }
+  scored_reference: {  }
+  scored_reference_parent: {  }
 tracker_settings:
   default:
     indexing_order: fifo
