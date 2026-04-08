@@ -2,10 +2,14 @@ uuid: 6e748642-6026-4d90-9a6b-fa2a59491647
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.admin
   module:
     - node
-    - scheduler
     - user
+  enforced:
+    module:
+      - scheduler
 _core:
   default_config_hash: LTfFZy_nemFOcbdoYD7tu1uw3uHbcYcQ6wlGJ7deGEk
 id: scheduler_scheduled_content
@@ -528,7 +532,6 @@ display:
         type: full
         options:
           offset: 0
-          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -548,7 +551,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: scheduler
+        type: perm
+        options:
+          perm: 'view scheduled content'
       cache:
         type: tag
         options: {  }
@@ -592,10 +597,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -634,10 +636,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
             placeholder: ''
           is_grouped: false
           group_info:
@@ -677,10 +676,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
             reduce: false
           is_grouped: false
           group_info:
@@ -720,10 +716,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: '0'
-              anonymous: '0'
-              administrator: '0'
+            remember_roles: {  }
           is_grouped: true
           group_info:
             label: 'Published status'
@@ -770,10 +763,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
             reduce: false
           is_grouped: false
           group_info:
@@ -817,10 +807,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -866,10 +853,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              authenticated: '0'
-              administrator: '0'
+            remember_roles: {  }
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -965,6 +949,7 @@ display:
           empty_table: true
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:
@@ -1043,8 +1028,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
+        - user.permissions
       tags: {  }
   user_page:
     id: user_page
@@ -1052,6 +1037,10 @@ display:
     display_plugin: page
     position: 2
     display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1109,11 +1098,12 @@ display:
           target_entity_type_id: user
       defaults:
         empty: false
-        access: true
+        access: false
         arguments: false
         filters: true
         filter_groups: true
       display_description: "Scheduled content tab on user profile, showing just that user's scheduled content"
+      display_comment: 'Access to the user view is controlled via SchedulerRouteSubscriber::alterRoutes(). The high-level permission "access content" is added to satisfy the security_review module'
       display_extenders: {  }
       path: user/%user/scheduled
       menu:
@@ -1122,7 +1112,7 @@ display:
         description: ''
         weight: -10
         menu_name: admin
-        parent: system.admin_content
+        parent: user.page
         context: '0'
       tab_options:
         type: normal
@@ -1137,6 +1127,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
+        - user.permissions
       tags: {  }

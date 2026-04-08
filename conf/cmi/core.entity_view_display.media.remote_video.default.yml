@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_remote_video_videographer
     - media.type.remote_video
   module:
     - media
 _core:
-  default_config_hash: ywWEZZCy12l3zdRvU4FRTAPVuRpImwJVixaPwpHD3PY
+  default_config_hash: H3mLykk8aP5nXkPwNqQgexVrxo6JKFVnnU1ZFoKchBs
 id: media.remote_video.default
 targetEntityType: media
 bundle: remote_video
@@ -27,6 +28,7 @@ content:
     region: content
 hidden:
   created: true
+  field_remote_video_videographer: true
   langcode: true
   name: true
   search_api_excerpt: true

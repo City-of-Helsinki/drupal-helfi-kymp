@@ -5,7 +5,7 @@ dependencies:
   module:
     - helfi_paragraphs_curated_event_list
 _core:
-  default_config_hash: 2zKdeRcO2ycvpjuAJQM15t8LEk8Eai78fvP6uY4XEyk
+  default_config_hash: t_KlyetAjzSj4gLKAKoLdgVdxHPL-GdJ05XCp2UyJ0g
 id: linkedevents_event
 label: 'LinkedEvents: Event'
 label_plural: 'LinkedEvents: Events'
@@ -28,7 +28,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
   uuid:
@@ -44,7 +46,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
   title:
@@ -60,7 +64,21 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+      debug_level: 0
+  content_translation_source:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: constant
+          config:
+            mapping: en
+            required_field: false
+            main_property: true
             description: ''
       debug_level: 0
   main_image:
@@ -76,7 +94,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
         title:
           id: jsonpath
@@ -87,7 +107,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
   start_time:
@@ -103,7 +125,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
   end_time:
@@ -119,7 +143,9 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
   external_link:
@@ -135,18 +161,22 @@ field_mappers:
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
         title:
           id: jsonpath
           config:
-            mapping: $.clean_title
+            mapping: $.name
             required_field: false
             main_property: false
             data_processors:
               -
                 id: default
-                config: {  }
+                config:
+                  datatype: ''
+                  default: null
             description: ''
       debug_level: 0
 field_save_order: null
@@ -159,7 +189,24 @@ data_aggregator:
         id: linkedevents_events
         config: {  }
 data_aggregator_notes: ''
-language_settings: {  }
+language_settings:
+  overrides:
+    fi:
+      data_aggregator:
+        id: single
+        config:
+          storage_clients:
+            -
+              id: linkedevents_events
+              config: {  }
+    sv:
+      data_aggregator:
+        id: single
+        config:
+          storage_clients:
+            -
+              id: linkedevents_events
+              config: {  }
 persistent_cache_max_age: 1800
 annotation_entity_type_id: null
 annotation_bundle_id: null

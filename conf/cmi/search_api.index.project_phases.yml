@@ -6,6 +6,7 @@ dependencies:
     - search_api.server.default
   module:
     - helfi_react_search
+    - helfi_recommendations
     - taxonomy
 id: project_phases
 name: 'Project phases'
@@ -39,7 +40,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  district_image_absolute_url: {  }
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   ignorecase:
@@ -52,14 +53,16 @@ processor_settings:
       - project_phase_name
   language_with_fallback: {  }
   project_execution_schedule: {  }
-  project_image_absolute_url: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
+  scored_reference: {  }
+  scored_reference_parent: {  }
 tracker_settings:
   default:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: false
   track_changes_in_references: true
 server: default
