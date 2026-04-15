@@ -128,11 +128,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertEquals('test.123', $item['id']);
     $this->assertEquals('Test Street 1', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
-    // Street names should contain the closest result's fi and sv names.
+    // Street names should contain all results' fi and sv names.
     $this->assertNotEmpty($item['street_names']);
     $this->assertContains('Mannerheimintie', $item['street_names']);
     $this->assertContains('Mannerheimvägen', $item['street_names']);
-    $this->assertCount(2, $item['street_names']);
+    $this->assertContains('Kaivokatu', $item['street_names']);
+    $this->assertCount(3, $item['street_names']);
 
     // Verify date conversion (Europe/Helsinki timezone).
     $tz = new \DateTimeZone('Europe/Helsinki');
