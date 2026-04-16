@@ -4731,12 +4731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "b9b05ee7c8e3bb91518734cb8c1f19ba8a30d966"
+                "reference": "4e9412ba813c16a89a03af0dd12bbf1d4c4a9e20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/b9b05ee7c8e3bb91518734cb8c1f19ba8a30d966",
-                "reference": "b9b05ee7c8e3bb91518734cb8c1f19ba8a30d966",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/4e9412ba813c16a89a03af0dd12bbf1d4c4a9e20",
+                "reference": "4e9412ba813c16a89a03af0dd12bbf1d4c4a9e20",
                 "shasum": ""
             },
             "require": {
@@ -4822,7 +4822,8 @@
                         "[#UHF-9690] Allow updating lists when switching from allowed values to allowed values function (https://www.drupal.org/i/2873353)": "./public/modules/contrib/helfi_platform_config/patches/2873353-20.patch",
                         "[#UHF-9952, #UHF-9980] Duplicate <br /> tags (https://www.drupal.org/i/3083786)": "./public/modules/contrib/helfi_platform_config/patches/3083786.patch",
                         "[#UHF-11025] Status message templates missing theme when bigpipe is enabled (https://www.drupal.org/i/3396318)": "./public/modules/contrib/helfi_platform_config/patches/3396318.patch",
-                        "[#UHF-11784] Sort the source and target arrays in the configuration storage comparer to avoid false positives": "./public/modules/contrib/helfi_platform_config/patches/drupal-core-sort-storage-comparer-source-and-target-arrays.patch"
+                        "[#UHF-11784] Sort the source and target arrays in the configuration storage comparer to avoid false positives": "./public/modules/contrib/helfi_platform_config/patches/drupal-core-sort-storage-comparer-source-and-target-arrays.patch",
+                        "[#UHF-13130] ConfigInstaller isSyncing does not persist to hook_modules_installed() when multiple modules are installed (https://www.drupal.org/i/3584812)": "./public/modules/contrib/helfi_platform_config/patches/3584812-7.patch"
                     },
                     "drupal/diff": {
                         "Revision overview form problem (https://www.drupal.org/i/3390329)": "./public/modules/contrib/helfi_platform_config/patches/diff_8.x_1.3_revision_overview_form.patch"
@@ -4854,7 +4855,7 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/UHF-13130",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-04-16T08:31:42+00:00"
+            "time": "2026-04-16T20:37:33+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
