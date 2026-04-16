@@ -34,10 +34,10 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * the deduplicated set of street names found within the configured
    * search radius.
    *
-   * @param array $coordinates
+   * @param array<array{float, float}> $coordinates
    *   Array of [lon, lat] coordinate pairs (GeoJSON order).
    *
-   * @return array
+   * @return array<string>
    *   Unique street names (fi and sv) found along the linestring.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
@@ -72,7 +72,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @param float $lon
    *   Longitude.
    *
-   * @return array
+   * @return array<string>
    *   A list of unique street names found within radius.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
@@ -83,12 +83,13 @@ class PaikkatietoClient implements LoggerAwareInterface {
     $distance = $config->get('address_search_distance') ?: 75;
     $limit = $config->get('address_search_limit') ?: 20;
 
-    $results = $this->makeRequest([
+    $data = $this->makeRequest([
       'lat' => $lat,
       'lon' => $lon,
       'distance' => $distance,
       'limit' => $limit,
     ]);
+    $results = $data->results ?? [];
 
     if (empty($results)) {
       return [];
@@ -107,20 +108,72 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
-   * Fetches results from the Paikkatietohaku API.
+   * Fetches unique street names from a single page of the API.
    *
-   * @param array $queryParams
-   *   Query parameters for the API request.
-   * @param int $maxRetries
-   *   Maximum number of retries on 502 errors.
+   * @param int $page
+   *   The 1-based page number.
+   * @param int $pageSize
+   *   Results per page.
    *
-   * @return array
-   *   The results array from the API response.
+   * @return array<int, array{name: string, language: string}>|null
+   *   List of street names with their language, or NULL past the last page.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  private function makeRequest(array $queryParams, int $maxRetries = 3): array {
+  public function fetchStreetNamesByPage(int $page = 1, int $pageSize = 500): ?array {
+    try {
+      $data = $this->makeRequest([
+        'municipality' => 'Helsinki',
+        'page_size' => $pageSize,
+        'page' => $page,
+      ]);
+    }
+    catch (Exception $e) {
+      // API returns 404 {"detail":"Epäkelpo sivu."} past the last page.
+      $previous = $e->getPrevious();
+      if ($previous instanceof RequestException && $previous->getResponse()?->getStatusCode() === 404) {
+        return NULL;
+      }
+
+      throw $e;
+    }
+
+    $results = $data->results ?? [];
+    $streets = [];
+
+    foreach ($results as $result) {
+      foreach (['fi', 'sv', 'en'] as $langcode) {
+        $name = $result->street->name->{$langcode} ?? NULL;
+        if (!empty($name)) {
+          $streets[] = ['name' => $name, 'language' => $langcode];
+        }
+      }
+    }
+
+    $this->logger?->info('Paikkatieto street names: fetched page @page (@count results).', [
+      '@page' => $page,
+      '@count' => count($results),
+    ]);
+
+    return $streets;
+  }
+
+  /**
+   * Fetches a response from the Paikkatietohaku API.
+   *
+   * @param array<string, mixed> $queryParams
+   *   Query parameters for the API request.
+   * @param int $maxRetries
+   *   Maximum number of retries on 502 errors.
+   *
+   * @return object
+   *   The full decoded JSON response.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   * @throws \InvalidArgumentException
+   */
+  private function makeRequest(array $queryParams, int $maxRetries = 3): object {
     $config = $this->configFactory->get('helfi_kymp_content.settings');
     $apiKey = $config->get('address_api_key');
 
@@ -143,9 +196,9 @@ class PaikkatietoClient implements LoggerAwareInterface {
           'timeout' => 60,
         ]);
 
+        /** @var object $data */
         $data = Utils::jsonDecode($response->getBody()->getContents());
-
-        return $data->results ?? [];
+        return $data;
       }
       catch (GuzzleException $e) {
         $lastException = $e;

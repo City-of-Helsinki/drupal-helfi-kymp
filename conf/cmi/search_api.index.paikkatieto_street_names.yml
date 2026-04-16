@@ -1,0 +1,37 @@
+uuid: 3809159c-46bf-43d9-8496-823ce93efac4
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.default
+  module:
+    - helfi_kymp_content
+    - helfi_react_search
+    - helfi_recommendations
+id: paikkatieto_street_names
+name: 'Paikkatieto street names'
+description: 'Street names from Paikkatieto API for vehicle removal search autocomplete.'
+read_only: false
+field_settings:
+  id:
+    label: ID
+    datasource_id: paikkatieto_street_name_source
+    property_path: id
+    type: string
+  street_name:
+    label: 'Street name'
+    datasource_id: paikkatieto_street_name_source
+    property_path: street_name
+    type: text
+datasource_settings:
+  paikkatieto_street_name_source: {  }
+processor_settings: { }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 500
+  delete_on_fail: true
+  index_directly: false
+  track_changes_in_references: true
+server: default
