@@ -15,86 +15,6 @@ content_class: Drupal\helfi_paragraphs_news_list\Entity\ExternalEntity\News
 read_only: true
 debug_level: 0
 field_mappers:
-  id:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.uuid_langcode[0]'
-            required_field: true
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  uuid:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.uuid[0]'
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  title:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.title[0]'
-            required_field: true
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  tags:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.field_news_item_tags[*]'
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  tags_uuid:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.news_tags_uuid[*]'
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
   groups:
     id: generic
     config:
@@ -127,6 +47,28 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
+  default_langcode:
+    id: null
+    config: { }
+  id:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.uuid_langcode[0]'
+            required_field: true
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  langcode:
+    id: null
+    config: { }
   neighbourhoods:
     id: generic
     config:
@@ -207,7 +149,70 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-field_save_order: null
+  tags:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.field_news_item_tags[*]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  tags_uuid:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.news_tags_uuid[*]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  title:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.title[0]'
+            required_field: true
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  uuid:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.uuid[0]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
 field_mapping_notes: ''
 data_aggregator:
   id: single
