@@ -21,3 +21,9 @@ helfi_kymp_content.settings:
       type: string
     sync_lookback_offset:
       type: string
+    address_search_distance:
+      type: integer
+      label: 'Address search distance in meters'
+    address_search_limit:
+      type: integer
+      label: 'Address search result limit'
