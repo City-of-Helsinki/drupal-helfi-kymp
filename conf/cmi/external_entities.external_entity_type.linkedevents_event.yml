@@ -15,67 +15,6 @@ content_class: Drupal\external_entities\Entity\ExternalEntity
 read_only: true
 debug_level: 0
 field_mappers:
-  content_translation_source:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: constant
-          config:
-            mapping: en
-            required_field: false
-            main_property: true
-            description: ''
-      debug_level: 0
-  end_time:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.end_time
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config:
-                  datatype: ''
-                  default: null
-            description: ''
-      debug_level: 0
-  external_link:
-    id: generic
-    config:
-      property_mappings:
-        uri:
-          id: jsonpath
-          config:
-            mapping: $.external_link
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config:
-                  datatype: ''
-                  default: null
-            description: ''
-        title:
-          id: jsonpath
-          config:
-            mapping: $.name
-            required_field: false
-            main_property: false
-            data_processors:
-              -
-                id: default
-                config:
-                  datatype: ''
-                  default: null
-            description: ''
-      debug_level: 0
   id:
     id: generic
     config:
@@ -92,6 +31,54 @@ field_mappers:
                 config:
                   datatype: ''
                   default: null
+            description: ''
+      debug_level: 0
+  uuid:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.id
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+      debug_level: 0
+  title:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.title
+            required_field: true
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+      debug_level: 0
+  content_translation_source:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: constant
+          config:
+            mapping: en
+            required_field: false
+            main_property: true
             description: ''
       debug_level: 0
   main_image:
@@ -143,15 +130,15 @@ field_mappers:
                   default: null
             description: ''
       debug_level: 0
-  title:
+  end_time:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.title
-            required_field: true
+            mapping: $.end_time
+            required_field: false
             main_property: true
             data_processors:
               -
@@ -161,16 +148,29 @@ field_mappers:
                   default: null
             description: ''
       debug_level: 0
-  uuid:
+  external_link:
     id: generic
     config:
       property_mappings:
-        value:
+        uri:
           id: jsonpath
           config:
-            mapping: $.id
+            mapping: $.external_link
             required_field: false
             main_property: true
+            data_processors:
+              -
+                id: default
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+        title:
+          id: jsonpath
+          config:
+            mapping: $.name
+            required_field: false
+            main_property: false
             data_processors:
               -
                 id: default

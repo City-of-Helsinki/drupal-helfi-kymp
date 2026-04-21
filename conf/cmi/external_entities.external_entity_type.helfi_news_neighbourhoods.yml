@@ -31,30 +31,14 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  location:
+  uuid:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $._source.field_location
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  tid:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: '$._source.tid[0]'
+            mapping: '$._source.uuid[0]'
             required_field: false
             main_property: true
             data_processors:
@@ -79,14 +63,30 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  uuid:
+  tid:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: '$._source.uuid[0]'
+            mapping: '$._source.tid[0]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  location:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $._source.field_location
             required_field: false
             main_property: true
             data_processors:
