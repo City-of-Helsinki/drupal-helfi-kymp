@@ -170,30 +170,7 @@ parameters:
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
 
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Paikkatieto\\\\PaikkatietoClient\\:\\:fetchStreetsByPoint\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
 
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Paikkatieto\\\\PaikkatietoClient\\:\\:fetchStreetsForLineString\\(\\) has parameter \\$coordinates with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
-
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Paikkatieto\\\\PaikkatietoClient\\:\\:fetchStreetsForLineString\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
-
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Paikkatieto\\\\PaikkatietoClient\\:\\:makeRequest\\(\\) has parameter \\$queryParams with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
-
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Paikkatieto\\\\PaikkatietoClient\\:\\:makeRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
 
 		-
 			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\SubdistrictsNavigationBlock\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
