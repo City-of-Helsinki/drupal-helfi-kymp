@@ -1,0 +1,393 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Function _helfi_kymp_content_create_district_nodes_from_taxonomy_terms\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function _helfi_kymp_content_invalidate_subdistricts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_first_paragraph_grey_alter\\(\\) has parameter \\$paragraphs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_form_node_form_alter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_form_node_form_alter\\(\\) has parameter \\$form with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_form_node_form_alter\\(\\) has parameter \\$form_id with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_helfi_paragraph_types\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_node_delete\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_node_form_validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_node_form_validate\\(\\) has parameter \\$form with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_node_insert\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_node_update\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_preprocess_page\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_preprocess_page\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_sidebar_menu_visibility\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_sidebar_menu_visibility\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_sidebar_visibility_allowed_entities_alter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_sidebar_visibility_allowed_entities_alter\\(\\) has parameter \\$entities with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Function helfi_kymp_content_theme\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/helfi_kymp_content.module
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\DistrictUtility\\:\\:getSubdistrictParentIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/DistrictUtility.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:buildForm\\(\\) has parameter \\$form with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:buildForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:getEditableConfigNames\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:submitForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:submitForm\\(\\) has parameter \\$form with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:validateForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Form\\\\SettingsForm\\:\\:validateForm\\(\\) has parameter \\$form with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Hook\\\\MobileNoteCronHooks\\:\\:syncIndex\\(\\) has parameter \\$activeIds with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Hook\\\\MobileNoteCronHooks\\:\\:syncIndex\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Hook\\\\MobileNoteCronHooks\\:\\:syncIndex\\(\\) has parameter \\$expiredIds with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
+
+		-
+			message: "#^Cannot access offset 'features' on array\\|bool\\|float\\|int\\|object\\|string\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:buildMapUrl\\(\\) has parameter \\$coordinates with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:convertGeometry\\(\\) has parameter \\$geometry with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:transformFeature\\(\\) has parameter \\$feature with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
+
+
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\SubdistrictsNavigationBlock\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/Block/SubdistrictsNavigationBlock.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\SubdistrictsNavigationBlock\\:\\:build\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/Block/SubdistrictsNavigationBlock.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\SubdistrictsNavigationBlock\\:\\:create\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/Block/SubdistrictsNavigationBlock.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\VehicleRemovalBlock\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/Block/VehicleRemovalBlock.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\VehicleRemovalBlock\\:\\:build\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/Block/VehicleRemovalBlock.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\DataType\\\\MobileNoteData\\:\\:propertyDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/DataType/MobileNoteData.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\DataType\\\\StreetData\\:\\:propertyDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/DataType/StreetData.php
+
+		-
+			message: "#^Cannot access offset 'id' on Drupal\\\\Core\\\\TypedData\\\\ComplexDataInterface\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/HelfiStreetDataSource.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\search_api\\\\datasource\\\\HelfiStreetDataSource\\:\\:create\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/HelfiStreetDataSource.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\search_api\\\\datasource\\\\HelfiStreetDataSource\\:\\:loadMultiple\\(\\) has parameter \\$ids with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/HelfiStreetDataSource.php
+
+		-
+			message: "#^Cannot access offset 'id' on Drupal\\\\Core\\\\TypedData\\\\ComplexDataInterface\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/MobileNoteDataSource.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\search_api\\\\datasource\\\\MobileNoteDataSource\\:\\:create\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/MobileNoteDataSource.php
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\search_api\\\\datasource\\\\MobileNoteDataSource\\:\\:loadMultiple\\(\\) has parameter \\$ids with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Plugin/search_api/datasource/MobileNoteDataSource.php
+
+		-
+			message: "#^Property Drupal\\\\Core\\\\TypedData\\\\ComplexDataDefinitionBase\\:\\:\\$propertyDefinitions \\(array\\<Drupal\\\\Core\\\\TypedData\\\\DataDefinitionInterface\\>\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/TypedData/MobileNoteDataDefinition.php
+
+		-
+			message: "#^Property Drupal\\\\Core\\\\TypedData\\\\ComplexDataDefinitionBase\\:\\:\\$propertyDefinitions \\(array\\<Drupal\\\\Core\\\\TypedData\\\\DataDefinitionInterface\\>\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/TypedData/StreetDataDefinition.php
+
+		-
+			message: "#^Method Drupal\\\\Tests\\\\helfi_kymp_content\\\\Kernel\\\\MobileNoteCronHooksTest\\:\\:createMockIndex\\(\\) has parameter \\$staleItemIds with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
+
+		-
+			message: "#^Method Drupal\\\\Tests\\\\helfi_kymp_content\\\\Kernel\\\\MobileNoteCronHooksTest\\:\\:createMockIndex\\(\\) return type with generic class Prophecy\\\\Prophecy\\\\ObjectProphecy does not specify its types\\: T$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
+
+		-
+			message: "#^Parameter \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 3
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteDataServiceTest.php
+
+		-
+			message: "#^Parameter \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteDataSourceTest.php
+
+		-
+			message: "#^Parameter \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/StreetDataTest.php
+
+		-
+			message: "#^Function helfi_kymp_plans_preprocess_paragraph__list_of_plans\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_preprocess_paragraph__list_of_plans\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_theme\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_theme\\(\\) has parameter \\$existing with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_theme\\(\\) has parameter \\$path with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_theme\\(\\) has parameter \\$theme with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Function helfi_kymp_plans_theme\\(\\) has parameter \\$type with no type specified\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/helfi_kymp_plans.module
+
+		-
+			message: "#^Method Drupal\\\\helfi_kymp_plans\\\\ListOfPlans\\:\\:getPlans\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/src/ListOfPlans.php
+
+		-
+			message: "#^Parameter \\#2 \\$timestamp of function date expects int\\|null, int\\|false given\\.$#"
+			count: 1
+			path: public/modules/custom/helfi_kymp_plans/src/ListOfPlans.php
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_block\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_block\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_node\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_node\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_paragraph__journey_planner\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_paragraph__project_listing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_paragraph__project_listing\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_views_view__project_list\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_preprocess_views_view__project_list\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_theme_suggestions_block_alter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_theme_suggestions_block_alter\\(\\) has parameter \\$suggestions with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_theme_suggestions_menu_alter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_theme_suggestions_menu_alter\\(\\) has parameter \\$suggestions with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme
+
+		-
+			message: "#^Function hdbt_subtheme_theme_suggestions_menu_alter\\(\\) has parameter \\$variables with no type specified\\.$#"
+			count: 1
+			path: public/themes/custom/hdbt_subtheme/hdbt_subtheme.theme

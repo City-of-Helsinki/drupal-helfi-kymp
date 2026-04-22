@@ -21,11 +21,6 @@ class PaikkatietoClient implements LoggerAwareInterface {
 
   use LoggerAwareTrait;
 
-  /**
-   * Earth radius in meters.
-   */
-  private const float EARTH_RADIUS = 6371000;
-
   public function __construct(
     private readonly ConfigFactoryInterface $configFactory,
     private readonly ClientInterface $httpClient,
@@ -36,23 +31,19 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * Fetches unique street names along a linestring.
    *
    * Queries the API at the midpoint of each segment and returns
-   * the deduplicated set of closest street names.
+   * the deduplicated set of street names found within the configured
+   * search radius.
    *
-   * We attempt to avoid picking the wrong results at an intersection
-   * by choosing midpoints.
-   *
-   * @param array $coordinates
+   * @param array<array{float, float}> $coordinates
    *   Array of [lon, lat] coordinate pairs (GeoJSON order).
-   * @param int $distance
-   *   Search radius in meters for each segment midpoint.
    *
-   * @return array
+   * @return array<string>
    *   Unique street names (fi and sv) found along the linestring.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsForLineString(array $coordinates, int $distance = 75): array {
+  public function fetchStreetsForLineString(array $coordinates): array {
     $count = count($coordinates);
     $streets = [];
 
@@ -60,7 +51,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
       $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
       $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
 
-      $segmentStreets = $this->fetchStreetsByPoint($midLat, $midLon, $distance);
+      $segmentStreets = $this->fetchStreetsByPoint($midLat, $midLon);
       array_push($streets, ...$segmentStreets);
     }
 
@@ -70,78 +61,119 @@ class PaikkatietoClient implements LoggerAwareInterface {
   /**
    * Fetches street names using the point-radius method.
    *
+   * Returns all unique street names found within the configured search
+   * radius, not just the closest. The search distance and result limit
+   * are read from 'helfi_kymp_content.settings' config
+   * (address_search_distance, address_search_limit) with defaults of
+   * 75 meters and 20 results.
+   *
    * @param float $lat
    *   Latitude.
    * @param float $lon
    *   Longitude.
-   * @param int $distance
-   *   Distance. We look at street names within this
-   *   distance and pick the closest result.
    *
-   * @return array
+   * @return array<string>
    *   A list of unique street names found within radius.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsByPoint(float $lat, float $lon, int $distance = 75): array {
-    $results = $this->makeRequest([
+  public function fetchStreetsByPoint(float $lat, float $lon): array {
+    $config = $this->configFactory->get('helfi_kymp_content.settings');
+    $distance = $config->get('address_search_distance') ?: 75;
+    $limit = $config->get('address_search_limit') ?: 20;
+
+    $data = $this->makeRequest([
       'lat' => $lat,
       'lon' => $lon,
       'distance' => $distance,
-      'limit' => 20,
+      'limit' => $limit,
     ]);
+    $results = $data->results ?? [];
 
     if (empty($results)) {
       return [];
     }
 
-    // Find the closest result by haversine distance.
-    $closest = NULL;
-    $minDistance = PHP_FLOAT_MAX;
+    $streets = [];
+    foreach ($results as $result) {
+      foreach (['fi', 'sv'] as $langcode) {
+        if (!empty($result->street->name->{$langcode})) {
+          $streets[] = $result->street->name->{$langcode};
+        }
+      }
+    }
+
+    return array_values(array_unique($streets));
+  }
+
+  /**
+   * Fetches unique street names from a single page of the API.
+   *
+   * @param int $page
+   *   The 1-based page number.
+   * @param int $pageSize
+   *   Results per page.
+   *
+   * @return array<int, array{name: string, language: string}>|null
+   *   List of street names with their language, or NULL past the last page.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   * @throws \InvalidArgumentException
+   */
+  public function fetchStreetNamesByPage(int $page = 1, int $pageSize = 500): ?array {
+    try {
+      $data = $this->makeRequest([
+        'municipality' => 'Helsinki',
+        'page_size' => $pageSize,
+        'page' => $page,
+      ]);
+    }
+    catch (Exception $e) {
+      // API returns 404 {"detail":"Epäkelpo sivu."} past the last page.
+      $previous = $e->getPrevious();
+      if ($previous instanceof RequestException && $previous->getResponse()?->getStatusCode() === 404) {
+        return NULL;
+      }
+
+      throw $e;
+    }
+
+    $results = $data->results ?? [];
+    $streets = [];
 
     foreach ($results as $result) {
-      $coords = $result->location->coordinates ?? NULL;
-      if (!$coords) {
-        continue;
-      }
-      // API returns [lon, lat] (GeoJSON order).
-      $d = self::haversineDistance($lat, $lon, $coords[1], $coords[0]);
-      if ($d < $minDistance) {
-        $minDistance = $d;
-        $closest = $result;
+      foreach (['fi', 'sv', 'en'] as $langcode) {
+        $name = $result->street->name->{$langcode} ?? NULL;
+        if (!empty($name)) {
+          $streets[] = ['name' => $name, 'language' => $langcode];
+        }
       }
     }
 
-    if (!$closest) {
-      return [];
-    }
-
-    $streets = [];
-    foreach (['fi', 'sv'] as $langcode) {
-      if (!empty($closest->street->name->{$langcode})) {
-        $streets[] = $closest->street->name->{$langcode};
-      }
-    }
+    $this->logger?->info('Paikkatieto street names: fetched page @page (@count results).', [
+      '@page' => $page,
+      '@count' => count($results),
+    ]);
 
     return $streets;
   }
 
   /**
-   * Fetches results from the Paikkatietohaku API.
+   * Fetches a response from the Paikkatietohaku API.
    *
-   * @param array $queryParams
+   * @param array<string, mixed> $queryParams
    *   Query parameters for the API request.
    * @param int $maxRetries
    *   Maximum number of retries on 502 errors.
    *
-   * @return array
-   *   The results array from the API response.
+   * @return object
+   *   The full decoded JSON response.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  private function makeRequest(array $queryParams, int $maxRetries = 3): array {
+  private function makeRequest(array $queryParams, int $maxRetries = 3): object {
     $config = $this->configFactory->get('helfi_kymp_content.settings');
     $apiKey = $config->get('address_api_key');
 
@@ -164,9 +196,9 @@ class PaikkatietoClient implements LoggerAwareInterface {
           'timeout' => 60,
         ]);
 
+        /** @var object $data */
         $data = Utils::jsonDecode($response->getBody()->getContents());
-
-        return $data->results ?? [];
+        return $data;
       }
       catch (GuzzleException $e) {
         $lastException = $e;
@@ -185,26 +217,6 @@ class PaikkatietoClient implements LoggerAwareInterface {
     }
 
     throw new Exception($lastException->getMessage(), previous: $lastException);
-  }
-
-  /**
-   * Calculate the distance between two coordinates using the Haversine formula.
-   */
-  private static function haversineDistance(float $lat1, float $lon1, float $lat2, float $lon2): float {
-    $lat1 = deg2rad($lat1);
-    $lon1 = deg2rad($lon1);
-    $lat2 = deg2rad($lat2);
-    $lon2 = deg2rad($lon2);
-
-    $deltaLat = $lat2 - $lat1;
-    $deltaLon = $lon2 - $lon1;
-
-    $a = sin($deltaLat / 2) ** 2
-      + cos($lat1) * cos($lat2) * sin($deltaLon / 2) ** 2;
-
-    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-
-    return self::EARTH_RADIUS * $c;
   }
 
 }
