@@ -2,18 +2,19 @@ uuid: c5b4bd4b-51e5-402f-8158-8c3d18e6d9c4
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.project
   module:
     - language
     - node
 id: project_content_pattern_sv
 label: 'Project content pattern (SV)'
 type: 'canonical_entities:node'
-pattern: 'stadsplanering-och-byggande/planer-och-byggnadsprojekt/[node:title]'
+pattern: '/stadsplanering-och-byggande/planer-och-byggnadsprojekt/[node:title]'
 selection_criteria:
   8fb70e14-4863-4fc6-990f-e59780496e95:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 8fb70e14-4863-4fc6-990f-e59780496e95
     context_mapping:
       node: node
     bundles:
@@ -21,7 +22,6 @@ selection_criteria:
   7e600edb-5a00-4007-9aaa-6cecd7348091:
     id: language
     negate: false
-    uuid: 7e600edb-5a00-4007-9aaa-6cecd7348091
     context_mapping:
       language: 'node:langcode:language'
     langcodes:

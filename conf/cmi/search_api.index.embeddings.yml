@@ -11,6 +11,7 @@ dependencies:
     - helfi_search
     - helfi_tpr
     - node
+    - publication_date
 id: embeddings
 name: 'Vector embeddings'
 description: ''
@@ -36,6 +37,14 @@ field_settings:
     label: 'Entity label'
     property_path: helfi_entity_label
     type: string
+  published_at:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: published_at
+    type: date
+    dependencies:
+      module:
+        - publication_date
   url:
     label: URI
     property_path: search_api_url
