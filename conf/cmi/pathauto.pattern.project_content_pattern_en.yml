@@ -2,18 +2,19 @@ uuid: 7b1d33c4-1a8a-4bbe-beb4-dc91b9d60df0
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.project
   module:
     - language
     - node
 id: project_content_pattern_en
 label: 'Project content pattern (EN)'
 type: 'canonical_entities:node'
-pattern: 'urban-planning-and-construction/plans-and-building-projects/[node:title]'
+pattern: '/urban-planning-and-construction/plans-and-building-projects/[node:title]'
 selection_criteria:
   41be5d22-a3e7-4fbd-ada2-a757d872b4fa:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 41be5d22-a3e7-4fbd-ada2-a757d872b4fa
     context_mapping:
       node: node
     bundles:
@@ -21,7 +22,6 @@ selection_criteria:
   9a0d4821-9ad5-44cd-9f3a-aff841512a74:
     id: language
     negate: false
-    uuid: 9a0d4821-9ad5-44cd-9f3a-aff841512a74
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
