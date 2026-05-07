@@ -1,6 +1,19 @@
 _core:
-  default_config_hash: dqXFxO7tAPyp2ZN-1-o7xx_ys5BoX6nbSHcn0kCp0jc
+  default_config_hash: 6MUZRSSDPiydfEocWOs0mQYiK8PfDqQVVlGU8arRsOM
 openai_models:
   - text-embedding-3-large
 openai_model_pricing:
   text-embedding-3-large: 0.13
+ignored_classes:
+  - is-hidden
+  - visually-hidden
+  - skip-link
+  - table-of-contents
+  - component--recommendations
+  - component--map
+  - component--hearings
+  - announcement
+  - content-tags
+  - content-date
+  - content-links
+  - block--askem
