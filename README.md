@@ -67,6 +67,33 @@ viewed district. The logic for this block is located in the custom module [`helf
 
 - **Module:** part of helfi_kymp_content
 
+#### Vehicle Removal search
+Lists active parking-restriction signs sourced from the City of Helsinki MobileNote API. Residents use it to check
+whether a vehicle is at risk of being towed because of upcoming road works, events, or similar temporary restrictions.
+Residents can subscribe to [hakuvahti](https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti) to receive
+notifications about new signs.
+
+- **Module:** helfi_kymp_content
+- **Address API:** https://paikkatietohaku.api.hel.fi/v1/address/ is used to enrich each sign with the nearby street names
+- **ElasticSearch:** `mobilenote_data` (sign data) and `paikkatieto_street_names` (autocomplete) indexes
+- **React:** hdbt/vehicle-removal-search
+
+MobileNote data is not stored in the Drupal database. `MobileNoteDataService` fetches features from the WFS API and
+the `mobilenote_data_source` search_api datasource exposes the items to the `mobilenote_data` index. Cron triggers a
+re-index hourly and prunes entries whose `valid_to` has passed.
+
+The street-name filter in the React app autocompletes against the `paikkatieto_street_names` index. The index is
+populated by the `paikkatieto_street_name_source` datasource. The index changes rarely, so it is re-synced by cron
+on a slow cadence and manual rebuilds are seldom needed.
+
+##### Manual indexing
+Run inside the app container (`make shell`):
+
+```sh
+drush sapi-c mobilenote_data;          drush sapi-i mobilenote_data
+drush sapi-c paikkatieto_street_names; drush sapi-i paikkatieto_street_names
+```
+
 ### Custom paragraphs
 
 #### List of Plans (list_of_plans)
