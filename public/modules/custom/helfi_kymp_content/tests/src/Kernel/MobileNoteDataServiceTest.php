@@ -6,12 +6,10 @@ namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
-use GuzzleHttp\ClientInterface;
+use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 /**
  * Tests MobileNoteDataService.
@@ -20,7 +18,7 @@ use Prophecy\PhpUnit\ProphecyTrait;
 #[RunTestsInSeparateProcesses]
 class MobileNoteDataServiceTest extends KernelTestBase {
 
-  use ProphecyTrait;
+  use ApiTestTrait;
 
   /**
    * {@inheritdoc}
@@ -58,7 +56,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
   public function testGetMobileNoteData(): void {
     // Mock WFS API response with EPSG:3879 coordinates.
     // Coordinate approx: 24.953, 60.171.
-    $jsonResponse = json_encode([
+    $jsonResponse = (string) json_encode([
       'features' => [
         [
           'id' => 'test.123',
@@ -87,8 +85,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ],
     ]);
 
-    // Mock Address API response (correct structure).
-    $addressResponse = json_encode([
+    // Address API response (correct structure).
+    $addressResponse = (string) json_encode([
       'results' => [
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
@@ -101,18 +99,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ],
     ]);
 
-    $client = $this->prophesize(ClientInterface::class);
-    $client->request('GET', 'https://example.com/wfs', Argument::any())
-      ->shouldBeCalled()
-      ->willReturn(new Response(200, [], $jsonResponse));
-
-    $client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', Argument::that(function ($args) {
-       return !empty($args['query']['lat']) && !empty($args['query']['lon']) && ($args['headers']['Api-Key'] ?? '') === 'TEST_KEY';
-    }))
-      ->shouldBeCalled()
-      ->willReturn(new Response(200, [], $addressResponse));
-
-    $this->container->set('http_client', $client->reveal());
+    // Queue: 1 WFS response, then 1 Address API response (one segment).
+    $client = $this->createMockHttpClient([
+      new Response(200, [], $jsonResponse),
+      new Response(200, [], $addressResponse),
+    ]);
+    $this->container->set('http_client', $client);
 
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
@@ -152,11 +144,108 @@ class MobileNoteDataServiceTest extends KernelTestBase {
   }
 
   /**
+   * Tests indexing a MultiLineString geometry feature.
+   */
+  public function testGetMobileNoteDataMultiLineString(): void {
+    // Mock WFS API response with a MultiLineString in EPSG:3879
+    // composed of two component LineStrings (one segment each).
+    $jsonResponse = (string) json_encode([
+      'features' => [
+        [
+          'id' => 'test.789',
+          'geometry' => [
+            'type' => 'MultiLineString',
+            'coordinates' => [
+              [
+                [25497397.000, 6672506.000],
+                [25497500.000, 6672600.000],
+              ],
+              [
+                [25497700.000, 6672800.000],
+                [25497800.000, 6672900.000],
+              ],
+            ],
+          ],
+          'properties' => [
+            'osoite' => 'Multi Test Street 1',
+            'merkinSyy' => ['value' => 'Multi Reason'],
+            'voimassaoloAlku' => '2026-01-20',
+            'voimassaoloLoppu' => '2026-01-21',
+          ],
+        ],
+      ],
+    ]);
+
+    // Address API response shared across both midpoint lookups.
+    $addressResponse = (string) json_encode([
+      'results' => [
+        [
+          'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
+          'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+        ],
+        [
+          'street' => ['name' => ['fi' => 'Kaivokatu']],
+          'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+        ],
+      ],
+    ]);
+
+    // Queue: 1 WFS response, then 2 Address API responses (one per segment).
+    $client = $this->createMockHttpClient([
+      new Response(200, [], $jsonResponse),
+      new Response(200, [], $addressResponse),
+      new Response(200, [], $addressResponse),
+    ]);
+    $this->container->set('http_client', $client);
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $data = $this->sut->getMobileNoteData();
+    $this->sut->fetchNearbyStreets($data);
+
+    $this->assertCount(1, $data);
+    $this->assertArrayHasKey('test.789', $data);
+
+    $item = $data['test.789']->getValue();
+
+    // Geometry: type preserved (lowercased), coordinates nested two levels.
+    $this->assertEquals('multilinestring', $item['geometry']->type);
+    $this->assertCount(2, $item['geometry']->coordinates);
+    $this->assertCount(2, $item['geometry']->coordinates[0]);
+    $this->assertCount(2, $item['geometry']->coordinates[1]);
+
+    // First point of the first component must be transformed to WGS84.
+    [$lon, $lat] = $item['geometry']->coordinates[0][0];
+    $this->assertGreaterThan(24, $lon);
+    $this->assertLessThan(26, $lon);
+    $this->assertGreaterThan(60, $lat);
+    $this->assertLessThan(61, $lat);
+
+    // Last point of the second component must also be transformed to WGS84.
+    [$lon2, $lat2] = $item['geometry']->coordinates[1][1];
+    $this->assertGreaterThan(24, $lon2);
+    $this->assertLessThan(26, $lon2);
+    $this->assertGreaterThan(60, $lat2);
+    $this->assertLessThan(61, $lat2);
+
+    // Street names: merged across all components and deduplicated.
+    $this->assertNotEmpty($item['street_names']);
+    $this->assertContains('Mannerheimintie', $item['street_names']);
+    $this->assertContains('Mannerheimvägen', $item['street_names']);
+    $this->assertContains('Kaivokatu', $item['street_names']);
+    $this->assertCount(3, $item['street_names']);
+
+    // Map URL: built as a MULTIPOLYGON WKT.
+    $this->assertNotEmpty($item['map_url']);
+    $this->assertStringStartsWith('https://kartta.hel.fi/', $item['map_url']);
+    $this->assertStringContainsString('MULTIPOLYGON', rawurldecode($item['map_url']));
+  }
+
+  /**
    * Tests fetching data without enrichment.
    */
   public function testGetMobileNoteDataNoEnrich(): void {
     // Mock WFS API response.
-    $jsonResponse = json_encode([
+    $jsonResponse = (string) json_encode([
       'features' => [
         [
           'id' => 'test.456',
@@ -174,19 +263,15 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ],
     ]);
 
-    $client = $this->prophesize(ClientInterface::class);
-    $client->request('GET', 'https://example.com/wfs', Argument::any())
-      ->shouldBeCalled()
-      ->willReturn(new Response(200, [], $jsonResponse));
-
-    // Ensure Address API is NOT called.
-    $client->request('GET', 'https://paikkatietohaku.api.hel.fi/v1/address/', Argument::any())
-      ->shouldNotBeCalled();
-
-    $this->container->set('http_client', $client->reveal());
+    // Queue only the WFS response. If anything tries to call the
+    // Address API, MockHandler will throw because the queue is empty.
+    $client = $this->createMockHttpClient([
+      new Response(200, [], $jsonResponse),
+    ]);
+    $this->container->set('http_client', $client);
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
-    // Call with $enrich = FALSE.
+    // Call without enrichment.
     $data = $this->sut->getMobileNoteData();
 
     $this->assertCount(1, $data);

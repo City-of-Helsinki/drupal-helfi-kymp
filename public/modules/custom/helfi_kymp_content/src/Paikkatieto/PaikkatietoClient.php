@@ -59,6 +59,30 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
+   * Fetches unique street names along a multi-linestring.
+   *
+   * Calls fetchStreetsForLineString() for each component LineString and
+   * returns the deduplicated union.
+   *
+   * @param array<array<array{float, float}>> $multiCoordinates
+   *   The MultiLineString coordinate array (a list of LineStrings, each
+   *   itself a list of [lon, lat] pairs in GeoJSON order).
+   *
+   * @return array<string>
+   *   Unique street names (fi and sv) found along all components.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   * @throws \InvalidArgumentException
+   */
+  public function fetchStreetsForMultiLineString(array $multiCoordinates): array {
+    $streets = [];
+    foreach ($multiCoordinates as $segment) {
+      array_push($streets, ...$this->fetchStreetsForLineString($segment));
+    }
+    return array_values(array_unique($streets));
+  }
+
+  /**
    * Fetches street names using the point-radius method.
    *
    * Returns all unique street names found within the configured search
