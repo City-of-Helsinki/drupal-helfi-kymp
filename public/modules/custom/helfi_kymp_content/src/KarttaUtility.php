@@ -86,7 +86,7 @@ class KarttaUtility {
     if (empty($rings)) {
       return '';
     }
-    $wkt = 'MULTIPOLYGON (' . implode(', ', array_map(fn($r) => '(' . $r . ')', $rings)) . ')';
+    $wkt = 'MULTIPOLYGON (' . implode(', ', array_map(static fn($r) => "($r)", $rings)) . ')';
     [$centerE, $centerN] = self::averageCenter($flattened);
     return self::buildMapUrl($centerE, $centerN, $wkt);
   }
