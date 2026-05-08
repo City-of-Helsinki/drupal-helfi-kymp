@@ -69,36 +69,29 @@ class MobileNoteDataService implements LoggerAwareInterface {
   }
 
   /**
-   * Fetches nearby street names calling Address API.
+   * Enriches a single item with nearby street names from the Address API.
    *
-   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData[] $items
-   *   The items to fetch street names for.
+   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
+   *   The item to enrich.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   *   When the geometry type is unsupported or the API call fails.
    * @throws \InvalidArgumentException
+   *   When the API key is missing.
    */
-  public function fetchNearbyStreets(array $items): void {
-    foreach ($items as $item) {
-      $geo = $item->get('geometry')->getValue();
+  public function fetchNearbyStreets(MobileNoteData $item): void {
+    $geo = $item->get('geometry')->getValue();
 
-      if (!$geo || empty($geo->coordinates)) {
-        continue;
-      }
-
-      // These calls can fail with an exception when the API is
-      // unable to handle too many requests. If that happens,
-      // the processing should fail and be re-tried automatically.
-      $streets = match ($geo->type ?? '') {
-        'linestring' => $this->paikkatietoClient->fetchStreetsForLineString($geo->coordinates),
-        'multilinestring' => $this->paikkatietoClient->fetchStreetsForMultiLineString($geo->coordinates),
-        default => throw new \InvalidArgumentException(sprintf(
-          'MobileNote: cannot fetch nearby streets for geometry type "%s".',
-          $geo->type ?? '',
-        )),
-      };
-
-      $item->set('street_names', $streets);
+    if (!$geo || empty($geo->coordinates)) {
+      throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
     }
+
+    // The Paikkatieto API call can fail with an exception when the API
+    // is unable to handle too many requests. If that happens, the caller
+    // should drop the item and let cron re-try on the next run.
+    $streets = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
+
+    $item->set('street_names', $streets);
   }
 
   /**

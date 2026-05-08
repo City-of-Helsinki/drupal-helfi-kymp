@@ -59,6 +59,36 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
+   * Fetches unique street names for a GeoJSON LineString or MultiLineString.
+   *
+   * Dispatches by geometry type so callers don't have to inspect the
+   * geometry shape themselves.
+   *
+   * @param object $geometry
+   *   The GeoJSON geometry as an stdClass with `->type` (lowercased) and
+   *   `->coordinates` in WGS84 [lon, lat] order.
+   *
+   * @return array<string>
+   *   Unique street names found along the geometry.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   *   When the geometry type is not LineString or MultiLineString, or
+   *   when the upstream API call fails.
+   * @throws \InvalidArgumentException
+   *   When the API key is missing.
+   */
+  public function fetchStreetsForGeometry(object $geometry): array {
+    return match ($geometry->type ?? '') {
+      'linestring' => $this->fetchStreetsForLineString($geometry->coordinates ?? []),
+      'multilinestring' => $this->fetchStreetsForMultiLineString($geometry->coordinates ?? []),
+      default => throw new Exception(sprintf(
+        'Paikkatieto: cannot fetch nearby streets for geometry type "%s".',
+        $geometry->type ?? '',
+      )),
+    };
+  }
+
+  /**
    * Fetches unique street names along a multi-linestring.
    *
    * Calls fetchStreetsForLineString() for each component LineString and
