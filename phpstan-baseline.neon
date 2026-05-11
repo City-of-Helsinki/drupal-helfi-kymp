@@ -156,16 +156,6 @@ parameters:
 			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
 
 		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:buildMapUrl\\(\\) has parameter \\$coordinates with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
-
-		-
-			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:convertGeometry\\(\\) has parameter \\$geometry with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
-
-		-
 			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:transformFeature\\(\\) has parameter \\$feature with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
@@ -261,11 +251,6 @@ parameters:
 			message: "#^Parameter \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
-			count: 3
-			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteDataServiceTest.php
 
 		-
 			message: "#^Parameter \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
