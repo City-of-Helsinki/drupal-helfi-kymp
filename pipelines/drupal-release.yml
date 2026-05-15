@@ -2,15 +2,9 @@
 # an update to the specified branches or you push specified tags.
 trigger:
   batch: true
-  branches:
+  tags:
     include:
-      - main
-  paths:
-    exclude:
-    - '*.md'
-    - '.github/'
-    - 'pipelines/drupal-production.yml'
-    - 'pipelines/drupal-test.yml'
+      - 20*
 
 # Pull request (PR) triggers cause a pipeline to run whenever a pull request is
 # opened with one of the specified target branches, or when updates are made to
@@ -36,12 +30,4 @@ resources:
 
 extends:
   # Filename in Azure DevOps Repository
-  template: components/drupal/pipelines/drupal-staging.yml@liikenne-pipelines
-  # parameters:
-    # Application build arguments and config map values as key value pairs.
-    # Does not contain all buildArguments or configMap values, the rest located in liikenne-pipelines
-    # The values here will override the values defined in the liikenne-pipelines repository
-    # buildArgs:
-    #   DEBUG: 1
-    # configMap: # pod environment variables
-    #   DEBUG: 1
+  template: components/drupal/pipelines/drupal-release.yml@liikenne-pipelines
