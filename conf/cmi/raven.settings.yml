@@ -23,7 +23,8 @@ drush_error_handler: true
 public_dsn: ''
 ssl: verify_ssl
 ca_cert: ''
-ignored_channels: {  }
+ignored_channels:
+  - stage_file_proxy
 send_user_data: false
 rate_limit: 0
 send_request_body: false
