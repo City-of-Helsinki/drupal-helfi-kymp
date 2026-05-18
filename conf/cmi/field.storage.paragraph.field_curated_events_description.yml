@@ -1,0 +1,21 @@
+uuid: 98e3e9b9-e03d-494d-930a-ad8f096f5d66
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: FXnQOpLZk-N1s_SEoCvTmO4z4ey71HuEPcqAP9TxBYs
+id: paragraph.field_curated_events_description
+field_name: field_curated_events_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
