@@ -14,9 +14,6 @@ use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Utils;
-use proj4php\Point;
-use proj4php\Proj;
-use proj4php\Proj4php;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
@@ -28,21 +25,6 @@ class MobileNoteDataService implements LoggerAwareInterface {
   use LoggerAwareTrait;
 
   /**
-   * Proj4php instance for coordinate conversion.
-   */
-  protected Proj4php $proj4;
-
-  /**
-   * Source projection (EPSG:3879).
-   */
-  protected Proj $projSource;
-
-  /**
-   * The target projection (WGS84).
-   */
-  protected Proj $projTarget;
-
-  /**
    * Constructs a new MobileNoteDataService instance.
    */
   public function __construct(
@@ -51,15 +33,8 @@ class MobileNoteDataService implements LoggerAwareInterface {
     protected TimeInterface $time,
     protected ConfigFactoryInterface $configFactory,
     protected PaikkatietoClient $paikkatietoClient,
+    protected GeometryConverter $geometryConverter,
   ) {
-    // EPSG:3879 is Helsinki local CRS (ETRS-GK25FIN).
-    $this->proj4 = new Proj4php();
-    $this->proj4->addDef(
-      'EPSG:3879',
-      '+proj=tmerc +lat_0=0 +lon_0=25 +k=1 +x_0=25500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs'
-    );
-    $this->projSource = new Proj('EPSG:3879', $this->proj4);
-    $this->projTarget = new Proj('EPSG:4326', $this->proj4);
   }
 
   /**
@@ -94,36 +69,29 @@ class MobileNoteDataService implements LoggerAwareInterface {
   }
 
   /**
-   * Fetches nearby street names calling Address API.
+   * Enriches a single item with nearby street names from the Address API.
    *
-   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData[] $items
-   *   The items to fetch street names for.
+   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
+   *   The item to enrich.
+   *
+   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
+   *   When the geometry type is unsupported or the API call fails.
+   * @throws \InvalidArgumentException
+   *   When the API key is missing.
    */
-  public function fetchNearbyStreets(array $items): void {
-    foreach ($items as $item) {
-      $geo = $item->get('geometry')->getValue();
+  public function fetchNearbyStreets(MobileNoteData $item): void {
+    $geo = $item->get('geometry')->getValue();
 
-      if (!$geo) {
-        continue;
-      }
-
-      if (empty($geo->coordinates)) {
-        continue;
-      }
-
-      if (!isset($geo->type) || $geo->type !== 'linestring') {
-        $this->logger?->warning('Skipping item with unknown geometry type @type.', [
-          '@type' => $geo->type ?? '',
-        ]);
-      }
-
-      // This can fail with an exception when the API is
-      // unable to handle too many requests. If that happens,
-      // the processing should fail and be re-tried automatically.
-      $result = $this->paikkatietoClient->fetchStreetsForLineString($geo->coordinates);
-
-      $item->set('street_names', $result);
+    if (!$geo || empty($geo->coordinates)) {
+      throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
     }
+
+    // The Paikkatieto API call can fail with an exception when the API
+    // is unable to handle too many requests. If that happens, the caller
+    // should drop the item and let cron re-try on the next run.
+    $streets = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
+
+    $item->set('street_names', $streets);
   }
 
   /**
@@ -238,8 +206,8 @@ XML;
 
     // Convert geometry to GeoJSON object.
     if (!empty($geometry['coordinates'])) {
-      $item['geometry'] = $this->convertGeometry($geometry);
-      $item['map_url'] = $this->buildMapUrl($geometry['coordinates']);
+      $item['geometry'] = $this->geometryConverter->convertHelsinkiToWgs84($geometry);
+      $item['map_url'] = KarttaUtility::buildUrl($geometry);
     }
 
     $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
@@ -289,97 +257,6 @@ XML;
     catch (\DateException) {
       return NULL;
     }
-  }
-
-  /**
-   * Converts geometry coordinates from EPSG:3879 to WGS84.
-   *
-   * @param array $geometry
-   *   The geometry object from the API.
-   *
-   * @return object
-   *   The converted GeoJSON geometry as stdClass.
-   */
-  protected function convertGeometry(array $geometry): object {
-    $convertedCoordinates = [];
-
-    foreach ($geometry['coordinates'] as $coord) {
-      $point = new Point($coord[0], $coord[1], $this->projSource);
-      $transformed = $this->proj4->transform($this->projTarget, $point);
-      // GeoJSON uses [longitude, latitude] order.
-      $convertedCoordinates[] = [$transformed->x, $transformed->y];
-    }
-
-    return (object) [
-      'type' => strtolower($geometry['type'] ?? 'linestring'),
-      'coordinates' => $convertedCoordinates,
-    ];
-  }
-
-  /**
-   * Builds a kartta.hel.fi map URL from EPSG:3879 coordinates.
-   *
-   * Buffers the LineString into a Polygon (10m) and generates a WKT-based URL.
-   *
-   * @param array $coordinates
-   *   Array of [x, y] coordinate pairs in EPSG:3879.
-   *
-   * @return string
-   *   The kartta.hel.fi URL.
-   */
-  protected function buildMapUrl(array $coordinates): string {
-    if (count($coordinates) < 2) {
-      return '';
-    }
-
-    $buffer = 10;
-
-    // Build perpendicular offset polygon from the LineString.
-    $left = [];
-    $right = [];
-    $count = count($coordinates);
-
-    for ($i = 0; $i < $count - 1; $i++) {
-      $dx = $coordinates[$i + 1][0] - $coordinates[$i][0];
-      $dy = $coordinates[$i + 1][1] - $coordinates[$i][1];
-      $len = sqrt($dx * $dx + $dy * $dy);
-      if ($len == 0) {
-        continue;
-      }
-      // Perpendicular unit vector.
-      $nx = -$dy / $len * $buffer;
-      $ny = $dx / $len * $buffer;
-
-      $left[] = [round($coordinates[$i][0] + $nx, 2), round($coordinates[$i][1] + $ny, 2)];
-      $left[] = [round($coordinates[$i + 1][0] + $nx, 2), round($coordinates[$i + 1][1] + $ny, 2)];
-      $right[] = [round($coordinates[$i][0] - $nx, 2), round($coordinates[$i][1] - $ny, 2)];
-      $right[] = [round($coordinates[$i + 1][0] - $nx, 2), round($coordinates[$i + 1][1] - $ny, 2)];
-    }
-
-    // Close the polygon: left side forward, right side reversed.
-    $ring = array_merge($left, array_reverse($right));
-    $ring[] = $ring[0];
-
-    // Build WKT.
-    $points = array_map(fn($p) => $p[0] . ' ' . $p[1], $ring);
-    $wkt = 'POLYGON ((' . implode(', ', $points) . '))';
-
-    // Calculate center point.
-    $sumX = $sumY = 0;
-    foreach ($coordinates as $coord) {
-      $sumX += $coord[0];
-      $sumY += $coord[1];
-    }
-    $centerE = round($sumX / $count);
-    $centerN = round($sumY / $count);
-
-    // Build URL. rawurlencode uses %20 for spaces (required by kartta.hel.fi).
-    return sprintf(
-      'https://kartta.hel.fi/?e=%d&n=%d&r=2&l=Karttasarja&geom=%s',
-      $centerE,
-      $centerN,
-      rawurlencode($wkt)
-    );
   }
 
 }

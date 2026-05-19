@@ -6,12 +6,15 @@ namespace Drupal\helfi_kymp_content\Plugin\search_api\datasource;
 
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
+use Drupal\helfi_kymp_content\Paikkatieto\Exception;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\search_api\Attribute\SearchApiDatasource;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -30,6 +33,11 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
   protected MobileNoteDataService $dataService;
 
   /**
+   * Logger.
+   */
+  protected LoggerInterface $logger;
+
+  /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -39,6 +47,7 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
       $plugin_definition,
     );
     $instance->dataService = $container->get(MobileNoteDataService::class);
+    $instance->logger = $container->get('logger.channel.helfi_kymp_content');
     return $instance;
   }
 
@@ -59,8 +68,10 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
 
   /**
    * {@inheritDoc}
+   *
+   * @phpstan-return string[]|null
    */
-  public function getItemIds($page = NULL) {
+  public function getItemIds($page = NULL): ?array {
     // Fast fetch (no enrichment).
     $ids = array_keys($this->dataService->getMobileNoteData());
 
@@ -95,8 +106,17 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
       }
     }
 
-    // Fetch streets only for the loaded batch.
-    $this->dataService->fetchNearbyStreets($items);
+    // Enrich each item with nearby streets. Drop individual items
+    // that fail enrichment so a single bad item doesn't fail the batch.
+    foreach ($items as $id => $item) {
+      try {
+        $this->dataService->fetchNearbyStreets($item);
+      }
+      catch (\InvalidArgumentException | Exception $e) {
+        Error::logException($this->logger, $e);
+        unset($items[$id]);
+      }
+    }
 
     return $items;
   }

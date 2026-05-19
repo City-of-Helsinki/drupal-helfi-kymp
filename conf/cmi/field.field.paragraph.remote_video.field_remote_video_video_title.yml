@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_remote_video_video_title
     - paragraphs.paragraphs_type.remote_video
 _core:
-  default_config_hash: OetItkfP7vdKFfRMKUkRAiIavZrk78vEeZ0lYtv3kU8
+  default_config_hash: X5WrqDglA8Y6gYXCems23Q-D88iFkvek6Pezv21dPiM
 id: paragraph.remote_video.field_remote_video_video_title
 field_name: field_remote_video_video_title
 entity_type: paragraph
 bundle: remote_video
 label: 'Title of the video'
-description: ''
-required: true
+description: 'Adds an H3 heading. Use when the video is part of a section that already has an H2 heading. If the video is separate from the rest of the content, place its title in the upper title field (adds an H2 heading).'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
