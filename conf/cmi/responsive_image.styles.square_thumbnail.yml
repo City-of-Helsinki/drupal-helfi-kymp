@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - image.style.1_250w_250h
-    - image.style.1_500w_500h_LQ
+    - image.style.1_500w_500h_lq
   module:
     - helfi_image_styles
 _core:
-  default_config_hash: VuYuUIx2tfZff1D0We2JgZQtqyDoiSj7C6gjfLDaJZQ
+  default_config_hash: jcapu2YcH5YQTStAeN2zkKMoDVBUv3oORW3bF-4pJYE
 id: square_thumbnail
 label: 'Square thumbnail'
 image_style_mappings:
@@ -19,7 +19,7 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_500w_500h_LQ
+    image_mapping: 1_500w_500h_lq
     breakpoint_id: helfi_image_styles.xs
     multiplier: 2x
 breakpoint_group: helfi_image_styles

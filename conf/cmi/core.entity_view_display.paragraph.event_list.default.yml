@@ -19,6 +19,7 @@ dependencies:
     - field.field.paragraph.event_list.field_free_events
     - field.field.paragraph.event_list.field_language
     - field.field.paragraph.event_list.field_remote_events
+    - field.field.paragraph.event_list.field_search_term
     - paragraphs.paragraphs_type.event_list
   module:
     - options
@@ -111,4 +112,5 @@ hidden:
   field_event_list_keywords_filter: true
   field_event_list_place: true
   field_event_list_type: true
+  field_search_term: true
   search_api_excerpt: true
