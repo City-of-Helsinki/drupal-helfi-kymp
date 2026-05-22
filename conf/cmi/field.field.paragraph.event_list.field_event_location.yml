@@ -6,13 +6,13 @@ dependencies:
     - field.storage.paragraph.field_event_location
     - paragraphs.paragraphs_type.event_list
 _core:
-  default_config_hash: d-_iAleHbbnAO6gPZ0GmqAZCHz8xhxywoM2SdAFZZ0Y
+  default_config_hash: _xv28DXPFlJDo_fmb8At6nxECTtK8Z1Z4pGuVRpF_C0
 id: paragraph.event_list.field_event_location
 field_name: field_event_location
 entity_type: paragraph
 bundle: event_list
 label: 'Event location'
-description: 'Show "event location" filter. If Event location is selected, you cannot use the Remote Events filter.'
+description: 'If Event location is selected, you cannot use the Remote Events filter.'
 required: false
 translatable: false
 default_value:

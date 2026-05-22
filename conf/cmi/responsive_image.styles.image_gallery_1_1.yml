@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.1_1086w_1086h_LQ
+    - image.style.1_1086w_1086h_lq
     - image.style.1_414w_414h
     - image.style.1_543w_543h
-    - image.style.1_828w_828h_LQ
+    - image.style.1_828w_828h_lq
   module:
     - helfi_image_styles
 _core:
-  default_config_hash: 29_zAX_g0m2zPiaRWVs5QHweA-Yhu0_yQcb9LewDXMM
+  default_config_hash: x9DffZ5DbDYGJ8hGh5CeyxyLtqbSV48vN2L1tAHSDwk
 id: image_gallery_1_1
 label: 'Image gallery 1:1'
 image_style_mappings:
@@ -21,7 +21,7 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_828w_828h_LQ
+    image_mapping: 1_828w_828h_lq
     breakpoint_id: helfi_image_styles.m
     multiplier: 2x
   -
@@ -31,7 +31,7 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_1086w_1086h_LQ
+    image_mapping: 1_1086w_1086h_lq
     breakpoint_id: helfi_image_styles.xs
     multiplier: 2x
 breakpoint_group: helfi_image_styles
