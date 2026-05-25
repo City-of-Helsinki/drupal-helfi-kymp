@@ -38,7 +38,6 @@ class MobileNoteDataSourceTest extends KernelTestBase {
       ->set('wfs_url', 'https://example.com/wfs')
       ->set('wfs_username', 'test_user')
       ->set('wfs_password', 'test_pass')
-      ->set('sync_lookback_offset', '-30 days')
       ->save();
 
     $this->setupMockHttpClient([
