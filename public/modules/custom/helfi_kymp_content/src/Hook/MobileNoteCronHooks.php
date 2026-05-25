@@ -50,17 +50,6 @@ class MobileNoteCronHooks {
 
     $data = $this->dataService->getMobileNoteData();
 
-    $expiredIds = [];
-
-    // Get expired items.
-    foreach ($data as $id => $item) {
-      $validTo = $item->get('valid_to')->getValue();
-
-      if ($validTo && $validTo < $currentTime) {
-        $expiredIds[] = $id;
-      }
-    }
-
     /** @var \Drupal\search_api\IndexInterface $index */
     $index = $this->entityTypeManager
       ->getStorage('search_api_index')
@@ -74,10 +63,11 @@ class MobileNoteCronHooks {
     // Items whose valid_from is older than the API's lookback window will
     // not appear in $data but may still exist in the index.
     $query = $index->query()
-      // Elasticsearch expects milliseconds on date columns.
-      ->addCondition('valid_to', $currentTime * 1000, '<')
+      ->addCondition('valid_to', $currentTime - 86400, '<')
       // The query should have a limit.
       ->range(0, 100);
+
+    $expiredIds = [];
 
     foreach ($query->execute() as $result) {
       [, $id] = Utility::splitCombinedId($result->getId());
