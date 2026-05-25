@@ -99,7 +99,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
       $resultSet->addResultItem($item->reveal());
     }
 
-    $queryProphecy->addCondition('valid_to', self::CURRENT_TIME * 1000, '<')
+    $queryProphecy->addCondition('valid_to', self::CURRENT_TIME - 86400, '<')
       ->willReturn($queryMock);
     $queryProphecy->range(0, 100)->willReturn($queryMock);
     $queryProphecy->execute()->willReturn($resultSet);
