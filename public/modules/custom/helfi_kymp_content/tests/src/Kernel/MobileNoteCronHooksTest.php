@@ -46,8 +46,8 @@ class MobileNoteCronHooksTest extends KernelTestBase {
   /**
    * Approximately 2026-02-04.
    *
-   * Fixture items relative to this:
-   * - 68458: expired (valid_to 2026-01-29)
+   * Fixture items relative to this (API filters out items whose
+   * voimassaoloLoppu is in the past, so only active items appear):
    * - 68755: active (valid_to 2026-03-08)
    * - 68761: active (valid_to 2026-03-08)
    * - 68770: active (valid_to 2026-04-15)
@@ -125,11 +125,8 @@ class MobileNoteCronHooksTest extends KernelTestBase {
       ];
     }))->shouldBeCalled();
 
-    // The expired item should be deleted.
-    $index->trackItemsDeleted('mobilenote_data_source', ['ppoytakirjaExtranet.68458'])
-      ->shouldBeCalled();
-
-    // No updates on first run.
+    // Index is empty on first run, so nothing to delete or update.
+    $index->trackItemsDeleted(Argument::cetera())->shouldNotBeCalled();
     $index->trackItemsUpdated(Argument::cetera())->shouldNotBeCalled();
 
     $hooks = $this->createSut($index->reveal());
@@ -143,8 +140,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
    * - 68755: known with same updated_at -> skipped (no tracking)
    * - 68761: known with different updated_at -> trackItemsUpdated
    * - 68770: not in known items -> trackItemsInserted
-   * - 68458: expired in API data -> trackItemsDeleted
-   * - 99999: stale item from index query -> trackItemsDeleted.
+   * - 68458 & 99999: stale items from index query -> trackItemsDeleted.
    */
   public function testSubsequentCronRun(): void {
     // Fetch actual data to get real updated_at timestamps.
@@ -161,8 +157,13 @@ class MobileNoteCronHooksTest extends KernelTestBase {
       'ppoytakirjaExtranet.68761' => 0,
     ]);
 
-    // Index query returns a stale item that's no longer in the API.
-    $index = $this->createMockIndex(['ppoytakirjaExtranet.99999']);
+    // Index query returns stale items the API no longer returns: an item
+    // whose validity has lapsed since the last run (68458) and a phantom
+    // entry that has dropped out entirely (99999).
+    $index = $this->createMockIndex([
+      'ppoytakirjaExtranet.68458',
+      'ppoytakirjaExtranet.99999',
+    ]);
 
     // Only the genuinely new item should be inserted.
     $index->trackItemsInserted('mobilenote_data_source', ['ppoytakirjaExtranet.68770'])
@@ -172,7 +173,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $index->trackItemsUpdated('mobilenote_data_source', ['ppoytakirjaExtranet.68761'])
       ->shouldBeCalled();
 
-    // Both the API-expired and index-stale items should be deleted.
+    // Both stale index entries should be deleted.
     $index->trackItemsDeleted('mobilenote_data_source', Argument::that(function ($ids) {
       sort($ids);
       return $ids === [
