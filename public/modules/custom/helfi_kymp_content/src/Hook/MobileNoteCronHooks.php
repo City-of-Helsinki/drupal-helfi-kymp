@@ -52,15 +52,6 @@ class MobileNoteCronHooks {
 
     $expiredIds = [];
 
-    // Get expired items.
-    foreach ($data as $id => $item) {
-      $validTo = $item->get('valid_to')->getValue();
-
-      if ($validTo && $validTo < $currentTime) {
-        $expiredIds[] = $id;
-      }
-    }
-
     /** @var \Drupal\search_api\IndexInterface $index */
     $index = $this->entityTypeManager
       ->getStorage('search_api_index')
