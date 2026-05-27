@@ -124,13 +124,20 @@ class MobileNoteDataService implements LoggerAwareInterface {
       throw new \InvalidArgumentException($e->getMessage(), previous: $e);
     }
 
-    // Return all items that have validity ending in the future.
+    // Return all items where the sign type is "Informaatiotaulu" and
+    // validity ends in the future.
     $filterXml = <<<XML
 <Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">
-  <PropertyIsGreaterThanOrEqualTo>
-    <PropertyName>voimassaoloLoppu</PropertyName>
-    <Literal>{$minDate}</Literal>
-  </PropertyIsGreaterThanOrEqualTo>
+  <And>
+    <PropertyIsGreaterThanOrEqualTo>
+      <PropertyName>voimassaoloLoppu</PropertyName>
+      <Literal>{$minDate}</Literal>
+    </PropertyIsGreaterThanOrEqualTo>
+    <PropertyIsEqualTo>
+      <PropertyName>merkinLaatu</PropertyName>
+      <Literal>Informaatiotaulu</Literal>
+    </PropertyIsEqualTo>
+  </And>
 </Filter>
 XML;
 
