@@ -1,0 +1,74 @@
+display:
+  default:
+    display_title: Oletus
+    display_options:
+      fields:
+        content_translation_outdated:
+          settings:
+            format_custom_true: vanhentunut
+          separator: ', '
+        title:
+          label: Otsikko
+          separator: ', '
+        type:
+          label: Sisältötyyppi
+          separator: ', '
+        uid:
+          label: Kirjoittaja
+          separator: ', '
+        revision_uid:
+          separator: ', '
+        langcode:
+          label: Kieli
+          separator: ', '
+        status:
+          label: Tila
+          settings:
+            format_custom_false: Julkaisematon
+            format_custom_true: Julkaistu
+          separator: ', '
+        changed:
+          label: Muuttunut
+          separator: ', '
+        operations:
+          label: Toimenpiteet
+      pager:
+        options:
+          tags:
+            next: Seuraava
+            previous: Edellinen
+            first: Ensimmäinen
+            last: Viimeinen
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      filters:
+        title:
+          expose:
+            label: Otsikko
+        type:
+          expose:
+            label: Sisältötyyppi
+        status:
+          expose:
+            label: Julkaisutila
+          group_info:
+            label: Julkaisutila
+            group_items:
+              1:
+                title: Julkaistu
+              2:
+                title: Julkaisematon
+        langcode:
+          expose:
+            label: Kieli
+  your_content_block:
+    display_title: Lohko
