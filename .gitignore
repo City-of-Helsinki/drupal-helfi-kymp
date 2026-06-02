@@ -17,13 +17,22 @@ public/sites/backstop/
 # Ignore the folder created by VS Code
 .vscode/*
 
+# Ignore the folder created by Visual Studio Code
+*:Zone.Identifier*
+
+## Ignore testing results
+*coverage.xml
+html-coverage
+
 # Ignore local settings
 public/sites/default/local.settings.php
 public/sites/default/local.services.yml
 
 *.sql
-.env.local
+*.sql.gz
+*.env.local
 .secrets.json
+*.private.env.json
 
 # Ignore OSX generated files
 ._*
@@ -31,5 +40,4 @@ public/sites/default/local.services.yml
 
 !*.gitkeep
 !*.keepme
-# As this is project skeleton, we do not want to store composer.lock to version control
-composer.lock
+.phpunit.*

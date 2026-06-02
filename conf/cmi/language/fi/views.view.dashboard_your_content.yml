@@ -1,11 +1,15 @@
+label: 'Dashboard - Omat sisällöt'
+description: 'Kaikki käyttäjän luoma/viimeisenä päivittämä sisältö.'
 display:
   default:
     display_title: Oletus
     display_options:
+      title: 'Omat sisällöt'
       fields:
         content_translation_outdated:
+          label: 'Käännös vanhentunut'
           settings:
-            format_custom_true: vanhentunut
+            format_custom_true: outdated
           separator: ', '
         title:
           label: Otsikko
@@ -17,6 +21,7 @@ display:
           label: Kirjoittaja
           separator: ', '
         revision_uid:
+          label: 'Viimesin päivittäjä'
           separator: ', '
         langcode:
           label: Kieli
@@ -70,5 +75,8 @@ display:
         langcode:
           expose:
             label: Kieli
+        helfi_node_authorship:
+          expose:
+            label: 'Kirjoittaja & päivittäjä'
   your_content_block:
     display_title: Lohko
