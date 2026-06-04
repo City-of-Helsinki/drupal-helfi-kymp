@@ -8,9 +8,9 @@ dependencies:
     - user
     - views_bulk_operations
 _core:
-  default_config_hash: UGPHeAdcKvAi-LA1DMeP3EK2E9r6bcvrVoiL74KpXqM
+  default_config_hash: wATS6QyZ4c_AJqR0KELIsvvBuT5XLe1DeUXfJUhuqZ8
 id: dashboard_your_content
-label: 'Dashboard - Your content'
+label: 'Dashboard - My pages'
 module: views
 description: 'All content created/recently edited by the user.'
 tag: ''
@@ -23,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Your content'
+      title: 'My pages'
       fields:
         views_bulk_operations_bulk_form:
           id: views_bulk_operations_bulk_form
@@ -627,7 +627,6 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
-              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -728,7 +727,20 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No pages to display.'
+            format: full_html
+          tokenize: false
       sorts:
         created:
           id: created
