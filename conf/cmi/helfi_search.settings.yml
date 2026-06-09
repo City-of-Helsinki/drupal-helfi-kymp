@@ -1,8 +1,6 @@
 _core:
-  default_config_hash: 30AOZRgOGRJ3m13eg7y-Hzj653nUuoTmsRA2qfsrmtQ
+  default_config_hash: yNk6i7mWaEIuIo9uGTm56Zw4hmfa26X83xM3Cpf8W6Q
 langcode: en
-openai_models:
-  - text-embedding-3-large
 openai_model_pricing:
   text-embedding-3-large: 0.13
 ignored_classes:
@@ -13,6 +11,7 @@ ignored_classes:
   - component--recommendations
   - component--map
   - component--hearings
+  - component--list-of-links
   - announcement
   - content-tags
   - content-date
