@@ -115,22 +115,29 @@ class MobileNoteDataService implements LoggerAwareInterface {
     }
 
     try {
-      $minDate = (new \DateTime())
+      $minDate = (new \DateTimeImmutable())
         ->setTimestamp($this->time->getRequestTime())
-        ->modify($settings->get('sync_lookback_offset') ?? '-30 days');
+        ->setTimezone(new \DateTimeZone('Europe/Helsinki'))
+        ->format('Y-m-d');
     }
     catch (\DateMalformedStringException $e) {
       throw new \InvalidArgumentException($e->getMessage(), previous: $e);
     }
 
-    $minDate = $minDate->format('Y-m-d');
-
+    // Return all items where the sign type is "Informaatiotaulu" and
+    // validity ends in the future.
     $filterXml = <<<XML
 <Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">
-  <PropertyIsGreaterThanOrEqualTo>
-    <PropertyName>voimassaoloAlku</PropertyName>
-    <Literal>{$minDate}</Literal>
-  </PropertyIsGreaterThanOrEqualTo>
+  <And>
+    <PropertyIsGreaterThanOrEqualTo>
+      <PropertyName>voimassaoloLoppu</PropertyName>
+      <Literal>{$minDate}</Literal>
+    </PropertyIsGreaterThanOrEqualTo>
+    <PropertyIsEqualTo>
+      <PropertyName>merkinLaatu</PropertyName>
+      <Literal>Informaatiotaulu</Literal>
+    </PropertyIsEqualTo>
+  </And>
 </Filter>
 XML;
 

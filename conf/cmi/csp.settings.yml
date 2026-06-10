@@ -28,4 +28,6 @@ enforce:
     frame-ancestors:
       base: self
   reporting:
-    plugin: none
+    plugin: uri
+    options:
+      uri: 'https://www.test.hel.ninja/log-report-uri/enforce'
