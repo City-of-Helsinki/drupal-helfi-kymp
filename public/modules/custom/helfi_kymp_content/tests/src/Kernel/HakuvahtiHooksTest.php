@@ -117,8 +117,14 @@ class HakuvahtiHooksTest extends KernelTestBase {
         'id' => 'vehicle_removal',
         'label' => 'Vehicle Removal',
         'site_id' => 'kymp',
-        'confirm_page_title' => 'Custom Confirm Title',
       ])
+      ->save();
+
+    // Set the title directly in config storage so the test is not coupled to
+    // whether confirm_page_title is listed in HakuvahtiConfig::config_export.
+    $this->container->get('config.factory')
+      ->getEditable('helfi_hakuvahti.config.vehicle_removal')
+      ->set('confirm_page_title', 'Custom Confirm Title')
       ->save();
 
     $breadcrumb = $this->createBreadcrumb();
@@ -145,9 +151,11 @@ class HakuvahtiHooksTest extends KernelTestBase {
         'id' => 'vehicle_removal',
         'label' => 'Vehicle Removal',
         'site_id' => 'kymp',
-        'confirm_page_title' => '',
       ])
       ->save();
+
+    // confirm_page_title is intentionally not set — the hook should leave
+    // the breadcrumb unchanged when the value is empty or absent.
 
     $breadcrumb = $this->createBreadcrumb();
     $this->createHooks('kymp')->systemBreadcrumbAlter(
