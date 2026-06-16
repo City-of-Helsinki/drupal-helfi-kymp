@@ -9,7 +9,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Link;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\helfi_hakuvahti\Entity\HakuvahtiConfig;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -58,7 +57,7 @@ class HakuvahtiHooks {
       return;
     }
 
-    /** @var HakuvahtiConfig $config */
+    /** @var \Drupal\helfi_hakuvahti\Entity\HakuvahtiConfig $config */
     $config = reset($entities);
 
     $customTitle = $config->getConfirmationText(self::ROUTE_TITLE_KEYS[$routeName]);
