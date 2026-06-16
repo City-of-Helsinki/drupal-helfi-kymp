@@ -25,6 +25,13 @@ class HakuvahtiHooksTest extends KernelTestBase {
   use ProphecyTrait;
 
   /**
+   * Disable strict config schema — the contrib module's Composer release may
+   * not yet include confirm_page_title in its schema, and the test writes that
+   * key directly to config storage to avoid coupling to config_export.
+   */
+  protected $strictConfigSchema = FALSE;
+
+  /**
    * {@inheritdoc}
    */
   protected static $modules = [
