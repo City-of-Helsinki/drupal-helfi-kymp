@@ -34,6 +34,9 @@ class HakuvahtiHooksTest extends KernelTestBase {
     'user',
   ];
 
+  /**
+   * Creates a HakuvahtiHooks instance with a mocked RequestStack.
+   */
   private function createHooks(?string $siteId = NULL): HakuvahtiHooks {
     $requestStack = $this->prophesize(RequestStack::class);
     $request = $siteId !== NULL
@@ -48,12 +51,18 @@ class HakuvahtiHooksTest extends KernelTestBase {
     );
   }
 
+  /**
+   * Creates a mocked RouteMatchInterface returning the given route name.
+   */
   private function createRouteMatch(string $routeName): RouteMatchInterface {
     $routeMatch = $this->prophesize(RouteMatchInterface::class);
     $routeMatch->getRouteName()->willReturn($routeName);
     return $routeMatch->reveal();
   }
 
+  /**
+   * Creates a Breadcrumb with three links for testing.
+   */
   private function createBreadcrumb(): Breadcrumb {
     $breadcrumb = new Breadcrumb();
     $breadcrumb->addLink(Link::createFromRoute('Home', '<front>'));
