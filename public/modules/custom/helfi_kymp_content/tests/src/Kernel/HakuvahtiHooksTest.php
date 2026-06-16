@@ -156,7 +156,6 @@ class HakuvahtiHooksTest extends KernelTestBase {
 
     // confirm_page_title is intentionally not set — the hook should leave
     // the breadcrumb unchanged when the value is empty or absent.
-
     $breadcrumb = $this->createBreadcrumb();
     $this->createHooks('kymp')->systemBreadcrumbAlter(
       $breadcrumb,
