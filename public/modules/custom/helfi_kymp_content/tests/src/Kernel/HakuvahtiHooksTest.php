@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
 use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Link;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\helfi_kymp_content\Hook\HakuvahtiHooks;
@@ -25,13 +27,6 @@ class HakuvahtiHooksTest extends KernelTestBase {
   use ProphecyTrait;
 
   /**
-   * Disable strict config schema — the contrib module's Composer release may
-   * not yet include confirm_page_title in its schema, and the test writes that
-   * key directly to config storage to avoid coupling to config_export.
-   */
-  protected $strictConfigSchema = FALSE;
-
-  /**
    * {@inheritdoc}
    */
   protected static $modules = [
@@ -42,9 +37,9 @@ class HakuvahtiHooksTest extends KernelTestBase {
   ];
 
   /**
-   * Creates a HakuvahtiHooks instance with a mocked RequestStack.
+   * Creates a HakuvahtiHooks instance with mocked dependencies.
    */
-  private function createHooks(?string $siteId = NULL): HakuvahtiHooks {
+  private function createHooks(?string $siteId = NULL, ?ConfigFactoryInterface $configFactory = NULL): HakuvahtiHooks {
     $requestStack = $this->prophesize(RequestStack::class);
     $request = $siteId !== NULL
       ? Request::create('/fi/test', 'GET', ['site_id' => $siteId])
@@ -53,7 +48,7 @@ class HakuvahtiHooksTest extends KernelTestBase {
 
     return new HakuvahtiHooks(
       $this->container->get('entity_type.manager'),
-      $this->container->get('config.factory'),
+      $configFactory ?? $this->container->get('config.factory'),
       $requestStack->reveal(),
     );
   }
@@ -76,6 +71,18 @@ class HakuvahtiHooksTest extends KernelTestBase {
     $breadcrumb->addLink(Link::createFromRoute('Parent page', '<none>'));
     $breadcrumb->addLink(Link::createFromRoute('Current page', '<none>'));
     return $breadcrumb;
+  }
+
+  /**
+   * Creates a mocked ConfigFactoryInterface returning a fixed title value.
+   */
+  private function createConfigFactory(string $entityId, string $titleKey, string $titleValue): ConfigFactoryInterface {
+    $config = $this->prophesize(ImmutableConfig::class);
+    $config->get($titleKey)->willReturn($titleValue);
+
+    $configFactory = $this->prophesize(ConfigFactoryInterface::class);
+    $configFactory->get('helfi_hakuvahti.config.' . $entityId)->willReturn($config->reveal());
+    return $configFactory->reveal();
   }
 
   /**
@@ -127,15 +134,10 @@ class HakuvahtiHooksTest extends KernelTestBase {
       ])
       ->save();
 
-    // Set the title directly in config storage so the test is not coupled to
-    // whether confirm_page_title is listed in HakuvahtiConfig::config_export.
-    $this->container->get('config.factory')
-      ->getEditable('helfi_hakuvahti.config.vehicle_removal')
-      ->set('confirm_page_title', 'Custom Confirm Title')
-      ->save();
+    $configFactory = $this->createConfigFactory('vehicle_removal', 'confirm_page_title', 'Custom Confirm Title');
 
     $breadcrumb = $this->createBreadcrumb();
-    $this->createHooks('kymp')->systemBreadcrumbAlter(
+    $this->createHooks('kymp', $configFactory)->systemBreadcrumbAlter(
       $breadcrumb,
       $this->createRouteMatch('helfi_hakuvahti.confirm'),
     );
@@ -161,10 +163,10 @@ class HakuvahtiHooksTest extends KernelTestBase {
       ])
       ->save();
 
-    // confirm_page_title is intentionally not set — the hook should leave
-    // the breadcrumb unchanged when the value is empty or absent.
+    $configFactory = $this->createConfigFactory('vehicle_removal', 'confirm_page_title', '');
+
     $breadcrumb = $this->createBreadcrumb();
-    $this->createHooks('kymp')->systemBreadcrumbAlter(
+    $this->createHooks('kymp', $configFactory)->systemBreadcrumbAlter(
       $breadcrumb,
       $this->createRouteMatch('helfi_hakuvahti.confirm'),
     );
