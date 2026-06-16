@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content\Hook;
 
 use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Link;
@@ -24,6 +25,7 @@ class HakuvahtiHooks {
 
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
+    private readonly ConfigFactoryInterface $configFactory,
     private readonly RequestStack $requestStack,
   ) {
   }
@@ -57,11 +59,12 @@ class HakuvahtiHooks {
       return;
     }
 
-    /** @var \Drupal\helfi_hakuvahti\Entity\HakuvahtiConfig $config */
-    $config = reset($entities);
+    $entityId = reset($entities)->id();
+    $customTitle = $this->configFactory
+      ->get('helfi_hakuvahti.config.' . $entityId)
+      ->get(self::ROUTE_TITLE_KEYS[$routeName]) ?? '';
 
-    $customTitle = $config->getConfirmationText(self::ROUTE_TITLE_KEYS[$routeName]);
-    if ($customTitle === '') {
+    if (!$customTitle) {
       return;
     }
 
