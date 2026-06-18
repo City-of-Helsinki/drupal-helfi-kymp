@@ -11,6 +11,7 @@ dependencies:
     - field.field.paragraph.event_list.field_event_list_free_text
     - field.field.paragraph.event_list.field_event_list_keywords
     - field.field.paragraph.event_list.field_event_list_keywords_filter
+    - field.field.paragraph.event_list.field_event_list_layout
     - field.field.paragraph.event_list.field_event_list_place
     - field.field.paragraph.event_list.field_event_list_title
     - field.field.paragraph.event_list.field_event_list_type
@@ -39,7 +40,7 @@ third_party_settings:
       label: 'Search filters'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: details
       format_settings:
         classes: ''
@@ -49,7 +50,7 @@ third_party_settings:
         description: 'Select which filters are shown to users.'
         required_fields: false
 _core:
-  default_config_hash: xQlQa4X15SB65LaPr-5-zaiVfTF3JIfDxQqnV9A2gIg
+  default_config_hash: Lewcl9zVCa5jIbLGBaHncsAWoSknQ2sqXX_nD5O-wts
 id: paragraph.event_list.default
 targetEntityType: paragraph
 bundle: event_list
@@ -57,20 +58,20 @@ mode: default
 content:
   field_event_count:
     type: options_select
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_list_category_event:
     type: select2
-    weight: 5
+    weight: 6
     region: content
     settings:
       width: 100%
     third_party_settings: {  }
   field_event_list_category_hobby:
     type: select2
-    weight: 6
+    weight: 7
     region: content
     settings:
       width: 100%
@@ -85,7 +86,7 @@ content:
     third_party_settings: {  }
   field_event_list_free_text:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -93,7 +94,7 @@ content:
     third_party_settings: {  }
   field_event_list_keywords:
     type: linked_events_select2
-    weight: 7
+    weight: 8
     region: content
     settings:
       endpoint: keyword
@@ -106,6 +107,12 @@ content:
     settings:
       endpoint: keyword
       query: 'data_source=yso&has_upcoming_events=True'
+    third_party_settings: {  }
+  field_event_list_layout:
+    type: options_buttons
+    weight: 2
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_event_list_place:
     type: linked_events_select2
@@ -125,7 +132,7 @@ content:
     third_party_settings: {  }
   field_event_list_type:
     type: options_buttons
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
