@@ -2446,17 +2446,17 @@
         },
         {
             "name": "drupal/content_lock",
-            "version": "3.0.0-rc4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/content_lock.git",
-                "reference": "3.0.0-rc4"
+                "reference": "3.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/content_lock-3.0.0-rc4.zip",
-                "reference": "3.0.0-rc4",
-                "shasum": "06c0725b92a24aea2c66f92db089e59e753d06ec"
+                "url": "https://ftp.drupal.org/files/projects/content_lock-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "d60fa4d10a25d35fe251498381eb48ef795d9840"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -2471,11 +2471,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-rc4",
-                    "datestamp": "1781693239",
+                    "version": "3.0.0",
+                    "datestamp": "1782214655",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4363,16 +4363,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.17.25",
+            "version": "6.17.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "12b640aa309d24962e40a6ec80b4261128abb219"
+                "reference": "6078509e3e832f6393e77cd68fd615874d52e36d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/12b640aa309d24962e40a6ec80b4261128abb219",
-                "reference": "12b640aa309d24962e40a6ec80b4261128abb219",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/6078509e3e832f6393e77cd68fd615874d52e36d",
+                "reference": "6078509e3e832f6393e77cd68fd615874d52e36d",
                 "shasum": ""
             },
             "require": {
@@ -4391,10 +4391,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.17.25",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.17.26",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-06-15T12:41:32+00:00"
+            "time": "2026-06-23T13:16:39+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -8607,16 +8607,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.12.1",
+            "version": "7.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d34627490fbc03bf5c5d7cfed81f2faa19519425"
+                "reference": "1289bf2975291b73e29e9422da675c87f56d28f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d34627490fbc03bf5c5d7cfed81f2faa19519425",
-                "reference": "d34627490fbc03bf5c5d7cfed81f2faa19519425",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/1289bf2975291b73e29e9422da675c87f56d28f1",
+                "reference": "1289bf2975291b73e29e9422da675c87f56d28f1",
                 "shasum": ""
             },
             "require": {
@@ -8626,7 +8626,7 @@
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
-                "symfony/polyfill-php80": "^1.24"
+                "symfony/polyfill-php80": "^1.25"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
@@ -8715,7 +8715,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.12.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.12.2"
             },
             "funding": [
                 {
@@ -8731,7 +8731,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-18T14:12:49+00:00"
+            "time": "2026-06-23T13:08:19+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -8819,16 +8819,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.12.1",
+            "version": "2.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7"
+                "reference": "5ec8b151cfda84f9c3d582c23459333ee17e4b4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7",
-                "reference": "172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5ec8b151cfda84f9c3d582c23459333ee17e4b4b",
+                "reference": "5ec8b151cfda84f9c3d582c23459333ee17e4b4b",
                 "shasum": ""
             },
             "require": {
@@ -8837,7 +8837,7 @@
                 "psr/http-message": "^1.1 || ^2.0",
                 "ralouphie/getallheaders": "^3.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
-                "symfony/polyfill-php80": "^1.24"
+                "symfony/polyfill-php80": "^1.25"
             },
             "provide": {
                 "psr/http-factory-implementation": "1.0",
@@ -8918,7 +8918,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.12.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.12.2"
             },
             "funding": [
                 {
@@ -8934,7 +8934,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-18T09:49:37+00:00"
+            "time": "2026-06-23T13:05:21+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
