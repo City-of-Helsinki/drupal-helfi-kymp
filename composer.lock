@@ -2232,50 +2232,6 @@
             }
         },
         {
-            "name": "drupal/big_pipe_sessionless",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/big_pipe_sessionless.git",
-                "reference": "2.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/big_pipe_sessionless-2.2.0.zip",
-                "reference": "2.2.0",
-                "shasum": "e894f61cb862511b3a79ed256f83c2c8fb98d5c7"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.2.0",
-                    "datestamp": "1698145025",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                }
-            ],
-            "description": "Accelerates Page Cache misses using the BigPipe technique.",
-            "homepage": "https://www.drupal.org/project/big_pipe_sessionless",
-            "support": {
-                "source": "https://git.drupalcode.org/project/big_pipe_sessionless"
-            }
-        },
-        {
             "name": "drupal/ckeditor5_paste_filter",
             "version": "1.1.1",
             "source": {
@@ -4485,21 +4441,20 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.8.22",
+            "version": "2.8.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "1d8a9b09c8a96e307e95aaf2104693fbcc09ee5e"
+                "reference": "4a48121a426bda15c67948c38255e17498977a16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/1d8a9b09c8a96e307e95aaf2104693fbcc09ee5e",
-                "reference": "1d8a9b09c8a96e307e95aaf2104693fbcc09ee5e",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/4a48121a426bda15c67948c38255e17498977a16",
+                "reference": "4a48121a426bda15c67948c38255e17498977a16",
                 "shasum": ""
             },
             "require": {
                 "city-of-helsinki/php-logger-extra": "^1.0",
-                "drupal/big_pipe_sessionless": "^2.0",
                 "drupal/entity": "^1.0",
                 "drupal/health_check": "^3.0",
                 "drupal/monolog": "^3.0",
@@ -4525,22 +4480,15 @@
                 "drupal/search_api": "^1.0"
             },
             "type": "drupal-module",
-            "extra": {
-                "patches": {
-                    "drupal/big_pipe_sessionless": {
-                        "Drupal 11 support (https://drupal.org/i/3428235)": "https://www.drupal.org/files/issues/2025-05-07/3428235.d11.patch"
-                    }
-                }
-            },
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.22",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.23",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2026-05-11T07:18:21+00:00"
+            "time": "2026-06-25T08:55:56+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
