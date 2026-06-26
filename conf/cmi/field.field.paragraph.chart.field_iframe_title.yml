@@ -6,13 +6,13 @@ dependencies:
     - field.storage.paragraph.field_iframe_title
     - paragraphs.paragraphs_type.chart
 _core:
-  default_config_hash: BzPEiL8wagpDH6uOyfB3iyy-1449TLbfjTfKWmO2bfU
+  default_config_hash: 0feO3Pje3rUQHogQLWyUIXG1U7pPVsrnGmMiESFNu1s
 id: paragraph.chart.field_iframe_title
 field_name: field_iframe_title
 entity_type: paragraph
 bundle: chart
 label: 'Assistive technology title'
-description: 'Users of assistive technology need a descriptive title to know what is in the embedded content.'
+description: 'Write a title for users of assistive technology. If the chart already has a title, use the same one. The title is read by screen readers before the chart. This text is not visible on the page. The prefix “Chart: ” is added automatically.'
 required: true
 translatable: true
 default_value: {  }
