@@ -6,13 +6,13 @@ dependencies:
     - field.storage.paragraph.field_iframe_title
     - paragraphs.paragraphs_type.map
 _core:
-  default_config_hash: QpVSS0jo2Lm6hgiiDmpQYg89LUKdDBlpY5YNlXr_yJo
+  default_config_hash: AzyVbL9I_kz9hXdngq2coas2ky9wM_9CXSCib3HZbVk
 id: paragraph.map.field_iframe_title
 field_name: field_iframe_title
 entity_type: paragraph
 bundle: map
 label: 'Assistive technology title'
-description: 'Users of assistive technology need a descriptive title to know what is in the embedded content.'
+description: 'Write a title for users of assistive technology. If the map already has a title, use the same one. The title is read by screen readers before the map. This text is not visible on the page. The prefix “Map: ” is added automatically.'
 required: true
 translatable: false
 default_value: {  }
