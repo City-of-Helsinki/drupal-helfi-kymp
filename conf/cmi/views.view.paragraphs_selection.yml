@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - paragraphs
     - paragraphs_library
 _core:
-  default_config_hash: RKITErSPtK_9_IBiVEh9FvaVsaoFofANEL2s9mwdcPU
+  default_config_hash: 4X0ejYjhHmppNAnaHSdBtkJm00PhSqYySo9lFCSKAf8
 id: paragraphs_selection
 label: 'Paragraphs library selection'
 module: views
@@ -66,7 +67,7 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -132,7 +133,7 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -323,9 +324,17 @@ display:
           search_fields:
             id: id
             label: label
+      row:
+        type: entity_reference_revisions
+        options:
+          default_field_elements: true
+          inline:
+            id: id
+            label: label
+          separator: ' - '
+          hide_empty: false
       rendering_language: '***LANGUAGE_language_content***'
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

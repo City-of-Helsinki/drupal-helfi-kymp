@@ -2,18 +2,18 @@ display:
   default:
     display_title: Основной
     display_options:
-      pager:
-        options:
-          expose:
-            offset_label: Пропустить
-          tags:
-            previous: ‹‹
-            next: ››
       fields:
         id:
           separator: ', '
         label:
           separator: ', '
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            offset_label: Пропустить
       filters:
         label:
           expose:
