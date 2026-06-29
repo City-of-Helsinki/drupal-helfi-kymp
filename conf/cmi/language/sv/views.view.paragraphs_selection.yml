@@ -2,18 +2,18 @@ display:
   default:
     display_title: Förvald
     display_options:
-      pager:
-        options:
-          expose:
-            offset_label: Kompensera
-          tags:
-            previous: ‹‹
-            next: ››
       fields:
         id:
           separator: ', '
         label:
           separator: ', '
+      pager:
+        options:
+          tags:
+            next: Nästa
+            previous: Föregående
+          expose:
+            offset_label: Kompensera
       filters:
         label:
           expose:
