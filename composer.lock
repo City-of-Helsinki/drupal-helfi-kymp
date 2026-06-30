@@ -67,12 +67,12 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-identity-php.git",
+                "url": "https://github.com/php-oss-for-azure/azure-identity-php.git",
                 "reference": "419e221cb1b29a8189f19c1e253bb6a54c1accc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-identity-php/zipball/419e221cb1b29a8189f19c1e253bb6a54c1accc1",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-identity-php/zipball/419e221cb1b29a8189f19c1e253bb6a54c1accc1",
                 "reference": "419e221cb1b29a8189f19c1e253bb6a54c1accc1",
                 "shasum": ""
             },
@@ -115,12 +115,12 @@
             "version": "1.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php.git",
+                "url": "https://github.com/php-oss-for-azure/azure-storage-php.git",
                 "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php/zipball/ed2d4ad652cc90fa8067d9e47468666ed942cf76",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-php/zipball/ed2d4ad652cc90fa8067d9e47468666ed942cf76",
                 "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76",
                 "shasum": ""
             },
@@ -172,12 +172,12 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-common-php.git",
+                "url": "https://github.com/php-oss-for-azure/azure-storage-common-php.git",
                 "reference": "3169c2f19475a087963e71aeb2cbf183eb676025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-common-php/zipball/3169c2f19475a087963e71aeb2cbf183eb676025",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-common-php/zipball/3169c2f19475a087963e71aeb2cbf183eb676025",
                 "reference": "3169c2f19475a087963e71aeb2cbf183eb676025",
                 "shasum": ""
             },
@@ -4559,16 +4559,16 @@
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "3.4.20",
+            "version": "3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "f9d6b03b5b50896b36e6a6927b836baff0fe8cbf"
+                "reference": "ad170c9f4e8144a4a19d3a46e0e62572a7371809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/f9d6b03b5b50896b36e6a6927b836baff0fe8cbf",
-                "reference": "f9d6b03b5b50896b36e6a6927b836baff0fe8cbf",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/ad170c9f4e8144a4a19d3a46e0e62572a7371809",
+                "reference": "ad170c9f4e8144a4a19d3a46e0e62572a7371809",
                 "shasum": ""
             },
             "require": {
@@ -4589,10 +4589,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.20",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.21",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2026-06-26T10:41:44+00:00"
+            "time": "2026-06-30T09:24:31+00:00"
         },
         {
             "name": "drupal/health_check",
@@ -4751,20 +4751,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-tools.git",
-                "reference": "ecd8504aa075d84c90035de677b91d6ebd862984"
+                "reference": "c37d2cbb0c526f73b0a151a5754a93660147d969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/ecd8504aa075d84c90035de677b91d6ebd862984",
-                "reference": "ecd8504aa075d84c90035de677b91d6ebd862984",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-tools/zipball/c37d2cbb0c526f73b0a151a5754a93660147d969",
+                "reference": "c37d2cbb0c526f73b0a151a5754a93660147d969",
                 "shasum": ""
             },
             "require": {
                 "drupal/helfi_api_base": "*",
-                "drush/drush": "^12 || ^13"
+                "drush/drush": "^13"
             },
             "conflict": {
-                "drush/drush": "< 12.5"
+                "drush/drush": "< 13.7"
             },
             "require-dev": {
                 "composer/installers": "^2",
@@ -4824,20 +4824,20 @@
                 "source": "https://github.com/City-of-Helsinki/drupal-tools/tree/main",
                 "issues": "https://github.com/City-of-Helsinki/drupal-tools/issues"
             },
-            "time": "2026-06-26T13:15:55+00:00"
+            "time": "2026-06-29T10:23:41+00:00"
         },
         {
             "name": "drupal/helfi_hakuvahti",
-            "version": "1.2.6",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti.git",
-                "reference": "eeb7486996f5d2285b3df42a28e310a686f724a1"
+                "reference": "219cbb88c19fa9ff19de5dd8776fefafcf2ce628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-hakuvahti/zipball/eeb7486996f5d2285b3df42a28e310a686f724a1",
-                "reference": "eeb7486996f5d2285b3df42a28e310a686f724a1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-hakuvahti/zipball/219cbb88c19fa9ff19de5dd8776fefafcf2ce628",
+                "reference": "219cbb88c19fa9ff19de5dd8776fefafcf2ce628",
                 "shasum": ""
             },
             "require": {
@@ -4853,10 +4853,10 @@
             ],
             "description": "Helfi - Hakuvahti",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/tree/1.2.6",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/tree/1.2.7",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-hakuvahti/issues"
             },
-            "time": "2026-06-26T09:57:57+00:00"
+            "time": "2026-06-30T06:16:55+00:00"
         },
         {
             "name": "drupal/helfi_navigation",
@@ -4894,16 +4894,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.1.80",
+            "version": "5.1.84",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "30c893a2383c7061e112828de3b6f3aff7ddb891"
+                "reference": "16de6ed130465d10d9aebf5822d11773f29be684"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/30c893a2383c7061e112828de3b6f3aff7ddb891",
-                "reference": "30c893a2383c7061e112828de3b6f3aff7ddb891",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/16de6ed130465d10d9aebf5822d11773f29be684",
+                "reference": "16de6ed130465d10d9aebf5822d11773f29be684",
                 "shasum": ""
             },
             "require": {
@@ -4994,7 +4994,8 @@
                         "[#UHF-9952, #UHF-9980] Duplicate <br /> tags (https://www.drupal.org/i/3083786)": "./public/modules/contrib/helfi_platform_config/patches/3083786.patch",
                         "[#UHF-11025] Status message templates missing theme when bigpipe is enabled (https://www.drupal.org/i/3396318)": "./public/modules/contrib/helfi_platform_config/patches/3396318.patch",
                         "[#UHF-11784] Sort the source and target arrays in the configuration storage comparer to avoid false positives": "./public/modules/contrib/helfi_platform_config/patches/drupal-core-sort-storage-comparer-source-and-target-arrays.patch",
-                        "[#UHF-13252] ...account administration pages causes RouteMatch to be Null in some cases (https://www.drupal.org/i/3265213)": "./public/modules/contrib/helfi_platform_config/patches/3265213.patch"
+                        "[#UHF-13252] ...account administration pages causes RouteMatch to be Null in some cases (https://www.drupal.org/i/3265213)": "./public/modules/contrib/helfi_platform_config/patches/3265213.patch",
+                        "[#UHF-12901] TODO remove on D12 once telephone field is moved to contrib module: Prevent accessibility issue due to difference in tel href encoding between ckeditor and telephone field formatter": "./public/modules/contrib/helfi_platform_config/patches/non-encoded-tel-link-href.patch"
                     },
                     "drupal/diff": {
                         "Revision overview form problem (https://www.drupal.org/i/3390329)": "./public/modules/contrib/helfi_platform_config/patches/diff_8.x_1.3_revision_overview_form.patch"
@@ -5010,8 +5011,7 @@
                     },
                     "drupal/paragraphs": {
                         "https://www.drupal.org/project/paragraphs/issues/2904705#comment-13836790": "./public/modules/contrib/helfi_platform_config/patches/2904705-115.patch",
-                        "[#UHF-2059] Enhancements for the Admin UI": "./public/modules/contrib/helfi_platform_config/patches/helfi_customizations_for_paragraphs_widget_8.x-1.12.patch",
-                        "[#UHF-10840] https://www.drupal.org/i/3510842: Duplicating nested paragraph overwriting paragraph references": "./public/modules/contrib/helfi_platform_config/patches/paragraphs-3510842-duplicate_paragraph_overwrite.patch"
+                        "[#UHF-2059] Enhancements for the Admin UI": "./public/modules/contrib/helfi_platform_config/patches/helfi_customizations_for_paragraphs_widget_8.x-1.12.patch"
                     },
                     "drupal/view_unpublished": {
                         "[#UHF-9256] Fix missing dynamic permission dependencies.": "./public/modules/contrib/helfi_platform_config/patches/view_unpublished_permissions_missing_dependencies.patch"
@@ -5023,10 +5023,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.80",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.84",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-06-29T07:54:01+00:00"
+            "time": "2026-06-30T10:00:10+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -8769,16 +8769,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.12.3",
+            "version": "7.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9aa17bcdd777ee31df9fc83c337ca4ca2340def3"
+                "reference": "55901a76dfd2006a0cc012b9e3c5b487f796478d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9aa17bcdd777ee31df9fc83c337ca4ca2340def3",
-                "reference": "9aa17bcdd777ee31df9fc83c337ca4ca2340def3",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/55901a76dfd2006a0cc012b9e3c5b487f796478d",
+                "reference": "55901a76dfd2006a0cc012b9e3c5b487f796478d",
                 "shasum": ""
             },
             "require": {
@@ -8797,7 +8797,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "ext-curl": "*",
                 "guzzle/client-integration-tests": "3.0.2",
-                "guzzlehttp/test-server": "^0.5.1",
+                "guzzlehttp/test-server": "^0.6",
                 "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^8.5.52 || ^9.6.34",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -8877,7 +8877,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.12.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.13.1"
             },
             "funding": [
                 {
@@ -8893,7 +8893,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-23T15:29:02+00:00"
+            "time": "2026-06-29T20:14:18+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -11765,16 +11765,16 @@
         },
         {
             "name": "phrity/websocket",
-            "version": "3.7.2",
+            "version": "3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sirn-se/websocket-php.git",
-                "reference": "a8edb30395d45edd83452f54dfbb0905c3115a95"
+                "reference": "c92d613ec298ea108b8ebae306609cd40427f7d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sirn-se/websocket-php/zipball/a8edb30395d45edd83452f54dfbb0905c3115a95",
-                "reference": "a8edb30395d45edd83452f54dfbb0905c3115a95",
+                "url": "https://api.github.com/repos/sirn-se/websocket-php/zipball/c92d613ec298ea108b8ebae306609cd40427f7d6",
+                "reference": "c92d613ec298ea108b8ebae306609cd40427f7d6",
                 "shasum": ""
             },
             "require": {
@@ -11825,9 +11825,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sirn-se/websocket-php/issues",
-                "source": "https://github.com/sirn-se/websocket-php/tree/3.7.2"
+                "source": "https://github.com/sirn-se/websocket-php/tree/3.7.3"
             },
-            "time": "2026-06-15T08:13:51+00:00"
+            "time": "2026-06-22T14:53:45+00:00"
         },
         {
             "name": "proj4php/proj4php",
@@ -12208,16 +12208,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.23",
+            "version": "v0.12.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4dcc0f08047d52bbde475eda481146fd8e27e1a4"
+                "reference": "ca0fdcf8a7617afa3adfdf1b5fef573dffb69ca1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4dcc0f08047d52bbde475eda481146fd8e27e1a4",
-                "reference": "4dcc0f08047d52bbde475eda481146fd8e27e1a4",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/ca0fdcf8a7617afa3adfdf1b5fef573dffb69ca1",
+                "reference": "ca0fdcf8a7617afa3adfdf1b5fef573dffb69ca1",
                 "shasum": ""
             },
             "require": {
@@ -12281,9 +12281,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.23"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.24"
             },
-            "time": "2026-05-23T13:41:31+00:00"
+            "time": "2026-06-29T15:41:09+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -12533,16 +12533,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "4.28.0",
+            "version": "4.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "662cb7a01a342a7f33780fc955ff4a028d8b785a"
+                "reference": "d732a4da195f231cedb2a2a78ae16dd73082afa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/662cb7a01a342a7f33780fc955ff4a028d8b785a",
-                "reference": "662cb7a01a342a7f33780fc955ff4a028d8b785a",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/d732a4da195f231cedb2a2a78ae16dd73082afa3",
+                "reference": "d732a4da195f231cedb2a2a78ae16dd73082afa3",
                 "shasum": ""
             },
             "require": {
@@ -12567,6 +12567,7 @@
                 "open-telemetry/api": "^1.0",
                 "open-telemetry/exporter-otlp": "^1.0",
                 "open-telemetry/sdk": "^1.0",
+                "open-telemetry/sem-conv": "^1.27",
                 "phpstan/phpstan": "^1.3",
                 "phpunit/phpunit": "^8.5.52|^9.6.34",
                 "spiral/roadrunner-http": "^3.6",
@@ -12610,7 +12611,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/4.28.0"
+                "source": "https://github.com/getsentry/sentry-php/tree/4.29.0"
             },
             "funding": [
                 {
@@ -12622,7 +12623,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-06-11T12:22:38+00:00"
+            "time": "2026-06-29T14:47:44+00:00"
         },
         {
             "name": "stomp-php/stomp-php",

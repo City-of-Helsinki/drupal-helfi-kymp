@@ -35,7 +35,7 @@ display:
           entity_type: paragraphs_library_item
           entity_field: label
           plugin_id: field
-          label: Label
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -607,7 +607,7 @@ display:
           exposed: true
           expose:
             operator_id: label_op
-            label: Label
+            label: Title
             description: ''
             use_operator: false
             operator: label_op
@@ -621,7 +621,7 @@ display:
               authenticated: authenticated
           is_grouped: false
           group_info:
-            label: Label
+            label: Title
             description: null
             identifier: label
             optional: true
