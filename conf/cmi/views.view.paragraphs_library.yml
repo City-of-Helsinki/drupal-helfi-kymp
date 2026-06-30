@@ -35,7 +35,7 @@ display:
           entity_type: paragraphs_library_item
           entity_field: label
           plugin_id: field
-          label: Label
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -538,7 +538,7 @@ display:
           hide_alter_empty: true
           destination: true
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           pagination_heading_level: h4
@@ -546,8 +546,10 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
+            next: Next
+            previous: Previous
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -556,6 +558,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -604,7 +607,7 @@ display:
           exposed: true
           expose:
             operator_id: label_op
-            label: Label
+            label: Title
             description: ''
             use_operator: false
             operator: label_op
@@ -618,7 +621,7 @@ display:
               authenticated: authenticated
           is_grouped: false
           group_info:
-            label: Label
+            label: Title
             description: null
             identifier: label
             optional: true
@@ -766,31 +769,34 @@ display:
             id: id
             count: count
             operations: operations
-          default: '-1'
+            paragraphs__target_id: paragraphs__target_id
+            langcode: langcode
+            changed: changed
+          default: label
           info:
             label:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             type:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             id:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             count:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: views-align-right
               separator: ''
@@ -801,12 +807,34 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            paragraphs__target_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            langcode:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
           override: true
           sticky: false
           summary: ''
           empty_table: true
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:

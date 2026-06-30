@@ -2,21 +2,30 @@ display:
   default:
     display_title: Основной
     display_options:
-      pager:
-        options:
-          expose:
-            offset_label: Пропустить
-          tags:
-            previous: ‹‹
-            next: ››
       fields:
         id:
           separator: ', '
         label:
           separator: ', '
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page_label: 'Элементов на страницу'
+            items_per_page_options_all_label: '- Все -'
+            offset_label: Пропустить
+      exposed_form:
+        options:
+          submit_button: фильтр
+          reset_button_label: Сбросить
+          exposed_sorts_label: 'Сортировать по'
+          sort_asc_label: 'По возрастанию'
+          sort_desc_label: 'По убыванию'
       filters:
         label:
           expose:
-            label: Label
+            label: Заголовок
   entity_reference:
     display_title: 'Ссылка на сущность'

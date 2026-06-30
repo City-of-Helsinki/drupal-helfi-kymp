@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - paragraphs
     - paragraphs_library
 _core:
-  default_config_hash: RKITErSPtK_9_IBiVEh9FvaVsaoFofANEL2s9mwdcPU
+  default_config_hash: ADvyTOQ8rSXpRh8PtHLR5B4FE-j8tPVFXoG1dVjQA6E
 id: paragraphs_selection
 label: 'Paragraphs library selection'
 module: views
@@ -66,7 +67,7 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -132,7 +133,7 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -166,22 +167,22 @@ display:
             previous: ‹‹
           expose:
             items_per_page: false
-            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- Kaikki -'
+            items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
       exposed_form:
         type: basic
         options:
-          submit_button: Käytä
+          submit_button: Apply
           reset_button: false
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: none
         options: {  }
@@ -236,7 +237,7 @@ display:
           exposed: true
           expose:
             operator_id: label_op
-            label: Label
+            label: Title
             description: ''
             use_operator: false
             operator: label_op
@@ -323,9 +324,17 @@ display:
           search_fields:
             id: id
             label: label
+      row:
+        type: entity_reference_revisions
+        options:
+          default_field_elements: true
+          inline:
+            id: id
+            label: label
+          separator: ' - '
+          hide_empty: false
       rendering_language: '***LANGUAGE_language_content***'
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
