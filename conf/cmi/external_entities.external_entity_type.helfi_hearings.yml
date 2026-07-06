@@ -15,30 +15,14 @@ content_class: Drupal\external_entities\Entity\ExternalEntity
 read_only: true
 debug_level: 0
 field_mappers:
-  id:
+  abstract:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.id
-            required_field: true
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  uuid:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.id
+            mapping: $.abstract
             required_field: false
             main_property: true
             data_processors:
@@ -47,14 +31,94 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  title:
+  close_at:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.title
+            mapping: $.close_at
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  comments:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.n_comments
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  count:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.count
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  created_at:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.created_at
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  existing_translations:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.existing_translations
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config: {  }
+            description: ''
+      debug_level: 0
+  id:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: $.id
             required_field: true
             main_property: true
             data_processors:
@@ -81,30 +145,14 @@ field_mappers:
         title:
           id: ''
       debug_level: 0
-  close_at:
+  main_image_title:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.close_at
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  created_at:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.created_at
+            mapping: $.main_image_caption
             required_field: false
             main_property: true
             data_processors:
@@ -129,38 +177,6 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  slug:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.slug
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  comments:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.n_comments
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
   organization:
     id: generic
     config:
@@ -177,14 +193,14 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  abstract:
+  slug:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.abstract
+            mapping: $.slug
             required_field: false
             main_property: true
             data_processors:
@@ -193,15 +209,15 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  main_image_title:
+  title:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.main_image_caption
-            required_field: false
+            mapping: $.title
+            required_field: true
             main_property: true
             data_processors:
               -
@@ -225,30 +241,14 @@ field_mappers:
                 config: {  }
             description: ''
       debug_level: 0
-  count:
+  uuid:
     id: generic
     config:
       property_mappings:
         value:
           id: jsonpath
           config:
-            mapping: $.count
-            required_field: false
-            main_property: true
-            data_processors:
-              -
-                id: default
-                config: {  }
-            description: ''
-      debug_level: 0
-  existing_translations:
-    id: generic
-    config:
-      property_mappings:
-        value:
-          id: jsonpath
-          config:
-            mapping: $.existing_translations
+            mapping: $.id
             required_field: false
             main_property: true
             data_processors:

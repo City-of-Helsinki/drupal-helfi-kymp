@@ -293,10 +293,7 @@ display:
         - url
         - user
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.tpr_service.tpr_service.default'
-        - 'config:core.entity_view_display.tpr_service.tpr_service.teaser'
-        - 'config:core.entity_view_display.tpr_service.tpr_service.teaser_search_result'
+      tags: {  }
   unit_services:
     id: unit_services
     display_title: Block
@@ -312,7 +309,4 @@ display:
         - url
         - user
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.tpr_service.tpr_service.default'
-        - 'config:core.entity_view_display.tpr_service.tpr_service.teaser'
-        - 'config:core.entity_view_display.tpr_service.tpr_service.teaser_search_result'
+      tags: {  }
