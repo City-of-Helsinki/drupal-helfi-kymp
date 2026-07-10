@@ -10,6 +10,7 @@ use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
 use Drupal\helfi_hakuvahti\DrupalSettings;
 
 /**
@@ -59,6 +60,16 @@ final class VehicleRemovalBlock extends BlockBase implements ContainerFactoryPlu
 
     // Apply hakuvahti settings.
     $this->drupalSettings->applyTo($build);
+
+    // Use the vehicle_removal config entity so its texts are isolated
+    // from the shared 'default' entity.
+    if (!empty($build['#attached']['drupalSettings']['hakuvahti'])) {
+      $build['#attached']['drupalSettings']['hakuvahti']['apiUrl'] = Url::fromRoute(
+        'helfi_hakuvahti.subscribe',
+        [],
+        ['query' => ['config' => 'vehicle_removal']],
+      )->toString();
+    }
 
     // Cache tags.
     $cache->applyTo($build);
