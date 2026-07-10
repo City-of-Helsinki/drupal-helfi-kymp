@@ -22,6 +22,7 @@ dependencies:
     - entity_usage
     - file
     - filter
+    - helfi_ai
     - helfi_api_base
     - helfi_tpr
     - locale
@@ -177,6 +178,7 @@ permissions:
   - 'update media'
   - 'update own tpr_service'
   - 'update own tpr_unit'
+  - 'use helfi ai title suggestion'
   - 'use menu link attributes'
   - 'use siteimprove'
   - 'use siteimprove prepublish'
