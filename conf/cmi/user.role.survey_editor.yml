@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.survey
   module:
+    - ai
     - content_translation
     - node
     - publication_date
@@ -23,6 +24,7 @@ permissions:
   - 'disable own tfa'
   - 'edit any survey content'
   - 'edit own survey content'
+  - 'manage ai prompts'
   - 'revert survey revisions'
   - 'set survey published on date'
   - 'setup own tfa'
