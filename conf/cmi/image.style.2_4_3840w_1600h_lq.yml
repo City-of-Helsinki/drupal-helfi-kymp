@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: xjvSi9CnBRxT2BbCvWTCztY60GmUTEK3v512ZWfP8gs
+  default_config_hash: Hm1b-EQu392X6iy8eeFH9sPtUsyQkfyuoH4ziBnyGRg
 name: 2_4_3840w_1600h_lq
 label: 2.4_3840w_1600h_LQ
 effects:
@@ -24,3 +24,9 @@ effects:
     weight: 2
     data:
       quality: 65
+  79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a:
+    uuid: 79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

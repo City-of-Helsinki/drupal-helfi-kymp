@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: Et9ea3o3v3dgIkowYP5zxrh0f73phT3jIHTWY_gl5hE
+  default_config_hash: V0ydhIPRNqdX4k0JVhsf3d0dxTQv5Yu6od2SYPYfQmY
 name: 1_5_1022w_682h_lq
 label: 1.5_1022w_682h_LQ
 effects:
@@ -24,3 +24,9 @@ effects:
     weight: 2
     data:
       quality: 65
+  79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a:
+    uuid: 79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp
