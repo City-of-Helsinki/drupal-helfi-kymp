@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 _core:
-  default_config_hash: jABp-aeUEVdAzUqk7eauz7aFHogew2mhlK8WHwd9Lc0
+  default_config_hash: GgXa6Q6-M6z41ssKorps3ItI0om0XniwVdTW9dADw7s
 name: 1_406w_406h
 label: 1_406w_406h
 effects:
@@ -17,3 +17,9 @@ effects:
       width: 406
       height: 406
       crop_type: focal_point
+  79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a:
+    uuid: 79a7c5b0-4e1e-437c-91ad-e7ca08d2e76a
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp
