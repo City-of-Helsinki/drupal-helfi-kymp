@@ -8,7 +8,6 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Utils;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
@@ -251,7 +250,7 @@ class PaikkatietoClient implements LoggerAwareInterface {
         ]);
 
         /** @var object $data */
-        $data = Utils::jsonDecode($response->getBody()->getContents());
+        $data = json_decode($response->getBody()->getContents());
         return $data;
       }
       catch (GuzzleException $e) {

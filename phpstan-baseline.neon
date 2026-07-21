@@ -151,16 +151,9 @@ parameters:
 			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
 
 		-
-			message: "#^Cannot access offset 'features' on array\\|bool\\|float\\|int\\|object\\|string\\.$#"
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
-
-		-
 			message: "#^Method Drupal\\\\helfi_kymp_content\\\\MobileNoteDataService\\:\\:transformFeature\\(\\) has parameter \\$feature with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
-
-
 
 		-
 			message: "#^Method Drupal\\\\helfi_kymp_content\\\\Plugin\\\\Block\\\\SubdistrictsNavigationBlock\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
