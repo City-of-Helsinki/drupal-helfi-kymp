@@ -13,7 +13,6 @@ use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Utils;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
@@ -156,7 +155,7 @@ XML;
       'timeout' => 30,
     ]);
 
-    $data = Utils::jsonDecode($response->getBody()->getContents(), TRUE);
+    $data = json_decode($response->getBody()->getContents(), TRUE);
 
     $items = [];
     foreach ($data['features'] ?? [] as $feature) {
