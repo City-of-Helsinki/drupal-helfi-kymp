@@ -6,16 +6,12 @@ dependencies:
     module:
       - helfi_ai
 _core:
-  default_config_hash: JPtAvKGGBQ07J8Fdhs0JebXz8UwNmYwlhte-iM1T-7U
+  default_config_hash: 8B-r96TPtB7wP8dwQkpI0fbc8PriAvrveq7woAzPkeI
 id: helfi_content_summary
 label: 'HELfi content summary'
 variables:
   -
     name: content
     help_text: 'The page content as plain text'
-    required: true
-  -
-    name: language
-    help_text: 'The target language name (e.g. Finnish, Swedish)'
     required: true
 tokens: {  }
