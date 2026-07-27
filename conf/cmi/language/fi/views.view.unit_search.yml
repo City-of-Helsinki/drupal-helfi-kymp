@@ -6,6 +6,14 @@ display:
           content:
             format: full_html
             value: '<p>Ei tuloksia</p>'
+      filters:
+        combine:
+          group_info:
+            description: ''
+            label: 'Kentät yhdistävä suodatin'
+          expose:
+            label: Etsi
+            placeholder: 'Syötä toimipisteen nimi tai osoite'
       fields:
         name:
           separator: ', '
@@ -37,13 +45,6 @@ display:
         id:
           exception:
             title: Kaikki
-      filters:
-        combine:
-          expose:
-            label: Etsi
-            placeholder: 'Syötä toimipisteen nimi tai osoite'
-          group_info:
-            label: 'Kentät yhdistävä suodatin'
     display_title: Oletus
   block:
     display_title: Lohko
