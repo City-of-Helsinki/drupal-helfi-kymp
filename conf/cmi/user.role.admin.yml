@@ -27,6 +27,7 @@ dependencies:
     - content_translation
     - editoria11y
     - entity_usage
+    - external_entities
     - file
     - filter
     - hdbt_cookie_banner
@@ -215,6 +216,7 @@ permissions:
   - 'update any tpr_service'
   - 'update any tpr_unit'
   - 'update content translations'
+  - 'update linkedevents_event external entity'
   - 'update media'
   - 'update own tpr_service'
   - 'update own tpr_unit'
@@ -235,6 +237,8 @@ permissions:
   - 'view district revisions'
   - 'view editoria11y checker'
   - 'view landing_page revisions'
+  - 'view linkedevents_event external entity'
+  - 'view linkedevents_event external entity collection'
   - 'view media'
   - 'view own unpublished content'
   - 'view own unpublished media'
