@@ -33,6 +33,7 @@ dependencies:
     - hdbt_cookie_banner
     - helfi_ai
     - helfi_api_base
+    - helfi_hakuvahti
     - helfi_recommendations
     - helfi_tpr
     - locale
@@ -192,6 +193,7 @@ permissions:
   - 'revert page revisions'
   - 'revert project revisions'
   - 'schedule publishing of nodes'
+  - 'send hakuvahti broadcast'
   - 'set announcement published on date'
   - 'set landing_page published on date'
   - 'set page published on date'
