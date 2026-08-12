@@ -52,18 +52,18 @@
     margin-top: 0;
     width: 100%;
 
-    & > div {
-      @include breakpoint($breakpoint-m) {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    }
-
     .metadata__item-label::after {
       content: ':';
       margin-right: $spacing-quarter;
     }
   }
+
+  .metadata__item > div {
+      @include breakpoint($breakpoint-m) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
 }
 
 $-image-placeholder-ratio: math.div(3, 2);

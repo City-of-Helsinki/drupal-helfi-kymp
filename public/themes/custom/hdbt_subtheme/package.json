@@ -12,8 +12,8 @@
     "postinstall": "npm --prefix ../../contrib/hdbt install --no-audit --progress=false --loglevel=silent",
     "lint:scss": "npx --prefix ../../contrib/hdbt/theme-builder postcss \"$INIT_CWD/src/scss/**/*.scss\" --syntax postcss-scss --use css-declaration-sorter --replace --no-map && npm run lint:stylelint --loglevel=silent",
     "lint:stylelint": "npx --prefix ../../contrib/hdbt/theme-builder stylelint \"$INIT_CWD/src/scss/**/*.scss\" --config ../../contrib/hdbt/theme-builder/.stylelintrc.yaml --fix",
-    "lint:js": "biome lint src/js/",
-    "format:js": "biome format --write src/js/",
+    "lint:js": "biome lint --no-errors-on-unmatched src/js/",
+    "format:js": "biome format --write --no-errors-on-unmatched src/js/",
     "lint": "npm-run-all --parallel lint:scss lint:js -s"
   },
   "dependencies": {

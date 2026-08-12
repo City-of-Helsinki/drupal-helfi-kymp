@@ -1,9 +1,11 @@
-label: 'Dashboard - Omat sisällöt'
-description: 'Kaikki käyttäjän luoma/viimeisenä päivittämä sisältö.'
 display:
   default:
-    display_title: Oletus
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>Ei näytettäviä sivuja.</p>'
       title: 'Omat sivut'
       fields:
         views_bulk_operations_bulk_form:
@@ -57,10 +59,6 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      empty:
-        area:
-          content:
-            value: 'Ei näytettäviä sivuja.'
       filters:
         title:
           expose:
@@ -84,5 +82,8 @@ display:
         helfi_node_authorship:
           expose:
             label: 'Kirjoittaja & päivittäjä'
+    display_title: Oletus
   your_content_block:
     display_title: Lohko
+label: 'Dashboard - Omat sisällöt'
+description: 'Kaikki käyttäjän luoma/viimeisenä päivittämä sisältö.'

@@ -1,8 +1,12 @@
 label: 'TPR Palvelut'
 display:
   default:
-    display_title: Oletus
     display_options:
+      empty:
+        area:
+          content:
+            value: 'Ei tuloksia.'
+            format: plain_text
       exposed_form:
         options:
           submit_button: Käytä
@@ -48,10 +52,6 @@ display:
       header:
         result:
           content: 'Näytetään @start - @end / @total'
-      empty:
-        area:
-          content:
-            value: 'Ei tuloksia.'
-            format: plain_text
+    display_title: Oletus
   page_1:
     display_title: Sivu
