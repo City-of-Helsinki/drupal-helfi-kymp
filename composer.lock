@@ -3221,38 +3221,38 @@
         },
         {
             "name": "drupal/diff",
-            "version": "1.10.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/diff.git",
-                "reference": "8.x-1.10"
+                "reference": "2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.10.zip",
-                "reference": "8.x-1.10",
-                "shasum": "21398888a97071bfeb57bdc7128fcf6681da5358"
+                "url": "https://ftp.drupal.org/files/projects/diff-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "5510aba84b893dfe7106621e859bdb949d4a1f51"
             },
             "require": {
-                "drupal/core": "^10 || ^11",
+                "drupal/core": "^10.5 || ^11 || ^12",
                 "mkalkbrenner/php-htmldiff-advanced": "~0.0.8",
                 "php": "^8.1"
             },
             "require-dev": {
-                "jangregor/phpstan-prophecy": "^1.0",
-                "mglaman/phpstan-drupal": "^1.2.10",
+                "jangregor/phpstan-prophecy": "^1.0 || ^2.2.0",
+                "mglaman/phpstan-drupal": "^1.2.10 || ^2.0.7",
                 "phpstan/extension-installer": "^1.2",
-                "phpstan/phpstan": "^1.11",
+                "phpstan/phpstan": "^1.11 || ^2.1.17",
                 "phpstan/phpstan-deprecation-rules": "*",
-                "phpstan/phpstan-phpunit": "1.4.x-dev",
-                "phpstan/phpstan-strict-rules": "^1@stable",
-                "previousnext/coding-standard": "1.0.1"
+                "phpstan/phpstan-phpunit": "1.4 || ^2.0",
+                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0.4",
+                "previousnext/coding-standard": "1.1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.10",
-                    "datestamp": "1768951091",
+                    "version": "2.1.1",
+                    "datestamp": "1786557203",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4051,17 +4051,17 @@
         },
         {
             "name": "drupal/externalauth",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/externalauth.git",
-                "reference": "2.0.12"
+                "reference": "2.0.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.12.zip",
-                "reference": "2.0.12",
-                "shasum": "8bea36d373c25a5c8272b233e219946d355e7636"
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.13.zip",
+                "reference": "2.0.13",
+                "shasum": "7daa85bd385c850e1a9c7a92fad15f394e7891b9"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -4069,8 +4069,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.12",
-                    "datestamp": "1784046748",
+                    "version": "2.0.13",
+                    "datestamp": "1786557339",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4086,14 +4086,6 @@
                     "name": "Sven Decabooter",
                     "homepage": "https://www.drupal.org/u/svendecabooter",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "snufkin",
-                    "homepage": "https://www.drupal.org/user/58645"
-                },
-                {
-                    "name": "svendecabooter",
-                    "homepage": "https://www.drupal.org/user/35369"
                 }
             ],
             "description": "Helper module to authenticate users using an external site / service and storing identification details",
@@ -4499,16 +4491,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.18.12",
+            "version": "6.18.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "5642d45b374511f6263b4087870c714a106f5598"
+                "reference": "e6c46cff57dab558df1422aa172a0364559917e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/5642d45b374511f6263b4087870c714a106f5598",
-                "reference": "5642d45b374511f6263b4087870c714a106f5598",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/e6c46cff57dab558df1422aa172a0364559917e6",
+                "reference": "e6c46cff57dab558df1422aa172a0364559917e6",
                 "shasum": ""
             },
             "require": {
@@ -4527,10 +4519,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.12",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.13",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-08-11T13:48:46+00:00"
+            "time": "2026-08-13T08:10:42+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4864,16 +4856,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.1.108",
+            "version": "5.1.109",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "83ab9067d759befea34fcbd0edf559a64e0e36ee"
+                "reference": "ff2177e8020ce2dd66d3332d283bd4394cbc4e9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/83ab9067d759befea34fcbd0edf559a64e0e36ee",
-                "reference": "83ab9067d759befea34fcbd0edf559a64e0e36ee",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/ff2177e8020ce2dd66d3332d283bd4394cbc4e9f",
+                "reference": "ff2177e8020ce2dd66d3332d283bd4394cbc4e9f",
                 "shasum": ""
             },
             "require": {
@@ -4892,7 +4884,7 @@
                 "drupal/csp": "^2.2",
                 "drupal/csp_log": "^1.0",
                 "drupal/default_content": "^2.0.0",
-                "drupal/diff": "^1.0",
+                "drupal/diff": "^2.0",
                 "drupal/easy_breadcrumb": "^2.0",
                 "drupal/editoria11y": "^2.0",
                 "drupal/elasticsearch_connector": "^8.0@alpha",
@@ -4970,7 +4962,7 @@
                         "[#UHF-12901] TODO remove on D12 once telephone field is moved to contrib module: Prevent accessibility issue due to difference in tel href encoding between ckeditor and telephone field formatter": "./public/modules/contrib/helfi_platform_config/patches/non-encoded-tel-link-href.patch"
                     },
                     "drupal/diff": {
-                        "Revision overview form problem (https://www.drupal.org/i/3390329)": "./public/modules/contrib/helfi_platform_config/patches/diff_8.x_1.3_revision_overview_form.patch"
+                        "Revision overview form problem (https://www.drupal.org/i/3390329)": "./public/modules/contrib/helfi_platform_config/patches/2882334.patch"
                     },
                     "drupal/csp": {
                         "[#UHF-11973] Allow installing csp in an install hook": "./public/modules/contrib/helfi_platform_config/patches/csp-uhf-11973.patch"
@@ -4998,10 +4990,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.108",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.109",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-08-12T03:48:48+00:00"
+            "time": "2026-08-13T08:38:05+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -22083,16 +22075,16 @@
         },
         {
             "name": "weitzman/drupal-test-traits",
-            "version": "2.7.1",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/dtt.git",
-                "reference": "1bec1eaf7a9a61f830290b93db31783efbcaaeca"
+                "reference": "e91e66f1b4c63ac7a74f1220367221af70a122fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdtt/repository/archive.zip?sha=1bec1eaf7a9a61f830290b93db31783efbcaaeca",
-                "reference": "1bec1eaf7a9a61f830290b93db31783efbcaaeca",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdtt/repository/archive.zip?sha=e91e66f1b4c63ac7a74f1220367221af70a122fc",
+                "reference": "e91e66f1b4c63ac7a74f1220367221af70a122fc",
                 "shasum": ""
             },
             "require": {
@@ -22143,9 +22135,9 @@
             ],
             "description": "Traits for testing Drupal sites that have user content (versus unpopulated sites).",
             "support": {
-                "source": "https://git.drupalcode.org/project/dtt/-/tree/2.7.1"
+                "source": "https://git.drupalcode.org/project/dtt/-/tree/2.7.2"
             },
-            "time": "2026-08-09T15:59:30+00:00"
+            "time": "2026-08-13T02:58:49+00:00"
         }
     ],
     "aliases": [],
