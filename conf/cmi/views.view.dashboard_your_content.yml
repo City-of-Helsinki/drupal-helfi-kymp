@@ -8,7 +8,7 @@ dependencies:
     - user
     - views_bulk_operations
 _core:
-  default_config_hash: wATS6QyZ4c_AJqR0KELIsvvBuT5XLe1DeUXfJUhuqZ8
+  default_config_hash: SLp_J9ad2OkAoUoMkPFqIfOoK5aYAFQR7FAY-jh7ddw
 id: dashboard_your_content
 label: 'Dashboard - My pages'
 module: views
@@ -571,7 +571,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
-          label: Changed
+          label: Updated
           exclude: false
           alter:
             alter_text: false
@@ -1072,6 +1072,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
