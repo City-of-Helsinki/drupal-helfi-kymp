@@ -665,17 +665,64 @@
             "time": "2025-11-25T11:22:47+00:00"
         },
         {
-            "name": "codementality/flysystem-stream-wrapper",
-            "version": "v1.1.2",
+            "name": "city-of-helsinki/php-resilient-logger",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codementality/flysystem-stream-wrapper.git",
-                "reference": "c6c306514cfb8a10062c3ad621623b4588ae3bad"
+                "url": "https://github.com/City-of-Helsinki/php-resilient-logger.git",
+                "reference": "213d4106f372b3c43ea757e29c88829618ebea59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codementality/flysystem-stream-wrapper/zipball/c6c306514cfb8a10062c3ad621623b4588ae3bad",
-                "reference": "c6c306514cfb8a10062c3ad621623b4588ae3bad",
+                "url": "https://api.github.com/repos/City-of-Helsinki/php-resilient-logger/zipball/213d4106f372b3c43ea757e29c88829618ebea59",
+                "reference": "213d4106f372b3c43ea757e29c88829618ebea59",
+                "shasum": ""
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "^8.0",
+                "monolog/monolog": "^2.0 || ^3.0",
+                "php": ">=8.1",
+                "sebastian/diff": "^5.0 || ^6.0 || ^7.0"
+            },
+            "require-dev": {
+                "behat/mink": "^1.12",
+                "phpspec/prophecy": "^1.20",
+                "phpspec/prophecy-phpunit": "^2.3",
+                "phpunit/phpunit": "^10.5 || ^11.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ResilientLogger\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ResilientLogger\\Tests\\": "tests/src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP resilient logger for monolog",
+            "support": {
+                "source": "https://github.com/City-of-Helsinki/php-resilient-logger/tree/2.0.2",
+                "issues": "https://github.com/City-of-Helsinki/php-resilient-logger/issues"
+            },
+            "time": "2026-04-29T10:25:15+00:00"
+        },
+        {
+            "name": "codementality/flysystem-stream-wrapper",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codementality/flysystem-stream-wrapper.git",
+                "reference": "3a1a6e8df2d8a65c26225d24f6ed81c173537278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codementality/flysystem-stream-wrapper/zipball/3a1a6e8df2d8a65c26225d24f6ed81c173537278",
+                "reference": "3a1a6e8df2d8a65c26225d24f6ed81c173537278",
                 "shasum": ""
             },
             "require": {
@@ -714,9 +761,9 @@
             "homepage": "http://github.com/codementality/flysystem-stream-wrapper",
             "support": {
                 "issues": "https://github.com/codementality/flysystem-stream-wrapper/issues",
-                "source": "https://github.com/codementality/flysystem-stream-wrapper/tree/v1.1.2"
+                "source": "https://github.com/codementality/flysystem-stream-wrapper/tree/v1.1.3"
             },
-            "time": "2026-07-03T12:59:12+00:00"
+            "time": "2026-08-21T00:09:41+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -4495,16 +4542,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.18.15",
+            "version": "6.18.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "f10dba0b84706853d86ffc87e56a4aa57abb53da"
+                "reference": "d5c2ecbb0e4e83a9f6685211ff8ae86d25aee0b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/f10dba0b84706853d86ffc87e56a4aa57abb53da",
-                "reference": "f10dba0b84706853d86ffc87e56a4aa57abb53da",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/d5c2ecbb0e4e83a9f6685211ff8ae86d25aee0b5",
+                "reference": "d5c2ecbb0e4e83a9f6685211ff8ae86d25aee0b5",
                 "shasum": ""
             },
             "require": {
@@ -4523,10 +4570,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.15",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.16",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-08-18T12:42:35+00:00"
+            "time": "2026-08-20T12:01:03+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -4617,20 +4664,22 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.8.29",
+            "version": "2.8.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "fa211272d0d3db1f1f557730010a533ccaac6330"
+                "reference": "21fd7a4652829a620ec6b2f2a311436c29599f75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/fa211272d0d3db1f1f557730010a533ccaac6330",
-                "reference": "fa211272d0d3db1f1f557730010a533ccaac6330",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/21fd7a4652829a620ec6b2f2a311436c29599f75",
+                "reference": "21fd7a4652829a620ec6b2f2a311436c29599f75",
                 "shasum": ""
             },
             "require": {
                 "city-of-helsinki/php-logger-extra": "^1.0",
+                "city-of-helsinki/php-resilient-logger": "^2.0",
+                "drupal/diff": "^2.0",
                 "drupal/entity": "^1.0",
                 "drupal/health_check": "^3.0",
                 "drupal/monolog": "^3.0",
@@ -4668,10 +4717,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.29",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.30",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2026-08-17T10:28:38+00:00"
+            "time": "2026-08-21T08:04:48+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -4860,16 +4909,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.1.112",
+            "version": "5.1.115",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "fd95edc218cb951b70c4487c43adc0072158217c"
+                "reference": "0d4f0f66bf500591f6f423c721cb86e3191ba5c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/fd95edc218cb951b70c4487c43adc0072158217c",
-                "reference": "fd95edc218cb951b70c4487c43adc0072158217c",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/0d4f0f66bf500591f6f423c721cb86e3191ba5c4",
+                "reference": "0d4f0f66bf500591f6f423c721cb86e3191ba5c4",
                 "shasum": ""
             },
             "require": {
@@ -4994,10 +5043,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.112",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.115",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-08-19T12:38:11+00:00"
+            "time": "2026-08-21T07:02:32+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -10859,21 +10908,21 @@
         },
         {
             "name": "pear/archive_tar",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Archive_Tar.git",
-                "reference": "dc3285537f1832da8ddbbe45f5a007248b6cc00e"
+                "reference": "a0d2c458a2ff6ee8943ac4271b7f57d613529ae0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/dc3285537f1832da8ddbbe45f5a007248b6cc00e",
-                "reference": "dc3285537f1832da8ddbbe45f5a007248b6cc00e",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/a0d2c458a2ff6ee8943ac4271b7f57d613529ae0",
+                "reference": "a0d2c458a2ff6ee8943ac4271b7f57d613529ae0",
                 "shasum": ""
             },
             "require": {
                 "pear/pear-core-minimal": "^1.10.0alpha2",
-                "php": ">=5.4.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "*"
@@ -10886,7 +10935,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -10925,7 +10974,7 @@
                 "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Archive_Tar",
                 "source": "https://github.com/pear/Archive_Tar"
             },
-            "time": "2025-07-19T14:49:16+00:00"
+            "time": "2026-08-19T17:37:49+00:00"
         },
         {
             "name": "pear/console_getopt",
@@ -17974,23 +18023,23 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v5.35.1",
+            "version": "v5.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "55bb4a7d6739b5af0927b96213c1371a3afb7cfb"
+                "reference": "9c105104b54709ecd902494ab340ed2122789b2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/55bb4a7d6739b5af0927b96213c1371a3afb7cfb",
-                "reference": "55bb4a7d6739b5af0927b96213c1371a3afb7cfb",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/9c105104b54709ecd902494ab340ed2122789b2d",
+                "reference": "9c105104b54709ecd902494ab340ed2122789b2d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=11.5.0 <12.0.0"
+                "phpunit/phpunit": ">=11.5.50 <12.0.0"
             },
             "suggest": {
                 "ext-bcmath": "Need to support JSON deserialization"
@@ -18012,9 +18061,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v5.35.1"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v5.36.0"
             },
-            "time": "2026-06-11T21:19:23+00:00"
+            "time": "2026-08-20T13:06:50+00:00"
         },
         {
             "name": "jangregor/phpstan-prophecy",
