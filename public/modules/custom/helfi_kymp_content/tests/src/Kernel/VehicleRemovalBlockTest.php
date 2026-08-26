@@ -28,6 +28,7 @@ class VehicleRemovalBlockTest extends KernelTestBase {
     'search_api',
     'system',
     'user',
+    'diff',
   ];
 
   /**
