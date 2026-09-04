@@ -12,7 +12,7 @@ display:
             description: ''
             label: 'Kentät yhdistävä suodatin'
           expose:
-            label: 'Nimi tai ID'
+            label: Etsi
             placeholder: 'Syötä toimipisteen nimi tai osoite'
       fields:
         name:
@@ -36,7 +36,7 @@ display:
             offset_label: Offset
       exposed_form:
         options:
-          submit_button: 'Nimi tai ID'
+          submit_button: Etsi
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
