@@ -4421,17 +4421,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "5.0.11",
+            "version": "5.0.15",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "5.0.11"
+                "reference": "5.0.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-5.0.11.zip",
-                "reference": "5.0.11",
-                "shasum": "60423f2c9662ccc7197f79aa29e7939b93028d7a"
+                "url": "https://ftp.drupal.org/files/projects/gin-5.0.15.zip",
+                "reference": "5.0.15",
+                "shasum": "b02b1d890cade5e096c1c99a4a18ce7e23a186cd"
             },
             "require": {
                 "drupal/core": "^11.2",
@@ -4440,8 +4440,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "5.0.11",
-                    "datestamp": "1768311009",
+                    "version": "5.0.15",
+                    "datestamp": "1780500810",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4550,16 +4550,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.18.22",
+            "version": "6.18.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "3e18d5bc129f389fc61551a57b0c6b4d2dfa8fbb"
+                "reference": "033741f39e38237fc0418c587239affe58b3e0d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/3e18d5bc129f389fc61551a57b0c6b4d2dfa8fbb",
-                "reference": "3e18d5bc129f389fc61551a57b0c6b4d2dfa8fbb",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/033741f39e38237fc0418c587239affe58b3e0d0",
+                "reference": "033741f39e38237fc0418c587239affe58b3e0d0",
                 "shasum": ""
             },
             "require": {
@@ -4578,23 +4578,23 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.22",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.18.23",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-09-03T07:55:46+00:00"
+            "time": "2026-09-04T09:17:41+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "3.4.29",
+            "version": "3.4.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "eade0a2c5a739d481958a179b89a0912cb56a844"
+                "reference": "5fd0ff6c40a299f80c56068f6270ef6f1a16a7e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/eade0a2c5a739d481958a179b89a0912cb56a844",
-                "reference": "eade0a2c5a739d481958a179b89a0912cb56a844",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/5fd0ff6c40a299f80c56068f6270ef6f1a16a7e4",
+                "reference": "5fd0ff6c40a299f80c56068f6270ef6f1a16a7e4",
                 "shasum": ""
             },
             "require": {
@@ -4602,7 +4602,6 @@
                 "drupal/gin": "^4.0 || ^5.0"
             },
             "conflict": {
-                "drupal/gin": ">5.0.11",
                 "drupal/helfi_api_base": "<2.7.6",
                 "drupal/helfi_platform_config": "<4.16.68"
             },
@@ -4615,10 +4614,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.29",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.4.30",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2026-08-19T14:34:52+00:00"
+            "time": "2026-09-04T09:42:53+00:00"
         },
         {
             "name": "drupal/health_check",
@@ -4917,16 +4916,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.1.122",
+            "version": "5.1.123",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "56190da6ea4c2021c4d96a06530b11a4efdfc277"
+                "reference": "e317818c938bf46ed37fae8c70e4f16814264e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/56190da6ea4c2021c4d96a06530b11a4efdfc277",
-                "reference": "56190da6ea4c2021c4d96a06530b11a4efdfc277",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/e317818c938bf46ed37fae8c70e4f16814264e85",
+                "reference": "e317818c938bf46ed37fae8c70e4f16814264e85",
                 "shasum": ""
             },
             "require": {
@@ -5055,10 +5054,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.122",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.1.123",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-09-03T12:59:33+00:00"
+            "time": "2026-09-04T09:17:54+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -8581,16 +8580,16 @@
         },
         {
             "name": "fileeye/mimemap",
-            "version": "2.2.5",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FileEye/MimeMap.git",
-                "reference": "d85461d6663501d29d1838d1ad65222a1ce44d7b"
+                "reference": "6c70e153a3de52de2bb90fb50445d8b006af1f78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FileEye/MimeMap/zipball/d85461d6663501d29d1838d1ad65222a1ce44d7b",
-                "reference": "d85461d6663501d29d1838d1ad65222a1ce44d7b",
+                "url": "https://api.github.com/repos/FileEye/MimeMap/zipball/6c70e153a3de52de2bb90fb50445d8b006af1f78",
+                "reference": "6c70e153a3de52de2bb90fb50445d8b006af1f78",
                 "shasum": ""
             },
             "require": {
@@ -8633,9 +8632,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FileEye/MimeMap/issues",
-                "source": "https://github.com/FileEye/MimeMap/tree/2.2.5"
+                "source": "https://github.com/FileEye/MimeMap/tree/2.2.6"
             },
-            "time": "2026-03-22T21:57:45+00:00"
+            "time": "2026-08-30T15:12:50+00:00"
         },
         {
             "name": "fileeye/pel",
@@ -9317,16 +9316,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "6.11.0",
+            "version": "6.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "7e420a943a6fbc95e60e3cf67acfbee85b3b4da7"
+                "reference": "8ef236a1a37df364b518b7411a4b5bb95b040d79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/7e420a943a6fbc95e60e3cf67acfbee85b3b4da7",
-                "reference": "7e420a943a6fbc95e60e3cf67acfbee85b3b4da7",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/8ef236a1a37df364b518b7411a4b5bb95b040d79",
+                "reference": "8ef236a1a37df364b518b7411a4b5bb95b040d79",
                 "shasum": ""
             },
             "require": {
@@ -9376,9 +9375,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.11.0"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.12.0"
             },
-            "time": "2026-08-21T10:30:42+00:00"
+            "time": "2026-09-04T12:54:20+00:00"
         },
         {
             "name": "laravel/prompts",
