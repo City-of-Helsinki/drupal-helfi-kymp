@@ -9,6 +9,7 @@ dependencies:
     - field.field.tpr_service.tpr_service.field_lower_content
     - field.field.tpr_service.tpr_service.field_metatags
     - field.field.tpr_service.tpr_service.field_sidebar_content
+    - field.field.tpr_service.tpr_service.field_upper_content
   module:
     - entity_reference_revisions
     - helfi_tpr
@@ -49,6 +50,7 @@ hidden:
   errand_services: true
   field_hide_errand_services: true
   field_metatags: true
+  field_upper_content: true
   has_unit: true
   hide_service_points: true
   langcode: true

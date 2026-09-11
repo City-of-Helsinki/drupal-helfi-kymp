@@ -9,6 +9,7 @@ dependencies:
     - field.field.tpr_service.tpr_service.field_lower_content
     - field.field.tpr_service.tpr_service.field_metatags
     - field.field.tpr_service.tpr_service.field_sidebar_content
+    - field.field.tpr_service.tpr_service.field_upper_content
   module:
     - helfi_tpr
     - text
@@ -50,6 +51,7 @@ hidden:
   field_lower_content: true
   field_metatags: true
   field_sidebar_content: true
+  field_upper_content: true
   has_unit: true
   hide_service_points: true
   langcode: true
