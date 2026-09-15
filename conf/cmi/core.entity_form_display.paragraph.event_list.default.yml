@@ -14,6 +14,7 @@ dependencies:
     - field.field.paragraph.event_list.field_event_list_layout
     - field.field.paragraph.event_list.field_event_list_only_super
     - field.field.paragraph.event_list.field_event_list_place
+    - field.field.paragraph.event_list.field_event_list_target_group
     - field.field.paragraph.event_list.field_event_list_title
     - field.field.paragraph.event_list.field_event_list_type
     - field.field.paragraph.event_list.field_event_location
@@ -32,12 +33,13 @@ third_party_settings:
   field_group:
     group_search_filters:
       children:
+        - field_search_term
+        - field_event_list_target_group
         - field_event_location
         - field_event_time
         - field_language
         - field_remote_events
         - field_free_events
-        - field_search_term
       label: 'Search filters'
       region: content
       parent_name: ''
@@ -51,7 +53,7 @@ third_party_settings:
         description: 'Select which filters are shown to users.'
         required_fields: false
 _core:
-  default_config_hash: 1fgDucjTQrv5kzVHD5Wl90ml7hcgioEdmt9sNBFExaw
+  default_config_hash: iga1_UDTTNAHG7RZ51iSgp8kopoeiB9Pqy487CzXf7c
 id: paragraph.event_list.default
 targetEntityType: paragraph
 bundle: event_list
@@ -98,6 +100,7 @@ content:
     weight: 9
     region: content
     settings:
+      width: 100%
       endpoint: keyword
       query: 'data_source=yso&has_upcoming_events=True'
     third_party_settings: {  }
@@ -106,6 +109,7 @@ content:
     weight: 14
     region: content
     settings:
+      width: 100%
       endpoint: keyword
       query: 'data_source=yso&has_upcoming_events=True'
     third_party_settings: {  }
@@ -127,8 +131,16 @@ content:
     weight: 9
     region: content
     settings:
+      width: 100%
       endpoint: place
       query: sort=name
+    third_party_settings: {  }
+  field_event_list_target_group:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_event_list_title:
     type: string_textfield
@@ -146,35 +158,35 @@ content:
     third_party_settings: {  }
   field_event_location:
     type: boolean_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_event_time:
     type: boolean_checkbox
-    weight: 10
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_free_events:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_language:
     type: boolean_checkbox
-    weight: 11
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_remote_events:
     type: boolean_checkbox
-    weight: 12
+    weight: 13
     region: content
     settings:
       display_label: true
