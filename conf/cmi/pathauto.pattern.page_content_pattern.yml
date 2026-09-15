@@ -7,11 +7,11 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: b0VSFQeOnHnMZbZcBbr4LEhjMdhr9GF_tG4PtgIOwtc
+  default_config_hash: 88wvuKKLjTExRnTEViWYSWPaZedOeLUMw7Ki5yymzjw
 id: page_content_pattern
 label: 'Page content pattern'
 type: 'canonical_entities:node'
-pattern: '/[node:menu-link:parents:join-path]/[node:title]'
+pattern: '/[node:menu-link:parents:join-path]/[node:menu-link]'
 selection_criteria:
   c22ccdfa-0a1c-4d36-b456-dc0320d4351f:
     id: 'entity_bundle:node'
