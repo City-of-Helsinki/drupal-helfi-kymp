@@ -16,7 +16,7 @@ dependencies:
     - metatag
     - text
 _core:
-  default_config_hash: lfsipRdsmnfNoKFfcg5O3vLKcXVIihD09RP1OeSeySM
+  default_config_hash: UXrMF0-bxM-9gx19kvxZ5_TqBWD8b1ZJzF8cKh4sHuQ
 id: tpr_service.tpr_service.default
 targetEntityType: tpr_service
 bundle: tpr_service
@@ -36,7 +36,7 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
   field_content:
     type: entity_reference_revisions_entity_view
@@ -45,7 +45,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_hide_errand_services:
     type: boolean
@@ -55,7 +55,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   field_lower_content:
     type: entity_reference_revisions_entity_view
@@ -64,7 +64,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   field_metatags:
     type: metatag_empty_formatter
@@ -80,7 +80,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_upper_content:
     type: entity_reference_revisions_entity_view
@@ -101,7 +101,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   name:
     type: string
@@ -128,6 +128,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  ai_summary:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   created: true
