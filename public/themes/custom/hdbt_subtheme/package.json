@@ -5,15 +5,18 @@
   "author": "Druid",
   "license": "MIT",
   "repository": "github:City-of-Helsinki/drupal-hel-platform",
+  "@comment scripts": [
+    "Every build, lint and format script below runs inside a disposable Node container via the hdbt sandbox script."
+  ],
   "scripts": {
-    "dev": "node theme-builder.mjs --watch --dev",
-    "build": "npm run format:js --loglevel=silent && npm run lint --loglevel=silent && node theme-builder.mjs",
+    "dev": "../../contrib/hdbt/tools/sandbox.sh node theme-builder.mjs --watch --dev",
+    "build": "../../contrib/hdbt/tools/sandbox.sh sh -c 'npm run format:js --loglevel=silent && npm run lint --loglevel=silent && node theme-builder.mjs'",
     "postinstall": "npm --prefix ../../contrib/hdbt install --no-audit --progress=false --loglevel=silent",
-    "lint:scss": "npx --prefix ../../contrib/hdbt/theme-builder postcss \"$INIT_CWD/src/scss/**/*.scss\" --syntax postcss-scss --use css-declaration-sorter --replace --no-map && npm run lint:stylelint --loglevel=silent",
-    "lint:stylelint": "npx --prefix ../../contrib/hdbt/theme-builder stylelint \"$INIT_CWD/src/scss/**/*.scss\" --config ../../contrib/hdbt/theme-builder/.stylelintrc.yaml --fix",
-    "lint:js": "biome lint --no-errors-on-unmatched src/js/",
-    "format:js": "biome format --write --no-errors-on-unmatched src/js/",
-    "lint": "npm-run-all --parallel lint:scss lint:js -s"
+    "lint:scss": "../../contrib/hdbt/tools/sandbox.sh sh -c 'postcss \"src/scss/**/*.scss\" --syntax postcss-scss --use css-declaration-sorter --replace --no-map && npm run lint:stylelint --loglevel=silent'",
+    "lint:stylelint": "../../contrib/hdbt/tools/sandbox.sh stylelint \"src/scss/**/*.scss\" --config ../../contrib/hdbt/theme-builder/.stylelintrc.yaml --fix",
+    "lint:js": "../../contrib/hdbt/tools/sandbox.sh biome lint --no-errors-on-unmatched src/js/",
+    "format:js": "../../contrib/hdbt/tools/sandbox.sh biome format --write --no-errors-on-unmatched src/js/",
+    "lint": "../../contrib/hdbt/tools/sandbox.sh npm-run-all --parallel lint:scss lint:js -s"
   },
   "dependencies": {
     "@biomejs/biome": "^2.2.4",
@@ -24,5 +27,9 @@
   },
   "allowScripts": {
     "@parcel/watcher": false
+  },
+  "engines": {
+    "npm": ">=12.0.0",
+    "node": ">=24.0.0"
   }
 }
