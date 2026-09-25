@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.banner.field_banner_desc
     - field.field.paragraph.banner.field_banner_design
+    - field.field.paragraph.banner.field_banner_hide_from_toc
     - field.field.paragraph.banner.field_banner_link
     - field.field.paragraph.banner.field_banner_link_design
     - field.field.paragraph.banner.field_banner_title
@@ -16,7 +17,7 @@ dependencies:
     - options
     - text
 _core:
-  default_config_hash: PyTDnOCPCv6QkuA8dmBkR5JozU-DR7TldJV8k0w3Rv0
+  default_config_hash: Rw3n35EeFmh0FMTJEdDu5UHTEUxSX2lBjyvo3aECN5Q
 id: paragraph.banner.default
 targetEntityType: paragraph
 bundle: banner
@@ -72,4 +73,5 @@ content:
     weight: 5
     region: content
 hidden:
+  field_banner_hide_from_toc: true
   search_api_excerpt: true

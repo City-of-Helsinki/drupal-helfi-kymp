@@ -26,8 +26,8 @@ final class VehicleRemovalBlock extends BlockBase implements ContainerFactoryPlu
     array $configuration,
     string $plugin_id,
     mixed $plugin_definition,
-    private readonly DrupalSettings $drupalSettings,
-    private readonly ConfigFactoryInterface $configFactory,
+    protected readonly DrupalSettings $drupalSettings,
+    protected readonly ConfigFactoryInterface $configFactory,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
