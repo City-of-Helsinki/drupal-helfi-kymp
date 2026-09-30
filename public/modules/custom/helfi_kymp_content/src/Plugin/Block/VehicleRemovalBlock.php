@@ -11,6 +11,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
+use Drupal\helfi_api_base\Environment\ActiveServiceTrait;
+use Drupal\helfi_api_base\Environment\EnvironmentResolverInterface;
 use Drupal\helfi_hakuvahti\DrupalSettings;
 
 /**
@@ -22,12 +24,15 @@ use Drupal\helfi_hakuvahti\DrupalSettings;
 )]
 final class VehicleRemovalBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
+  use ActiveServiceTrait;
+
   public function __construct(
     array $configuration,
     string $plugin_id,
     mixed $plugin_definition,
     protected readonly DrupalSettings $drupalSettings,
     protected readonly ConfigFactoryInterface $configFactory,
+    protected readonly EnvironmentResolverInterface $environmentResolver,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
@@ -36,19 +41,18 @@ final class VehicleRemovalBlock extends BlockBase implements ContainerFactoryPlu
    * {@inheritDoc}
    */
   public function build(): array {
-    $proxySettings = $this->configFactory->get('elastic_proxy.settings');
     $reactSettings = $this->configFactory->get('react_search.settings');
 
     $cache = new CacheableMetadata();
-    $cache->addCacheableDependency($proxySettings);
     $cache->addCacheableDependency($reactSettings);
+    $cache->addCacheTags(['config:helfi_api_base.environment_resolver.settings']);
 
     $build = [
       '#theme' => 'vehicle_removal',
       '#attached' => [
         'drupalSettings' => [
           'helfi_react_search' => [
-            'elastic_proxy_url' => $proxySettings->get('elastic_proxy_url'),
+            'elastic_proxy_url' => $this->getPublicElasticProxy()?->getAddress(),
             'sentry_dsn_react' => $reactSettings->get('sentry_dsn_react'),
           ],
         ],
