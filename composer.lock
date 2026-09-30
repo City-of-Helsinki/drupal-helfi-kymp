@@ -5121,16 +5121,16 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "2.2.7",
+            "version": "2.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "43266f56059c781449741926322ae3812d2c058b"
+                "reference": "e5fdb121ee91fcbd856a221de2ed6b906d8f9093"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/43266f56059c781449741926322ae3812d2c058b",
-                "reference": "43266f56059c781449741926322ae3812d2c058b",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/e5fdb121ee91fcbd856a221de2ed6b906d8f9093",
+                "reference": "e5fdb121ee91fcbd856a221de2ed6b906d8f9093",
                 "shasum": ""
             },
             "require": {
@@ -5146,15 +5146,22 @@
                 "drupal/coder": "^8.3"
             },
             "type": "drupal-module",
+            "extra": {
+                "patches": {
+                    "league/flysystem": {
+                        "Patch CVE-2026-102601": "./public/modules/contrib/helfi_azure_fs/patches/CVE-2026-102601.patch"
+                    }
+                }
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.2.7",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.2.8",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2026-09-09T06:30:39+00:00"
+            "time": "2026-09-30T06:40:49+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
