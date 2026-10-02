@@ -339,11 +339,17 @@ if (getenv('ELASTICSEARCH_ETUSIVU_URL')) {
     $config['search_api.server.etusivu']['backend_config']['connector'] = 'helfi_connector';
     $config['search_api.server.etusivu']['backend_config']['connector_config']['username'] = getenv('ELASTICSEARCH_ETUSIVU_WRITER_USER');
     $config['search_api.server.etusivu']['backend_config']['connector_config']['password'] = getenv('ELASTICSEARCH_ETUSIVU_WRITER_PASSWORD');
+
+    $config['helfi_api_base.api_accounts']['vault'][] = [
+      'id' => 'etusivu_elastic',
+      'plugin' => 'authorization_token',
+      'data' => base64_encode(getenv('ELASTICSEARCH_ETUSIVU_WRITER_USER') . ':' . getenv('ELASTICSEARCH_ETUSIVU_WRITER_PASSWORD')),
+    ];
   }
 }
 
 // Supported values: https://github.com/Seldaek/monolog/blob/main/doc/01-usage.md#log-levels.
-$default_log_level = $env === 'production' ? 'info' : 'debug';
+$default_log_level = $env === 'local' ? 'debug' : 'info';
 $settings['helfi_api_base.log_level'] = getenv('LOG_LEVEL') ?: $default_log_level;
 
 // Turn sentry JS error tracking on if SENTRY_DSN_PUBLIC is defined.

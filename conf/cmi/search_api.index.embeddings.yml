@@ -33,14 +33,20 @@ field_settings:
     label: 'Entity type'
     property_path: search_api_entity_type
     type: string
+  instance:
+    label: Instance
+    property_path: custom_value
+    type: string
+    configuration:
+      value: '[site:helfi-current-instance]'
   label:
     label: 'Entity label'
     property_path: helfi_entity_label
-    type: string
+    type: text
   metatag_title:
     label: 'Metatag title'
     property_path: helfi_metatag_title
-    type: string
+    type: text
   published_at:
     label: Published
     datasource_id: 'entity:node'
@@ -52,7 +58,7 @@ field_settings:
   url:
     label: URI
     property_path: search_api_url
-    type: string
+    type: text
     configuration:
       absolute: false
 datasource_settings:

@@ -11,7 +11,7 @@ dependencies:
   module:
     - responsive_image
 _core:
-  default_config_hash: RsZm5zJoAdk_YebwlWNiBP7_oW9gYi6X-scuL71o2hU
+  default_config_hash: cnLVXhmH1bA0oB8PrymDUR7tYJM_LoyRyCOieH5lzHg
 id: media.image.square_thumbnail
 targetEntityType: media
 bundle: image
@@ -24,7 +24,7 @@ content:
       responsive_image_style: square_thumbnail
       image_link: ''
       image_loading:
-        attribute: eager
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content

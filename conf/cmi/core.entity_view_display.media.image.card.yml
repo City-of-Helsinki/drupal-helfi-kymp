@@ -11,7 +11,7 @@ dependencies:
   module:
     - responsive_image
 _core:
-  default_config_hash: xETeelJnzOzT8B_LSa6tv9vsvJbwRbagDA5ctiaY8EM
+  default_config_hash: jp4c4USicCZqKzQtlTCJ9bXJppPqddXQfSSUDjvHmRo
 id: media.image.card
 targetEntityType: media
 bundle: image
@@ -24,7 +24,7 @@ content:
       responsive_image_style: card
       image_link: ''
       image_loading:
-        attribute: eager
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
