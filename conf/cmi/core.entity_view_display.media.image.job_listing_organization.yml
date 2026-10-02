@@ -11,7 +11,7 @@ dependencies:
   module:
     - responsive_image
 _core:
-  default_config_hash: BONoiQga3QrwedbS8VQ52p_iAKUrX-5sOH1zLb5ubro
+  default_config_hash: kbzJfW4tm7q-3bJmnPfUgxgD3QINxDxGtR-0n_j3w4k
 id: media.image.job_listing_organization
 targetEntityType: media
 bundle: image
@@ -24,7 +24,7 @@ content:
       responsive_image_style: job_listing_org
       image_link: ''
       image_loading:
-        attribute: eager
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
