@@ -125,6 +125,7 @@
         ],
         "post-update-cmd": [
             "@copy-commit-message-script"
-        ]
+        ],
+        "pre-command-run": "bash tools/composer/require-container.sh"
     }
 }
