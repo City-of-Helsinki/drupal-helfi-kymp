@@ -1,11 +1,9 @@
-label: Innehåll
-description: 'Hitta och hantera innehåll.'
 display:
   default:
-    display_title: Förvald
     display_options:
-      title: Innehåll
       fields:
+        changed_at:
+          label: 'Uppdaterad av användare'
         title:
           label: Titel
         type:
@@ -18,13 +16,12 @@ display:
           settings:
             format_custom_false: 'Ej publicerad'
             format_custom_true: Publicerad
-        changed:
-          label: Uppdaterad
         langcode:
           label: Språk
           separator: ', '
         operations:
           label: Funktioner
+      title: Innehåll
       pager:
         options:
           tags:
@@ -62,6 +59,7 @@ display:
         langcode:
           expose:
             label: Språk
+    display_title: Förvald
   page_1:
     display_title: Sida
     display_options:
@@ -70,3 +68,5 @@ display:
       tab_options:
         title: Innehåll
         description: 'Hitta och hantera innehåll'
+label: Innehåll
+description: 'Hitta och hantera innehåll.'
