@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.banner.field_banner_desc
     - field.field.paragraph.banner.field_banner_design
+    - field.field.paragraph.banner.field_banner_hide_from_toc
     - field.field.paragraph.banner.field_banner_link
     - field.field.paragraph.banner.field_banner_link_design
     - field.field.paragraph.banner.field_banner_title
@@ -17,7 +18,7 @@ dependencies:
     module:
       - hdbt_admin_tools
 _core:
-  default_config_hash: lQyC2S5i5_fCJAL4WOUq6uRHDEi2cMp_3ikdn2_Ivc8
+  default_config_hash: J3bu8QR2EPViuLt_CLazc3zoOLuvnuWXA2ulCkt1fmg
 id: paragraph.banner.default
 targetEntityType: paragraph
 bundle: banner
@@ -36,6 +37,13 @@ content:
     weight: 0
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_banner_hide_from_toc:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_banner_link:
     type: link_target_icon_field_widget

@@ -130,6 +130,12 @@ if ($reverse_proxy_address = getenv('DRUPAL_REVERSE_PROXY_ADDRESS')) {
 }
 
 if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
+  $blob_storage_container = getenv('AZURE_BLOB_STORAGE_CONTAINER');
+  $blob_storage_token = drupal_get_env([
+    'AZURE_BLOB_STORAGE_SAS_TOKEN',
+    'BLOBSTORAGE_SAS_TOKEN',
+  ]);
+
   $schemes = [
     'azure' => [
       'driver' => 'helfi_azure',
@@ -139,18 +145,22 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
           'AZURE_BLOB_STORAGE_KEY',
           'BLOBSTORAGE_ACCOUNT_KEY',
         ]),
-        'token' => drupal_get_env([
-          'AZURE_BLOB_STORAGE_SAS_TOKEN',
-          'BLOBSTORAGE_SAS_TOKEN',
-        ]),
-        'container' => getenv('AZURE_BLOB_STORAGE_CONTAINER'),
+        'token' => $blob_storage_token,
+        'container' => $blob_storage_container,
         'endpointSuffix' => 'core.windows.net',
         'protocol' => 'https',
       ],
-      'cache' => TRUE,
     ],
   ];
   $config['helfi_azure_fs.settings']['use_blob_storage'] = TRUE;
+
+  $settings['helfi_azure_fs'] = [
+    'name' => $blob_storage_name,
+    'token' => $blob_storage_token,
+    'container' => $blob_storage_container,
+    'public_url_base' => sprintf('https://%s.blob.core.windows.net/%s', $blob_storage_name, $blob_storage_container),
+  ];
+
   $settings['file_additional_public_schemes'] = ['azure'];
   $settings['flysystem'] = $schemes;
 }
@@ -339,11 +349,17 @@ if (getenv('ELASTICSEARCH_ETUSIVU_URL')) {
     $config['search_api.server.etusivu']['backend_config']['connector'] = 'helfi_connector';
     $config['search_api.server.etusivu']['backend_config']['connector_config']['username'] = getenv('ELASTICSEARCH_ETUSIVU_WRITER_USER');
     $config['search_api.server.etusivu']['backend_config']['connector_config']['password'] = getenv('ELASTICSEARCH_ETUSIVU_WRITER_PASSWORD');
+
+    $config['helfi_api_base.api_accounts']['vault'][] = [
+      'id' => 'etusivu_elastic',
+      'plugin' => 'authorization_token',
+      'data' => base64_encode(getenv('ELASTICSEARCH_ETUSIVU_WRITER_USER') . ':' . getenv('ELASTICSEARCH_ETUSIVU_WRITER_PASSWORD')),
+    ];
   }
 }
 
 // Supported values: https://github.com/Seldaek/monolog/blob/main/doc/01-usage.md#log-levels.
-$default_log_level = $env === 'production' ? 'info' : 'debug';
+$default_log_level = $env === 'local' ? 'debug' : 'info';
 $settings['helfi_api_base.log_level'] = getenv('LOG_LEVEL') ?: $default_log_level;
 
 // Turn sentry JS error tracking on if SENTRY_DSN_PUBLIC is defined.
