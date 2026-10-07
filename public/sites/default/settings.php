@@ -150,6 +150,11 @@ if ($blob_storage_name = getenv('AZURE_BLOB_STORAGE_NAME')) {
         'endpointSuffix' => 'core.windows.net',
         'protocol' => 'https',
       ],
+      // Required by helfi_azure_fs 2.x: blob storage has no directories, so
+      // without the metadata cache is_dir() fails for derivative directories
+      // and ImageMagick can't move generated images (e.g. WebP) to the blob
+      // storage.
+      'cache' => TRUE,
     ],
   ];
   $config['helfi_azure_fs.settings']['use_blob_storage'] = TRUE;
