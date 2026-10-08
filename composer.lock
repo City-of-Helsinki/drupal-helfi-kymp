@@ -2332,17 +2332,17 @@
         },
         {
             "name": "drupal/ai_content_suggestions",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_content_suggestions.git",
-                "reference": "1.5.1"
+                "reference": "1.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_content_suggestions-1.5.1.zip",
-                "reference": "1.5.1",
-                "shasum": "f7027db270a2185dde9c4374d72804d38126f107"
+                "url": "https://ftp.drupal.org/files/projects/ai_content_suggestions-1.5.2.zip",
+                "reference": "1.5.2",
+                "shasum": "a2f03b657f754eea5ebf305b9a8d77fc06970a05"
             },
             "require": {
                 "drupal/ai": "^1.4",
@@ -2352,8 +2352,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.5.1",
-                    "datestamp": "1790965412",
+                    "version": "1.5.2",
+                    "datestamp": "1791397977",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2460,7 +2460,7 @@
             "extra": {
                 "drupal": {
                     "version": "1.2.0-beta1",
-                    "datestamp": "1790877723",
+                    "datestamp": "1791462250",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -3652,29 +3652,31 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "2.0.10"
+                "reference": "2.0.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.10.zip",
-                "reference": "2.0.10",
-                "shasum": "a55c793c1f59be1a4866972998b50ced21bfbcb0"
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.11.zip",
+                "reference": "2.0.11",
+                "shasum": "02ff0687f1d6d94238d3e47fdb6cb240fecf2626"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
             },
             "require-dev": {
+                "drupal/cva": "^1",
+                "drupal/mercury": "^1.0.5",
                 "drush/drush": "^13"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.10",
-                    "datestamp": "1787942208",
+                    "version": "2.0.11",
+                    "datestamp": "1791390966",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3750,17 +3752,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.2.23",
+            "version": "2.2.24",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.2.23"
+                "reference": "2.2.24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.23.zip",
-                "reference": "2.2.23",
-                "shasum": "8d02c8c9df720b8831c1323a3a6d418343507a6c"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.24.zip",
+                "reference": "2.2.24",
+                "shasum": "17510986c8b81cd8a9a306c6dba5db419878238b"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -3771,8 +3773,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.23",
-                    "datestamp": "1790185734",
+                    "version": "2.2.24",
+                    "datestamp": "1791401252",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5066,16 +5068,16 @@
         },
         {
             "name": "drupal/helfi_api_base",
-            "version": "2.8.41",
+            "version": "2.8.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base.git",
-                "reference": "d64a90b93b66e05710dfe3198918ac20dd47dda1"
+                "reference": "d4a0fbaa0ab4ca31a22d837cda04134d8b62ca06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/d64a90b93b66e05710dfe3198918ac20dd47dda1",
-                "reference": "d64a90b93b66e05710dfe3198918ac20dd47dda1",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-api-base/zipball/d4a0fbaa0ab4ca31a22d837cda04134d8b62ca06",
+                "reference": "d4a0fbaa0ab4ca31a22d837cda04134d8b62ca06",
                 "shasum": ""
             },
             "require": {
@@ -5119,10 +5121,10 @@
             ],
             "description": "Helfi - API Base",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.41",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/tree/2.8.42",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-api-base/issues"
             },
-            "time": "2026-10-06T10:52:23+00:00"
+            "time": "2026-10-07T13:06:35+00:00"
         },
         {
             "name": "drupal/helfi_azure_fs",
@@ -5318,16 +5320,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.2.15",
+            "version": "5.2.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "d9267274ef0d733e835baf4aa091f15aae604bb5"
+                "reference": "76bb7fc962598ef07e6b3a72b5c89f66989b285a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/d9267274ef0d733e835baf4aa091f15aae604bb5",
-                "reference": "d9267274ef0d733e835baf4aa091f15aae604bb5",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/76bb7fc962598ef07e6b3a72b5c89f66989b285a",
+                "reference": "76bb7fc962598ef07e6b3a72b5c89f66989b285a",
                 "shasum": ""
             },
             "require": {
@@ -5445,6 +5447,9 @@
                     "drupal/external_entities": {
                         "Creating external entity types in KernelTests no longer works (https://www.drupal.org/project/external_entities/issues/3549828)": "./public/modules/contrib/helfi_platform_config/patches/3549828.patch"
                     },
+                    "drupal/imagecache_external": {
+                        "[#UHF-13679] Only save the fetched files that are images and limit the download size and time": "./public/modules/contrib/helfi_platform_config/patches/imagecache_external_fetch_hardening.patch"
+                    },
                     "drupal/metatag": {
                         "Fix deprecation error which breaks everything https://www.drupal.org/project/metatag/issues/3563261": "./public/modules/contrib/helfi_platform_config/patches/3563261-14.patch"
                     },
@@ -5465,10 +5470,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.2.15",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.2.18",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-10-07T07:03:47+00:00"
+            "time": "2026-10-08T14:56:55+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -6257,17 +6262,17 @@
         },
         {
             "name": "drupal/menu_link_attributes",
-            "version": "1.7.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_link_attributes.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "ae473541208cbe18130cb4b75104b55a9b80d073"
+                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "84cacbda3a6a3998aad5abd4ea2af99b9c310ced"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11"
@@ -6275,8 +6280,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1774255144",
+                    "version": "8.x-1.10",
+                    "datestamp": "1791469291",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6299,6 +6304,10 @@
                 {
                     "name": "jcnventura",
                     "homepage": "https://www.drupal.org/user/122464"
+                },
+                {
+                    "name": "norman.lol",
+                    "homepage": "https://www.drupal.org/user/2482808"
                 },
                 {
                     "name": "yannickoo",
@@ -13669,16 +13678,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "4.33.1",
+            "version": "4.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "9efdac44d8a1c2dce454b4199d6fe234349de7db"
+                "reference": "3d8f4e56becb10ede64e2ac6f8077f6434715461"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/9efdac44d8a1c2dce454b4199d6fe234349de7db",
-                "reference": "9efdac44d8a1c2dce454b4199d6fe234349de7db",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/3d8f4e56becb10ede64e2ac6f8077f6434715461",
+                "reference": "3d8f4e56becb10ede64e2ac6f8077f6434715461",
                 "shasum": ""
             },
             "require": {
@@ -13707,7 +13716,7 @@
                 "open-telemetry/gen-otlp-protobuf": "^1.2.1",
                 "open-telemetry/sdk": "^1.1",
                 "open-telemetry/sem-conv": "^1.27",
-                "phpstan/phpstan": "^1.3",
+                "phpstan/phpstan": "^2.2",
                 "phpunit/phpunit": "^8.5.52|^9.6.34",
                 "spiral/roadrunner-http": "^3.6",
                 "spiral/roadrunner-worker": "^3.6"
@@ -13750,7 +13759,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/4.33.1"
+                "source": "https://github.com/getsentry/sentry-php/tree/4.34.0"
             },
             "funding": [
                 {
@@ -13762,7 +13771,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-10-06T10:28:21+00:00"
+            "time": "2026-10-08T11:25:58+00:00"
         },
         {
             "name": "stomp-php/stomp-php",
