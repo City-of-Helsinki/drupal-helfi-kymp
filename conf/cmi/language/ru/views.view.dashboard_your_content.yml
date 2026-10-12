@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Основной
     display_options:
       fields:
         views_bulk_operations_bulk_form:
@@ -28,6 +29,8 @@ display:
           settings:
             format_custom_false: 'Снято с публикации'
             format_custom_true: Опубликовано
+          separator: ', '
+        changed_at:
           separator: ', '
         operations:
           label: Операции
@@ -69,6 +72,5 @@ display:
         langcode:
           expose:
             label: Язык
-    display_title: Основной
   your_content_block:
     display_title: Блок
