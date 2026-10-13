@@ -11,12 +11,11 @@ dependencies:
     - field.field.node.page.field_liftup_image
     - field.field.node.page.field_lower_content
     - field.field.node.page.field_metatags
-    - field.field.node.page.field_sidebar_content
     - node.type.page
   module:
     - user
 _core:
-  default_config_hash: IHO2JHvcAGkOIDr7TbzmCXV80ajFCCbKs05r35GcfVc
+  default_config_hash: d7O0UTLP0tTDzRhYrRWOV1as_sTcVl9JMmCsUgcxZjc
 id: node.page.teaser
 targetEntityType: node
 bundle: page
@@ -40,7 +39,6 @@ hidden:
   field_lead_in: true
   field_lower_content: true
   field_metatags: true
-  field_sidebar_content: true
   langcode: true
   links: true
   published_at: true
