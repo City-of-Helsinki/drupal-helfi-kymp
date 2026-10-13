@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.project.field_project_search_metatags
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
-    - field.field.node.project.field_sidebar_content
     - node.type.project
   module:
     - datetime_range
@@ -26,6 +25,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - publication_date
     - scheduler
     - select2
 id: node.project.default
@@ -166,25 +166,6 @@ content:
       autocomplete: true
       match_operator: CONTAINS
       match_limit: 10
-    third_party_settings: {  }
-  field_sidebar_content:
-    type: paragraphs
-    weight: 5
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.district.field_lead_in
     - field.field.node.district.field_lower_content
     - field.field.node.district.field_metatags
-    - field.field.node.district.field_sidebar_content
     - field.field.node.district.field_subdistricts
     - node.type.district
   module:
@@ -53,7 +52,6 @@ hidden:
   field_lead_in: true
   field_lower_content: true
   field_metatags: true
-  field_sidebar_content: true
   langcode: true
   published_at: true
   search_api_excerpt: true

@@ -8,13 +8,12 @@ dependencies:
     - field.field.tpr_service.tpr_service.field_hide_errand_services
     - field.field.tpr_service.tpr_service.field_lower_content
     - field.field.tpr_service.tpr_service.field_metatags
-    - field.field.tpr_service.tpr_service.field_sidebar_content
     - field.field.tpr_service.tpr_service.field_upper_content
   module:
     - helfi_tpr
     - text
 _core:
-  default_config_hash: BKJdRgCeG3fkmATTkCV3UnrG7P38ZKikpC9TeMaqnqg
+  default_config_hash: lpavDYAH_hTUuJltXAZGHkLdSvVOUUbMWJGqd6Loifs
 id: tpr_service.tpr_service.teaser
 targetEntityType: tpr_service
 bundle: tpr_service
@@ -51,7 +50,6 @@ hidden:
   field_hide_errand_services: true
   field_lower_content: true
   field_metatags: true
-  field_sidebar_content: true
   field_upper_content: true
   has_unit: true
   hide_service_points: true

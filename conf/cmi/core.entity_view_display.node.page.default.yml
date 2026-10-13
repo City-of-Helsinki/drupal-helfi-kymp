@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.page.field_liftup_image
     - field.field.node.page.field_lower_content
     - field.field.node.page.field_metatags
-    - field.field.node.page.field_sidebar_content
     - node.type.page
   module:
     - entity_reference_revisions
@@ -18,7 +17,7 @@ dependencies:
     - metatag
     - user
 _core:
-  default_config_hash: F-u8s9R9tXTY7ZzyOpQcQ6abxM8QlR2Asv_-C3fo3Mc
+  default_config_hash: xQWIgxWBWsv_zc10J5TifcFxYTA0rjA-dFHSABA5BQQ
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -55,15 +54,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 4
-    region: content
-  field_sidebar_content:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 5
     region: content
   links:
     settings: {  }
