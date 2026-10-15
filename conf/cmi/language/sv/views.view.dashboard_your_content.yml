@@ -1,7 +1,11 @@
 display:
   default:
-    display_title: Förvald
     display_options:
+      empty:
+        area:
+          content:
+            format: full_html
+            value: '<p>No pages to display.</p>'
       fields:
         views_bulk_operations_bulk_form:
           action_title: Åtgärd
@@ -30,8 +34,8 @@ display:
             format_custom_false: 'Ej publicerad'
             format_custom_true: Publicerad
           separator: ', '
-        changed:
-          label: Uppdaterad
+        changed_at:
+          label: 'Uppdaterad av användare'
           separator: ', '
         operations:
           label: Funktioner
@@ -73,5 +77,6 @@ display:
         langcode:
           expose:
             label: Språk
+    display_title: Förvald
   your_content_block:
     display_title: Block

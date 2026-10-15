@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.project.field_project_search_metatags
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
-    - field.field.node.project.field_sidebar_content
     - node.type.project
   module:
     - datetime_range
@@ -122,15 +121,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 9
-    region: content
-  field_sidebar_content:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 6
     region: content
   links:
     settings: {  }

@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.project.field_project_search_metatags
     - field.field.node.project.field_project_theme
     - field.field.node.project.field_project_type
-    - field.field.node.project.field_sidebar_content
     - node.type.project
   module:
     - datetime_range
@@ -101,7 +100,6 @@ hidden:
   field_project_phase: true
   field_project_search_metatags: true
   field_project_type: true
-  field_sidebar_content: true
   langcode: true
   published_at: true
   search_api_excerpt: true
