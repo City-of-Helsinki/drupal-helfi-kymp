@@ -193,6 +193,12 @@ parameters:
 			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
 
 		-
+			message: '#^Access to an undefined property object\:\:\$results\.$#'
+			identifier: property.notFound
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/Paikkatieto/PaikkatietoClient.php
+
+		-
 			message: '#^Method Drupal\\helfi_kymp_content\\Plugin\\Block\\SubdistrictsNavigationBlock\:\:__construct\(\) has parameter \$configuration with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1

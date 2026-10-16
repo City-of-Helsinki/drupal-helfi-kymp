@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content\Paikkatieto;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\helfi_kymp_content\MobileNoteStreetDataDto;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
@@ -33,32 +34,40 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * the deduplicated set of street names found within the configured
    * search radius.
    *
+   * @param \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $dto
+   *   The DTO class containing Paikkatieto-api request data.
    * @param array<array{float, float}> $coordinates
    *   Array of [lon, lat] coordinate pairs (GeoJSON order).
-   *
-   * @return array<string>
-   *   Unique street names (fi and sv) found along the linestring.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsForLineString(array $coordinates): array {
+  public function fetchStreetsForLineString(MobileNoteStreetDataDto $dto, array $coordinates): void {
     $count = count($coordinates);
-    $streets = [];
+
+    $config = $this->configFactory->get('helfi_kymp_content.settings');
+    $distance = $config->get('address_search_distance') ?: 75;
+    $limit = $config->get('address_search_limit') ?: 20;
 
     for ($i = 0; $i < $count - 1; $i++) {
       $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
       $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
 
-      $segmentStreets = $this->fetchStreetsByPoint($midLat, $midLon);
-      array_push($streets, ...$segmentStreets);
-    }
+      $data = $this->makeRequest([
+        'lat' => $midLat,
+        'lon' => $midLon,
+        'distance' => $distance,
+        'limit' => $limit,
+      ]);
+      $results = $data->results;
 
-    return array_values(array_unique($streets));
+      $dto->addStreetNames($this->parseStreetNames($results));
+      $dto->addPostalCodes($this->parsePostalCodes($results));
+    }
   }
 
   /**
-   * Fetches unique street names for a GeoJSON LineString or MultiLineString.
+   * Fetch street data for a GeoJSON LineString or MultiLineString.
    *
    * Dispatches by geometry type so callers don't have to inspect the
    * geometry shape themselves.
@@ -67,8 +76,8 @@ class PaikkatietoClient implements LoggerAwareInterface {
    *   The GeoJSON geometry as an stdClass with `->type` (lowercased) and
    *   `->coordinates` in WGS84 [lon, lat] order.
    *
-   * @return array<string>
-   *   Unique street names found along the geometry.
+   * @return \Drupal\helfi_kymp_content\MobileNoteStreetDataDto
+   *   Unique street names and postal codes found along the geometry.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    *   When the geometry type is not LineString or MultiLineString, or
@@ -76,15 +85,19 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchStreetsForGeometry(object $geometry): array {
-    return match ($geometry->type ?? '') {
-      'linestring' => $this->fetchStreetsForLineString($geometry->coordinates ?? []),
-      'multilinestring' => $this->fetchStreetsForMultiLineString($geometry->coordinates ?? []),
+  public function fetchStreetsForGeometry(object $geometry): MobileNoteStreetDataDto {
+    $dto = new MobileNoteStreetDataDto();
+
+    match ($geometry->type ?? '') {
+      'linestring' => $this->fetchStreetsForLineString($dto, $geometry->coordinates ?? []),
+      'multilinestring' => $this->fetchStreetsForMultiLineString($dto, $geometry->coordinates ?? []),
       default => throw new Exception(sprintf(
         'Paikkatieto: cannot fetch nearby streets for geometry type "%s".',
         $geometry->type ?? '',
       )),
     };
+
+    return $dto;
   }
 
   /**
@@ -93,22 +106,19 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * Calls fetchStreetsForLineString() for each component LineString and
    * returns the deduplicated union.
    *
+   * @param \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $dto
+   *   The DTO class containing Paikkatieto-api request data.
    * @param array<array<array{float, float}>> $multiCoordinates
    *   The MultiLineString coordinate array (a list of LineStrings, each
    *   itself a list of [lon, lat] pairs in GeoJSON order).
    *
-   * @return array<string>
-   *   Unique street names (fi and sv) found along all components.
-   *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsForMultiLineString(array $multiCoordinates): array {
-    $streets = [];
+  public function fetchStreetsForMultiLineString(MobileNoteStreetDataDto $dto, array $multiCoordinates): void {
     foreach ($multiCoordinates as $segment) {
-      array_push($streets, ...$this->fetchStreetsForLineString($segment));
+      $this->fetchStreetsForLineString($dto, $segment);
     }
-    return array_values(array_unique($streets));
   }
 
   /**
@@ -158,6 +168,56 @@ class PaikkatietoClient implements LoggerAwareInterface {
     }
 
     return array_values(array_unique($streets));
+  }
+
+  /**
+   * Parse street names from street data api result set.
+   *
+   * @param array<mixed> $results
+   *   The street data api result set.
+   *
+   * @return array<string>
+   *   The street names.
+   */
+  public function parseStreetNames(array $results): array {
+    if (empty($results)) {
+      return [];
+    }
+
+    $streets = [];
+    foreach ($results as $result) {
+      foreach (['fi', 'sv'] as $langcode) {
+        if (!empty($result->street->name->{$langcode})) {
+          $streets[] = $result->street->name->{$langcode};
+        }
+      }
+    }
+
+    return $streets;
+  }
+
+  /**
+   * Parse postal codes from street data api result set.
+   *
+   * @param array<mixed> $results
+   *   The street data api result set.
+   *
+   * @return array<string>
+   *   The postal codes.
+   */
+  public function parsePostalCodes(array $results): array {
+    if (empty($results)) {
+      return [];
+    }
+
+    $postal_codes = [];
+    foreach ($results as $result) {
+      if (!empty($result->postal_code_area->postal_code)) {
+        $postal_codes[] = $result->postal_code_area->postal_code;
+      }
+    }
+
+    return $postal_codes;
   }
 
   /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
+use Drupal\helfi_kymp_content\MobileNoteStreetDataDto;
 use Drupal\helfi_kymp_content\Paikkatieto\Exception;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\KernelTests\KernelTestBase;
@@ -128,13 +129,15 @@ class PaikkatietoClientTest extends KernelTestBase {
       [24.950, 60.175],
     ];
 
-    $streets = $client->fetchStreetsForLineString($coordinates);
+    $dto = new MobileNoteStreetDataDto();
+    $client->fetchStreetsForLineString($dto, $coordinates);
 
     // Deduplicated across segments.
-    $this->assertCount(3, $streets);
-    $this->assertContains('Mannerheimintie', $streets);
-    $this->assertContains('Mannerheimvägen', $streets);
-    $this->assertContains('Kaivokatu', $streets);
+    $this->assertCount(3, $dto->getStreetNames());
+    $this->assertContains('Mannerheimintie', $dto->getStreetNames());
+    $this->assertContains('Mannerheimvägen', $dto->getStreetNames());
+    $this->assertContains('Kaivokatu', $dto->getStreetNames());
+    $this->assertCount(0, $dto->getPostalCodes());
   }
 
   /**
