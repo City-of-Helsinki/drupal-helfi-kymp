@@ -68,7 +68,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
   }
 
   /**
-   * Enriches a single item with nearby street names from the Address API.
+   * Enriches a single item with data from the Address API.
    *
    * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
    *   The item to enrich.
@@ -78,7 +78,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchNearbyStreets(MobileNoteData $item): void {
+  public function enrich(MobileNoteData $item): void {
     $geo = $item->get('geometry')->getValue();
 
     if (!$geo || empty($geo->coordinates)) {
@@ -88,9 +88,18 @@ class MobileNoteDataService implements LoggerAwareInterface {
     // The Paikkatieto API call can fail with an exception when the API
     // is unable to handle too many requests. If that happens, the caller
     // should drop the item and let cron re-try on the next run.
-    $streets = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
+    $results = $this->paikkatietoClient->fetchAddressesForGeometry($geo);
 
-    $item->set('street_names', $streets);
+    $streets = [];
+    foreach ($results as $result) {
+      array_push($streets, ...array_filter([
+        $result->street->name->fi ?? NULL,
+        $result->street->name->sv ?? NULL,
+      ]));
+    }
+    $item->set('street_names', array_values(array_unique($streets)));
+
+    $item->set('address', AddressRange::resolve($item->get('address')->getString(), $geo, $results));
   }
 
   /**
