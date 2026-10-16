@@ -12,21 +12,21 @@ class MobileNoteStreetDataDto {
   /**
    * The street names.
    *
-   * @var array
+   * @var array<string>
    */
   private array $streetNames = [];
 
   /**
    * The postal codes.
    *
-   * @var array
+   * @var array<string>
    */
   private array $postalCodes = [];
 
   /**
    * Add unique street names to an array.
    *
-   * @param array $streetNames
+   * @param array<string> $streetNames
    *   The street names.
    */
   public function addStreetNames(array $streetNames): void {
@@ -40,7 +40,7 @@ class MobileNoteStreetDataDto {
   /**
    * Get list of street names.
    *
-   * @return array
+   * @return array<string>
    *   List of unique street names
    */
   public function getStreetNames(): array {
@@ -50,7 +50,7 @@ class MobileNoteStreetDataDto {
   /**
    * Add unique postal codes to an array.
    *
-   * @param array $postalCodes
+   * @param array<string> $postalCodes
    *   The postal codes.
    */
   public function addPostalCodes(array $postalCodes): void {
@@ -64,7 +64,7 @@ class MobileNoteStreetDataDto {
   /**
    * Get list of postal codes.
    *
-   * @return array
+   * @return array<string>
    *   List of unique postal codes.
    */
   public function getPostalCodes(): array {

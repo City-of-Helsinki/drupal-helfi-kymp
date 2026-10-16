@@ -88,7 +88,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     // The Paikkatieto API call can fail with an exception when the API
     // is unable to handle too many requests. If that happens, the caller
     // should drop the item and let cron re-try on the next run.
-    /** @var \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $data */
+    /** @var \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $streetData */
     $streetData = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
 
     $item->set('street_names', $streetData->getStreetNames());

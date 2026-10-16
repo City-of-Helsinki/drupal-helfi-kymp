@@ -173,10 +173,10 @@ class PaikkatietoClient implements LoggerAwareInterface {
   /**
    * Parse street names from street data api result set.
    *
-   * @param array $results
+   * @param array<mixed> $results
    *   The street data api result set.
    *
-   * @return array
+   * @return array<string>
    *   The street names.
    */
   public function parseStreetNames(array $results): array {
@@ -199,10 +199,10 @@ class PaikkatietoClient implements LoggerAwareInterface {
   /**
    * Parse postal codes from street data api result set.
    *
-   * @param array $results
+   * @param array<mixed> $results
    *   The street data api result set.
    *
-   * @return array
+   * @return array<string>
    *   The postal codes.
    */
   public function parsePostalCodes(array $results): array {
