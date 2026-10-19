@@ -118,7 +118,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     // Verify data mapping.
     $this->assertEquals('test.123', $item['id']);
-    $this->assertEquals('Test Street 1', $item['address']);
+    $this->assertEquals('Test Street 1 Info', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
     // Street names should contain all results' fi and sv names.
     $this->assertNotEmpty($item['street_names']);
@@ -282,7 +282,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     $this->container->set('http_client', $this->createMockHttpClient([
       new Response(200, [], $jsonResponse),
-      new Response(200, [], $addressResponse),
+      ...array_map(static fn () => new Response(200, [], $addressResponse), range(1, 12)),
     ]));
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
@@ -296,6 +296,29 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     $this->assertEquals('Tähtitorninkatu 8-12', $item->get('address')->getString());
     $this->assertEquals(['Tähtitorninkatu', 'Observatoriegatan'], $item->get('street_names')->getValue());
+
+    // Address info takes precedence over the calculated range.
+    // The overlapping part of the address and the address info is removed.
+    $cases = [
+      ['Tähtitorninkatu 8, Helsinki', '8-10', 'Tähtitorninkatu 8-10'],
+      ['Myrttitie 25, Helsinki', 'Myrttitie 25-29', 'Myrttitie 25-29'],
+      ['Laajalahdentie 16, Helsinki', '16-10 & 11', 'Laajalahdentie 16-10 & 11'],
+      ['Laajalahdentie 16, Helsinki', '10-16 & 11', 'Laajalahdentie 10-16 & 11'],
+      ['Tie 1, Helsinki', '3, 1', 'Tie 3, 1'],
+      ['Tie 1, Helsinki', '15-17', 'Tie 1 15-17'],
+      ['Tie 1, Helsinki', '11-13', 'Tie 1 11-13'],
+      ['Tie 1-3, Helsinki', '3, 5', 'Tie 1 3, 5'],
+      ['Tie 1-3, Helsinki', '1-3 & 5', 'Tie 1-3 & 5'],
+      ['Tie 1, Helsinki', 'kohdalla', 'Tie 1 kohdalla'],
+      ['Tie 1, 00100, Helsinki', 'kohdalla', 'Tie 1 kohdalla'],
+    ];
+    foreach ($cases as [$address, $addressInfo, $expected]) {
+      $item->set('address', $address);
+      $item->set('address_info', $addressInfo);
+      $this->sut->enrich($item);
+
+      $this->assertEquals($expected, $item->get('address')->getString());
+    }
   }
 
   /**

@@ -99,7 +99,14 @@ class MobileNoteDataService implements LoggerAwareInterface {
     }
     $item->set('street_names', array_values(array_unique($streets)));
 
-    $item->set('address', AddressRange::resolve($item->get('address')->getString(), $geo, $results));
+    $address = $item->get('address')->getString();
+    $addressInfo = trim($item->get('address_info')->getString());
+
+    // Prefer the address info written by the user over the calculated range.
+    $item->set('address', $addressInfo !== ''
+      ? AddressRange::resolveFromAddressInfo($address, $addressInfo)
+      : AddressRange::resolveFromGeometry($address, $geo, $results)
+    );
   }
 
   /**

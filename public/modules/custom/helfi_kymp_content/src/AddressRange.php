@@ -28,7 +28,55 @@ final readonly class AddressRange {
   private const float METRES_PER_DEGREE = 111320;
 
   /**
-   * Resolves the address ranges.
+   * Resolves the address with the address info.
+   *
+   * The address info can repeat the end of the address:
+   *  * "Myrttitie 25" and "Myrttitie 25-29"
+   *  * "Laajalahdentie 16", "16-10 & 11"
+   *  * "Laajalahdentie 16", "10-16 & 11".
+   *
+   * @param string $address
+   *   The MobileNote address, possibly with a city suffix.
+   * @param string $addressInfo
+   *   The MobileNote address info.
+   *
+   * @return string
+   *   The merged address.
+   */
+  public static function resolveFromAddressInfo(string $address, string $addressInfo): string {
+    // Remove the postal code and city suffix, e.g. ", 00100, Helsinki".
+    $address = explode(',', $address)
+        |> array_first(...)
+        |> trim(...);
+
+    // Remove the longest whole-word suffix of the address that matches
+    // address info.
+    $words = preg_split('/\s+/u', $address, -1, PREG_SPLIT_NO_EMPTY);
+    foreach (array_keys($words) as $i) {
+      $suffix = preg_quote(implode(' ', array_slice($words, $i)), '/');
+      $rest = preg_replace('/^' . $suffix . '(?![\p{L}\d])/iu', '', $addressInfo, 1, $count);
+      if ($count) {
+        return $address . $rest;
+      }
+    }
+
+    // Remove the numbers from the address that the address info also contains.
+    preg_match_all('/\d+/u', $addressInfo, $matches);
+    $numbers = array_map('intval', $matches[0]);
+    $address = preg_replace_callback(
+      '/\d+/u',
+      static fn (array $match) => in_array((int) $match[0], $numbers, TRUE) ? '' : $match[0],
+      $address,
+    );
+
+    // Clean up separators left behind, e.g. "Tie 1-" -> "Tie 1".
+    $address = trim(preg_replace('/\s+/u', ' ', $address), " \t-–,&");
+
+    return trim("$address $addressInfo");
+  }
+
+  /**
+   * Resolves the address ranges from the geometry.
    *
    * @param string $address
    *   The MobileNote address.
