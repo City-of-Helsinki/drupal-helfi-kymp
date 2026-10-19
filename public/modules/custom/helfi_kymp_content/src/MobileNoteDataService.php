@@ -95,7 +95,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
       foreach ($coordinate as $latlon) {
         $data = ['type' => $geo->type, 'coordinates' => $latlon];
         $zone = $this->parkingZoneService->getParkingZone(Location::createFromArray($data));
-        if (!in_array($zone->name, $zoneNames)) {
+        if ($zone && !in_array($zone->name, $zoneNames)) {
           $zoneNames[] = $zone->name;
         }
       }
