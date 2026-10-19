@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content;
 
 /**
- * Resolves street address ranges from a MobileNote geometry.
+ * Resolves street address ranges for MobileNote addresses.
  *
  * @phpstan-import-type Address from \Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient
  *
@@ -88,7 +88,7 @@ final readonly class AddressRange {
    * @return string
    *   The address ranges, e.g. "Tähtitorninkatu 8-12, 15".
    */
-  public static function resolve(string $address, object $geometry, array $results): string {
+  public static function resolveFromGeometry(string $address, object $geometry, array $results): string {
     $parsed = self::parse($address);
     if (!$parsed) {
       return $address;
@@ -103,96 +103,66 @@ final readonly class AddressRange {
     $origin = $parts[0][0];
     $original = $parsed->numbers[0];
     $partSegments = array_map(static fn (array $part) => self::segments($part, $origin), $parts);
-
     $addresses = self::addresses($parsed->street, $results, $origin);
 
     // The part and side of the line that the original address is on.
-    $anchorPart = count($parts) === 1 ? 0 : NULL;
-    $anchorSide = NULL;
-
     $match = array_find($addresses, static fn (array $address) => $address['number'] === $original);
     if ($match) {
-      $nearest = array_map(static fn (array $segments) => self::lineDistance($match['point'], $segments, FALSE), $partSegments);
-      $distances = array_column($nearest, 0);
-      $anchorPart ??= (int) array_search(min($distances), $distances, TRUE);
-      $anchorSide = $nearest[$anchorPart][1];
+      $anchor = self::nearestPart($match['point'], $partSegments, FALSE);
+    }
+    elseif (count($parts) === 1) {
+      $anchor = ['part' => 0, 'side' => NULL];
+    }
+    else {
+      $anchor = NULL;
     }
 
-    // Candidate addresses alongside each part, keyed by part index.
+    // Assign the addresses alongside the line to the nearest part.
     $candidates = [];
-
     foreach ($addresses as $address) {
-      $best = NULL;
-      foreach ($partSegments as $i => $segments) {
-        [$distance, $side] = self::lineDistance($address['point'], $segments, TRUE);
-        if ($distance <= self::MAX_DISTANCE_METRES && ($best === NULL || $distance < $best['distance'])) {
-          $best = ['part' => $i, 'distance' => $distance, 'side' => $side] + $address;
-        }
+      $nearest = self::nearestPart($address['point'], $partSegments, TRUE);
+      if ($nearest && $nearest['distance'] <= self::MAX_DISTANCE_METRES) {
+        $candidates[] = $nearest + $address;
       }
+    }
+    usort($candidates, static fn (array $a, array $b) => $a['distance'] <=> $b['distance']);
 
-      if ($best) {
-        $candidates[$best['part']][] = $best;
+    // The side of each part: the anchor side, or the nearest candidate's side.
+    $sides = [];
+    foreach ($candidates as $candidate) {
+      $sides[$candidate['part']] ??= $candidate['side'];
+    }
+    if (isset($anchor['side'])) {
+      $sides[$anchor['part']] = $anchor['side'];
+    }
+
+    // Group the numbers on the near side of each part by parity.
+    $numbers = [];
+    foreach ($candidates as $candidate) {
+      if ($candidate['side'] === $sides[$candidate['part']]) {
+        $numbers[$candidate['part']][$candidate['number'] % 2][] = $candidate['number'];
       }
+    }
+    ksort($numbers);
+
+    // Add the original numbers to the part the address is on. If the part is
+    // unknown, use the part with the closest numbers of the same parity, or
+    // keep the numbers in a group of their own. The original numbers stay in
+    // one range even if their parity differs.
+    $part = $anchor['part'] ?? self::closestPart($numbers, $original) ?? count($parts);
+    foreach ($parsed->numbers as $number) {
+      $numbers[$part][$original % 2][] = $number;
     }
 
     $ranges = [];
-    foreach (array_keys($parts) as $i) {
-      $partCandidates = $candidates[$i] ?? [];
-      $isAnchor = $i === $anchorPart;
-
-      if ($isAnchor && $anchorSide !== NULL) {
-        $side = $anchorSide;
-      }
-      elseif ($partCandidates) {
-        usort($partCandidates, static fn (array $a, array $b) => $a['distance'] <=> $b['distance']);
-        $side = $partCandidates[0]['side'];
-      }
-      else {
-        $side = NULL;
-      }
-
-      // Group the numbers on the near side by parity.
-      $numbers = [];
-      foreach ($partCandidates as $candidate) {
-        if ($candidate['side'] === $side) {
-          $numbers[$candidate['number'] % 2][] = $candidate['number'];
-        }
-      }
-      if ($isAnchor) {
-        foreach ($parsed->numbers as $number) {
-          $numbers[$number % 2][] = $number;
-        }
-      }
-
-      foreach ($numbers as $group) {
+    foreach ($numbers as $groups) {
+      foreach ($groups as $group) {
         $ranges[] = [min($group), max($group)];
       }
     }
-
-    // The original address does not belong to any part.
-    if ($anchorPart === NULL) {
-      $closest = NULL;
-      foreach ($ranges as $i => [$min, $max]) {
-        $gap = max($min - $original, $original - $max, 0);
-        if ($min % 2 === $original % 2 && ($closest === NULL || $gap < $closest[1])) {
-          $closest = [$i, $gap];
-        }
-      }
-
-      if ($closest) {
-        $ranges[$closest[0]] = [
-          min($ranges[$closest[0]][0], ...$parsed->numbers),
-          max($ranges[$closest[0]][1], ...$parsed->numbers),
-        ];
-      }
-      else {
-        $ranges[] = [min($parsed->numbers), max($parsed->numbers)];
-      }
-    }
-
     $ranges = self::mergeRanges($ranges);
 
-    if (count($ranges) === 1 && $ranges[0] === [$original, $original]) {
+    if ($ranges === [[$original, $original]]) {
       return $parsed->address;
     }
 
@@ -290,6 +260,58 @@ final readonly class AddressRange {
   }
 
   /**
+   * Gets the part nearest to a point.
+   *
+   * @param array{0: float, 1: float} $point
+   *   The point in metres.
+   * @param list<list<array{0: array{0: float, 1: float}, 1: array{0: float, 1: float}}>> $partSegments
+   *   The segments of each part in metres.
+   * @param bool $alongside
+   *   Only count segments that the point projects onto.
+   *
+   * @return array{part: int, distance: float, side: bool|null}|null
+   *   The part index, distance in metres and side, NULL if there is none.
+   */
+  private static function nearestPart(array $point, array $partSegments, bool $alongside): ?array {
+    $nearest = NULL;
+
+    foreach ($partSegments as $part => $segments) {
+      [$distance, $side] = self::lineDistance($point, $segments, $alongside);
+      if ($distance < ($nearest['distance'] ?? INF)) {
+        $nearest = ['part' => $part, 'distance' => $distance, 'side' => $side];
+      }
+    }
+
+    return $nearest;
+  }
+
+  /**
+   * Gets the part with the numbers closest to the given number.
+   *
+   * @param array<int, array<int, non-empty-list<int>>> $numbers
+   *   The numbers of each part, grouped by parity.
+   * @param int $number
+   *   The number.
+   *
+   * @return int|null
+   *   The part index, NULL if no part has numbers of the same parity.
+   */
+  private static function closestPart(array $numbers, int $number): ?int {
+    $closest = NULL;
+
+    foreach ($numbers as $part => $groups) {
+      if (isset($groups[$number % 2])) {
+        $gap = max(min($groups[$number % 2]) - $number, $number - max($groups[$number % 2]), 0);
+        if ($gap < ($closest['gap'] ?? INF)) {
+          $closest = ['part' => $part, 'gap' => $gap];
+        }
+      }
+    }
+
+    return $closest['part'] ?? NULL;
+  }
+
+  /**
    * Gets the distance from a point to the nearest segment.
    *
    * @param array{0: float, 1: float} $point
@@ -337,11 +359,10 @@ final readonly class AddressRange {
    * @param list<array{0: float, 1: float}> $line
    *   The linestring.
    * @param array{0: float, 1: float} $origin
-   *   The [lon, lat] origin for the metric projection.
+   *   The [lon, lat] origin.
    *
    * @return list<array{0: array{0: float, 1: float}, 1: array{0: float, 1: float}}>
-   *   The [start, end] segments in metres. A single-point linestring is a
-   *   zero-length segment.
+   *   The [start, end] segments in metres.
    */
   private static function segments(array $line, array $origin): array {
     $points = array_map(static fn (array $point) => self::toMetres($point, $origin), $line);
