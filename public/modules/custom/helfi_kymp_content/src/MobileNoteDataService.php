@@ -9,6 +9,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\Core\Utility\Error;
+use Drupal\helfi_api_base\ParkingZone\ResidentParkingZoneService;
+use Drupal\helfi_api_base\ServiceMap\DTO\Location;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
@@ -33,6 +35,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     protected ConfigFactoryInterface $configFactory,
     protected PaikkatietoClient $paikkatietoClient,
     protected GeometryConverter $geometryConverter,
+    protected ResidentParkingZoneService $parkingZoneService,
   ) {
   }
 
@@ -65,6 +68,40 @@ class MobileNoteDataService implements LoggerAwareInterface {
     ]);
 
     return $cache = $items;
+  }
+
+  /**
+   * Fetch parking zone data and append to elasticsearch data.
+   *
+   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
+   *   The item that is indexed to elasticsearch.
+   */
+  public function fetchParkingZoneData(MobileNoteData $item): void {
+    $geo = $item->get('geometry')->getValue();
+    if (!$geo || empty($geo->coordinates)) {
+      throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
+    }
+
+    if (!in_array($geo->type, ['multilinestring', 'linestring'])) {
+      return;
+    }
+
+    // Get all the parking zones and the coordinates.
+    $coordinates = $geo->type === 'multilinestring' ? $geo->coordinates : [$geo->coordinates];
+    $zoneNames = [];
+
+    // The area can be within multiple parking zones.
+    foreach ($coordinates as $coordinate) {
+      foreach ($coordinate as $latlon) {
+        $data = ['type' => $geo->type, 'coordinates' => $latlon];
+        $zone = $this->parkingZoneService->getParkingZone(Location::createFromArray($data));
+        if (!in_array($zone->name, $zoneNames)) {
+          $zoneNames[] = $zone->name;
+        }
+      }
+    }
+
+    $item->set('parking_zone_names', $zoneNames);
   }
 
   /**
