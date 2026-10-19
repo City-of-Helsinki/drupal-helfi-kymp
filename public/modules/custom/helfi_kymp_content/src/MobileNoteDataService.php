@@ -9,7 +9,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\Core\Utility\Error;
-use Drupal\helfi_api_base\ParkingZone\ResidentParkingZoneService;
+use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneService;
 use Drupal\helfi_api_base\ServiceMap\DTO\Location;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
