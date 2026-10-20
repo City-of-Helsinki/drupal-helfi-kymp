@@ -25,9 +25,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
     'search_api',
     'system',
     'user',
+    'diff',
   ];
 
   /**
@@ -90,11 +92,21 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
+      ],
+    ]);
+
+    $parkingZoneResponse = (string) json_encode([
+      'results' => [[
+        'name' => ['fi' => 'Kamppi'],
+        'boundary' => ['coordinates' => [[[24.950, 60.175], [24.951, 60.175]], [[24.949, 60.174], [24.950, 60.175]]]],
+      ],
       ],
     ]);
 
@@ -102,6 +114,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $client = $this->createMockHttpClient([
       new Response(200, [], $jsonResponse),
       new Response(200, [], $addressResponse),
+      new Response(200, [], $parkingZoneResponse),
+      new Response(200, [], $parkingZoneResponse),
     ]);
     $this->container->set('http_client', $client);
 
@@ -113,6 +127,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertArrayHasKey('test.123', $data);
 
     $this->sut->enrich($data['test.123']);
+    $this->sut->fetchParkingZoneData($data['test.123']);
 
     $item = $data['test.123']->getValue();
 
@@ -126,6 +141,9 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Mannerheimvägen', $item['street_names']);
     $this->assertContains('Kaivokatu', $item['street_names']);
     $this->assertCount(3, $item['street_names']);
+    $this->assertCount(1, $item['postal_codes']);
+    $this->assertCount(1, $item['parking_zone_names']);
+    $this->assertEquals('Kamppi', $item['parking_zone_names'][0]);
 
     // Verify date conversion (Europe/Helsinki timezone).
     $tz = new \DateTimeZone('Europe/Helsinki');
@@ -182,10 +200,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
       ],
     ]);
@@ -204,6 +224,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.789', $data);
 
+    // $this->sut->fetchNearbyStreetData($data['test.789']);
     $this->sut->enrich($data['test.789']);
 
     $item = $data['test.789']->getValue();

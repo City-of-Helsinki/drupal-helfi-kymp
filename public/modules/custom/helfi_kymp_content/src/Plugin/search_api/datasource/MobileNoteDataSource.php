@@ -116,6 +116,14 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
         Error::logException($this->logger, $e);
         unset($items[$id]);
       }
+
+      try {
+        $this->dataService->fetchParkingZoneData($item);
+      }
+      catch (\InvalidArgumentException | Exception $e) {
+        Error::logException($this->logger, $e);
+        unset($items[$id]);
+      }
     }
 
     return $items;

@@ -19,6 +19,7 @@ use Psr\Log\LoggerAwareTrait;
  *   number?: string,
  *   letter?: string,
  *   location?: object{coordinates: array{0: float, 1: float}},
+ *   postal_code_area?: object{postal_code: string},
  * }
  *
  * @see https://helsinkisolutionoffice.atlassian.net/wiki/spaces/KAN/pages/7614431294/Paikkatietohaku+-+palvelu

@@ -39,6 +39,11 @@ field_settings:
     datasource_id: mobilenote_data_source
     property_path: geometry
     type: geo_shape
+  parking_zone_names:
+    label: 'Parking zones'
+    datasource_id: mobilenote_data_source
+    property_path: parking_zone_names
+    type: string
   map_url:
     label: 'Map URL'
     datasource_id: mobilenote_data_source
@@ -68,6 +73,11 @@ field_settings:
     label: 'Street names'
     datasource_id: mobilenote_data_source
     property_path: street_names
+    type: string
+  postal_codes:
+    label: 'Postal codes'
+    datasource_id: mobilenote_data_source
+    property_path: postal_codes
     type: string
   time_range:
     label: 'Time range'
