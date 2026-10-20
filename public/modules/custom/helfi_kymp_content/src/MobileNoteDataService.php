@@ -9,8 +9,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\Core\Utility\Error;
-use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneService;
 use Drupal\helfi_api_base\ServiceMap\DTO\Location;
+use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneServiceInterface;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
@@ -35,7 +35,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     protected ConfigFactoryInterface $configFactory,
     protected PaikkatietoClient $paikkatietoClient,
     protected GeometryConverter $geometryConverter,
-    protected ResidentParkingZoneService $parkingZoneService,
+    protected ResidentParkingZoneServiceInterface $parkingZoneService,
   ) {
   }
 

@@ -25,9 +25,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
     'search_api',
     'system',
     'user',
+    'diff'
   ];
 
   /**
@@ -90,10 +92,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+          'postal_code_area' => ['postal_code' => '00100']
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+          'postal_code_area' => ['postal_code' => '00100']
         ],
       ],
     ]);
@@ -126,6 +130,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Mannerheimvägen', $item['street_names']);
     $this->assertContains('Kaivokatu', $item['street_names']);
     $this->assertCount(3, $item['street_names']);
+    $this->assertCount(1, $item['postal_codes']);
 
     // Verify date conversion (Europe/Helsinki timezone).
     $tz = new \DateTimeZone('Europe/Helsinki');
@@ -182,10 +187,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
+          'postal_code_area' => ['postal_code' => '00100']
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
+          'postal_code_area' => ['postal_code' => '00100']
         ],
       ],
     ]);
