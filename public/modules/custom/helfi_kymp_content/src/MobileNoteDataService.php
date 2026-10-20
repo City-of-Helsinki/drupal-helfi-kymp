@@ -105,7 +105,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
   }
 
   /**
-   * Enriches a single item with nearby street names from the Address API.
+   * Enriches the data with street names and postal codes from the Address API.
    *
    * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
    *   The item to enrich.
@@ -115,9 +115,8 @@ class MobileNoteDataService implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchNearbyStreets(MobileNoteData $item): void {
+  public function fetchNearbyStreetData(MobileNoteData $item): void {
     $geo = $item->get('geometry')->getValue();
-
     if (!$geo || empty($geo->coordinates)) {
       throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
     }

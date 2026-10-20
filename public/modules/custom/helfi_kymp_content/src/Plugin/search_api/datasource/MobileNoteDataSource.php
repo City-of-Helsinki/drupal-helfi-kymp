@@ -110,7 +110,7 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
     // that fail enrichment so a single bad item doesn't fail the batch.
     foreach ($items as $id => $item) {
       try {
-        $this->dataService->fetchNearbyStreets($item);
+        $this->dataService->fetchNearbyStreetData($item);
         $this->dataService->fetchParkingZoneData($item);
       }
       catch (\InvalidArgumentException | Exception $e) {
