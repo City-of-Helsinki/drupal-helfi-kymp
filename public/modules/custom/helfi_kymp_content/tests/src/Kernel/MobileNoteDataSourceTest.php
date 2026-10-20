@@ -36,10 +36,6 @@ class MobileNoteDataSourceTest extends KernelTestBase {
    * Tests data fetching and coordinate conversion.
    */
   public function testDatasource(): void {
-    // @todo Enable this on next release.
-    $this->markTestSkipped('Address ranges are disabled until the next release.');
-
-    // @phpstan-ignore deadCode.unreachable
     $this->config('helfi_kymp_content.settings')
       ->set('wfs_url', 'https://example.com/wfs')
       ->set('wfs_username', 'test_user')
@@ -55,7 +51,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     ]);
 
     $this->setupMockHttpClient([
-      new Response(body: json_encode([
+      new Response(body: (string) json_encode([
         'features' => [
           [
             'id' => 'test.123',
