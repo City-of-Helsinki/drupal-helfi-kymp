@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.event_list.field_api_url
     - field.field.paragraph.event_list.field_event_count
+    - field.field.paragraph.event_list.field_event_list_all_events_link
     - field.field.paragraph.event_list.field_event_list_audience
     - field.field.paragraph.event_list.field_event_list_category_event
     - field.field.paragraph.event_list.field_event_list_category_hobby
@@ -28,6 +29,7 @@ dependencies:
   module:
     - field_group
     - helfi_react_search
+    - link
     - select2
     - text
 third_party_settings:
@@ -44,7 +46,7 @@ third_party_settings:
       label: 'Search restrictions'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
@@ -66,7 +68,7 @@ third_party_settings:
       label: 'Search filters for users'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
@@ -76,7 +78,7 @@ third_party_settings:
         description: 'Select which filters are shown to users.'
         required_fields: false
 _core:
-  default_config_hash: GHLY9YCH1-ojb_MmRZCGI0mFYv5NWCPA0r5MY3m9T54
+  default_config_hash: qo8_9tcMrlA3VKVIu9r8WtQTXDMu_m27BYYBjTjLSmc
 id: paragraph.event_list.default
 targetEntityType: paragraph
 bundle: event_list
@@ -84,13 +86,21 @@ mode: default
 content:
   field_event_count:
     type: options_select
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_event_list_all_events_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_event_list_audience:
     type: linked_events_select2
-    weight: 15
+    weight: 12
     region: content
     settings:
       width: 100%
@@ -100,14 +110,14 @@ content:
     third_party_settings: {  }
   field_event_list_category_event:
     type: select2
-    weight: 11
+    weight: 8
     region: content
     settings:
       width: 100%
     third_party_settings: {  }
   field_event_list_category_hobby:
     type: select2
-    weight: 12
+    weight: 9
     region: content
     settings:
       width: 100%
@@ -122,7 +132,7 @@ content:
     third_party_settings: {  }
   field_event_list_free_text:
     type: string_textfield
-    weight: 10
+    weight: 7
     region: content
     settings:
       size: 60
@@ -130,7 +140,7 @@ content:
     third_party_settings: {  }
   field_event_list_keywords:
     type: linked_events_select2
-    weight: 13
+    weight: 10
     region: content
     settings:
       width: 100%
@@ -139,7 +149,7 @@ content:
     third_party_settings: {  }
   field_event_list_keywords_filter:
     type: linked_events_select2
-    weight: 27
+    weight: 28
     region: content
     settings:
       width: 100%
@@ -154,14 +164,14 @@ content:
     third_party_settings: {  }
   field_event_list_only_super:
     type: boolean_checkbox
-    weight: 16
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_event_list_place:
     type: linked_events_select2
-    weight: 14
+    weight: 11
     region: content
     settings:
       width: 100%
@@ -185,7 +195,7 @@ content:
     third_party_settings: {  }
   field_event_list_type:
     type: options_buttons
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -198,28 +208,28 @@ content:
     third_party_settings: {  }
   field_event_time:
     type: boolean_checkbox
-    weight: 23
+    weight: 24
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_free_events:
     type: boolean_checkbox
-    weight: 26
+    weight: 27
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_language:
     type: boolean_checkbox
-    weight: 24
+    weight: 25
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_remote_events:
     type: boolean_checkbox
-    weight: 25
+    weight: 26
     region: content
     settings:
       display_label: true
