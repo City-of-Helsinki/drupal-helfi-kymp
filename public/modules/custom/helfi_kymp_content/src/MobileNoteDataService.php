@@ -131,7 +131,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
         $result->street->name->sv ?? NULL,
       ]));
       array_push($postal_codes, ...array_filter([
-        $result->postal_code_area->postal_code ?? NULL
+        $result->postal_code_area->postal_code ?? NULL,
       ]));
     }
     $item->set('street_names', array_values(array_unique($streets)));
