@@ -28,6 +28,7 @@ class PaikkatietoClientTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
     'system',
   ];
 
