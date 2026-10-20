@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
+use Drupal\helfi_api_base\ServiceMap\DTO\Location;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
@@ -102,10 +103,19 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ],
     ]);
 
+    $parkingZoneResponse = (string) json_encode([
+      'results' => [[
+        'name' => ['fi' => 'Kamppi'],
+        'boundary' => ['coordinates' => [[[24.950, 60.175],[24.951, 60.175]],[[24.949, 60.174],[24.950, 60.175]]]],
+      ]]
+    ]);
+
     // Queue: 1 WFS response, then 1 Address API response (one segment).
     $client = $this->createMockHttpClient([
       new Response(200, [], $jsonResponse),
       new Response(200, [], $addressResponse),
+      new Response(200, [], $parkingZoneResponse),
+      new Response(200, [], $parkingZoneResponse),
     ]);
     $this->container->set('http_client', $client);
 
@@ -116,7 +126,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.123', $data);
 
-    $this->sut->fetchNearbyStreets($data['test.123']);
+    $this->sut->fetchNearbyStreetData($data['test.123']);
+    $this->sut->fetchParkingZoneData($data['test.123']);
 
     $item = $data['test.123']->getValue();
 
@@ -131,6 +142,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Kaivokatu', $item['street_names']);
     $this->assertCount(3, $item['street_names']);
     $this->assertCount(1, $item['postal_codes']);
+    $this->assertCount(1, $item['parking_zone_names']);
+    $this->assertEquals('Kamppi', $item['parking_zone_names'][0]);
 
     // Verify date conversion (Europe/Helsinki timezone).
     $tz = new \DateTimeZone('Europe/Helsinki');
@@ -211,7 +224,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.789', $data);
 
-    $this->sut->fetchNearbyStreets($data['test.789']);
+    $this->sut->fetchNearbyStreetData($data['test.789']);
 
     $item = $data['test.789']->getValue();
 
