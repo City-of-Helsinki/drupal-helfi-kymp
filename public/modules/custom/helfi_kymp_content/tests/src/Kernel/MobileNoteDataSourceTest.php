@@ -51,7 +51,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     ]);
 
     $this->setupMockHttpClient([
-      new Response(body: json_encode([
+      new Response(body: (string) json_encode([
         'features' => [
           [
             'id' => 'test.123',
