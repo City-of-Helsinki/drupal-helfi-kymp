@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
-use Drupal\helfi_api_base\ServiceMap\DTO\Location;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
@@ -30,7 +29,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     'search_api',
     'system',
     'user',
-    'diff'
+    'diff',
   ];
 
   /**
@@ -93,12 +92,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
-          'postal_code_area' => ['postal_code' => '00100']
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
-          'postal_code_area' => ['postal_code' => '00100']
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
       ],
     ]);
@@ -106,8 +105,9 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $parkingZoneResponse = (string) json_encode([
       'results' => [[
         'name' => ['fi' => 'Kamppi'],
-        'boundary' => ['coordinates' => [[[24.950, 60.175],[24.951, 60.175]],[[24.949, 60.174],[24.950, 60.175]]]],
-      ]]
+        'boundary' => ['coordinates' => [[[24.950, 60.175], [24.951, 60.175]], [[24.949, 60.174], [24.950, 60.175]]]],
+      ],
+      ],
     ]);
 
     // Queue: 1 WFS response, then 1 Address API response (one segment).
@@ -200,12 +200,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
         [
           'street' => ['name' => ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen']],
           'location' => ['type' => 'Point', 'coordinates' => [24.941, 60.171]],
-          'postal_code_area' => ['postal_code' => '00100']
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
         [
           'street' => ['name' => ['fi' => 'Kaivokatu']],
           'location' => ['type' => 'Point', 'coordinates' => [24.950, 60.175]],
-          'postal_code_area' => ['postal_code' => '00100']
+          'postal_code_area' => ['postal_code' => '00100'],
         ],
       ],
     ]);
