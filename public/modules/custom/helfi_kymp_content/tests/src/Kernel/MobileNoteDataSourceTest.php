@@ -29,6 +29,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     'helfi_api_base',
     'search_api',
     'user',
+    'diff',
   ];
 
   /**
