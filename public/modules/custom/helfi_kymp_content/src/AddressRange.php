@@ -32,10 +32,18 @@ final readonly class AddressRange {
   /**
    * Resolves the address with the address info.
    *
-   * The address info can repeat the end of the address:
-   *  * "Myrttitie 25" and "Myrttitie 25-29"
-   *  * "Laajalahdentie 16", "16-10 & 11"
-   *  * "Laajalahdentie 16", "10-16 & 11".
+   * The address info written by the user. We've seen texts
+   * that repeat or continue the address:
+   *  - Info that repeats the street name replaces the address:
+   *    "Myrttitie 25" + "Myrttitie 25-29" -> "Myrttitie 25-29".
+   *  - Info that starts with a number and mentions the house number, or a
+   *    range that covers it:
+   *    "Kuormakatu 4" + "8-2" -> "Kuormakatu 8-2".
+   *  - Info that starts with "-" and a number continues the house number:
+   *    "Ruusulankatu 5" + "-7" -> "Ruusulankatu 5-7".
+   *  - Info that starts with another number is listed after the address:
+   *    "Pohjoiskaari 27" + "43" -> "Pohjoiskaari 27, 43".
+   *  - Anything else is appended after the address.
    *
    * @param string $address
    *   The MobileNote address, possibly with a city suffix.
@@ -51,28 +59,36 @@ final readonly class AddressRange {
         |> array_first(...)
         |> trim(...);
 
-    // Remove the longest whole-word suffix of the address that matches
-    // address info.
-    $words = preg_split('/\s+/u', $address, -1, PREG_SPLIT_NO_EMPTY) ?: [];
-    foreach (array_keys($words) as $i) {
-      $suffix = preg_quote(implode(' ', array_slice($words, $i)), '/');
-      $rest = preg_replace('/^' . $suffix . '(?![\p{L}\d])/iu', '', $addressInfo, 1, $count);
-      if ($count) {
-        return $address . $rest;
-      }
+    // Collapse whitespace and normalize dashes between numbers.
+    $addressInfo = preg_replace('/\s+/u', ' ', trim($addressInfo));
+    $addressInfo = preg_replace('/(?<=\d)\s*[-–]\s*(?=\d)/u', '-', $addressInfo);
+
+    $parsed = self::parse($address);
+    if (!$parsed) {
+      return trim("$address $addressInfo");
     }
 
-    // Remove the numbers from the address that the address info also contains.
-    preg_match_all('/\d+/u', $addressInfo, $matches);
-    $numbers = array_map('intval', $matches[0]);
-    $address = preg_replace_callback(
-      '/\d+/u',
-      static fn (array $match) => in_array((int) $match[0], $numbers, TRUE) ? '' : $match[0],
-      $address,
-    );
+    // The info repeats the street name.
+    if (preg_match('/^' . preg_quote($parsed->street, '/') . '(?!\p{L})/iu', $addressInfo)) {
+      return $parsed->street . mb_substr($addressInfo, mb_strlen($parsed->street));
+    }
 
-    // Clean up separators left behind, e.g. "Tie 1-" -> "Tie 1".
-    $address = trim(preg_replace('/\s+/u', ' ', $address), " \t-–,&");
+    // The info that starts with a number replaces the house number if one of
+    // its numbers or ranges covers the house number, e.g. "4 ja 6" or "8-2".
+    if (preg_match('/^\d/u', $addressInfo)) {
+      preg_match_all('/(\d+)(?:-(\d+))?/u', $addressInfo, $matches, PREG_SET_ORDER);
+      $covers = array_any($matches, static function (array $match) use ($parsed): bool {
+        $range = [(int) $match[1], (int) ($match[2] ?? $match[1])];
+        return array_any($parsed->numbers, static fn (int $number) => $number >= min($range) && $number <= max($range));
+      });
+
+      return $covers ? "$parsed->street $addressInfo" : "$address, $addressInfo";
+    }
+
+    // The info continues the house number, e.g. "-7" or "- 28".
+    if (preg_match('/^[-–] ?(?=\d)(.*)$/u', $addressInfo, $matches)) {
+      return "$address-$matches[1]";
+    }
 
     return trim("$address $addressInfo");
   }
