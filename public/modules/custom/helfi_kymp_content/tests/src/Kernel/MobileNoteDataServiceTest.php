@@ -60,6 +60,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     // Mock WFS API response with EPSG:3879 coordinates.
     // Coordinate approx: 24.953, 60.171.
+    // @phpstan-ignore deadCode.unreachable
     $jsonResponse = (string) json_encode([
       'features' => [
         [
@@ -272,6 +273,7 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     // @todo Enable this on next release.
     $this->markTestSkipped('Address ranges are disabled until the next release.');
 
+    // @phpstan-ignore deadCode.unreachable
     $jsonResponse = (string) json_encode([
       'features' => [
         [

@@ -39,6 +39,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     // @todo Enable this on next release.
     $this->markTestSkipped('Address ranges are disabled until the next release.');
 
+    // @phpstan-ignore deadCode.unreachable
     $this->config('helfi_kymp_content.settings')
       ->set('wfs_url', 'https://example.com/wfs')
       ->set('wfs_username', 'test_user')
