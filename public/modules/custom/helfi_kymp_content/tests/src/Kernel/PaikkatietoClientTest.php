@@ -30,7 +30,7 @@ class PaikkatietoClientTest extends KernelTestBase {
     'helfi_kymp_content',
     'helfi_api_base',
     'system',
-    'diff'
+    'diff',
   ];
 
   /**
