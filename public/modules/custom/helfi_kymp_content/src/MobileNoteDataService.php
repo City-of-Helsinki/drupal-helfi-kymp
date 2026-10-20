@@ -115,20 +115,36 @@ class MobileNoteDataService implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchNearbyStreetData(MobileNoteData $item): void {
+  public function enrich(MobileNoteData $item): void {
     $geo = $item->get('geometry')->getValue();
     if (!$geo || empty($geo->coordinates)) {
       throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
     }
 
-    // The Paikkatieto API call can fail with an exception when the API
-    // is unable to handle too many requests. If that happens, the caller
-    // should drop the item and let cron re-try on the next run.
-    /** @var \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $streetData */
-    $streetData = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
+    $results = $this->paikkatietoClient->fetchAddressesForGeometry($geo);
 
-    $item->set('street_names', $streetData->getStreetNames());
-    $item->set('postal_codes', $streetData->getPostalCodes());
+    $streets = [];
+    $postal_codes = [];
+    foreach ($results as $result) {
+      array_push($streets, ...array_filter([
+        $result->street->name->fi ?? NULL,
+        $result->street->name->sv ?? NULL,
+      ]));
+      array_push($postal_codes, ...array_filter([
+        $result->postal_code_area->postal_code ?? NULL
+      ]));
+    }
+    $item->set('street_names', array_values(array_unique($streets)));
+    $item->set('postal_codes', array_values(array_unique($postal_codes)));
+
+    $address = $item->get('address')->getString();
+    $addressInfo = trim($item->get('address_info')->getString());
+
+    // Prefer the address info written by the user over the calculated range.
+    $item->set('address', $addressInfo !== ''
+      ? AddressRange::resolveFromAddressInfo($address, $addressInfo)
+      : AddressRange::resolveFromGeometry($address, $geo, $results)
+    );
   }
 
   /**

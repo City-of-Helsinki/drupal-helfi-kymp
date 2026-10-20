@@ -126,14 +126,15 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.123', $data);
 
-    $this->sut->fetchNearbyStreetData($data['test.123']);
-    $this->sut->fetchParkingZoneData($data['test.123']);
+    // $this->sut->fetchNearbyStreetData($data['test.123']);
+    // $this->sut->fetchParkingZoneData($data['test.123']);
+    $this->sut->enrich($data['test.123']);
 
     $item = $data['test.123']->getValue();
 
     // Verify data mapping.
     $this->assertEquals('test.123', $item['id']);
-    $this->assertEquals('Test Street 1', $item['address']);
+    $this->assertEquals('Test Street 1 Info', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
     // Street names should contain all results' fi and sv names.
     $this->assertNotEmpty($item['street_names']);
@@ -224,7 +225,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertCount(1, $data);
     $this->assertArrayHasKey('test.789', $data);
 
-    $this->sut->fetchNearbyStreetData($data['test.789']);
+    // $this->sut->fetchNearbyStreetData($data['test.789']);
+    $this->sut->enrich($data['test.789']);
 
     $item = $data['test.789']->getValue();
 
@@ -259,6 +261,71 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertNotEmpty($item['map_url']);
     $this->assertStringStartsWith('https://kartta.hel.fi/', $item['map_url']);
     $this->assertStringContainsString('MULTIPOLYGON', rawurldecode($item['map_url']));
+  }
+
+  /**
+   * Tests resolving the address range.
+   */
+  public function testEnrichAddressRange(): void {
+    $jsonResponse = (string) json_encode([
+      'features' => [
+        [
+          'id' => 'test.123',
+          'geometry' => [
+            'type' => 'LineString',
+            'coordinates' => [
+              [25497397.000, 6672506.000],
+              [25497500.000, 6672600.000],
+            ],
+          ],
+          'properties' => [
+            'osoite' => 'Tähtitorninkatu 8, Helsinki',
+            'voimassaoloAlku' => '2026-01-20',
+            'voimassaoloLoppu' => '2026-01-21',
+          ],
+        ],
+      ],
+    ]);
+
+    $addressResponse = (string) json_encode([
+      'results' => [
+        [
+          'street' => ['name' => ['fi' => 'Tähtitorninkatu', 'sv' => 'Observatoriegatan']],
+          'number' => '12',
+          'location' => ['type' => 'Point', 'coordinates' => [24.9518, 60.1701]],
+        ],
+        [
+          'street' => ['name' => ['fi' => 'Tähtitorninkatu', 'sv' => 'Observatoriegatan']],
+          'number' => '9',
+          'location' => ['type' => 'Point', 'coordinates' => [24.9510, 60.1699]],
+        ],
+      ],
+    ]);
+
+    $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(200, [], $jsonResponse),
+      new Response(200, [], $addressResponse),
+      new Response(200, [], $addressResponse),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $item = $this->sut->getMobileNoteData()['test.123'];
+    $item->set('geometry', (object) [
+      'type' => 'linestring',
+      'coordinates' => [[24.950, 60.170], [24.952, 60.170]],
+    ]);
+
+    $this->sut->enrich($item);
+
+    $this->assertEquals('Tähtitorninkatu 8-12', $item->get('address')->getString());
+    $this->assertEquals(['Tähtitorninkatu', 'Observatoriegatan'], $item->get('street_names')->getValue());
+
+    // Address info takes precedence over the calculated range.
+    $item->set('address', 'Tähtitorninkatu 8, Helsinki');
+    $item->set('address_info', '8-10');
+    $this->sut->enrich($item);
+
+    $this->assertEquals('Tähtitorninkatu 8-10', $item->get('address')->getString());
   }
 
   /**

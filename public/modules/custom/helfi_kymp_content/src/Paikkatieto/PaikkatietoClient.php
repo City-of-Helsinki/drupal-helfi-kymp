@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Drupal\helfi_kymp_content\Paikkatieto;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\helfi_kymp_content\MobileNoteStreetDataDto;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
@@ -14,6 +13,14 @@ use Psr\Log\LoggerAwareTrait;
 
 /**
  * Client for paikkatieto API.
+ *
+ * @phpstan-type Address object{
+ *   street: object{name: object{fi?: string, sv?: string, en?: string}},
+ *   number?: string,
+ *   letter?: string,
+ *   location?: object{coordinates: array{0: float, 1: float}},
+ *   postal_code_area?: object{postal_code: string},
+ * }
  *
  * @see https://helsinkisolutionoffice.atlassian.net/wiki/spaces/KAN/pages/7614431294/Paikkatietohaku+-+palvelu
  */
@@ -28,56 +35,14 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
-   * Fetches unique street names along a linestring.
-   *
-   * Queries the API at the midpoint of each segment and returns
-   * the deduplicated set of street names found within the configured
-   * search radius.
-   *
-   * @param \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $dto
-   *   The DTO class containing Paikkatieto-api request data.
-   * @param array<array{float, float}> $coordinates
-   *   Array of [lon, lat] coordinate pairs (GeoJSON order).
-   *
-   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
-   * @throws \InvalidArgumentException
-   */
-  public function fetchStreetsForLineString(MobileNoteStreetDataDto $dto, array $coordinates): void {
-    $count = count($coordinates);
-
-    $config = $this->configFactory->get('helfi_kymp_content.settings');
-    $distance = $config->get('address_search_distance') ?: 75;
-    $limit = $config->get('address_search_limit') ?: 20;
-
-    for ($i = 0; $i < $count - 1; $i++) {
-      $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
-      $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
-
-      $data = $this->makeRequest([
-        'lat' => $midLat,
-        'lon' => $midLon,
-        'distance' => $distance,
-        'limit' => $limit,
-      ]);
-      $results = $data->results;
-
-      $dto->addStreetNames($this->parseStreetNames($results));
-      $dto->addPostalCodes($this->parsePostalCodes($results));
-    }
-  }
-
-  /**
-   * Fetch street data for a GeoJSON LineString or MultiLineString.
-   *
-   * Dispatches by geometry type so callers don't have to inspect the
-   * geometry shape themselves.
+   * Fetches addresses near a GeoJSON LineString or MultiLineString.
    *
    * @param object $geometry
    *   The GeoJSON geometry as an stdClass with `->type` (lowercased) and
    *   `->coordinates` in WGS84 [lon, lat] order.
    *
-   * @return \Drupal\helfi_kymp_content\MobileNoteStreetDataDto
-   *   Unique street names and postal codes found along the geometry.
+   * @return list<Address>
+   *   The address results.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    *   When the geometry type is not LineString or MultiLineString, or
@@ -85,63 +50,49 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchStreetsForGeometry(object $geometry): MobileNoteStreetDataDto {
-    $dto = new MobileNoteStreetDataDto();
-
-    match ($geometry->type ?? '') {
-      'linestring' => $this->fetchStreetsForLineString($dto, $geometry->coordinates ?? []),
-      'multilinestring' => $this->fetchStreetsForMultiLineString($dto, $geometry->coordinates ?? []),
+  public function fetchAddressesForGeometry(object $geometry): array {
+    $lines = match ($geometry->type ?? '') {
+      'linestring' => [$geometry->coordinates ?? []],
+      'multilinestring' => $geometry->coordinates ?? [],
       default => throw new Exception(sprintf(
-        'Paikkatieto: cannot fetch nearby streets for geometry type "%s".',
+        'Paikkatieto: cannot fetch nearby addresses for geometry type "%s".',
         $geometry->type ?? '',
       )),
     };
 
-    return $dto;
-  }
+    $results = [];
+    foreach ($lines as $coordinates) {
+      for ($i = 0; $i < count($coordinates) - 1; $i++) {
+        // Queries the API at the midpoint of each segment.
+        $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
+        $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
 
-  /**
-   * Fetches unique street names along a multi-linestring.
-   *
-   * Calls fetchStreetsForLineString() for each component LineString and
-   * returns the deduplicated union.
-   *
-   * @param \Drupal\helfi_kymp_content\MobileNoteStreetDataDto $dto
-   *   The DTO class containing Paikkatieto-api request data.
-   * @param array<array<array{float, float}>> $multiCoordinates
-   *   The MultiLineString coordinate array (a list of LineStrings, each
-   *   itself a list of [lon, lat] pairs in GeoJSON order).
-   *
-   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
-   * @throws \InvalidArgumentException
-   */
-  public function fetchStreetsForMultiLineString(MobileNoteStreetDataDto $dto, array $multiCoordinates): void {
-    foreach ($multiCoordinates as $segment) {
-      $this->fetchStreetsForLineString($dto, $segment);
+        array_push($results, ...$this->fetchAddressesByPoint($midLat, $midLon));
+      }
     }
+
+    return $results;
   }
 
   /**
-   * Fetches street names using the point-radius method.
+   * Fetches addresses using the point-radius method.
    *
-   * Returns all unique street names found within the configured search
-   * radius, not just the closest. The search distance and result limit
-   * are read from 'helfi_kymp_content.settings' config
-   * (address_search_distance, address_search_limit) with defaults of
-   * 75 meters and 20 results.
+   * The search distance and result limit are read from
+   * 'helfi_kymp_content.settings' config (address_search_distance,
+   * address_search_limit) with defaults of 75 meters and 20 results.
    *
    * @param float $lat
    *   Latitude.
    * @param float $lon
    *   Longitude.
    *
-   * @return array<string>
-   *   A list of unique street names found within radius.
+   * @return list<Address>
+   *   The address results.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsByPoint(float $lat, float $lon): array {
+  public function fetchAddressesByPoint(float $lat, float $lon): array {
     $config = $this->configFactory->get('helfi_kymp_content.settings');
     $distance = $config->get('address_search_distance') ?: 75;
     $limit = $config->get('address_search_limit') ?: 20;
@@ -152,22 +103,11 @@ class PaikkatietoClient implements LoggerAwareInterface {
       'distance' => $distance,
       'limit' => $limit,
     ]);
+
+    /** @var list<Address> $results */
     $results = $data->results ?? [];
 
-    if (empty($results)) {
-      return [];
-    }
-
-    $streets = [];
-    foreach ($results as $result) {
-      foreach (['fi', 'sv'] as $langcode) {
-        if (!empty($result->street->name->{$langcode})) {
-          $streets[] = $result->street->name->{$langcode};
-        }
-      }
-    }
-
-    return array_values(array_unique($streets));
+    return $results;
   }
 
   /**
