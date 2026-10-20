@@ -111,56 +111,6 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
-   * Parse street names from street data api result set.
-   *
-   * @param array<mixed> $results
-   *   The street data api result set.
-   *
-   * @return array<string>
-   *   The street names.
-   */
-  public function parseStreetNames(array $results): array {
-    if (empty($results)) {
-      return [];
-    }
-
-    $streets = [];
-    foreach ($results as $result) {
-      foreach (['fi', 'sv'] as $langcode) {
-        if (!empty($result->street->name->{$langcode})) {
-          $streets[] = $result->street->name->{$langcode};
-        }
-      }
-    }
-
-    return $streets;
-  }
-
-  /**
-   * Parse postal codes from street data api result set.
-   *
-   * @param array<mixed> $results
-   *   The street data api result set.
-   *
-   * @return array<string>
-   *   The postal codes.
-   */
-  public function parsePostalCodes(array $results): array {
-    if (empty($results)) {
-      return [];
-    }
-
-    $postal_codes = [];
-    foreach ($results as $result) {
-      if (!empty($result->postal_code_area->postal_code)) {
-        $postal_codes[] = $result->postal_code_area->postal_code;
-      }
-    }
-
-    return $postal_codes;
-  }
-
-  /**
    * Fetches unique street names from a single page of the API.
    *
    * @param int $page
