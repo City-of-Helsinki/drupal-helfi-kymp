@@ -26,6 +26,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
     'search_api',
     'user',
   ];
