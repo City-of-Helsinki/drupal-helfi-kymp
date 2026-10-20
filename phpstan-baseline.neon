@@ -187,6 +187,12 @@ parameters:
 			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
 
 		-
+			message: '#^Access to an undefined property object\:\:\$type\.$#'
+			identifier: property.notFound
+			count: 1
+			path: public/modules/custom/helfi_kymp_content/src/MobileNoteDataService.php
+
+		-
 			message: '#^Method Drupal\\helfi_kymp_content\\MobileNoteDataService\:\:transformFeature\(\) has parameter \$feature with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -299,12 +305,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
-
-		-
-			message: '#^Parameter \$body of class GuzzleHttp\\Psr7\\Response constructor expects Psr\\Http\\Message\\StreamInterface\|resource\|string\|null, string\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteDataSourceTest.php
 
 		-
 			message: '#^Parameter \$body of class GuzzleHttp\\Psr7\\Response constructor expects Psr\\Http\\Message\\StreamInterface\|resource\|string\|null, string\|false given\.$#'

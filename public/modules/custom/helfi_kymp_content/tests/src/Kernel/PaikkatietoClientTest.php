@@ -28,7 +28,9 @@ class PaikkatietoClientTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
     'system',
+    'diff',
   ];
 
   /**
@@ -79,62 +81,73 @@ class PaikkatietoClientTest extends KernelTestBase {
   }
 
   /**
-   * Tests fetching street names by point.
+   * Tests fetching addresses by point.
    */
-  public function testFetchStreetsByPoint(): void {
-    $client = $this->createClient([
-      $this->createAddressResponse([
-        ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen'],
-        ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen'],
-        ['fi' => 'Kaivokatu', 'sv' => 'Brunnsgatan'],
-      ]),
+  public function testFetchAddressesByPoint(): void {
+    $history = [];
+    $this->container->set('http_client', $this->createMockHistoryMiddlewareHttpClient($history, [
+      new Response(body: json_encode([
+        'results' => [
+          ['street' => ['name' => ['fi' => 'Kasarmikatu']], 'number' => '13'],
+        ],
+      ], JSON_THROW_ON_ERROR)),
       new Response(body: json_encode(['results' => []], JSON_THROW_ON_ERROR)),
-    ]);
+    ]));
+    $client = $this->container->get(PaikkatietoClient::class);
 
-    // Tests fetching street names by point.
-    $streets = $client->fetchStreetsByPoint(60.171, 24.941);
+    $results = $client->fetchAddressesByPoint(60.1618, 24.948);
 
-    $this->assertCount(4, $streets);
-    $this->assertContains('Mannerheimintie', $streets);
-    $this->assertContains('Mannerheimvägen', $streets);
-    $this->assertContains('Kaivokatu', $streets);
-    $this->assertContains('Brunnsgatan', $streets);
+    $this->assertCount(1, $results);
+    $this->assertEquals('13', $results[0]->number ?? NULL);
 
-    // Tests fetching street names by point with empty results.
-    $streets = $client->fetchStreetsByPoint(60.191, 24.931);
+    parse_str($history[0]['request']->getUri()->getQuery(), $query);
+    $this->assertEquals('75', $query['distance']);
+    $this->assertEquals('20', $query['limit']);
 
-    $this->assertEmpty($streets);
+    // Tests fetching addresses by point with empty results.
+    $this->assertEmpty($client->fetchAddressesByPoint(60.191, 24.931));
   }
 
   /**
-   * Tests fetching streets for a linestring.
+   * Tests fetching addresses for a geometry.
    */
-  public function testFetchStreetsForLineString(): void {
+  public function testFetchAddressesForGeometry(): void {
     $client = $this->createClient([
-      // Segment 1 midpoint response.
+      // LineString segment 1 midpoint response.
       $this->createAddressResponse([
         ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen'],
       ]),
-      // Segment 2 midpoint response.
+      // LineString segment 2 midpoint response.
       $this->createAddressResponse([
         ['fi' => 'Mannerheimintie', 'sv' => 'Mannerheimvägen'],
         ['fi' => 'Kaivokatu'],
       ]),
+      // MultiLineString component midpoint responses.
+      $this->createAddressResponse([['fi' => 'Kaivokatu']]),
+      $this->createAddressResponse([['fi' => 'Kaivokatu']]),
     ]);
 
-    $coordinates = [
-      [24.941, 60.171],
-      [24.945, 60.173],
-      [24.950, 60.175],
-    ];
+    $results = $client->fetchAddressesForGeometry((object) [
+      'type' => 'linestring',
+      'coordinates' => [
+        [24.941, 60.171],
+        [24.945, 60.173],
+        [24.950, 60.175],
+      ],
+    ]);
+    $this->assertCount(3, $results);
 
-    $streets = $client->fetchStreetsForLineString($coordinates);
+    $results = $client->fetchAddressesForGeometry((object) [
+      'type' => 'multilinestring',
+      'coordinates' => [
+        [[24.941, 60.171], [24.945, 60.173]],
+        [[24.950, 60.175], [24.951, 60.176]],
+      ],
+    ]);
+    $this->assertCount(2, $results);
 
-    // Deduplicated across segments.
-    $this->assertCount(3, $streets);
-    $this->assertContains('Mannerheimintie', $streets);
-    $this->assertContains('Mannerheimvägen', $streets);
-    $this->assertContains('Kaivokatu', $streets);
+    $this->expectException(Exception::class);
+    $client->fetchAddressesForGeometry((object) ['type' => 'point', 'coordinates' => [24.95, 60.17]]);
   }
 
   /**
@@ -190,7 +203,7 @@ class PaikkatietoClientTest extends KernelTestBase {
     $client = $this->createClient([]);
 
     $this->expectException(\InvalidArgumentException::class);
-    $client->fetchStreetsByPoint(60.171, 24.941);
+    $client->fetchAddressesByPoint(60.171, 24.941);
   }
 
   /**
@@ -213,14 +226,14 @@ class PaikkatietoClientTest extends KernelTestBase {
       ),
     ]);
 
-    $streets = $client->fetchStreetsByPoint(60.171, 24.941);
+    $results = $client->fetchAddressesByPoint(60.171, 24.941);
 
-    $this->assertCount(1, $streets);
-    $this->assertContains('Kaivokatu', $streets);
+    $this->assertCount(1, $results);
+    $this->assertEquals('Kaivokatu', $results[0]->street->name->fi ?? NULL);
 
     // Tests that non-502 errors throw immediately without retrying.
     $this->expectException(Exception::class);
-    $client->fetchStreetsByPoint(60.171, 24.941);
+    $client->fetchAddressesByPoint(60.171, 24.941);
   }
 
 }

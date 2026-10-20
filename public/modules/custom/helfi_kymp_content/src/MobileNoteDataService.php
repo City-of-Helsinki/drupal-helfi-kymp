@@ -9,6 +9,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\Core\Utility\Error;
+use Drupal\helfi_api_base\ServiceMap\DTO\Location;
+use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneServiceInterface;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use GuzzleHttp\ClientInterface;
@@ -33,6 +35,7 @@ class MobileNoteDataService implements LoggerAwareInterface {
     protected ConfigFactoryInterface $configFactory,
     protected PaikkatietoClient $paikkatietoClient,
     protected GeometryConverter $geometryConverter,
+    protected ResidentParkingZoneServiceInterface $parkingZoneService,
   ) {
   }
 
@@ -68,7 +71,41 @@ class MobileNoteDataService implements LoggerAwareInterface {
   }
 
   /**
-   * Enriches a single item with nearby street names from the Address API.
+   * Fetch parking zone data and append to elasticsearch data.
+   *
+   * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
+   *   The item that is indexed to elasticsearch.
+   */
+  public function fetchParkingZoneData(MobileNoteData $item): void {
+    $geo = $item->get('geometry')->getValue();
+    if (!$geo || empty($geo->coordinates)) {
+      throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
+    }
+
+    if (!in_array($geo->type, ['multilinestring', 'linestring'])) {
+      return;
+    }
+
+    // Get all the parking zones and the coordinates.
+    $coordinates = $geo->type === 'multilinestring' ? $geo->coordinates : [$geo->coordinates];
+    $zoneNames = [];
+
+    // The area can be within multiple parking zones.
+    foreach ($coordinates as $coordinate) {
+      foreach ($coordinate as $latlon) {
+        $data = ['type' => $geo->type, 'coordinates' => $latlon];
+        $zone = $this->parkingZoneService->getParkingZone(Location::createFromArray($data));
+        if ($zone && !in_array($zone->name, $zoneNames)) {
+          $zoneNames[] = $zone->name;
+        }
+      }
+    }
+
+    $item->set('parking_zone_names', $zoneNames);
+  }
+
+  /**
+   * Enriches the data with street names and postal codes from the Address API.
    *
    * @param \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData $item
    *   The item to enrich.
@@ -78,19 +115,38 @@ class MobileNoteDataService implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchNearbyStreets(MobileNoteData $item): void {
+  public function enrich(MobileNoteData $item): void {
     $geo = $item->get('geometry')->getValue();
-
     if (!$geo || empty($geo->coordinates)) {
       throw new \InvalidArgumentException(sprintf('MobileNote: Missing geometry coordinates for %s', $item->get('id')->getString()));
     }
 
-    // The Paikkatieto API call can fail with an exception when the API
-    // is unable to handle too many requests. If that happens, the caller
-    // should drop the item and let cron re-try on the next run.
-    $streets = $this->paikkatietoClient->fetchStreetsForGeometry($geo);
+    $results = $this->paikkatietoClient->fetchAddressesForGeometry($geo);
 
-    $item->set('street_names', $streets);
+    $streets = [];
+    $postal_codes = [];
+    foreach ($results as $result) {
+      array_push($streets, ...array_filter([
+        $result->street->name->fi ?? NULL,
+        $result->street->name->sv ?? NULL,
+      ]));
+      array_push($postal_codes, ...array_filter([
+        $result->postal_code_area->postal_code ?? NULL,
+      ]));
+    }
+    $item->set('street_names', array_values(array_unique($streets)));
+    $item->set('postal_codes', array_values(array_unique($postal_codes)));
+
+    // phpcs:disable
+    // @todo Enable this on next release.
+    // $address = $item->get('address')->getString();
+    // $addressInfo = trim($item->get('address_info')->getString());
+    //
+    // $item->set('address', $addressInfo !== ''
+    //   ? AddressRange::resolveFromAddressInfo($address, $addressInfo)
+    //   : AddressRange::resolveFromGeometry($address, $geo, $results)
+    // );
+    // phpcs:enable
   }
 
   /**

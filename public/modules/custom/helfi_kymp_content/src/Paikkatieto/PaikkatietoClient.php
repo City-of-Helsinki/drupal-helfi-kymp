@@ -14,6 +14,14 @@ use Psr\Log\LoggerAwareTrait;
 /**
  * Client for paikkatieto API.
  *
+ * @phpstan-type Address object{
+ *   street: object{name: object{fi?: string, sv?: string, en?: string}},
+ *   number?: string,
+ *   letter?: string,
+ *   location?: object{coordinates: array{0: float, 1: float}},
+ *   postal_code_area?: object{postal_code: string},
+ * }
+ *
  * @see https://helsinkisolutionoffice.atlassian.net/wiki/spaces/KAN/pages/7614431294/Paikkatietohaku+-+palvelu
  */
 class PaikkatietoClient implements LoggerAwareInterface {
@@ -27,48 +35,14 @@ class PaikkatietoClient implements LoggerAwareInterface {
   }
 
   /**
-   * Fetches unique street names along a linestring.
-   *
-   * Queries the API at the midpoint of each segment and returns
-   * the deduplicated set of street names found within the configured
-   * search radius.
-   *
-   * @param array<array{float, float}> $coordinates
-   *   Array of [lon, lat] coordinate pairs (GeoJSON order).
-   *
-   * @return array<string>
-   *   Unique street names (fi and sv) found along the linestring.
-   *
-   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
-   * @throws \InvalidArgumentException
-   */
-  public function fetchStreetsForLineString(array $coordinates): array {
-    $count = count($coordinates);
-    $streets = [];
-
-    for ($i = 0; $i < $count - 1; $i++) {
-      $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
-      $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
-
-      $segmentStreets = $this->fetchStreetsByPoint($midLat, $midLon);
-      array_push($streets, ...$segmentStreets);
-    }
-
-    return array_values(array_unique($streets));
-  }
-
-  /**
-   * Fetches unique street names for a GeoJSON LineString or MultiLineString.
-   *
-   * Dispatches by geometry type so callers don't have to inspect the
-   * geometry shape themselves.
+   * Fetches addresses near a GeoJSON LineString or MultiLineString.
    *
    * @param object $geometry
    *   The GeoJSON geometry as an stdClass with `->type` (lowercased) and
    *   `->coordinates` in WGS84 [lon, lat] order.
    *
-   * @return array<string>
-   *   Unique street names found along the geometry.
+   * @return list<Address>
+   *   The address results.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    *   When the geometry type is not LineString or MultiLineString, or
@@ -76,62 +50,49 @@ class PaikkatietoClient implements LoggerAwareInterface {
    * @throws \InvalidArgumentException
    *   When the API key is missing.
    */
-  public function fetchStreetsForGeometry(object $geometry): array {
-    return match ($geometry->type ?? '') {
-      'linestring' => $this->fetchStreetsForLineString($geometry->coordinates ?? []),
-      'multilinestring' => $this->fetchStreetsForMultiLineString($geometry->coordinates ?? []),
+  public function fetchAddressesForGeometry(object $geometry): array {
+    $lines = match ($geometry->type ?? '') {
+      'linestring' => [$geometry->coordinates ?? []],
+      'multilinestring' => $geometry->coordinates ?? [],
       default => throw new Exception(sprintf(
-        'Paikkatieto: cannot fetch nearby streets for geometry type "%s".',
+        'Paikkatieto: cannot fetch nearby addresses for geometry type "%s".',
         $geometry->type ?? '',
       )),
     };
-  }
 
-  /**
-   * Fetches unique street names along a multi-linestring.
-   *
-   * Calls fetchStreetsForLineString() for each component LineString and
-   * returns the deduplicated union.
-   *
-   * @param array<array<array{float, float}>> $multiCoordinates
-   *   The MultiLineString coordinate array (a list of LineStrings, each
-   *   itself a list of [lon, lat] pairs in GeoJSON order).
-   *
-   * @return array<string>
-   *   Unique street names (fi and sv) found along all components.
-   *
-   * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
-   * @throws \InvalidArgumentException
-   */
-  public function fetchStreetsForMultiLineString(array $multiCoordinates): array {
-    $streets = [];
-    foreach ($multiCoordinates as $segment) {
-      array_push($streets, ...$this->fetchStreetsForLineString($segment));
+    $results = [];
+    foreach ($lines as $coordinates) {
+      for ($i = 0; $i < count($coordinates) - 1; $i++) {
+        // Queries the API at the midpoint of each segment.
+        $midLat = ($coordinates[$i][1] + $coordinates[$i + 1][1]) / 2;
+        $midLon = ($coordinates[$i][0] + $coordinates[$i + 1][0]) / 2;
+
+        array_push($results, ...$this->fetchAddressesByPoint($midLat, $midLon));
+      }
     }
-    return array_values(array_unique($streets));
+
+    return $results;
   }
 
   /**
-   * Fetches street names using the point-radius method.
+   * Fetches addresses using the point-radius method.
    *
-   * Returns all unique street names found within the configured search
-   * radius, not just the closest. The search distance and result limit
-   * are read from 'helfi_kymp_content.settings' config
-   * (address_search_distance, address_search_limit) with defaults of
-   * 75 meters and 20 results.
+   * The search distance and result limit are read from
+   * 'helfi_kymp_content.settings' config (address_search_distance,
+   * address_search_limit) with defaults of 75 meters and 20 results.
    *
    * @param float $lat
    *   Latitude.
    * @param float $lon
    *   Longitude.
    *
-   * @return array<string>
-   *   A list of unique street names found within radius.
+   * @return list<Address>
+   *   The address results.
    *
    * @throws \Drupal\helfi_kymp_content\Paikkatieto\Exception
    * @throws \InvalidArgumentException
    */
-  public function fetchStreetsByPoint(float $lat, float $lon): array {
+  public function fetchAddressesByPoint(float $lat, float $lon): array {
     $config = $this->configFactory->get('helfi_kymp_content.settings');
     $distance = $config->get('address_search_distance') ?: 75;
     $limit = $config->get('address_search_limit') ?: 20;
@@ -142,22 +103,11 @@ class PaikkatietoClient implements LoggerAwareInterface {
       'distance' => $distance,
       'limit' => $limit,
     ]);
+
+    /** @var list<Address> $results */
     $results = $data->results ?? [];
 
-    if (empty($results)) {
-      return [];
-    }
-
-    $streets = [];
-    foreach ($results as $result) {
-      foreach (['fi', 'sv'] as $langcode) {
-        if (!empty($result->street->name->{$langcode})) {
-          $streets[] = $result->street->name->{$langcode};
-        }
-      }
-    }
-
-    return array_values(array_unique($streets));
+    return $results;
   }
 
   /**

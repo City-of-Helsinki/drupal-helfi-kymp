@@ -28,6 +28,8 @@ class StreetDataTest extends KernelTestBase {
    */
   protected static $modules = [
     'helfi_kymp_content',
+    'helfi_api_base',
+    'diff',
   ];
 
   /**

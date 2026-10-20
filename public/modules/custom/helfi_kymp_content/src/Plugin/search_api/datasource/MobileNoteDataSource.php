@@ -106,11 +106,19 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
       }
     }
 
-    // Enrich each item with nearby streets. Drop individual items
+    // Enrich each item with Address API data. Drop individual items
     // that fail enrichment so a single bad item doesn't fail the batch.
     foreach ($items as $id => $item) {
       try {
-        $this->dataService->fetchNearbyStreets($item);
+        $this->dataService->enrich($item);
+      }
+      catch (\InvalidArgumentException | Exception $e) {
+        Error::logException($this->logger, $e);
+        unset($items[$id]);
+      }
+
+      try {
+        $this->dataService->fetchParkingZoneData($item);
       }
       catch (\InvalidArgumentException | Exception $e) {
         Error::logException($this->logger, $e);
