@@ -94,7 +94,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
 
     // Verify data mapping.
     $this->assertEquals('test.123', $item['id']);
-    $this->assertEquals('Test Street 1', $item['address']);
+    $this->assertEquals('Test Street 1 Info', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
     $this->assertEquals('Extra', $item['additional_text']);
 
