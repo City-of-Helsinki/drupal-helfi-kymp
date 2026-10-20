@@ -19,6 +19,8 @@ use PHPUnit\Framework\Attributes\Group;
  *
  * The user-edited address info is used to determine "correct" results for
  * geometry tests. Cases that the geometry cannot resolve correctly are skipped.
+ * The fixture setup was used to develop and evaluate the address range feature
+ * and might be useful in future.
  *
  * @phpstan-import-type Address from \Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient
  *
