@@ -42,6 +42,14 @@ class MobileNoteDataSourceTest extends KernelTestBase {
       ->set('wfs_password', 'test_pass')
       ->save();
 
+    $parkingZoneResponse = (string) json_encode([
+      'results' => [[
+        'name' => ['fi' => 'Kamppi'],
+        'boundary' => ['coordinates' => [[[24.950, 60.175], [24.951, 60.175]], [[24.949, 60.174], [24.950, 60.175]]]],
+      ],
+      ],
+    ]);
+
     $this->setupMockHttpClient([
       new Response(body: json_encode([
         'features' => [
@@ -70,6 +78,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
           ],
         ],
       ])),
+      new Response(200, [], $parkingZoneResponse),
     ]);
 
     // Create a test index.
