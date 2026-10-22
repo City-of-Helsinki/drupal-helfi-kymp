@@ -35,7 +35,7 @@ content:
     third_party_settings: {  }
   field_content:
     type: paragraphs
-    weight: 14
+    weight: 15
     region: content
     settings:
       title: Paragraph
@@ -97,7 +97,7 @@ content:
     third_party_settings: {  }
   field_lower_content:
     type: paragraphs
-    weight: 20
+    weight: 21
     region: content
     settings:
       title: Paragraph
@@ -124,7 +124,7 @@ content:
     third_party_settings: {  }
   hide_sidebar_navigation:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
@@ -151,7 +151,7 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -162,7 +162,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -212,14 +212,19 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 18
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  url_redirects:
     weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  ai_summary: true
+  url_redirects:
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  ai_summary:
+    type: ai_summary
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
