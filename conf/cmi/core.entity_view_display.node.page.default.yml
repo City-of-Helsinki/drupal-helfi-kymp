@@ -30,7 +30,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_lead_in:
     type: text_span
@@ -46,14 +46,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   field_metatags:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   links:
     settings: {  }
@@ -68,10 +68,16 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+    weight: 3
+    region: content
+  ai_summary:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 2
     region: content
 hidden:
-  ai_summary: true
   changed_at: true
   field_has_hero: true
   field_hero: true
