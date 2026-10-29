@@ -993,16 +993,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.5.2",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e"
+                "reference": "d92543b7ede9c4ec6b59853cefb061e39866d2cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
-                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
+                "url": "https://api.github.com/repos/composer/semver/zipball/d92543b7ede9c4ec6b59853cefb061e39866d2cf",
+                "reference": "d92543b7ede9c4ec6b59853cefb061e39866d2cf",
                 "shasum": ""
             },
             "require": {
@@ -1054,7 +1054,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.5.2"
+                "source": "https://github.com/composer/semver/tree/3.6.0"
             },
             "funding": [
                 {
@@ -1066,7 +1066,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-22T15:37:26+00:00"
+            "time": "2026-10-29T09:13:34+00:00"
         },
         {
             "name": "consolidation/annotated-command",
@@ -4960,16 +4960,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.21.3",
+            "version": "6.21.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "565ced937c43279f70e2af9eef4831ad2a1cb0d5"
+                "reference": "9854233bdf5e61f298e34c0917cce5a3cf611210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/565ced937c43279f70e2af9eef4831ad2a1cb0d5",
-                "reference": "565ced937c43279f70e2af9eef4831ad2a1cb0d5",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9854233bdf5e61f298e34c0917cce5a3cf611210",
+                "reference": "9854233bdf5e61f298e34c0917cce5a3cf611210",
                 "shasum": ""
             },
             "require": {
@@ -4988,10 +4988,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.21.3",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.21.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-10-28T12:28:44+00:00"
+            "time": "2026-10-29T09:51:17+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -5336,16 +5336,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.4.4",
+            "version": "5.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "9129b195ca7c715438e4a504799bbf622933dd8c"
+                "reference": "983082f7a727127cd52807bb70be22c749405282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/9129b195ca7c715438e4a504799bbf622933dd8c",
-                "reference": "9129b195ca7c715438e4a504799bbf622933dd8c",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/983082f7a727127cd52807bb70be22c749405282",
+                "reference": "983082f7a727127cd52807bb70be22c749405282",
                 "shasum": ""
             },
             "require": {
@@ -5430,7 +5430,8 @@
                 "patches": {
                     "drupal/core": {
                         "[#UHF-13177, #3569803] htmx:beforeSwap fails with TypeError requestAssetsLoaded.get(...) is undefined": "./public/modules/contrib/helfi_platform_config/patches/3569803.patch",
-                        "[#UHF-12709] Patch 'Deleted and replaced ...' error messages": "./public/modules/contrib/helfi_platform_config/patches/UHF-12709-skip_deleted_and_replaced_log.patch",
+                        "[#UHF-12709, #3545595] Do not install language overrides for new languages during config sync (https://www.drupal.org/i/3545595)": "./public/modules/contrib/helfi_platform_config/patches/3545595.patch",
+                        "[#UHF-12709, #3633776] ConfigImporterBatch::process() adds the same import errors again on every batch call (https://www.drupal.org/i/3633776)": "./public/modules/contrib/helfi_platform_config/patches/3633776.patch",
                         "[#UHF-181] Hide untranslated menu links (https://www.drupal.org/project/drupal/issues/3091246)": "./public/modules/contrib/helfi_platform_config/patches/3091246.patch",
                         "[#UHF-3812] Ajax exposed filters not working for multiple instances of the same Views block placed on one page (https://www.drupal.org/project/drupal/issues/3163299)": "./public/modules/contrib/helfi_platform_config/patches/3163299-104-D10.patch",
                         "[#UHF-13408] Twig debug can influence rendering visually due to whitespace between tags (https://www.drupal.org/project/drupal/issues/3563677)": "./public/modules/contrib/helfi_platform_config/patches/drupal_core_strip_debug_mode_whitespaces_11.3.x.patch",
@@ -5490,10 +5491,10 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.4.4",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.4.5",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-10-27T08:22:58+00:00"
+            "time": "2026-10-29T11:57:40+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -18591,21 +18592,21 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.10.3",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "f0de0bf90226853b841672f086d8b58b02332504"
+                "reference": "e52c65bed1de6aa272cdde4b7725ca6653d7b06a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/f0de0bf90226853b841672f086d8b58b02332504",
-                "reference": "f0de0bf90226853b841672f086d8b58b02332504",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e52c65bed1de6aa272cdde4b7725ca6653d7b06a",
+                "reference": "e52c65bed1de6aa272cdde4b7725ca6653d7b06a",
                 "shasum": ""
             },
             "require": {
-                "composer/ca-bundle": "^1.5",
-                "composer/class-map-generator": "^1.4.0",
+                "composer/ca-bundle": "^1.6",
+                "composer/class-map-generator": "^1.8.0",
                 "composer/metadata-minifier": "^1.0",
                 "composer/pcre": "^2.3 || ^3.3",
                 "composer/semver": "^3.3",
@@ -18614,7 +18615,7 @@
                 "ext-filter": "*",
                 "ext-hash": "*",
                 "ext-json": "*",
-                "justinrainbow/json-schema": "^6.5.1",
+                "justinrainbow/json-schema": "^6.6.3",
                 "php": "^7.2.5 || ^8.0",
                 "psr/log": "^1.0 || ^2.0 || ^3.0",
                 "react/promise": "^3.3",
@@ -18631,7 +18632,7 @@
                 "symfony/process": "^5.4.47 || ^6.4.25 || ^7.1.10 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.11.8",
+                "phpstan/phpstan": "1.12.33",
                 "phpstan/phpstan-deprecation-rules": "^1.2.0",
                 "phpstan/phpstan-phpunit": "^1.4.0",
                 "phpstan/phpstan-strict-rules": "^1.6.0",
@@ -18655,7 +18656,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "2.10-dev"
+                    "dev-main": "2.11-dev"
                 }
             },
             "autoload": {
@@ -18690,7 +18691,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.10.3"
+                "source": "https://github.com/composer/composer/tree/2.11.0"
             },
             "funding": [
                 {
@@ -18702,7 +18703,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-27T11:34:23+00:00"
+            "time": "2026-10-29T09:23:20+00:00"
         },
         {
             "name": "composer/metadata-minifier",
