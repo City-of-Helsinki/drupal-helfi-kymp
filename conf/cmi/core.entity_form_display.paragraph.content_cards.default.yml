@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.content_cards.field_content_cards_content
+    - field.field.paragraph.content_cards.field_content_cards_content_ext
     - field.field.paragraph.content_cards.field_content_cards_desc
     - field.field.paragraph.content_cards.field_content_cards_design
     - field.field.paragraph.content_cards.field_content_cards_title
@@ -18,7 +19,7 @@ targetEntityType: paragraph
 bundle: content_cards
 mode: default
 content:
-  field_content_cards_content:
+  field_content_cards_content_ext:
     type: entity_reference_autocomplete
     weight: 3
     region: content
@@ -52,4 +53,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_content_cards_content: true
   status: true
