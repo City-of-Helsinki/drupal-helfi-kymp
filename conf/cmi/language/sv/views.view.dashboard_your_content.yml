@@ -6,6 +6,7 @@ display:
           content:
             format: full_html
             value: '<p>No pages to display.</p>'
+      title: 'My pages'
       fields:
         views_bulk_operations_bulk_form:
           action_title: Åtgärd
@@ -17,6 +18,8 @@ display:
         title:
           label: Titel
           separator: ', '
+        helfi_favorite:
+          label: Favorit
         type:
           label: Innehållstyp
           separator: ', '
