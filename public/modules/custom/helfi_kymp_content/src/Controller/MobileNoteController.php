@@ -1,108 +1,175 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\helfi_kymp_content\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Http\ClientFactory;
+use Drupal\Core\Logger\LoggerChannelInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\helfi_api_base\Environment\ActiveServiceTrait;
-use Drupal\helfi_api_base\Environment\EnvironmentEnum;
 use Drupal\helfi_api_base\Environment\EnvironmentResolverInterface;
-use Drupal\helfi_api_base\Environment\Project;
-use Drupal\helfi_api_base\Environment\ServiceEnum;
+use Drupal\helfi_api_base\ServiceMap\DTO\Location;
+use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneService;
+use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder as ElasticClientBuilder;
+use Elastic\Elasticsearch\Response\Elasticsearch;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Allow other instances to access kymp mobile note data.
+ */
 final class MobileNoteController extends ControllerBase {
 
   use ActiveServiceTrait;
 
   public function __construct(
-    # [AutowireServiceClosure('logger.channel.helfi_kymp_content')]
-    # private LoggerChannelInterface $logger,
+    #[Autowire('logger.channel.helfi_kymp_content')]
+    private LoggerChannelInterface $logger,
     protected readonly ClientFactory $clientFactory,
     protected readonly EnvironmentResolverInterface $environmentResolver,
+    protected readonly ResidentParkingZoneService $parkingZoneService,
+    protected readonly PaikkatietoClient $paikkatietoClient,
   ) {
-
   }
 
-
+  /**
+   * Get mobile note data by lat/lon.
+   *
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   *   The request.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   The response.
+   */
   public function getMobileNoteData(Request $request): JsonResponse {
-    $streetAddress = '';
-    $local = $this->getElastic();
-    $client = $this->getElasticClient();
+    $lon = $request->query->get('lon');
+    $lat = $request->query->get('lat');
+
+    if (!$lon || !$lat) {
+      return new JsonResponse(['message' => 'Missing lat or lon'], 400);
+    }
+
+    $location = Location::createFromArray([
+      'coordinates' => ['lon' => floatval($lon), 'lat' => floatval($lat)],
+      'type' => 'resident_parking_zone',
+    ]);
+
     try {
-      $result = $client->search(
-        [
-          'index' => 'mobilenote_data',
-          // 'body' => $this->getElasticQuery(['00100'], [])
-          'body' => [
-            'size' => 3,
-            'from' => 0,
-            'query' => [
-              'bool' => [
-                'should' => [
-                  ['term' => ['postal_codes' => '00100']],
-                ],
-                'minimum_should_match' => 1,
-              ],
-            ],
-            /*
-            // Return only specific fields.
-            'fields' => [
-              'street_names'
-            ],
-            '_source' => false
-            */
-          ],
-        ]
-      )?->asArray();
+      $parkingZone = $this->parkingZoneService->getParkingZone($location);
     }
     catch (\Exception $e) {
-      // $x = 1;
-      // $this->logger->error($e->getMessage());
+      Error::logException($this->logger, $e);
+      return new JsonResponse(['message' => 'Failed to fetch the parking zone.'], 500);
+    }
+
+    // Start by finding the parking zone or postal code if no parking zone.
+    if ($parkingZone) {
+      $elasticQuery = $this->getElasticQuery(parkingZone: $parkingZone->name);
+    }
+    else {
+      try {
+        $postalCodes = $this->getPostalCodes($lat, $lon);
+      }
+      catch (\Exception $e) {
+        Error::logException($this->logger, $e);
+        return new JsonResponse(['message' => 'Failed to fetch postal codes for the address'], 500);
+      }
+      $elasticQuery = $this->getElasticQuery(postalCodes: $postalCodes);
+    }
+
+    // Query Elasticsearch.
+    $client = $this->getElasticClient();
+    try {
+      $response = $client->search([
+          'index' => 'mobilenote_data',
+          'body' => $elasticQuery,
+      ]);
+      assert($response instanceof Elasticsearch);
+      $result = $response->asArray();
+    }
+    catch (\Exception $e) {
+      Error::logException($this->logger, $e);
+      return new JsonResponse(['message' => $e->getMessage()], 500);
     }
 
     return new JsonResponse($result['hits']['hits'] ?? []);
   }
 
+  /**
+   * Get postal codes from paikkatieto-api.
+   *
+   * @param string $lat
+   *   The lat coordinate.
+   * @param string $lon
+   *   The lon coordinate.
+   *
+   * @return array<string>
+   *   The postal codes.
+   */
+  private function getPostalCodes(string $lat, string $lon): array {
+    $addresses = $this->paikkatietoClient->fetchAddressesByPoint(floatval($lat), floatval($lon));
+    $postalCodes = array_map(fn($address): string => $address->postal_code_area->postal_code ?? NULL, $addresses);
+    return array_unique($postalCodes);
+  }
+
+  /**
+   * Get the elastic client.
+   *
+   * @return \Elastic\Elasticsearch\Client
+   *   The elastic client.
+   */
   private function getElasticClient(): Client {
-    // @todo Elastic client buildingvia service.
-    // @todo Correct elastic url.
+    $isLocal = $this->environmentResolver->getActiveEnvironmentName() === 'local';
+    $host = !$isLocal ?
+      $this->getPublicElasticProxy()?->getAddress() : 'http://helfi-kymp-elastic-proxy:8080';
+
     return ElasticClientBuilder::create()
-      // ->setHosts(['https://elastic-proxy-helfi-kymp.docker.so'])
-      // ->setHosts([$this->getPublicElasticProxy()?->getAddress()])
-      ->setHosts(['http://helfi-kymp-elastic-proxy:8080'])
+      ->setHosts([$host])
       ->setHttpClient($this->clientFactory->fromOptions([
         'timeout' => 5,
         'connect_timeout' => 1,
         // Elasticsearch uses a self-signed certificate.
-        'verify' => false,//!$hasElasticAccess,
+        'verify' => !$isLocal,
       ]))
       ->build();
   }
 
-  private function getElasticQuery(array $postalCodes, array $parkingZones): array {
+  /**
+   * Create the elasticsearch query.
+   *
+   * @param string|null $parkingZone
+   *   The parking zone.
+   * @param array<string>|null $postalCodes
+   *   The unique postal codes.
+   *
+   * @return array<mixed>
+   *   The query with parameters.
+   */
+  private function getElasticQuery(?string $parkingZone = NULL, ?array $postalCodes = NULL): array {
+    $query = [];
+    if ($postalCodes) {
+      $query = ['terms' => ['postal_codes' => $postalCodes]];
+    }
+
+    if ($parkingZone) {
+      $query = ['term' => ['parking_zone_names' => $parkingZone]];
+    }
+
     return [
-      'size' => 30,
+      'size' => 3,
       'from' => 0,
       'query' => [
         'bool' => [
-          'should' => [
-            ["terms" => ['postal_codes' => $postalCodes]],
-            ["terms" => ['parking_zones' => $parkingZones]],
+          'filter' => [
+            $query,
           ],
-          'minimum_should_match' => 1,
         ],
       ],
-      /*
-      // Return only specific fields.
-      'fields' => [
-        'street_names'
-      ],
-      '_source' => false
-      */
     ];
   }
 
