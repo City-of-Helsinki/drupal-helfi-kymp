@@ -86,8 +86,8 @@ final class MobileNoteController extends ControllerBase {
     $client = $this->getElasticClient();
     try {
       $response = $client->search([
-          'index' => 'mobilenote_data',
-          'body' => $elasticQuery,
+        'index' => 'mobilenote_data',
+        'body' => $elasticQuery,
       ]);
       assert($response instanceof Elasticsearch);
       $result = $response->asArray();
