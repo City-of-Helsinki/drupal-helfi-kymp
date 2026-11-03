@@ -49,11 +49,12 @@ final class MobileNoteController extends ControllerBase {
   public function getMobileNoteData(Request $request): JsonResponse {
     $lon = $request->query->get('lon');
     $lat = $request->query->get('lat');
-
     if (!$lon || !$lat) {
       return new JsonResponse(['message' => 'Missing lat or lon'], 400);
     }
 
+    $parkingZoneName = NULL;
+    $postalCodes = NULL;
     $location = Location::createFromArray([
       'coordinates' => ['lon' => floatval($lon), 'lat' => floatval($lat)],
       'type' => 'resident_parking_zone',
@@ -67,9 +68,10 @@ final class MobileNoteController extends ControllerBase {
       return new JsonResponse(['message' => 'Failed to fetch the parking zone.'], 500);
     }
 
-    // Start by finding the parking zone or postal code if no parking zone.
+    // If the address is not inside a parking zone, use postal code.
     if ($parkingZone) {
-      $elasticQuery = $this->getElasticQuery(parkingZone: $parkingZone->name);
+      $parkingZoneName = $parkingZone->name;
+      $elasticQuery = $this->getElasticQuery(parkingZone: $parkingZoneName);
     }
     else {
       try {
@@ -85,19 +87,28 @@ final class MobileNoteController extends ControllerBase {
     // Query Elasticsearch.
     $client = $this->getElasticClient();
     try {
-      $response = $client->search([
+      $elasticResponse = $client->search([
         'index' => 'mobilenote_data',
         'body' => $elasticQuery,
       ]);
-      assert($response instanceof Elasticsearch);
-      $result = $response->asArray();
+      assert($elasticResponse instanceof Elasticsearch);
+      $mobileNotes = $elasticResponse->asArray();
     }
     catch (\Exception $e) {
       Error::logException($this->logger, $e);
       return new JsonResponse(['message' => $e->getMessage()], 500);
     }
 
-    return new JsonResponse($result['hits']['hits'] ?? []);
+    $response = [];
+    if ($parkingZoneName) {
+      $response['parkingzone'] = $parkingZoneName;
+    }
+    if ($postalCodes) {
+      $response['postalcodes'] = implode(',', $postalCodes);
+    }
+    $response['results'] = $mobileNotes['hits']['hits'] ?? [];
+
+    return new JsonResponse($response);
   }
 
   /**
