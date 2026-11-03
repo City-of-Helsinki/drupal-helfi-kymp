@@ -4960,16 +4960,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.21.8",
+            "version": "6.21.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "03cafd9f6adcfd421fa725f40a2bc347554fd471"
+                "reference": "8c6ce96dfa4733ca851685f442222a27b1b4388f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/03cafd9f6adcfd421fa725f40a2bc347554fd471",
-                "reference": "03cafd9f6adcfd421fa725f40a2bc347554fd471",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/8c6ce96dfa4733ca851685f442222a27b1b4388f",
+                "reference": "8c6ce96dfa4733ca851685f442222a27b1b4388f",
                 "shasum": ""
             },
             "require": {
@@ -4988,10 +4988,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.21.8",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.21.9",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-11-02T11:38:38+00:00"
+            "time": "2026-11-02T19:17:57+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -5628,20 +5628,20 @@
         },
         {
             "name": "drupal/image_style_quality",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/image_style_quality.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/image_style_quality-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "3cb3d326e3df3b78cadc91bae1fd9de17dd27bc7"
+                "url": "https://ftp.drupal.org/files/projects/image_style_quality-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "f7db3a285e818245b6e6deb076c2790ad063f2e2"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11",
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
                 "php": ">=7.4"
             },
             "require-dev": {
@@ -5655,8 +5655,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1730925822",
+                    "version": "8.x-1.8",
+                    "datestamp": "1793662919",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6040,20 +6040,20 @@
         },
         {
             "name": "drupal/key",
-            "version": "1.22.0",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/key.git",
-                "reference": "8.x-1.22"
+                "reference": "8.x-1.23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.22.zip",
-                "reference": "8.x-1.22",
-                "shasum": "14b4b8ce1917dcbcf2d67955564b8b484f30cdda"
+                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.23.zip",
+                "reference": "8.x-1.23",
+                "shasum": "275ad00d2f369685741ed395c5384f6f589db4a5"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10 || ^11"
+                "drupal/core": "^10.3 || ^11 || ^12"
             },
             "require-dev": {
                 "drush/drush": ">=9"
@@ -6064,8 +6064,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.22",
-                    "datestamp": "1768921252",
+                    "version": "8.x-1.23",
+                    "datestamp": "1793686862",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
