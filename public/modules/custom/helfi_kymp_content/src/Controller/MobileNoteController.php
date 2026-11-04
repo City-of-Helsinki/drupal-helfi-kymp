@@ -9,7 +9,9 @@ use Drupal\Core\Http\ClientFactory;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Utility\Error;
 use Drupal\helfi_api_base\Environment\ActiveServiceTrait;
+use Drupal\helfi_api_base\Environment\EnvironmentResolverException;
 use Drupal\helfi_api_base\Environment\EnvironmentResolverInterface;
+use Drupal\helfi_api_base\Environment\ServiceEnum;
 use Drupal\helfi_api_base\ServiceMap\DTO\Location;
 use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneService;
 use Drupal\helfi_kymp_content\Paikkatieto\PaikkatietoClient;
@@ -24,8 +26,6 @@ use Symfony\Component\HttpFoundation\Request;
  * Allow other instances to access kymp mobile note data.
  */
 final class MobileNoteController extends ControllerBase {
-
-  use ActiveServiceTrait;
 
   public function __construct(
     #[Autowire('logger.channel.helfi_kymp_content')]
@@ -124,7 +124,7 @@ final class MobileNoteController extends ControllerBase {
    */
   private function getPostalCodes(string $lat, string $lon): array {
     $addresses = $this->paikkatietoClient->fetchAddressesByPoint(floatval($lat), floatval($lon));
-    $postalCodes = array_map(fn($address): string => $address->postal_code_area->postal_code ?? NULL, $addresses);
+    $postalCodes = array_map(static fn($address): string => $address->postal_code_area->postal_code ?? NULL, $addresses);
     return array_unique($postalCodes);
   }
 
@@ -135,9 +135,10 @@ final class MobileNoteController extends ControllerBase {
    *   The elastic client.
    */
   private function getElasticClient(): Client {
-    $isLocal = $this->environmentResolver->getActiveEnvironmentName() === 'local';
-    $host = !$isLocal ?
-      $this->getPublicElasticProxy()?->getAddress() : 'http://helfi-kymp-elastic-proxy:8080';
+    $host = $this->environmentResolver
+      ->getActiveEnvironment()
+      ->getService(ServiceEnum::ElasticProxy)
+      ?->address;
 
     return ElasticClientBuilder::create()
       ->setHosts([$host])
@@ -145,7 +146,7 @@ final class MobileNoteController extends ControllerBase {
         'timeout' => 5,
         'connect_timeout' => 1,
         // Elasticsearch uses a self-signed certificate.
-        'verify' => !$isLocal,
+        'verify' => $this->environmentResolver->getActiveEnvironmentName() != 'local',
       ]))
       ->build();
   }
