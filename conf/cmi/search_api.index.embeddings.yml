@@ -43,6 +43,10 @@ field_settings:
     label: 'Entity label'
     property_path: helfi_entity_label
     type: text
+  liftup_image_url:
+    label: 'Liftup image URL'
+    property_path: liftup_image_url
+    type: string
   markdown:
     label: 'Page markdown'
     property_path: helfi_search_markdown
@@ -95,6 +99,7 @@ processor_settings:
   helfi_metatag_title: {  }
   helfi_search_embeddings: {  }
   language_with_fallback: {  }
+  liftup_image_url: {  }
   project_execution_schedule: {  }
   project_plan_schedule: {  }
   rendered_item: {  }
