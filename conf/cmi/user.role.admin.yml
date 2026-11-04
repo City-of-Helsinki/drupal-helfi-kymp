@@ -21,7 +21,6 @@ dependencies:
     - taxonomy.vocabulary.project_theme
     - taxonomy.vocabulary.project_type
   module:
-    - ai
     - block
     - config_translation
     - content_lock
@@ -188,7 +187,6 @@ permissions:
   - 'edit terms in project_phase'
   - 'edit terms in project_theme'
   - 'edit terms in project_type'
-  - 'manage ai prompts'
   - 'mark as hidden in editoria11y'
   - 'rebuild node access permissions'
   - 'revert all revisions'
