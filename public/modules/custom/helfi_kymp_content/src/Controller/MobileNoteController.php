@@ -85,8 +85,8 @@ final class MobileNoteController extends ControllerBase {
     }
 
     // Query Elasticsearch.
-    $client = $this->getElasticClient();
     try {
+      $client = $this->getElasticClient();
       $elasticResponse = $client->search([
         'index' => 'mobilenote_data',
         'body' => $elasticQuery,
@@ -138,7 +138,11 @@ final class MobileNoteController extends ControllerBase {
     $host = $this->environmentResolver
       ->getActiveEnvironment()
       ->getService(ServiceEnum::ElasticProxy)
-      ?->address;
+      ?->address?->getAddress();
+
+    if (!$host) {
+      throw new EnvironmentResolverException();
+    }
 
     return ElasticClientBuilder::create()
       ->setHosts([$host])
