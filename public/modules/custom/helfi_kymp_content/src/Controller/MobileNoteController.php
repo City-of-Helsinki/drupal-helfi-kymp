@@ -8,7 +8,6 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Http\ClientFactory;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Utility\Error;
-use Drupal\helfi_api_base\Environment\ActiveServiceTrait;
 use Drupal\helfi_api_base\Environment\EnvironmentResolverException;
 use Drupal\helfi_api_base\Environment\EnvironmentResolverInterface;
 use Drupal\helfi_api_base\Environment\ServiceEnum;
