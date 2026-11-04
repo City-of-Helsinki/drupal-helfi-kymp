@@ -56,7 +56,7 @@ final class MobileNoteController extends ControllerBase {
     $parkingZoneName = NULL;
     $postalCodes = NULL;
     $location = Location::createFromArray([
-      'coordinates' => ['lon' => floatval($lon), 'lat' => floatval($lat)],
+      'coordinates' => [$lon, $lat],
       'type' => 'resident_parking_zone',
     ]);
 
