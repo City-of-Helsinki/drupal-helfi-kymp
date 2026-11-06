@@ -70,7 +70,7 @@ final class MobileNoteController extends ControllerBase {
     // If the address is not inside a parking zone, use postal code.
     if ($parkingZone) {
       $parkingZoneName = $parkingZone->name;
-      $elasticQuery = $this->getElasticQuery(parkingZone: $parkingZoneName);
+      $elasticQuery = $this->getElasticQuery(parkingZones: [$parkingZoneName]);
     }
     else {
       try {
@@ -155,34 +155,60 @@ final class MobileNoteController extends ControllerBase {
   }
 
   /**
-   * Create the elasticsearch query.
+   * Get query for finding mobile notes by postal code or parking zone.
    *
-   * @param string|null $parkingZone
-   *   The parking zone.
-   * @param array<string>|null $postalCodes
-   *   The unique postal codes.
+   * Check hdbt vehicle-removal-search useVehicleRemovalQuery.ts.
    *
-   * @return array<mixed>
-   *   The query with parameters.
+   * @param string[] $postalCodes
+   *   The postal codes.
+   * @param string[] $parkingZones
+   *   The parking zone names.
+   * @param int $size
+   *   Maximum number of results.
+   * @param int $offset
+   *   The offset.
+   *
+   * @return array<string, mixed>
+   *   The query body.
    */
-  private function getElasticQuery(?string $parkingZone = NULL, ?array $postalCodes = NULL): array {
-    $query = [];
+  private function getElasticQuery(
+    array $postalCodes = [],
+    array $parkingZones = [],
+    int $size = 3,
+    int $offset = 0,
+  ): array {
+    // A result matches if it matches any of the selected filters.
+    $should = [];
+
     if ($postalCodes) {
-      $query = ['terms' => ['postal_codes' => $postalCodes]];
+      $should[] = ['terms' => ['postal_codes' => array_values($postalCodes)]];
+    }
+    if ($parkingZones) {
+      $should[] = ['terms' => ['parking_zone_names' => array_values($parkingZones)]];
     }
 
-    if ($parkingZone) {
-      $query = ['term' => ['parking_zone_names' => $parkingZone]];
-    }
+    $innerQuery = $should
+      ? ['bool' => ['should' => $should, 'minimum_should_match' => 1]]
+      : ['match_all' => new \stdClass()];
 
     return [
-      'size' => 3,
-      'from' => 0,
+      'size' => $size,
+      'from' => $offset,
       'query' => [
-        'bool' => [
-          'filter' => [
-            $query,
+        'function_score' => [
+          'query' => $innerQuery,
+          'functions' => [
+            [
+              'linear' => [
+                'valid_from' => [
+                  'origin' => 'now',
+                  'scale' => '7d',
+                  'decay' => 0.5,
+                ],
+              ],
+            ],
           ],
+          'boost_mode' => 'replace',
         ],
       ],
     ];
