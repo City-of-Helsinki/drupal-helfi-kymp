@@ -7,3 +7,10 @@ helfi_kymp_content.settings:
     _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
+
+helfi_kymp_content.mobilenote:
+  path: '/api/v1/mobilenote'
+  defaults:
+    _controller: '\Drupal\helfi_kymp_content\Controller\MobileNoteController::getMobileNoteData'
+  requirements:
+    _permission: 'access content'
