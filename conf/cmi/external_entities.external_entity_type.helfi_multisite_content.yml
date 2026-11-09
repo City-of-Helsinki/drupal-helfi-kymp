@@ -5,7 +5,7 @@ dependencies:
   module:
     - helfi_platform_config
 _core:
-  default_config_hash: anP4rzoI8sNrEiCWso5G4tije47UGOO6xwgHlps9MPY
+  default_config_hash: JmXUq-ruvJBifVQRwfgBFd0Q7KkqPWG1KrAle_kU5Xk
 id: helfi_multisite_content
 label: 'Helfi: Multisite content'
 label_plural: 'Helfi: Multisite contents'
@@ -51,6 +51,24 @@ field_mappers:
                   default: null
             description: ''
       debug_level: 0
+  instance:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.instance[0]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+      debug_level: 0
   language_code:
     id: generic
     config:
@@ -59,6 +77,24 @@ field_mappers:
           id: jsonpath
           config:
             mapping: '$._source.search_api_language[0]'
+            required_field: false
+            main_property: true
+            data_processors:
+              -
+                id: default
+                config:
+                  datatype: ''
+                  default: null
+            description: ''
+      debug_level: 0
+  liftup_image_url:
+    id: generic
+    config:
+      property_mappings:
+        value:
+          id: jsonpath
+          config:
+            mapping: '$._source.liftup_image_url[0]'
             required_field: false
             main_property: true
             data_processors:
