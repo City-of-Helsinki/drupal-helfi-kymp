@@ -6,7 +6,9 @@ namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
 use Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Entity\Index;
+use Drupal\search_api\SearchApiException;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Group;
@@ -121,6 +123,47 @@ class MobileNoteDataSourceTest extends KernelTestBase {
     $this->assertLessThan(26, $coords[0]);
     $this->assertGreaterThan(60, $coords[1]);
     $this->assertLessThan(61, $coords[1]);
+  }
+
+  /**
+   * Tests that a failed API request keeps the items in the index.
+   */
+  public function testFailedRequest(): void {
+    $this->setWfsCredentials();
+    $this->container->set('http_client', $this->createMockHttpClient([new Response(500)]));
+
+    $this->expectException(SearchApiException::class);
+    $this->getDatasource()->loadMultiple(['test.123']);
+  }
+
+  /**
+   * Sets the WFS API credentials.
+   */
+  private function setWfsCredentials(): void {
+    $this->config('helfi_kymp_content.settings')
+      ->set('wfs_url', 'https://example.com/wfs')
+      ->set('wfs_username', 'test_user')
+      ->set('wfs_password', 'test_pass')
+      ->save();
+  }
+
+  /**
+   * Gets the datasource from a test index.
+   */
+  private function getDatasource(): DatasourceInterface {
+    $index = Index::create([
+      'name' => 'Test Index',
+      'id' => 'test_index',
+      'status' => FALSE,
+      'datasource_settings' => [
+        'mobilenote_data_source' => [],
+      ],
+      'tracker_settings' => [
+        'default' => [],
+      ],
+    ]);
+
+    return $index->getDatasource('mobilenote_data_source');
   }
 
 }
