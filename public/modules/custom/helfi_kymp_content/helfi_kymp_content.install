@@ -7,6 +7,7 @@
 
 declare(strict_types=1);
 
+use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
 use Drupal\path_alias\Entity\PathAlias;
 
 /**
@@ -63,4 +64,11 @@ function helfi_kymp_content_update_11001(): void {
       ])->save();
     }
   }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function helfi_kymp_content_uninstall(): void {
+  \Drupal::keyValue(MobileNoteCronHooks::KEY_VALUE_COLLECTION)->deleteAll();
 }

@@ -85,6 +85,8 @@ class MobileNoteControllerTest extends KernelTestBase {
     $this->assertEquals('Kluuvi/Kruununhaka', $data['parkingzone']);
     $this->assertArrayNotHasKey('postalcodes', $data);
     $this->assertEquals([$hit], $data['results']);
+
+    $this->assertQuery([['terms' => ['parking_zone_names' => ['Kluuvi/Kruununhaka']]]]);
   }
 
   /**
@@ -108,6 +110,50 @@ class MobileNoteControllerTest extends KernelTestBase {
     $data = json_decode($response, TRUE);
     $this->assertEquals('00100,00130', $data['postalcodes']);
     $this->assertEquals([$hit], $data['results']);
+
+    $this->assertQuery([['terms' => ['postal_codes' => ['00100', '00130']]]]);
+  }
+
+  /**
+   * Asserts the Elasticsearch query: ended items are filtered out.
+   *
+   * @param array<int, array<string, mixed>> $should
+   *   The expected match conditions.
+   */
+  private function assertQuery(array $should): void {
+    $this->assertCount(1, $this->elasticHistory);
+    $body = json_decode((string) $this->elasticHistory[0]['request']->getBody(), TRUE);
+
+    $bool = ['filter' => [['range' => ['valid_to' => ['gte' => 'now-1d']]]]];
+    if ($should) {
+      $bool['should'] = $should;
+      $bool['minimum_should_match'] = 1;
+    }
+
+    $this->assertEquals(['bool' => $bool], $body['query']['function_score']['query']);
+    $this->assertEquals('replace', $body['query']['function_score']['boost_mode']);
+    $this->assertEquals([
+      ['linear' => ['valid_from' => ['origin' => 'now', 'scale' => '7d', 'decay' => 0.5]]],
+    ], $body['query']['function_score']['functions']);
+  }
+
+  /**
+   * Tests a location without a parking zone or postal codes.
+   */
+  public function testNoConditions(): void {
+    $controller = $this->getController(
+      [
+        $this->parkingZoneResponse(NULL),
+        $this->addressResponse([]),
+      ],
+      [$this->elasticResponse([])],
+    );
+
+    $response = $controller->getMobileNoteData($this->createRequest());
+    $this->assertEquals(200, $response->getStatusCode());
+
+    // Only the filter for ended removals applies.
+    $this->assertQuery([]);
   }
 
   /**

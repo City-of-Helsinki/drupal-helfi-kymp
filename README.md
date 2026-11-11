@@ -79,8 +79,19 @@ notifications about new signs.
 - **React:** hdbt/vehicle-removal-search
 
 MobileNote data is not stored in the Drupal database. `MobileNoteDataService` fetches features from the WFS API and
-the `mobilenote_data_source` search_api datasource exposes the items to the `mobilenote_data` index. Cron triggers a
-re-index hourly and prunes entries whose `valid_to` has passed.
+the `mobilenote_data_source` search_api datasource exposes the items to the `mobilenote_data` index.
+
+The index keeps signs for 12 months after they have ended, for features that use past signs. The search (the React
+app and `/api/v1/mobilenote`) shows only signs whose `valid_to` is at most a day ago. New Hakuvahti subscriptions save
+the same query.
+
+Cron (`MobileNoteCronHooks`) syncs the tracking hourly; the `search-index` cron script does the actual indexing.
+- New and updated signs are tracked right away.
+- Ended signs that are not tracked yet, such as the 12 months of history after the upgrade that added the retention,
+  are tracked in chunks of 250. A chunk is added only when nothing is waiting to be indexed and the run has no new or
+  updated signs. Indexing a sign takes about a second, because of the address and parking zone lookups, so this keeps
+  new signs from waiting behind the history.
+- Signs whose `valid_to` is before the 12-month retention period are deleted from the index, 100 per run.
 
 The street-name filter in the React app autocompletes against the `paikkatieto_street_names` index. The index is
 populated by the `paikkatieto_street_name_source` datasource. The index changes rarely, so it is re-synced by cron
@@ -90,9 +101,14 @@ on a slow cadence and manual rebuilds are seldom needed.
 Run inside the app container (`make shell`):
 
 ```sh
-drush sapi-c mobilenote_data;          drush sapi-i mobilenote_data
+drush sapi-r mobilenote_data;          drush sapi-i mobilenote_data
 drush sapi-c paikkatieto_street_names; drush sapi-i paikkatieto_street_names
 ```
+
+Re-indexing `mobilenote_data` takes about two hours, and new signs wait behind it, so do it off-peak. The same applies
+to anything that tracks the whole datasource at once: creating the index (a fresh install), re-enabling it, or
+`drush sapi-rt`. `sapi-r` keeps the current documents searchable meanwhile. `sapi-c` empties the index first, so the
+search shows nothing until the active signs have been indexed again.
 
 ### Custom paragraphs
 
