@@ -163,30 +163,6 @@ parameters:
 			path: public/modules/custom/helfi_kymp_content/src/Form/SettingsForm.php
 
 		-
-			message: '#^Method Drupal\\helfi_kymp_content\\Hook\\MobileNoteCronHooks\:\:syncIndex\(\) has parameter \$activeIds with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
-
-		-
-			message: '#^Method Drupal\\helfi_kymp_content\\Hook\\MobileNoteCronHooks\:\:syncIndex\(\) has parameter \$data with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
-
-		-
-			message: '#^Method Drupal\\helfi_kymp_content\\Hook\\MobileNoteCronHooks\:\:syncIndex\(\) has parameter \$expiredIds with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
-
-		-
-			message: '#^Parameter \#2 \$ids of method Drupal\\search_api\\IndexInterface\:\:trackItemsDeleted\(\) expects list\<string\>, non\-empty\-array given\.$#'
-			identifier: argument.type
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/src/Hook/MobileNoteCronHooks.php
-
-		-
 			message: '#^Access to an undefined property object\:\:\$type\.$#'
 			identifier: property.notFound
 			count: 1
@@ -287,24 +263,6 @@ parameters:
 			identifier: isset.property
 			count: 1
 			path: public/modules/custom/helfi_kymp_content/src/TypedData/StreetDataDefinition.php
-
-		-
-			message: '#^Method Drupal\\Tests\\helfi_kymp_content\\Kernel\\MobileNoteCronHooksTest\:\:createMockIndex\(\) has parameter \$staleItemIds with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
-
-		-
-			message: '#^Method Drupal\\Tests\\helfi_kymp_content\\Kernel\\MobileNoteCronHooksTest\:\:createMockIndex\(\) return type with generic class Prophecy\\Prophecy\\ObjectProphecy does not specify its types\: T$#'
-			identifier: missingType.generics
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
-
-		-
-			message: '#^Parameter \$body of class GuzzleHttp\\Psr7\\Response constructor expects Psr\\Http\\Message\\StreamInterface\|resource\|string\|null, string\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: public/modules/custom/helfi_kymp_content/tests/src/Kernel/MobileNoteCronHooksTest.php
 
 		-
 			message: '#^Parameter \$body of class GuzzleHttp\\Psr7\\Response constructor expects Psr\\Http\\Message\\StreamInterface\|resource\|string\|null, string\|false given\.$#'
