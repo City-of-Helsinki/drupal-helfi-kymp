@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\helfi_kymp_content\Kernel;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\helfi_kymp_content\MobileNoteDataService;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\helfi_api_base\Traits\ApiTestTrait;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use Psr\Log\LoggerInterface;
 
 /**
  * Tests MobileNoteDataService.
@@ -36,6 +38,11 @@ class MobileNoteDataServiceTest extends KernelTestBase {
    * The service under test.
    */
   protected MobileNoteDataService $sut;
+
+  /**
+   * The current time of the mocked clock.
+   */
+  private int $currentTime = 0;
 
   /**
    * {@inheritdoc}
@@ -325,6 +332,144 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->sut->enrich($item);
 
     $this->assertEquals('Tähtitorninkatu 8-10', $item->get('address')->getString());
+  }
+
+  /**
+   * Tests that items are fetched for the retention period.
+   */
+  public function testFetchWindow(): void {
+    // 2026-02-03 22:00 UTC is already 2026-02-04 in Helsinki.
+    $this->setCurrentTime(1770156000);
+
+    $history = [];
+    $this->container->set('http_client', $this->createMockHistoryMiddlewareHttpClient($history, [
+      new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1')]])),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+
+    $this->assertCount(1, $history);
+    parse_str($history[0]['request']->getUri()->getQuery(), $query);
+    $this->assertEquals(10000, $query['maxFeatures']);
+    $this->assertIsString($query['filter']);
+    $this->assertStringContainsString('<PropertyName>voimassaoloLoppu</PropertyName> <Literal>2025-02-04</Literal>', $query['filter']);
+
+    // Items with valid_to before midnight 2025-02-04 are not returned.
+    $start = new \DateTimeImmutable('2025-02-04', new \DateTimeZone('Europe/Helsinki'));
+    $this->assertEquals($start->getTimestamp(), $this->sut->getRetentionStart());
+  }
+
+  /**
+   * Tests that invalid features are skipped.
+   */
+  public function testInvalidFeatures(): void {
+    $withoutId = $this->feature('test.2');
+    unset($withoutId['id']);
+    $withoutDates = $this->feature('test.3');
+    unset($withoutDates['properties']['voimassaoloAlku']);
+
+    $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(200, [], (string) json_encode([
+        'features' => [$withoutId, $this->feature('test.1'), $withoutDates],
+      ])),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $this->assertEquals(['test.1'], array_keys($this->sut->getMobileNoteData()));
+  }
+
+  /**
+   * Tests that a fetched response is used for a few minutes only.
+   */
+  public function testCacheLifetime(): void {
+    $this->setCurrentTime(1770156000);
+
+    $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1')]])),
+      new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1'), $this->feature('test.2')]])),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+
+    // Within the lifetime, the cached response is used.
+    $this->currentTime += 299;
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+
+    // After it, the API is requested again.
+    $this->currentTime += 1;
+    $this->assertCount(2, $this->sut->getMobileNoteData());
+  }
+
+  /**
+   * Tests that a response with the maximum number of features is logged.
+   */
+  public function testFeatureLimit(): void {
+    $features = array_fill(0, 9999, ['properties' => []]);
+    $features[] = $this->feature('test.1');
+
+    $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(200, [], (string) json_encode(['features' => $features])),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $logger = $this->createMock(LoggerInterface::class);
+    $logger->expects($this->once())
+      ->method('warning')
+      ->with($this->stringContains('reached the limit'));
+    $this->sut->setLogger($logger);
+
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+  }
+
+  /**
+   * Tests that a failed request is retried on the next call.
+   */
+  public function testFailedRequestIsNotCached(): void {
+    $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(500),
+      new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1')]])),
+    ]));
+    $this->sut = $this->container->get(MobileNoteDataService::class);
+
+    $this->assertEquals([], $this->sut->getMobileNoteData());
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+    // The second response is cached.
+    $this->assertCount(1, $this->sut->getMobileNoteData());
+  }
+
+  /**
+   * Replaces the time service with a clock set to the given time.
+   */
+  private function setCurrentTime(int $time): void {
+    $this->currentTime = $time;
+
+    $clock = $this->createMock(TimeInterface::class);
+    $clock->method('getCurrentTime')->willReturnCallback(fn () => $this->currentTime);
+    $clock->method('getRequestTime')->willReturnCallback(fn () => $this->currentTime);
+    $this->container->set('datetime.time', $clock);
+  }
+
+  /**
+   * Creates a WFS feature.
+   *
+   * @return array<string, mixed>
+   *   The feature.
+   */
+  private function feature(string $id): array {
+    return [
+      'id' => $id,
+      'geometry' => [
+        'type' => 'LineString',
+        'coordinates' => [[25497397.000, 6672506.000], [25497500.000, 6672600.000]],
+      ],
+      'properties' => [
+        'osoite' => 'Test Street 1',
+        'voimassaoloAlku' => '2026-01-20',
+        'voimassaoloLoppu' => '2026-01-21',
+      ],
+    ];
   }
 
   /**
