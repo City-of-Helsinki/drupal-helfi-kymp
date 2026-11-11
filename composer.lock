@@ -4425,16 +4425,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.22.1",
+            "version": "6.22.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "6fc6e2206beaec043db6e44e88d187bd561ebf21"
+                "reference": "72337a1fff24df12d6547933ffbdab438e7e4ce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/6fc6e2206beaec043db6e44e88d187bd561ebf21",
-                "reference": "6fc6e2206beaec043db6e44e88d187bd561ebf21",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/72337a1fff24df12d6547933ffbdab438e7e4ce0",
+                "reference": "72337a1fff24df12d6547933ffbdab438e7e4ce0",
                 "shasum": ""
             },
             "require": {
@@ -4453,10 +4453,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.22.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.22.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-11-09T13:09:31+00:00"
+            "time": "2026-11-11T08:32:12+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -6397,26 +6397,26 @@
         },
         {
             "name": "drupal/purge",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/purge.git",
-                "reference": "8.x-3.7"
+                "reference": "8.x-3.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.7.zip",
-                "reference": "8.x-3.7",
-                "shasum": "a471c8e9c5f766fc83057eabae257c77609051f1"
+                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.8.zip",
+                "reference": "8.x-3.8",
+                "shasum": "73f7b0030bd0ab973f9949478e232c5e2eba6009"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10 || ^11"
+                "drupal/core": "^10.3 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.7",
-                    "datestamp": "1784660713",
+                    "version": "8.x-3.8",
+                    "datestamp": "1794365130",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6437,8 +6437,9 @@
             ],
             "authors": [
                 {
-                    "name": "Niels van Mourik",
-                    "homepage": "http://www.nielsvm.org"
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/1046710/committers",
+                    "role": "Contributors"
                 },
                 {
                     "name": "japerry",
@@ -6454,7 +6455,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/purge"
             },
-            "published-time": "2026-07-21T19:04:53+00:00"
+            "published-time": "2026-11-11T02:45:09+00:00"
         },
         {
             "name": "drupal/quick_node_clone",
@@ -8167,16 +8168,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.8.0",
+            "version": "13.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "a5529118232c722c052ad6ae3be587df43c7d6fa"
+                "reference": "0218690d082b71e20343549515bbb3944cbc5939"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/a5529118232c722c052ad6ae3be587df43c7d6fa",
-                "reference": "a5529118232c722c052ad6ae3be587df43c7d6fa",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/0218690d082b71e20343549515bbb3944cbc5939",
+                "reference": "0218690d082b71e20343549515bbb3944cbc5939",
                 "shasum": ""
             },
             "require": {
@@ -8184,18 +8185,18 @@
                 "composer-runtime-api": "^2.2",
                 "composer/semver": "^1.4 || ^3",
                 "consolidation/annotated-command": "^4.10.2",
-                "consolidation/config": "^2.1.2 || ^3.1.1",
+                "consolidation/config": "^3.1.1",
                 "consolidation/filter-via-dot-access-data": "^2.0.2",
                 "consolidation/output-formatters": "^4.6.1",
-                "consolidation/robo": "^4.0.6 || ^5.1.0",
+                "consolidation/robo": "^5.1.0",
                 "consolidation/site-alias": "^4.1.1",
                 "consolidation/site-process": "^5.4.2 || ^6.1",
                 "dflydev/dot-access-data": "^3.0.2",
                 "ext-dom": "*",
                 "grasmash/yaml-cli": "^3.2",
-                "guzzlehttp/guzzle": "^7.0",
+                "guzzlehttp/guzzle": "^7.0 || ^8.0",
                 "laravel/prompts": "^0.3.5",
-                "league/container": "^4.2",
+                "league/container": "^4.2.5",
                 "php": ">=8.3",
                 "psy/psysh": "~0.12",
                 "symfony/event-dispatcher": "^6 || ^7",
@@ -8207,7 +8208,8 @@
             "conflict": {
                 "drupal/core": "<10.4 <12.0",
                 "drupal/migrate_run": "*",
-                "drupal/migrate_tools": "<= 5"
+                "drupal/migrate_tools": "<= 5",
+                "grasmash/expander": "<3.0.1"
             },
             "require-dev": {
                 "composer/installers": "^2",
@@ -8304,7 +8306,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.8.0"
+                "source": "https://github.com/drush-ops/drush/tree/13.8.1"
             },
             "funding": [
                 {
@@ -8312,8 +8314,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-08T18:24:55+00:00",
-            "published-time": "2026-09-08T18:48:45+00:00"
+            "time": "2026-11-10T19:12:09+00:00",
+            "published-time": "2026-11-10T21:39:56+00:00"
         },
         {
             "name": "egulias/email-validator",
