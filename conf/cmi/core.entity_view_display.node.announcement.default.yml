@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.announcement.field_announcement_all_pages
     - field.field.node.announcement.field_announcement_content_pages
     - field.field.node.announcement.field_announcement_link
+    - field.field.node.announcement.field_announcement_page_paths
     - field.field.node.announcement.field_announcement_service_pages
     - field.field.node.announcement.field_announcement_title
     - field.field.node.announcement.field_announcement_type
@@ -18,7 +19,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: yhUvsmuub4c7O7-jhnKmh4Q5QZpDn_zwcl0EJD3z17Y
+  default_config_hash: vL4WS2IzuOHkFs2rUFBWDjlDTJHvW7D94tzk0bUDyaY
 id: node.announcement.default
 targetEntityType: node
 bundle: announcement
@@ -48,6 +49,7 @@ content:
     label: hidden
     settings:
       link_to_entity: false
+      link_rel: canonical
     third_party_settings: {  }
     weight: 4
     region: content
@@ -68,6 +70,7 @@ hidden:
   changed_at: true
   field_announcement_all_pages: true
   field_announcement_content_pages: true
+  field_announcement_page_paths: true
   field_announcement_service_pages: true
   field_announcement_unit_pages: true
   langcode: true
