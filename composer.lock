@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7b5a05b465d901a9ab969a9d6a48b83",
+    "content-hash": "8e340444188246f005785f320e257723",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -112,32 +112,29 @@
             "published-time": "2026-09-04T05:58:05+00:00"
         },
         {
-            "name": "azure-oss/storage",
-            "version": "1.9.0",
+            "name": "azure-oss/storage-blob",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-oss-for-azure/azure-storage-php.git",
-                "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76"
+                "url": "https://github.com/php-oss-for-azure/azure-storage-blob-php.git",
+                "reference": "2333cad9c507062a8ae5536b02ec1f8099f1d48e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-php/zipball/ed2d4ad652cc90fa8067d9e47468666ed942cf76",
-                "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-blob-php/zipball/2333cad9c507062a8ae5536b02ec1f8099f1d48e",
+                "reference": "2333cad9c507062a8ae5536b02ec1f8099f1d48e",
                 "shasum": ""
             },
             "require": {
-                "azure-oss/storage-common": "^1.0",
+                "azure-oss/storage-common": "^2.0",
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-simplexml": "*",
-                "guzzlehttp/guzzle": "^7.8",
-                "php": "^8.1"
+                "guzzlehttp/guzzle": "^7.8 || ^8.0",
+                "php": "^8.2"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "aliases.php"
-                ],
                 "psr-4": {
                     "AzureOss\\Storage\\Blob\\": ""
                 }
@@ -164,36 +161,33 @@
                 "storage"
             ],
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php/tree/1.9.0"
+                "source": "https://github.com/php-oss-for-azure/azure-storage-blob-php/tree/2.3.1"
             },
-            "time": "2026-03-15T06:57:10+00:00",
-            "published-time": "2026-03-15T07:44:35+00:00"
+            "time": "2026-09-04T05:57:32+00:00",
+            "published-time": "2026-09-04T05:58:19+00:00"
         },
         {
             "name": "azure-oss/storage-common",
-            "version": "1.1.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-oss-for-azure/azure-storage-common-php.git",
-                "reference": "3169c2f19475a087963e71aeb2cbf183eb676025"
+                "reference": "be9f2c36c2b16037aeab2762b40ebf807f1de5c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-common-php/zipball/3169c2f19475a087963e71aeb2cbf183eb676025",
-                "reference": "3169c2f19475a087963e71aeb2cbf183eb676025",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-common-php/zipball/be9f2c36c2b16037aeab2762b40ebf807f1de5c9",
+                "reference": "be9f2c36c2b16037aeab2762b40ebf807f1de5c9",
                 "shasum": ""
             },
             "require": {
                 "azure-oss/identity": "^1.0",
-                "caseyamcl/guzzle_retry_middleware": "^2.10",
-                "guzzlehttp/guzzle": "^7.8",
-                "php": "^8.1"
+                "caseyamcl/guzzle_retry_middleware": "^2.13 || ^3.0",
+                "guzzlehttp/guzzle": "^7.8 || ^8.0",
+                "php": "^8.2"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "aliases.php"
-                ],
                 "psr-4": {
                     "AzureOss\\Storage\\Common\\": ""
                 }
@@ -208,11 +202,12 @@
                     "email": "brechtvermeersch@outlook.be"
                 }
             ],
+            "description": "Shared primitives for Azure Storage PHP SDK packages",
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php-common/tree/1.1.0"
+                "source": "https://github.com/php-oss-for-azure/azure-storage-common-php/tree/2.2.1"
             },
-            "time": "2026-03-13T19:18:28+00:00",
-            "published-time": "2026-03-15T07:39:26+00:00"
+            "time": "2026-09-04T05:57:32+00:00",
+            "published-time": "2026-09-04T05:58:23+00:00"
         },
         {
             "name": "caseyamcl/guzzle_retry_middleware",
@@ -4671,48 +4666,40 @@
         },
         {
             "name": "drupal/helfi_azure_fs",
-            "version": "2.2.8",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs.git",
-                "reference": "e5fdb121ee91fcbd856a221de2ed6b906d8f9093"
+                "reference": "b1c44520cf9b2ca668a25902d80e5534191fd36e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/e5fdb121ee91fcbd856a221de2ed6b906d8f9093",
-                "reference": "e5fdb121ee91fcbd856a221de2ed6b906d8f9093",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-module-helfi-azure-fs/zipball/b1c44520cf9b2ca668a25902d80e5534191fd36e",
+                "reference": "b1c44520cf9b2ca668a25902d80e5534191fd36e",
                 "shasum": ""
             },
             "require": {
-                "azure-oss/storage": "^1.5",
-                "drupal/flysystem": "^2.3"
+                "azure-oss/storage-blob": "^2.2",
+                "drupal/flysystem": "^2.0 || ^3.0"
             },
             "conflict": {
-                "drupal/core": "<11.0",
-                "drupal/flysystem": "<2.3.1"
+                "drupal/core": "<11.0"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "drupal/coder": "^8.3"
             },
             "type": "drupal-module",
-            "extra": {
-                "patches": {
-                    "league/flysystem": {
-                        "Patch CVE-2026-102601": "./public/modules/contrib/helfi_azure_fs/patches/CVE-2026-102601.patch"
-                    }
-                }
-            },
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Helfi - Azure FS",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/2.2.8",
+                "source": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/tree/3.2.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-module-helfi-azure-fs/issues"
             },
-            "time": "2026-09-30T06:40:49+00:00",
-            "published-time": "2026-11-13T09:20:17+00:00"
+            "time": "2026-11-16T06:12:13+00:00",
+            "published-time": "2026-11-16T06:12:36+00:00"
         },
         {
             "name": "drupal/helfi_drupal_tools",
