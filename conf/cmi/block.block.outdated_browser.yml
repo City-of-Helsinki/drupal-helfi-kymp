@@ -1,0 +1,20 @@
+uuid: dbc57c47-bc5b-4557-ad98-2b16ad09e97f
+langcode: en
+status: true
+dependencies:
+  module:
+    - helfi_platform_config
+  theme:
+    - hdbt_subtheme
+id: outdated_browser
+theme: hdbt_subtheme
+region: before_content
+weight: -20
+provider: helfi_base_content
+plugin: outdated_browser
+settings:
+  id: outdated_browser
+  label: 'Outdated browser notification'
+  label_display: ''
+  provider: helfi_platform_config
+visibility: {  }
