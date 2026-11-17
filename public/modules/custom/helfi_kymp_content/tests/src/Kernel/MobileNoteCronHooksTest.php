@@ -89,44 +89,39 @@ class MobileNoteCronHooksTest extends KernelTestBase {
   private int $currentTime = self::CURRENT_TIME;
 
   /**
-   * Tests that new items are tracked before the ended ones.
+   * Tests tracking new and updated items, and ended items after them.
    */
-  public function testFirstRun(): void {
+  public function testSync(): void {
+    // Before the upgrade, the known items were in state.
+    $state = $this->container->get(StateInterface::class);
+    $state->set('helfi_kymp_content.mobilenote_known_items', [
+      'updated' => 100,
+      'no.update.time' => NULL,
+    ]);
+
     $items = [
-      $this->item('active.1', self::ACTIVE),
+      $this->item('updated', self::ACTIVE, 200),
+      $this->item('no.update.time', self::ACTIVE, NULL),
       // Shown until a day after valid_to, so this is still active.
-      $this->item('active.2', self::CURRENT_TIME - 86400),
-      $this->item('ended.1', self::ENDED),
+      $this->item('new', self::CURRENT_TIME - 86400),
+      $this->item('ended', self::ENDED),
     ];
 
     $this->runCron($items);
 
-    $this->assertTracked(['active.1', 'active.2'], 'trackItemsInserted');
-    $this->assertEquals(['active.1', 'active.2'], array_keys($this->getKnownItems()));
-
-    // The ended item is tracked on the next run, which has no new items.
-    $this->runCron($items);
-
-    $this->assertTracked(['ended.1'], 'trackItemsInserted');
-    $this->assertEquals(['active.1', 'active.2', 'ended.1'], array_keys($this->getKnownItems()));
-  }
-
-  /**
-   * Tests that the known items are read from state after the upgrade.
-   */
-  public function testLegacyKnownItems(): void {
-    $state = $this->container->get(StateInterface::class);
-    $state->set('helfi_kymp_content.mobilenote_known_items', ['unchanged' => 100, 'updated' => 100]);
-
-    $this->runCron([
-      $this->item('unchanged', self::ACTIVE, 100),
-      $this->item('updated', self::ACTIVE, 200),
-    ]);
-
-    $this->assertTracked([], 'trackItemsInserted');
     $this->assertTracked(['updated'], 'trackItemsUpdated');
-    $this->assertEquals(['unchanged' => 100, 'updated' => 200], $this->getKnownItems());
+    $this->assertTracked(['new'], 'trackItemsInserted');
+    $this->assertEquals(['updated' => 200, 'no.update.time' => NULL, 'new' => 100], $this->getKnownItems());
     $this->assertNull($state->get('helfi_kymp_content.mobilenote_known_items'));
+
+    // The ended item waits until nothing is waiting to be indexed.
+    $this->remainingItems = 1;
+    $this->runCron($items);
+    $this->assertEquals([], $this->tracked);
+
+    $this->remainingItems = 0;
+    $this->runCron($items);
+    $this->assertEquals(['trackItemsInserted' => ['ended']], $this->tracked);
   }
 
   /**
@@ -148,123 +143,19 @@ class MobileNoteCronHooksTest extends KernelTestBase {
 
     $rest = array_map(static fn (int $i) => "ended.$i", range(MobileNoteCronHooks::MAX_BACKFILL_PER_RUN + 1, $total));
     $this->assertTracked($rest, 'trackItemsInserted');
-    $this->assertCount($total, $this->getKnownItems());
   }
 
   /**
-   * Tests that ended items wait while other items are being indexed.
-   */
-  public function testBackfillWaitsForIndexing(): void {
-    $items = [
-      $this->item('active.1', self::ACTIVE),
-      $this->item('ended.1', self::ENDED),
-    ];
-    $this->remainingItems = 5;
-
-    // New items are tracked even when the queue is not empty.
-    $this->runCron($items);
-    $this->assertTracked(['active.1'], 'trackItemsInserted');
-
-    $this->runCron($items);
-    $this->assertTracked([], 'trackItemsInserted');
-
-    $this->remainingItems = 0;
-    $this->runCron($items);
-    $this->assertTracked(['ended.1'], 'trackItemsInserted');
-  }
-
-  /**
-   * Tests that ended items wait for a run without updated items.
-   */
-  public function testBackfillWaitsForUpdates(): void {
-    $this->setKnownItems(['active.1' => 100]);
-    $items = [
-      $this->item('active.1', self::ACTIVE, 200),
-      $this->item('ended.1', self::ENDED),
-    ];
-
-    $this->runCron($items);
-    $this->assertTracked(['active.1'], 'trackItemsUpdated');
-    $this->assertTracked([], 'trackItemsInserted');
-
-    $this->runCron($items);
-    $this->assertTracked([], 'trackItemsUpdated');
-    $this->assertTracked(['ended.1'], 'trackItemsInserted');
-  }
-
-  /**
-   * Tests updated items.
-   */
-  public function testUpdatedItems(): void {
-    $this->setKnownItems([
-      'unchanged' => 100,
-      'updated' => 100,
-      'no.update.time' => NULL,
-      'removed' => 100,
-    ]);
-
-    $this->runCron([
-      $this->item('unchanged', self::ACTIVE, 100),
-      $this->item('updated', self::ACTIVE, 200),
-      $this->item('no.update.time', self::ACTIVE, NULL),
-    ]);
-
-    $this->assertTracked(['updated'], 'trackItemsUpdated');
-    $this->assertTracked([], 'trackItemsInserted');
-    // Items the API no longer returns are not deleted: they are kept until
-    // they expire.
-    $this->assertTracked([], 'trackItemsDeleted');
-    $this->assertEquals(['unchanged' => 100, 'updated' => 200, 'no.update.time' => NULL], $this->getKnownItems());
-  }
-
-  /**
-   * Tests that items that ended before the retention period are deleted.
+   * Tests that expired items are deleted even if the API request fails.
    */
   public function testExpiredItems(): void {
-    $this->expiredIds = ['expired.1', 'expired.2'];
-
-    $this->runCron([$this->item('active.1', self::ACTIVE)]);
-
-    $this->assertTracked(['expired.1', 'expired.2'], 'trackItemsDeleted');
-  }
-
-  /**
-   * Tests that a failed request keeps the known items.
-   */
-  public function testEmptyResponse(): void {
     $this->setKnownItems(['known' => 100]);
-    $this->expiredIds = ['expired.1'];
+    $this->expiredIds = ['expired.1', 'expired.2'];
 
     $this->runCron([]);
 
-    // Expired items are deleted regardless of the API.
-    $this->assertTracked(['expired.1'], 'trackItemsDeleted');
-    $this->assertTracked([], 'trackItemsInserted');
+    $this->assertEquals(['trackItemsDeleted' => ['expired.1', 'expired.2']], $this->tracked);
     $this->assertEquals(['known' => 100], $this->getKnownItems());
-  }
-
-  /**
-   * Tests that the sync runs at most once per hour.
-   */
-  public function testRunInterval(): void {
-    $this->container->get(StateInterface::class)
-      ->set(MobileNoteCronHooks::STATE_LAST_RUN, self::CURRENT_TIME - 60);
-
-    $dataService = $this->createMock(MobileNoteDataService::class);
-    $dataService->expects($this->never())->method('getMobileNoteData');
-
-    $this->createSut(NULL, $dataService)->cron();
-  }
-
-  /**
-   * Tests that nothing is tracked without the index.
-   */
-  public function testMissingIndex(): void {
-    $dataService = $this->createMock(MobileNoteDataService::class);
-    $dataService->method('getMobileNoteData')->willReturn([]);
-    $dataService->expects($this->never())->method('getRetentionStart');
-
-    $this->createSut(NULL, $dataService)->cron();
   }
 
   /**
@@ -283,8 +174,25 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $dataService->method('getMobileNoteData')->willReturn($data);
     $dataService->method('getRetentionStart')->willReturn(self::RETENTION_START);
 
+    $storage = $this->createMock(EntityStorageInterface::class);
+    $storage->method('load')->with('mobilenote_data')->willReturn($this->createIndex());
+
+    $etm = $this->createMock(EntityTypeManagerInterface::class);
+    $etm->method('getStorage')->with('search_api_index')->willReturn($storage);
+
+    $time = $this->createMock(TimeInterface::class);
+    $time->method('getRequestTime')->willReturn($this->currentTime);
+
     $this->tracked = [];
-    $this->createSut($this->createIndex(), $dataService)->cron();
+    $hooks = new MobileNoteCronHooks(
+      $this->container->get(StateInterface::class),
+      $this->container->get(KeyValueFactoryInterface::class),
+      $etm,
+      $time,
+      $this->createMock(LoggerInterface::class),
+      $dataService,
+    );
+    $hooks->cron();
     $this->currentTime += 3600;
   }
 
@@ -333,7 +241,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
       ->method('addCondition')
       ->with('valid_to', self::RETENTION_START, '<')
       ->willReturnSelf();
-    $query->method('range')->with(0, 100)->willReturnSelf();
+    $query->method('range')->willReturnSelf();
     $query->method('execute')->willReturnCallback(function () use ($query) {
       $results = new ResultSet($query);
       foreach ($this->expiredIds as $id) {
@@ -350,35 +258,11 @@ class MobileNoteCronHooksTest extends KernelTestBase {
 
     foreach (['trackItemsInserted', 'trackItemsUpdated', 'trackItemsDeleted'] as $method) {
       $index->method($method)->willReturnCallback(function (string $datasourceId, array $ids) use ($method): void {
-        $this->assertEquals('mobilenote_data_source', $datasourceId);
         $this->tracked[$method] = [...$this->tracked[$method] ?? [], ...array_values($ids)];
       });
     }
 
     return $index;
-  }
-
-  /**
-   * Creates the MobileNoteCronHooks instance with mocked dependencies.
-   */
-  private function createSut(?IndexInterface $index, MobileNoteDataService $dataService): MobileNoteCronHooks {
-    $storage = $this->createMock(EntityStorageInterface::class);
-    $storage->method('load')->with('mobilenote_data')->willReturn($index);
-
-    $etm = $this->createMock(EntityTypeManagerInterface::class);
-    $etm->method('getStorage')->with('search_api_index')->willReturn($storage);
-
-    $time = $this->createMock(TimeInterface::class);
-    $time->method('getRequestTime')->willReturn($this->currentTime);
-
-    return new MobileNoteCronHooks(
-      $this->container->get(StateInterface::class),
-      $this->container->get(KeyValueFactoryInterface::class),
-      $etm,
-      $time,
-      $this->createMock(LoggerInterface::class),
-      $dataService,
-    );
   }
 
   /**

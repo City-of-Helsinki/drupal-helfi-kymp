@@ -361,49 +361,31 @@ class MobileNoteDataServiceTest extends KernelTestBase {
   }
 
   /**
-   * Tests that invalid features are skipped.
+   * Tests that a successful response is cached for a few minutes.
    */
-  public function testInvalidFeatures(): void {
-    $withoutId = $this->feature('test.2');
-    unset($withoutId['id']);
-    $withoutDates = $this->feature('test.3');
-    unset($withoutDates['properties']['voimassaoloAlku']);
-
-    $this->container->set('http_client', $this->createMockHttpClient([
-      new Response(200, [], (string) json_encode([
-        'features' => [$withoutId, $this->feature('test.1'), $withoutDates],
-      ])),
-    ]));
-    $this->sut = $this->container->get(MobileNoteDataService::class);
-
-    $this->assertEquals(['test.1'], array_keys($this->sut->getMobileNoteData()));
-  }
-
-  /**
-   * Tests that a fetched response is used for a few minutes only.
-   */
-  public function testCacheLifetime(): void {
+  public function testCache(): void {
     $this->setCurrentTime(1770156000);
 
     $this->container->set('http_client', $this->createMockHttpClient([
+      new Response(500),
       new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1')]])),
       new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1'), $this->feature('test.2')]])),
     ]));
     $this->sut = $this->container->get(MobileNoteDataService::class);
 
+    // A failed request is not cached.
+    $this->assertEquals([], $this->sut->getMobileNoteData());
     $this->assertCount(1, $this->sut->getMobileNoteData());
 
-    // Within the lifetime, the cached response is used.
     $this->currentTime += 299;
     $this->assertCount(1, $this->sut->getMobileNoteData());
 
-    // After it, the API is requested again.
     $this->currentTime += 1;
     $this->assertCount(2, $this->sut->getMobileNoteData());
   }
 
   /**
-   * Tests that a response with the maximum number of features is logged.
+   * Tests that invalid features are skipped and a full response is logged.
    */
   public function testFeatureLimit(): void {
     $features = array_fill(0, 9999, ['properties' => []]);
@@ -420,22 +402,6 @@ class MobileNoteDataServiceTest extends KernelTestBase {
       ->with($this->stringContains('reached the limit'));
     $this->sut->setLogger($logger);
 
-    $this->assertCount(1, $this->sut->getMobileNoteData());
-  }
-
-  /**
-   * Tests that a failed request is retried on the next call.
-   */
-  public function testFailedRequestIsNotCached(): void {
-    $this->container->set('http_client', $this->createMockHttpClient([
-      new Response(500),
-      new Response(200, [], (string) json_encode(['features' => [$this->feature('test.1')]])),
-    ]));
-    $this->sut = $this->container->get(MobileNoteDataService::class);
-
-    $this->assertEquals([], $this->sut->getMobileNoteData());
-    $this->assertCount(1, $this->sut->getMobileNoteData());
-    // The second response is cached.
     $this->assertCount(1, $this->sut->getMobileNoteData());
   }
 

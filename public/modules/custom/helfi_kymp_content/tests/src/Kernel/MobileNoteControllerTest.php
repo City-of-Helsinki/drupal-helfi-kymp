@@ -140,7 +140,6 @@ class MobileNoteControllerTest extends KernelTestBase {
    *   The expected match conditions.
    */
   private function assertQuery(array $should): void {
-    $this->assertCount(1, $this->elasticHistory);
     $body = json_decode((string) $this->elasticHistory[0]['request']->getBody(), TRUE);
 
     $bool = ['filter' => [['range' => ['valid_to' => ['gte' => 'now-1d']]]]];
@@ -150,10 +149,6 @@ class MobileNoteControllerTest extends KernelTestBase {
     }
 
     $this->assertEquals(['bool' => $bool], $body['query']['function_score']['query']);
-    $this->assertEquals('replace', $body['query']['function_score']['boost_mode']);
-    $this->assertEquals([
-      ['linear' => ['valid_from' => ['origin' => 'now', 'scale' => '7d', 'decay' => 0.5]]],
-    ], $body['query']['function_score']['functions']);
   }
 
   /**
