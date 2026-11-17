@@ -115,6 +115,25 @@ class MobileNoteControllerTest extends KernelTestBase {
   }
 
   /**
+   * Tests a location without a parking zone or postal codes.
+   */
+  public function testNoConditions(): void {
+    $controller = $this->getController(
+      [
+        $this->parkingZoneResponse(NULL),
+        $this->addressResponse([]),
+      ],
+      [$this->elasticResponse([])],
+    );
+
+    $response = $controller->getMobileNoteData($this->createRequest());
+    $this->assertEquals(200, $response->getStatusCode());
+
+    // Only the filter for ended removals applies.
+    $this->assertQuery([]);
+  }
+
+  /**
    * Asserts the Elasticsearch query: ended items are filtered out.
    *
    * @param array<int, array<string, mixed>> $should
@@ -135,25 +154,6 @@ class MobileNoteControllerTest extends KernelTestBase {
     $this->assertEquals([
       ['linear' => ['valid_from' => ['origin' => 'now', 'scale' => '7d', 'decay' => 0.5]]],
     ], $body['query']['function_score']['functions']);
-  }
-
-  /**
-   * Tests a location without a parking zone or postal codes.
-   */
-  public function testNoConditions(): void {
-    $controller = $this->getController(
-      [
-        $this->parkingZoneResponse(NULL),
-        $this->addressResponse([]),
-      ],
-      [$this->elasticResponse([])],
-    );
-
-    $response = $controller->getMobileNoteData($this->createRequest());
-    $this->assertEquals(200, $response->getStatusCode());
-
-    // Only the filter for ended removals applies.
-    $this->assertQuery([]);
   }
 
   /**

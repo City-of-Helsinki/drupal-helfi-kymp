@@ -38,11 +38,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
    * Tests data fetching and coordinate conversion.
    */
   public function testDatasource(): void {
-    $this->config('helfi_kymp_content.settings')
-      ->set('wfs_url', 'https://example.com/wfs')
-      ->set('wfs_username', 'test_user')
-      ->set('wfs_password', 'test_pass')
-      ->save();
+    $this->setWfsCredentials();
 
     $parkingZoneResponse = (string) json_encode([
       'results' => [[
@@ -83,21 +79,7 @@ class MobileNoteDataSourceTest extends KernelTestBase {
       new Response(200, [], $parkingZoneResponse),
     ]);
 
-    // Create a test index.
-    $index = Index::create([
-      'name' => 'Test Index',
-      'id' => 'test_index',
-      'status' => FALSE,
-      'datasource_settings' => [
-        'mobilenote_data_source' => [],
-      ],
-      'tracker_settings' => [
-        'default' => [],
-      ],
-    ]);
-    $datasource = $index->getDatasource('mobilenote_data_source');
-
-    $items = $datasource->loadMultiple(['test.123']);
+    $items = $this->getDatasource()->loadMultiple(['test.123']);
 
     $this->assertCount(1, $items);
     $this->assertTrue(array_all($items, static fn ($item) => $item instanceof MobileNoteData));
