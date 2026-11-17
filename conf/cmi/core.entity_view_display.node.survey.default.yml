@@ -6,13 +6,14 @@ dependencies:
     - field.field.node.survey.body
     - field.field.node.survey.field_survey_content_pages
     - field.field.node.survey.field_survey_link
+    - field.field.node.survey.field_survey_page_paths
     - node.type.survey
   module:
     - link
     - text
     - user
 _core:
-  default_config_hash: VYCHZ7byxSgOpSFDqb2ad2yb3M5fWI43qAJbGREtaSQ
+  default_config_hash: FIy2DAQTcg1CFanS9XLaaCskcSDcgOTAPkInFXkxWs0
 id: node.survey.default
 targetEntityType: node
 bundle: survey
@@ -23,7 +24,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_survey_link:
     type: link
@@ -35,7 +36,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   links:
     settings: {  }
@@ -46,6 +47,7 @@ hidden:
   ai_summary: true
   changed_at: true
   field_survey_content_pages: true
+  field_survey_page_paths: true
   langcode: true
   published_at: true
   search_api_excerpt: true
