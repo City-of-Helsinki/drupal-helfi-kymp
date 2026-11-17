@@ -258,8 +258,6 @@ XML;
         'address_info' => $properties['osoitteenlisatieto'] ?? '',
         'sign_type' => $properties['merkinLaatu']['value'] ?? '',
         'additional_text' => $properties['lisakilvenTeksti'] ?? '',
-        'notes' => $properties['huomautukset'] ?? '',
-        'phone' => $properties['puhelinnumero'] ?? '',
       ];
     }
     catch (\DateException $e) {
