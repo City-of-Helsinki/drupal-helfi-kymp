@@ -32,6 +32,7 @@ class MobileNoteData extends Map {
 
     $fields = [
       'id' => ['type' => 'string', 'label' => 'ID', 'desc' => 'Feature ID from WFS', 'required' => TRUE],
+      'nro' => ['type' => 'integer', 'label' => 'Number', 'desc' => 'Notice number, also on kartta.hel.fi'],
       'address' => ['type' => 'string', 'label' => 'Address', 'desc' => 'Street address'],
       'reason' => ['type' => 'string', 'label' => 'Reason', 'desc' => 'Sign reason'],
       'valid_from' => ['type' => 'integer', 'label' => 'Valid from', 'desc' => 'Start timestamp'],

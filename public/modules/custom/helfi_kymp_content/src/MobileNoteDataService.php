@@ -240,10 +240,12 @@ XML;
 
     $properties = $feature['properties'] ?? [];
     $geometry = $feature['geometry'] ?? [];
+    $nro = $this->getNoticeNumber($featureId, $properties);
 
     try {
       $item = [
         'id' => $featureId,
+        'nro' => $nro,
         'address' => $properties['osoite'] ?? '',
         'reason' => $properties['merkinSyy']['value'] ?? '',
         'valid_from' => $this->dateToTimestamp($properties['voimassaoloAlku'] ?? NULL),
@@ -267,7 +269,7 @@ XML;
     // Convert geometry to GeoJSON object.
     if (!empty($geometry['coordinates'])) {
       $item['geometry'] = $this->geometryConverter->convertHelsinkiToWgs84($geometry);
-      $item['map_url'] = KarttaUtility::buildUrl($geometry);
+      $item['map_url'] = $nro ? KarttaUtility::buildUrl($geometry, $nro) : '';
     }
 
     $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');
@@ -277,6 +279,30 @@ XML;
     $typedData->setValue($item);
 
     return $typedData;
+  }
+
+  /**
+   * Gets the notice number of a feature.
+   *
+   * @param string $featureId
+   *   The feature ID, for example "ppoytakirjaExtranet.68755".
+   * @param array<string, mixed> $properties
+   *   The feature properties.
+   *
+   * @return int|null
+   *   The notice number, or NULL if the feature has none.
+   */
+  protected function getNoticeNumber(string $featureId, array $properties): ?int {
+    if (is_numeric($properties['nro'] ?? NULL)) {
+      return (int) $properties['nro'];
+    }
+
+    // The feature ID ends with the same number.
+    if (preg_match('/\.(\d+)$/', $featureId, $matches)) {
+      return (int) $matches[1];
+    }
+
+    return NULL;
   }
 
   /**

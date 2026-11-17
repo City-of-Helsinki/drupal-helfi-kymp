@@ -69,6 +69,8 @@ class MobileNoteDataServiceTest extends KernelTestBase {
             ],
           ],
           'properties' => [
+            // Differs from the ID on purpose: the property wins.
+            'nro' => 456,
             'osoite' => 'Test Street 1',
             'merkinSyy' => ['value' => 'Test Reason'],
             'voimassaoloAlku' => '2026-01-20',
@@ -133,6 +135,12 @@ class MobileNoteDataServiceTest extends KernelTestBase {
 
     // Verify data mapping.
     $this->assertEquals('test.123', $item['id']);
+    $this->assertSame(456, $item['nro']);
+    // The map link shows the notice on the kartta.hel.fi notice layer.
+    $this->assertSame(
+      'https://kartta.hel.fi/?e=25497449&n=6672553&r=2&l=Karttasarja%2CAjoneuvojen_siirtokehotukset&w=%2Anro%3D%3D456',
+      $item['map_url'],
+    );
     $this->assertEquals('Test Street 1 Info', $item['address']);
     $this->assertEquals('Test Reason', $item['reason']);
     // Street names should contain all results' fi and sv names.
@@ -256,10 +264,13 @@ class MobileNoteDataServiceTest extends KernelTestBase {
     $this->assertContains('Kaivokatu', $item['street_names']);
     $this->assertCount(3, $item['street_names']);
 
-    // Map URL: built as a MULTIPOLYGON WKT.
-    $this->assertNotEmpty($item['map_url']);
-    $this->assertStringStartsWith('https://kartta.hel.fi/', $item['map_url']);
-    $this->assertStringContainsString('MULTIPOLYGON', rawurldecode($item['map_url']));
+    // Without the "nro" property, the number comes from the feature ID.
+    $this->assertSame(789, $item['nro']);
+    // Map URL: centred on all components of the geometry.
+    $this->assertSame(
+      'https://kartta.hel.fi/?e=25497599&n=6672702&r=2&l=Karttasarja%2CAjoneuvojen_siirtokehotukset&w=%2Anro%3D%3D789',
+      $item['map_url'],
+    );
   }
 
   /**
