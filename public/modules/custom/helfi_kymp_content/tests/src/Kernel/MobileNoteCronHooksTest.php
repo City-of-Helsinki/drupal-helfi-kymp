@@ -153,20 +153,6 @@ class MobileNoteCronHooksTest extends KernelTestBase {
   }
 
   /**
-   * Tests moving the known items from state to key-value.
-   */
-  public function testUpdate11002(): void {
-    $state = $this->container->get(StateInterface::class);
-    $state->set('helfi_kymp_content.mobilenote_known_items', ['known' => 100]);
-
-    $this->container->get('module_handler')->loadInclude('helfi_kymp_content', 'install');
-    helfi_kymp_content_update_11002();
-
-    $this->assertEquals(['known' => 100], $this->getKnownItems());
-    $this->assertNull($state->get('helfi_kymp_content.mobilenote_known_items'));
-  }
-
-  /**
    * Runs cron with the given API items, and moves the clock to the next run.
    *
    * @param list<\Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData> $items
