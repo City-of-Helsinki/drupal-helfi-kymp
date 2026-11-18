@@ -49,6 +49,11 @@ field_settings:
     datasource_id: mobilenote_data_source
     property_path: notes
     type: string
+  notice_number:
+    label: 'Notice number'
+    datasource_id: mobilenote_data_source
+    property_path: notice_number
+    type: integer
   parking_zone_names:
     label: 'Parking zones'
     datasource_id: mobilenote_data_source

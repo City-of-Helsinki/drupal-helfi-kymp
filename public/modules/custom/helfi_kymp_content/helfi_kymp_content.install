@@ -7,6 +7,7 @@
 
 declare(strict_types=1);
 
+use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
 use Drupal\path_alias\Entity\PathAlias;
 
 /**
@@ -63,4 +64,19 @@ function helfi_kymp_content_update_11001(): void {
       ])->save();
     }
   }
+}
+
+/**
+ * UHF-13553: Reindex vehicle removal notices with the new map links.
+ */
+function helfi_kymp_content_update_11002(): void {
+  \Drupal::entityTypeManager()
+    ->getStorage('search_api_index')
+    ->load('mobilenote_data')
+    ?->reindex();
+
+  \Drupal::state()->deleteMultiple([
+    MobileNoteCronHooks::STATE_KNOWN_ITEMS,
+    MobileNoteCronHooks::STATE_LAST_RUN,
+  ]);
 }
