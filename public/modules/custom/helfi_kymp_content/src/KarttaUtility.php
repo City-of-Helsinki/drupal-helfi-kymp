@@ -29,8 +29,8 @@ class KarttaUtility {
    *
    * @param array<string, mixed> $geometry
    *   The notice geometry in EPSG:3879 (GeoJSON-shaped: type + coordinates).
-   * @param int $nro
-   *   The notice number ("nro" in MobileNote and on the map layer).
+   * @param int $noticeNumber
+   *   The notice number, called "nro" in MobileNote and on the map layer.
    *
    * @return string
    *   The kartta.hel.fi URL, or an empty string if the geometry has no
@@ -39,7 +39,7 @@ class KarttaUtility {
    * @throws \InvalidArgumentException
    *   When the geometry type is not understood.
    */
-  public static function buildUrl(array $geometry, int $nro): string {
+  public static function buildUrl(array $geometry, int $noticeNumber): string {
     $type = strtolower($geometry['type'] ?? '');
     $coordinates = $geometry['coordinates'] ?? [];
 
@@ -64,7 +64,7 @@ class KarttaUtility {
       $centerN,
       self::RESOLUTION,
       rawurlencode(self::BASE_LAYER . ',' . self::NOTICE_LAYER),
-      rawurlencode('*nro==' . $nro),
+      rawurlencode('*nro==' . $noticeNumber),
     );
   }
 
