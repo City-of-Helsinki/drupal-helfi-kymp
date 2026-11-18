@@ -92,12 +92,7 @@ class MobileNoteCronHooksTest extends KernelTestBase {
    * Tests tracking new and updated items, and ended items after them.
    */
   public function testSync(): void {
-    // Before the upgrade, the known items were in state.
-    $state = $this->container->get(StateInterface::class);
-    $state->set('helfi_kymp_content.mobilenote_known_items', [
-      'updated' => 100,
-      'no.update.time' => NULL,
-    ]);
+    $this->setKnownItems(['updated' => 100, 'no.update.time' => NULL]);
 
     $items = [
       $this->item('updated', self::ACTIVE, 200),
@@ -112,7 +107,6 @@ class MobileNoteCronHooksTest extends KernelTestBase {
     $this->assertTracked(['updated'], 'trackItemsUpdated');
     $this->assertTracked(['new'], 'trackItemsInserted');
     $this->assertEquals(['updated' => 200, 'no.update.time' => NULL, 'new' => 100], $this->getKnownItems());
-    $this->assertNull($state->get('helfi_kymp_content.mobilenote_known_items'));
 
     // The ended item waits until nothing is waiting to be indexed.
     $this->remainingItems = 1;
@@ -156,6 +150,20 @@ class MobileNoteCronHooksTest extends KernelTestBase {
 
     $this->assertEquals(['trackItemsDeleted' => ['expired.1', 'expired.2']], $this->tracked);
     $this->assertEquals(['known' => 100], $this->getKnownItems());
+  }
+
+  /**
+   * Tests moving the known items from state to key-value.
+   */
+  public function testUpdate11002(): void {
+    $state = $this->container->get(StateInterface::class);
+    $state->set('helfi_kymp_content.mobilenote_known_items', ['known' => 100]);
+
+    $this->container->get('module_handler')->loadInclude('helfi_kymp_content', 'install');
+    helfi_kymp_content_update_11002();
+
+    $this->assertEquals(['known' => 100], $this->getKnownItems());
+    $this->assertNull($state->get('helfi_kymp_content.mobilenote_known_items'));
   }
 
   /**

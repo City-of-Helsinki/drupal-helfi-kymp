@@ -36,11 +36,6 @@ class MobileNoteCronHooks {
   public const string KNOWN_ITEMS = 'known_items';
 
   /**
-   * The state key where the known items were stored before.
-   */
-  private const string LEGACY_KNOWN_ITEMS = 'helfi_kymp_content.mobilenote_known_items';
-
-  /**
    * The maximum number of ended items to start tracking per run.
    *
    * The API returns items that ended during the retention period, which the
@@ -136,13 +131,7 @@ class MobileNoteCronHooks {
    */
   protected function syncIndex(IndexInterface $index, string $datasourceId, array $data, int $currentTime): void {
     $store = $this->keyValueFactory->get(self::KEY_VALUE_COLLECTION);
-    $knownItems = $store->get(self::KNOWN_ITEMS);
-
-    // On the first run after the upgrade, start from the items in state.
-    $legacy = $knownItems === NULL;
-    if ($legacy) {
-      $knownItems = $this->state->get(self::LEGACY_KNOWN_ITEMS, []);
-    }
+    $knownItems = $store->get(self::KNOWN_ITEMS, []);
 
     // Items are shown until a day after valid_to.
     $activeLimit = $currentTime - 86400;
@@ -190,10 +179,6 @@ class MobileNoteCronHooks {
     }
 
     $store->set(self::KNOWN_ITEMS, $currentItems);
-
-    if ($legacy) {
-      $this->state->delete(self::LEGACY_KNOWN_ITEMS);
-    }
 
     if ($newIds) {
       $index->trackItemsInserted($datasourceId, $newIds);

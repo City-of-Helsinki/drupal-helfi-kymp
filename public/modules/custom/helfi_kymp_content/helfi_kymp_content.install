@@ -67,6 +67,20 @@ function helfi_kymp_content_update_11001(): void {
 }
 
 /**
+ * UHF-13584: Move the known MobileNote items from state to key-value.
+ */
+function helfi_kymp_content_update_11002(): void {
+  $state = \Drupal::state();
+  $knownItems = $state->get('helfi_kymp_content.mobilenote_known_items');
+
+  if ($knownItems !== NULL) {
+    \Drupal::keyValue(MobileNoteCronHooks::KEY_VALUE_COLLECTION)
+      ->set(MobileNoteCronHooks::KNOWN_ITEMS, $knownItems);
+    $state->delete('helfi_kymp_content.mobilenote_known_items');
+  }
+}
+
+/**
  * Implements hook_uninstall().
  */
 function helfi_kymp_content_uninstall(): void {
