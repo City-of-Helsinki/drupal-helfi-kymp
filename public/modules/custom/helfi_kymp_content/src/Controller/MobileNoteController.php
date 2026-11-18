@@ -187,16 +187,25 @@ final class MobileNoteController extends ControllerBase {
       $should[] = ['terms' => ['parking_zone_names' => array_values($parkingZones)]];
     }
 
-    $innerQuery = $should
-      ? ['bool' => ['should' => $should, 'minimum_should_match' => 1]]
-      : ['match_all' => new \stdClass()];
+    // Show removals until a day after valid_to. The index also keeps the ones
+    // that ended before that.
+    $bool = [
+      'filter' => [
+        ['range' => ['valid_to' => ['gte' => 'now-1d']]],
+      ],
+    ];
+
+    if ($should) {
+      $bool['should'] = $should;
+      $bool['minimum_should_match'] = 1;
+    }
 
     return [
       'size' => $size,
       'from' => $offset,
       'query' => [
         'function_score' => [
-          'query' => $innerQuery,
+          'query' => ['bool' => $bool],
           'functions' => [
             [
               'linear' => [

@@ -14,6 +14,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\search_api\Attribute\SearchApiDatasource;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Datasource\DatasourcePluginBase;
+use Drupal\search_api\SearchApiException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -90,6 +91,9 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
 
   /**
    * {@inheritdoc}
+   *
+   * @throws \Drupal\search_api\SearchApiException
+   *   When the API request fails.
    */
   public function loadMultiple(array $ids): array {
     if (empty($ids)) {
@@ -98,6 +102,14 @@ final class MobileNoteDataSource extends DatasourcePluginBase implements Datasou
 
     // Fetch raw data (fast).
     $all = $this->dataService->getMobileNoteData();
+
+    // The API request failed. Index::loadItemsMultiple() catches this and
+    // keeps the items tracked for a retry. Returning nothing would make
+    // search_api delete every requested item (delete_on_fail).
+    if (!$all) {
+      throw new SearchApiException('MobileNote: Failed to fetch items from the API.');
+    }
+
     $items = [];
 
     foreach ($ids as $id) {
