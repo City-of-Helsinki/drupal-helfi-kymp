@@ -2,6 +2,30 @@ display:
   default:
     display_options:
       fields:
+        views_bulk_operations_bulk_form:
+          selected_actions:
+            -
+              preconfiguration:
+                label_override: 'Lägg till som favorit'
+            -
+              preconfiguration:
+                label_override: 'Ta bort från favoriter'
+            -
+              preconfiguration:
+                label_override: 'Radera innehåll'
+            -
+              preconfiguration:
+                label_override: 'Redigera innehåll'
+            -
+              preconfiguration:
+                label_override: 'Publicera innehåll'
+            -
+              preconfiguration:
+                label_override: 'Avpublicera inlägg'
+            -
+              preconfiguration:
+                label_override: 'Uppdatera URL-alias'
+          action_title: Åtgärd
         helfi_favorite:
           label: Favorit
         changed_at:

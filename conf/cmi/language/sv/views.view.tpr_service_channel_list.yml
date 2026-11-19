@@ -1,27 +1,18 @@
 display:
   default:
-    display_title: Förvald
     display_options:
-      exposed_form:
-        options:
-          submit_button: Verkställ
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
-      pager:
-        options:
-          tags:
-            previous: Föregående
-            next: Nästa
-            first: Första
-            last: Sista
-          expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
       fields:
-        tpr_service_channel_bulk_form:
+        views_bulk_operations_bulk_form:
+          selected_actions:
+            -
+              preconfiguration:
+                label_override: 'Publicera innehåll'
+            -
+              preconfiguration:
+                label_override: 'Avpublicera inlägg'
+            -
+              preconfiguration:
+                label_override: Uppdatera
           label: Massuppdatera
           action_title: Åtgärd
         id:
@@ -44,6 +35,24 @@ display:
           separator: ', '
         operations:
           label: Funktioner
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: Föregående
+            next: Nästa
+            first: Första
+            last: Sista
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
       filters:
         combine:
           expose:
@@ -58,5 +67,6 @@ display:
         area:
           content:
             value: 'Inga resultat hittades.'
+    display_title: Förvald
   page_1:
     display_title: Sida
