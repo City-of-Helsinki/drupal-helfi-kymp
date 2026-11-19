@@ -4533,16 +4533,16 @@
         },
         {
             "name": "drupal/hdbt_admin",
-            "version": "3.7.0",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt-admin.git",
-                "reference": "f72ae108ab7b26d4bb49a8443c9b0a94c3da543a"
+                "reference": "c8a68bb21b2636da9122256ed4496ec6ea7ec6ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/f72ae108ab7b26d4bb49a8443c9b0a94c3da543a",
-                "reference": "f72ae108ab7b26d4bb49a8443c9b0a94c3da543a",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt-admin/zipball/c8a68bb21b2636da9122256ed4496ec6ea7ec6ae",
+                "reference": "c8a68bb21b2636da9122256ed4496ec6ea7ec6ae",
                 "shasum": ""
             },
             "require": {
@@ -4562,11 +4562,11 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.7.0",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/tree/3.7.1",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt-admin/issues"
             },
-            "time": "2026-11-19T13:07:52+00:00",
-            "published-time": "2026-11-19T13:19:55+00:00"
+            "time": "2026-11-19T15:48:09+00:00",
+            "published-time": "2026-11-19T15:48:59+00:00"
         },
         {
             "name": "drupal/health_check",
@@ -4873,16 +4873,16 @@
         },
         {
             "name": "drupal/helfi_platform_config",
-            "version": "5.6.1",
+            "version": "5.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config.git",
-                "reference": "2edc6958c07289f7f847d9c08154b790735a2d7d"
+                "reference": "36b57ed5b4bf46b1cb86d6c1a161750009cb21b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/2edc6958c07289f7f847d9c08154b790735a2d7d",
-                "reference": "2edc6958c07289f7f847d9c08154b790735a2d7d",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-helfi-platform-config/zipball/36b57ed5b4bf46b1cb86d6c1a161750009cb21b6",
+                "reference": "36b57ed5b4bf46b1cb86d6c1a161750009cb21b6",
                 "shasum": ""
             },
             "require": {
@@ -5023,11 +5023,11 @@
             ],
             "description": "HELfi platform config",
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.6.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/tree/5.6.2",
                 "issues": "https://github.com/City-of-Helsinki/drupal-helfi-platform-config/issues"
             },
-            "time": "2026-11-19T13:07:35+00:00",
-            "published-time": "2026-11-19T13:20:04+00:00"
+            "time": "2026-11-19T15:49:27+00:00",
+            "published-time": "2026-11-19T15:50:17+00:00"
         },
         {
             "name": "drupal/helfi_proxy",
@@ -6914,6 +6914,10 @@
             ],
             "description": "Integration of Drupal with the Redis key-value store.",
             "homepage": "https://www.drupal.org/project/redis",
+            "keywords": [
+                "Actively maintained",
+                "Integrations"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/redis"
             },
@@ -7049,6 +7053,10 @@
             ],
             "description": "Automatically publish and unpublish content at specified dates and times.",
             "homepage": "https://drupal.org/project/scheduler",
+            "keywords": [
+                "Actively maintained",
+                "Administration tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/scheduler",
                 "issues": "https://www.drupal.org/project/issues/scheduler"
