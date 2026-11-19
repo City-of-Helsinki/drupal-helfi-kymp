@@ -80,8 +80,6 @@ class MobileNoteDataServiceTest extends KernelTestBase {
             'osoitteenlisatieto' => 'Info',
             'merkinLaatu' => ['value' => 'Type'],
             'lisakilvenTeksti' => 'Extra',
-            'huomautukset' => 'Notes',
-            'puhelinnumero' => '12345',
           ],
         ],
       ],
