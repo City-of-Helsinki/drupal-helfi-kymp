@@ -5,6 +5,22 @@ display:
       fields:
         views_bulk_operations_bulk_form:
           action_title: Действие
+          selected_actions:
+            2:
+              preconfiguration:
+                label_override: 'Удалить содержимое'
+            3:
+              preconfiguration:
+                label_override: 'Edit content'
+            4:
+              preconfiguration:
+                label_override: 'Опубликовать материал'
+            5:
+              preconfiguration:
+                label_override: 'Снять материал с публикации'
+            6:
+              preconfiguration:
+                label_override: 'Обновить URL-синоним'
         content_translation_outdated:
           label: 'Перевод устарел'
           settings:

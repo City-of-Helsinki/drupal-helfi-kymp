@@ -6,6 +6,40 @@ display:
           content:
             format: plain_text
             value: 'Ei tuloksia.'
+      fields:
+        views_bulk_operations_bulk_form:
+          selected_actions:
+            -
+              preconfiguration:
+                label_override: 'Julkaise sisältö'
+            -
+              preconfiguration:
+                label_override: 'Muuta sisältö ei-julkaistuksi'
+            -
+              preconfiguration:
+                label_override: 'Päivitä TPR:stä'
+          label: Massapäivitys
+          action_title: Toiminto
+        id:
+          label: ID
+          separator: ', '
+        name:
+          label: Nimi
+          separator: ', '
+        langcode:
+          label: Kieli
+          separator: ', '
+        content_translation_status:
+          label: Tila
+          settings:
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
+          separator: ', '
+        content_translation_changed:
+          label: Päivitetty
+          separator: ', '
+        operations:
+          label: Toimenpiteet
       filters:
         content_translation_status:
           group_info:
@@ -39,30 +73,6 @@ display:
             items_per_page_label: 'Merkintöjä sivua kohti'
             items_per_page_options_all_label: '- Kaikki -'
             offset_label: Offset
-      fields:
-        tpr_service_channel_bulk_form:
-          label: Massapäivitys
-          action_title: Toiminto
-        id:
-          label: ID
-          separator: ', '
-        name:
-          label: Nimi
-          separator: ', '
-        langcode:
-          label: Kieli
-          separator: ', '
-        content_translation_status:
-          label: Tila
-          settings:
-            format_custom_true: Julkaistu
-            format_custom_false: Julkaisematon
-          separator: ', '
-        content_translation_changed:
-          label: Päivitetty
-          separator: ', '
-        operations:
-          label: Toimenpiteet
       title: 'TPR Palvelukanavat'
       header:
         result:
