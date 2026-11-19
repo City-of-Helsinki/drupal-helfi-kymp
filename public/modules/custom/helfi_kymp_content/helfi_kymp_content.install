@@ -7,6 +7,7 @@
 
 declare(strict_types=1);
 
+use Drupal\helfi_kymp_content\Hook\MobileNoteCronHooks;
 use Drupal\path_alias\Entity\PathAlias;
 
 /**
@@ -63,4 +64,50 @@ function helfi_kymp_content_update_11001(): void {
       ])->save();
     }
   }
+}
+
+/**
+ * UHF-13553: Reindex vehicle removal notices with the new map links.
+ */
+function helfi_kymp_content_update_11002(): void {
+  \Drupal::entityTypeManager()
+    ->getStorage('search_api_index')
+    ->load('mobilenote_data')
+    ?->reindex();
+
+  \Drupal::state()->deleteMultiple([
+    MobileNoteCronHooks::STATE_KNOWN_ITEMS,
+    MobileNoteCronHooks::STATE_LAST_RUN,
+  ]);
+}
+
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @phpstan-return array<string, array<int, array<string, int>>>
+ */
+function helfi_kymp_content_update_dependencies(): array {
+  // Remove obsolete MobileNote index fields before helfi_base_content
+  // rebuilds Views data, which fails on fields that no longer exist.
+  $dependencies['helfi_base_content'][9020] = [
+    'helfi_kymp_content' => 11003,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Remove phone and notes fields from the MobileNote search index.
+ */
+function helfi_kymp_content_update_11003(): void {
+  $config = \Drupal::configFactory()
+    ->getEditable('search_api.index.mobilenote_data');
+
+  if ($config->isNew()) {
+    return;
+  }
+
+  foreach (['notes', 'phone'] as $field) {
+    $config->clear("field_settings.$field");
+  }
+  $config->save();
 }

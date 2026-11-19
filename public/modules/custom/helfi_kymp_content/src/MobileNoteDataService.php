@@ -240,10 +240,12 @@ XML;
 
     $properties = $feature['properties'] ?? [];
     $geometry = $feature['geometry'] ?? [];
+    $noticeNumber = is_numeric($properties['nro'] ?? NULL) ? (int) $properties['nro'] : NULL;
 
     try {
       $item = [
         'id' => $featureId,
+        'notice_number' => $noticeNumber,
         'address' => $properties['osoite'] ?? '',
         'reason' => $properties['merkinSyy']['value'] ?? '',
         'valid_from' => $this->dateToTimestamp($properties['voimassaoloAlku'] ?? NULL),
@@ -256,8 +258,6 @@ XML;
         'address_info' => $properties['osoitteenlisatieto'] ?? '',
         'sign_type' => $properties['merkinLaatu']['value'] ?? '',
         'additional_text' => $properties['lisakilvenTeksti'] ?? '',
-        'notes' => $properties['huomautukset'] ?? '',
-        'phone' => $properties['puhelinnumero'] ?? '',
       ];
     }
     catch (\DateException $e) {
@@ -267,7 +267,7 @@ XML;
     // Convert geometry to GeoJSON object.
     if (!empty($geometry['coordinates'])) {
       $item['geometry'] = $this->geometryConverter->convertHelsinkiToWgs84($geometry);
-      $item['map_url'] = KarttaUtility::buildUrl($geometry);
+      $item['map_url'] = $noticeNumber ? KarttaUtility::buildUrl($geometry, $noticeNumber) : '';
     }
 
     $dataDefinition = $this->typedDataManager->createDataDefinition('mobilenote_data');

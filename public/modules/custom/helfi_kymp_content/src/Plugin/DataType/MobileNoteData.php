@@ -32,6 +32,7 @@ class MobileNoteData extends Map {
 
     $fields = [
       'id' => ['type' => 'string', 'label' => 'ID', 'desc' => 'Feature ID from WFS', 'required' => TRUE],
+      'notice_number' => ['type' => 'integer', 'label' => 'Notice number', 'desc' => 'MobileNote number'],
       'address' => ['type' => 'string', 'label' => 'Address', 'desc' => 'Street address'],
       'reason' => ['type' => 'string', 'label' => 'Reason', 'desc' => 'Sign reason'],
       'valid_from' => ['type' => 'integer', 'label' => 'Valid from', 'desc' => 'Start timestamp'],
@@ -42,8 +43,6 @@ class MobileNoteData extends Map {
       'address_info' => ['type' => 'string', 'label' => 'Address info', 'desc' => 'Additional address information'],
       'sign_type' => ['type' => 'string', 'label' => 'Sign type', 'desc' => 'Type of sign'],
       'additional_text' => ['type' => 'string', 'label' => 'Additional text', 'desc' => 'Extra text on sign'],
-      'notes' => ['type' => 'string', 'label' => 'Notes', 'desc' => 'Notes'],
-      'phone' => ['type' => 'string', 'label' => 'Phone', 'desc' => 'Contact phone number'],
       'street_names' => ['type' => 'any', 'label' => 'Street names', 'desc' => 'Enriched street names'],
       'geometry' => ['type' => 'any', 'label' => 'Geometry', 'desc' => 'GeoJSON geometry for geo queries'],
       'map_url' => ['type' => 'string', 'label' => 'Map URL', 'desc' => 'Pre-built kartta.hel.fi link'],

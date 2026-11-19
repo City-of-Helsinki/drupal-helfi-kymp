@@ -22,11 +22,11 @@ class KarttaUtilityTest extends UnitTestCase {
    * @param array<string, mixed> $geometry
    *   The input GeoJSON-shaped geometry in EPSG:3879.
    * @param string $expectedUrl
-   *   The expected URL, or empty string when the input is degenerate.
+   *   The expected URL, or empty string when there is nothing to centre on.
    */
   #[DataProvider('buildUrlProvider')]
   public function testBuildUrl(array $geometry, string $expectedUrl): void {
-    $this->assertSame($expectedUrl, KarttaUtility::buildUrl($geometry));
+    $this->assertSame($expectedUrl, KarttaUtility::buildUrl($geometry, 73567));
   }
 
   /**
@@ -36,34 +36,36 @@ class KarttaUtilityTest extends UnitTestCase {
    *   Each case has [input geometry, expected URL].
    */
   public static function buildUrlProvider(): array {
+    $layers = 'l=Karttasarja%2CAjoneuvojen_siirtokehotukset&w=%2Anro%3D%3D73567';
+
     // phpcs:disable Drupal.Arrays.Array.LongLineDeclaration
     return [
       'LineString' => [
         ['type' => 'LineString', 'coordinates' => [[25502829.56906132, 6674206.427107554], [25503032.73799631, 6674249.873428466]]],
-        'https://kartta.hel.fi/?e=25502931&n=6674228&r=2&l=Karttasarja&geom=POLYGON%20%28%2825502827.48%206674216.21%2C%2025503030.65%206674259.65%2C%2025503034.83%206674240.09%2C%2025502831.66%206674196.65%2C%2025502827.48%206674216.21%29%29',
+        "https://kartta.hel.fi/?e=25502931&n=6674228&r=2&$layers",
       ],
       'single component MultiLineString' => [
         ['type' => 'MultiLineString', 'coordinates' => [[[25502829.56906132, 6674206.427107554], [25503032.73799631, 6674249.873428466]]]],
-        'https://kartta.hel.fi/?e=25502931&n=6674228&r=2&l=Karttasarja&geom=MULTIPOLYGON%20%28%28%2825502827.48%206674216.21%2C%2025503030.65%206674259.65%2C%2025503034.83%206674240.09%2C%2025502831.66%206674196.65%2C%2025502827.48%206674216.21%29%29%29',
+        "https://kartta.hel.fi/?e=25502931&n=6674228&r=2&$layers",
       ],
       'two-component MultiLineString' => [
         ['type' => 'MultiLineString', 'coordinates' => [[[25502829.56906132, 6674206.427107554], [25503032.73799631, 6674249.873428466]], [[25502852.73, 6674701.8], [25502923.47, 6674647.45]]]],
-        'https://kartta.hel.fi/?e=25502910&n=6674451&r=2&l=Karttasarja&geom=MULTIPOLYGON%20%28%28%2825502827.48%206674216.21%2C%2025503030.65%206674259.65%2C%2025503034.83%206674240.09%2C%2025502831.66%206674196.65%2C%2025502827.48%206674216.21%29%29%2C%20%28%2825502858.82%206674709.73%2C%2025502929.56%206674655.38%2C%2025502917.38%206674639.52%2C%2025502846.64%206674693.87%2C%2025502858.82%206674709.73%29%29%29',
+        "https://kartta.hel.fi/?e=25502910&n=6674451&r=2&$layers",
       ],
       'single-point LineString' => [
         ['type' => 'LineString', 'coordinates' => [[25502829.56906132, 6674206.427107554]]],
-        '',
+        "https://kartta.hel.fi/?e=25502830&n=6674206&r=2&$layers",
       ],
-      'zero-length LineString' => [
-        ['type' => 'LineString', 'coordinates' => [[25502829.56906132, 6674206.427107554], [25502829.56906132, 6674206.427107554]]],
+      'empty LineString' => [
+        ['type' => 'LineString', 'coordinates' => []],
         '',
       ],
       'empty MultiLineString' => [
         ['type' => 'MultiLineString', 'coordinates' => []],
         '',
       ],
-      'MultiLineString with only degenerate parts' => [
-        ['type' => 'MultiLineString', 'coordinates' => [[[25502829.56906132, 6674206.427107554]], []]],
+      'MultiLineString with only empty parts' => [
+        ['type' => 'MultiLineString', 'coordinates' => [[], []]],
         '',
       ],
     ];
@@ -87,7 +89,7 @@ class KarttaUtilityTest extends UnitTestCase {
     $this->expectException(\InvalidArgumentException::class);
     $this->expectExceptionMessageMatches('/only supports LineString and MultiLineString/');
 
-    KarttaUtility::buildUrl($geometry);
+    KarttaUtility::buildUrl($geometry, 73567);
   }
 
 }
