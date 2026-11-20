@@ -37,7 +37,7 @@ class VehicleRemovalFilterValues {
    * Gets the postal codes of Helsinki.
    *
    * @return list<string>|null
-   *   Unique postal codes in order, or NULL when the fetch fails.
+   *   Sorted unique postal codes, or NULL when the fetch fails or is empty.
    */
   public function getPostalCodes(): ?array {
     return $this->fetch(self::POSTAL_CODES_CID, fn (): array => $this->serviceMap->getPostalCodes());
@@ -47,7 +47,7 @@ class VehicleRemovalFilterValues {
    * Gets the resident parking zone names of Helsinki.
    *
    * @return list<string>|null
-   *   Unique zone names in order, or NULL when the fetch fails.
+   *   Sorted unique zone names, or NULL when the fetch fails or is empty.
    */
   public function getParkingZoneNames(): ?array {
     return $this->fetch(self::PARKING_ZONES_CID, fn (): array => $this->parkingZoneService->getParkingZoneNames());
@@ -56,13 +56,8 @@ class VehicleRemovalFilterValues {
   /**
    * Gets cached values or fetches them.
    *
-   * @param string $cid
-   *   The cache id.
-   * @param callable(): array<string> $fetch
-   *   Fetches the values.
-   *
    * @return list<string>|null
-   *   The values, or NULL when the fetch fails.
+   *   Sorted unique values, or NULL when the fetch fails or is empty.
    */
   private function fetch(string $cid, callable $fetch): ?array {
     if ($cached = $this->cache->get($cid)) {
@@ -77,7 +72,6 @@ class VehicleRemovalFilterValues {
       return NULL;
     }
 
-    // The service gives an empty list for a response it cannot parse.
     if (!$values) {
       return NULL;
     }

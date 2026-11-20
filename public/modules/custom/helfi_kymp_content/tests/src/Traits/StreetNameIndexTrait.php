@@ -11,8 +11,6 @@ use Drupal\search_api\IndexInterface;
 
 /**
  * Creates the street name index on a database server.
- *
- * Requires the search_api, search_api_db and helfi_kymp_content modules.
  */
 trait StreetNameIndexTrait {
 
@@ -21,15 +19,11 @@ trait StreetNameIndexTrait {
    *
    * @param list<string> $ids
    *   Item ids, '{langcode}:{name}'.
-   *
-   * @return \Drupal\search_api\IndexInterface
-   *   The index.
    */
   protected function createStreetNameIndex(array $ids): IndexInterface {
     $this->installSchema('search_api', ['search_api_item']);
     $this->installEntitySchema('search_api_task');
 
-    // Index tracking must not fetch street names from the API.
     $client = $this->createMock(PaikkatietoClient::class);
     $client->method('fetchStreetNamesByPage')->willReturn(NULL);
     $this->container->set(PaikkatietoClient::class, $client);

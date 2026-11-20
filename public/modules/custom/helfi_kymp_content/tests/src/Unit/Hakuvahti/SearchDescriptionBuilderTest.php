@@ -163,20 +163,34 @@ final class SearchDescriptionBuilderTest extends UnitTestCase {
   }
 
   /**
-   * Tests that at most 100 values of a field are collected.
+   * Tests that duplicate, non-string and empty values do not count.
    */
   public function testValueLimit(): void {
-    $codes = array_map(static fn (int $i): string => \sprintf('00%03d', $i), range(0, 150));
-    $description = $this->createBuilder()->build(self::query([['terms' => ['postal_codes' => $codes]]]));
+    $codes = array_map(static fn (int $i): string => \sprintf('00%03d', $i), range(0, 99));
+    $description = $this->createBuilder()->build(self::query([
+      ['terms' => ['postal_codes' => [...$codes, '00000', 100, '']]],
+    ]));
 
-    $this->assertSame(implode(', ', \array_slice($codes, 0, 100)), $description);
+    $this->assertSame(implode(', ', $codes), $description);
+  }
+
+  /**
+   * Tests that more than 100 unique values of a field are rejected.
+   */
+  public function testTooManyValues(): void {
+    $codes = array_map(static fn (int $i): string => \sprintf('00%03d', $i), range(0, 100));
+
+    $this->expectException(\InvalidArgumentException::class);
+    $this->createBuilder()->build(self::query([
+      ['terms' => ['postal_codes' => \array_slice($codes, 0, 60)]],
+      ['terms' => ['postal_codes' => \array_slice($codes, 60)]],
+    ]));
   }
 
   /**
    * Tests that whole values are left out when the description is too long.
    */
   public function testLength(): void {
-    // 77 names of 11 characters with separators are exactly 999 characters.
     $streets = array_map(static fn (int $i): string => \sprintf('Ääkkönen %02d', $i), range(1, 78));
     $exact = \array_slice($streets, 0, 77);
 

@@ -31,9 +31,6 @@ class HakuvahtiSubscriptionSubscriber implements EventSubscriberInterface {
 
   /**
    * Builds the search description from the elastic query.
-   *
-   * @throws \InvalidArgumentException
-   *   When the query cannot be decoded or its values cannot be checked.
    */
   public function onSubscriptionAlter(SubscriptionAlterEvent $event): void {
     if ($event->getConfigId() !== self::CONFIG_ID) {

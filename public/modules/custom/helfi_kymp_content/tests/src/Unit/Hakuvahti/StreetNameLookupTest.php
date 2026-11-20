@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
 use Psr\Log\LoggerInterface;
 
 /**
- * Tests StreetNameLookup failures.
+ * Tests StreetNameLookup with mocked services.
  */
 #[CoversClass(StreetNameLookup::class)]
 #[Group('helfi_kymp_content')]

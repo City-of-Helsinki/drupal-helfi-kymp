@@ -33,16 +33,11 @@ class StreetNameLookup {
   /**
    * Returns the names that exist in the street name index.
    *
-   * The index item ids are '{langcode}:{name}', and the match is exact.
-   *
    * @param list<string> $names
    *   The street names.
    *
    * @return list<string>
    *   The known names, in input order.
-   *
-   * @throws \InvalidArgumentException
-   *   When the index is unavailable, empty or cannot be queried.
    */
   public function filterKnown(array $names): array {
     $names = array_values(array_filter(
@@ -65,7 +60,6 @@ class StreetNameLookup {
       if (!$index instanceof IndexInterface || !$index->status()) {
         throw new \InvalidArgumentException('Street name index is not available.');
       }
-      // The Elasticsearch backend gives an empty result for a missing index.
       if ($index->getTrackerInstance()->getIndexedItemsCount() === 0) {
         throw new \InvalidArgumentException('Street name index is empty.');
       }

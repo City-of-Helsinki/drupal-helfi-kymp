@@ -11,8 +11,6 @@ use Drupal\helfi_kymp_content\VehicleRemovalFilterValues;
  */
 class SearchDescriptionBuilder {
 
-  // Same as the private HakuvahtiRequest::MAX_SEARCH_DESCRIPTION_LENGTH, so
-  // the description is shortened by whole items instead of cut mid-name.
   private const int MAX_LENGTH = 999;
   private const int MAX_VALUES = 100;
   private const string POSTAL_CODE_PATTERN = '/^00\d{3}$/D';
@@ -31,12 +29,6 @@ class SearchDescriptionBuilder {
    *
    * @param array<array-key, mixed> $query
    *   The decoded elastic query.
-   *
-   * @return string
-   *   Streets, postal codes and parking zones, separated by commas.
-   *
-   * @throws \InvalidArgumentException
-   *   When the values cannot be checked.
    */
   public function build(array $query): string {
     $terms = $this->extractTerms($query);
@@ -67,7 +59,7 @@ class SearchDescriptionBuilder {
    *   The decoded elastic query.
    *
    * @return array{street_names: list<string>, postal_codes: list<string>, parking_zone_names: list<string>}
-   *   At most MAX_VALUES values per field, in query order.
+   *   The values of each field, in query order.
    */
   private function extractTerms(array $query): array {
     $terms = array_fill_keys(self::FIELDS, []);
@@ -82,12 +74,13 @@ class SearchDescriptionBuilder {
         }
 
         foreach ($values as $value) {
+          if (!\is_string($value) || $value === '' || \in_array($value, $terms[$field], TRUE)) {
+            continue;
+          }
           if (\count($terms[$field]) >= self::MAX_VALUES) {
-            break;
+            throw new \InvalidArgumentException(\sprintf('Too many %s values.', $field));
           }
-          if (\is_string($value) && $value !== '' && !\in_array($value, $terms[$field], TRUE)) {
-            $terms[$field][] = $value;
-          }
+          $terms[$field][] = $value;
         }
       }
     }
@@ -102,9 +95,6 @@ class SearchDescriptionBuilder {
    *   The data.
    * @param list<string> $keys
    *   The keys.
-   *
-   * @return mixed
-   *   The value, or NULL if the path does not exist.
    */
   private static function getPath(mixed $data, array $keys): mixed {
     foreach ($keys as $key) {
@@ -121,9 +111,6 @@ class SearchDescriptionBuilder {
    *
    * @param array<string> $values
    *   The values.
-   *
-   * @return string
-   *   The description.
    */
   private function join(array $values): string {
     $description = implode(self::SEPARATOR, $values);

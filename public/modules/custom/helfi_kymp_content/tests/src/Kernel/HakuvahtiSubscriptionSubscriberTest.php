@@ -92,9 +92,6 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
    *
    * @param array<string, list<mixed>> $terms
    *   Values by field.
-   *
-   * @return string
-   *   The base64-encoded query.
    */
   private static function elasticQuery(array $terms): string {
     $should = [];
@@ -114,11 +111,6 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
 
   /**
    * Posts a subscription.
-   *
-   * @param string $elasticQuery
-   *   The base64-encoded query.
-   * @param string $configId
-   *   The hakuvahti config id.
    */
   private function subscribe(string $elasticQuery, string $configId = 'vehicle_removal'): SymfonyResponse {
     $url = Url::fromRoute('helfi_hakuvahti.subscribe', options: ['query' => ['config' => $configId]]);
