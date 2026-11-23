@@ -85,4 +85,16 @@
 
   {% endblock main_content %}
 
+  {# Last time the content was updated by an editor via the node form. #}
+  {% set changed_at = node.changed_at.value ?? null %}
+  {% if changed_at is not empty %}
+    {% set html_changed_at = changed_at|format_date('html_date') %}
+    <div class="content-changed-at">
+      <time datetime="{{ html_changed_at }}" class="content-changed-at__datetime">
+        <span class="content-changed-at__label">{{ 'Updated'|t({}, {'context': 'Manual update time'}) }}:</span>
+        {{ changed_at|format_date('publication_date_format') }}
+      </time>
+    </div>
+  {% endif %}
+
 </article>

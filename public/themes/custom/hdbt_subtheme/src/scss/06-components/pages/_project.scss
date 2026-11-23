@@ -1,7 +1,8 @@
 .page-type--project {
   .project__image-container,
   .content-tags,
-  .project__metadata-wrapper {
+  .project__metadata-wrapper,
+  .content-changed-at {
     @include components-container-max-width;
     @include component-side-padding;
     margin-left: auto;
@@ -25,6 +26,17 @@
     margin-block-start: $spacing;
     max-width: $content-width-max;
     text-align: right;
+  }
+
+  .content-changed-at {
+    @include font('small');
+    @include component-margin-top;
+    @include component-margin-bottom;
+    color: $color-black-60;
+  }
+
+  .content-changed-at__label {
+    font-weight: $font-weight-bold;
   }
 }
 

@@ -92,6 +92,10 @@ function helfi_kymp_content_update_dependencies(): array {
   $dependencies['helfi_base_content'][9020] = [
     'helfi_kymp_content' => 11003,
   ];
+  // The 'changed_at' field storage is installed by helfi_platform_config.
+  $dependencies['helfi_kymp_content'][11004] = [
+    'helfi_platform_config' => 11006,
+  ];
   return $dependencies;
 }
 
@@ -110,4 +114,67 @@ function helfi_kymp_content_update_11003(): void {
     $config->clear("field_settings.$field");
   }
   $config->save();
+}
+
+/**
+ * Populate 'changed_at' from 'changed' for existing district/project nodes.
+ *
+ * @param array<string, mixed> $sandbox
+ *   The sandbox.
+ */
+function helfi_kymp_content_update_11004(array &$sandbox): void {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  if (!isset($sandbox['total'])) {
+    $sandbox['total'] = (int) $storage->getQuery()
+      ->condition('type', ['district', 'project'], 'IN')
+      ->accessCheck(FALSE)
+      ->count()
+      ->execute();
+    $sandbox['current'] = 0;
+    $sandbox['last_id'] = 0;
+  }
+
+  $nids = $storage->getQuery()
+    ->condition('type', ['district', 'project'], 'IN')
+    ->condition('nid', $sandbox['last_id'], '>')
+    ->accessCheck(FALSE)
+    ->sort('nid')
+    ->range(0, 50)
+    ->execute();
+
+  if (empty($nids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+
+  foreach ($storage->loadMultiple($nids) as $node) {
+    $sandbox['current']++;
+    $sandbox['last_id'] = $node->id();
+
+    if (!$node->hasField('changed_at')) {
+      continue;
+    }
+    $changed = FALSE;
+
+    foreach ($node->getTranslationLanguages() as $langcode => $language) {
+      $translation = $node->getTranslation($langcode);
+
+      if (!$translation->get('changed_at')->isEmpty()) {
+        continue;
+      }
+      $translation->set('changed_at', $translation->getChangedTime());
+      $changed = TRUE;
+    }
+
+    if ($changed) {
+      // Keep the existing 'changed' timestamps intact.
+      $node->setSyncing(TRUE);
+      $node->save();
+    }
+  }
+
+  $sandbox['#finished'] = $sandbox['total'] > 0
+    ? min(1, $sandbox['current'] / $sandbox['total'])
+    : 1;
 }
