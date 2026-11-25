@@ -186,8 +186,7 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
       'siteId' => 'etusivu',
       'query' => '?a=b',
       'elasticQuery' => 'not base64',
-      'searchDescription' => 'Unchanged',
-    ]);
+    ], 'Unchanged');
     foreach (['default', NULL] as $configId) {
       $event = new SubscriptionAlterEvent($request, $configId);
       $this->container->get(EventDispatcherInterface::class)->dispatch($event);
