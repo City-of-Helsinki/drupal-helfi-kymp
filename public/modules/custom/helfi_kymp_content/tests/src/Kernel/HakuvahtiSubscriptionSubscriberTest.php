@@ -198,8 +198,8 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
    * Tests that an elastic query that cannot be decoded is rejected.
    */
   public function testUndecodableQuery(): void {
-    $this->assertEquals(400, $this->subscribe('not base64!')->getStatusCode());
-    $this->assertCount(0, $this->history);
+    $this->expectException(\InvalidArgumentException::class);
+    $this->alter('not base64!');
   }
 
   /**
@@ -208,9 +208,8 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
   public function testStreetIndexUnavailable(): void {
     Index::load('paikkatieto_street_names')?->disable()->save();
 
-    $response = $this->subscribe(self::elasticQuery(['street_names' => ['Mannerheimintie']]));
-    $this->assertEquals(400, $response->getStatusCode());
-    $this->assertCount(0, $this->history);
+    $this->expectException(\InvalidArgumentException::class);
+    $this->alter(self::elasticQuery(['street_names' => ['Mannerheimintie']]));
   }
 
   /**
@@ -219,9 +218,21 @@ class HakuvahtiSubscriptionSubscriberTest extends KernelTestBase {
   public function testParkingZonesUnavailable(): void {
     $this->filterValues->method('getParkingZoneNames')->willReturn(NULL);
 
-    $response = $this->subscribe(self::elasticQuery(['parking_zone_names' => ['Kamppi']]));
-    $this->assertEquals(400, $response->getStatusCode());
-    $this->assertCount(0, $this->history);
+    $this->expectException(\InvalidArgumentException::class);
+    $this->alter(self::elasticQuery(['parking_zone_names' => ['Kamppi']]));
+  }
+
+  /**
+   * Dispatches the alter event for the vehicle removal config.
+   */
+  private function alter(string $elasticQuery): void {
+    $request = new HakuvahtiRequest([
+      'lang' => 'fi',
+      'siteId' => 'kymp',
+      'query' => '',
+      'elasticQuery' => $elasticQuery,
+    ], '');
+    $this->container->get(EventDispatcherInterface::class)->dispatch(new SubscriptionAlterEvent($request, 'vehicle_removal'));
   }
 
 }
