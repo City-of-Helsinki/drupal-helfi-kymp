@@ -11,6 +11,7 @@ use Drupal\helfi_api_base\ServiceMap\ResidentParkingZoneServiceInterface;
 use Drupal\helfi_api_base\ServiceMap\ServiceMapInterface;
 use Drupal\helfi_hakuvahti\DrupalSettings;
 use Drupal\helfi_kymp_content\Plugin\Block\VehicleRemovalBlock;
+use Drupal\helfi_kymp_content\VehicleRemovalFilterValues;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\helfi_api_base\Traits\EnvironmentResolverTrait;
 use GuzzleHttp\Exception\RequestException;
@@ -56,13 +57,13 @@ class VehicleRemovalBlockTest extends KernelTestBase {
    *
    * @param string[]|\Throwable $postalCodes
    *   The postal codes or an exception to throw.
-   * @param string[] $parkingZones
-   *   The parking zone names.
+   * @param string[]|\Throwable $parkingZones
+   *   The parking zone names or an exception to throw.
    *
    * @return \Drupal\helfi_kymp_content\Plugin\Block\VehicleRemovalBlock
    *   The block.
    */
-  private function createBlock(array|\Throwable $postalCodes = [], array $parkingZones = []): VehicleRemovalBlock {
+  private function createBlock(array|\Throwable $postalCodes = [], array|\Throwable $parkingZones = []): VehicleRemovalBlock {
     $serviceMap = $this->createMock(ServiceMapInterface::class);
     $parkingZoneService = $this->createMock(ResidentParkingZoneServiceInterface::class);
 
@@ -72,7 +73,12 @@ class VehicleRemovalBlockTest extends KernelTestBase {
     else {
       $serviceMap->method('getPostalCodes')->willReturn($postalCodes);
     }
-    $parkingZoneService->method('getParkingZoneNames')->willReturn($parkingZones);
+    if ($parkingZones instanceof \Throwable) {
+      $parkingZoneService->method('getParkingZoneNames')->willThrowException($parkingZones);
+    }
+    else {
+      $parkingZoneService->method('getParkingZoneNames')->willReturn($parkingZones);
+    }
 
     return new VehicleRemovalBlock(
       [],
@@ -81,11 +87,22 @@ class VehicleRemovalBlockTest extends KernelTestBase {
       $this->container->get(DrupalSettings::class),
       $this->container->get('config.factory'),
       $this->container->get(EnvironmentResolverInterface::class),
-      $serviceMap,
-      $parkingZoneService,
-      $this->container->get('cache.default'),
-      $this->container->get('logger.channel.helfi_kymp_content'),
+      new VehicleRemovalFilterValues(
+        $serviceMap,
+        $parkingZoneService,
+        $this->container->get('cache.default'),
+        $this->container->get('logger.channel.helfi_kymp_content'),
+        $this->container->get('datetime.time'),
+      ),
     );
+  }
+
+  /**
+   * Tests that the block manager creates the block.
+   */
+  public function testCreate(): void {
+    $block = $this->container->get('plugin.manager.block')->createInstance('kymp_vehicle_removal');
+    $this->assertInstanceOf(VehicleRemovalBlock::class, $block);
   }
 
   /**
@@ -145,6 +162,33 @@ class VehicleRemovalBlockTest extends KernelTestBase {
     $settings = $build['#attached']['drupalSettings']['helfi_react_search'];
     $this->assertEquals(['00100'], $settings['postal_codes'], 'Filter values are fetched again after a failure.');
     $this->assertEquals(['Kamppi'], $settings['resident_parking_zones'], 'Filter values are fetched again after a failure.');
+  }
+
+  /**
+   * Tests that an empty zone list is handled like a failed fetch.
+   */
+  public function testEmptyParkingZones(): void {
+    $build = $this->createBlock(['00100'], [])->build();
+
+    $settings = $build['#attached']['drupalSettings']['helfi_react_search'];
+    $this->assertEquals([], $settings['postal_codes'], 'Filter values are empty.');
+    $this->assertEquals([], $settings['resident_parking_zones'], 'Filter values are empty.');
+    $this->assertEquals(0, $build['#cache']['max-age'], 'The block is not cached.');
+  }
+
+  /**
+   * Tests that a failed zone fetch gives empty filter values.
+   */
+  public function testParkingZonesFailure(): void {
+    $build = $this->createBlock(
+      ['00100'],
+      new RequestException('Service unavailable', new Request('GET', 'https://example.com')),
+    )->build();
+
+    $settings = $build['#attached']['drupalSettings']['helfi_react_search'];
+    $this->assertEquals([], $settings['postal_codes'], 'Filter values are empty.');
+    $this->assertEquals([], $settings['resident_parking_zones'], 'Filter values are empty.');
+    $this->assertEquals(0, $build['#cache']['max-age'], 'The block is not cached.');
   }
 
 }

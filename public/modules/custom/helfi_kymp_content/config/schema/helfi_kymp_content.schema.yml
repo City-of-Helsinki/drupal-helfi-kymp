@@ -25,3 +25,7 @@ helfi_kymp_content.settings:
     address_search_limit:
       type: integer
       label: 'Address search result limit'
+
+plugin.plugin_configuration.search_api_datasource.paikkatieto_street_name_source:
+  type: mapping
+  label: 'Paikkatieto street name datasource configuration'
