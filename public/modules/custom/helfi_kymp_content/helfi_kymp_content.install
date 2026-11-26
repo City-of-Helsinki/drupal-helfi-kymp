@@ -76,7 +76,7 @@ function helfi_kymp_content_update_11002(): void {
     ?->reindex();
 
   \Drupal::state()->deleteMultiple([
-    MobileNoteCronHooks::STATE_KNOWN_ITEMS,
+    'helfi_kymp_content.mobilenote_known_items',
     MobileNoteCronHooks::STATE_LAST_RUN,
   ]);
 }
