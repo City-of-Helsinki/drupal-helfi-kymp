@@ -3408,17 +3408,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.2.24",
+            "version": "2.2.25",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.2.24"
+                "reference": "2.2.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.24.zip",
-                "reference": "2.2.24",
-                "shasum": "17510986c8b81cd8a9a306c6dba5db419878238b"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.2.25.zip",
+                "reference": "2.2.25",
+                "shasum": "6fdc308824c7900f7eaa0d13f18ce1a6da4503c5"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -3429,8 +3429,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.24",
-                    "datestamp": "1791401252",
+                    "version": "2.2.25",
+                    "datestamp": "1795382999",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3473,7 +3473,7 @@
                 "source": "https://git.drupalcode.org/project/editoria11y",
                 "issues": "https://drupal.org/project/issues/editoria11y"
             },
-            "published-time": "2026-10-07T19:27:11+00:00"
+            "published-time": "2026-11-22T21:29:38+00:00"
         },
         {
             "name": "drupal/elasticsearch_connector",
@@ -4514,16 +4514,16 @@
         },
         {
             "name": "drupal/hdbt",
-            "version": "6.23.1",
+            "version": "6.23.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/City-of-Helsinki/drupal-hdbt.git",
-                "reference": "9fdc44b3d52b6075c099790795c7ca6df533e7aa"
+                "reference": "fe133b86407de77b72ff2242432ea107a3567a80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/9fdc44b3d52b6075c099790795c7ca6df533e7aa",
-                "reference": "9fdc44b3d52b6075c099790795c7ca6df533e7aa",
+                "url": "https://api.github.com/repos/City-of-Helsinki/drupal-hdbt/zipball/fe133b86407de77b72ff2242432ea107a3567a80",
+                "reference": "fe133b86407de77b72ff2242432ea107a3567a80",
                 "shasum": ""
             },
             "require": {
@@ -4542,11 +4542,11 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.23.1",
+                "source": "https://github.com/City-of-Helsinki/drupal-hdbt/tree/6.23.3",
                 "issues": "https://github.com/City-of-Helsinki/drupal-hdbt/issues"
             },
-            "time": "2026-11-23T14:23:42+00:00",
-            "published-time": "2026-11-23T14:38:17+00:00"
+            "time": "2026-11-26T06:02:13+00:00",
+            "published-time": "2026-11-26T06:03:06+00:00"
         },
         {
             "name": "drupal/hdbt_admin",
@@ -8010,29 +8010,26 @@
         },
         {
             "name": "drupal/view_unpublished",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/view_unpublished.git",
-                "reference": "8.x-1.5"
+                "reference": "8.x-1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/view_unpublished-8.x-1.5.zip",
-                "reference": "8.x-1.5",
-                "shasum": "cc3e75cfb1b86528a6da437b7afcb5673f7297a5"
+                "url": "https://ftp.drupal.org/files/projects/view_unpublished-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "6e790f36b18ae5005733a65194c50bfb4049e236"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
             },
-            "require-dev": {
-                "twig/twig": "^3.29.0, !=3.30.0"
-            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.5",
-                    "datestamp": "1792604822",
+                    "version": "8.x-1.6",
+                    "datestamp": "1795371666",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8062,7 +8059,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/view_unpublished"
             },
-            "published-time": "2026-10-21T16:06:59+00:00"
+            "published-time": "2026-11-22T18:20:45+00:00"
         },
         {
             "name": "drupal/views_bulk_edit",
