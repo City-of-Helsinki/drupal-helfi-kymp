@@ -24,6 +24,28 @@ display:
             items_per_page_label: 'Merkintöjä sivua kohti'
             items_per_page_options_all_label: '- Kaikki -'
       fields:
+        views_bulk_operations_bulk_form:
+          selected_actions:
+            -
+              preconfiguration:
+                label_override: 'Lisää suosikiksi'
+            -
+              preconfiguration:
+                label_override: 'Poista suosikeista'
+            -
+              preconfiguration:
+                label_override: 'Muokkaa sisältöä'
+            -
+              preconfiguration:
+                label_override: 'Julkaise sisältö'
+            -
+              preconfiguration:
+                label_override: 'Muuta sisältö ei-julkaistuksi'
+            -
+              preconfiguration:
+                label_override: 'Päivitä TPR:stä'
+          label: Massapäivitys
+          action_title: Toiminto
         name:
           label: Nimi
         helfi_favorite:
