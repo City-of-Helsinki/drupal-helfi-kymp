@@ -9,7 +9,7 @@ dependencies:
     - helfi_recommendations
     - helfi_tpr
 _core:
-  default_config_hash: b_qbpzW7Rct0Togndhtg2U58rJHKbGvIV5zReH1xJYE
+  default_config_hash: j0lPggdIj3jhbyJJPzfRof08HzyZKSfROg2VpBZucuQ
 id: hyte
 name: Hyte
 description: ''
@@ -35,6 +35,12 @@ field_settings:
     dependencies:
       module:
         - helfi_tpr
+  instance:
+    label: Instance
+    property_path: custom_value
+    type: string
+    configuration:
+      value: '[site:helfi-current-instance]'
   name:
     label: Name
     datasource_id: 'entity:tpr_service'
