@@ -76,7 +76,7 @@ function helfi_kymp_content_update_11002(): void {
     ?->reindex();
 
   \Drupal::state()->deleteMultiple([
-    MobileNoteCronHooks::STATE_KNOWN_ITEMS,
+    'helfi_kymp_content.mobilenote_known_items',
     MobileNoteCronHooks::STATE_LAST_RUN,
   ]);
 }
@@ -177,4 +177,25 @@ function helfi_kymp_content_update_11004(array &$sandbox): void {
   $sandbox['#finished'] = $sandbox['total'] > 0
     ? min(1, $sandbox['current'] / $sandbox['total'])
     : 1;
+}
+
+/**
+ * UHF-13584: Move the known MobileNote items from state to key-value.
+ */
+function helfi_kymp_content_update_11005(): void {
+  $state = \Drupal::state();
+  $knownItems = $state->get('helfi_kymp_content.mobilenote_known_items');
+
+  if ($knownItems !== NULL) {
+    \Drupal::keyValue(MobileNoteCronHooks::KEY_VALUE_COLLECTION)
+      ->set(MobileNoteCronHooks::KNOWN_ITEMS, $knownItems);
+    $state->delete('helfi_kymp_content.mobilenote_known_items');
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function helfi_kymp_content_uninstall(): void {
+  \Drupal::keyValue(MobileNoteCronHooks::KEY_VALUE_COLLECTION)->deleteAll();
 }

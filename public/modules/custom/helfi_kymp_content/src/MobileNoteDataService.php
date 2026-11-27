@@ -26,6 +26,37 @@ class MobileNoteDataService implements LoggerAwareInterface {
   use LoggerAwareTrait;
 
   /**
+   * How long ended items are fetched, relative to their end date.
+   */
+  private const string RETENTION = '-12 months';
+
+  /**
+   * The maximum number of features fetched from the API.
+   */
+  private const int MAX_FEATURES = 10000;
+
+  /**
+   * How long a fetched response is used, in seconds.
+   *
+   * With the retention period, a full re-index runs for hours in one process.
+   * A short lifetime keeps it from indexing outdated data, or dropping items
+   * that are new since.
+   */
+  private const int CACHE_TTL = 300;
+
+  /**
+   * The items fetched from the API, keyed by ID.
+   *
+   * @var array<string, \Drupal\helfi_kymp_content\Plugin\DataType\MobileNoteData>|null
+   */
+  private ?array $items = NULL;
+
+  /**
+   * When the items were fetched.
+   */
+  private int $fetchedAt = 0;
+
+  /**
    * Constructs a new MobileNoteDataService instance.
    */
   public function __construct(
@@ -46,10 +77,11 @@ class MobileNoteDataService implements LoggerAwareInterface {
    *   An array of MobileNote data items, keyed by ID.
    */
   public function getMobileNoteData(): array {
-    static $cache = NULL;
+    // Use the current time: a drush batch keeps the same request time.
+    $now = $this->time->getCurrentTime();
 
-    if ($cache !== NULL) {
-      return $cache;
+    if ($this->items !== NULL && $now - $this->fetchedAt < self::CACHE_TTL) {
+      return $this->items;
     }
 
     try {
@@ -67,7 +99,34 @@ class MobileNoteDataService implements LoggerAwareInterface {
       '@count' => count($items),
     ]);
 
-    return $cache = $items;
+    $this->fetchedAt = $now;
+
+    return $this->items = $items;
+  }
+
+  /**
+   * Gets the start of the retention period.
+   *
+   * The API returns items whose end date is on this day or later. Since
+   * valid_to is the day after the end date, items with an earlier valid_to
+   * are no longer returned.
+   *
+   * @return int
+   *   Midnight in Helsinki, as a timestamp.
+   */
+  public function getRetentionStart(): int {
+    return $this->getRetentionStartDate()->getTimestamp();
+  }
+
+  /**
+   * Gets the start of the retention period as a date.
+   */
+  private function getRetentionStartDate(): \DateTimeImmutable {
+    return (new \DateTimeImmutable())
+      ->setTimestamp($this->time->getCurrentTime())
+      ->setTimezone(new \DateTimeZone('Europe/Helsinki'))
+      ->setTime(0, 0)
+      ->modify(self::RETENTION);
   }
 
   /**
@@ -168,17 +227,15 @@ class MobileNoteDataService implements LoggerAwareInterface {
     }
 
     try {
-      $minDate = (new \DateTimeImmutable())
-        ->setTimestamp($this->time->getRequestTime())
-        ->setTimezone(new \DateTimeZone('Europe/Helsinki'))
-        ->format('Y-m-d');
+      $minDate = $this->getRetentionStartDate()->format('Y-m-d');
     }
     catch (\DateMalformedStringException $e) {
       throw new \InvalidArgumentException($e->getMessage(), previous: $e);
     }
 
     // Return all items where the sign type is "Informaatiotaulu" and
-    // validity ends in the future.
+    // validity has not ended before the retention period. Ended items are
+    // kept in the index, and the search filters them out.
     $filterXml = <<<XML
 <Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">
   <And>
@@ -203,7 +260,7 @@ XML;
         'typeName' => 'ppoytakirjaExtranet',
         'outputFormat' => 'application/json',
         'srsName' => 'EPSG:3879',
-        'maxFeatures' => 10000,
+        'maxFeatures' => self::MAX_FEATURES,
         'filter' => preg_replace('/\s+/', ' ', trim($filterXml)),
       ],
       'timeout' => 30,
@@ -211,15 +268,26 @@ XML;
 
     $data = json_decode($response->getBody()->getContents(), TRUE);
 
-    $items = [];
-    foreach ($data['features'] ?? [] as $feature) {
-      $item = $this->transformFeature($feature);
+    $features = $data['features'] ?? [];
 
+    if (count($features) >= self::MAX_FEATURES) {
+      $this->logger?->warning('MobileNote: The API response reached the limit of @limit features. Some items are missing.', [
+        '@limit' => self::MAX_FEATURES,
+      ]);
+    }
+
+    // Skip invalid features, so that one bad feature does not prevent
+    // indexing all the others.
+    $items = [];
+    foreach ($features as $feature) {
       try {
+        $item = $this->transformFeature($feature);
         $items[$item->get('id')->getString()] = $item;
       }
-      catch (MissingDataException $e) {
-        throw new \InvalidArgumentException('MobileNote: Missing feature ID.', previous: $e);
+      catch (\InvalidArgumentException | MissingDataException $e) {
+        if ($this->logger) {
+          Error::logException($this->logger, $e);
+        }
       }
     }
 
