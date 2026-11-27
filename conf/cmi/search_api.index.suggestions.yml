@@ -138,8 +138,9 @@ processor_settings:
   scored_reference_parent: {  }
   suggested_topics_parent_status: {  }
 tracker_settings:
-  default:
+  parallel:
     indexing_order: fifo
+    claim_timeout: 60
 options:
   cron_limit: 50
   delete_on_fail: true

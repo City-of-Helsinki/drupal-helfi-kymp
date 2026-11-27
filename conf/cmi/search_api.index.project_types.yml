@@ -58,8 +58,9 @@ processor_settings:
   scored_reference: {  }
   scored_reference_parent: {  }
 tracker_settings:
-  default:
+  parallel:
     indexing_order: fifo
+    claim_timeout: 60
 options:
   cron_limit: 50
   delete_on_fail: true

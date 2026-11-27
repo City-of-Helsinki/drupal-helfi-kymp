@@ -27,8 +27,9 @@ datasource_settings:
   paikkatieto_street_name_source: {  }
 processor_settings: {  }
 tracker_settings:
-  default:
+  parallel:
     indexing_order: fifo
+    claim_timeout: 60
 options:
   cron_limit: 500
   delete_on_fail: true
